@@ -1,0 +1,23 @@
+<Solution>
+  <PropertyGroup Name="Zoo" Version="2.2.8.0" Type="CocosStudio" />
+  <SolutionFolder>
+    <Group ctype="ResourceGroup">
+      <RootFolder Name=".">
+        <Project Name="MainScene.csd" Type="Scene" />
+        <Image Name="aut.png" />
+        <Image Name="background.png" />
+        <Image Name="house.png" />
+        <Project Name="Gacha.csd" Type="Node" />
+        <Project Name="Ant.csd" Type="Node" />
+        <Image Name="ant.png" />
+        <Image Name="beetle.png" />
+        <Project Name="Beetle.csd" Type="Node" />
+        <Image Name="dog.png" />
+        <Image Name="background2.png" />
+        <Project Name="Dog.csd" Type="Node" />
+        <Image Name="house2.png" />
+        <Fnt Name="font1.fnt" />
+      </RootFolder>
+    </Group>
+  </SolutionFolder>
+</Solution>

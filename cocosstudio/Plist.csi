@@ -1,0 +1,6 @@
+<PlistInfoProjectFile>
+  <PropertyGroup Type="Plist" Name="Plist" ID="ace4a8df-c367-4906-9632-9be9cc89977e" Version="2.2.8.0" />
+  <Content ExportType="Png" SortAlgorithm="MaxRects" PicturePadding="0" AllowRotation="True" AllowAnySize="False" AllowTrim="False" ctype="PlistInfoData">
+    <MaxSize Width="1024" Height="1024" />
+  </Content>
+</PlistInfoProjectFile>
