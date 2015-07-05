@@ -2,9 +2,9 @@
 #define __Main_SCENE_H__
 
 #include "cocos2d.h"
-#include "Animal.h"
 #include "CommonInclude.h"
 class Gacha;
+class Animal;
 using namespace cocos2d;
 
 class MainScene : public cocos2d::Layer
@@ -21,15 +21,12 @@ public:
     
 private:
     Gacha* gacha;
-    Vector<Animal*> animals;
     Label* debugLabel;
-    bool _enableGacha = true;
-    int _level = 1;
 
     void onEnter() override;
     void update(float dt);
     void setupTouchHandling();
-    void releaseAnimal();
+    void releaseAnimal(Animal* animal);
     void levelup();
     void scaleDown(Node* node, float scale);
 

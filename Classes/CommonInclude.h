@@ -12,5 +12,6 @@
 #include "ZMath.h"
 #include "ZUtil.h"
 #include "Constants.h"
+#include "Length.h"
 
 #endif

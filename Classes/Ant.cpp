@@ -8,12 +8,9 @@
 
 #include "Ant.h"
 
-using namespace cocos2d;
-
-bool Ant::init() {
-    if (!Animal::init()) {
-        return false;
-    }
-
-    return true;
+Ant::Ant() {
+    _minHeight = Length(UnitOfLength::mm, 3);
+    _maxHeight = Length(UnitOfLength::mm, 15);
+    _speed = Length(UnitOfLength::cm, 1);
+    _imageName = "ant.png";
 }

@@ -7,6 +7,7 @@
 //
 
 #include "Gacha.h"
+#include "AnimalFactory.h"
 
 bool Gacha::init() {
     if (!Node::init()) {
@@ -17,6 +18,9 @@ bool Gacha::init() {
     this->timeline = CSLoader::createTimeline("Gacha.csb");
     // retain the character animation timeline so it doesn't get deallocated
     this->timeline->retain();
+    
+    _enableGacha = true;
+    _level = 1;
 
     return true;
 }
@@ -45,10 +49,46 @@ void Gacha::setupTouchHandling()
         //touchPointがtargetBoxの中に含まれているか判定
         if (targetBox.containsPoint(touchLocation))
         {
-            this->finishGachaCallback();
+            this->lotteryGacha();
         }
         return true;
     };
 
     this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(touchListener, this);
+}
+
+void Gacha::lotteryGacha()
+{
+    if (_enableGacha == false) {
+        return;
+    }
+    float rnd = rand_0_1();
+    float jump;
+    float scale;
+    AnimalType type;
+    if (_level == 1) {
+        if (rnd > 0.05) {
+            type = AnimalType::Ant;
+        } else {
+            type = AnimalType::Beetle;
+            _enableGacha = false;
+//            runAction(Sequence::create(
+//                DelayTime::create(1.0f),
+//                CallFunc::create([this](){this->levelup();}),
+//                NULL
+//            ));
+        }
+    } else {
+        if (rnd > 0.05) {
+            type = AnimalType::Beetle;
+        } else {
+            type = AnimalType::Dog;
+        }
+    }
+
+    auto animal = AnimalFactory::getInstance()->createAnimal(type);
+//    animal->setScale(scale);
+    animal->setTag((int)MainSceneTag::Animal);
+    this->finishGachaCallback(animal);
+    
 }

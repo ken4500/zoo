@@ -1,21 +1,22 @@
 //
-//  Ant.h
+//  Beetle.h
 //  Zoo
 //
 //  Created by Ken Watanabe on 2015/07/01.
 //
 //
 
-#ifndef __Zoo__Ant__
-#define __Zoo__Ant__
+#ifndef __Zoo__Beetle__
+#define __Zoo__Beetle__
 
 #include "AbstractSpecies.h"
 
-class Ant : public AbstractSpecies {
+class Beetle : public AbstractSpecies {
 public:
-    Ant();
+    Beetle();
 
 protected:
+
 };
 
 #endif /* defined(__Zoo__Ant__) */

@@ -12,17 +12,22 @@
 #include "cocos2d.h"
 #include "cocostudio/CocoStudio.h"
 #include "CommonInclude.h"
+class Animal;
 
 class Gacha : public cocos2d::Node {
 public:
     CREATE_FUNC(Gacha);
     bool init() override;
-    std::function<void()> finishGachaCallback;
+    std::function<void(Animal* animal)> finishGachaCallback;
 
 protected:
+    bool _enableGacha;
+    int _level;
+
     void onEnter() override;
     cocostudio::timeline::ActionTimeline* timeline;
     void setupTouchHandling();
+    void lotteryGacha();
 };
 
 #endif /* defined(__Zoo__Gacha__) */

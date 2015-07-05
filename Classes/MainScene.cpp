@@ -3,7 +3,6 @@
 #include "ui/CocosGUI.h"
 #include "Gacha.h"
 #include "GachaReader.h"
-#include "AnimalReader.h"
 #include "Animal.h"
 
 USING_NS_CC;
@@ -37,11 +36,10 @@ bool MainScene::init()
 
     CSLoader* instance = CSLoader::getInstance();
     instance->registReaderObject("GachaReader", (ObjectFactory::Instance) GachaReader::getInstance);
-    instance->registReaderObject("AnimalReader", (ObjectFactory::Instance) AnimalReader::getInstance);
 
     auto rootNode = CSLoader::createNode("MainScene.csb");
     this->gacha = rootNode->getChildByName<Gacha*>("gacha");
-    this->gacha->finishGachaCallback = CC_CALLBACK_0(MainScene::releaseAnimal, this);
+    this->gacha->finishGachaCallback = CC_CALLBACK_1(MainScene::releaseAnimal, this);
 
 
     this->debugLabel = Label::createWithSystemFont("0", "HiraMinProN-W6", 36);
@@ -85,68 +83,25 @@ void MainScene::setupTouchHandling()
     this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(touchListener, this);
 }
 
-void MainScene::releaseAnimal()
+void MainScene::releaseAnimal(Animal* animal)
 {
-    if (_enableGacha == false) {
-        return;
-    }
-    float rnd = rand_0_1();
-    std::string name;
-    float jump;
-    float scale;
-    if (_level == 1) {
-        if (rnd > 0.05) {
-            name = "Ant.csb";
-            scale = 0.3f;
-            jump = 100;
-        } else {
-            name = "Beetle.csb";
-            scale = 0.8f;
-            jump = 400;
-            _enableGacha = false;
-            runAction(Sequence::create(
-                DelayTime::create(1.0f),
-                CallFunc::create([this](){this->levelup();}),
-                NULL
-            ));
-        }
-    } else {
-        if (rnd > 0.05) {
-            name = "Beetle.csb";
-            scale = 0.32f;
-            jump = 100;
-        } else {
-            name = "Dog.csb";
-            scale = 0.8f;
-            jump = 400;
-        }
-    }
-
-    auto animal = dynamic_cast<Animal*>(CSLoader::createNode(name));
     animal->setPosition(this->gacha->getPosition());
-    animal->runAction(JumpTo::create(1, ZUtil::getRadomPlace(), jump, 1));
-    animal->setScale(scale);
-    animal->setTag((int)MainSceneTag::Animal);
-    this->animals.pushBack(animal);
+    animal->runAction(JumpTo::create(1, ZUtil::getRadomPlace(), 100, 1));
     this->addChild(animal);
-    
-    this->debugLabel->setString(std::to_string(this->animals.size()).c_str());
 }
 
 void MainScene::levelup()
 {
-    _level++;
     cocostudio::timeline::ActionTimeline* titleTimeline = CSLoader::createTimeline("MainScene.csb");
     this->stopAllActions();
     this->runAction(titleTimeline);
     titleTimeline->play("goToStage2", false);
     titleTimeline->setLastFrameCallFunc([this](){
-        _enableGacha = true;
     });
     
-    for (auto animal : this->animals) {
-        this->scaleDown(animal, 0.4f);
-    }
+//    for (auto animal : this->animals) {
+//        this->scaleDown(animal, 0.4f);
+//    }
 }
 
 void MainScene::scaleDown(Node* node, float scale)

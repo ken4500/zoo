@@ -15,5 +15,22 @@ enum class MainSceneTag
     Animal,
 };
 
+enum class AnimalType
+{
+    None = 0,
+    Ant,
+    Beetle,
+    Dog
+};
+
+enum class UnitOfLength
+{
+    Unkown = 0,
+    mm = 1,
+    cm = 10,
+    m  = 1000,
+    km = 1000000,
+};
+
 
 #endif

@@ -12,22 +12,31 @@
 #include "cocos2d.h"
 #include "cocostudio/CocoStudio.h"
 #include "CommonInclude.h"
+#include "AbstractSpecies.h"
 
 class Animal : public cocos2d::Node {
 public:
-    CREATE_FUNC(Animal);
-    bool init() override;
+    Animal();
+    static Animal* CreateWithSpeceis(AbstractSpecies* species);
+    bool initWithSpeceis(AbstractSpecies* species);
+    Length getHeight();
+    Length getSpeed();
+    std::string getName();
+    void updateWorldScale();
+    float getWorldScale();
 
 protected:
+    AbstractSpecies* _species;
+    cocos2d::Node* _rootNode;
     cocostudio::timeline::ActionTimeline* timeline;
-    std::string csbFile;
-    std::string name;
-    float speed;
-    float size;
+    std::string _name;
+    cocos2d::Sprite* _image;
+    Length _height;
     
     void onEnter() override;
-    void startWalk();
-    void moveNextPoint();
+    void _startWalk();
+    void _moveNextPoint();
+    void _changeAnimalImage();
     
 };
 
