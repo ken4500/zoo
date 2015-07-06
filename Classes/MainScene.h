@@ -21,7 +21,6 @@ public:
     
 private:
     Gacha* gacha;
-    Label* debugLabel;
 
     void onEnter() override;
     void update(float dt);

@@ -55,6 +55,8 @@
 		9F015C951B420DC700F45135 /* GachaReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F015C921B420DC700F45135 /* GachaReader.cpp */; };
 		9F015C9A1B4211FB00F45135 /* Animal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F015C961B4211FB00F45135 /* Animal.cpp */; };
 		9F0564671B49D5AA00649A7F /* AbstractSpecies.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F0564651B49D5AA00649A7F /* AbstractSpecies.cpp */; };
+		9F05646C1B49EDE000649A7F /* ScaleBar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F0564681B49EDE000649A7F /* ScaleBar.cpp */; };
+		9F05646D1B49EDE000649A7F /* ScaleBarReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F05646A1B49EDE000649A7F /* ScaleBarReader.cpp */; };
 		9F425AE61B4616E6001B2969 /* WorldManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F425AE41B4616E6001B2969 /* WorldManager.cpp */; };
 		9F425AE91B461732001B2969 /* WorldInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F425AE71B461732001B2969 /* WorldInfo.cpp */; };
 		9F425AEC1B461899001B2969 /* Length.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F425AEA1B461899001B2969 /* Length.cpp */; };
@@ -128,6 +130,10 @@
 		9F015C971B4211FB00F45135 /* Animal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animal.h; sourceTree = "<group>"; };
 		9F0564651B49D5AA00649A7F /* AbstractSpecies.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AbstractSpecies.cpp; sourceTree = "<group>"; };
 		9F0564661B49D5AA00649A7F /* AbstractSpecies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractSpecies.h; sourceTree = "<group>"; };
+		9F0564681B49EDE000649A7F /* ScaleBar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScaleBar.cpp; sourceTree = "<group>"; };
+		9F0564691B49EDE000649A7F /* ScaleBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScaleBar.h; sourceTree = "<group>"; };
+		9F05646A1B49EDE000649A7F /* ScaleBarReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScaleBarReader.cpp; sourceTree = "<group>"; };
+		9F05646B1B49EDE000649A7F /* ScaleBarReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScaleBarReader.h; sourceTree = "<group>"; };
 		9F425AE41B4616E6001B2969 /* WorldManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WorldManager.cpp; sourceTree = "<group>"; };
 		9F425AE51B4616E6001B2969 /* WorldManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldManager.h; sourceTree = "<group>"; };
 		9F425AE71B461732001B2969 /* WorldInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WorldInfo.cpp; sourceTree = "<group>"; };
@@ -383,6 +389,10 @@
 				9F015C931B420DC700F45135 /* GachaReader.h */,
 				9F015C961B4211FB00F45135 /* Animal.cpp */,
 				9F015C971B4211FB00F45135 /* Animal.h */,
+				9F0564681B49EDE000649A7F /* ScaleBar.cpp */,
+				9F0564691B49EDE000649A7F /* ScaleBar.h */,
+				9F05646A1B49EDE000649A7F /* ScaleBarReader.cpp */,
+				9F05646B1B49EDE000649A7F /* ScaleBarReader.h */,
 			);
 			name = Entity;
 			sourceTree = "<group>";
@@ -513,9 +523,11 @@
 				9FFC9E801B444C6000869B23 /* Beetle.cpp in Sources */,
 				9FFC9E7D1B444AFB00869B23 /* AnimalFactory.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
+				9F05646D1B49EDE000649A7F /* ScaleBarReader.cpp in Sources */,
 				9F425AEC1B461899001B2969 /* Length.cpp in Sources */,
 				9FFC9E711B42FA0100869B23 /* ZUtil.cpp in Sources */,
 				9F015C951B420DC700F45135 /* GachaReader.cpp in Sources */,
+				9F05646C1B49EDE000649A7F /* ScaleBar.cpp in Sources */,
 				9F0564671B49D5AA00649A7F /* AbstractSpecies.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

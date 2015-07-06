@@ -4,6 +4,9 @@
     <Content>
       <Animation Duration="185" Speed="1.0000" ActivedAnimationName="goToStage2">
         <Timeline ActionTag="-1487198280" Property="Position">
+          <PointFrame FrameIndex="0" X="-64.0000" Y="0.0000">
+            <EasingData Type="0" />
+          </PointFrame>
           <PointFrame FrameIndex="1" X="-64.0000" Y="0.0000">
             <EasingData Type="0" />
           </PointFrame>
@@ -15,6 +18,9 @@
           </PointFrame>
         </Timeline>
         <Timeline ActionTag="-1487198280" Property="Scale">
+          <ScaleFrame FrameIndex="0" X="2.5000" Y="2.5000">
+            <EasingData Type="0" />
+          </ScaleFrame>
           <ScaleFrame FrameIndex="1" X="2.5000" Y="2.5000">
             <EasingData Type="0" />
           </ScaleFrame>
@@ -26,6 +32,9 @@
           </ScaleFrame>
         </Timeline>
         <Timeline ActionTag="-1487198280" Property="RotationSkew">
+          <ScaleFrame FrameIndex="0" X="0.0000" Y="0.0000">
+            <EasingData Type="0" />
+          </ScaleFrame>
           <ScaleFrame FrameIndex="1" X="0.0000" Y="0.0000">
             <EasingData Type="0" />
           </ScaleFrame>
@@ -34,6 +43,9 @@
           </ScaleFrame>
         </Timeline>
         <Timeline ActionTag="-1487198280" Property="AnchorPoint">
+          <ScaleFrame FrameIndex="0" X="0.0000" Y="0.0000">
+            <EasingData Type="0" />
+          </ScaleFrame>
           <ScaleFrame FrameIndex="1" X="0.0000" Y="0.0000">
             <EasingData Type="0" />
           </ScaleFrame>
@@ -45,6 +57,7 @@
           </ScaleFrame>
         </Timeline>
         <Timeline ActionTag="-1487198280" Property="VisibleForFrame">
+          <BoolFrame FrameIndex="0" Tween="False" Value="False" />
           <BoolFrame FrameIndex="1" Tween="False" Value="True" />
           <BoolFrame FrameIndex="80" Tween="False" Value="True" />
           <BoolFrame FrameIndex="151" Tween="False" Value="True" />
@@ -204,9 +217,6 @@
             <EasingData Type="0" />
           </IntFrame>
         </Timeline>
-        <Timeline ActionTag="1669106772" Property="ActionValue">
-          <InnerActionFrame FrameIndex="1" Tween="False" InnerActionType="SingleFrame" CurrentAniamtionName="" SingleFrameIndex="0" />
-        </Timeline>
         <Timeline ActionTag="538608515" Property="Position">
           <PointFrame FrameIndex="175" X="320.0000" Y="480.0000">
             <EasingData Type="0" />
@@ -260,10 +270,10 @@
       </Animation>
       <AnimationList>
         <AnimationInfo Name="goToStage2" StartIndex="1" EndIndex="201">
-          <RenderColor A="150" R="189" G="183" B="107" />
+          <RenderColor A="255" R="189" G="183" B="107" />
         </AnimationInfo>
         <AnimationInfo Name="default" StartIndex="0" EndIndex="0">
-          <RenderColor A="150" R="100" G="149" B="237" />
+          <RenderColor A="255" R="100" G="149" B="237" />
         </AnimationInfo>
       </AnimationList>
       <ObjectData Name="Scene" ctype="GameNodeObjectData">
@@ -301,17 +311,8 @@
             <PreSize />
             <FileData Type="Normal" Path="Gacha.csd" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="ProjectNode_2" ActionTag="1669106772" Tag="39" IconVisible="True" LeftMargin="342.5000" RightMargin="297.5000" TopMargin="478.5000" BottomMargin="481.5000" InnerActionSpeed="1.0000" ctype="ProjectNodeObjectData">
-            <Size />
-            <AnchorPoint />
-            <Position X="342.5000" Y="481.5000" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5352" Y="0.5016" />
-            <PreSize />
-          </AbstractNodeData>
-          <AbstractNodeData Name="lavelupLabel" ActionTag="538608515" Tag="44" VisibleForFrame="False" Alpha="0" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="184.0000" RightMargin="184.0000" TopMargin="444.0000" BottomMargin="444.0000" LabelText="LEVELUP!" ctype="TextBMFontObjectData">
-            <Size X="272.0000" Y="72.0000" />
+          <AbstractNodeData Name="lavelupLabel" ActionTag="538608515" Tag="44" VisibleForFrame="False" Alpha="0" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="54.5000" RightMargin="54.5000" TopMargin="408.5000" BottomMargin="408.5000" LabelText="LEVELUP!" ctype="TextBMFontObjectData">
+            <Size X="531.0000" Y="143.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="320.0000" Y="480.0000" />
             <Scale ScaleX="5.0000" ScaleY="5.0000" />
@@ -319,6 +320,16 @@
             <PrePosition X="0.5000" Y="0.5000" />
             <PreSize X="0.4250" Y="0.0750" />
             <LabelBMFontFile_CNB Type="Normal" Path="font1.fnt" Plist="" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="scaleBar" ActionTag="-840124772" Tag="19" IconVisible="True" PositionPercentXEnabled="True" LeftMargin="614.4000" RightMargin="25.6000" TopMargin="940.0000" BottomMargin="20.0000" InnerActionSpeed="1.0000" ctype="ProjectNodeObjectData">
+            <Size />
+            <AnchorPoint />
+            <Position X="614.4000" Y="20.0000" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.9600" Y="0.0208" />
+            <PreSize />
+            <FileData Type="Normal" Path="ScaleBar.csd" Plist="" />
           </AbstractNodeData>
         </Children>
       </ObjectData>

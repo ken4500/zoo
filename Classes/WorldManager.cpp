@@ -55,3 +55,11 @@ float WorldManager::getDisplayLength(Length length)
     auto visibleSize = Director::getInstance()->getVisibleSize();
     return (length.getLength(UnitOfLength::mm) * visibleSize.height) / worldSize.getLength(UnitOfLength::mm);
 }
+
+Length WorldManager::getLength(float displayLength)
+{
+    auto worldSize = getWorldInfo().getSize();
+    auto visibleSize = Director::getInstance()->getVisibleSize();
+    float mm = worldSize.getLength(UnitOfLength::mm) * displayLength / visibleSize.height;
+    return Length(UnitOfLength::mm, mm);
+}

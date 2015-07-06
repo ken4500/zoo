@@ -3,6 +3,8 @@
 #include "ui/CocosGUI.h"
 #include "Gacha.h"
 #include "GachaReader.h"
+#include "ScaleBar.h"
+#include "ScaleBarReader.h"
 #include "Animal.h"
 
 USING_NS_CC;
@@ -36,17 +38,11 @@ bool MainScene::init()
 
     CSLoader* instance = CSLoader::getInstance();
     instance->registReaderObject("GachaReader", (ObjectFactory::Instance) GachaReader::getInstance);
+    instance->registReaderObject("ScaleBarReader", (ObjectFactory::Instance) ScaleBarReader::getInstance);
 
     auto rootNode = CSLoader::createNode("MainScene.csb");
     this->gacha = rootNode->getChildByName<Gacha*>("gacha");
     this->gacha->finishGachaCallback = CC_CALLBACK_1(MainScene::releaseAnimal, this);
-
-
-    this->debugLabel = Label::createWithSystemFont("0", "HiraMinProN-W6", 36);
-    this->debugLabel->setColor(Color3B::BLACK);
-    this->debugLabel->setPosition(Vec2(500, 50));
-    rootNode->addChild(this->debugLabel);
-    std::srand((int)time(NULL));
 
     addChild(rootNode);
 

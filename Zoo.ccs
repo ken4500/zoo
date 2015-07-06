@@ -15,6 +15,9 @@
         <Image Name="house2.png" />
         <Fnt Name="font1.fnt" />
         <Project Name="AnimalMove1.csd" Type="Node" />
+        <Image Name="scaleBar.png" />
+        <Fnt Name="font2.fnt" />
+        <Project Name="ScaleBar.csd" Type="Node" />
       </RootFolder>
     </Group>
   </SolutionFolder>

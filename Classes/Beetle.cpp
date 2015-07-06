@@ -13,6 +13,6 @@ using namespace cocos2d;
 Beetle::Beetle() {
     _minHeight = Length(UnitOfLength::cm, 2);
     _maxHeight = Length(UnitOfLength::cm, 5);
-    _speed = Length(UnitOfLength::cm, 3);
+    _speed = Length(UnitOfLength::cm, 2);
     _imageName = "beetle.png";
 }

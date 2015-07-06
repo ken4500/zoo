@@ -16,6 +16,7 @@ public:
     Length(UnitOfLength unit, float length);
 
     UnitOfLength getUnit();
+    std::string getUnitStr();
     float getLength();
     float getMmLength();
     float getLength(UnitOfLength unit);

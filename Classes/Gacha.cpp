@@ -21,6 +21,7 @@ bool Gacha::init() {
     
     _enableGacha = true;
     _level = 1;
+    std::srand((int)time(NULL));
 
     return true;
 }
@@ -62,16 +63,14 @@ void Gacha::lotteryGacha()
     if (_enableGacha == false) {
         return;
     }
-    float rnd = rand_0_1();
-    float jump;
-    float scale;
+    float rnd = CCRANDOM_0_1();
     AnimalType type;
     if (_level == 1) {
         if (rnd > 0.05) {
             type = AnimalType::Ant;
         } else {
             type = AnimalType::Beetle;
-            _enableGacha = false;
+//            _enableGacha = false;
 //            runAction(Sequence::create(
 //                DelayTime::create(1.0f),
 //                CallFunc::create([this](){this->levelup();}),

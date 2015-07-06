@@ -35,7 +35,7 @@ bool Animal::initWithSpeceis(AbstractSpecies* species)
     }
     
     _species = species;
-    float rnd = rand_0_1();
+    float rnd = CCRANDOM_0_1();
     float mm = (species->getMaxHeight().getMmLength() - species->getMinHeight().getMmLength()) * rnd + species->getMinHeight().getMmLength();
     _height = Length(UnitOfLength::mm, mm);
 

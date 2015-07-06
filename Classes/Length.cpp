@@ -26,6 +26,30 @@ UnitOfLength Length::getUnit()
     return UnitOfLength::mm;
 }
 
+std::string Length::getUnitStr()
+{
+    auto unit = getUnit();
+    std::string rtnValue;
+    switch (unit) {
+    case UnitOfLength::mm:
+        rtnValue = "mm";
+        break;
+    case UnitOfLength::cm:
+        rtnValue = "cm";
+        break;
+    case UnitOfLength::m:
+        rtnValue = "m";
+        break;
+    case UnitOfLength::km:
+        rtnValue = "km";
+        break;
+        break;
+    default:
+        break;
+    }
+    return rtnValue;
+}
+
 float Length::getLength()
 {
     auto unit = getUnit();

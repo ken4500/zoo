@@ -20,6 +20,7 @@ public:
     WorldInfo getWorldInfo();
     float getImageScale(Sprite* image, Length heightLength);
     float getDisplayLength(Length length);
+    Length getLength(float displayLength);
 
 private:
     WorldInfo _info;
