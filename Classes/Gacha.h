@@ -12,6 +12,9 @@
 #include "cocos2d.h"
 #include "cocostudio/CocoStudio.h"
 #include "CommonInclude.h"
+#include "json/document.h"
+#include "json/writer.h"
+#include "json/stringbuffer.h"
 class Animal;
 
 class Gacha : public cocos2d::Node {
@@ -23,6 +26,7 @@ public:
 protected:
     bool _enableGacha;
     int _level;
+    rapidjson::Document _settingDoc;
 
     void onEnter() override;
     cocostudio::timeline::ActionTimeline* timeline;

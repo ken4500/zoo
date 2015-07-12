@@ -9,6 +9,7 @@
 #include "Gacha.h"
 #include "AnimalFactory.h"
 
+
 bool Gacha::init() {
     if (!Node::init()) {
         return false;
@@ -22,6 +23,8 @@ bool Gacha::init() {
     _enableGacha = true;
     _level = 1;
     std::srand((int)time(NULL));
+    auto jsonStr = FileUtils::getInstance()->getStringFromFile("data/gacha.json");
+    _settingDoc.Parse<0>(jsonStr.c_str());
 
     return true;
 }
@@ -63,6 +66,15 @@ void Gacha::lotteryGacha()
     if (_enableGacha == false) {
         return;
     }
+    std::vector<float> probabilityList;
+    std::vector<std::string> rewardList;
+    rapidjson::Value& gachaDoc = _settingDoc[std::to_string(_level).c_str()];
+    for (int i = 0; i < gachaDoc.Size(); i++) {
+        rapidjson::Value& v = gachaDoc[i];
+        probabilityList.push_back(v["probability"].GetDouble());
+        rewardList.push_back(v["reward"].GetString());
+    }
+
     float rnd = CCRANDOM_0_1();
     AnimalType type;
     if (_level == 1) {

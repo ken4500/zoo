@@ -8,10 +8,40 @@
 
 #include "Length.h"
 
+#pragma - static
+
+std::map<std::string, UnitOfLength> Length::toUnitMap = {
+    {"mm", UnitOfLength::mm},
+    {"cm", UnitOfLength::cm},
+    {"m" , UnitOfLength::m},
+    {"km", UnitOfLength::km},
+};
+
+std::map<UnitOfLength, std::string> Length::toStringMap = {
+    {UnitOfLength::mm, "mm"},
+    {UnitOfLength::cm, "cm"},
+    {UnitOfLength::m , "m"},
+    {UnitOfLength::km, "km"},
+};
+
+std::string Length::toString(UnitOfLength unit)
+{
+    return Length::toStringMap[unit];
+}
+
+UnitOfLength Length::toUnit(std::string str)
+{
+    return Length::toUnitMap[str];
+}
+
+#pragma - core
+
 Length::Length(UnitOfLength unit, float length) :
 _mm(length * (float)unit)
 {
 }
+
+#pragma - public
 
 UnitOfLength Length::getUnit()
 {
@@ -29,25 +59,7 @@ UnitOfLength Length::getUnit()
 std::string Length::getUnitStr()
 {
     auto unit = getUnit();
-    std::string rtnValue;
-    switch (unit) {
-    case UnitOfLength::mm:
-        rtnValue = "mm";
-        break;
-    case UnitOfLength::cm:
-        rtnValue = "cm";
-        break;
-    case UnitOfLength::m:
-        rtnValue = "m";
-        break;
-    case UnitOfLength::km:
-        rtnValue = "km";
-        break;
-        break;
-    default:
-        break;
-    }
-    return rtnValue;
+    return Length::toString(unit);
 }
 
 float Length::getLength()

@@ -57,6 +57,7 @@
 		9F0564671B49D5AA00649A7F /* AbstractSpecies.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F0564651B49D5AA00649A7F /* AbstractSpecies.cpp */; };
 		9F05646C1B49EDE000649A7F /* ScaleBar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F0564681B49EDE000649A7F /* ScaleBar.cpp */; };
 		9F05646D1B49EDE000649A7F /* ScaleBarReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F05646A1B49EDE000649A7F /* ScaleBarReader.cpp */; };
+		9F0564711B4AD89200649A7F /* Dog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F05646F1B4AD89200649A7F /* Dog.cpp */; };
 		9F425AE61B4616E6001B2969 /* WorldManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F425AE41B4616E6001B2969 /* WorldManager.cpp */; };
 		9F425AE91B461732001B2969 /* WorldInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F425AE71B461732001B2969 /* WorldInfo.cpp */; };
 		9F425AEC1B461899001B2969 /* Length.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F425AEA1B461899001B2969 /* Length.cpp */; };
@@ -134,6 +135,8 @@
 		9F0564691B49EDE000649A7F /* ScaleBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScaleBar.h; sourceTree = "<group>"; };
 		9F05646A1B49EDE000649A7F /* ScaleBarReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScaleBarReader.cpp; sourceTree = "<group>"; };
 		9F05646B1B49EDE000649A7F /* ScaleBarReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScaleBarReader.h; sourceTree = "<group>"; };
+		9F05646F1B4AD89200649A7F /* Dog.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dog.cpp; sourceTree = "<group>"; };
+		9F0564701B4AD89200649A7F /* Dog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dog.h; sourceTree = "<group>"; };
 		9F425AE41B4616E6001B2969 /* WorldManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WorldManager.cpp; sourceTree = "<group>"; };
 		9F425AE51B4616E6001B2969 /* WorldManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldManager.h; sourceTree = "<group>"; };
 		9F425AE71B461732001B2969 /* WorldInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WorldInfo.cpp; sourceTree = "<group>"; };
@@ -159,7 +162,7 @@
 		D44C620D132DFF430009C878 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D44C620F132DFF4E0009C878 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		D6B0611A1803AB670077942B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
-		FA144D09A52357282113E0F8 /* res */ = {isa = PBXFileReference; lastKnownFileType = "?"; name = res; path = ../Resources/res; sourceTree = "<group>"; };
+		FA144D09A52357282113E0F8 /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
 		FE4A434CB0497EB05B450757 /* libcocos2d iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libcocos2d iOS.a"; path = "/Applications/Cocos/frameworks/cocos2d-x-3.6/prebuilt/ios/libcocos2d iOS.a"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
@@ -376,6 +379,8 @@
 				9FFC9E771B44462300869B23 /* Ant.h */,
 				9FFC9E7E1B444C6000869B23 /* Beetle.cpp */,
 				9FFC9E7F1B444C6000869B23 /* Beetle.h */,
+				9F05646F1B4AD89200649A7F /* Dog.cpp */,
+				9F0564701B4AD89200649A7F /* Dog.h */,
 			);
 			name = Species;
 			sourceTree = "<group>";
@@ -528,6 +533,7 @@
 				9FFC9E711B42FA0100869B23 /* ZUtil.cpp in Sources */,
 				9F015C951B420DC700F45135 /* GachaReader.cpp in Sources */,
 				9F05646C1B49EDE000649A7F /* ScaleBar.cpp in Sources */,
+				9F0564711B4AD89200649A7F /* Dog.cpp in Sources */,
 				9F0564671B49D5AA00649A7F /* AbstractSpecies.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

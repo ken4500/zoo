@@ -18,6 +18,8 @@
         <Image Name="scaleBar.png" />
         <Fnt Name="font2.fnt" />
         <Project Name="ScaleBar.csd" Type="Node" />
+        <Image Name="background1.jpg" />
+        <Image Name="empty.png" />
       </RootFolder>
     </Group>
   </SolutionFolder>

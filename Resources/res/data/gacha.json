@@ -1,0 +1,22 @@
+{
+    "1" : [
+        {
+            "probability" : 5.0,
+            "reward"      : "beetle"
+        },
+        {
+            "probability" : 95.0,
+            "reward"      : "ant"
+        }
+    ],
+    "2" : [
+        {
+            "probability" : 5.0,
+            "reward"      : "dog"
+        },
+        {
+            "probability" : 95.0,
+            "reward"      : "beetle"
+        }
+    ]
+}

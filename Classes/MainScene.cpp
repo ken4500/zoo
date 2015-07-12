@@ -13,10 +13,10 @@ using namespace cocostudio::timeline;
 
 Scene* MainScene::createScene()
 {
-    // 'scene' is an autorelease object
+    // "scene" is an autorelease object
     auto scene = Scene::create();
     
-    // 'layer' is an autorelease object
+    // "layer" is an autorelease object
     auto layer = MainScene::create();
 
     // add layer as a child to scene
@@ -36,11 +36,15 @@ bool MainScene::init()
         return false;
     }
 
+    auto displaySize = Director::getInstance()->getVisibleSize();
+
     CSLoader* instance = CSLoader::getInstance();
     instance->registReaderObject("GachaReader", (ObjectFactory::Instance) GachaReader::getInstance);
     instance->registReaderObject("ScaleBarReader", (ObjectFactory::Instance) ScaleBarReader::getInstance);
 
     auto rootNode = CSLoader::createNode("MainScene.csb");
+    rootNode->setAnchorPoint(Vec2(0.5f, 0.5f));
+    rootNode->setPosition(Vec2(displaySize.width / 2, displaySize.height / 2));
     this->gacha = rootNode->getChildByName<Gacha*>("gacha");
     this->gacha->finishGachaCallback = CC_CALLBACK_1(MainScene::releaseAnimal, this);
 

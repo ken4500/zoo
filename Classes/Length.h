@@ -14,6 +14,8 @@
 class Length {
 public:
     Length(UnitOfLength unit, float length);
+    static std::string toString(UnitOfLength unit);
+    static UnitOfLength toUnit(std::string str);
 
     UnitOfLength getUnit();
     std::string getUnitStr();
@@ -22,6 +24,8 @@ public:
     float getLength(UnitOfLength unit);
 
 private:
+    static std::map<std::string, UnitOfLength> toUnitMap;
+    static std::map<UnitOfLength, std::string> toStringMap;
     float _mm;
 };
 
