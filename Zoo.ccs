@@ -11,7 +11,6 @@
         <Image Name="ant.png" />
         <Image Name="beetle.png" />
         <Image Name="dog.png" />
-        <Image Name="background2.png" />
         <Image Name="house2.png" />
         <Fnt Name="font1.fnt" />
         <Project Name="AnimalMove1.csd" Type="Node" />
@@ -20,6 +19,11 @@
         <Project Name="ScaleBar.csd" Type="Node" />
         <Image Name="background1.jpg" />
         <Image Name="empty.png" />
+        <Image Name="background2.jpg" />
+        <Image Name="Gacha1.png" />
+        <Image Name="Gacha2.png" />
+        <Image Name="Gacha3.png" />
+        <Image Name="Gacha4.png" />
       </RootFolder>
     </Group>
   </SolutionFolder>

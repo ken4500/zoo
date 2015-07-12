@@ -45,8 +45,8 @@ bool MainScene::init()
     auto rootNode = CSLoader::createNode("MainScene.csb");
     rootNode->setAnchorPoint(Vec2(0.5f, 0.5f));
     rootNode->setPosition(Vec2(displaySize.width / 2, displaySize.height / 2));
-    this->gacha = rootNode->getChildByName<Gacha*>("gacha");
-    this->gacha->finishGachaCallback = CC_CALLBACK_1(MainScene::releaseAnimal, this);
+    _gacha = rootNode->getChildByName<Gacha*>("gacha");
+    _gacha->finishGachaCallback = CC_CALLBACK_1(MainScene::releaseAnimal, this);
 
     addChild(rootNode);
 
@@ -85,8 +85,8 @@ void MainScene::setupTouchHandling()
 
 void MainScene::releaseAnimal(Animal* animal)
 {
-    animal->setPosition(this->gacha->getPosition());
-    animal->runAction(JumpTo::create(1, ZUtil::getRadomPlace(), 100, 1));
+    animal->setPosition(_gacha->getPosition() + Vec2(0, 400));
+    animal->runAction(JumpTo::create(1, ZUtil::getRadomPlace(), 500, 1));
     this->addChild(animal);
 }
 

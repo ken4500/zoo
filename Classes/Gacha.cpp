@@ -16,9 +16,9 @@ bool Gacha::init() {
     }
 
     // load the character animation timeline
-    this->timeline = CSLoader::createTimeline("Gacha.csb");
+    _timeline = CSLoader::createTimeline("Gacha.csb");
     // retain the character animation timeline so it doesn't get deallocated
-    this->timeline->retain();
+    _timeline->retain();
     
     _enableGacha = true;
     _level = 1;
@@ -66,6 +66,7 @@ void Gacha::lotteryGacha()
     if (_enableGacha == false) {
         return;
     }
+    
     std::vector<float> probabilityList;
     std::vector<std::string> rewardList;
     rapidjson::Value& gachaDoc = _settingDoc[std::to_string(_level).c_str()];
@@ -96,10 +97,21 @@ void Gacha::lotteryGacha()
             type = AnimalType::Dog;
         }
     }
+    
+    _enableGacha = false;
+    this->stopAllActions();
+    this->runAction(_timeline);
+    _timeline->play("gacha", false);
+    this->runAction(Sequence::create(
+        DelayTime::create(1.0f),
+        CallFunc::create([this, type](){
+            auto animal = AnimalFactory::getInstance()->createAnimal(type);
+            animal->setTag((int)MainSceneTag::Animal);
+            this->finishGachaCallback(animal);
+            _enableGacha = true;
+        }),
+        NULL
+    ));
 
-    auto animal = AnimalFactory::getInstance()->createAnimal(type);
-//    animal->setScale(scale);
-    animal->setTag((int)MainSceneTag::Animal);
-    this->finishGachaCallback(animal);
     
 }

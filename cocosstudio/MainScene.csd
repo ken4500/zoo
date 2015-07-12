@@ -2,11 +2,16 @@
   <PropertyGroup Type="Scene" Name="MainScene" ID="a2ee0952-26b5-49ae-8bf9-4f1d6279b798" Version="2.2.8.0" />
   <Content ctype="GameProjectContent">
     <Content>
-      <Animation Duration="185" Speed="1.0000" ActivedAnimationName="goToStage2">
+      <Animation Duration="185" Speed="1.0000">
         <Timeline ActionTag="-1984158858" Property="Position">
           <PointFrame FrameIndex="0" X="568.0000" Y="320.0000">
             <EasingData Type="0" />
           </PointFrame>
+        </Timeline>
+        <Timeline ActionTag="-1984158858" Property="FileData">
+          <TextureFrame FrameIndex="1" Tween="False">
+            <TextureFile Type="Normal" Path="background1.jpg" Plist="" />
+          </TextureFrame>
         </Timeline>
         <Timeline ActionTag="-1411683611" Property="Position">
           <PointFrame FrameIndex="0" X="568.0000" Y="320.0000">
@@ -73,7 +78,7 @@
         </Timeline>
       </Animation>
       <AnimationList>
-        <AnimationInfo Name="goToStage2" StartIndex="0" EndIndex="201">
+        <AnimationInfo Name="zoomout1" StartIndex="1" EndIndex="201">
           <RenderColor A="255" R="189" G="183" B="107" />
         </AnimationInfo>
         <AnimationInfo Name="default" StartIndex="0" EndIndex="0">
@@ -98,13 +103,13 @@
             <Size />
             <AnchorPoint />
             <Position X="568.0000" Y="320.0000" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <Scale ScaleX="0.9000" ScaleY="0.9000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5000" Y="0.5000" />
             <PreSize />
             <FileData Type="Normal" Path="Gacha.csd" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="lavelupLabel" ActionTag="538608515" Tag="44" VisibleForFrame="False" Alpha="0" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="54.5000" RightMargin="550.5000" TopMargin="88.5000" BottomMargin="408.5000" LabelText="LEVELUP!" ctype="TextBMFontObjectData">
+          <AbstractNodeData Name="lavelupLabel" CanEdit="False" ActionTag="538608515" Tag="44" VisibleForFrame="False" Alpha="0" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="54.5000" RightMargin="550.5000" TopMargin="88.5000" BottomMargin="408.5000" LabelText="LEVELUP!" ctype="TextBMFontObjectData">
             <Size X="531.0000" Y="143.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="320.0000" Y="480.0000" />

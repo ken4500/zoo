@@ -20,7 +20,7 @@ public:
     CREATE_FUNC(MainScene);
     
 private:
-    Gacha* gacha;
+    Gacha* _gacha;
 
     void onEnter() override;
     void update(float dt);

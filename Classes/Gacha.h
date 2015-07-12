@@ -27,9 +27,9 @@ protected:
     bool _enableGacha;
     int _level;
     rapidjson::Document _settingDoc;
+    cocostudio::timeline::ActionTimeline* _timeline;
 
     void onEnter() override;
-    cocostudio::timeline::ActionTimeline* timeline;
     void setupTouchHandling();
     void lotteryGacha();
 };
