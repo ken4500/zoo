@@ -17,6 +17,7 @@ class AnimalFactory {
 public:
     static AnimalFactory* getInstance();
     Animal* createAnimal(AnimalType type);
+    Animal* createAnimal(std::string classStr);
 
 protected:
 

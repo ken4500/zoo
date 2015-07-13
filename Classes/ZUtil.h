@@ -17,6 +17,8 @@ public:
     static Vec2 getRadomPlace();
     static Vec2 convertRootWorldSpace(Vec2 vec, Node* node);
     static Rect convertRootWorldSpace(Rect rect, Node* node);
+    
+    static void printVec(Vec2 vec);
 };
 
 

@@ -61,6 +61,8 @@
 		9F425AE61B4616E6001B2969 /* WorldManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F425AE41B4616E6001B2969 /* WorldManager.cpp */; };
 		9F425AE91B461732001B2969 /* WorldInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F425AE71B461732001B2969 /* WorldInfo.cpp */; };
 		9F425AEC1B461899001B2969 /* Length.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F425AEA1B461899001B2969 /* Length.cpp */; };
+		9F83BA6C1B54327700605D1D /* WorldMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F83BA681B54327700605D1D /* WorldMap.cpp */; };
+		9F83BA6D1B54327700605D1D /* WorldMapReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F83BA6A1B54327700605D1D /* WorldMapReader.cpp */; };
 		9F8B4F24824617F9A0E5789A /* libcocos2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62FC4D32A80EFB11E0A6CF2A /* libcocos2d Mac.a */; };
 		9FFC9E6E1B42F8F400869B23 /* ZMath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FFC9E6C1B42F8F400869B23 /* ZMath.cpp */; };
 		9FFC9E711B42FA0100869B23 /* ZUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FFC9E6F1B42FA0100869B23 /* ZUtil.cpp */; };
@@ -143,6 +145,10 @@
 		9F425AE81B461732001B2969 /* WorldInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldInfo.h; sourceTree = "<group>"; };
 		9F425AEA1B461899001B2969 /* Length.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Length.cpp; sourceTree = "<group>"; };
 		9F425AEB1B461899001B2969 /* Length.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Length.h; sourceTree = "<group>"; };
+		9F83BA681B54327700605D1D /* WorldMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WorldMap.cpp; sourceTree = "<group>"; };
+		9F83BA691B54327700605D1D /* WorldMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldMap.h; sourceTree = "<group>"; };
+		9F83BA6A1B54327700605D1D /* WorldMapReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WorldMapReader.cpp; sourceTree = "<group>"; };
+		9F83BA6B1B54327700605D1D /* WorldMapReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldMapReader.h; sourceTree = "<group>"; };
 		9FFC9E6C1B42F8F400869B23 /* ZMath.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ZMath.cpp; sourceTree = "<group>"; };
 		9FFC9E6D1B42F8F400869B23 /* ZMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZMath.h; sourceTree = "<group>"; };
 		9FFC9E6F1B42FA0100869B23 /* ZUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ZUtil.cpp; sourceTree = "<group>"; };
@@ -282,26 +288,14 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				9F0564631B49D4FE00649A7F /* Species */,
-				9FFC9E731B430AD100869B23 /* Entity */,
+				9FFC9E741B43262600869B23 /* Constants.h */,
 				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
-				46880B8619C43A87006E1F66 /* MainScene.cpp */,
-				46880B8719C43A87006E1F66 /* MainScene.h */,
-				9FFC9E7B1B444AFB00869B23 /* AnimalFactory.cpp */,
-				9FFC9E7C1B444AFB00869B23 /* AnimalFactory.h */,
-				9FFC9E6C1B42F8F400869B23 /* ZMath.cpp */,
-				9FFC9E6D1B42F8F400869B23 /* ZMath.h */,
-				9FFC9E6F1B42FA0100869B23 /* ZUtil.cpp */,
-				9FFC9E701B42FA0100869B23 /* ZUtil.h */,
-				9FFC9E721B42FAA500869B23 /* CommonInclude.h */,
-				9FFC9E741B43262600869B23 /* Constants.h */,
-				9F425AE41B4616E6001B2969 /* WorldManager.cpp */,
-				9F425AE51B4616E6001B2969 /* WorldManager.h */,
-				9F425AE71B461732001B2969 /* WorldInfo.cpp */,
-				9F425AE81B461732001B2969 /* WorldInfo.h */,
-				9F425AEA1B461899001B2969 /* Length.cpp */,
-				9F425AEB1B461899001B2969 /* Length.h */,
+				9F83BA761B545E0F00605D1D /* Core */,
+				9F0564631B49D4FE00649A7F /* Species */,
+				9FFC9E731B430AD100869B23 /* Entity */,
+				9F83BA751B545DD600605D1D /* Scene */,
+				9F83BA741B545DC800605D1D /* Uitl */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -385,6 +379,42 @@
 			name = Species;
 			sourceTree = "<group>";
 		};
+		9F83BA741B545DC800605D1D /* Uitl */ = {
+			isa = PBXGroup;
+			children = (
+				9FFC9E6C1B42F8F400869B23 /* ZMath.cpp */,
+				9FFC9E6D1B42F8F400869B23 /* ZMath.h */,
+				9FFC9E6F1B42FA0100869B23 /* ZUtil.cpp */,
+				9FFC9E701B42FA0100869B23 /* ZUtil.h */,
+			);
+			name = Uitl;
+			sourceTree = "<group>";
+		};
+		9F83BA751B545DD600605D1D /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				46880B8719C43A87006E1F66 /* MainScene.h */,
+				46880B8619C43A87006E1F66 /* MainScene.cpp */,
+			);
+			name = Scene;
+			sourceTree = "<group>";
+		};
+		9F83BA761B545E0F00605D1D /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				9FFC9E7C1B444AFB00869B23 /* AnimalFactory.h */,
+				9FFC9E7B1B444AFB00869B23 /* AnimalFactory.cpp */,
+				9FFC9E721B42FAA500869B23 /* CommonInclude.h */,
+				9F425AE41B4616E6001B2969 /* WorldManager.cpp */,
+				9F425AE51B4616E6001B2969 /* WorldManager.h */,
+				9F425AE71B461732001B2969 /* WorldInfo.cpp */,
+				9F425AE81B461732001B2969 /* WorldInfo.h */,
+				9F425AEA1B461899001B2969 /* Length.cpp */,
+				9F425AEB1B461899001B2969 /* Length.h */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
 		9FFC9E731B430AD100869B23 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
@@ -398,6 +428,10 @@
 				9F0564691B49EDE000649A7F /* ScaleBar.h */,
 				9F05646A1B49EDE000649A7F /* ScaleBarReader.cpp */,
 				9F05646B1B49EDE000649A7F /* ScaleBarReader.h */,
+				9F83BA681B54327700605D1D /* WorldMap.cpp */,
+				9F83BA691B54327700605D1D /* WorldMap.h */,
+				9F83BA6A1B54327700605D1D /* WorldMapReader.cpp */,
+				9F83BA6B1B54327700605D1D /* WorldMapReader.h */,
 			);
 			name = Entity;
 			sourceTree = "<group>";
@@ -528,8 +562,10 @@
 				9FFC9E801B444C6000869B23 /* Beetle.cpp in Sources */,
 				9FFC9E7D1B444AFB00869B23 /* AnimalFactory.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
+				9F83BA6C1B54327700605D1D /* WorldMap.cpp in Sources */,
 				9F05646D1B49EDE000649A7F /* ScaleBarReader.cpp in Sources */,
 				9F425AEC1B461899001B2969 /* Length.cpp in Sources */,
+				9F83BA6D1B54327700605D1D /* WorldMapReader.cpp in Sources */,
 				9FFC9E711B42FA0100869B23 /* ZUtil.cpp in Sources */,
 				9F015C951B420DC700F45135 /* GachaReader.cpp in Sources */,
 				9F05646C1B49EDE000649A7F /* ScaleBar.cpp in Sources */,

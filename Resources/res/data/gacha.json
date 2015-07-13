@@ -2,21 +2,22 @@
     "1" : [
         {
             "probability" : 5.0,
-            "reward"      : "beetle"
+            "reward"      : "Beetle",
+            "hit"         : true
         },
         {
-            "probability" : 95.0,
-            "reward"      : "ant"
+            "probability" : 90.0,
+            "reward"      : "Ant"
         }
     ],
     "2" : [
         {
             "probability" : 5.0,
-            "reward"      : "dog"
+            "reward"      : "Dog"
         },
         {
             "probability" : 95.0,
-            "reward"      : "beetle"
+            "reward"      : "Beetle"
         }
     ]
 }

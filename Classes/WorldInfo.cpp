@@ -10,7 +10,7 @@
 
 
 WorldInfo::WorldInfo() :
-_size(Length(UnitOfLength::cm, 10.0f)),
+_size(Length(UnitOfLength::cm, 16.0f)),
 _level(1)
 {
 }

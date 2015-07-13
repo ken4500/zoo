@@ -9,6 +9,7 @@
 #include "AnimalFactory.h"
 #include "Ant.h"
 #include "Beetle.h"
+#include "Dog.h"
 
 
 static AnimalFactory* instance = nullptr;
@@ -34,6 +35,19 @@ Animal* AnimalFactory::createAnimal(AnimalType type)
         species = new Beetle();
     default:
         break;
+    }
+    return Animal::CreateWithSpeceis(species);
+}
+
+Animal* AnimalFactory::createAnimal(std::string classStr)
+{
+    AbstractSpecies* species = nullptr;
+    if (classStr == "Ant") {
+        species = new Ant();
+    } else if (classStr == "Beetle") {
+        species = new Beetle();
+    } else if (classStr == "Dog") {
+        species = new Dog();
     }
     return Animal::CreateWithSpeceis(species);
 }

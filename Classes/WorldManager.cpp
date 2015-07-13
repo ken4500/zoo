@@ -34,17 +34,26 @@ WorldManager::~WorldManager()
 
 #pragma - public method
 
+WorldMap* WorldManager::createMap()
+{
+    auto map = dynamic_cast<WorldMap*>(CSLoader::createNode("Map1.csb"));
+    return map;
+}
+
 WorldInfo WorldManager::getWorldInfo()
 {
     return _info;
 }
+
+
+
 
 float WorldManager::getImageScale(Sprite* image, Length heightLength)
 {
     auto worldSize = getWorldInfo().getSize();
     auto visibleSize = Director::getInstance()->getVisibleSize();
     auto contentSize = image->getContentSize();
-    float scale = (heightLength.getLength(UnitOfLength::mm) * visibleSize.height) / (worldSize.getLength(UnitOfLength::mm) * contentSize.height);
+    float scale = (heightLength.getLength(UnitOfLength::mm) * visibleSize.width) / (worldSize.getLength(UnitOfLength::mm) * contentSize.width);
     return scale;
 
 }
@@ -53,13 +62,13 @@ float WorldManager::getDisplayLength(Length length)
 {
     auto worldSize = getWorldInfo().getSize();
     auto visibleSize = Director::getInstance()->getVisibleSize();
-    return (length.getLength(UnitOfLength::mm) * visibleSize.height) / worldSize.getLength(UnitOfLength::mm);
+    return (length.getLength(UnitOfLength::mm) * visibleSize.width) / worldSize.getLength(UnitOfLength::mm);
 }
 
 Length WorldManager::getLength(float displayLength)
 {
     auto worldSize = getWorldInfo().getSize();
     auto visibleSize = Director::getInstance()->getVisibleSize();
-    float mm = worldSize.getLength(UnitOfLength::mm) * displayLength / visibleSize.height;
+    float mm = worldSize.getLength(UnitOfLength::mm) * displayLength / visibleSize.width;
     return Length(UnitOfLength::mm, mm);
 }

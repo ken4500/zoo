@@ -5,6 +5,7 @@
 #include "CommonInclude.h"
 class Gacha;
 class Animal;
+class WorldMap;
 using namespace cocos2d;
 
 class MainScene : public cocos2d::Layer
@@ -21,6 +22,7 @@ public:
     
 private:
     Gacha* _gacha;
+    WorldMap* _map;
 
     void onEnter() override;
     void update(float dt);

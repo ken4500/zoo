@@ -11,11 +11,15 @@
 
 #include "cocos2d.h"
 #include "WorldInfo.h"
+#include "WorldMap.h"
 
 class WorldManager
 {
 public:
     static WorldManager* getInstance();
+    
+    WorldMap* createMap();
+    
     
     WorldInfo getWorldInfo();
     float getImageScale(Sprite* image, Length heightLength);

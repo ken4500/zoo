@@ -2,7 +2,7 @@
   <PropertyGroup Type="Node" Name="Gacha" ID="4163edd1-7cfa-4ccb-a308-f827112b5dd0" Version="2.2.8.0" />
   <Content ctype="GameProjectContent">
     <Content>
-      <Animation Duration="75" Speed="1.0000">
+      <Animation Duration="131" Speed="1.0000" ActivedAnimationName="gacha2">
         <Timeline ActionTag="-1437413616" Property="Position">
           <PointFrame FrameIndex="1" X="0.0000" Y="0.0000">
             <EasingData Type="0" />
@@ -31,6 +31,18 @@
             <EasingData Type="0" />
           </ScaleFrame>
           <ScaleFrame FrameIndex="75" X="1.0000" Y="1.0000">
+            <EasingData Type="0" />
+          </ScaleFrame>
+          <ScaleFrame FrameIndex="101" X="1.0000" Y="1.0000">
+            <EasingData Type="2" />
+          </ScaleFrame>
+          <ScaleFrame FrameIndex="110" X="1.2000" Y="0.8000">
+            <EasingData Type="1" />
+          </ScaleFrame>
+          <ScaleFrame FrameIndex="120" X="0.8000" Y="1.2000">
+            <EasingData Type="6" />
+          </ScaleFrame>
+          <ScaleFrame FrameIndex="131" X="1.0000" Y="1.0000">
             <EasingData Type="0" />
           </ScaleFrame>
         </Timeline>
@@ -79,11 +91,26 @@
           <TextureFrame FrameIndex="65" Tween="False">
             <TextureFile Type="Normal" Path="Gacha1.png" Plist="" />
           </TextureFrame>
+          <TextureFrame FrameIndex="108" Tween="False">
+            <TextureFile Type="Normal" Path="Gacha2.png" Plist="" />
+          </TextureFrame>
+          <TextureFrame FrameIndex="112" Tween="False">
+            <TextureFile Type="Normal" Path="Gacha3.png" Plist="" />
+          </TextureFrame>
+          <TextureFrame FrameIndex="116" Tween="False">
+            <TextureFile Type="Normal" Path="Gacha4.png" Plist="" />
+          </TextureFrame>
+          <TextureFrame FrameIndex="120" Tween="False">
+            <TextureFile Type="Normal" Path="Gacha1.png" Plist="" />
+          </TextureFrame>
         </Timeline>
       </Animation>
       <AnimationList>
-        <AnimationInfo Name="gacha" StartIndex="1" EndIndex="80">
+        <AnimationInfo Name="gacha1" StartIndex="1" EndIndex="80">
           <RenderColor A="255" R="127" G="255" B="0" />
+        </AnimationInfo>
+        <AnimationInfo Name="gacha2" StartIndex="101" EndIndex="131">
+          <RenderColor A="150" R="75" G="0" B="130" />
         </AnimationInfo>
       </AnimationList>
       <ObjectData Name="Node" CustomClassName="Gacha" Tag="9" ctype="GameNodeObjectData">

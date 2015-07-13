@@ -19,16 +19,19 @@ public:
     Animal();
     static Animal* CreateWithSpeceis(AbstractSpecies* species);
     bool initWithSpeceis(AbstractSpecies* species);
+
+    void updateWorldScale();
+    void jump(Vec2 target, float height);
+
+    float getWorldScale();
     Length getHeight();
     Length getSpeed();
     std::string getName();
-    void updateWorldScale();
-    float getWorldScale();
 
 protected:
     AbstractSpecies* _species;
     cocos2d::Node* _rootNode;
-    cocostudio::timeline::ActionTimeline* timeline;
+    cocostudio::timeline::ActionTimeline* _timeline;
     std::string _name;
     cocos2d::Sprite* _image;
     Length _height;

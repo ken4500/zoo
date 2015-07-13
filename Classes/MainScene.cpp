@@ -5,6 +5,9 @@
 #include "GachaReader.h"
 #include "ScaleBar.h"
 #include "ScaleBarReader.h"
+#include "WorldMap.h"
+#include "WorldMapReader.h"
+#include "WorldManager.h"
 #include "Animal.h"
 
 USING_NS_CC;
@@ -41,12 +44,24 @@ bool MainScene::init()
     CSLoader* instance = CSLoader::getInstance();
     instance->registReaderObject("GachaReader", (ObjectFactory::Instance) GachaReader::getInstance);
     instance->registReaderObject("ScaleBarReader", (ObjectFactory::Instance) ScaleBarReader::getInstance);
+    instance->registReaderObject("WorldMapReader", (ObjectFactory::Instance) WorldMapReader::getInstance);
 
     auto rootNode = CSLoader::createNode("MainScene.csb");
     rootNode->setAnchorPoint(Vec2(0.5f, 0.5f));
     rootNode->setPosition(Vec2(displaySize.width / 2, displaySize.height / 2));
+
+    _map = dynamic_cast<WorldMap*>(CSLoader::createNode("Map1.csb"));
+    _map = WorldManager::getInstance()->createMap();
+    _map->setAnchorPoint(Vec2(0.5f, 0.5f));
+    _map->setPosition(Vec2(displaySize.width / 2, displaySize.height / 2));
+    rootNode->addChild(_map);
+
     _gacha = rootNode->getChildByName<Gacha*>("gacha");
-    _gacha->finishGachaCallback = CC_CALLBACK_1(MainScene::releaseAnimal, this);
+    _gacha->retain();
+    _gacha->removeFromParent();
+    _map->setGacha(_gacha);
+    _gacha->release();
+
 
     addChild(rootNode);
 
@@ -57,18 +72,11 @@ void MainScene::onEnter()
 {
     Layer::onEnter();
     this->setupTouchHandling();
-    this->scheduleUpdate();
 }
 
 void MainScene::update(float dt)
 {
     Layer::update(dt);
-    
-    for(auto node : this->getChildren()) {
-        if (node->getTag() == (int)MainSceneTag::Animal) {
-            node->setLocalZOrder(1000 - (int)node->getPosition().y);
-        }
-    }
 }
 
 void MainScene::setupTouchHandling()
@@ -82,40 +90,3 @@ void MainScene::setupTouchHandling()
 
     this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(touchListener, this);
 }
-
-void MainScene::releaseAnimal(Animal* animal)
-{
-    animal->setPosition(_gacha->getPosition() + Vec2(0, 400));
-    animal->runAction(JumpTo::create(1, ZUtil::getRadomPlace(), 500, 1));
-    this->addChild(animal);
-}
-
-void MainScene::levelup()
-{
-    cocostudio::timeline::ActionTimeline* titleTimeline = CSLoader::createTimeline("MainScene.csb");
-    this->stopAllActions();
-    this->runAction(titleTimeline);
-    titleTimeline->play("goToStage2", false);
-    titleTimeline->setLastFrameCallFunc([this](){
-    });
-    
-//    for (auto animal : this->animals) {
-//        this->scaleDown(animal, 0.4f);
-//    }
-}
-
-void MainScene::scaleDown(Node* node, float scale)
-{
-    Vec2 newPos = node->getPosition() * 0.4;
-
-    node->runAction(Sequence::create(
-        DelayTime::create(1.3f),
-        Spawn::create(
-            EaseSineInOut::create(ScaleBy::create(1.18f, scale)),
-            EaseSineInOut::create(MoveTo::create(1.18f, newPos)),
-            NULL
-        ),
-        NULL
-    ));
-}
-

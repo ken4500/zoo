@@ -4,14 +4,7 @@
     <Group ctype="ResourceGroup">
       <RootFolder Name=".">
         <Project Name="MainScene.csd" Type="Scene" />
-        <Image Name="aut.png" />
-        <Image Name="background.png" />
-        <Image Name="house.png" />
         <Project Name="Gacha.csd" Type="Node" />
-        <Image Name="ant.png" />
-        <Image Name="beetle.png" />
-        <Image Name="dog.png" />
-        <Image Name="house2.png" />
         <Fnt Name="font1.fnt" />
         <Project Name="AnimalMove1.csd" Type="Node" />
         <Image Name="scaleBar.png" />
@@ -24,6 +17,19 @@
         <Image Name="Gacha2.png" />
         <Image Name="Gacha3.png" />
         <Image Name="Gacha4.png" />
+        <Folder Name="animal">
+          <Image Name="ant.png" />
+        </Folder>
+        <Folder Name="back">
+          <Image Name="background.jpg" />
+          <Image Name="kusa.png" />
+          <Image Name="stone.png" />
+          <Image Name="stone2.png" />
+          <Image Name="tree1.png" />
+          <Image Name="flower1.png" />
+        </Folder>
+        <Project Name="Map1.csd" Type="Node" />
+        <Project Name="Map2.csd" Type="Node" />
       </RootFolder>
     </Group>
   </SolutionFolder>

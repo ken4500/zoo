@@ -9,6 +9,8 @@
 #include "Animal.h"
 #include "WorldManager.h"
 
+#pragma - Lifecycle
+
 Animal::Animal() :
 _height(Length(UnitOfLength::mm, 1))
 {
@@ -43,9 +45,9 @@ bool Animal::initWithSpeceis(AbstractSpecies* species)
     this->addChild(_rootNode);
 
     // load the character animation timeline
-    this->timeline = CSLoader::createTimeline(species->getMoveCsbName());
+    _timeline = CSLoader::createTimeline(species->getMoveCsbName());
     // retain the character animation timeline so it doesn't get deallocated
-    this->timeline->retain();
+    _timeline->retain();
     
     _image = _rootNode->getChildByName<Sprite*>("image");
     _changeAnimalImage();
@@ -57,8 +59,30 @@ void Animal::onEnter()
 {
     Node::onEnter();
     updateWorldScale();
-    _startWalk();
 }
+
+#pragma - publick method
+
+void Animal::updateWorldScale()
+{
+    float scale = this->getWorldScale();
+    this->setScale(scale);
+}
+
+void Animal::jump(Vec2 target, float height)
+{
+    this->runAction(Sequence::create(
+        JumpTo::create(1, target, height, 1),
+        CallFunc::create([this]{
+            runAction(_timeline);
+            _timeline->play("drop", false);
+            _startWalk();
+        }),
+        NULL
+    ));
+}
+
+#pragma - setter / getter
 
 Length Animal::getHeight()
 {
@@ -75,11 +99,6 @@ std::string Animal::getName()
     return _name;
 }
 
-void Animal::updateWorldScale()
-{
-    float scale = this->getWorldScale();
-    this->setScale(scale);
-}
 
 float Animal::getWorldScale()
 {
@@ -87,11 +106,13 @@ float Animal::getWorldScale()
     return scale;
 }
 
+#pragma - private method
+
 
 void Animal::_startWalk()
 {
-    this->runAction(this->timeline);
-    this->timeline->play("walk", true);
+    this->runAction(_timeline);
+    _timeline->play("walk", true);
     _moveNextPoint();
 }
 

@@ -12,15 +12,17 @@
 Vec2 ZUtil::getRadomPlace()
 {
     Size visibleSize = Director::getInstance()->getVisibleSize();
-    float radius = rand_0_1() * visibleSize.width * 0.4f;
-    float angle = ZMath::degToRad(rand_0_1() * 360);
-    Vec2 centerP = Vec2(visibleSize.width * 0.5f, visibleSize.height * 0.45f);
-    
-    float x = radius * sinf(angle);
-    float y = radius * cosf(angle);
-    return Vec2(x + centerP.x, y + centerP.y);
+    float x = visibleSize.width * rand_0_1() - visibleSize.width / 2;
+    float y = visibleSize.height * rand_0_1() - visibleSize.height / 2;
+    return Vec2(x, y);
+        
+//    float radius = rand_0_1() * visibleSize.height * 0.4f;
+//    float angle = ZMath::degToRad(rand_0_1() * 360);
+//    
+//    float x = radius * sinf(angle);
+//    float y = radius * cosf(angle);
+//    return Vec2(x, y);
 }
-
 
 Vec2 ZUtil::convertRootWorldSpace(Vec2 vec, Node* node)
 {
@@ -37,4 +39,9 @@ Rect ZUtil::convertRootWorldSpace(Rect rect, Node* node)
 {
     Vec2 pos = ZUtil::convertRootWorldSpace(rect.origin, node);
     return Rect(pos.x, pos.y, rect.size.width, rect.size.height);
+}
+
+void ZUtil::printVec(Vec2 vec)
+{
+    CCLOG("x = %.2f, y = %.2f", vec.x, vec.y);
 }

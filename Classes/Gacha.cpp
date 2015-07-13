@@ -70,42 +70,34 @@ void Gacha::lotteryGacha()
     std::vector<float> probabilityList;
     std::vector<std::string> rewardList;
     rapidjson::Value& gachaDoc = _settingDoc[std::to_string(_level).c_str()];
+    float total = 0;
     for (int i = 0; i < gachaDoc.Size(); i++) {
         rapidjson::Value& v = gachaDoc[i];
-        probabilityList.push_back(v["probability"].GetDouble());
+        float p = v["probability"].GetDouble();
+        total += p;
+        probabilityList.push_back(p);
         rewardList.push_back(v["reward"].GetString());
     }
-
-    float rnd = CCRANDOM_0_1();
-    AnimalType type;
-    if (_level == 1) {
-        if (rnd > 0.05) {
-            type = AnimalType::Ant;
-        } else {
-            type = AnimalType::Beetle;
-//            _enableGacha = false;
-//            runAction(Sequence::create(
-//                DelayTime::create(1.0f),
-//                CallFunc::create([this](){this->levelup();}),
-//                NULL
-//            ));
-        }
-    } else {
-        if (rnd > 0.05) {
-            type = AnimalType::Beetle;
-        } else {
-            type = AnimalType::Dog;
+    
+    float rnd = total * rand_0_1();
+    float lot = 0;
+    std::string animalStr;
+    for (int i = 0; i < probabilityList.size(); i++) {
+        lot += probabilityList[i];
+        if (rnd < lot) {
+            animalStr = rewardList[i];
+            break;
         }
     }
-    
+
     _enableGacha = false;
     this->stopAllActions();
     this->runAction(_timeline);
-    _timeline->play("gacha", false);
+    _timeline->play("gacha2", false);
     this->runAction(Sequence::create(
-        DelayTime::create(1.0f),
-        CallFunc::create([this, type](){
-            auto animal = AnimalFactory::getInstance()->createAnimal(type);
+        DelayTime::create(0.3f),
+        CallFunc::create([this, animalStr](){
+            auto animal = AnimalFactory::getInstance()->createAnimal(animalStr);
             animal->setTag((int)MainSceneTag::Animal);
             this->finishGachaCallback(animal);
             _enableGacha = true;
