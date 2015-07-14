@@ -1,1 +1,1 @@
-{"1":{"unit":"cm","value":16,"maxValue":32,"map":"Map1.csb","gacha":1},"2":{"unit":"cm","value":32,"maxValue":32,"map":"Map1.csb","gacha":2},"3":{"unit":"m","value":0.64,"maxValue":1.28,"map":"Map2.csb","gacha":3},"4":{"unit":"m","value":1.28,"maxValue":1.28,"map":"Map2.csb","gacha":4}}
+{"1":{"unit":"cm","value":16,"maxValue":32,"map":"Map1.csb","gacha":1},"2":{"unit":"cm","value":24,"maxValue":32,"map":"Map1.csb","gacha":2},"3":{"unit":"cm","value":32,"maxValue":32,"map":"Map2.csb","gacha":3},"4":{"unit":"m","value":1.28,"maxValue":1.28,"map":"Map2.csb","gacha":4}}

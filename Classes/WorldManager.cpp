@@ -90,8 +90,7 @@ WorldInfo* WorldManager::levelup()
     if (newWorldInfo->mapName == _info->mapName) {
         _map->setCurrentWidth(newWorldInfo->width);
     } else {
-        auto current = _map->getCurrentWidth()->getMmLength();
-        _map->setCurrentWidth(new Length(current * 2));
+        
         
     }
     

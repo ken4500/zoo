@@ -105,6 +105,4 @@ void Gacha::lotteryGacha()
         }),
         NULL
     ));
-
-    
 }

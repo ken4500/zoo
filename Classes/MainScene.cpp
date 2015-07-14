@@ -94,6 +94,6 @@ void MainScene::setupTouchHandling()
 
 void MainScene::levelup(WorldMap* map)
 {
-    WorldManager::getInstance()->levelup();
+   // WorldManager::getInstance()->levelup();
 }
 
