@@ -9,25 +9,22 @@
 #include "AbstractSpecies.h"
 
 AbstractSpecies::AbstractSpecies() :
-_minHeight(Length(UnitOfLength::mm, 1)),
-_maxHeight(Length(UnitOfLength::mm, 1)),
-_speed(Length(UnitOfLength::mm, 1)),
 _imageName("ant.png"),
 _moveCsbName("AnimalMove1.csb")
 {
 }
 
-Length AbstractSpecies::getMaxHeight()
+Length* AbstractSpecies::getMaxHeight()
 {
     return _maxHeight;
 }
 
-Length AbstractSpecies::getMinHeight()
+Length* AbstractSpecies::getMinHeight()
 {
     return _minHeight;
 }
 
-Length AbstractSpecies::getSpeed()
+Length* AbstractSpecies::getSpeed()
 {
     return _speed;
 }

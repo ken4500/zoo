@@ -6,14 +6,14 @@
       <ObjectData Name="Node" CustomClassName="WorldMap" Tag="73" ctype="GameNodeObjectData">
         <Size />
         <Children>
-          <AbstractNodeData Name="background" ActionTag="-2065485114" Tag="74" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-1333.0000" RightMargin="-1333.0000" TopMargin="-1000.0000" BottomMargin="-1000.0000" ctype="SpriteObjectData">
-            <Size X="2666.0000" Y="2000.0000" />
+          <AbstractNodeData Name="background" ActionTag="1030570969" Tag="17" IconVisible="False" LeftMargin="-1136.0000" RightMargin="-1136.0000" TopMargin="-852.0000" BottomMargin="-852.0000" ctype="SpriteObjectData">
+            <Size X="2272.0000" Y="1704.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
-            <PreSize X="2.3468" Y="3.1250" />
+            <PreSize />
             <FileData Type="Normal" Path="back/background.jpg" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
@@ -72,10 +72,10 @@
             <FileData Type="Normal" Path="back/kusa.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="kusa_2_4" ActionTag="-702755826" Tag="80" IconVisible="False" LeftMargin="-1476.3018" RightMargin="1035.3018" TopMargin="-725.0261" BottomMargin="257.0261" ctype="SpriteObjectData">
+          <AbstractNodeData Name="kusa_2_4" ActionTag="-702755826" Tag="80" IconVisible="False" LeftMargin="-1391.5302" RightMargin="950.5302" TopMargin="-547.0038" BottomMargin="79.0038" ctype="SpriteObjectData">
             <Size X="441.0000" Y="468.0000" />
             <AnchorPoint ScaleX="0.5000" />
-            <Position X="-1255.8018" Y="257.0261" />
+            <Position X="-1171.0302" Y="79.0038" />
             <Scale ScaleX="2.0884" ScaleY="2.1966" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
@@ -149,7 +149,7 @@
             <FileData Type="Normal" Path="back/stone.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="kusa_2_0_0_0" ActionTag="-1213248370" Tag="58" IconVisible="False" LeftMargin="262.5645" RightMargin="-703.5646" TopMargin="-501.4007" BottomMargin="33.4007" ctype="SpriteObjectData">
+          <AbstractNodeData Name="kusa_2_0_0_0" ActionTag="-1213248370" Tag="58" IconVisible="False" LeftMargin="262.5645" RightMargin="-703.5645" TopMargin="-501.4007" BottomMargin="33.4007" ctype="SpriteObjectData">
             <Size X="441.0000" Y="468.0000" />
             <AnchorPoint ScaleX="0.5000" />
             <Position X="483.0645" Y="33.4007" />

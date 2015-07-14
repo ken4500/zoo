@@ -25,7 +25,6 @@ public:
 
 protected:
     bool _enableGacha;
-    int _level;
     rapidjson::Document _settingDoc;
     cocostudio::timeline::ActionTimeline* _timeline;
 

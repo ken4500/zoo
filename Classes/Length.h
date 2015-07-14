@@ -13,6 +13,7 @@
 
 class Length {
 public:
+    Length(float length);
     Length(UnitOfLength unit, float length);
     static std::string toString(UnitOfLength unit);
     static UnitOfLength toUnit(std::string str);

@@ -18,16 +18,21 @@ class WorldManager
 public:
     static WorldManager* getInstance();
     
-    WorldMap* createMap();
-    
-    
-    WorldInfo getWorldInfo();
-    float getImageScale(Sprite* image, Length heightLength);
-    float getDisplayLength(Length length);
-    Length getLength(float displayLength);
+    int getGachaId();
+    WorldMap* getMap();
+    WorldInfo* getWorldInfo();
+    float getImageScale(Sprite* image, Length* heightLength);
+    float getDisplayLength(Length* length);
+    Length* getLength(float displayLength);
+
+    WorldInfo* levelup();
 
 private:
-    WorldInfo _info;
+    int _level;
+    WorldInfo* _info;
+    WorldMap* _map;
+    
+    WorldInfo* _loadWoldInfo(int level);
 
     WorldManager();
     ~WorldManager();

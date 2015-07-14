@@ -24,8 +24,8 @@ public:
     void jump(Vec2 target, float height);
 
     float getWorldScale();
-    Length getHeight();
-    Length getSpeed();
+    Length* getHeight();
+    Length* getSpeed();
     std::string getName();
 
 protected:
@@ -34,7 +34,7 @@ protected:
     cocostudio::timeline::ActionTimeline* _timeline;
     std::string _name;
     cocos2d::Sprite* _image;
-    Length _height;
+    Length* _height;
     
     void onEnter() override;
     void _startWalk();

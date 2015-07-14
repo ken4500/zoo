@@ -35,8 +35,6 @@ void WorldMap::onEnter()
             object->setLocalZOrder(_calcObjectZOrder(object));
         }
     }
-    
-    
 }
 
 void WorldMap::update(float dt)
@@ -53,6 +51,39 @@ void WorldMap::update(float dt)
 
 #pragma - getter/setter
 
+void WorldMap::initSize(Length* maxWidth, Length* currentWidth)
+{
+    _maxWidth = maxWidth;
+    _currentWidth = currentWidth;
+    auto back = getChildByName<Sprite*>("background");
+    Size size = Director::getInstance()->getVisibleSize();
+    float scale = size.width * _maxWidth->getMmLength() / ( _currentWidth->getMmLength() * back->getContentSize().width);
+    this->setScale(scale);
+}
+
+Length* WorldMap::getCurrentWidth()
+{
+    return _currentWidth;
+}
+
+Length* WorldMap::getMaxWidth()
+{
+    return _maxWidth;
+}
+
+void WorldMap::setCurrentWidth(Length* width)
+{
+    if (_maxWidth->getMmLength() < width->getMmLength()) {
+        width = new Length(_maxWidth->getMmLength());
+    }
+    _currentWidth = width;
+    auto back = getChildByName<Sprite*>("background");
+    Size size = Director::getInstance()->getVisibleSize();
+    auto hoge = back->getContentSize();
+    float scale = size.width * _maxWidth->getMmLength() / ( _currentWidth->getMmLength() * back->getContentSize().width);
+    runAction(EaseOut::create(ScaleTo::create(1.0f, scale), 2));
+}
+
 
 #pragma - public method
 
@@ -62,6 +93,7 @@ void WorldMap::setGacha(Gacha* gacha)
     _gacha->finishGachaCallback = CC_CALLBACK_1(WorldMap::releaseAnimal, this);
     gacha->setPosition(Vec2(0, 0));
     gacha->setLocalZOrder(_calcObjectZOrder(gacha));
+    gacha->setScale(1);
     addChild(gacha);
 }
 
@@ -70,7 +102,15 @@ void WorldMap::releaseAnimal(Animal* animal)
     animal->setPosition(_gacha->getPosition() + Vec2(0, 400));
     addChild(animal);
     animal->jump(_gacha->getPosition() + Vec2(0, -100), 500);
+    
+    scaleupCallback(this);
 }
+
+bool WorldMap::isMaxScale()
+{
+    return _maxWidth->getLength() <= _currentWidth->getLength();
+}
+
 
 #pragma - private method
 

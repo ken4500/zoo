@@ -8,6 +8,7 @@
 
 #include "Gacha.h"
 #include "AnimalFactory.h"
+#include "WorldManager.h"
 
 
 bool Gacha::init() {
@@ -21,7 +22,6 @@ bool Gacha::init() {
     _timeline->retain();
     
     _enableGacha = true;
-    _level = 1;
     std::srand((int)time(NULL));
     auto jsonStr = FileUtils::getInstance()->getStringFromFile("data/gacha.json");
     _settingDoc.Parse<0>(jsonStr.c_str());
@@ -67,9 +67,10 @@ void Gacha::lotteryGacha()
         return;
     }
     
+    int gachaId = WorldManager::getInstance()->getGachaId();
     std::vector<float> probabilityList;
     std::vector<std::string> rewardList;
-    rapidjson::Value& gachaDoc = _settingDoc[std::to_string(_level).c_str()];
+    rapidjson::Value& gachaDoc = _settingDoc[std::to_string(gachaId).c_str()];
     float total = 0;
     for (int i = 0; i < gachaDoc.Size(); i++) {
         rapidjson::Value& v = gachaDoc[i];

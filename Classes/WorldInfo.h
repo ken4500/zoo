@@ -15,12 +15,12 @@ class WorldInfo {
 public:
     WorldInfo();
     ~WorldInfo();
-    Length getSize();
-    int getLevel();
+    Length* width;
+    Length* maxWidth;
+    int level;
+    int gachaId;
+    std::string mapName;
     
-protected:
-    Length _size;
-    int _level;
 };
 
 #endif /* defined(__Zoo__WorldInfo__) */

@@ -9,8 +9,8 @@
 #include "Dog.h"
 
 Dog::Dog() {
-    _minHeight = Length(UnitOfLength::m, 0.3);
-    _maxHeight = Length(UnitOfLength::m, 1.2);
-    _speed = Length(UnitOfLength::m, 0.5);
+    _minHeight = new Length(UnitOfLength::m, 0.3);
+    _maxHeight = new Length(UnitOfLength::m, 1.2);
+    _speed = new Length(UnitOfLength::m, 0.5);
     _imageName = "animal/chihuahua.png";
 }

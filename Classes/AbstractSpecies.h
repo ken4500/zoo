@@ -14,16 +14,16 @@
 class AbstractSpecies {
 public:
     AbstractSpecies();
-    Length getMaxHeight();
-    Length getMinHeight();
-    Length getSpeed();
+    Length* getMaxHeight();
+    Length* getMinHeight();
+    Length* getSpeed();
     std::string getImageName();
     std::string getMoveCsbName();
 
 protected:
-    Length _maxHeight;
-    Length _minHeight;
-    Length _speed;
+    Length* _maxHeight;
+    Length* _minHeight;
+    Length* _speed;
     std::string _imageName;
     std::string _moveCsbName;
 };

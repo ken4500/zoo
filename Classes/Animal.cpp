@@ -11,8 +11,7 @@
 
 #pragma - Lifecycle
 
-Animal::Animal() :
-_height(Length(UnitOfLength::mm, 1))
+Animal::Animal()
 {
 }
 
@@ -38,8 +37,8 @@ bool Animal::initWithSpeceis(AbstractSpecies* species)
     
     _species = species;
     float rnd = CCRANDOM_0_1();
-    float mm = (species->getMaxHeight().getMmLength() - species->getMinHeight().getMmLength()) * rnd + species->getMinHeight().getMmLength();
-    _height = Length(UnitOfLength::mm, mm);
+    float mm = (species->getMaxHeight()->getMmLength() - species->getMinHeight()->getMmLength()) * rnd + species->getMinHeight()->getMmLength();
+    _height = new Length(UnitOfLength::mm, mm);
 
     _rootNode = CSLoader::createNode(_species->getMoveCsbName());
     this->addChild(_rootNode);
@@ -84,12 +83,12 @@ void Animal::jump(Vec2 target, float height)
 
 #pragma - setter / getter
 
-Length Animal::getHeight()
+Length* Animal::getHeight()
 {
     return _height;
 }
 
-Length Animal::getSpeed()
+Length* Animal::getSpeed()
 {
     return _species->getSpeed();
 }

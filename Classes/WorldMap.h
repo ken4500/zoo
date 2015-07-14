@@ -21,11 +21,21 @@ public:
     bool init() override;
     void onEnter() override;
     void update(float dt);
+    void initSize(Length* maxWidth, Length* currentWidth);
 
+    Length* getCurrentWidth();
+    Length* getMaxWidth();
+    void setCurrentWidth(Length* length);
     void setGacha(Gacha* gacha);
+    bool isMaxScale();
+
     void releaseAnimal(Animal* animal);
 
+    std::function<void(WorldMap* self)> scaleupCallback;
+
 protected:
+    Length* _maxWidth;
+    Length* _currentWidth;
     Gacha* _gacha;
     std::vector<Animal*> _animalList;
     

@@ -63,6 +63,9 @@
 		9F425AEC1B461899001B2969 /* Length.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F425AEA1B461899001B2969 /* Length.cpp */; };
 		9F83BA6C1B54327700605D1D /* WorldMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F83BA681B54327700605D1D /* WorldMap.cpp */; };
 		9F83BA6D1B54327700605D1D /* WorldMapReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F83BA6A1B54327700605D1D /* WorldMapReader.cpp */; };
+		9F83BA811B55683100605D1D /* SoundManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F83BA7F1B55683100605D1D /* SoundManager.cpp */; };
+		9F83BA861B55687700605D1D /* UserData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F83BA821B55687700605D1D /* UserData.cpp */; };
+		9F83BA871B55687700605D1D /* UserDataController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F83BA841B55687700605D1D /* UserDataController.cpp */; };
 		9F8B4F24824617F9A0E5789A /* libcocos2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62FC4D32A80EFB11E0A6CF2A /* libcocos2d Mac.a */; };
 		9FFC9E6E1B42F8F400869B23 /* ZMath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FFC9E6C1B42F8F400869B23 /* ZMath.cpp */; };
 		9FFC9E711B42FA0100869B23 /* ZUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FFC9E6F1B42FA0100869B23 /* ZUtil.cpp */; };
@@ -149,6 +152,12 @@
 		9F83BA691B54327700605D1D /* WorldMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldMap.h; sourceTree = "<group>"; };
 		9F83BA6A1B54327700605D1D /* WorldMapReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WorldMapReader.cpp; sourceTree = "<group>"; };
 		9F83BA6B1B54327700605D1D /* WorldMapReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldMapReader.h; sourceTree = "<group>"; };
+		9F83BA7F1B55683100605D1D /* SoundManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SoundManager.cpp; sourceTree = "<group>"; };
+		9F83BA801B55683100605D1D /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundManager.h; sourceTree = "<group>"; };
+		9F83BA821B55687700605D1D /* UserData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UserData.cpp; sourceTree = "<group>"; };
+		9F83BA831B55687700605D1D /* UserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserData.h; sourceTree = "<group>"; };
+		9F83BA841B55687700605D1D /* UserDataController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UserDataController.cpp; sourceTree = "<group>"; };
+		9F83BA851B55687700605D1D /* UserDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDataController.h; sourceTree = "<group>"; };
 		9FFC9E6C1B42F8F400869B23 /* ZMath.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ZMath.cpp; sourceTree = "<group>"; };
 		9FFC9E6D1B42F8F400869B23 /* ZMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZMath.h; sourceTree = "<group>"; };
 		9FFC9E6F1B42FA0100869B23 /* ZUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ZUtil.cpp; sourceTree = "<group>"; };
@@ -409,6 +418,12 @@
 				9F425AE51B4616E6001B2969 /* WorldManager.h */,
 				9F425AE71B461732001B2969 /* WorldInfo.cpp */,
 				9F425AE81B461732001B2969 /* WorldInfo.h */,
+				9F83BA821B55687700605D1D /* UserData.cpp */,
+				9F83BA831B55687700605D1D /* UserData.h */,
+				9F83BA841B55687700605D1D /* UserDataController.cpp */,
+				9F83BA851B55687700605D1D /* UserDataController.h */,
+				9F83BA7F1B55683100605D1D /* SoundManager.cpp */,
+				9F83BA801B55683100605D1D /* SoundManager.h */,
 				9F425AEA1B461899001B2969 /* Length.cpp */,
 				9F425AEB1B461899001B2969 /* Length.h */,
 			);
@@ -549,6 +564,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F83BA811B55683100605D1D /* SoundManager.cpp in Sources */,
 				9FFC9E6E1B42F8F400869B23 /* ZMath.cpp in Sources */,
 				9F425AE91B461732001B2969 /* WorldInfo.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
@@ -567,9 +583,11 @@
 				9F425AEC1B461899001B2969 /* Length.cpp in Sources */,
 				9F83BA6D1B54327700605D1D /* WorldMapReader.cpp in Sources */,
 				9FFC9E711B42FA0100869B23 /* ZUtil.cpp in Sources */,
+				9F83BA871B55687700605D1D /* UserDataController.cpp in Sources */,
 				9F015C951B420DC700F45135 /* GachaReader.cpp in Sources */,
 				9F05646C1B49EDE000649A7F /* ScaleBar.cpp in Sources */,
 				9F0564711B4AD89200649A7F /* Dog.cpp in Sources */,
+				9F83BA861B55687700605D1D /* UserData.cpp in Sources */,
 				9F0564671B49D5AA00649A7F /* AbstractSpecies.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

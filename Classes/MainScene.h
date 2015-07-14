@@ -27,9 +27,8 @@ private:
     void onEnter() override;
     void update(float dt);
     void setupTouchHandling();
-    void releaseAnimal(Animal* animal);
-    void levelup();
-    void scaleDown(Node* node, float scale);
+
+    void levelup(WorldMap* map);
 
 
 };

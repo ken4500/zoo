@@ -30,8 +30,8 @@ void ScaleBar::onEnter()
 void ScaleBar::updateScale(bool animation)
 {
     auto length = WorldManager::getInstance()->getLength(_image->getContentSize().width);
-    float value = length.getLength();
+    float value = length->getLength();
     auto valueStr = StringUtils::format("%.2f", value);
-    std::string unit = length.getUnitStr();
+    std::string unit = length->getUnitStr();
     _label->setString(valueStr + unit);
 }

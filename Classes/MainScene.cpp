@@ -50,10 +50,10 @@ bool MainScene::init()
     rootNode->setAnchorPoint(Vec2(0.5f, 0.5f));
     rootNode->setPosition(Vec2(displaySize.width / 2, displaySize.height / 2));
 
-    _map = dynamic_cast<WorldMap*>(CSLoader::createNode("Map1.csb"));
-    _map = WorldManager::getInstance()->createMap();
+    _map = WorldManager::getInstance()->getMap();
     _map->setAnchorPoint(Vec2(0.5f, 0.5f));
     _map->setPosition(Vec2(displaySize.width / 2, displaySize.height / 2));
+    _map->scaleupCallback = CC_CALLBACK_1(MainScene::levelup, this);
     rootNode->addChild(_map);
 
     _gacha = rootNode->getChildByName<Gacha*>("gacha");
@@ -90,3 +90,10 @@ void MainScene::setupTouchHandling()
 
     this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(touchListener, this);
 }
+
+
+void MainScene::levelup(WorldMap* map)
+{
+    WorldManager::getInstance()->levelup();
+}
+

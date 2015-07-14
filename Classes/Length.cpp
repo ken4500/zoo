@@ -36,6 +36,12 @@ UnitOfLength Length::toUnit(std::string str)
 
 #pragma - core
 
+Length::Length(float length) :
+_mm(length)
+{
+}
+
+
 Length::Length(UnitOfLength unit, float length) :
 _mm(length * (float)unit)
 {

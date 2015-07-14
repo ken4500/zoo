@@ -22,9 +22,12 @@ WorldManager* WorldManager::getInstance()
 
 #pragma mark - Constructor and Destructor
 
-WorldManager::WorldManager() :
-_info(WorldInfo())
+WorldManager::WorldManager()
 {
+    _level = 1;
+    _info = _loadWoldInfo(_level);
+    _map = nullptr;
+    
 }
 
 WorldManager::~WorldManager()
@@ -32,43 +35,87 @@ WorldManager::~WorldManager()
 }
 
 
-#pragma - public method
+#pragma - getter / setter
 
-WorldMap* WorldManager::createMap()
+int WorldManager::getGachaId()
 {
-    auto map = dynamic_cast<WorldMap*>(CSLoader::createNode("Map1.csb"));
-    return map;
+    return _info->gachaId;
 }
 
-WorldInfo WorldManager::getWorldInfo()
+WorldInfo* WorldManager::getWorldInfo()
 {
     return _info;
 }
 
-
-
-
-float WorldManager::getImageScale(Sprite* image, Length heightLength)
+WorldMap* WorldManager::getMap()
 {
-    auto worldSize = getWorldInfo().getSize();
+    if (_map == nullptr) {
+        _map = dynamic_cast<WorldMap*>(CSLoader::createNode(_info->mapName));
+        _map->initSize(_info->maxWidth, _info->width);
+    }
+    return _map;
+}
+
+float WorldManager::getImageScale(Sprite* image, Length* heightLength)
+{
+    auto worldSize = getWorldInfo()->width;
     auto visibleSize = Director::getInstance()->getVisibleSize();
     auto contentSize = image->getContentSize();
-    float scale = (heightLength.getLength(UnitOfLength::mm) * visibleSize.width) / (worldSize.getLength(UnitOfLength::mm) * contentSize.width);
+    float scale = (heightLength->getLength(UnitOfLength::mm) * visibleSize.width) / (worldSize->getLength(UnitOfLength::mm) * contentSize.width);
     return scale;
 
 }
 
-float WorldManager::getDisplayLength(Length length)
+float WorldManager::getDisplayLength(Length* length)
 {
-    auto worldSize = getWorldInfo().getSize();
+    auto worldSize = getWorldInfo()->width;
     auto visibleSize = Director::getInstance()->getVisibleSize();
-    return (length.getLength(UnitOfLength::mm) * visibleSize.width) / worldSize.getLength(UnitOfLength::mm);
+    return (length->getLength(UnitOfLength::mm) * visibleSize.width) / worldSize->getLength(UnitOfLength::mm);
 }
 
-Length WorldManager::getLength(float displayLength)
+Length* WorldManager::getLength(float displayLength)
 {
-    auto worldSize = getWorldInfo().getSize();
+    auto worldSize = getWorldInfo()->width;
     auto visibleSize = Director::getInstance()->getVisibleSize();
-    float mm = worldSize.getLength(UnitOfLength::mm) * displayLength / visibleSize.width;
-    return Length(UnitOfLength::mm, mm);
+    float mm = worldSize->getLength(UnitOfLength::mm) * displayLength / visibleSize.width;
+    return new Length(UnitOfLength::mm, mm);
 }
+
+#pragma - public method
+
+WorldInfo* WorldManager::levelup()
+{
+    _level++;
+    auto newWorldInfo = _loadWoldInfo(_level);
+    if (newWorldInfo->mapName == _info->mapName) {
+        _map->setCurrentWidth(newWorldInfo->width);
+    } else {
+        auto current = _map->getCurrentWidth()->getMmLength();
+        _map->setCurrentWidth(new Length(current * 2));
+        
+    }
+    
+    _info = newWorldInfo;
+    return _info;
+}
+
+#pragma - private method
+
+WorldInfo* WorldManager::_loadWoldInfo(int level)
+{
+    WorldInfo* info = new WorldInfo();
+    auto jsonStr = FileUtils::getInstance()->getStringFromFile("data/world.json");
+    rapidjson::Document document;
+    document.Parse<0>(jsonStr.c_str());
+    rapidjson::Value& worldDoc = document[std::to_string(_level).c_str()];
+    std::string unit = worldDoc["unit"].GetString();
+    float value = (float)worldDoc["value"].GetDouble();
+    float maxValue = (float)worldDoc["maxValue"].GetDouble();
+    info->width = new Length(Length::toUnit(unit), value);
+    info->maxWidth = new Length(Length::toUnit(unit), maxValue);
+    info->mapName = worldDoc["map"].GetString();
+    info->gachaId = worldDoc["gacha"].GetInt();
+    
+    return info;
+}
+
