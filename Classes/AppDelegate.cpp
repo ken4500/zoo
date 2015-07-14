@@ -1,5 +1,6 @@
 #include "AppDelegate.h"
 #include "MainScene.h"
+#include "Constants.h"
 
 USING_NS_CC;
 
@@ -37,7 +38,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     director->setDisplayStats(true);
 
     // set FPS. the default value is 1.0/60 if you don't call this
-    director->setAnimationInterval(1.0 / 60);
+    director->setAnimationInterval(1.0 / GAME_FPS);
 
     FileUtils::getInstance()->addSearchPath("res");
 

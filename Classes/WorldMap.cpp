@@ -90,20 +90,22 @@ void WorldMap::setCurrentWidth(Length* width)
 void WorldMap::setGacha(Gacha* gacha)
 {
     _gacha = gacha;
-    _gacha->finishGachaCallback = CC_CALLBACK_1(WorldMap::releaseAnimal, this);
     gacha->setPosition(Vec2(0, 0));
     gacha->setLocalZOrder(_calcObjectZOrder(gacha));
-    gacha->setScale(1);
     addChild(gacha);
+}
+
+Gacha* WorldMap::getGacha()
+{
+    return _gacha;
 }
 
 void WorldMap::releaseAnimal(Animal* animal)
 {
-    animal->setPosition(_gacha->getPosition() + Vec2(0, 400));
+    float gachaHeight = _gacha->getGachaHeight();
+    animal->setPosition(_gacha->getPosition() + Vec2(0, gachaHeight));
     addChild(animal);
-    animal->jump(_gacha->getPosition() + Vec2(0, -100), 500);
-    
-    scaleupCallback(this);
+    animal->jump(_gacha->getPosition() + Vec2(0, -gachaHeight * 0.5f), gachaHeight * 2);
 }
 
 bool WorldMap::isMaxScale()

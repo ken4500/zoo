@@ -13,7 +13,7 @@
           <PointFrame FrameIndex="90" X="0.0000" Y="0.0000">
             <EasingData Type="0" />
           </PointFrame>
-          <PointFrame FrameIndex="120" X="0.0000" Y="0.0000">
+          <PointFrame FrameIndex="119" X="0.0000" Y="0.0000">
             <EasingData Type="0" />
           </PointFrame>
         </Timeline>
@@ -27,16 +27,16 @@
           <ScaleFrame FrameIndex="90" X="-10.0000" Y="-10.0000">
             <EasingData Type="0" />
           </ScaleFrame>
-          <ScaleFrame FrameIndex="120" X="0.0000" Y="0.0000">
+          <ScaleFrame FrameIndex="119" X="0.0000" Y="0.0000">
             <EasingData Type="0" />
           </ScaleFrame>
         </Timeline>
         <Timeline ActionTag="-2066128753" Property="Scale">
           <ScaleFrame FrameIndex="121" X="1.0000" Y="1.0000">
-            <EasingData Type="3" />
+            <EasingData Type="5" />
           </ScaleFrame>
           <ScaleFrame FrameIndex="135" X="1.2000" Y="0.8000">
-            <EasingData Type="1" />
+            <EasingData Type="26" />
           </ScaleFrame>
           <ScaleFrame FrameIndex="150" X="1.0000" Y="1.0000">
             <EasingData Type="0" />
@@ -44,11 +44,11 @@
         </Timeline>
       </Animation>
       <AnimationList>
-        <AnimationInfo Name="walk" StartIndex="1" EndIndex="121">
+        <AnimationInfo Name="walk" StartIndex="1" EndIndex="120">
           <RenderColor A="255" R="0" G="100" B="0" />
         </AnimationInfo>
         <AnimationInfo Name="drop" StartIndex="121" EndIndex="150">
-          <RenderColor A="150" R="72" G="209" B="204" />
+          <RenderColor A="255" R="72" G="209" B="204" />
         </AnimationInfo>
       </AnimationList>
       <ObjectData Name="Node" Tag="16" ctype="GameNodeObjectData">
@@ -58,7 +58,7 @@
             <Size X="400.0000" Y="400.0000" />
             <AnchorPoint ScaleX="0.5000" />
             <Position />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <Scale ScaleX="1.1959" ScaleY="0.8041" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize />

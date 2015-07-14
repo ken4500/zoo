@@ -8,9 +8,7 @@
 
 #include "AbstractSpecies.h"
 
-AbstractSpecies::AbstractSpecies() :
-_imageName("ant.png"),
-_moveCsbName("AnimalMove1.csb")
+AbstractSpecies::AbstractSpecies()
 {
 }
 

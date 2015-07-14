@@ -2,6 +2,7 @@
 #define __Main_SCENE_H__
 
 #include "cocos2d.h"
+#include "cocostudio/CocoStudio.h"
 #include "CommonInclude.h"
 class Gacha;
 class Animal;
@@ -20,16 +21,16 @@ public:
     // implement the "static create()" method manually
     CREATE_FUNC(MainScene);
     
+    void levelUpEffect();
+    
 private:
     Gacha* _gacha;
     WorldMap* _map;
+    cocostudio::timeline::ActionTimeline* _timeline;
 
     void onEnter() override;
     void update(float dt);
     void setupTouchHandling();
-
-    void levelup(WorldMap* map);
-
 
 };
 

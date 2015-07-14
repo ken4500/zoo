@@ -13,13 +13,14 @@
 
 class WorldInfo {
 public:
-    WorldInfo();
+    WorldInfo(int level);
     ~WorldInfo();
     Length* width;
     Length* maxWidth;
     int level;
     int gachaId;
     std::string mapName;
+    int imageWidth;
     
 };
 

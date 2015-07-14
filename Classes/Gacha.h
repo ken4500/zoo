@@ -21,11 +21,9 @@ class Gacha : public cocos2d::Node {
 public:
     CREATE_FUNC(Gacha);
     bool init() override;
-    std::function<void(Animal* animal)> finishGachaCallback;
+    float getGachaHeight();
 
 protected:
-    bool _enableGacha;
-    rapidjson::Document _settingDoc;
     cocostudio::timeline::ActionTimeline* _timeline;
 
     void onEnter() override;

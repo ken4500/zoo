@@ -32,5 +32,7 @@ enum class UnitOfLength
     km = 1000000,
 };
 
+static const float GAME_FPS = 60;
+
 
 #endif

@@ -27,12 +27,11 @@ public:
     Length* getMaxWidth();
     void setCurrentWidth(Length* length);
     void setGacha(Gacha* gacha);
+    Gacha* getGacha();
     bool isMaxScale();
 
     void releaseAnimal(Animal* animal);
-
-    std::function<void(WorldMap* self)> scaleupCallback;
-
+    
 protected:
     Length* _maxWidth;
     Length* _currentWidth;

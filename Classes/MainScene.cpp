@@ -21,6 +21,7 @@ Scene* MainScene::createScene()
     
     // "layer" is an autorelease object
     auto layer = MainScene::create();
+    layer->setName("main scene");
 
     // add layer as a child to scene
     scene->addChild(layer);
@@ -53,15 +54,13 @@ bool MainScene::init()
     _map = WorldManager::getInstance()->getMap();
     _map->setAnchorPoint(Vec2(0.5f, 0.5f));
     _map->setPosition(Vec2(displaySize.width / 2, displaySize.height / 2));
-    _map->scaleupCallback = CC_CALLBACK_1(MainScene::levelup, this);
+    _map->setLocalZOrder(-1);
     rootNode->addChild(_map);
 
-    _gacha = rootNode->getChildByName<Gacha*>("gacha");
-    _gacha->retain();
-    _gacha->removeFromParent();
-    _map->setGacha(_gacha);
-    _gacha->release();
-
+    // load the character animation timeline
+    _timeline = CSLoader::createTimeline("MainScene.csb");
+    // retain the character animation timeline so it doesn't get deallocated
+    _timeline->retain();
 
     addChild(rootNode);
 
@@ -91,9 +90,10 @@ void MainScene::setupTouchHandling()
     this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(touchListener, this);
 }
 
-
-void MainScene::levelup(WorldMap* map)
+void MainScene::levelUpEffect()
 {
-   // WorldManager::getInstance()->levelup();
+    this->stopAllActions();
+    this->runAction(_timeline);
+    _timeline->play("zoomout1", false);
+    _timeline->setLastFrameCallFunc([](){ WorldManager::getInstance()->setEnableNextAction(true); });
 }
-

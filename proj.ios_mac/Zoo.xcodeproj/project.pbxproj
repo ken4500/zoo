@@ -59,6 +59,7 @@
 		9F0564711B4AD89200649A7F /* Dog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F05646F1B4AD89200649A7F /* Dog.cpp */; };
 		9F0F163A1B556DBB00217010 /* libcocos2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F0F16361B556D8100217010 /* libcocos2d Mac.a */; };
 		9F0F163B1B556DC600217010 /* libcocos2d iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F0F16381B556D8100217010 /* libcocos2d iOS.a */; };
+		9F0F163F1B55B6E500217010 /* Ant.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F0F163E1B55B6E500217010 /* Ant.cpp */; };
 		9F425AE61B4616E6001B2969 /* WorldManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F425AE41B4616E6001B2969 /* WorldManager.cpp */; };
 		9F425AE91B461732001B2969 /* WorldInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F425AE71B461732001B2969 /* WorldInfo.cpp */; };
 		9F425AEC1B461899001B2969 /* Length.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F425AEA1B461899001B2969 /* Length.cpp */; };
@@ -69,7 +70,6 @@
 		9F83BA871B55687700605D1D /* UserDataController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F83BA841B55687700605D1D /* UserDataController.cpp */; };
 		9FFC9E6E1B42F8F400869B23 /* ZMath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FFC9E6C1B42F8F400869B23 /* ZMath.cpp */; };
 		9FFC9E711B42FA0100869B23 /* ZUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FFC9E6F1B42FA0100869B23 /* ZUtil.cpp */; };
-		9FFC9E781B44462300869B23 /* Ant.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FFC9E761B44462300869B23 /* Ant.cpp */; };
 		9FFC9E7D1B444AFB00869B23 /* AnimalFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FFC9E7B1B444AFB00869B23 /* AnimalFactory.cpp */; };
 		9FFC9E801B444C6000869B23 /* Beetle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FFC9E7E1B444C6000869B23 /* Beetle.cpp */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
@@ -159,6 +159,7 @@
 		9F05646F1B4AD89200649A7F /* Dog.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dog.cpp; sourceTree = "<group>"; };
 		9F0564701B4AD89200649A7F /* Dog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dog.h; sourceTree = "<group>"; };
 		9F0F16301B556D8100217010 /* cocos2d_libs.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2d_libs.xcodeproj; path = ../cocos2d/build/cocos2d_libs.xcodeproj; sourceTree = "<group>"; };
+		9F0F163E1B55B6E500217010 /* Ant.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Ant.cpp; sourceTree = "<group>"; };
 		9F425AE41B4616E6001B2969 /* WorldManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WorldManager.cpp; sourceTree = "<group>"; };
 		9F425AE51B4616E6001B2969 /* WorldManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldManager.h; sourceTree = "<group>"; };
 		9F425AE71B461732001B2969 /* WorldInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WorldInfo.cpp; sourceTree = "<group>"; };
@@ -181,7 +182,6 @@
 		9FFC9E701B42FA0100869B23 /* ZUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZUtil.h; sourceTree = "<group>"; };
 		9FFC9E721B42FAA500869B23 /* CommonInclude.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonInclude.h; sourceTree = "<group>"; };
 		9FFC9E741B43262600869B23 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		9FFC9E761B44462300869B23 /* Ant.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Ant.cpp; sourceTree = "<group>"; };
 		9FFC9E771B44462300869B23 /* Ant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ant.h; sourceTree = "<group>"; };
 		9FFC9E7B1B444AFB00869B23 /* AnimalFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AnimalFactory.cpp; sourceTree = "<group>"; };
 		9FFC9E7C1B444AFB00869B23 /* AnimalFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimalFactory.h; sourceTree = "<group>"; };
@@ -377,8 +377,8 @@
 			children = (
 				9F0564651B49D5AA00649A7F /* AbstractSpecies.cpp */,
 				9F0564661B49D5AA00649A7F /* AbstractSpecies.h */,
-				9FFC9E761B44462300869B23 /* Ant.cpp */,
 				9FFC9E771B44462300869B23 /* Ant.h */,
+				9F0F163E1B55B6E500217010 /* Ant.cpp */,
 				9FFC9E7E1B444C6000869B23 /* Beetle.cpp */,
 				9FFC9E7F1B444C6000869B23 /* Beetle.h */,
 				9F05646F1B4AD89200649A7F /* Dog.cpp */,
@@ -599,8 +599,8 @@
 				9FFC9E6E1B42F8F400869B23 /* ZMath.cpp in Sources */,
 				9F425AE91B461732001B2969 /* WorldInfo.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
+				9F0F163F1B55B6E500217010 /* Ant.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* MainScene.cpp in Sources */,
-				9FFC9E781B44462300869B23 /* Ant.cpp in Sources */,
 				9F425AE61B4616E6001B2969 /* WorldManager.cpp in Sources */,
 				9F015C941B420DC700F45135 /* Gacha.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,

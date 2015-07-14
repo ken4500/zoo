@@ -110,7 +110,7 @@
           <RenderColor A="255" R="127" G="255" B="0" />
         </AnimationInfo>
         <AnimationInfo Name="gacha2" StartIndex="101" EndIndex="131">
-          <RenderColor A="150" R="75" G="0" B="130" />
+          <RenderColor A="255" R="75" G="0" B="130" />
         </AnimationInfo>
       </AnimationList>
       <ObjectData Name="Node" CustomClassName="Gacha" Tag="9" ctype="GameNodeObjectData">

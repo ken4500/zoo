@@ -75,7 +75,7 @@ void Animal::jump(Vec2 target, float height)
         CallFunc::create([this]{
             runAction(_timeline);
             _timeline->play("drop", false);
-            _startWalk();
+            _timeline->setLastFrameCallFunc([this](){ _startWalk();});
         }),
         NULL
     ));
@@ -110,7 +110,7 @@ float Animal::getWorldScale()
 
 void Animal::_startWalk()
 {
-    this->runAction(_timeline);
+//    this->runAction(_timeline);
     _timeline->play("walk", true);
     _moveNextPoint();
 }
