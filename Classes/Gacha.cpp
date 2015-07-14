@@ -7,8 +7,8 @@
 //
 
 #include "Gacha.h"
-#include "AnimalFactory.h"
 #include "WorldManager.h"
+#include "Animal.h"
 
 
 bool Gacha::init() {
@@ -116,7 +116,7 @@ void Gacha::lotteryGacha()
     this->runAction(Sequence::create(
         DelayTime::create(durationTime - 0.1f),
         CallFunc::create([this, animalStr, isHit](){
-            auto animal = AnimalFactory::getInstance()->createAnimal(animalStr);
+            auto animal = Animal::CreateWithSpeceis(animalStr);
             animal->setTag((int)MainSceneTag::Animal);
             WorldManager::getInstance()->releaseAnimal(animal);
             if (isHit) {

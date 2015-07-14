@@ -1,5 +1,5 @@
 //
-//  AbstractSpecies.h
+//  Species.h
 //  Zoo
 //
 //  Created by Ken Watanabe on 2015/07/05.
@@ -11,14 +11,15 @@
 
 #include "CommonInclude.h"
 
-class AbstractSpecies {
+class Species {
 public:
-    AbstractSpecies();
+    Species(std::string name);
     Length* getMaxHeight();
     Length* getMinHeight();
     Length* getSpeed();
     std::string getImageName();
     std::string getMoveCsbName();
+    bool isMove();
 
 protected:
     Length* _maxHeight;
@@ -26,6 +27,7 @@ protected:
     Length* _speed;
     std::string _imageName;
     std::string _moveCsbName;
+    bool _move;
 };
 
 

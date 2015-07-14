@@ -41,6 +41,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     director->setAnimationInterval(1.0 / GAME_FPS);
 
     FileUtils::getInstance()->addSearchPath("res");
+    FileUtils::getInstance()->addSearchPath("res/animal");
 
     // create a scene. it's an autorelease object
     auto scene = MainScene::createScene();

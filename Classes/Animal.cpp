@@ -15,10 +15,10 @@ Animal::Animal()
 {
 }
 
-Animal* Animal::CreateWithSpeceis(AbstractSpecies* species)
+Animal* Animal::CreateWithSpeceis(std::string specesName)
 {
     Animal* animal = new(std::nothrow) Animal();
-    if (animal && animal->initWithSpeceis(species))
+    if (animal && animal->initWithSpeceis(specesName))
     {
         animal->autorelease();
         return animal;
@@ -29,22 +29,22 @@ Animal* Animal::CreateWithSpeceis(AbstractSpecies* species)
 
 }
 
-bool Animal::initWithSpeceis(AbstractSpecies* species)
+bool Animal::initWithSpeceis(std::string specesName)
 {
     if (!Node::init()) {
         return false;
     }
     
-    _species = species;
+    _species = new Species(specesName);
     float rnd = CCRANDOM_0_1();
-    float mm = (species->getMaxHeight()->getMmLength() - species->getMinHeight()->getMmLength()) * rnd + species->getMinHeight()->getMmLength();
+    float mm = (_species->getMaxHeight()->getMmLength() - _species->getMinHeight()->getMmLength()) * rnd + _species->getMinHeight()->getMmLength();
     _height = new Length(UnitOfLength::mm, mm);
 
     _rootNode = CSLoader::createNode(_species->getMoveCsbName());
     this->addChild(_rootNode);
 
     // load the character animation timeline
-    _timeline = CSLoader::createTimeline(species->getMoveCsbName());
+    _timeline = CSLoader::createTimeline(_species->getMoveCsbName());
     // retain the character animation timeline so it doesn't get deallocated
     _timeline->retain();
     

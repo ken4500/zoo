@@ -12,13 +12,13 @@
 #include "cocos2d.h"
 #include "cocostudio/CocoStudio.h"
 #include "CommonInclude.h"
-#include "AbstractSpecies.h"
+#include "Species.h"
 
 class Animal : public cocos2d::Node {
 public:
     Animal();
-    static Animal* CreateWithSpeceis(AbstractSpecies* species);
-    bool initWithSpeceis(AbstractSpecies* species);
+    static Animal* CreateWithSpeceis(std::string specesName);
+    bool initWithSpeceis(std::string specesName);
 
     void updateWorldScale();
     void jump(Vec2 target, float height);
@@ -29,7 +29,7 @@ public:
     std::string getName();
 
 protected:
-    AbstractSpecies* _species;
+    Species* _species;
     cocos2d::Node* _rootNode;
     cocostudio::timeline::ActionTimeline* _timeline;
     std::string _name;

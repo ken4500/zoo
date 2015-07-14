@@ -53,13 +53,11 @@
 		9F015C941B420DC700F45135 /* Gacha.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F015C901B420DC700F45135 /* Gacha.cpp */; };
 		9F015C951B420DC700F45135 /* GachaReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F015C921B420DC700F45135 /* GachaReader.cpp */; };
 		9F015C9A1B4211FB00F45135 /* Animal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F015C961B4211FB00F45135 /* Animal.cpp */; };
-		9F0564671B49D5AA00649A7F /* AbstractSpecies.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F0564651B49D5AA00649A7F /* AbstractSpecies.cpp */; };
+		9F0564671B49D5AA00649A7F /* Species.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F0564651B49D5AA00649A7F /* Species.cpp */; };
 		9F05646C1B49EDE000649A7F /* ScaleBar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F0564681B49EDE000649A7F /* ScaleBar.cpp */; };
 		9F05646D1B49EDE000649A7F /* ScaleBarReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F05646A1B49EDE000649A7F /* ScaleBarReader.cpp */; };
-		9F0564711B4AD89200649A7F /* Dog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F05646F1B4AD89200649A7F /* Dog.cpp */; };
 		9F0F163A1B556DBB00217010 /* libcocos2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F0F16361B556D8100217010 /* libcocos2d Mac.a */; };
 		9F0F163B1B556DC600217010 /* libcocos2d iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F0F16381B556D8100217010 /* libcocos2d iOS.a */; };
-		9F0F163F1B55B6E500217010 /* Ant.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F0F163E1B55B6E500217010 /* Ant.cpp */; };
 		9F425AE61B4616E6001B2969 /* WorldManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F425AE41B4616E6001B2969 /* WorldManager.cpp */; };
 		9F425AE91B461732001B2969 /* WorldInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F425AE71B461732001B2969 /* WorldInfo.cpp */; };
 		9F425AEC1B461899001B2969 /* Length.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F425AEA1B461899001B2969 /* Length.cpp */; };
@@ -71,7 +69,6 @@
 		9FFC9E6E1B42F8F400869B23 /* ZMath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FFC9E6C1B42F8F400869B23 /* ZMath.cpp */; };
 		9FFC9E711B42FA0100869B23 /* ZUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FFC9E6F1B42FA0100869B23 /* ZUtil.cpp */; };
 		9FFC9E7D1B444AFB00869B23 /* AnimalFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FFC9E7B1B444AFB00869B23 /* AnimalFactory.cpp */; };
-		9FFC9E801B444C6000869B23 /* Beetle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FFC9E7E1B444C6000869B23 /* Beetle.cpp */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
@@ -150,16 +147,13 @@
 		9F015C931B420DC700F45135 /* GachaReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GachaReader.h; sourceTree = "<group>"; };
 		9F015C961B4211FB00F45135 /* Animal.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Animal.cpp; sourceTree = "<group>"; };
 		9F015C971B4211FB00F45135 /* Animal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animal.h; sourceTree = "<group>"; };
-		9F0564651B49D5AA00649A7F /* AbstractSpecies.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AbstractSpecies.cpp; sourceTree = "<group>"; };
-		9F0564661B49D5AA00649A7F /* AbstractSpecies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractSpecies.h; sourceTree = "<group>"; };
+		9F0564651B49D5AA00649A7F /* Species.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Species.cpp; sourceTree = "<group>"; };
+		9F0564661B49D5AA00649A7F /* Species.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Species.h; sourceTree = "<group>"; };
 		9F0564681B49EDE000649A7F /* ScaleBar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScaleBar.cpp; sourceTree = "<group>"; };
 		9F0564691B49EDE000649A7F /* ScaleBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScaleBar.h; sourceTree = "<group>"; };
 		9F05646A1B49EDE000649A7F /* ScaleBarReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScaleBarReader.cpp; sourceTree = "<group>"; };
 		9F05646B1B49EDE000649A7F /* ScaleBarReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScaleBarReader.h; sourceTree = "<group>"; };
-		9F05646F1B4AD89200649A7F /* Dog.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dog.cpp; sourceTree = "<group>"; };
-		9F0564701B4AD89200649A7F /* Dog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dog.h; sourceTree = "<group>"; };
 		9F0F16301B556D8100217010 /* cocos2d_libs.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2d_libs.xcodeproj; path = ../cocos2d/build/cocos2d_libs.xcodeproj; sourceTree = "<group>"; };
-		9F0F163E1B55B6E500217010 /* Ant.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Ant.cpp; sourceTree = "<group>"; };
 		9F425AE41B4616E6001B2969 /* WorldManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WorldManager.cpp; sourceTree = "<group>"; };
 		9F425AE51B4616E6001B2969 /* WorldManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldManager.h; sourceTree = "<group>"; };
 		9F425AE71B461732001B2969 /* WorldInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WorldInfo.cpp; sourceTree = "<group>"; };
@@ -182,11 +176,8 @@
 		9FFC9E701B42FA0100869B23 /* ZUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZUtil.h; sourceTree = "<group>"; };
 		9FFC9E721B42FAA500869B23 /* CommonInclude.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonInclude.h; sourceTree = "<group>"; };
 		9FFC9E741B43262600869B23 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		9FFC9E771B44462300869B23 /* Ant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ant.h; sourceTree = "<group>"; };
 		9FFC9E7B1B444AFB00869B23 /* AnimalFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AnimalFactory.cpp; sourceTree = "<group>"; };
 		9FFC9E7C1B444AFB00869B23 /* AnimalFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimalFactory.h; sourceTree = "<group>"; };
-		9FFC9E7E1B444C6000869B23 /* Beetle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Beetle.cpp; sourceTree = "<group>"; };
-		9FFC9E7F1B444C6000869B23 /* Beetle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Beetle.h; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -316,7 +307,6 @@
 				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
 				9F83BA761B545E0F00605D1D /* Core */,
-				9F0564631B49D4FE00649A7F /* Species */,
 				9FFC9E731B430AD100869B23 /* Entity */,
 				9F83BA751B545DD600605D1D /* Scene */,
 				9F83BA741B545DC800605D1D /* Uitl */,
@@ -372,21 +362,6 @@
 			path = ios;
 			sourceTree = SOURCE_ROOT;
 		};
-		9F0564631B49D4FE00649A7F /* Species */ = {
-			isa = PBXGroup;
-			children = (
-				9F0564651B49D5AA00649A7F /* AbstractSpecies.cpp */,
-				9F0564661B49D5AA00649A7F /* AbstractSpecies.h */,
-				9FFC9E771B44462300869B23 /* Ant.h */,
-				9F0F163E1B55B6E500217010 /* Ant.cpp */,
-				9FFC9E7E1B444C6000869B23 /* Beetle.cpp */,
-				9FFC9E7F1B444C6000869B23 /* Beetle.h */,
-				9F05646F1B4AD89200649A7F /* Dog.cpp */,
-				9F0564701B4AD89200649A7F /* Dog.h */,
-			);
-			name = Species;
-			sourceTree = "<group>";
-		};
 		9F0F16311B556D8100217010 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -419,6 +394,8 @@
 		9F83BA761B545E0F00605D1D /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				9F0564651B49D5AA00649A7F /* Species.cpp */,
+				9F0564661B49D5AA00649A7F /* Species.h */,
 				9FFC9E7C1B444AFB00869B23 /* AnimalFactory.h */,
 				9FFC9E7B1B444AFB00869B23 /* AnimalFactory.cpp */,
 				9FFC9E721B42FAA500869B23 /* CommonInclude.h */,
@@ -599,14 +576,12 @@
 				9FFC9E6E1B42F8F400869B23 /* ZMath.cpp in Sources */,
 				9F425AE91B461732001B2969 /* WorldInfo.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
-				9F0F163F1B55B6E500217010 /* Ant.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* MainScene.cpp in Sources */,
 				9F425AE61B4616E6001B2969 /* WorldManager.cpp in Sources */,
 				9F015C941B420DC700F45135 /* Gacha.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				9F015C9A1B4211FB00F45135 /* Animal.cpp in Sources */,
-				9FFC9E801B444C6000869B23 /* Beetle.cpp in Sources */,
 				9FFC9E7D1B444AFB00869B23 /* AnimalFactory.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				9F83BA6C1B54327700605D1D /* WorldMap.cpp in Sources */,
@@ -617,9 +592,8 @@
 				9F83BA871B55687700605D1D /* UserDataController.cpp in Sources */,
 				9F015C951B420DC700F45135 /* GachaReader.cpp in Sources */,
 				9F05646C1B49EDE000649A7F /* ScaleBar.cpp in Sources */,
-				9F0564711B4AD89200649A7F /* Dog.cpp in Sources */,
 				9F83BA861B55687700605D1D /* UserData.cpp in Sources */,
-				9F0564671B49D5AA00649A7F /* AbstractSpecies.cpp in Sources */,
+				9F0564671B49D5AA00649A7F /* Species.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
