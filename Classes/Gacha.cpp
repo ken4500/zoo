@@ -22,6 +22,7 @@ bool Gacha::init() {
     _timeline->retain();
     
     std::srand((int)time(NULL));
+
     
     return true;
 }

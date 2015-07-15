@@ -22,13 +22,13 @@ public:
     CREATE_FUNC(Gacha);
     bool init() override;
     float getGachaHeight();
+    void lotteryGacha();
 
 protected:
     cocostudio::timeline::ActionTimeline* _timeline;
 
     void onEnter() override;
     void setupTouchHandling();
-    void lotteryGacha();
 };
 
 #endif /* defined(__Zoo__Gacha__) */

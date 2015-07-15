@@ -20,13 +20,17 @@ public:
     static Animal* CreateWithSpeceis(std::string specesName);
     bool initWithSpeceis(std::string specesName);
 
-    void updateWorldScale();
-    void jump(Vec2 target, float height, std::function<void ()> callback);
-
     float getWorldScale();
     Length* getHeight();
     Length* getSpeed();
     std::string getName();
+    bool getZOderUpdate();
+
+    void updateWorldScale();
+    void jump(Vec2 target, float height, std::function<void ()> callback);
+    void startWalk();
+    void stopMove();
+    void movePoint(Vec2 targetPoint, float dt);
 
 protected:
     Species* _species;
@@ -35,9 +39,10 @@ protected:
     std::string _name;
     cocos2d::Sprite* _image;
     Length* _height;
+    bool _zOrderUpdate;
+    Action* _moveAction;
     
     void onEnter() override;
-    void _startWalk();
     void _moveNextPoint();
     void _changeAnimalImage();
     

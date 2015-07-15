@@ -50,6 +50,7 @@ bool Animal::initWithSpeceis(std::string specesName)
     
     _image = _rootNode->getChildByName<Sprite*>("image");
     _changeAnimalImage();
+    _zOrderUpdate = false;
 
     return true;
 }
@@ -70,6 +71,7 @@ void Animal::updateWorldScale()
 
 void Animal::jump(Vec2 target, float height, std::function<void ()> callback)
 {
+    _zOrderUpdate = false;
     float jumpInterval = ZUtil::calcDurationTime(_timeline, "drop");
     this->runAction(Sequence::create(
         JumpTo::create(1, target, height, 1),
@@ -79,14 +81,31 @@ void Animal::jump(Vec2 target, float height, std::function<void ()> callback)
         }),
         DelayTime::create(jumpInterval),
         CallFunc::create([this, callback]{
-            _startWalk();
+            startWalk();
             if (callback) {
                 callback();
             }
+            _zOrderUpdate = true;
         }),
         NULL
     ));
 }
+
+void Animal::movePoint(Vec2 targetPoint, float dt)
+{
+    Vec2 diff = targetPoint - getPosition();
+    if (diff.length() > 10) {
+        diff.normalize();
+        Vec2 speed = 2 * diff * WorldManager::getInstance()->getDisplayLength(getSpeed());
+        setPosition(getPosition() + speed * dt);
+    }
+}
+
+void Animal::stopMove()
+{
+    this->stopAction(_moveAction);
+}
+
 
 #pragma - setter / getter
 
@@ -105,19 +124,25 @@ std::string Animal::getName()
     return _name;
 }
 
-
 float Animal::getWorldScale()
 {
     float scale = WorldManager::getInstance()->getImageScale(_image, _height);
     return scale;
 }
 
+bool Animal::getZOderUpdate()
+{
+    return _zOrderUpdate;
+}
+
+
 #pragma - private method
 
 
-void Animal::_startWalk()
+void Animal::startWalk()
 {
-//    this->runAction(_timeline);
+    stopAllActions();
+    runAction(_timeline);
     _timeline->play("walk", true);
     _moveNextPoint();
 }
@@ -133,7 +158,7 @@ void Animal::_moveNextPoint()
     } else {
         _image->setFlippedX(true);
     }
-    this->runAction(Sequence::create(
+    _moveAction = this->runAction(Sequence::create(
         MoveBy::create(duration, move),
         CallFunc::create([this](){
             _moveNextPoint();

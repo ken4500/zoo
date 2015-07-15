@@ -25,7 +25,7 @@ public:
 
     Length* getCurrentWidth();
     Length* getMaxWidth();
-    void setCurrentWidth(Length* length);
+    void setCurrentWidth(Length* length, std::function<void ()> callback);
     void setGacha(Gacha* gacha);
     Gacha* getGacha();
     bool isMaxScale();
@@ -37,8 +37,10 @@ protected:
     Length* _currentWidth;
     Gacha* _gacha;
     std::vector<Animal*> _animalList;
+    Vec2 _targetPoint;
     
     int _calcObjectZOrder(Node* node);
+    void setupTouchHandling();
 
 };
 

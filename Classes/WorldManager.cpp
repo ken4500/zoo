@@ -8,6 +8,7 @@
 
 #include "WorldManager.h"
 #include "Gacha.h"
+#include "Animal.h"
 
 USING_NS_CC;
 
@@ -25,7 +26,7 @@ WorldManager* WorldManager::getInstance()
 
 WorldManager::WorldManager()
 {
-    _level = 3;
+    _level = DEBUG_INIT_WORLD_LEVEL;
     _info = _loadWoldInfo(_level);
     _map = nullptr;
     _enableNextAction = true;
@@ -110,26 +111,62 @@ void WorldManager::releaseAnimal(Animal* animal, bool hit)
 WorldInfo* WorldManager::levelup()
 {
     _level++;
-    auto newWorldInfo = _loadWoldInfo(_level);
-    if (newWorldInfo->mapName == _info->mapName) {
-        _map->setCurrentWidth(newWorldInfo->width);
-    } else {
-        
-        
-    }
-    
     auto mainScene = _getMainScene();
     if (mainScene) {
         mainScene->levelUpEffect();
     }
     
-    auto gachaImage = _gacha->getChildByName<Sprite*>("image");
-    auto gachaLength = Length::scale(newWorldInfo->width, 0.2);
-    float gachaScale = getImageScale(gachaImage, gachaLength);
-    _gacha->runAction(EaseInOut::create(ScaleTo::create(1.0f, gachaScale), 2));
+    auto preWorldInfo = _info;
+    _info = _loadWoldInfo(_level);
+    if (_info->mapName == preWorldInfo->mapName) {
+        _map->setCurrentWidth(_info->width, NULL);
+        auto gachaImage = _gacha->getChildByName<Sprite*>("image");
+        auto gachaLength = Length::scale(_info->width, 0.2);
+        float gachaScale = getImageScale(gachaImage, gachaLength);
+        _gacha->runAction(EaseInOut::create(ScaleTo::create(1.0f, gachaScale), 2));
+    } else {
+        auto newMap = dynamic_cast<WorldMap*>(CSLoader::createNode(_info->mapName));
+        newMap->initSize(_info->maxWidth, preWorldInfo->width);
 
+        if (mainScene) {
+            mainScene->transitionMap(newMap);
+        }
+        _map->setCurrentWidth(_info->width, NULL);
+        newMap->setCurrentWidth(_info->width, [this, newMap, preWorldInfo]{
+            auto children = _map->getChildren();
+            for(auto node : children) {
+                if (node->getTag() == (int)MainSceneTag::Animal) {
+                    node->retain();
+                    node->removeFromParent();
+                    newMap->addChild(node);
+                    node->release();
+                    auto pos = node->getPosition() * preWorldInfo->maxWidth->getMmLength() / _info->maxWidth->getMmLength();
+                    node->setPosition(pos);
+                    auto animal = dynamic_cast<Animal*>(node);
+                    if (animal) {
+                        animal->updateWorldScale();
+                        animal->startWalk();
+                    }
+                }
+            }
+            _gacha->retain();
+            _gacha->removeFromParent();
+            newMap->setGacha(_gacha);
+            _gacha->release();
+            auto pos = _gacha->getPosition() * preWorldInfo->maxWidth->getMmLength() / _info->maxWidth->getMmLength();
+            _gacha->setPosition(pos);
+            auto scale = _gacha->getScale() * preWorldInfo->maxWidth->getMmLength() / _info->maxWidth->getMmLength();
+            _gacha->setScale(scale);
+            
+            auto gachaImage = _gacha->getChildByName<Sprite*>("image");
+            auto gachaLength = Length::scale(_info->width, 0.2);
+            float gachaScale = getImageScale(gachaImage, gachaLength);
+            _gacha->runAction(EaseInOut::create(ScaleTo::create(1.0f, gachaScale), 2));
+
+            _map = newMap;
+        });
+    }
     
-    _info = newWorldInfo;
     return _info;
 }
 
@@ -143,7 +180,6 @@ Vec2 WorldManager::getRadomPlace()
     float x = w * rand_0_1() - w / 2;
     float y = h * rand_0_1() - h / 2;
     return Vec2(x, y);
-
 }
 
 

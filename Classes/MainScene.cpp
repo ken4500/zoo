@@ -47,22 +47,22 @@ bool MainScene::init()
     instance->registReaderObject("ScaleBarReader", (ObjectFactory::Instance) ScaleBarReader::getInstance);
     instance->registReaderObject("WorldMapReader", (ObjectFactory::Instance) WorldMapReader::getInstance);
 
-    auto rootNode = CSLoader::createNode("MainScene.csb");
-    rootNode->setAnchorPoint(Vec2(0.5f, 0.5f));
-    rootNode->setPosition(Vec2(displaySize.width / 2, displaySize.height / 2));
+    _rootNode = CSLoader::createNode("MainScene.csb");
+    _rootNode->setAnchorPoint(Vec2(0.5f, 0.5f));
+    _rootNode->setPosition(Vec2(displaySize.width / 2, displaySize.height / 2));
 
     _map = WorldManager::getInstance()->getMap();
     _map->setAnchorPoint(Vec2(0.5f, 0.5f));
     _map->setPosition(Vec2(displaySize.width / 2, displaySize.height / 2));
     _map->setLocalZOrder(-1);
-    rootNode->addChild(_map);
+    _rootNode->addChild(_map);
 
     // load the character animation timeline
     _timeline = CSLoader::createTimeline("MainScene.csb");
     // retain the character animation timeline so it doesn't get deallocated
     _timeline->retain();
 
-    addChild(rootNode);
+    addChild(_rootNode);
 
     return true;
 }
@@ -97,3 +97,26 @@ void MainScene::levelUpEffect()
     _timeline->play("zoomout1", false);
     _timeline->setLastFrameCallFunc([](){ WorldManager::getInstance()->setEnableNextAction(true); });
 }
+
+void MainScene::transitionMap(WorldMap* newMap)
+{
+    auto displaySize = Director::getInstance()->getVisibleSize();
+    newMap->setAnchorPoint(Vec2(0.5f, 0.5f));
+    newMap->setPosition(Vec2(displaySize.width / 2, displaySize.height / 2));
+    newMap->setLocalZOrder(-2);
+    _rootNode->addChild(newMap);
+    newMap->runAction(Sequence::create(
+        DelayTime::create(1.0f),
+        CallFunc::create([newMap]{
+            newMap->setLocalZOrder(-1);
+        }),
+        NULL
+    ));
+    _map->runAction(Sequence::create(
+        FadeOut::create(1.0f),
+        RemoveSelf::create(),
+        NULL
+    ));
+    _map = newMap;
+}
+

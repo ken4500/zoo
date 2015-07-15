@@ -35,4 +35,8 @@ enum class UnitOfLength
 static const float GAME_FPS = 60;
 
 
+// for debug
+static const float DEBUG_INIT_WORLD_LEVEL = 3;
+
+
 #endif

@@ -22,10 +22,12 @@ public:
     CREATE_FUNC(MainScene);
     
     void levelUpEffect();
+    void transitionMap(WorldMap* newMap);
     
 private:
     Gacha* _gacha;
     WorldMap* _map;
+    Node* _rootNode;
     cocostudio::timeline::ActionTimeline* _timeline;
 
     void onEnter() override;

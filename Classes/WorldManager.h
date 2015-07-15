@@ -14,6 +14,8 @@
 #include "WorldMap.h"
 #include "MainScene.h"
 class Gacha;
+class Animal;
+
 class WorldManager
 {
 public:
