@@ -36,7 +36,7 @@ static const float GAME_FPS = 60;
 
 
 // for debug
-static const float DEBUG_INIT_WORLD_LEVEL = 3;
+static const float DEBUG_INIT_WORLD_LEVEL = 1;
 
 
 #endif

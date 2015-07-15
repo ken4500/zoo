@@ -53,7 +53,9 @@ void WorldMap::update(float dt)
                 if (animal->getZOderUpdate()) {
                     node->setLocalZOrder(1000 - (int)node->getPosition().y);
                 }
-                if (_targetPoint != Vec2::ZERO) {
+                float distance = (animal->getPosition() - _targetPoint).length();
+                distance *= getScale();
+                if (_targetPoint != Vec2::ZERO && distance < 300) {
                     animal->movePoint(_targetPoint, dt);
                 }
             }
@@ -91,6 +93,7 @@ void WorldMap::setupTouchHandling()
                 }
             }
             particle = ParticleSystemQuad::create("effect/particle_circle.plist");
+            particle->setScale(1 / this->getScale());
             particle->setPosition(touchPos);
             addChild(particle);
         }
