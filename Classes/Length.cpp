@@ -84,3 +84,26 @@ float Length::getLength(UnitOfLength unit)
 {
     return _mm / (float)unit;
 }
+
+
+#pragma - calculate
+
+void Length::add(Length* l)
+{
+    _mm += l->getMmLength();
+}
+
+void Length::scale(float scale)
+{
+    _mm *= scale;
+}
+
+Length* Length::add(Length* l1, Length* l2)
+{
+    return new Length(l1->getMmLength() + l2->getMmLength());
+}
+
+Length* Length::scale(Length* l, float scale)
+{
+    return new Length(l->getMmLength() * scale);
+}

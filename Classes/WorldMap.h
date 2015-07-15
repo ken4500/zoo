@@ -30,7 +30,7 @@ public:
     Gacha* getGacha();
     bool isMaxScale();
 
-    void releaseAnimal(Animal* animal);
+    void releaseAnimal(Animal* animal, std::function<void ()> callback);
     
 protected:
     Length* _maxWidth;

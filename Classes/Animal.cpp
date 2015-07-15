@@ -68,14 +68,21 @@ void Animal::updateWorldScale()
     this->setScale(scale);
 }
 
-void Animal::jump(Vec2 target, float height)
+void Animal::jump(Vec2 target, float height, std::function<void ()> callback)
 {
+    float jumpInterval = ZUtil::calcDurationTime(_timeline, "drop");
     this->runAction(Sequence::create(
         JumpTo::create(1, target, height, 1),
         CallFunc::create([this]{
-            runAction(_timeline);
+            runAction(_timeline),
             _timeline->play("drop", false);
-            _timeline->setLastFrameCallFunc([this](){ _startWalk();});
+        }),
+        DelayTime::create(jumpInterval),
+        CallFunc::create([this, callback]{
+            _startWalk();
+            if (callback) {
+                callback();
+            }
         }),
         NULL
     ));
@@ -117,7 +124,7 @@ void Animal::_startWalk()
 
 void Animal::_moveNextPoint()
 {
-    Vec2 targetP = ZUtil::getRadomPlace();
+    Vec2 targetP = WorldManager::getInstance()->getRadomPlace();
     Vec2 move = targetP - this->getPosition();
     float speed = WorldManager::getInstance()->getDisplayLength(getSpeed());
     float duration = move.length() / speed;

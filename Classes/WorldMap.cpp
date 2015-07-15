@@ -100,12 +100,13 @@ Gacha* WorldMap::getGacha()
     return _gacha;
 }
 
-void WorldMap::releaseAnimal(Animal* animal)
+void WorldMap::releaseAnimal(Animal* animal, std::function<void ()> callback)
 {
     float gachaHeight = _gacha->getGachaHeight();
     animal->setPosition(_gacha->getPosition() + Vec2(0, gachaHeight));
     addChild(animal);
-    animal->jump(_gacha->getPosition() + Vec2(0, -gachaHeight * 0.5f), gachaHeight * 2);
+    auto target = _gacha->getPosition() + Vec2(0, -gachaHeight * 0.5f);
+    animal->jump(target, gachaHeight * 2, callback);
 }
 
 bool WorldMap::isMaxScale()

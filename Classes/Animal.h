@@ -21,7 +21,7 @@ public:
     bool initWithSpeceis(std::string specesName);
 
     void updateWorldScale();
-    void jump(Vec2 target, float height);
+    void jump(Vec2 target, float height, std::function<void ()> callback);
 
     float getWorldScale();
     Length* getHeight();

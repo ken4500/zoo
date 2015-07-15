@@ -10,15 +10,15 @@
 #define __Zoo__ZUtil__
 
 #include "cocos2d.h"
+#include "cocostudio/CocoStudio.h"
+#include "CommonInclude.h"
 using namespace cocos2d;
 
 class ZUtil{
-public:
-    static Vec2 getRadomPlace();
-    static Vec2 convertRootWorldSpace(Vec2 vec, Node* node);
-    static Rect convertRootWorldSpace(Rect rect, Node* node);
-    
+public:    
     static void printVec(Vec2 vec);
+    
+    static float calcDurationTime(cocostudio::timeline::ActionTimeline* timeline, std::string animationName);
 };
 
 

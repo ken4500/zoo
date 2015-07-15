@@ -111,17 +111,14 @@ void Gacha::lotteryGacha()
     this->stopAllActions();
     this->runAction(_timeline);
     _timeline->play(animationName, false);
-    auto animationInfo = _timeline->getAnimationInfo(animationName);
-    float durationTime = (animationInfo.endIndex - animationInfo.startIndex) / (_timeline->getTimeSpeed() * GAME_FPS);
+    float durationTime = ZUtil::calcDurationTime(_timeline, animationName);
     this->runAction(Sequence::create(
         DelayTime::create(durationTime - 0.1f),
         CallFunc::create([this, animalStr, isHit](){
             auto animal = Animal::CreateWithSpeceis(animalStr);
             animal->setTag((int)MainSceneTag::Animal);
-            WorldManager::getInstance()->releaseAnimal(animal);
-            if (isHit) {
-                WorldManager::getInstance()->levelup();
-            } else {
+            WorldManager::getInstance()->releaseAnimal(animal, isHit);
+            if (isHit == false) {
                 WorldManager::getInstance()->setEnableNextAction(true);
             }
         }),

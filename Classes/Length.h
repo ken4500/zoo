@@ -23,6 +23,12 @@ public:
     float getLength();
     float getMmLength();
     float getLength(UnitOfLength unit);
+    
+    void add(Length* l);
+    void scale(float scale);
+    
+    static Length* add(Length* l1, Length* l2);
+    static Length* scale(Length* l, float scale);
 
 private:
     static std::map<std::string, UnitOfLength> toUnitMap;
@@ -31,3 +37,4 @@ private:
 };
 
 #endif /* defined(__Zoo__Length__) */
+

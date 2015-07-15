@@ -30,8 +30,9 @@ public:
     void setEnableNextAction(bool enable);
 
     // game logic
-    void releaseAnimal(Animal* animal);
+    void releaseAnimal(Animal* animal, bool hit);
     WorldInfo* levelup();
+    Vec2 getRadomPlace();
 
 private:
     int _level;

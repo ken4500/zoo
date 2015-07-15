@@ -1,1 +1,1 @@
-{"1":[{"probability":95,"reward":"Kabutomushi","hit":true},{"probability":90,"reward":"Ari"}],"2":[{"probability":95,"reward":"Chiwawa","hit":true},{"probability":95,"reward":"Kabutomushi"}]}
+{"1":[{"probability":90,"reward":"Ari"},{"probability":10,"reward":"Batta","hit":true}],"2":[{"probability":10,"reward":"Kabutomushi","hit":true},{"probability":40,"reward":"Batta"},{"probability":20,"reward":"Ari"},{"probability":30,"reward":"Hachi"}],"3":[{"probability":10,"reward":"Mogura","hit":true},{"probability":90,"reward":"Kabutomushi"}]}

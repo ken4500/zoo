@@ -27,6 +27,7 @@
           <Image Name="stone2.png" />
           <Image Name="tree1.png" />
           <Image Name="flower1.png" />
+          <Image Name="map1.jpg" />
         </Folder>
         <Project Name="Map1.csd" Type="Node" />
         <Project Name="Map2.csd" Type="Node" />
