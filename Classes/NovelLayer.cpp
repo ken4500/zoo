@@ -1,0 +1,470 @@
+//
+//  NovelLayer.cpp
+//  zoo
+//
+//  Created by Ken Watanabe on 2014/09/21.
+//
+//
+
+#include "NovelLayer.h"
+#include "SoundManager.h"
+
+NovelLayer::NovelLayer()
+{
+    
+}
+
+NovelLayer::~NovelLayer()
+{
+    
+}
+
+NovelLayer* NovelLayer::create(Json* novelJson, GLubyte opacity, bool fade, std::function<void ()> callback, std::function<void ()> callback2) {
+    auto result = NovelLayer::create();
+    result->_endCallback = callback;
+    result->_endCallback2 = callback2;
+    result->_targetOpacity = opacity;
+    if (fade) {
+        result->setOpacity(0);
+    } else {
+        result->setOpacity(opacity);
+    }
+    result->_playFade = fade;
+    result->_debugSkip = Json_getInt(novelJson, "skip", 0);
+    auto actions = Json_getItem(novelJson, "actions");
+    result->_player = std::make_shared<NovelPlayer>(actions);
+    
+    return result;
+}
+
+bool NovelLayer::init()
+{
+    if (!LayerColor::initWithColor(Color4B(0, 0, 0, 0))) {
+        return false;
+    }
+    
+    Size visibleSize = Director::getInstance()->getVisibleSize();
+    setContentSize(visibleSize);
+
+    
+    // アトラス読み込み
+    auto cache = SpriteFrameCache::getInstance();
+    cache->addSpriteFramesWithFile("chat_images.plist","chat_images.png");
+    
+    //  touch callbacks
+    auto dispatcher = Director::getInstance()->getEventDispatcher();
+    auto listener = EventListenerTouchOneByOne::create();
+    listener->setSwallowTouches(true);
+    listener->onTouchBegan = [this](Touch* touch, Event* event) {
+        if (this->_touchAbsorber != NULL) {
+            this->_touchAbsorber->processTap();
+        }
+        return true;
+    };
+    dispatcher->addEventListenerWithSceneGraphPriority(listener, this);
+
+    // skipボタン作成
+    auto skipItem = MenuItemImage::create("", "", CC_CALLBACK_1(NovelLayer::_pushedSkipButton, this));
+    skipItem->setNormalSpriteFrame(cache->getSpriteFrameByName("b_skip.png"));
+    skipItem->setSelectedSpriteFrame(cache->getSpriteFrameByName("b_skip.png"));
+    skipItem->setPosition(Vec2(500, 100));
+    auto menu = Menu::create(skipItem, NULL);
+    menu->setPosition(Vec2::ZERO);
+    menu->setName("skip_menu");
+    addChild(menu, 1);
+
+    return true;
+}
+
+void NovelLayer::completeAction(int actionIdx) {
+    std::set<int>::iterator actionItr = _inProgressActions.find(actionIdx);
+    if (actionItr == _inProgressActions.end()) {
+        return;
+    }
+    _inProgressActions.erase(actionItr);
+    
+    if (_inProgressActions.empty()) {
+        this->playNext();
+    }
+}
+
+int NovelLayer::beginAction() {
+    int actionIdx = _actionIdx;
+    _actionIdx++;
+    _inProgressActions.insert(actionIdx);
+    return actionIdx;
+}
+
+void NovelLayer::updateSpeechBalloon(std::shared_ptr<NovelAction> action) {
+    int actionIdx = this->beginAction();
+    auto targetBalloon = NovelBalloon::create(action,
+                                              _balloonIdx,
+                                              [this, actionIdx]() {
+                                                  this->_touchAbsorber = NULL;
+                                                  this->completeAction(actionIdx);
+                                                  if (_debugSkip == 1) {
+                                                      this->endScene();
+                                                  }
+                                              });
+    targetBalloon->setCascadeColorEnabled(true);
+
+    _balloonIdx++;
+    float offset = 0.0f;
+    if (action->getTarget() == NovelAction::Target::Right) {
+        offset = -50.0f;
+    } else if (action->getTarget() == NovelAction::Target::Left) {
+        offset = 50.0f;
+    }
+    auto currentPos = targetBalloon->getPosition();
+    currentPos.x -= offset;
+    targetBalloon->setPosition(currentPos);
+    targetBalloon->runAction(EaseExponentialOut::create(MoveBy::create(0.15f, Point(offset, 0))));
+    targetBalloon->playBalloonSpecificAnimation();
+    this->_touchAbsorber = targetBalloon;
+
+    if (action->getTarget() == NovelAction::Target::Right) {
+        if (this->_rightBalloon) {
+            this->_rightBalloon->removeFromParent();
+        }
+        if (this->_defaultBalloon) {
+            this->_defaultBalloon->removeFromParent();
+        }
+        if (this->_leftBalloon) {
+            this->_leftBalloon->setOpacity(128);
+        }
+        _rightBackImage->addChild(targetBalloon);
+        this->_rightBalloon = targetBalloon;
+    } else if (action->getTarget() == NovelAction::Target::Left) {
+        if (this->_leftBalloon) {
+            this->_leftBalloon->removeFromParent();
+        }
+        if (this->_defaultBalloon) {
+            this->_defaultBalloon->removeFromParent();
+        }
+        if (this->_rightBalloon) {
+            this->_rightBalloon->setOpacity(128);
+        }
+        _leftBackImage->addChild(targetBalloon);
+        this->_leftBalloon = targetBalloon;
+    } else if (action->getTarget() == NovelAction::Target::Narration) {
+        if (this->_leftBalloon) {
+            this->_leftBalloon->setOpacity(128);
+        }
+        if (this->_rightBalloon) {
+            this->_rightBalloon->setOpacity(128);
+        }
+        if (this->_defaultBalloon) {
+            this->_defaultBalloon->removeFromParent();
+        }
+        this->_defaultBalloon = targetBalloon;
+        this->addChild(targetBalloon);
+    }
+}
+
+void NovelLayer::clearBalloons() {
+    if (this->_leftBalloon != NULL) {
+        this->_leftBalloon->removeFromParent();
+        this->_leftBalloon = NULL;
+    }
+    if (this->_rightBalloon != NULL) {
+        this->_rightBalloon->removeFromParent();
+        this->_rightBalloon = NULL;
+    }
+    if (this->_defaultBalloon != NULL) {
+        this->_defaultBalloon->removeFromParent();
+        this->_defaultBalloon = NULL;
+    }
+    _balloonIdx = 0;
+}
+
+void NovelLayer::beginScene() {
+    this->clearBalloons();
+    
+    this->_isSceneBreak = false;
+    this->_inProgressActions.clear();
+    
+    this->playNext();
+}
+
+void NovelLayer::endScene() {
+    if (_endCallback != NULL) {
+        _endCallback();
+    }
+    if (_endCallback2 != NULL) {
+        _endCallback2();
+    }
+}
+
+void NovelLayer::playDelay(std::shared_ptr<NovelAction> action) {
+    const float delayTime = ::atof(action->getValue().c_str());
+    int actionIdx = beginAction();
+    runAction(Sequence::create(DelayTime::create(delayTime),
+                               CallFunc::create([this, actionIdx]() { this->completeAction(actionIdx); }),
+                               NULL));
+}
+
+void NovelLayer::playWait() {
+}
+
+void NovelLayer::showItem(std::shared_ptr<NovelAction> action, const bool fade) {
+}
+
+void NovelLayer::hideItem(bool fade) {
+}
+
+void NovelLayer::setImage(std::shared_ptr<NovelAction> action)
+{
+    auto visibleSize = Director::getInstance()->getVisibleSize();
+    auto imageName = action->getValue();
+    auto target = action->getTarget();
+    if (target == NovelAction::Target::Left) {
+        if (_leftChara == NULL) {
+            _leftBackImage = Sprite::createWithSpriteFrameName("chat_bg.png");
+            _leftBackImage->setAnchorPoint(Vec2::ZERO);
+            _leftBackImage->setPosition(Vec2(0, 400));
+            _leftChara = Sprite::create(imageName);
+            _leftChara->setAnchorPoint(Vec2(0, 0));
+            _leftChara->setPosition(Vec2(0, 50));
+            addChild(_leftBackImage);
+            _leftBackImage->addChild(_leftChara);
+            if (_rightChara) {
+                _leftBackImage->cocos2d::Node::setPosition(_leftBackImage->getPosition() + Vec2(0, -200));
+                if (_rightBackImage->getPosition().y == 400) {
+                    _rightBackImage->cocos2d::Node::setPosition(_rightBackImage->getPosition() + Vec2(0, 200));
+                }
+            }
+        } else {
+            if (imageName == "remove") {
+                _leftNameImage->removeFromParent();
+                _leftNameImage = NULL;
+                _leftChara->removeFromParent();
+                _leftChara = NULL;
+                _leftBalloon->removeFromParent();
+                _leftBalloon = NULL;
+                _leftBackImage->removeFromParent();
+                _leftBackImage = NULL;
+            } else {
+                _leftChara->setTexture(imageName);
+            }
+        }
+    } else if (target == NovelAction::Target::Right) {
+        if (_rightChara == NULL) {
+            _rightBackImage = Sprite::createWithSpriteFrameName("chat_bg.png");
+            _rightBackImage->setFlippedX(true);
+            _rightBackImage->setAnchorPoint(Vec2::ZERO);
+            _rightBackImage->setPosition(Vec2(0, 400));
+            _rightChara = Sprite::create(imageName);
+            _rightChara->setAnchorPoint(Vec2(1, 0));
+            _rightChara->setPosition(Vec2(700, 50));
+            addChild(_rightBackImage);
+            _rightBackImage->addChild(_rightChara);
+            if (_leftChara) {
+                _rightBackImage->cocos2d::Node::setPosition(_rightBackImage->getPosition() + Vec2(0, 200));
+                if (_leftBackImage->getPosition().y == 400) {
+                    _leftBackImage->cocos2d::Node::setPosition(_leftBackImage->getPosition() + Vec2(0, -200));
+                }
+            }
+        } else {
+            if (imageName == "remove") {
+                _rightNameImage->removeFromParent();
+                _rightNameImage = NULL;
+                _rightChara->removeFromParent();
+                _rightChara = NULL;
+                _rightBalloon->removeFromParent();
+                _rightBalloon = NULL;
+                _rightBackImage->removeFromParent();
+                _rightBackImage = NULL;
+            } else {
+                _rightChara->setTexture(imageName);
+            }
+        }
+    } else if (target == NovelAction::Target::Background) {
+        if (imageName == "remove") {
+            _backGroundImage->removeFromParent();
+            _backGroundImage = NULL;
+        } else {
+            if (_backGroundImage == NULL) {
+                auto back = Sprite::create(imageName);
+                back->setScale(
+                               visibleSize.width/back->getContentSize().width,
+                               visibleSize.height/back->getContentSize().height
+                               );
+                back->setAnchorPoint(Vec2(0, 0));
+                back->setPosition(Vec2::ZERO);
+                back->setZOrder(-1);
+                _backGroundImage = back;
+                addChild(back);
+            } else {
+                clearBalloons();
+                
+                Sprite *removedImage = &(*_backGroundImage);
+
+                auto back = Sprite::create(imageName);
+                back->setScale(
+                    visibleSize.width/back->getContentSize().width,
+                    visibleSize.height/back->getContentSize().height
+                );
+                back->setAnchorPoint(Vec2(0, 0));
+                back->setPosition(Vec2::ZERO);
+                back->setZOrder(removedImage->getZOrder()-1);
+                back->setOpacity(0);
+                _backGroundImage = back;
+                addChild(back);
+                
+                auto dummyBack = LayerColor::create(Color4B::BLACK, 640, 1136);
+                addChild(dummyBack, -100);
+                dummyBack->runAction(Sequence::create(
+                    DelayTime::create(1.0f),
+                    RemoveSelf::create(),
+                    NULL
+                ));
+
+                back->runAction(Sequence::create(
+                    FadeIn::create(1.0f),
+                    NULL
+                ));
+
+                removedImage->runAction(Sequence::create(
+                    FadeOut::create(1.0f),
+                    RemoveSelf::create(),
+                    NULL
+                ));
+            }
+        }
+    }
+}
+
+void NovelLayer::setNameImage(std::shared_ptr<NovelAction> action)
+{
+    auto name = action->getValue();
+    auto target = action->getTarget();
+    if (target == NovelAction::Target::Left) {
+        if (_leftNameImage == NULL) {
+            _leftNameImage = Sprite::createWithSpriteFrameName("chat_name01.png");
+            _leftNameImage->setAnchorPoint(Vec2::ZERO);
+            _leftNameImage->setPosition(Vec2(190, 290));
+            _leftBackImage->addChild(_leftNameImage, 11);
+            auto label1 = Label::createWithSystemFont(name.c_str(), "HiraMinProN-W6", 30);
+            label1->setName("label");
+            label1->setColor(Color3B::WHITE);
+            label1->setAnchorPoint(Vec2(0, 0.5f));
+            label1->setPosition(Vec2(120, 18));
+            _leftNameImage->addChild(label1);
+        } else {
+            auto label = (Label*)_leftNameImage->getChildByName("label");
+            label->setString(name);
+        }
+    } else if (target == NovelAction::Target::Right) {
+        if (_rightNameImage == NULL) {
+            _rightNameImage = Sprite::createWithSpriteFrameName("chat_name01.png");
+            _rightNameImage->setAnchorPoint(Vec2::ZERO);
+            _rightNameImage->setPosition(Vec2(0, 290));
+            _rightBackImage->addChild(_rightNameImage, 11);
+            auto label1 = Label::createWithSystemFont(name.c_str(), "HiraMinProN-W6", 30);
+            label1->setName("label");
+            label1->setAnchorPoint(Vec2(0, 0.5f));
+            label1->setColor(Color3B::WHITE);
+            label1->setPosition(Vec2(120, 18));
+            _rightNameImage->addChild(label1);
+        } else {
+            auto label = (Label*)_rightNameImage->getChildByName("label");
+            label->setString(name);
+        }
+    }
+}
+
+void NovelLayer::playNext() {
+    // 次のアクションセット取得
+    auto actions = this->_player->popNextActions();
+//    bool isFirstAction = this->_player->getIsFirstPlayback();
+//    bool isLastAction = !this->_player->getMoreActionsAvailable();
+    if (actions->empty() || actions == NULL) {
+        // アクションが無いのでシーン終了
+        this->endScene();
+    } else {
+        int rootActionIdx = this->beginAction();
+        // 取得したアクションを実行する
+        for (auto action : *actions) {
+            switch (action->getType()) {
+                case NovelAction::Type::Set:
+                    setImage(action);
+                    break;
+                case NovelAction::Type::Name:
+                    setNameImage(action);
+                    break;
+                case NovelAction::Type::Speak:
+                case NovelAction::Type::Narration:
+                    this->updateSpeechBalloon(action);
+                    break;
+                case NovelAction::Type::Delay:
+                    this->playDelay(action);
+                    break;
+                case NovelAction::Type::Shake:
+                    break;
+                case NovelAction::Type::Wait:
+                    this->playWait();
+                    break;
+                case NovelAction::Type::Clear:
+                    this->clearBalloons();
+                    break;
+                case NovelAction::Type::ShowImage:
+                    this->showItem(action, true);
+                    break;
+                case NovelAction::Type::ShowImageInstant:
+                    this->showItem(action, false);
+                    break;
+                case NovelAction::Type::HideImage:
+                    this->hideItem(true);
+                    break;
+                case NovelAction::Type::HideImageInstant:
+                    this->hideItem(false);
+                    break;
+                case NovelAction::Type::Music:
+                    SoundManager::getInstance()->playBgm(action->getValue());
+                    break;
+                case NovelAction::Type::Effect:
+                    SoundManager::getInstance()->playEffect(action->getValue());
+                    break;
+                default:
+                    break;
+            }
+        }
+        this->completeAction(rootActionIdx);
+    }
+}
+
+void NovelLayer::playNovel() {
+    if (this->_isPlaying) {
+        return;
+    }
+    this->_isPlaying = true;
+    if (this->_playFade) {
+        this->runAction(Sequence::create(FadeTo::create(0.5, this->_targetOpacity),
+                                         CallFunc::create([this]() { this->playNext(); }),
+                                         NULL));
+    } else {
+        this->playNext();
+    }
+    this->_preloadFinished = true;
+}
+
+void NovelLayer::_pushedSkipButton(Ref* sender)
+{
+    SoundManager::getInstance()->playCancellEffect();
+    
+    // 一番最後のBGMを探して再生
+    shared_ptr<NovelAction> bgm = _player->getLastMusic();
+    if (bgm != nullptr) {
+        SoundManager::getInstance()->playBgm(bgm->getValue());
+    }
+    
+    this->endScene();
+}
+
+void NovelLayer::removeSkipButton()
+{
+    auto skipMenu = getChildByName("skip_menu");
+    if (skipMenu) {
+        skipMenu->removeFromParent();
+    }
+}

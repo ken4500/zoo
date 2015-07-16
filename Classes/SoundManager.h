@@ -28,6 +28,8 @@ public:
     void stopBgm();
     void playEffect(string efectName);
     void playGameBgm();
+    void playNovelTap();
+    void playCancellEffect();
 
 private:
     int _currentBgmId;

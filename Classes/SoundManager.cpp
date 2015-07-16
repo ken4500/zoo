@@ -72,3 +72,11 @@ void SoundManager::playGameBgm()
 //    playBgm(bgm);
 }
 
+
+void SoundManager::playNovelTap()
+{
+}
+
+void SoundManager::playCancellEffect()
+{
+}

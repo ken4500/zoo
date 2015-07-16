@@ -49,6 +49,7 @@ bool MainScene::init()
 
     _rootNode = CSLoader::createNode("MainScene.csb");
     _rootNode->setAnchorPoint(Vec2(0.5f, 0.5f));
+    _rootNode->setPosition(Vec2::ZERO);
     _rootNode->setPosition(Vec2(displaySize.width / 2, displaySize.height / 2));
 
     _map = WorldManager::getInstance()->getMap();

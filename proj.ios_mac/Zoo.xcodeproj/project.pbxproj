@@ -66,6 +66,11 @@
 		9F83BA811B55683100605D1D /* SoundManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F83BA7F1B55683100605D1D /* SoundManager.cpp */; };
 		9F83BA861B55687700605D1D /* UserData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F83BA821B55687700605D1D /* UserData.cpp */; };
 		9F83BA871B55687700605D1D /* UserDataController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F83BA841B55687700605D1D /* UserDataController.cpp */; };
+		9FB063E01B5818A20088AE2A /* NovelAction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FB063D71B5818A20088AE2A /* NovelAction.cpp */; };
+		9FB063E11B5818A20088AE2A /* NovelBalloon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FB063D91B5818A20088AE2A /* NovelBalloon.cpp */; };
+		9FB063E21B5818A20088AE2A /* NovelLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FB063DB1B5818A20088AE2A /* NovelLayer.cpp */; };
+		9FB063E31B5818A20088AE2A /* NovelPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FB063DD1B5818A20088AE2A /* NovelPlayer.cpp */; };
+		9FB063E91B581B140088AE2A /* LabelColor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FB063E61B581B140088AE2A /* LabelColor.cpp */; };
 		9FFC9E6E1B42F8F400869B23 /* ZMath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FFC9E6C1B42F8F400869B23 /* ZMath.cpp */; };
 		9FFC9E711B42FA0100869B23 /* ZUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FFC9E6F1B42FA0100869B23 /* ZUtil.cpp */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
@@ -169,6 +174,18 @@
 		9F83BA831B55687700605D1D /* UserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserData.h; sourceTree = "<group>"; };
 		9F83BA841B55687700605D1D /* UserDataController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UserDataController.cpp; sourceTree = "<group>"; };
 		9F83BA851B55687700605D1D /* UserDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDataController.h; sourceTree = "<group>"; };
+		9FB063D71B5818A20088AE2A /* NovelAction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NovelAction.cpp; sourceTree = "<group>"; };
+		9FB063D81B5818A20088AE2A /* NovelAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NovelAction.h; sourceTree = "<group>"; };
+		9FB063D91B5818A20088AE2A /* NovelBalloon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NovelBalloon.cpp; sourceTree = "<group>"; };
+		9FB063DA1B5818A20088AE2A /* NovelBalloon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NovelBalloon.h; sourceTree = "<group>"; };
+		9FB063DB1B5818A20088AE2A /* NovelLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NovelLayer.cpp; sourceTree = "<group>"; };
+		9FB063DC1B5818A20088AE2A /* NovelLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NovelLayer.h; sourceTree = "<group>"; };
+		9FB063DD1B5818A20088AE2A /* NovelPlayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NovelPlayer.cpp; sourceTree = "<group>"; };
+		9FB063DE1B5818A20088AE2A /* NovelPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NovelPlayer.h; sourceTree = "<group>"; };
+		9FB063DF1B5818A20088AE2A /* NovelTouchHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NovelTouchHandler.h; sourceTree = "<group>"; };
+		9FB063E61B581B140088AE2A /* LabelColor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LabelColor.cpp; sourceTree = "<group>"; };
+		9FB063E71B581B140088AE2A /* LabelColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelColor.h; sourceTree = "<group>"; };
+		9FB063E81B581B140088AE2A /* LabelColorDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelColorDefinition.h; sourceTree = "<group>"; };
 		9FFC9E6C1B42F8F400869B23 /* ZMath.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ZMath.cpp; sourceTree = "<group>"; };
 		9FFC9E6D1B42F8F400869B23 /* ZMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZMath.h; sourceTree = "<group>"; };
 		9FFC9E6F1B42FA0100869B23 /* ZUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ZUtil.cpp; sourceTree = "<group>"; };
@@ -300,6 +317,7 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				9FB063D61B5818960088AE2A /* Novel */,
 				9FFC9E741B43262600869B23 /* Constants.h */,
 				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
@@ -408,6 +426,41 @@
 				9F425AEB1B461899001B2969 /* Length.h */,
 			);
 			name = Core;
+			sourceTree = "<group>";
+		};
+		9FB063D61B5818960088AE2A /* Novel */ = {
+			isa = PBXGroup;
+			children = (
+				9FB063E51B581A930088AE2A /* View */,
+				9FB063E41B581A8D0088AE2A /* Model */,
+			);
+			name = Novel;
+			sourceTree = "<group>";
+		};
+		9FB063E41B581A8D0088AE2A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9FB063E61B581B140088AE2A /* LabelColor.cpp */,
+				9FB063E71B581B140088AE2A /* LabelColor.h */,
+				9FB063E81B581B140088AE2A /* LabelColorDefinition.h */,
+				9FB063DD1B5818A20088AE2A /* NovelPlayer.cpp */,
+				9FB063DE1B5818A20088AE2A /* NovelPlayer.h */,
+				9FB063D71B5818A20088AE2A /* NovelAction.cpp */,
+				9FB063D81B5818A20088AE2A /* NovelAction.h */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		9FB063E51B581A930088AE2A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9FB063D91B5818A20088AE2A /* NovelBalloon.cpp */,
+				9FB063DA1B5818A20088AE2A /* NovelBalloon.h */,
+				9FB063DB1B5818A20088AE2A /* NovelLayer.cpp */,
+				9FB063DC1B5818A20088AE2A /* NovelLayer.h */,
+				9FB063DF1B5818A20088AE2A /* NovelTouchHandler.h */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		9FFC9E731B430AD100869B23 /* Entity */ = {
@@ -567,15 +620,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FB063E21B5818A20088AE2A /* NovelLayer.cpp in Sources */,
 				9F83BA811B55683100605D1D /* SoundManager.cpp in Sources */,
 				9FFC9E6E1B42F8F400869B23 /* ZMath.cpp in Sources */,
 				9F425AE91B461732001B2969 /* WorldInfo.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
+				9FB063E31B5818A20088AE2A /* NovelPlayer.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* MainScene.cpp in Sources */,
 				9F425AE61B4616E6001B2969 /* WorldManager.cpp in Sources */,
 				9F015C941B420DC700F45135 /* Gacha.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
+				9FB063E91B581B140088AE2A /* LabelColor.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
+				9FB063E11B5818A20088AE2A /* NovelBalloon.cpp in Sources */,
 				9F015C9A1B4211FB00F45135 /* Animal.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				9F83BA6C1B54327700605D1D /* WorldMap.cpp in Sources */,
@@ -585,6 +642,7 @@
 				9FFC9E711B42FA0100869B23 /* ZUtil.cpp in Sources */,
 				9F83BA871B55687700605D1D /* UserDataController.cpp in Sources */,
 				9F015C951B420DC700F45135 /* GachaReader.cpp in Sources */,
+				9FB063E01B5818A20088AE2A /* NovelAction.cpp in Sources */,
 				9F05646C1B49EDE000649A7F /* ScaleBar.cpp in Sources */,
 				9F83BA861B55687700605D1D /* UserData.cpp in Sources */,
 				9F0564671B49D5AA00649A7F /* Species.cpp in Sources */,
@@ -611,6 +669,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -649,6 +708,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ios/Prefix.pch;
