@@ -13,11 +13,14 @@
 #include "Constants.h"
 #include "ui/CocosGUI.h"
 #include "cocostudio/CocoStudio.h"
-#include "spine/Json.h"
 #include "NovelAction.h"
 #include "NovelPlayer.h"
 #include "NovelBalloon.h"
 #include "NovelTouchHandler.h"
+#include "json/document.h"
+#include "json/writer.h"
+#include "json/stringbuffer.h"
+
 using namespace ui;
 using namespace cocostudio;
 
@@ -32,7 +35,7 @@ public:
     virtual ~NovelLayer();
     CREATE_FUNC(NovelLayer);
     virtual bool init();
-    static NovelLayer* create(Json* json, GLubyte opacity, bool fade, std::function<void ()> callback, std::function<void ()> callback2 = NULL);
+    static NovelLayer* create(rapidjson::Value& json, GLubyte opacity, bool fade, std::function<void ()> callback, std::function<void ()> callback2 = NULL);
     // ノベル再生を開始する_
     void playNovel();
     void removeSkipButton();
@@ -44,8 +47,8 @@ protected:
 private:
     Sprite* _leftNameImage = NULL;
     Sprite* _rightNameImage = NULL;
-    Sprite* _leftBackImage = NULL;
-    Sprite* _rightBackImage = NULL;
+    Node* _leftNode = NULL;
+    Node* _rightNode = NULL;
     Sprite* _backGroundImage = NULL;
     Sprite* _leftChara =  NULL;
     Sprite* _rightChara = NULL;

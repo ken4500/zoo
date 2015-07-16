@@ -111,7 +111,7 @@ Label* NovelBalloon::getLabelSprite(const std::string& text) {
     }
 
     Node* labelNode = reinterpret_cast<Node*>(textLabel);
-    labelNode->setZOrder(10);
+    labelNode->setZOrder(1);
     color.applyColor(textLabel);
     return textLabel;
 }
@@ -212,11 +212,8 @@ void NovelBalloon::showArrow() {
             auto arrow = Node::create();
             arrow->setTag(10);
             arrow->setPosition(this->_arrowPos);
-            auto parts1 = Sprite::createWithSpriteFrameName("chat_tap_a.png");
-            auto parts2 = Sprite::createWithSpriteFrameName("chat_tap_b.png");
+            auto parts1 = Sprite::create("chat/ui/tap.png");
             parts1->setPosition(Vec2(0, 22));
-            parts2->setPosition(Vec2(0, -22));
-            arrow->addChild(parts2, 1);
             arrow->addChild(parts1, 2);
             this->_balloonSprite->addChild(arrow);
 
@@ -258,47 +255,28 @@ NovelBalloon* NovelBalloon::create(std::shared_ptr<NovelAction> action,
     result->setCascadeOpacityEnabled(true);
 
     Sprite* balloon;
-    Vec2 labelPos = Vec2(55, 190);
+    Vec2 labelPos = Vec2(65, 130);
     Size visibleSize = Director::getInstance()->getVisibleSize();
     switch (action->getBalloon()) {
         case NovelAction::Balloon::Normal:
-            balloon = Sprite::createWithSpriteFrameName("chat_fukidashi01.png");
-            result->_arrowPos = Point(370, 30);
-            if (action->getTarget() == NovelAction::Target::Left) {
-                balloon->setAnchorPoint(Vec2(1, 0));
-                balloon->setPosition(Vec2(640, 85));
-            } else if (action->getTarget() == NovelAction::Target::Right) {
-                balloon->setFlippedX(true);
-                balloon->setAnchorPoint(Vec2(0, 0));
-                balloon->setPosition(Vec2(0, 85));
-            }
-            break;
         case NovelAction::Balloon::Shout:
-            balloon = Sprite::createWithSpriteFrameName("chat_fukidashi02.png");
-            result->_arrowPos = Point(370, 30);
-            if (action->getTarget() == NovelAction::Target::Left) {
-                balloon->setAnchorPoint(Vec2(1, 0));
-                balloon->setPosition(Vec2(640, 85));
-            } else if (action->getTarget() == NovelAction::Target::Right) {
-                balloon->setFlippedX(true);
-                balloon->setAnchorPoint(Vec2(0, 0));
-                balloon->setPosition(Vec2(0, 85));
-            }
-            break;
-        case NovelAction::Balloon::Modal:
-            balloon = Sprite::createWithSpriteFrameName("pop_06.png");
-            result->_arrowPos = Point(600, 20);
+            balloon = Sprite::create("chat/ui/fukidashi.png");
+            result->_arrowPos = Point(balloon->getContentSize().width - 50, 0);
             balloon->setAnchorPoint(Vec2(0.5, 0.5));
-            balloon->setPosition(Vec2(visibleSize.width / 2, visibleSize.width / 2));
-            labelPos = Vec2(balloon->getContentSize().width / 2, balloon->getContentSize().height / 2 - 10);
+            if (action->getTarget() == NovelAction::Target::Left) {
+                balloon->setPosition(Vec2(visibleSize.width/ 2 - 40, 150));
+            } else if (action->getTarget() == NovelAction::Target::Right) {
+                balloon->setPosition(Vec2(-visibleSize.width/ 2 + 40, 100));
+                balloon->setFlippedX(true);
+            }
             break;
         default:
             if (action->getTarget() == NovelAction::Target::Narration) {
-                balloon = Sprite::createWithSpriteFrameName("clear_box_black_640x200.png");
+                balloon = Sprite::create("clear_box_black_640x200.png");
                 result->_arrowPos = Point(600, 20);
                 balloon->setAnchorPoint(Vec2(0.5, 0.5));
                 balloon->setPosition(Vec2(visibleSize.width /2, visibleSize.height / 2));
-                labelPos = Vec2(visibleSize.width / 2, 100);
+                labelPos = Vec2(balloon->getContentSize().width / 2, 100);
             }
             break;
     }

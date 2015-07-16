@@ -10,7 +10,10 @@
 #define __ninjya__NovelAction__
 
 #include <iostream>
-#include "spine/Json.h"
+#include "json/document.h"
+#include "json/writer.h"
+#include "json/stringbuffer.h"
+
 using namespace std;
 
 class NovelAction {
@@ -54,7 +57,7 @@ public:
         LightOverlay,
         FullOverlay
     };
-    static std::shared_ptr<NovelAction> createFromJson(Json* json);
+    static std::shared_ptr<NovelAction> createFromJson(rapidjson::Value& json);
     Type getType();
     Target getTarget();
     Balloon getBalloon();

@@ -11,14 +11,16 @@
 
 #include "cocos2d.h"
 #include <iostream>
-#include "spine/Json.h"
+#include "json/document.h"
+#include "json/writer.h"
+#include "json/stringbuffer.h"
 #include "NovelAction.h"
 using namespace std;
 USING_NS_CC;
 
 class NovelPlayer {
 public:
-    NovelPlayer(Json* novelJson);
+    NovelPlayer(rapidjson::Value& novelJson);
     shared_ptr<vector<shared_ptr<NovelAction>>> popNextActions();
     bool goToNextScene();
     bool getIsNextActionFullscreen();

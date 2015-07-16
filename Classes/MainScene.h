@@ -33,6 +33,7 @@ private:
     void onEnter() override;
     void update(float dt);
     void setupTouchHandling();
+    void _playNovel(std::string novelId, std::function<void ()> callback, bool apearSkipButton);
 
 };
 

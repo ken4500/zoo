@@ -37,10 +37,10 @@ bool NovelAction::getFullscreen() {
     (this->_balloon == Balloon::FullOverlay || this->_balloon == Balloon::LightOverlay);
 }
 
-std::shared_ptr<NovelAction> NovelAction::createFromJson(Json* json) {
+std::shared_ptr<NovelAction> NovelAction::createFromJson(rapidjson::Value& json) {
     auto result = std::make_shared<NovelAction>();
     
-    auto type = string(Json_getString(json, "type", ""));
+    auto type = string(json["type"].GetString());
     transform(type.begin(), type.end(), type.begin(), ::tolower);
     if (type == "set") {
         result->_type = Type::Set;
@@ -73,7 +73,7 @@ std::shared_ptr<NovelAction> NovelAction::createFromJson(Json* json) {
     }
     
     if (result->_type == Type::Set || result->_type == Type::Speak || result->_type == Type::Name || result->_type == Type::Narration) {
-        auto target = string(Json_getString(json, "target", ""));
+        auto target = string(json["target"].GetString());
         std::transform(target.begin(), target.end(), target.begin(), ::tolower);
         if (target == "left") {
             result->_target = Target::Left;
@@ -92,7 +92,7 @@ std::shared_ptr<NovelAction> NovelAction::createFromJson(Json* json) {
     
     if (result->_type == Type::Set) {
     } else if (result->_type == Type::Speak) {
-        auto balloon = string(Json_getString(json, "balloon", ""));
+        auto balloon = string(json["balloon"].GetString());
         std::transform(balloon.begin(), balloon.end(), balloon.begin(), ::tolower);
         if (balloon == "normal") {
             result->_balloon = Balloon::Normal;
@@ -115,24 +115,28 @@ std::shared_ptr<NovelAction> NovelAction::createFromJson(Json* json) {
         }
     }
     
-    result->_value = string(Json_getString(json, "value", ""));
-    std::string lowerValue = result->_value;
-    std::transform(lowerValue.begin(), lowerValue.end(), lowerValue.begin(), ::tolower);
-    if (lowerValue == "none") {
+    std::string lowerValue;
+    if (json["value"].IsNull() == false) {
+        result->_value = string(json["value"].GetString());
+        lowerValue = result->_value;
+        std::transform(lowerValue.begin(), lowerValue.end(), lowerValue.begin(), ::tolower);
+    } else {
         result->_value = "";
     }
 
-    result->_value2 = string(Json_getString(json, "value2", ""));
-    lowerValue = result->_value2;
-    std::transform(lowerValue.begin(), lowerValue.end(), lowerValue.begin(), ::tolower);
-    if (lowerValue == "none") {
+    if (json["value2"].IsNull() == false) {
+        result->_value2 = string(json["value2"].GetString());
+        lowerValue = result->_value2;
+        std::transform(lowerValue.begin(), lowerValue.end(), lowerValue.begin(), ::tolower);
+    } else {
         result->_value2 = "";
     }
 
-    result->_value3 = string(Json_getString(json, "value3", ""));
-    lowerValue = result->_value3;
-    std::transform(lowerValue.begin(), lowerValue.end(), lowerValue.begin(), ::tolower);
-    if (lowerValue == "none") {
+    if (json["value3"].IsNull() == false) {
+        result->_value3 = string(json["value3"].GetString());
+        lowerValue = result->_value3;
+        std::transform(lowerValue.begin(), lowerValue.end(), lowerValue.begin(), ::tolower);
+    } else {
         result->_value3 = "";
     }
     

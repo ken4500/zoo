@@ -9,6 +9,7 @@
 #include "WorldMapReader.h"
 #include "WorldManager.h"
 #include "Animal.h"
+#include "NovelLayer.h"
 
 USING_NS_CC;
 
@@ -72,6 +73,7 @@ void MainScene::onEnter()
 {
     Layer::onEnter();
     this->setupTouchHandling();
+    _playNovel("novel_start", NULL, false);
 }
 
 void MainScene::update(float dt)
@@ -119,5 +121,40 @@ void MainScene::transitionMap(WorldMap* newMap)
         NULL
     ));
     _map = newMap;
+}
+
+void MainScene::_playNovel(std::string novelId, std::function<void ()> callback, bool apearSkipButton)
+{
+    // 再生しない
+    auto jsonStr = FileUtils::getInstance()->getStringFromFile("data/novel.json");
+    rapidjson::Document document;
+    document.Parse<0>(jsonStr.c_str());
+    rapidjson::Value& novelJson = document[novelId.c_str()];
+
+    WorldManager::getInstance()->setEnableNextAction(false);
+
+    // TODO: pause
+
+    // 会話終了後のコールバック
+    auto preCallbackFunc = [this]() {
+        auto novel = getChildByName<NovelLayer*>("novel");
+        if (novel) {
+            novel->removeFromParent();
+        }
+        WorldManager::getInstance()->setEnableNextAction(true);
+        
+        // TODO: resume
+    };
+    
+    // 会話生成&開始
+    auto novel = NovelLayer::create(novelJson, 100, false, preCallbackFunc, callback);
+    novel->setPosition(Vec2(0, 0));
+    novel->setName("novel");
+    if (apearSkipButton == false) {
+        novel->removeSkipButton();
+    }
+    addChild(novel);
+    novel->playNovel();
+
 }
 

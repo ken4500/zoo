@@ -8,12 +8,13 @@
 
 #include "NovelPlayer.h"
 
-NovelPlayer::NovelPlayer(Json* novelJson) {
+NovelPlayer::NovelPlayer(rapidjson::Value& novelJson) {
     
     // JSON からシーンを読み込む
     auto actions = make_shared<queue<shared_ptr<NovelAction>>>();
     set<string> images;
-    for (Json *item = novelJson->child; item; item = item->next) {
+    for (int i = 0; i < novelJson.Size(); i++) {
+        rapidjson::Value& item = novelJson[i];
         auto parsedAction = NovelAction::createFromJson(item);
         if (parsedAction->getType() == NovelAction::Type::Set ||
             parsedAction->getType() == NovelAction::Type::ShowImage ||

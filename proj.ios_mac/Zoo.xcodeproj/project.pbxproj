@@ -317,13 +317,13 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				9FB063D61B5818960088AE2A /* Novel */,
 				9FFC9E741B43262600869B23 /* Constants.h */,
 				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
 				9F83BA761B545E0F00605D1D /* Core */,
 				9FFC9E731B430AD100869B23 /* Entity */,
 				9F83BA751B545DD600605D1D /* Scene */,
+				9FB063D61B5818960088AE2A /* Novel */,
 				9F83BA741B545DC800605D1D /* Uitl */,
 			);
 			name = Classes;

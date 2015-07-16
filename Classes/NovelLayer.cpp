@@ -19,7 +19,7 @@ NovelLayer::~NovelLayer()
     
 }
 
-NovelLayer* NovelLayer::create(Json* novelJson, GLubyte opacity, bool fade, std::function<void ()> callback, std::function<void ()> callback2) {
+NovelLayer* NovelLayer::create(rapidjson::Value& novelJson, GLubyte opacity, bool fade, std::function<void ()> callback, std::function<void ()> callback2) {
     auto result = NovelLayer::create();
     result->_endCallback = callback;
     result->_endCallback2 = callback2;
@@ -30,8 +30,7 @@ NovelLayer* NovelLayer::create(Json* novelJson, GLubyte opacity, bool fade, std:
         result->setOpacity(opacity);
     }
     result->_playFade = fade;
-    result->_debugSkip = Json_getInt(novelJson, "skip", 0);
-    auto actions = Json_getItem(novelJson, "actions");
+    rapidjson::Value& actions = novelJson["actions"];
     result->_player = std::make_shared<NovelPlayer>(actions);
     
     return result;
@@ -107,6 +106,7 @@ void NovelLayer::updateSpeechBalloon(std::shared_ptr<NovelAction> action) {
                                                   }
                                               });
     targetBalloon->setCascadeColorEnabled(true);
+    
 
     _balloonIdx++;
     float offset = 0.0f;
@@ -131,8 +131,10 @@ void NovelLayer::updateSpeechBalloon(std::shared_ptr<NovelAction> action) {
         }
         if (this->_leftBalloon) {
             this->_leftBalloon->setOpacity(128);
+            this->_rightNode->setZOrder(2);
+            this->_leftNode->setZOrder(1);
         }
-        _rightBackImage->addChild(targetBalloon);
+        _rightNode->addChild(targetBalloon);
         this->_rightBalloon = targetBalloon;
     } else if (action->getTarget() == NovelAction::Target::Left) {
         if (this->_leftBalloon) {
@@ -143,8 +145,10 @@ void NovelLayer::updateSpeechBalloon(std::shared_ptr<NovelAction> action) {
         }
         if (this->_rightBalloon) {
             this->_rightBalloon->setOpacity(128);
+            this->_rightNode->setZOrder(1);
+            this->_leftNode->setZOrder(2);
         }
-        _leftBackImage->addChild(targetBalloon);
+        _leftNode->addChild(targetBalloon);
         this->_leftBalloon = targetBalloon;
     } else if (action->getTarget() == NovelAction::Target::Narration) {
         if (this->_leftBalloon) {
@@ -219,20 +223,13 @@ void NovelLayer::setImage(std::shared_ptr<NovelAction> action)
     auto target = action->getTarget();
     if (target == NovelAction::Target::Left) {
         if (_leftChara == NULL) {
-            _leftBackImage = Sprite::createWithSpriteFrameName("chat_bg.png");
-            _leftBackImage->setAnchorPoint(Vec2::ZERO);
-            _leftBackImage->setPosition(Vec2(0, 400));
+            _leftNode = Node::create();
+            _leftNode->setPosition(Vec2(0, 0));
             _leftChara = Sprite::create(imageName);
             _leftChara->setAnchorPoint(Vec2(0, 0));
-            _leftChara->setPosition(Vec2(0, 50));
-            addChild(_leftBackImage);
-            _leftBackImage->addChild(_leftChara);
-            if (_rightChara) {
-                _leftBackImage->cocos2d::Node::setPosition(_leftBackImage->getPosition() + Vec2(0, -200));
-                if (_rightBackImage->getPosition().y == 400) {
-                    _rightBackImage->cocos2d::Node::setPosition(_rightBackImage->getPosition() + Vec2(0, 200));
-                }
-            }
+            _leftChara->setPosition(Vec2(20, 100));
+            addChild(_leftNode);
+            _leftNode->addChild(_leftChara);
         } else {
             if (imageName == "remove") {
                 _leftNameImage->removeFromParent();
@@ -241,29 +238,21 @@ void NovelLayer::setImage(std::shared_ptr<NovelAction> action)
                 _leftChara = NULL;
                 _leftBalloon->removeFromParent();
                 _leftBalloon = NULL;
-                _leftBackImage->removeFromParent();
-                _leftBackImage = NULL;
+                _leftNode->removeFromParent();
+                _leftNode = NULL;
             } else {
                 _leftChara->setTexture(imageName);
             }
         }
     } else if (target == NovelAction::Target::Right) {
         if (_rightChara == NULL) {
-            _rightBackImage = Sprite::createWithSpriteFrameName("chat_bg.png");
-            _rightBackImage->setFlippedX(true);
-            _rightBackImage->setAnchorPoint(Vec2::ZERO);
-            _rightBackImage->setPosition(Vec2(0, 400));
+            _rightNode = Node::create();
+            _rightNode->setPosition(Vec2(visibleSize.width, 0));
             _rightChara = Sprite::create(imageName);
             _rightChara->setAnchorPoint(Vec2(1, 0));
-            _rightChara->setPosition(Vec2(700, 50));
-            addChild(_rightBackImage);
-            _rightBackImage->addChild(_rightChara);
-            if (_leftChara) {
-                _rightBackImage->cocos2d::Node::setPosition(_rightBackImage->getPosition() + Vec2(0, 200));
-                if (_leftBackImage->getPosition().y == 400) {
-                    _leftBackImage->cocos2d::Node::setPosition(_leftBackImage->getPosition() + Vec2(0, -200));
-                }
-            }
+            _rightChara->setPosition(Vec2(-20, 100));
+            addChild(_rightNode);
+            _rightNode->addChild(_rightChara);
         } else {
             if (imageName == "remove") {
                 _rightNameImage->removeFromParent();
@@ -272,8 +261,8 @@ void NovelLayer::setImage(std::shared_ptr<NovelAction> action)
                 _rightChara = NULL;
                 _rightBalloon->removeFromParent();
                 _rightBalloon = NULL;
-                _rightBackImage->removeFromParent();
-                _rightBackImage = NULL;
+                _rightNode->removeFromParent();
+                _rightNode = NULL;
             } else {
                 _rightChara->setTexture(imageName);
             }
@@ -285,10 +274,7 @@ void NovelLayer::setImage(std::shared_ptr<NovelAction> action)
         } else {
             if (_backGroundImage == NULL) {
                 auto back = Sprite::create(imageName);
-                back->setScale(
-                               visibleSize.width/back->getContentSize().width,
-                               visibleSize.height/back->getContentSize().height
-                               );
+                back->setScale(visibleSize.width/back->getContentSize().width);
                 back->setAnchorPoint(Vec2(0, 0));
                 back->setPosition(Vec2::ZERO);
                 back->setZOrder(-1);
@@ -300,10 +286,7 @@ void NovelLayer::setImage(std::shared_ptr<NovelAction> action)
                 Sprite *removedImage = &(*_backGroundImage);
 
                 auto back = Sprite::create(imageName);
-                back->setScale(
-                    visibleSize.width/back->getContentSize().width,
-                    visibleSize.height/back->getContentSize().height
-                );
+                back->setScale(visibleSize.width/back->getContentSize().width);
                 back->setAnchorPoint(Vec2(0, 0));
                 back->setPosition(Vec2::ZERO);
                 back->setZOrder(removedImage->getZOrder()-1);
@@ -311,7 +294,7 @@ void NovelLayer::setImage(std::shared_ptr<NovelAction> action)
                 _backGroundImage = back;
                 addChild(back);
                 
-                auto dummyBack = LayerColor::create(Color4B::BLACK, 640, 1136);
+                auto dummyBack = LayerColor::create(Color4B::BLACK, visibleSize.width, visibleSize.height);
                 addChild(dummyBack, -100);
                 dummyBack->runAction(Sequence::create(
                     DelayTime::create(1.0f),
@@ -340,15 +323,16 @@ void NovelLayer::setNameImage(std::shared_ptr<NovelAction> action)
     auto target = action->getTarget();
     if (target == NovelAction::Target::Left) {
         if (_leftNameImage == NULL) {
-            _leftNameImage = Sprite::createWithSpriteFrameName("chat_name01.png");
+            _leftNameImage = Sprite::create("chat/ui/name_rect.png");
             _leftNameImage->setAnchorPoint(Vec2::ZERO);
-            _leftNameImage->setPosition(Vec2(190, 290));
-            _leftBackImage->addChild(_leftNameImage, 11);
+            _leftNameImage->setPosition(Vec2(20, 50));
+            _leftNode->addChild(_leftNameImage, 11);
+            auto nameImageSize = _leftNameImage->getContentSize();
             auto label1 = Label::createWithSystemFont(name.c_str(), "HiraMinProN-W6", 30);
             label1->setName("label");
-            label1->setColor(Color3B::WHITE);
-            label1->setAnchorPoint(Vec2(0, 0.5f));
-            label1->setPosition(Vec2(120, 18));
+            label1->setColor(Color3B::BLACK);
+            label1->setAnchorPoint(Vec2(0.5f, 0.5f));
+            label1->setPosition(Vec2(nameImageSize.width / 2, nameImageSize.height / 2));
             _leftNameImage->addChild(label1);
         } else {
             auto label = (Label*)_leftNameImage->getChildByName("label");
@@ -356,15 +340,15 @@ void NovelLayer::setNameImage(std::shared_ptr<NovelAction> action)
         }
     } else if (target == NovelAction::Target::Right) {
         if (_rightNameImage == NULL) {
-            _rightNameImage = Sprite::createWithSpriteFrameName("chat_name01.png");
-            _rightNameImage->setAnchorPoint(Vec2::ZERO);
-            _rightNameImage->setPosition(Vec2(0, 290));
-            _rightBackImage->addChild(_rightNameImage, 11);
+            _rightNameImage = Sprite::create("chat/ui/name_rect.png");
+            _rightNameImage->setAnchorPoint(Vec2(1, 0));
+            _rightNameImage->setPosition(Vec2(-20, 50));
+            _rightNode->addChild(_rightNameImage, 11);
             auto label1 = Label::createWithSystemFont(name.c_str(), "HiraMinProN-W6", 30);
             label1->setName("label");
             label1->setAnchorPoint(Vec2(0, 0.5f));
-            label1->setColor(Color3B::WHITE);
-            label1->setPosition(Vec2(120, 18));
+            label1->setColor(Color3B::BLACK);
+            label1->setPosition(Vec2(20, 18));
             _rightNameImage->addChild(label1);
         } else {
             auto label = (Label*)_rightNameImage->getChildByName("label");
