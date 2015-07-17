@@ -30,6 +30,7 @@ WorldManager::WorldManager()
     _info = _loadWoldInfo(_level);
     _map = nullptr;
     _enableNextAction = true;
+    _state = SceneState::Tutrial;
 }
 
 WorldManager::~WorldManager()
@@ -55,39 +56,21 @@ WorldMap* WorldManager::getMap()
         _map = dynamic_cast<WorldMap*>(CSLoader::createNode(_info->mapName));
         _map->initSize(_info->maxWidth, _info->width);
     
-//        _gacha = dynamic_cast<Gacha*>(CSLoader::createNode("Gacha.csb"));
-//        auto gachaImage = _gacha->getChildByName<Sprite*>("image");
-//        auto gachaLength = Length::scale(_info->width, 0.2);
-//        float gachaScale = getImageScale(gachaImage, gachaLength);
-//        _gacha->setScale(gachaScale);
-//        _map->setGacha(_gacha);
+    
+        if (_state != SceneState::Tutrial) {
+            _gacha = dynamic_cast<Gacha*>(CSLoader::createNode("Gacha.csb"));
+            auto gachaImage = _gacha->getChildByName<Sprite*>("image");
+            auto gachaLength = Length::scale(_info->width, 0.2);
+            float gachaScale = getImageScale(gachaImage, gachaLength);
+            _gacha->setScale(gachaScale);
+            _map->setGacha(_gacha);
+        }
 
         auto hero = Animal::CreateWithSpeceis("Hero");
         _map->addAnimal(hero, Vec2(0, -200));
+        _animalList.push_back(hero);
     }
     return _map;
-}
-
-float WorldManager::getImageScale(Sprite* image, Length* width)
-{
-    auto contentSize = image->getContentSize();
-    float scale = (width->getLength(UnitOfLength::mm) * _info->imageWidth) / (_info->maxWidth->getLength(UnitOfLength::mm) * contentSize.width);
-    return scale;
-}
-
-float WorldManager::getDisplayLength(Length* length)
-{
-    auto worldSize = getWorldInfo()->width;
-    auto visibleSize = Director::getInstance()->getVisibleSize();
-    return (length->getLength(UnitOfLength::mm) * visibleSize.width) / worldSize->getLength(UnitOfLength::mm);
-}
-
-Length* WorldManager::getLength(float displayLength)
-{
-    auto worldSize = getWorldInfo()->width;
-    auto visibleSize = Director::getInstance()->getVisibleSize();
-    float mm = worldSize->getLength(UnitOfLength::mm) * displayLength / visibleSize.width;
-    return new Length(UnitOfLength::mm, mm);
 }
 
 bool WorldManager::enableNextAction()
@@ -100,10 +83,26 @@ void WorldManager::setEnableNextAction(bool enable)
     _enableNextAction = enable;
 }
 
+SceneState WorldManager::getSceneState()
+{
+    return _state;
+}
+
+std::vector<Animal*> WorldManager::getAnimalList()
+{
+    return _animalList;
+}
+
+std::vector<Animal*> WorldManager::getEnemyAnimalList()
+{
+    return _enemyAnimalList;
+}
+
 #pragma - public method
 
 void WorldManager::releaseAnimal(Animal* animal, bool hit)
 {
+    _animalList.push_back(animal);
     if (hit) {
         _map->releaseAnimal(animal, [this] { levelup(); });
     } else {
@@ -183,6 +182,87 @@ Vec2 WorldManager::getRadomPlace()
     float x = w * rand_0_1() - w / 2;
     float y = h * rand_0_1() - h / 2;
     return Vec2(x, y);
+}
+
+Vec2 WorldManager::getOutRandomPlace()
+{
+    auto back = _map->getChildByName<Sprite*>("background");
+    auto imageSize = back->getContentSize();
+    auto displaySize = Director::getInstance()->getVisibleSize();
+    float w = imageSize.width * _info->width->getMmLength() / _info->maxWidth->getMmLength();
+    float h = w * displaySize.height / displaySize.width;
+    float x, y;
+    
+    if (rand() % 2 == 0) {
+        if (rand() % 2 == 0) {
+            x = w /2 + 100;
+        } else {
+            x = -w / 2 - 100;
+        }
+        y = h * rand_0_1() - h /2;
+    } else {
+        if (rand() % 2 == 0) {
+            y = h /2 + 100;
+        } else {
+            y = -h / 2 - 100;
+        }
+        x = w * rand_0_1() - w /2;
+    }
+    
+    return Vec2(x, y);
+}
+
+void WorldManager::startBattle()
+{
+    _state = SceneState::Battle;
+    
+    for (int i = 0; i < 10; i++) {
+        auto enemyAnimal = Animal::CreateWithSpeceis("Ari");
+        enemyAnimal->setIsEnmey(true);
+        _enemyAnimalList.push_back(enemyAnimal);
+        _map->addEnemyAnimalAtOutRandomPoint(enemyAnimal);
+    }
+
+}
+
+void WorldManager::startTutorialBattle()
+{
+    _state = SceneState::TutrialBattle;
+    
+    auto enemyAnimal = Animal::CreateWithSpeceis("Ari");
+    enemyAnimal->setIsEnmey(true);
+    _enemyAnimalList.push_back(enemyAnimal);
+    _map->addEnemyAnimalAtOutRandomPoint(enemyAnimal);
+}
+
+#pragma - util method
+
+float WorldManager::getImageScale(Sprite* image, Length* width)
+{
+    auto contentSize = image->getContentSize();
+    float scale = (width->getLength(UnitOfLength::mm) * _info->imageWidth) / (_info->maxWidth->getLength(UnitOfLength::mm) * contentSize.width);
+    return scale;
+}
+
+float WorldManager::getDisplayLength(Length* length)
+{
+    auto worldSize = getWorldInfo()->width;
+    auto visibleSize = Director::getInstance()->getVisibleSize();
+    return (length->getLength(UnitOfLength::mm) * visibleSize.width) / worldSize->getLength(UnitOfLength::mm);
+}
+
+Length* WorldManager::getLength(float displayLength)
+{
+    auto worldSize = getWorldInfo()->width;
+    auto visibleSize = Director::getInstance()->getVisibleSize();
+    float mm = worldSize->getLength(UnitOfLength::mm) * displayLength / visibleSize.width;
+    return new Length(UnitOfLength::mm, mm);
+}
+
+Vec2 WorldManager::getDisplayPoint(Length x, Length y)
+{
+    auto worldSize = getWorldInfo()->width;
+
 }
 
 

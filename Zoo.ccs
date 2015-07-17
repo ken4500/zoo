@@ -37,6 +37,8 @@
           <Image Name="hart.png" />
           <Image Name="battle_button.png" />
           <Image Name="battle_button_pressed.png" />
+          <Image Name="levelup.png" />
+          <Image Name="battle_start.png" />
         </Folder>
       </RootFolder>
     </Group>

@@ -117,7 +117,6 @@ void Gacha::lotteryGacha()
         DelayTime::create(durationTime - 0.1f),
         CallFunc::create([this, animalStr, isHit](){
             auto animal = Animal::CreateWithSpeceis(animalStr);
-            animal->setTag((int)MainSceneTag::Animal);
             WorldManager::getInstance()->releaseAnimal(animal, isHit);
             if (isHit == false) {
                 WorldManager::getInstance()->setEnableNextAction(true);

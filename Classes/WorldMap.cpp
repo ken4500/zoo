@@ -61,6 +61,29 @@ void WorldMap::update(float dt)
             }
         }
     }
+    
+    auto manager = WorldManager::getInstance();
+    auto state = manager->getSceneState();
+    if (state == SceneState::Battle
+        || state == SceneState::TutrialBattle) {
+        auto animalList = manager->getAnimalList();
+        auto enemyAnimalList = manager->getEnemyAnimalList();
+        for (auto enemy : enemyAnimalList) {
+            if (enemy->isDead()) {
+                continue;
+            }
+            for (auto animal : animalList) {
+                if (animal->isDead()) {
+                    continue;
+                }
+                float distance = enemy->getPosition().distance(animal->getPosition());
+                if (distance < 80 / this->getScale()) {
+                    enemy->runAction(FadeOut::create(1.0f));
+                    enemy->setIsDead(true);
+                }
+            }
+        }
+    }
 }
 
 void WorldMap::setupTouchHandling()
@@ -218,6 +241,21 @@ void WorldMap::addAnimal(Animal* animal, Vec2 targetPoint)
     addChild(animal);
     animal->startWalk();
 }
+
+void WorldMap::addEnemyAnimalAtOutRandomPoint(Animal* animal)
+{
+    Vec2 randomPoint = WorldManager::getInstance()->getOutRandomPlace();
+    this->addEnemyAnimal(animal, randomPoint);
+}
+
+void WorldMap::addEnemyAnimal(Animal* animal, Vec2 targetPoint)
+{
+    animal->setPosition(targetPoint);
+    animal->setLocalZOrder(1000);
+    addChild(animal);
+    animal->startWalk();
+}
+
 
 #pragma - private method
 

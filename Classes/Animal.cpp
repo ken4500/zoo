@@ -51,7 +51,13 @@ bool Animal::initWithSpeceis(std::string specesName)
     _image = _rootNode->getChildByName<Sprite*>("image");
     _changeAnimalImage();
     _zOrderUpdate = false;
+    _isDead = false;
+    deadCallback = NULL;
+    
+    setTag((int)MainSceneTag::Animal);
+    setCascadeOpacityEnabled(true);
 
+    
     return true;
 }
 
@@ -135,6 +141,35 @@ bool Animal::getZOderUpdate()
     return _zOrderUpdate;
 }
 
+bool Animal::isEnemy()
+{
+    return _isEnemy;
+}
+
+void Animal::setIsEnmey(bool isEnemy)
+{
+    _isEnemy = isEnemy;
+    if (isEnemy) {
+        setTag((int)MainSceneTag::EnemyAnimal);
+        _image->setColor(Color3B::RED);
+    } else {
+        setTag((int)MainSceneTag::EnemyAnimal);
+        _image->setColor(Color3B::WHITE);
+    }
+}
+
+bool Animal::isDead()
+{
+    return _isDead;
+}
+
+void Animal::setIsDead(bool isDead)
+{
+    if (isDead && _isDead ^ isDead && deadCallback) {
+        deadCallback();
+    }
+    _isDead = isDead;
+}
 
 #pragma - private method
 
@@ -152,6 +187,9 @@ void Animal::_moveNextPoint()
     Vec2 targetP = WorldManager::getInstance()->getRadomPlace();
     Vec2 move = targetP - this->getPosition();
     float speed = WorldManager::getInstance()->getDisplayLength(getSpeed());
+    if (_isEnemy) {
+        speed /= 3;
+    }
     float duration = move.length() / speed;
     if (move.x < 0) {
         _image->setFlippedX(false);

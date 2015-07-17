@@ -9,14 +9,6 @@ class Animal;
 class WorldMap;
 using namespace cocos2d;
 
-enum class SceneState {
-    Tutrial,
-    TutrialBattle,
-    Normal,
-    Battle
-};
-
-
 class MainScene : public cocos2d::Layer
 {
 public:
@@ -37,15 +29,18 @@ private:
     WorldMap* _map;
     Node* _rootNode;
     cocostudio::timeline::ActionTimeline* _timeline;
-    SceneState _state;
+    Node* _menuNode;
 
     void onEnter() override;
     void update(float dt);
     void setupTouchHandling();
     void _playNovel(std::string novelId, std::function<void ()> callback, bool apearSkipButton);
     void _pushBattleButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
+    void _battleStartEffect();
     void _pauseRecursive(Node* node);
     void _resumeRecursive(Node* node);
+    void _hideMenu();
+    void _showMenu();
 
 };
 

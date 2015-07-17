@@ -59,18 +59,16 @@ bool MainScene::init()
     _map->setLocalZOrder(-1);
     _rootNode->addChild(_map);
 
-    auto battleButton = _rootNode->getChildByName<ui::Button*>("battleButton");
+    _menuNode = _rootNode->getChildByName<Node*>("menuNode");
+    _menuNode->setCascadeOpacityEnabled(true);
+    auto battleButton = _menuNode->getChildByName<ui::Button*>("battleButton");
     battleButton->addTouchEventListener(CC_CALLBACK_2(MainScene::_pushBattleButton, this));
-    
-
 
     // load the character animation timeline
     _timeline = CSLoader::createTimeline("MainScene.csb");
     // retain the character animation timeline so it doesn't get deallocated
     _timeline->retain();
     
-    _state = SceneState::Tutrial;
-
     addChild(_rootNode);
 
     return true;
@@ -81,7 +79,7 @@ void MainScene::onEnter()
     Layer::onEnter();
     this->setupTouchHandling();
     
-    if (_state == SceneState::Tutrial) {
+    if (WorldManager::getInstance()->getSceneState() == SceneState::Tutrial) {
         _playNovel("novel_opening", NULL, false);
     }
 }
@@ -143,7 +141,8 @@ void MainScene::_playNovel(std::string novelId, std::function<void ()> callback,
 
     WorldManager::getInstance()->setEnableNextAction(false);
 
-    // TODO: pause
+    // pause map
+    _pauseRecursive(_map);
 
     // 会話終了後のコールバック
     auto preCallbackFunc = [this]() {
@@ -153,7 +152,9 @@ void MainScene::_playNovel(std::string novelId, std::function<void ()> callback,
         }
         WorldManager::getInstance()->setEnableNextAction(true);
         
-        // TODO: resume
+        // resume map
+        _resumeRecursive(_map);
+
     };
     
     // 会話生成&開始
@@ -170,7 +171,24 @@ void MainScene::_playNovel(std::string novelId, std::function<void ()> callback,
 
 void MainScene::_pushBattleButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
-    
+    if (eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
+        if (WorldManager::getInstance()->getSceneState() == SceneState::Tutrial) {
+            _hideMenu();
+            _battleStartEffect();
+            WorldManager::getInstance()->startTutorialBattle();
+            runAction(Sequence::create(
+                DelayTime::create(4.0f),
+                CallFunc::create([this]{
+                    _playNovel("novel_tutorial_battle1", NULL, false);
+                }),
+                NULL
+            ));
+        } else {
+            _hideMenu();
+            _battleStartEffect();
+            WorldManager::getInstance()->startBattle();
+        }
+    }
 }
 
 void MainScene::_pauseRecursive(Node* node)
@@ -186,8 +204,28 @@ void MainScene::_resumeRecursive(Node* node)
 {
     auto children = node->getChildren();
     for(Vector<Node*>::iterator it = children.begin(); it != children.end(); ++it) {
-        (*it)->pause();
+        (*it)->resume();
         _pauseRecursive(*it);
     }
 }
 
+void MainScene::_hideMenu()
+{
+    auto battleButton = _menuNode->getChildByName<ui::Button*>("battleButton");
+    battleButton->setEnabled(false);
+    _menuNode->runAction(FadeOut::create(1.0f));
+}
+
+void MainScene::_showMenu()
+{
+    auto battleButton = _menuNode->getChildByName<ui::Button*>("battleButton");
+    battleButton->setEnabled(true);
+    _menuNode->runAction(FadeIn::create(1.0f));
+}
+
+void MainScene::_battleStartEffect()
+{
+    this->stopAllActions();
+    this->runAction(_timeline);
+    _timeline->play("battle_start", false);
+}

@@ -25,12 +25,18 @@ public:
     Length* getSpeed();
     std::string getName();
     bool getZOderUpdate();
+    bool isEnemy();
+    void setIsEnmey(bool isEnemy);
+    bool isDead();
+    void setIsDead(bool isDead);
 
     void updateWorldScale();
     void jump(Vec2 target, float height, std::function<void ()> callback);
     void startWalk();
     void stopMove();
     void movePoint(Vec2 targetPoint, float dt);
+    
+    std::function<void ()> deadCallback;
 
 protected:
     Species* _species;
@@ -41,6 +47,8 @@ protected:
     Length* _height;
     bool _zOrderUpdate;
     Action* _moveAction;
+    bool _isEnemy;
+    bool _isDead;
     
     void onEnter() override;
     void _moveNextPoint();

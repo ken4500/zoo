@@ -74,5 +74,171 @@
       "value": "左下のボタンを押してくれ！"
     }
   ]
+},
+"novel_tutorial_battle1": {
+  "actions" : [
+    {
+      "type": "set",
+      "target": "left",
+      "value": "ari_01"
+    },
+    {
+      "type": "name",
+      "target": "left",
+      "value": "ANT"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "敵が来たぞ！"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "画面をタップして移動だ！"
+    }
+  ]
+},
+"novel_tutorial_battle2": {
+  "actions" : [
+    {
+      "type": "set",
+      "target": "left",
+      "value": "ari_01"
+    },
+    {
+      "type": "name",
+      "target": "left",
+      "value": "ANT"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "近づくと勝手にバトルが始まるぞ"
+    }
+  ]
+},
+"novel_tutorial_battle3": {
+  "actions" : [
+    {
+      "type": "set",
+      "target": "left",
+      "value": "ari_02"
+    },
+    {
+      "type": "name",
+      "target": "left",
+      "value": "ANT"
+    },
+    {
+      "type": "set",
+      "target": "right",
+      "value": "ari_02"
+    },
+    {
+      "type": "name",
+      "target": "right",
+      "value": "ANT"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "強すぎるー"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "弱すぎるぜ！"
+    }
+  ]
+},
+"novel_tutorial_battle4": {
+  "actions" : [
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "ドンドン倒すぜ！"
+    },
+    {
+      "type": "set",
+      "target": "right",
+      "value": "kabutomushi_01"
+    },
+    {
+      "type": "name",
+      "target": "right",
+      "value": "BEETLE"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "(ドスンドスン)"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "どけよチビ！"
+    },
+    {
+      "type": "set",
+      "target": "left",
+      "value": "ari_01"
+    },
+    {
+      "type": "name",
+      "target": "left",
+      "value": "ANT"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "こんなでかい生き物がいるなんて・・・"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "けど俺のほうが強いはず！"
+    }
+  ]
+},
+"novel_tutorial_battle5": {
+  "actions" : [
+    {
+      "type": "set",
+      "target": "left",
+      "value": "ari_01"
+    },
+    {
+      "type": "name",
+      "target": "left",
+      "value": "ANT"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "だめだ・・・"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "世界は広かった・・・"
+    }
+  ]
+},
+"novel_tutorial_battle_end": {
+  "actions" : [
+  ]
 }
 }

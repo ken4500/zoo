@@ -13,6 +13,7 @@ enum class MainSceneTag
 {
     None = 0,
     Animal,
+    EnemyAnimal
 };
 
 enum class AnimalType

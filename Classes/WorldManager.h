@@ -16,6 +16,13 @@
 class Gacha;
 class Animal;
 
+enum class SceneState {
+    Tutrial,
+    TutrialBattle,
+    Normal,
+    Battle
+};
+
 class WorldManager
 {
 public:
@@ -25,16 +32,25 @@ public:
     int getGachaId();
     WorldMap* getMap();
     WorldInfo* getWorldInfo();
-    float getImageScale(Sprite* image, Length* width);
-    float getDisplayLength(Length* length);
-    Length* getLength(float displayLength);
     bool enableNextAction();
     void setEnableNextAction(bool enable);
+    SceneState getSceneState();
+    std::vector<Animal*> getAnimalList();
+    std::vector<Animal*> getEnemyAnimalList();
 
     // game logic
     void releaseAnimal(Animal* animal, bool hit);
     WorldInfo* levelup();
+    void startBattle();
+    void startTutorialBattle();
+    
+    // util
+    float getImageScale(Sprite* image, Length* width);
+    float getDisplayLength(Length* length);
+    Length* getLength(float displayLength);
+    Vec2 getDisplayPoint(Length x, Length y);
     Vec2 getRadomPlace();
+    Vec2 getOutRandomPlace();
 
 private:
     int _level;
@@ -42,6 +58,10 @@ private:
     WorldInfo* _info;
     WorldMap* _map;
     Gacha* _gacha;
+    SceneState _state;
+    std::vector<Animal*> _animalList;
+    std::vector<Animal*> _enemyAnimalList;
+    
     WorldInfo* _loadWoldInfo(int level);
     MainScene* _getMainScene();
 

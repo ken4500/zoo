@@ -34,6 +34,8 @@ public:
     void releaseAnimal(Animal* animal, std::function<void ()> callback);
     void addAnimalAtRandomPoint(Animal* animal);
     void addAnimal(Animal* animal, Vec2 targetPoint);
+    void addEnemyAnimalAtOutRandomPoint(Animal* animal);
+    void addEnemyAnimal(Animal* animal, Vec2 targetPoint);
     
 protected:
     Length* _maxWidth;
