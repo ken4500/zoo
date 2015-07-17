@@ -59,10 +59,17 @@ bool MainScene::init()
     _map->setLocalZOrder(-1);
     _rootNode->addChild(_map);
 
+    auto battleButton = _rootNode->getChildByName<ui::Button*>("battleButton");
+    battleButton->addTouchEventListener(CC_CALLBACK_2(MainScene::_pushBattleButton, this));
+    
+
+
     // load the character animation timeline
     _timeline = CSLoader::createTimeline("MainScene.csb");
     // retain the character animation timeline so it doesn't get deallocated
     _timeline->retain();
+    
+    _state = SceneState::Tutrial;
 
     addChild(_rootNode);
 
@@ -73,7 +80,10 @@ void MainScene::onEnter()
 {
     Layer::onEnter();
     this->setupTouchHandling();
-    _playNovel("novel_start", NULL, false);
+    
+    if (_state == SceneState::Tutrial) {
+        _playNovel("novel_opening", NULL, false);
+    }
 }
 
 void MainScene::update(float dt)
@@ -156,5 +166,28 @@ void MainScene::_playNovel(std::string novelId, std::function<void ()> callback,
     addChild(novel);
     novel->playNovel();
 
+}
+
+void MainScene::_pushBattleButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
+{
+    
+}
+
+void MainScene::_pauseRecursive(Node* node)
+{
+    auto children = node->getChildren();
+    for(Vector<Node*>::iterator it = children.begin(); it != children.end(); ++it) {
+        (*it)->pause();
+        _pauseRecursive(*it);
+    }
+}
+
+void MainScene::_resumeRecursive(Node* node)
+{
+    auto children = node->getChildren();
+    for(Vector<Node*>::iterator it = children.begin(); it != children.end(); ++it) {
+        (*it)->pause();
+        _pauseRecursive(*it);
+    }
 }
 

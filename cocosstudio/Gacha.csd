@@ -2,7 +2,7 @@
   <PropertyGroup Type="Node" Name="Gacha" ID="4163edd1-7cfa-4ccb-a308-f827112b5dd0" Version="2.2.8.0" />
   <Content ctype="GameProjectContent">
     <Content>
-      <Animation Duration="131" Speed="1.0000" ActivedAnimationName="gacha2">
+      <Animation Duration="131" Speed="1.0000" ActivedAnimationName="gacha1">
         <Timeline ActionTag="-1437413616" Property="Position">
           <PointFrame FrameIndex="1" X="0.0000" Y="0.0000">
             <EasingData Type="0" />

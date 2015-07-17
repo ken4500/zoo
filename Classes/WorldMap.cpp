@@ -70,15 +70,17 @@ void WorldMap::setupTouchHandling()
 
     touchListener->onTouchBegan = [&](Touch* touch, Event* event)
     {
-        auto image = _gacha->getChildByName<Sprite*>("image");
-        Rect targetBox = image->getBoundingBox();
-        targetBox.origin = image->convertToWorldSpaceAR(targetBox.origin);
+        bool isTouchGacha = false;
+        if (_gacha) {
+            auto image = _gacha->getChildByName<Sprite*>("image");
+            Rect targetBox = image->getBoundingBox();
+            targetBox.origin = image->convertToWorldSpaceAR(targetBox.origin);
+            Point location = touch->getLocationInView();
+            auto touchLocation = Director::getInstance()->convertToGL(location);
+            isTouchGacha = targetBox.containsPoint(touchLocation);
+        }
      
-        Point location = touch->getLocationInView();
-        auto touchLocation = Director::getInstance()->convertToGL(location);
-        
-     
-        if (targetBox.containsPoint(touchLocation)) {
+        if (isTouchGacha) {
             _gacha->lotteryGacha();
         } else {
             Vec2 touchPos = this->convertTouchToNodeSpace(touch);
@@ -203,6 +205,19 @@ bool WorldMap::isMaxScale()
     return _maxWidth->getLength() <= _currentWidth->getLength();
 }
 
+void WorldMap::addAnimalAtRandomPoint(Animal* animal)
+{
+    Vec2 randomPoint = WorldManager::getInstance()->getRadomPlace();
+    this->addAnimal(animal, randomPoint);
+}
+
+void WorldMap::addAnimal(Animal* animal, Vec2 targetPoint)
+{
+    animal->setPosition(targetPoint);
+    animal->setLocalZOrder(1000);
+    addChild(animal);
+    animal->startWalk();
+}
 
 #pragma - private method
 

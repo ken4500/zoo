@@ -1,1 +1,78 @@
-{"novel_start":{"actions":[{"type":"set","target":"background","value":"chat/back/back1.jpg"},{"type":"music","target":"","value":""},{"type":"set","target":"narration"},{"type":"narration","target":"narration","value":"私はありです"},{"type":"set","target":"background","value":"chat/back/back2.jpg"},{"type":"delay","target":"","value":"1"},{"type":"music","target":"","value":""},{"type":"set","target":"left","value":"chat/character/chat_ari_01.png"},{"type":"name","target":"left","value":"ANT"},{"type":"speak","target":"left","balloon":"normal","value":"hogehoge"},{"type":"speak","target":"left","balloon":"normal","value":"fugafuga"},{"type":"set","target":"right","value":"chat/character/chat_god_01.png"},{"type":"name","target":"right","value":"GOD"},{"type":"speak","target":"right","balloon":"normal","value":"I'm god"},{"type":"speak","target":"right","balloon":"normal","value":"foo!"},{"type":"speak","target":"left","balloon":"normal","value":"wow"},{"type":"speak","target":"left","balloon":"normal","value":"boooon"}]},"novel_alert1":{"actions":[{"type":"set","target":"right","value":"chat_chara_02_01.png"},{"type":"name","target":"right","value":"中島"},{"type":"speak","target":"right","balloon":"shout","value":"そっちじゃないですよ！！"},{"type":"speak","target":"right","balloon":"normal","value":"親切に[c=red]引っ張る方向[/c]を\n出してるのにまったく…"},{"type":"set","target":"left","value":"chat_chara_01_01.png"},{"type":"name","target":"left","value":"服部助兵衛"},{"type":"speak","target":"left","balloon":"normal","value":"ご..ごめん…"}]}}
+{
+"novel_opening": {
+  "skip" : 0,
+  "actions" : [
+    {
+      "type": "set",
+      "target": "background",
+      "value": "back1.jpg"
+    },
+    {
+      "type": "music",
+      "target": "",
+      "value": ""
+    },
+    {
+      "type": "delay",
+      "target": "",
+      "value": "1"
+    },
+    {
+      "type": "set",
+      "target": "narration"
+    },
+    {
+      "type": "narration",
+      "target": "narration",
+      "value": "I'm big and strong!"
+    },
+    {
+      "type": "delay",
+      "target": "",
+      "value": "1"
+    },
+    {
+      "type": "narration",
+      "target": "narration",
+      "value": "Nobady can win me!"
+    },
+    {
+      "type": "set",
+      "target": "background",
+      "value": "remove"
+    },
+    {
+      "type": "clear",
+      "target": "",
+      "value": ""
+    },
+    {
+      "type": "delay",
+      "target": "",
+      "value": "1"
+    },
+    {
+      "type": "set",
+      "target": "left",
+      "value": "ari_01"
+    },
+    {
+      "type": "name",
+      "target": "left",
+      "value": "ANT"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "今日も世界制服のため頑張るぞ"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "左下のボタンを押してくれ！"
+    }
+  ]
+}
+}

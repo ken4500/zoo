@@ -14,7 +14,7 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize />
-            <FileData Type="Normal" Path="scaleBar.png" Plist="" />
+            <FileData Type="Normal" Path="ui/scaleBar.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
           <AbstractNodeData Name="label" ActionTag="-504141955" Tag="16" IconVisible="False" LeftMargin="-280.0000" RightMargin="208.0000" TopMargin="-40.0000" LabelText="10cm" ctype="TextBMFontObjectData">
@@ -25,7 +25,7 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize />
-            <LabelBMFontFile_CNB Type="Normal" Path="font2.fnt" Plist="" />
+            <LabelBMFontFile_CNB Type="Normal" Path="font/font2.fnt" Plist="" />
           </AbstractNodeData>
         </Children>
       </ObjectData>

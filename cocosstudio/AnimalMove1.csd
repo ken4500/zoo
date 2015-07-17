@@ -2,7 +2,7 @@
   <PropertyGroup Type="Node" Name="AnimalMove1" ID="9b2712b8-9012-415f-a088-855627e4b972" Version="2.2.8.0" />
   <Content ctype="GameProjectContent">
     <Content>
-      <Animation Duration="150" Speed="1.0000" ActivedAnimationName="drop">
+      <Animation Duration="149" Speed="1.0000" ActivedAnimationName="drop">
         <Timeline ActionTag="-2066128753" Property="Position">
           <PointFrame FrameIndex="1" X="0.0000" Y="0.0000">
             <EasingData Type="0" />
@@ -38,7 +38,7 @@
           <ScaleFrame FrameIndex="135" X="1.2000" Y="0.8000">
             <EasingData Type="26" />
           </ScaleFrame>
-          <ScaleFrame FrameIndex="150" X="1.0000" Y="1.0000">
+          <ScaleFrame FrameIndex="149" X="1.0000" Y="1.0000">
             <EasingData Type="0" />
           </ScaleFrame>
         </Timeline>
@@ -58,7 +58,7 @@
             <Size X="400.0000" Y="400.0000" />
             <AnchorPoint ScaleX="0.5000" />
             <Position />
-            <Scale ScaleX="1.1959" ScaleY="0.8041" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize />

@@ -55,12 +55,15 @@ WorldMap* WorldManager::getMap()
         _map = dynamic_cast<WorldMap*>(CSLoader::createNode(_info->mapName));
         _map->initSize(_info->maxWidth, _info->width);
     
-        _gacha = dynamic_cast<Gacha*>(CSLoader::createNode("Gacha.csb"));
-        auto gachaImage = _gacha->getChildByName<Sprite*>("image");
-        auto gachaLength = Length::scale(_info->width, 0.2);
-        float gachaScale = getImageScale(gachaImage, gachaLength);
-        _gacha->setScale(gachaScale);
-        _map->setGacha(_gacha);
+//        _gacha = dynamic_cast<Gacha*>(CSLoader::createNode("Gacha.csb"));
+//        auto gachaImage = _gacha->getChildByName<Sprite*>("image");
+//        auto gachaLength = Length::scale(_info->width, 0.2);
+//        float gachaScale = getImageScale(gachaImage, gachaLength);
+//        _gacha->setScale(gachaScale);
+//        _map->setGacha(_gacha);
+
+        auto hero = Animal::CreateWithSpeceis("Hero");
+        _map->addAnimal(hero, Vec2(0, -200));
     }
     return _map;
 }

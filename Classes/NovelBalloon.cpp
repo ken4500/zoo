@@ -81,7 +81,7 @@ int unicodeCharacterCount(const char* strBytes) {
 }
 
 Label* NovelBalloon::getLabelSprite(const std::string& text) {
-    auto fontName  = "ninja_font.fnt";
+    auto fontName  = "font/zoo_font.fnt";
     auto fontColor = Color3B::BLACK;
     LabelColor color(text);
     Label* textLabel = Label::createWithBMFont(fontName, color.getRawString());

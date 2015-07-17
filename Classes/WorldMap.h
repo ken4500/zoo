@@ -12,6 +12,7 @@
 #include "cocos2d.h"
 #include "cocostudio/CocoStudio.h"
 #include "CommonInclude.h"
+#include "WorldManager.h"
 class Gacha;
 class Animal;
 
@@ -31,6 +32,8 @@ public:
     bool isMaxScale();
 
     void releaseAnimal(Animal* animal, std::function<void ()> callback);
+    void addAnimalAtRandomPoint(Animal* animal);
+    void addAnimal(Animal* animal, Vec2 targetPoint);
     
 protected:
     Length* _maxWidth;

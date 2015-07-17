@@ -47,8 +47,8 @@ bool NovelLayer::init()
 
     
     // アトラス読み込み
-    auto cache = SpriteFrameCache::getInstance();
-    cache->addSpriteFramesWithFile("chat_images.plist","chat_images.png");
+//    auto cache = SpriteFrameCache::getInstance();
+//    cache->addSpriteFramesWithFile("chat_images.plist","chat_images.png");
     
     //  touch callbacks
     auto dispatcher = Director::getInstance()->getEventDispatcher();
@@ -63,14 +63,14 @@ bool NovelLayer::init()
     dispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 
     // skipボタン作成
-    auto skipItem = MenuItemImage::create("", "", CC_CALLBACK_1(NovelLayer::_pushedSkipButton, this));
-    skipItem->setNormalSpriteFrame(cache->getSpriteFrameByName("b_skip.png"));
-    skipItem->setSelectedSpriteFrame(cache->getSpriteFrameByName("b_skip.png"));
-    skipItem->setPosition(Vec2(500, 100));
-    auto menu = Menu::create(skipItem, NULL);
-    menu->setPosition(Vec2::ZERO);
-    menu->setName("skip_menu");
-    addChild(menu, 1);
+//    auto skipItem = MenuItemImage::create("", "", CC_CALLBACK_1(NovelLayer::_pushedSkipButton, this));
+//    skipItem->setNormalSpriteFrame(cache->getSpriteFrameByName("b_skip.png"));
+//    skipItem->setSelectedSpriteFrame(cache->getSpriteFrameByName("b_skip.png"));
+//    skipItem->setPosition(Vec2(500, 100));
+//    auto menu = Menu::create(skipItem, NULL);
+//    menu->setPosition(Vec2::ZERO);
+//    menu->setName("skip_menu");
+//    addChild(menu, 1);
 
     return true;
 }
@@ -222,6 +222,7 @@ void NovelLayer::setImage(std::shared_ptr<NovelAction> action)
     auto imageName = action->getValue();
     auto target = action->getTarget();
     if (target == NovelAction::Target::Left) {
+        imageName = StringUtils::format("chat/character/chat_%s.png", imageName.c_str());
         if (_leftChara == NULL) {
             _leftNode = Node::create();
             _leftNode->setPosition(Vec2(0, 0));
@@ -245,6 +246,7 @@ void NovelLayer::setImage(std::shared_ptr<NovelAction> action)
             }
         }
     } else if (target == NovelAction::Target::Right) {
+        imageName = StringUtils::format("chat/character/chat_%s.png", imageName.c_str());
         if (_rightChara == NULL) {
             _rightNode = Node::create();
             _rightNode->setPosition(Vec2(visibleSize.width, 0));
@@ -273,7 +275,7 @@ void NovelLayer::setImage(std::shared_ptr<NovelAction> action)
             _backGroundImage = NULL;
         } else {
             if (_backGroundImage == NULL) {
-                auto back = Sprite::create(imageName);
+                auto back = Sprite::create(StringUtils::format("chat/back/%s", imageName.c_str()));
                 back->setScale(visibleSize.width/back->getContentSize().width);
                 back->setAnchorPoint(Vec2(0, 0));
                 back->setPosition(Vec2::ZERO);
@@ -344,11 +346,12 @@ void NovelLayer::setNameImage(std::shared_ptr<NovelAction> action)
             _rightNameImage->setAnchorPoint(Vec2(1, 0));
             _rightNameImage->setPosition(Vec2(-20, 50));
             _rightNode->addChild(_rightNameImage, 11);
+            auto nameImageSize = _rightNameImage->getContentSize();
             auto label1 = Label::createWithSystemFont(name.c_str(), "HiraMinProN-W6", 30);
             label1->setName("label");
-            label1->setAnchorPoint(Vec2(0, 0.5f));
+            label1->setAnchorPoint(Vec2(0.5, 0.5f));
             label1->setColor(Color3B::BLACK);
-            label1->setPosition(Vec2(20, 18));
+            label1->setPosition(Vec2(nameImageSize.width / 2, nameImageSize.height / 2));
             _rightNameImage->addChild(label1);
         } else {
             auto label = (Label*)_rightNameImage->getChildByName("label");
@@ -360,8 +363,6 @@ void NovelLayer::setNameImage(std::shared_ptr<NovelAction> action)
 void NovelLayer::playNext() {
     // 次のアクションセット取得
     auto actions = this->_player->popNextActions();
-//    bool isFirstAction = this->_player->getIsFirstPlayback();
-//    bool isLastAction = !this->_player->getMoreActionsAvailable();
     if (actions->empty() || actions == NULL) {
         // アクションが無いのでシーン終了
         this->endScene();

@@ -91,7 +91,7 @@
         </Timeline>
       </Animation>
       <AnimationList>
-        <AnimationInfo Name="zoomout1" StartIndex="1" EndIndex="135">
+        <AnimationInfo Name="zoomout1" StartIndex="2" EndIndex="135">
           <RenderColor A="255" R="189" G="183" B="107" />
         </AnimationInfo>
         <AnimationInfo Name="default" StartIndex="0" EndIndex="0">
@@ -109,7 +109,7 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5000" Y="0.5000" />
             <PreSize X="0.4250" Y="0.0750" />
-            <LabelBMFontFile_CNB Type="Normal" Path="font1.fnt" Plist="" />
+            <LabelBMFontFile_CNB Type="Normal" Path="font/font1.fnt" Plist="" />
           </AbstractNodeData>
           <AbstractNodeData Name="scaleBar" ActionTag="-840124772" Tag="19" IconVisible="True" PositionPercentXEnabled="True" LeftMargin="1090.5599" RightMargin="45.4401" TopMargin="620.0000" BottomMargin="20.0000" InnerActionSpeed="1.0000" ctype="ProjectNodeObjectData">
             <Size />
@@ -121,18 +121,62 @@
             <PreSize />
             <FileData Type="Normal" Path="ScaleBar.csd" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Button_1" ActionTag="280631743" Tag="71" Alpha="225" IconVisible="False" LeftMargin="31.7862" RightMargin="904.2138" TopMargin="461.8942" BottomMargin="28.1058" TouchEnable="True" FontSize="48" ButtonText="Battle" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
-            <Size X="200.0000" Y="150.0000" />
+          <AbstractNodeData Name="battleButton" ActionTag="280631743" Tag="71" Alpha="225" IconVisible="False" LeftMargin="27.7862" RightMargin="900.2138" TopMargin="460.3942" BottomMargin="26.6058" TouchEnable="True" FontSize="48" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="178" Scale9Height="131" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
+            <Size X="208.0000" Y="153.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="131.7862" Y="103.1058" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.1160" Y="0.1611" />
-            <PreSize X="0.1761" Y="0.2344" />
+            <PreSize X="0.1831" Y="0.2391" />
             <TextColor A="255" R="65" G="65" B="70" />
             <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-            <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
-            <NormalFileData Type="Default" Path="Default/Button_Normal.png" Plist="" />
+            <PressedFileData Type="Normal" Path="ui/battle_button_pressed.png" Plist="" />
+            <NormalFileData Type="Normal" Path="ui/battle_button.png" Plist="" />
+            <OutlineColor A="255" R="255" G="0" B="0" />
+            <ShadowColor A="255" R="110" G="110" B="110" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="coin_6" ActionTag="1389668671" Tag="28" IconVisible="False" LeftMargin="27.7862" RightMargin="1036.2139" TopMargin="285.3441" BottomMargin="277.6559" ctype="SpriteObjectData">
+            <Size X="72.0000" Y="77.0000" />
+            <AnchorPoint />
+            <Position X="27.7862" Y="277.6559" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.0245" Y="0.4338" />
+            <PreSize />
+            <FileData Type="Normal" Path="ui/coin.png" Plist="" />
+            <BlendFunc Src="1" Dst="771" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="hart_7" ActionTag="-1146902275" Tag="29" IconVisible="False" LeftMargin="27.8302" RightMargin="1024.1698" TopMargin="376.4517" BottomMargin="190.5483" ctype="SpriteObjectData">
+            <Size X="84.0000" Y="73.0000" />
+            <AnchorPoint />
+            <Position X="27.8302" Y="190.5483" />
+            <Scale ScaleX="0.8799" ScaleY="0.8799" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.0245" Y="0.2977" />
+            <PreSize />
+            <FileData Type="Normal" Path="ui/hart.png" Plist="" />
+            <BlendFunc Src="1" Dst="771" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="Text_1" ActionTag="984014579" Tag="30" IconVisible="False" LeftMargin="116.3065" RightMargin="969.6935" TopMargin="395.4517" BottomMargin="190.5483" FontSize="48" LabelText="x5" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
+            <Size X="50.0000" Y="54.0000" />
+            <AnchorPoint />
+            <Position X="116.3065" Y="190.5483" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.1024" Y="0.2977" />
+            <PreSize />
+            <OutlineColor A="255" R="255" G="0" B="0" />
+            <ShadowColor A="255" R="110" G="110" B="110" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="Text_1_0" ActionTag="-2129252099" Tag="31" IconVisible="False" LeftMargin="116.3065" RightMargin="969.6935" TopMargin="308.3441" BottomMargin="277.6559" FontSize="48" LabelText="x5" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
+            <Size X="50.0000" Y="54.0000" />
+            <AnchorPoint />
+            <Position X="116.3065" Y="277.6559" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.1024" Y="0.4338" />
+            <PreSize />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>

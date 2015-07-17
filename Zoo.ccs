@@ -5,14 +5,8 @@
       <RootFolder Name=".">
         <Project Name="MainScene.csd" Type="Scene" />
         <Project Name="Gacha.csd" Type="Node" />
-        <Fnt Name="font1.fnt" />
         <Project Name="AnimalMove1.csd" Type="Node" />
-        <Image Name="scaleBar.png" />
-        <Fnt Name="font2.fnt" />
         <Project Name="ScaleBar.csd" Type="Node" />
-        <Image Name="background1.jpg" />
-        <Image Name="empty.png" />
-        <Image Name="background2.jpg" />
         <Image Name="Gacha1.png" />
         <Image Name="Gacha2.png" />
         <Image Name="Gacha3.png" />
@@ -32,6 +26,18 @@
         </Folder>
         <Project Name="Map1.csd" Type="Node" />
         <Project Name="Map2.csd" Type="Node" />
+        <Folder Name="font">
+          <Fnt Name="font1.fnt" />
+          <Fnt Name="font2.fnt" />
+        </Folder>
+        <Folder Name="ui">
+          <Image Name="empty.png" />
+          <Image Name="scaleBar.png" />
+          <Image Name="coin.png" />
+          <Image Name="hart.png" />
+          <Image Name="battle_button.png" />
+          <Image Name="battle_button_pressed.png" />
+        </Folder>
       </RootFolder>
     </Group>
   </SolutionFolder>
