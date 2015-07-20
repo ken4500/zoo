@@ -31,6 +31,7 @@ public:
     void setIsEnmey(bool isEnemy);
     bool isDead();
     AnimalState getState();
+    Vec2 getCenterPosition();
 
     void updateWorldScale();
     void jump(Vec2 target, float height, std::function<void ()> callback);

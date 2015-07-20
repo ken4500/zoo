@@ -26,19 +26,11 @@ public:
     float getLength(UnitOfLength unit);
     float getDisplayLength();
     
-    void add(Length* l);
-    void scale(float scale);
+    Length* add(Length* l);
+    Length* scale(float scale);
     
     static Length* add(Length* l1, Length* l2);
     static Length* scale(Length* l, float scale);
-    Length operator+(Length b) const
-    {
-        return Length(_mm + b.getMmLength());
-    }
-    Length operator-(Length b) const
-    {
-        return Length(_mm - b.getMmLength());
-    }
     Length operator*(float scale) const
     {
         return Length(_mm * scale);

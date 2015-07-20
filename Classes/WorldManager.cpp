@@ -222,7 +222,7 @@ void WorldManager::startBattle()
     _enemyGenerater = new EnemyGenerater(_info);
     
     
-    for (int i = 0; i < 20; i++) {
+    for (int i = 0; i < 1; i++) {
         auto enemyAnimal = _enemyGenerater->generate();
         enemyAnimal->setIsEnmey(true);
         _enemyAnimalList.push_back(enemyAnimal);
@@ -337,5 +337,13 @@ void WorldManager::_endBattle()
     auto mainScene = _getMainScene();
     if (mainScene) {
         mainScene->addChild(layer);
+    }
+    
+    for (auto animal : _animalList) {
+        if (animal->isDead()) {
+            animal->reborn();
+        } else {
+            animal->startWalk();
+        }
     }
 }

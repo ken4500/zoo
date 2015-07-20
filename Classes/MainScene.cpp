@@ -113,14 +113,14 @@ void MainScene::hideMenu()
 {
     auto battleButton = _menuNode->getChildByName<ui::Button*>("battleButton");
     battleButton->setEnabled(false);
-    _menuNode->runAction(FadeOut::create(1.0f));
+    _menuNode->runAction(FadeOut::create(0.5f));
 }
 
 void MainScene::showMenu()
 {
     auto battleButton = _menuNode->getChildByName<ui::Button*>("battleButton");
     battleButton->setEnabled(true);
-    _menuNode->runAction(FadeIn::create(1.0f));
+    _menuNode->runAction(FadeIn::create(0.5f));
 }
 
 void MainScene::transitionMap(WorldMap* newMap)

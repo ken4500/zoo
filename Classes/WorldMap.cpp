@@ -78,15 +78,15 @@ void WorldMap::update(float dt)
                 if (animal->isDead()) {
                     continue;
                 }
-                Length a = Length(10);
-                Length b = Length(1);
-                Length c = a + b;
-                
-//                auto distance = Length::createWithDisplayLength(enemy->getPosition().distance(animal->getPosition()));
-//                if (distance < animal->getHeight() + enemy->getHeight()) {
-//                    enemy->fight(animal);
-//                    animal->fight(enemy);
-//                }
+                ZUtil::printVec(animal->getCenterPosition());
+                float displayDistanse = enemy->getCenterPosition().distance(animal->getCenterPosition()) * getScale();
+                auto distance = Length::createWithDisplayLength(displayDistanse);
+                float r1 = animal->getHeight()->getMmLength() / 3;
+                float r2 = enemy->getHeight()->getMmLength() / 3;
+                if (distance->getMmLength() < r1 + r2) {
+                    enemy->fight(animal);
+                    animal->fight(enemy);
+                }
             }
         }
 
@@ -274,14 +274,14 @@ void WorldMap::addEnemyAnimal(Animal* animal, Vec2 targetPoint)
 void WorldMap::hideGacha()
 {
     if (_gacha) {
-        _gacha->runAction(FadeOut::create(1.0f));
+        _gacha->runAction(FadeOut::create(0.5f));
     }
 }
 
 void WorldMap::showGacha()
 {
     if (_gacha) {
-        _gacha->runAction(FadeIn::create(1.0f));
+        _gacha->runAction(FadeIn::create(0.5f));
     }
 }
 

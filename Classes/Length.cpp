@@ -98,14 +98,16 @@ float Length::getDisplayLength()
 
 #pragma - calculate
 
-void Length::add(Length* l)
+Length* Length::add(Length* l)
 {
     _mm += l->getMmLength();
+    return this;
 }
 
-void Length::scale(float scale)
+Length* Length::scale(float scale)
 {
     _mm *= scale;
+    return this;
 }
 
 Length* Length::add(Length* l1, Length* l2)

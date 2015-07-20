@@ -268,6 +268,13 @@ AnimalState Animal::getState()
     return _state;
 }
 
+Vec2 Animal::getCenterPosition()
+{
+    auto size = _image->getContentSize() * getScale();
+    return this->getPosition() + Vec2(0, size.height / 2);
+}
+
+
 #pragma - private method
 
 void Animal::_moveNextPoint()
