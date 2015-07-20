@@ -223,7 +223,7 @@ Length* Animal::getSpeed()
 {
     Length* speed = _species->getSpeed();
     if (_isEnemy) {
-        speed->scale(0.3);
+        speed->scale(0.5);
     }
 
     return speed;
@@ -231,7 +231,8 @@ Length* Animal::getSpeed()
 
 Length* Animal::getDashSpeed()
 {
-    return _species->getDashSpeed();
+    return WorldManager::getInstance()->getLength(100);
+//    return _species->getDashSpeed();
 }
 
 std::string Animal::getName()

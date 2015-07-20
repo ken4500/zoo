@@ -129,7 +129,7 @@
       <ObjectData Name="Scene" ctype="GameNodeObjectData">
         <Size X="1136.0000" Y="640.0000" />
         <Children>
-          <AbstractNodeData Name="levelup" ActionTag="1751926304" Tag="16" VisibleForFrame="False" Alpha="0" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="158.5000" RightMargin="158.5000" TopMargin="253.5000" BottomMargin="253.5000" ctype="SpriteObjectData">
+          <AbstractNodeData Name="levelup" ActionTag="1751926304" Tag="16" Alpha="0" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="158.5000" RightMargin="158.5000" TopMargin="253.5000" BottomMargin="253.5000" ctype="SpriteObjectData">
             <Size X="819.0000" Y="133.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="568.0000" Y="320.0000" />
@@ -140,7 +140,7 @@
             <FileData Type="Normal" Path="ui/levelup.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="battleStart" ActionTag="902696947" Tag="17" VisibleForFrame="False" Alpha="0" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="100.0000" RightMargin="100.0000" TopMargin="258.0000" BottomMargin="258.0000" ctype="SpriteObjectData">
+          <AbstractNodeData Name="battleStart" ActionTag="902696947" Tag="17" VisibleForFrame="False" Alpha="230" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="100.0000" RightMargin="100.0000" TopMargin="258.0000" BottomMargin="258.0000" ctype="SpriteObjectData">
             <Size X="936.0000" Y="124.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="568.0000" Y="320.0000" />
@@ -230,6 +230,16 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.0291" Y="0.0489" />
             <PreSize />
+          </AbstractNodeData>
+          <AbstractNodeData Name="timeLabel" ActionTag="583941696" Tag="29" VisibleForFrame="False" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="531.5000" RightMargin="531.5000" TopMargin="32.0000" BottomMargin="531.0000" LabelText="30" ctype="TextBMFontObjectData">
+            <Size X="73.0000" Y="77.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="1.0000" />
+            <Position X="568.0000" Y="608.0000" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.5000" Y="0.9500" />
+            <PreSize X="0.0643" Y="0.1203" />
+            <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font2.fnt" Plist="" />
           </AbstractNodeData>
         </Children>
       </ObjectData>

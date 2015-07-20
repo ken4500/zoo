@@ -27,7 +27,7 @@ enum class SceneState {
     
 };
 
-class WorldManager
+class WorldManager : cocos2d::Ref
 {
 public:
     static WorldManager* getInstance();
@@ -67,6 +67,7 @@ private:
     bool _enableNextAction;
     int _coin;
     int _life;
+    int _leftTime;
     WorldInfo* _info;
     WorldMap* _map;
     Gacha* _gacha;
@@ -77,10 +78,13 @@ private:
     
     WorldInfo* _loadWoldInfo(int level);
     MainScene* _getMainScene();
+    void _leftTimeUpdate(float dt);
     void _endBattle();
     void _closeResult();
     void _addCoin(int addCoin);
     void _setCoin(int coin);
+    void _setGameActive(bool active);
+    void _setLeftTime(int leftTime);
 
     WorldManager();
     ~WorldManager();

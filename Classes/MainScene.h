@@ -27,8 +27,11 @@ public:
     void playNovel(std::string novelId, std::function<void ()> callback, bool apearSkipButton);
     void hideMenu();
     void showMenu();
+    void showLeftTIme();
+    void hideLeftTime();
     void updateCoinLabel(int coin);
     void updateLifeLabel(int life);
+    void updateLeftTimeLabel(int leftTime);
     
 private:
     Gacha* _gacha;
@@ -36,6 +39,7 @@ private:
     Node* _rootNode;
     cocostudio::timeline::ActionTimeline* _timeline;
     Node* _menuNode;
+    cocos2d::ui::TextBMFont* _timeLeftLabel;
     cocos2d::ui::Text* _coinLabel;
     cocos2d::ui::Text* _lifeLabel;
 

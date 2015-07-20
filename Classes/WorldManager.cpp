@@ -116,7 +116,7 @@ int WorldManager::getLife()
 
 void WorldManager::lotteryGacha()
 {
-    if (_coin <= 0) {
+    if (_coin <= 0 || _enableNextAction == false) {
         return;
     }
     
@@ -238,9 +238,20 @@ Vec2 WorldManager::getOutRandomPlace()
 
 void WorldManager::startBattle()
 {
+    if (_life <= 0 || _enableNextAction == false) {
+        return;
+    }
+
     _state = SceneState::Battle;
-    
+    _setLeftTime(BATTLE_TIME);
     _enemyGenerater = new EnemyGenerater(_info);
+    
+    _setGameActive(true);
+    
+    auto scene = _getMainScene();
+    if (scene) {
+        scene->showLeftTIme();
+    }
     
     
     for (int i = 0; i < 15; i++) {
@@ -358,10 +369,19 @@ Length* WorldManager::getLength(float displayLength)
 Vec2 WorldManager::getDisplayPoint(Length x, Length y)
 {
     auto worldSize = getWorldInfo()->width;
-
+    
 }
 
 #pragma - private method
+
+void WorldManager::_leftTimeUpdate(float dt)
+{
+    _leftTime--;
+    if (_leftTime == 0) {
+        loseBattle();
+    }
+    _setLeftTime(_leftTime);
+}
 
 WorldInfo* WorldManager::_loadWoldInfo(int level)
 {
@@ -386,6 +406,7 @@ void WorldManager::_endBattle()
     } else if (_state == SceneState::TutorialBattle) {
         _state = SceneState::TutorialShowResult;
     }
+    this->_setGameActive(false);
 }
 
 void WorldManager::_closeResult()
@@ -412,6 +433,11 @@ void WorldManager::_closeResult()
         ));
     }
     _enemyAnimalList = std::vector<Animal*>();
+    
+    auto scene = _getMainScene();
+    if (scene) {
+        scene->hideLeftTime();
+    }
 }
 
 void WorldManager::_addCoin(int addCoin)
@@ -429,5 +455,23 @@ void WorldManager::_setCoin(int coin)
     auto scene = _getMainScene();
     if (scene) {
         scene->updateCoinLabel(_coin);
+    }
+}
+
+void WorldManager::_setGameActive(bool active)
+{
+    if (active) {
+        Director::getInstance()->getScheduler()->schedule(CC_CALLBACK_1(WorldManager::_leftTimeUpdate, this), this, 1.0f, false, "update_time");
+    } else {
+        Director::getInstance()->getScheduler()->unschedule("update_time", this);
+    }
+}
+
+void WorldManager::_setLeftTime(int leftTime)
+{
+    _leftTime = leftTime;
+    auto scene = _getMainScene();
+    if (scene) {
+        scene->updateLeftTimeLabel(_leftTime);
     }
 }

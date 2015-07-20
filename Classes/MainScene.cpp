@@ -52,6 +52,7 @@ bool MainScene::init()
     _rootNode->setAnchorPoint(Vec2(0.5f, 0.5f));
     _rootNode->setPosition(Vec2::ZERO);
     _rootNode->setPosition(Vec2(displaySize.width / 2, displaySize.height / 2));
+    _timeLeftLabel = _rootNode->getChildByName<ui::TextBMFont*>("timeLabel");
 
     _map = WorldManager::getInstance()->getMap();
     _map->setAnchorPoint(Vec2(0.5f, 0.5f));
@@ -128,6 +129,18 @@ void MainScene::showMenu()
     _menuNode->runAction(FadeIn::create(0.5f));
 }
 
+void MainScene::showLeftTIme()
+{
+    _timeLeftLabel->setOpacity(0);
+    _timeLeftLabel->setVisible(true);
+    _timeLeftLabel->runAction(FadeIn::create(0.5f));
+}
+
+void MainScene::hideLeftTime()
+{
+    _timeLeftLabel->runAction(FadeOut::create(0.5f));
+}
+
 void MainScene::transitionMap(WorldMap* newMap)
 {
     auto displaySize = Director::getInstance()->getVisibleSize();
@@ -196,6 +209,11 @@ void MainScene::updateCoinLabel(int coin)
 void MainScene::updateLifeLabel(int life)
 {
     _lifeLabel->setString(StringUtils::format("x %d", life));
+}
+
+void MainScene::updateLeftTimeLabel(int leftTime)
+{
+    _timeLeftLabel->setString(to_string(leftTime));
 }
 
 void MainScene::_pushBattleButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)

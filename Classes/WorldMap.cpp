@@ -53,9 +53,14 @@ void WorldMap::update(float dt)
                 if (animal->getZOderUpdate()) {
                     node->setLocalZOrder(1000 - (int)node->getPosition().y);
                 }
+                
                 float distance = (animal->getPosition() - _targetPoint).length();
                 distance *= getScale();
-                if (_targetPoint != Vec2::ZERO && distance < 300) {
+                if (animal->getState() != AnimalState::Dead
+                    && animal->getState() != AnimalState::Battle
+                    && _targetPoint != Vec2::ZERO
+                    && distance < 300)
+                {
                     animal->movePoint(_targetPoint, dt);
                 }
             }
