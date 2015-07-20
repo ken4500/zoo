@@ -61,6 +61,7 @@
 		9F06E9BF1B5AD21A00107C09 /* ResultLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F06E9BD1B5AD21A00107C09 /* ResultLayer.cpp */; };
 		9F06E9C21B5AD27D00107C09 /* GameResult.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F06E9C01B5AD27D00107C09 /* GameResult.cpp */; };
 		9F06E9C51B5C243700107C09 /* EnemyGenerater.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F06E9C31B5C243700107C09 /* EnemyGenerater.cpp */; };
+		9F06E9CA1B5DBE3A00107C09 /* NoticeLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F06E9C81B5DBE3A00107C09 /* NoticeLayer.cpp */; };
 		9F0F163A1B556DBB00217010 /* libcocos2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F0F16361B556D8100217010 /* libcocos2d Mac.a */; };
 		9F0F163B1B556DC600217010 /* libcocos2d iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F0F16381B556D8100217010 /* libcocos2d iOS.a */; };
 		9F425AE61B4616E6001B2969 /* WorldManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F425AE41B4616E6001B2969 /* WorldManager.cpp */; };
@@ -172,6 +173,8 @@
 		9F06E9C31B5C243700107C09 /* EnemyGenerater.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EnemyGenerater.cpp; sourceTree = "<group>"; };
 		9F06E9C41B5C243700107C09 /* EnemyGenerater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemyGenerater.h; sourceTree = "<group>"; };
 		9F06E9C61B5D5A6B00107C09 /* ColorConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorConstants.h; sourceTree = "<group>"; };
+		9F06E9C81B5DBE3A00107C09 /* NoticeLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NoticeLayer.cpp; sourceTree = "<group>"; };
+		9F06E9C91B5DBE3A00107C09 /* NoticeLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticeLayer.h; sourceTree = "<group>"; };
 		9F0F16301B556D8100217010 /* cocos2d_libs.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2d_libs.xcodeproj; path = ../cocos2d/build/cocos2d_libs.xcodeproj; sourceTree = "<group>"; };
 		9F425AE41B4616E6001B2969 /* WorldManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WorldManager.cpp; sourceTree = "<group>"; };
 		9F425AE51B4616E6001B2969 /* WorldManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldManager.h; sourceTree = "<group>"; };
@@ -416,6 +419,19 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		9F06E9CB1B5DBE4400107C09 /* ModalView */ = {
+			isa = PBXGroup;
+			children = (
+				9F06E9C81B5DBE3A00107C09 /* NoticeLayer.cpp */,
+				9F06E9C91B5DBE3A00107C09 /* NoticeLayer.h */,
+				9F06E9B91B5AD02000107C09 /* ModalLayer.cpp */,
+				9F06E9BA1B5AD02000107C09 /* ModalLayer.h */,
+				9F06E9BD1B5AD21A00107C09 /* ResultLayer.cpp */,
+				9F06E9BE1B5AD21A00107C09 /* ResultLayer.h */,
+			);
+			name = ModalView;
+			sourceTree = "<group>";
+		};
 		9F0F16311B556D8100217010 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -496,6 +512,7 @@
 		9FFC9E731B430AD100869B23 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				9F06E9CB1B5DBE4400107C09 /* ModalView */,
 				9F015C901B420DC700F45135 /* Gacha.cpp */,
 				9F015C911B420DC700F45135 /* Gacha.h */,
 				9F015C921B420DC700F45135 /* GachaReader.cpp */,
@@ -510,10 +527,6 @@
 				9F83BA691B54327700605D1D /* WorldMap.h */,
 				9F83BA6A1B54327700605D1D /* WorldMapReader.cpp */,
 				9F83BA6B1B54327700605D1D /* WorldMapReader.h */,
-				9F06E9B91B5AD02000107C09 /* ModalLayer.cpp */,
-				9F06E9BA1B5AD02000107C09 /* ModalLayer.h */,
-				9F06E9BD1B5AD21A00107C09 /* ResultLayer.cpp */,
-				9F06E9BE1B5AD21A00107C09 /* ResultLayer.h */,
 			);
 			name = Entity;
 			sourceTree = "<group>";
@@ -680,6 +693,7 @@
 				9F83BA871B55687700605D1D /* UserDataController.cpp in Sources */,
 				9F015C951B420DC700F45135 /* GachaReader.cpp in Sources */,
 				9FB063E01B5818A20088AE2A /* NovelAction.cpp in Sources */,
+				9F06E9CA1B5DBE3A00107C09 /* NoticeLayer.cpp in Sources */,
 				9F06E9C51B5C243700107C09 /* EnemyGenerater.cpp in Sources */,
 				9F05646C1B49EDE000649A7F /* ScaleBar.cpp in Sources */,
 				9F83BA861B55687700605D1D /* UserData.cpp in Sources */,

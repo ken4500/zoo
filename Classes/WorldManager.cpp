@@ -11,6 +11,7 @@
 #include "Animal.h"
 #include "GameResult.h"
 #include "ResultLayer.h"
+#include "NoticeLayer.h"
 
 USING_NS_CC;
 
@@ -116,7 +117,16 @@ int WorldManager::getLife()
 
 void WorldManager::lotteryGacha()
 {
-    if (_coin <= 0 || _enableNextAction == false) {
+    if (_enableNextAction == false) {
+        return;
+    }
+    if (_coin <= 0) {
+        auto noticeLayer = NoticeLayer::createWithMessage("You don't have enough coin!\nPush the battle button");
+        auto mainScene = _getMainScene();
+        if (mainScene) {
+            mainScene->addChild(noticeLayer);
+        }
+
         return;
     }
     
@@ -293,7 +303,7 @@ void WorldManager::winBattle()
     _endBattle();
     GameResult* result = new GameResult();
     result->resultState = BattleState::Win;
-    result->playTime = 100;
+    result->playTime = BATTLE_TIME - _leftTime;
     result->getCoin = 0;
     for (auto animal : _enemyAnimalList) {
         if (animal->isDead()) {
@@ -316,7 +326,7 @@ void WorldManager::loseBattle()
     _endBattle();
     GameResult* result = new GameResult();
     result->resultState = BattleState::Lose;
-    result->playTime = 100;
+    result->playTime = BATTLE_TIME - _leftTime;
     result->getCoin = 0;
     for (auto animal : _enemyAnimalList) {
         if (animal->isDead()) {

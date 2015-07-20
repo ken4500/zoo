@@ -47,6 +47,7 @@
           <Image Name="button2.png" />
         </Folder>
         <Project Name="Result.csd" Type="Node" />
+        <Project Name="Notice.csd" Type="Node" />
       </RootFolder>
     </Group>
   </SolutionFolder>
