@@ -446,6 +446,9 @@ void WorldManager::_addCoin(int addCoin)
     auto scene = _getMainScene();
     if (scene) {
         scene->updateCoinLabel(_coin);
+        if (addCoin < 0) {
+            scene->showConsumeCoinEffect(abs(addCoin));
+        }
     }
 }
 

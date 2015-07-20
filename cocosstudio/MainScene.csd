@@ -201,27 +201,25 @@
                 <FileData Type="Normal" Path="ui/coin.png" Plist="" />
                 <BlendFunc Src="1" Dst="771" />
               </AbstractNodeData>
-              <AbstractNodeData Name="hartText" ActionTag="984014579" Tag="30" IconVisible="False" LeftMargin="100.0000" RightMargin="-150.0000" TopMargin="-224.0000" BottomMargin="170.0000" FontSize="48" LabelText="x5" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
-                <Size X="50.0000" Y="54.0000" />
-                <AnchorPoint />
-                <Position X="100.0000" Y="170.0000" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition />
-                <PreSize />
-                <OutlineColor A="255" R="255" G="0" B="0" />
-                <ShadowColor A="255" R="110" G="110" B="110" />
-              </AbstractNodeData>
-              <AbstractNodeData Name="coinText" ActionTag="-2129252099" Tag="31" IconVisible="False" LeftMargin="100.0000" RightMargin="-150.0000" TopMargin="-314.0000" BottomMargin="260.0000" FontSize="48" LabelText="x5" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
-                <Size X="50.0000" Y="54.0000" />
+              <AbstractNodeData Name="coinText" ActionTag="-1009041307" Tag="33" IconVisible="False" LeftMargin="100.0000" RightMargin="-165.0000" TopMargin="-337.0000" BottomMargin="260.0000" LabelText="x5" ctype="TextBMFontObjectData">
+                <Size X="65.0000" Y="77.0000" />
                 <AnchorPoint />
                 <Position X="100.0000" Y="260.0000" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition />
-                <PreSize />
-                <OutlineColor A="255" R="255" G="0" B="0" />
-                <ShadowColor A="255" R="110" G="110" B="110" />
+                <PreSize X="0.3944" Y="0.1203" />
+                <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font2.fnt" Plist="" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="hartText" ActionTag="12703591" Tag="34" IconVisible="False" LeftMargin="100.0000" RightMargin="-165.0000" TopMargin="-247.0000" BottomMargin="170.0000" LabelText="x5" ctype="TextBMFontObjectData">
+                <Size X="65.0000" Y="77.0000" />
+                <AnchorPoint />
+                <Position X="100.0000" Y="170.0000" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition />
+                <PreSize X="0.3944" Y="0.1203" />
+                <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font2.fnt" Plist="" />
               </AbstractNodeData>
             </Children>
             <AnchorPoint />

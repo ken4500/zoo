@@ -64,8 +64,8 @@ bool MainScene::init()
     _menuNode->setCascadeOpacityEnabled(true);
     auto battleButton = _menuNode->getChildByName<ui::Button*>("battleButton");
     battleButton->addTouchEventListener(CC_CALLBACK_2(MainScene::_pushBattleButton, this));
-    _coinLabel = _menuNode->getChildByName<ui::Text*>("coinText");
-    _lifeLabel = _menuNode->getChildByName<ui::Text*>("hartText");
+    _coinLabel = _menuNode->getChildByName<ui::TextBMFont*>("coinText");
+    _lifeLabel = _menuNode->getChildByName<ui::TextBMFont*>("hartText");
 
     // load the character animation timeline
     _timeline = CSLoader::createTimeline("MainScene.csb");
@@ -214,6 +214,25 @@ void MainScene::updateLifeLabel(int life)
 void MainScene::updateLeftTimeLabel(int leftTime)
 {
     _timeLeftLabel->setString(to_string(leftTime));
+}
+
+void MainScene::showConsumeCoinEffect(int decreaseCoin)
+{
+    auto text = TextBMFont::create(StringUtils::format("-%d", decreaseCoin), "font/zoo_font2.fnt");
+    text->setAnchorPoint(_coinLabel->getAnchorPoint());
+    text->setPosition(_coinLabel->getPosition() + Vec2(0, 20));
+    text->setZOrder(-1);
+    text->setOpacity(200);
+    _menuNode->addChild(text);
+    text->runAction(Sequence::create(
+        Spawn::create(
+            MoveBy::create(0.75f, Vec2(0, 200)),
+            FadeOut::create(0.75f),
+            NULL
+        ),
+        RemoveSelf::create(),
+        NULL
+    ));
 }
 
 void MainScene::_pushBattleButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)

@@ -32,6 +32,7 @@ public:
     void updateCoinLabel(int coin);
     void updateLifeLabel(int life);
     void updateLeftTimeLabel(int leftTime);
+    void showConsumeCoinEffect(int decreaseCoin);
     
 private:
     Gacha* _gacha;
@@ -40,8 +41,8 @@ private:
     cocostudio::timeline::ActionTimeline* _timeline;
     Node* _menuNode;
     cocos2d::ui::TextBMFont* _timeLeftLabel;
-    cocos2d::ui::Text* _coinLabel;
-    cocos2d::ui::Text* _lifeLabel;
+    cocos2d::ui::TextBMFont* _coinLabel;
+    cocos2d::ui::TextBMFont* _lifeLabel;
 
     void onEnter() override;
     void update(float dt);
