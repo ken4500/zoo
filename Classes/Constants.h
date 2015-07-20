@@ -47,7 +47,9 @@ static const float GAME_FPS = 60;
 
 
 // for debug
-static const float DEBUG_INIT_WORLD_LEVEL = 1;
+static const float INIT_WORLD_LEVEL = 1;
+static const float INIT_COIN = 3;
+static const float INIT_LIFE = 6;
 
 
 #endif

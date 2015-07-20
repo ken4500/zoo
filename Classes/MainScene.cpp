@@ -63,6 +63,8 @@ bool MainScene::init()
     _menuNode->setCascadeOpacityEnabled(true);
     auto battleButton = _menuNode->getChildByName<ui::Button*>("battleButton");
     battleButton->addTouchEventListener(CC_CALLBACK_2(MainScene::_pushBattleButton, this));
+    _coinLabel = _menuNode->getChildByName<ui::Text*>("coinText");
+    _lifeLabel = _menuNode->getChildByName<ui::Text*>("hartText");
 
     // load the character animation timeline
     _timeline = CSLoader::createTimeline("MainScene.csb");
@@ -82,6 +84,9 @@ void MainScene::onEnter()
     if (WorldManager::getInstance()->getSceneState() == SceneState::Tutorial) {
         playNovel("novel_opening", NULL, false);
     }
+    
+    updateCoinLabel(WorldManager::getInstance()->getCoin());
+    updateLifeLabel(WorldManager::getInstance()->getLife());
 }
 
 void MainScene::update(float dt)
@@ -181,6 +186,16 @@ void MainScene::playNovel(std::string novelId, std::function<void ()> callback, 
     addChild(novel);
     novel->playNovel();
 
+}
+
+void MainScene::updateCoinLabel(int coin)
+{
+    _coinLabel->setString(StringUtils::format("x %d", coin));
+}
+
+void MainScene::updateLifeLabel(int life)
+{
+    _lifeLabel->setString(StringUtils::format("x %d", life));
 }
 
 void MainScene::_pushBattleButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)

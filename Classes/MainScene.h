@@ -3,6 +3,7 @@
 
 #include "cocos2d.h"
 #include "cocostudio/CocoStudio.h"
+#include "CocosGUI.h"
 #include "CommonInclude.h"
 class Gacha;
 class Animal;
@@ -26,6 +27,8 @@ public:
     void playNovel(std::string novelId, std::function<void ()> callback, bool apearSkipButton);
     void hideMenu();
     void showMenu();
+    void updateCoinLabel(int coin);
+    void updateLifeLabel(int life);
     
 private:
     Gacha* _gacha;
@@ -33,6 +36,8 @@ private:
     Node* _rootNode;
     cocostudio::timeline::ActionTimeline* _timeline;
     Node* _menuNode;
+    cocos2d::ui::Text* _coinLabel;
+    cocos2d::ui::Text* _lifeLabel;
 
     void onEnter() override;
     void update(float dt);

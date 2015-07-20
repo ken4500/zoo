@@ -78,7 +78,6 @@ void WorldMap::update(float dt)
                 if (animal->isDead()) {
                     continue;
                 }
-                ZUtil::printVec(animal->getCenterPosition());
                 float displayDistanse = enemy->getCenterPosition().distance(animal->getCenterPosition()) * getScale();
                 auto distance = Length::createWithDisplayLength(displayDistanse);
                 float r1 = animal->getHeight()->getMmLength() / 3;
@@ -119,7 +118,7 @@ void WorldMap::setupTouchHandling()
         }
      
         if (isTouchGacha) {
-            _gacha->lotteryGacha();
+            WorldManager::getInstance()->lotteryGacha();
         } else {
             Vec2 touchPos = this->convertTouchToNodeSpace(touch);
             _targetPoint = touchPos;

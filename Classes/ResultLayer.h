@@ -26,6 +26,7 @@ public:
     virtual ~ResultLayer();
     static ResultLayer* createWithResult(GameResult* result);
     virtual bool initWithResult(GameResult* result);
+    std::function<void ()> closeResultCallback;
     
 protected:
     

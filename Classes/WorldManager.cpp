@@ -28,11 +28,12 @@ WorldManager* WorldManager::getInstance()
 
 WorldManager::WorldManager()
 {
-    _level = DEBUG_INIT_WORLD_LEVEL;
-    _info = _loadWoldInfo(_level);
-    _map = nullptr;
+    _level = INIT_WORLD_LEVEL;
+    _coin = INIT_COIN;
+    _life  = INIT_LIFE;
+    _info  = _loadWoldInfo(_level);
+    _map   = nullptr;
     _enableNextAction = true;
-    // FIXME: tutorial
     _state = SceneState::Normal;
 }
 
@@ -101,7 +102,27 @@ std::vector<Animal*> WorldManager::getEnemyAnimalList()
     return _enemyAnimalList;
 }
 
+int WorldManager::getCoin()
+{
+    return _coin;
+}
+
+int WorldManager::getLife()
+{
+    return _life;
+}
+
 #pragma - public method
+
+void WorldManager::lotteryGacha()
+{
+    if (_coin <= 0) {
+        return;
+    }
+    
+    _addCoin(-1);
+    _gacha->lotteryGacha();
+}
 
 void WorldManager::releaseAnimal(Animal* animal, bool hit)
 {
@@ -222,7 +243,7 @@ void WorldManager::startBattle()
     _enemyGenerater = new EnemyGenerater(_info);
     
     
-    for (int i = 0; i < 1; i++) {
+    for (int i = 0; i < 15; i++) {
         auto enemyAnimal = _enemyGenerater->generate();
         enemyAnimal->setIsEnmey(true);
         _enemyAnimalList.push_back(enemyAnimal);
@@ -259,11 +280,46 @@ void WorldManager::startTutorialBattle()
 void WorldManager::winBattle()
 {
     _endBattle();
+    GameResult* result = new GameResult();
+    result->resultState = BattleState::Win;
+    result->playTime = 100;
+    result->getCoin = 0;
+    for (auto animal : _enemyAnimalList) {
+        if (animal->isDead()) {
+            result->getCoin += 1;
+        }
+    }
+    _addCoin(result->getCoin);
+    
+    auto layer = ResultLayer::createWithResult(result);
+    layer->closeResultCallback = CC_CALLBACK_0(WorldManager::_closeResult, this);
+    auto mainScene = _getMainScene();
+    if (mainScene) {
+        mainScene->addChild(layer);
+    }
+
 }
 
 void WorldManager::loseBattle()
 {
     _endBattle();
+    GameResult* result = new GameResult();
+    result->resultState = BattleState::Lose;
+    result->playTime = 100;
+    result->getCoin = 0;
+    for (auto animal : _enemyAnimalList) {
+        if (animal->isDead()) {
+            result->getCoin += 1;
+        }
+    }
+    _addCoin(result->getCoin);
+    
+    auto layer = ResultLayer::createWithResult(result);
+    layer->closeResultCallback = CC_CALLBACK_0(WorldManager::_closeResult, this);
+    auto mainScene = _getMainScene();
+    if (mainScene) {
+        mainScene->addChild(layer);
+    }
 }
 
 void WorldManager::endResult()
@@ -305,7 +361,6 @@ Vec2 WorldManager::getDisplayPoint(Length x, Length y)
 
 }
 
-
 #pragma - private method
 
 WorldInfo* WorldManager::_loadWoldInfo(int level)
@@ -317,7 +372,11 @@ WorldInfo* WorldManager::_loadWoldInfo(int level)
 MainScene* WorldManager::_getMainScene()
 {
     auto scene = Director::getInstance()->getRunningScene();
-    return scene->getChildByName<MainScene*>("main scene");
+    if (scene) {
+        return scene->getChildByName<MainScene*>("main scene");
+    } else {
+        return NULL;
+    }
 }
 
 void WorldManager::_endBattle()
@@ -327,23 +386,48 @@ void WorldManager::_endBattle()
     } else if (_state == SceneState::TutorialBattle) {
         _state = SceneState::TutorialShowResult;
     }
-    
-    GameResult* result = new GameResult();
-    result->resultState = BattleState::Win;
-    result->playTime = 100;
-    result->getCoin = 100;
-    
-    auto layer = ResultLayer::createWithResult(result);
-    auto mainScene = _getMainScene();
-    if (mainScene) {
-        mainScene->addChild(layer);
-    }
-    
+}
+
+void WorldManager::_closeResult()
+{
     for (auto animal : _animalList) {
         if (animal->isDead()) {
-            animal->reborn();
+            animal->runAction(Sequence::create(
+                DelayTime::create(1.0f),
+                CallFunc::create([animal]{
+                    animal->reborn();
+                }),
+                NULL
+            ));
         } else {
             animal->startWalk();
         }
+    }
+
+    for (auto animal : _enemyAnimalList) {
+        animal->runAction(Sequence::create(
+            FadeOut::create(0.5f),
+            RemoveSelf::create(),
+            NULL
+        ));
+    }
+    _enemyAnimalList = std::vector<Animal*>();
+}
+
+void WorldManager::_addCoin(int addCoin)
+{
+    _coin += addCoin;
+    auto scene = _getMainScene();
+    if (scene) {
+        scene->updateCoinLabel(_coin);
+    }
+}
+
+void WorldManager::_setCoin(int coin)
+{
+    _coin = coin;
+    auto scene = _getMainScene();
+    if (scene) {
+        scene->updateCoinLabel(_coin);
     }
 }

@@ -41,8 +41,11 @@ public:
     SceneState getSceneState();
     std::vector<Animal*> getAnimalList();
     std::vector<Animal*> getEnemyAnimalList();
+    int getCoin();
+    int getLife();
 
     // game logic
+    void lotteryGacha();
     void releaseAnimal(Animal* animal, bool hit);
     WorldInfo* levelup();
     void startBattle();
@@ -62,6 +65,8 @@ public:
 private:
     int _level;
     bool _enableNextAction;
+    int _coin;
+    int _life;
     WorldInfo* _info;
     WorldMap* _map;
     Gacha* _gacha;
@@ -73,6 +78,9 @@ private:
     WorldInfo* _loadWoldInfo(int level);
     MainScene* _getMainScene();
     void _endBattle();
+    void _closeResult();
+    void _addCoin(int addCoin);
+    void _setCoin(int coin);
 
     WorldManager();
     ~WorldManager();

@@ -38,7 +38,7 @@ void Species::init(std::string name, rapidjson::Value& json)
         _move = json["move"].GetBool();
     }
     if (json["dash"].IsNull()) {
-        _dashSpeed = new Length(unit, _speed->getMmLength() * 2);
+        _dashSpeed = new Length(UnitOfLength::mm, _speed->getMmLength() * 2);
     } else {
         _dashSpeed = new Length(unit, (float)json["dash"].GetDouble());
     }

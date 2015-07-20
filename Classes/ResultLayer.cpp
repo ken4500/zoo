@@ -53,8 +53,6 @@ bool ResultLayer::initWithResult(GameResult* result)
     node->setCascadeOpacityEnabled(true);
     node->setOpacity(255);
     addChild(node, 10);
-
-    
     
     auto title = node->getChildByName<ui::TextBMFont*>("title");
     if (result->resultState == BattleState::Win) {
@@ -82,6 +80,15 @@ void ResultLayer::onEnter()
 
 void ResultLayer::_pushButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
-    this->runAction(Sequence::create(FadeOut::create(0.3f), RemoveSelf::create() , NULL));
+    this->runAction(Sequence::create(
+        FadeOut::create(0.3f),
+        CallFunc::create([this]{
+            if (closeResultCallback) {
+                closeResultCallback();
+            }
+        }),
+        RemoveSelf::create(),
+        NULL
+    ));
     WorldManager::getInstance()->endResult();
 }

@@ -65,7 +65,7 @@ bool Animal::initWithSpeceis(Species* species)
     _image = _rootNode->getChildByName<Sprite*>("image");
     _changeAnimalImage();
     _zOrderUpdate = false;
-    _state = AnimalState::Unkown;
+    _state = AnimalState::Stop;
     deadCallback = NULL;
     _maxHp = mm;
     _hp = mm;
@@ -107,6 +107,9 @@ void Animal::updateWorldScale()
 
 void Animal::jump(Vec2 target, float height, std::function<void ()> callback)
 {
+    if (_state == AnimalState::Dead) {
+        return;
+    }
     _state = AnimalState::Jump;
     _zOrderUpdate = false;
     float jumpInterval = ZUtil::calcDurationTime(_timeline, "drop");
@@ -145,7 +148,8 @@ void Animal::stopMove()
 
 void Animal::fight(Animal* animal)
 {
-    if (_state == AnimalState::Battle) {
+    if (_state == AnimalState::Battle
+        || _state == AnimalState::Dead) {
         return;
     }
 
@@ -185,9 +189,11 @@ bool Animal::addDamage(float damage)
 
 void Animal::reborn()
 {
+    _state = AnimalState::Stop;
     _hp = _maxHp;
     stopAllActions();
     runAction(_timeline);
+    setOpacity(255);
     _timeline->play("reborn", false);
     _timeline->setLastFrameCallFunc([this]{
         startWalk();
@@ -196,6 +202,9 @@ void Animal::reborn()
 
 void Animal::startWalk()
 {
+    if (_state == AnimalState::Dead) {
+        return;
+    }
     _state = AnimalState::Walk;
     stopAllActions();
     runAction(_timeline);
