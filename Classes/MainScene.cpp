@@ -79,8 +79,8 @@ void MainScene::onEnter()
     Layer::onEnter();
     this->setupTouchHandling();
     
-    if (WorldManager::getInstance()->getSceneState() == SceneState::Tutrial) {
-        _playNovel("novel_opening", NULL, false);
+    if (WorldManager::getInstance()->getSceneState() == SceneState::Tutorial) {
+        playNovel("novel_opening", NULL, false);
     }
 }
 
@@ -109,6 +109,20 @@ void MainScene::levelUpEffect()
     _timeline->setLastFrameCallFunc([](){ WorldManager::getInstance()->setEnableNextAction(true); });
 }
 
+void MainScene::hideMenu()
+{
+    auto battleButton = _menuNode->getChildByName<ui::Button*>("battleButton");
+    battleButton->setEnabled(false);
+    _menuNode->runAction(FadeOut::create(1.0f));
+}
+
+void MainScene::showMenu()
+{
+    auto battleButton = _menuNode->getChildByName<ui::Button*>("battleButton");
+    battleButton->setEnabled(true);
+    _menuNode->runAction(FadeIn::create(1.0f));
+}
+
 void MainScene::transitionMap(WorldMap* newMap)
 {
     auto displaySize = Director::getInstance()->getVisibleSize();
@@ -131,7 +145,7 @@ void MainScene::transitionMap(WorldMap* newMap)
     _map = newMap;
 }
 
-void MainScene::_playNovel(std::string novelId, std::function<void ()> callback, bool apearSkipButton)
+void MainScene::playNovel(std::string novelId, std::function<void ()> callback, bool apearSkipButton)
 {
     // 再生しない
     auto jsonStr = FileUtils::getInstance()->getStringFromFile("data/novel.json");
@@ -172,19 +186,19 @@ void MainScene::_playNovel(std::string novelId, std::function<void ()> callback,
 void MainScene::_pushBattleButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
     if (eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
-        if (WorldManager::getInstance()->getSceneState() == SceneState::Tutrial) {
-            _hideMenu();
+        if (WorldManager::getInstance()->getSceneState() == SceneState::Tutorial) {
+            hideMenu();
             _battleStartEffect();
             WorldManager::getInstance()->startTutorialBattle();
             runAction(Sequence::create(
-                DelayTime::create(4.0f),
+                DelayTime::create(5.0f),
                 CallFunc::create([this]{
-                    _playNovel("novel_tutorial_battle1", NULL, false);
+                    playNovel("novel_tutorial_battle1", NULL, false);
                 }),
                 NULL
             ));
         } else {
-            _hideMenu();
+            hideMenu();
             _battleStartEffect();
             WorldManager::getInstance()->startBattle();
         }
@@ -207,20 +221,6 @@ void MainScene::_resumeRecursive(Node* node)
         (*it)->resume();
         _pauseRecursive(*it);
     }
-}
-
-void MainScene::_hideMenu()
-{
-    auto battleButton = _menuNode->getChildByName<ui::Button*>("battleButton");
-    battleButton->setEnabled(false);
-    _menuNode->runAction(FadeOut::create(1.0f));
-}
-
-void MainScene::_showMenu()
-{
-    auto battleButton = _menuNode->getChildByName<ui::Button*>("battleButton");
-    battleButton->setEnabled(true);
-    _menuNode->runAction(FadeIn::create(1.0f));
 }
 
 void MainScene::_battleStartEffect()

@@ -9,6 +9,8 @@
 #include "WorldManager.h"
 #include "Gacha.h"
 #include "Animal.h"
+#include "GameResult.h"
+#include "ResultLayer.h"
 
 USING_NS_CC;
 
@@ -30,7 +32,8 @@ WorldManager::WorldManager()
     _info = _loadWoldInfo(_level);
     _map = nullptr;
     _enableNextAction = true;
-    _state = SceneState::Tutrial;
+    // FIXME: tutorial
+    _state = SceneState::Normal;
 }
 
 WorldManager::~WorldManager()
@@ -57,7 +60,7 @@ WorldMap* WorldManager::getMap()
         _map->initSize(_info->maxWidth, _info->width);
     
     
-        if (_state != SceneState::Tutrial) {
+        if (_state != SceneState::Tutorial) {
             _gacha = dynamic_cast<Gacha*>(CSLoader::createNode("Gacha.csb"));
             auto gachaImage = _gacha->getChildByName<Sprite*>("image");
             auto gachaLength = Length::scale(_info->width, 0.2);
@@ -195,16 +198,16 @@ Vec2 WorldManager::getOutRandomPlace()
     
     if (rand() % 2 == 0) {
         if (rand() % 2 == 0) {
-            x = w /2 + 100;
+            x = w /2 + 50;
         } else {
-            x = -w / 2 - 100;
+            x = -w / 2 - 50;
         }
         y = h * rand_0_1() - h /2;
     } else {
         if (rand() % 2 == 0) {
-            y = h /2 + 100;
+            y = h /2 + 50;
         } else {
-            y = -h / 2 - 100;
+            y = -h / 2 - 50;
         }
         x = w * rand_0_1() - w /2;
     }
@@ -216,23 +219,60 @@ void WorldManager::startBattle()
 {
     _state = SceneState::Battle;
     
-    for (int i = 0; i < 10; i++) {
-        auto enemyAnimal = Animal::CreateWithSpeceis("Ari");
+    _enemyGenerater = new EnemyGenerater(_info);
+    
+    
+    for (int i = 0; i < 20; i++) {
+        auto enemyAnimal = _enemyGenerater->generate();
         enemyAnimal->setIsEnmey(true);
         _enemyAnimalList.push_back(enemyAnimal);
         _map->addEnemyAnimalAtOutRandomPoint(enemyAnimal);
     }
-
+    
+    _map->hideGacha();
 }
 
 void WorldManager::startTutorialBattle()
 {
-    _state = SceneState::TutrialBattle;
+    _state = SceneState::TutorialBattle;
     
     auto enemyAnimal = Animal::CreateWithSpeceis("Ari");
     enemyAnimal->setIsEnmey(true);
     _enemyAnimalList.push_back(enemyAnimal);
     _map->addEnemyAnimalAtOutRandomPoint(enemyAnimal);
+    
+    enemyAnimal->startFightCallback = [this]() {
+        auto scene = _getMainScene();
+        if (scene) {
+            scene->playNovel("novel_tutorial_battle2", NULL, false);
+        }
+    };
+    
+    enemyAnimal->deadCallback = [this]() {
+        auto scene = _getMainScene();
+        if (scene) {
+            scene->playNovel("novel_tutorial_battle3", NULL, false);
+        }
+    };
+}
+
+void WorldManager::winBattle()
+{
+    _endBattle();
+}
+
+void WorldManager::loseBattle()
+{
+    _endBattle();
+}
+
+void WorldManager::endResult()
+{
+    _map->showGacha();
+    auto scene = _getMainScene();
+    if (scene) {
+        scene->showMenu();
+    }
 }
 
 #pragma - util method
@@ -280,3 +320,22 @@ MainScene* WorldManager::_getMainScene()
     return scene->getChildByName<MainScene*>("main scene");
 }
 
+void WorldManager::_endBattle()
+{
+    if (_state == SceneState::Battle) {
+        _state = SceneState::ShowResult;
+    } else if (_state == SceneState::TutorialBattle) {
+        _state = SceneState::TutorialShowResult;
+    }
+    
+    GameResult* result = new GameResult();
+    result->resultState = BattleState::Win;
+    result->playTime = 100;
+    result->getCoin = 100;
+    
+    auto layer = ResultLayer::createWithResult(result);
+    auto mainScene = _getMainScene();
+    if (mainScene) {
+        mainScene->addChild(layer);
+    }
+}

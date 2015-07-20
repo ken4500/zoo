@@ -37,6 +37,9 @@ public:
     void addEnemyAnimalAtOutRandomPoint(Animal* animal);
     void addEnemyAnimal(Animal* animal, Vec2 targetPoint);
     
+    void hideGacha();
+    void showGacha();
+    
 protected:
     Length* _maxWidth;
     Length* _currentWidth;
@@ -46,6 +49,7 @@ protected:
     
     int _calcObjectZOrder(Node* node);
     void setupTouchHandling();
+    BattleState _checkBattleEnd();
 
 };
 

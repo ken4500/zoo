@@ -56,6 +56,11 @@
 		9F0564671B49D5AA00649A7F /* Species.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F0564651B49D5AA00649A7F /* Species.cpp */; };
 		9F05646C1B49EDE000649A7F /* ScaleBar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F0564681B49EDE000649A7F /* ScaleBar.cpp */; };
 		9F05646D1B49EDE000649A7F /* ScaleBarReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F05646A1B49EDE000649A7F /* ScaleBarReader.cpp */; };
+		9F06E9B51B59F3E400107C09 /* libcocos2d iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F06E9B41B59F3E400107C09 /* libcocos2d iOS.a */; };
+		9F06E9BB1B5AD02000107C09 /* ModalLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F06E9B91B5AD02000107C09 /* ModalLayer.cpp */; };
+		9F06E9BF1B5AD21A00107C09 /* ResultLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F06E9BD1B5AD21A00107C09 /* ResultLayer.cpp */; };
+		9F06E9C21B5AD27D00107C09 /* GameResult.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F06E9C01B5AD27D00107C09 /* GameResult.cpp */; };
+		9F06E9C51B5C243700107C09 /* EnemyGenerater.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F06E9C31B5C243700107C09 /* EnemyGenerater.cpp */; };
 		9F0F163A1B556DBB00217010 /* libcocos2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F0F16361B556D8100217010 /* libcocos2d Mac.a */; };
 		9F0F163B1B556DC600217010 /* libcocos2d iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F0F16381B556D8100217010 /* libcocos2d iOS.a */; };
 		9F425AE61B4616E6001B2969 /* WorldManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F425AE41B4616E6001B2969 /* WorldManager.cpp */; };
@@ -157,6 +162,16 @@
 		9F0564691B49EDE000649A7F /* ScaleBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScaleBar.h; sourceTree = "<group>"; };
 		9F05646A1B49EDE000649A7F /* ScaleBarReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScaleBarReader.cpp; sourceTree = "<group>"; };
 		9F05646B1B49EDE000649A7F /* ScaleBarReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScaleBarReader.h; sourceTree = "<group>"; };
+		9F06E9B41B59F3E400107C09 /* libcocos2d iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libcocos2d iOS.a"; path = "../../../../../../Applications/Cocos/frameworks/cocos2d-x-3.6/prebuilt/ios/libcocos2d iOS.a"; sourceTree = "<group>"; };
+		9F06E9B91B5AD02000107C09 /* ModalLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ModalLayer.cpp; sourceTree = "<group>"; };
+		9F06E9BA1B5AD02000107C09 /* ModalLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModalLayer.h; sourceTree = "<group>"; };
+		9F06E9BD1B5AD21A00107C09 /* ResultLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ResultLayer.cpp; sourceTree = "<group>"; };
+		9F06E9BE1B5AD21A00107C09 /* ResultLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultLayer.h; sourceTree = "<group>"; };
+		9F06E9C01B5AD27D00107C09 /* GameResult.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameResult.cpp; sourceTree = "<group>"; };
+		9F06E9C11B5AD27D00107C09 /* GameResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameResult.h; sourceTree = "<group>"; };
+		9F06E9C31B5C243700107C09 /* EnemyGenerater.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EnemyGenerater.cpp; sourceTree = "<group>"; };
+		9F06E9C41B5C243700107C09 /* EnemyGenerater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemyGenerater.h; sourceTree = "<group>"; };
+		9F06E9C61B5D5A6B00107C09 /* ColorConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorConstants.h; sourceTree = "<group>"; };
 		9F0F16301B556D8100217010 /* cocos2d_libs.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2d_libs.xcodeproj; path = ../cocos2d/build/cocos2d_libs.xcodeproj; sourceTree = "<group>"; };
 		9F425AE41B4616E6001B2969 /* WorldManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WorldManager.cpp; sourceTree = "<group>"; };
 		9F425AE51B4616E6001B2969 /* WorldManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldManager.h; sourceTree = "<group>"; };
@@ -207,6 +222,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F06E9B51B59F3E400107C09 /* libcocos2d iOS.a in Frameworks */,
 				9F0F163B1B556DC600217010 /* libcocos2d iOS.a in Frameworks */,
 				52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */,
 				D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */,
@@ -277,6 +293,7 @@
 				080E96DDFE201D6D7F000001 /* ios */,
 				503AE10617EB990700D1A890 /* mac */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				9F06E9B41B59F3E400107C09 /* libcocos2d iOS.a */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -318,9 +335,12 @@
 			isa = PBXGroup;
 			children = (
 				9FFC9E741B43262600869B23 /* Constants.h */,
+				9F06E9C61B5D5A6B00107C09 /* ColorConstants.h */,
+				9FFC9E721B42FAA500869B23 /* CommonInclude.h */,
 				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
-				9F83BA761B545E0F00605D1D /* Core */,
+				9F06E9B81B5ACF8A00107C09 /* Model */,
+				9F83BA761B545E0F00605D1D /* Manager */,
 				9FFC9E731B430AD100869B23 /* Entity */,
 				9F83BA751B545DD600605D1D /* Scene */,
 				9FB063D61B5818960088AE2A /* Novel */,
@@ -377,6 +397,25 @@
 			path = ios;
 			sourceTree = SOURCE_ROOT;
 		};
+		9F06E9B81B5ACF8A00107C09 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9F0564651B49D5AA00649A7F /* Species.cpp */,
+				9F0564661B49D5AA00649A7F /* Species.h */,
+				9F83BA821B55687700605D1D /* UserData.cpp */,
+				9F83BA831B55687700605D1D /* UserData.h */,
+				9F425AEA1B461899001B2969 /* Length.cpp */,
+				9F425AEB1B461899001B2969 /* Length.h */,
+				9F425AE71B461732001B2969 /* WorldInfo.cpp */,
+				9F425AE81B461732001B2969 /* WorldInfo.h */,
+				9F06E9C01B5AD27D00107C09 /* GameResult.cpp */,
+				9F06E9C11B5AD27D00107C09 /* GameResult.h */,
+				9F06E9C31B5C243700107C09 /* EnemyGenerater.cpp */,
+				9F06E9C41B5C243700107C09 /* EnemyGenerater.h */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		9F0F16311B556D8100217010 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -406,26 +445,17 @@
 			name = Scene;
 			sourceTree = "<group>";
 		};
-		9F83BA761B545E0F00605D1D /* Core */ = {
+		9F83BA761B545E0F00605D1D /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				9F0564651B49D5AA00649A7F /* Species.cpp */,
-				9F0564661B49D5AA00649A7F /* Species.h */,
-				9FFC9E721B42FAA500869B23 /* CommonInclude.h */,
 				9F425AE41B4616E6001B2969 /* WorldManager.cpp */,
 				9F425AE51B4616E6001B2969 /* WorldManager.h */,
-				9F425AE71B461732001B2969 /* WorldInfo.cpp */,
-				9F425AE81B461732001B2969 /* WorldInfo.h */,
-				9F83BA821B55687700605D1D /* UserData.cpp */,
-				9F83BA831B55687700605D1D /* UserData.h */,
 				9F83BA841B55687700605D1D /* UserDataController.cpp */,
 				9F83BA851B55687700605D1D /* UserDataController.h */,
 				9F83BA7F1B55683100605D1D /* SoundManager.cpp */,
 				9F83BA801B55683100605D1D /* SoundManager.h */,
-				9F425AEA1B461899001B2969 /* Length.cpp */,
-				9F425AEB1B461899001B2969 /* Length.h */,
 			);
-			name = Core;
+			name = Manager;
 			sourceTree = "<group>";
 		};
 		9FB063D61B5818960088AE2A /* Novel */ = {
@@ -480,6 +510,10 @@
 				9F83BA691B54327700605D1D /* WorldMap.h */,
 				9F83BA6A1B54327700605D1D /* WorldMapReader.cpp */,
 				9F83BA6B1B54327700605D1D /* WorldMapReader.h */,
+				9F06E9B91B5AD02000107C09 /* ModalLayer.cpp */,
+				9F06E9BA1B5AD02000107C09 /* ModalLayer.h */,
+				9F06E9BD1B5AD21A00107C09 /* ResultLayer.cpp */,
+				9F06E9BE1B5AD21A00107C09 /* ResultLayer.h */,
 			);
 			name = Entity;
 			sourceTree = "<group>";
@@ -624,9 +658,12 @@
 				9F83BA811B55683100605D1D /* SoundManager.cpp in Sources */,
 				9FFC9E6E1B42F8F400869B23 /* ZMath.cpp in Sources */,
 				9F425AE91B461732001B2969 /* WorldInfo.cpp in Sources */,
+				9F06E9BF1B5AD21A00107C09 /* ResultLayer.cpp in Sources */,
+				9F06E9C21B5AD27D00107C09 /* GameResult.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				9FB063E31B5818A20088AE2A /* NovelPlayer.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* MainScene.cpp in Sources */,
+				9F06E9BB1B5AD02000107C09 /* ModalLayer.cpp in Sources */,
 				9F425AE61B4616E6001B2969 /* WorldManager.cpp in Sources */,
 				9F015C941B420DC700F45135 /* Gacha.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
@@ -643,6 +680,7 @@
 				9F83BA871B55687700605D1D /* UserDataController.cpp in Sources */,
 				9F015C951B420DC700F45135 /* GachaReader.cpp in Sources */,
 				9FB063E01B5818A20088AE2A /* NovelAction.cpp in Sources */,
+				9F06E9C51B5C243700107C09 /* EnemyGenerater.cpp in Sources */,
 				9F05646C1B49EDE000649A7F /* ScaleBar.cpp in Sources */,
 				9F83BA861B55687700605D1D /* UserData.cpp in Sources */,
 				9F0564671B49D5AA00649A7F /* Species.cpp in Sources */,
@@ -688,7 +726,10 @@
 				);
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				LIBRARY_SEARCH_PATHS = " /Applications/Cocos/frameworks/cocos2d-x-3.6/prebuilt/ios";
+				LIBRARY_SEARCH_PATHS = (
+					"/Applications/Cocos/frameworks/cocos2d-x-3.6/prebuilt/ios",
+					"$(SYSTEM_APPS_DIR)/Cocos/frameworks/cocos2d-x-3.6/prebuilt/ios",
+				);
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",
@@ -725,7 +766,10 @@
 				);
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				LIBRARY_SEARCH_PATHS = " /Applications/Cocos/frameworks/cocos2d-x-3.6/prebuilt/ios";
+				LIBRARY_SEARCH_PATHS = (
+					"/Applications/Cocos/frameworks/cocos2d-x-3.6/prebuilt/ios",
+					"$(SYSTEM_APPS_DIR)/Cocos/frameworks/cocos2d-x-3.6/prebuilt/ios",
+				);
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",

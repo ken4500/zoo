@@ -2,7 +2,7 @@
   <PropertyGroup Type="Scene" Name="MainScene" ID="a2ee0952-26b5-49ae-8bf9-4f1d6279b798" Version="2.2.8.0" />
   <Content ctype="GameProjectContent">
     <Content>
-      <Animation Duration="259" Speed="1.0000" ActivedAnimationName="zoomout1">
+      <Animation Duration="259" Speed="1.0000" ActivedAnimationName="battle_start">
         <Timeline ActionTag="1751926304" Property="Position">
           <PointFrame FrameIndex="125" X="568.0000" Y="320.0000">
             <EasingData Type="1" />
@@ -104,6 +104,11 @@
             <EasingData Type="0" />
           </IntFrame>
         </Timeline>
+        <Timeline ActionTag="902696947" Property="FileData">
+          <TextureFrame FrameIndex="202" Tween="False">
+            <TextureFile Type="Normal" Path="ui/battle_start.png" Plist="" />
+          </TextureFrame>
+        </Timeline>
         <Timeline ActionTag="-840124772" Property="Position">
           <PointFrame FrameIndex="1" X="1090.5599" Y="20.0000">
             <EasingData Type="0" />
@@ -118,7 +123,7 @@
           <RenderColor A="255" R="100" G="149" B="237" />
         </AnimationInfo>
         <AnimationInfo Name="battle_start" StartIndex="140" EndIndex="260">
-          <RenderColor A="150" R="255" G="250" B="205" />
+          <RenderColor A="255" R="255" G="250" B="205" />
         </AnimationInfo>
       </AnimationList>
       <ObjectData Name="Scene" ctype="GameNodeObjectData">
@@ -135,8 +140,8 @@
             <FileData Type="Normal" Path="ui/levelup.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="battleStart" ActionTag="902696947" Tag="17" VisibleForFrame="False" Alpha="0" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="216.0000" RightMargin="216.0000" TopMargin="280.5000" BottomMargin="280.5000" ctype="SpriteObjectData">
-            <Size X="704.0000" Y="79.0000" />
+          <AbstractNodeData Name="battleStart" ActionTag="902696947" Tag="17" VisibleForFrame="False" Alpha="0" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="100.0000" RightMargin="100.0000" TopMargin="258.0000" BottomMargin="258.0000" ctype="SpriteObjectData">
+            <Size X="936.0000" Y="124.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="568.0000" Y="320.0000" />
             <Scale ScaleX="5.0000" ScaleY="5.0000" />
@@ -156,7 +161,7 @@
             <PreSize />
             <FileData Type="Normal" Path="ScaleBar.csd" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="menuNode" ActionTag="-2046749336" Tag="12" IconVisible="True" LeftMargin="33.0452" RightMargin="1102.9547" TopMargin="608.6856" BottomMargin="31.3144" ctype="SingleNodeObjectData">
+          <AbstractNodeData Name="menuNode" ActionTag="-2046749336" Tag="12" IconVisible="True" LeftMargin="33.0452" RightMargin="1102.9548" TopMargin="608.6856" BottomMargin="31.3144" ctype="SingleNodeObjectData">
             <Size />
             <Children>
               <AbstractNodeData Name="battleButton" ActionTag="280631743" Tag="71" Alpha="225" IconVisible="False" RightMargin="-208.0000" TopMargin="-153.0000" TouchEnable="True" FontSize="48" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="178" Scale9Height="131" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">

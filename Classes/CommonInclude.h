@@ -12,6 +12,9 @@
 #include "ZMath.h"
 #include "ZUtil.h"
 #include "Constants.h"
+#include "ColorConstants.h"
 #include "Length.h"
+#include "WorldInfo.h"
+#include "Species.h"
 
 #endif

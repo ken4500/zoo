@@ -23,6 +23,9 @@ public:
     
     void levelUpEffect();
     void transitionMap(WorldMap* newMap);
+    void playNovel(std::string novelId, std::function<void ()> callback, bool apearSkipButton);
+    void hideMenu();
+    void showMenu();
     
 private:
     Gacha* _gacha;
@@ -34,13 +37,10 @@ private:
     void onEnter() override;
     void update(float dt);
     void setupTouchHandling();
-    void _playNovel(std::string novelId, std::function<void ()> callback, bool apearSkipButton);
     void _pushBattleButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void _battleStartEffect();
     void _pauseRecursive(Node* node);
     void _resumeRecursive(Node* node);
-    void _hideMenu();
-    void _showMenu();
 
 };
 

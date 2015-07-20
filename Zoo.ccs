@@ -29,6 +29,7 @@
         <Folder Name="font">
           <Fnt Name="font1.fnt" />
           <Fnt Name="font2.fnt" />
+          <Fnt Name="zoo_font2.fnt" />
         </Folder>
         <Folder Name="ui">
           <Image Name="empty.png" />
@@ -39,7 +40,13 @@
           <Image Name="battle_button_pressed.png" />
           <Image Name="levelup.png" />
           <Image Name="battle_start.png" />
+          <Image Name="watch.png" />
+          <Image Name="b_ok_down.png" />
+          <Image Name="b_ok_up.png" />
+          <Image Name="button.png" />
+          <Image Name="button2.png" />
         </Folder>
+        <Project Name="Result.csd" Type="Node" />
       </RootFolder>
     </Group>
   </SolutionFolder>

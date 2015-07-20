@@ -7,6 +7,7 @@
 //
 
 #include "Length.h"
+#include "WorldManager.h"
 
 #pragma - static
 
@@ -32,6 +33,11 @@ std::string Length::toString(UnitOfLength unit)
 UnitOfLength Length::toUnit(std::string str)
 {
     return Length::toUnitMap[str];
+}
+
+Length* Length::createWithDisplayLength(float displayLength)
+{
+    return WorldManager::getInstance()->getLength(displayLength);
 }
 
 #pragma - core
@@ -74,17 +80,21 @@ float Length::getLength()
     return _mm / (float)unit;
 }
 
-
 float Length::getMmLength()
 {
     return _mm;
 }
+
 
 float Length::getLength(UnitOfLength unit)
 {
     return _mm / (float)unit;
 }
 
+float Length::getDisplayLength()
+{
+    return WorldManager::getInstance()->getDisplayLength(this);
+}
 
 #pragma - calculate
 

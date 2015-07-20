@@ -10,17 +10,21 @@
 #define __Zoo__WorldManager__
 
 #include "cocos2d.h"
-#include "WorldInfo.h"
 #include "WorldMap.h"
 #include "MainScene.h"
+#include "CommonInclude.h"
+#include "EnemyGenerater.h"
 class Gacha;
 class Animal;
 
 enum class SceneState {
-    Tutrial,
-    TutrialBattle,
+    Tutorial,
+    TutorialBattle,
+    TutorialShowResult,
     Normal,
-    Battle
+    Battle,
+    ShowResult,
+    
 };
 
 class WorldManager
@@ -43,6 +47,9 @@ public:
     WorldInfo* levelup();
     void startBattle();
     void startTutorialBattle();
+    void winBattle();
+    void loseBattle();
+    void endResult();
     
     // util
     float getImageScale(Sprite* image, Length* width);
@@ -61,9 +68,11 @@ private:
     SceneState _state;
     std::vector<Animal*> _animalList;
     std::vector<Animal*> _enemyAnimalList;
+    EnemyGenerater* _enemyGenerater;
     
     WorldInfo* _loadWoldInfo(int level);
     MainScene* _getMainScene();
+    void _endBattle();
 
     WorldManager();
     ~WorldManager();

@@ -9,12 +9,13 @@
 #ifndef __Zoo__Length__
 #define __Zoo__Length__
 
-#include "CommonInclude.h"
+#include "Constants.h"
 
 class Length {
 public:
     Length(float length);
     Length(UnitOfLength unit, float length);
+    static Length* createWithDisplayLength(float displayLength);
     static std::string toString(UnitOfLength unit);
     static UnitOfLength toUnit(std::string str);
 
@@ -23,12 +24,45 @@ public:
     float getLength();
     float getMmLength();
     float getLength(UnitOfLength unit);
+    float getDisplayLength();
     
     void add(Length* l);
     void scale(float scale);
     
     static Length* add(Length* l1, Length* l2);
     static Length* scale(Length* l, float scale);
+    Length operator+(Length b) const
+    {
+        return Length(_mm + b.getMmLength());
+    }
+    Length operator-(Length b) const
+    {
+        return Length(_mm - b.getMmLength());
+    }
+    Length operator*(float scale) const
+    {
+        return Length(_mm * scale);
+    }
+    Length operator/(float scale) const
+    {
+        return Length(_mm / scale);
+    }
+    bool operator>(Length b) const
+    {
+        return _mm > b.getMmLength();
+    }
+    bool operator<(Length b) const
+    {
+        return _mm < b.getMmLength();
+    }
+    bool operator>=(Length b) const
+    {
+        return _mm >= b.getMmLength();
+    }
+    bool operator<=(Length b) const
+    {
+        return _mm <= b.getMmLength();
+    }
 
 private:
     static std::map<std::string, UnitOfLength> toUnitMap;

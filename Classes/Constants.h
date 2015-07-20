@@ -16,12 +16,22 @@ enum class MainSceneTag
     EnemyAnimal
 };
 
-enum class AnimalType
+enum class AnimalState
 {
-    None = 0,
-    Ant,
-    Beetle,
-    Dog
+    Unkown = 0,
+    Stop,
+    Jump,
+    Walk,
+    MoveTarget,
+    Battle,
+    Dead,
+};
+
+enum class BattleState
+{
+    Lose = -1,
+    Battle = 0,
+    Win = 1,
 };
 
 enum class UnitOfLength

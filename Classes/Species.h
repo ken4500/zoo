@@ -10,24 +10,37 @@
 #define __Zoo__AbstractSpecies__
 
 #include "CommonInclude.h"
+#include "json/document.h"
+#include "json/writer.h"
+#include "json/stringbuffer.h"
 
 class Species {
 public:
+    Species(std::string name, rapidjson::Value& json);
     Species(std::string name);
+    std::string getName();
     Length* getMaxHeight();
+    Length* getAverageHeight();
     Length* getMinHeight();
     Length* getSpeed();
+    Length* getDashSpeed();
     std::string getImageName();
     std::string getMoveCsbName();
     bool isMove();
+    
+    static std::vector<Species*> getAllSpecies();
 
 protected:
+    std::string _name;
     Length* _maxHeight;
     Length* _minHeight;
     Length* _speed;
+    Length* _dashSpeed;
     std::string _imageName;
     std::string _moveCsbName;
     bool _move;
+    
+    void init(std::string name, rapidjson::Value& json);
 };
 
 

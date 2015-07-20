@@ -28,7 +28,6 @@ protected:
     cocostudio::timeline::ActionTimeline* _timeline;
 
     void onEnter() override;
-    void setupTouchHandling();
 };
 
 #endif /* defined(__Zoo__Gacha__) */

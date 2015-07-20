@@ -65,9 +65,11 @@ void WorldMap::update(float dt)
     auto manager = WorldManager::getInstance();
     auto state = manager->getSceneState();
     if (state == SceneState::Battle
-        || state == SceneState::TutrialBattle) {
+        || state == SceneState::TutorialBattle) {
         auto animalList = manager->getAnimalList();
         auto enemyAnimalList = manager->getEnemyAnimalList();
+
+        // 接近判定
         for (auto enemy : enemyAnimalList) {
             if (enemy->isDead()) {
                 continue;
@@ -76,12 +78,24 @@ void WorldMap::update(float dt)
                 if (animal->isDead()) {
                     continue;
                 }
-                float distance = enemy->getPosition().distance(animal->getPosition());
-                if (distance < 80 / this->getScale()) {
-                    enemy->runAction(FadeOut::create(1.0f));
-                    enemy->setIsDead(true);
-                }
+                Length a = Length(10);
+                Length b = Length(1);
+                Length c = a + b;
+                
+//                auto distance = Length::createWithDisplayLength(enemy->getPosition().distance(animal->getPosition()));
+//                if (distance < animal->getHeight() + enemy->getHeight()) {
+//                    enemy->fight(animal);
+//                    animal->fight(enemy);
+//                }
             }
+        }
+
+        // バトル終了判定
+        auto battleState = _checkBattleEnd();
+        if (battleState == BattleState::Win) {
+            WorldManager::getInstance()->winBattle();
+        } else if (battleState == BattleState::Lose) {
+            WorldManager::getInstance()->loseBattle();
         }
     }
 }
@@ -94,7 +108,8 @@ void WorldMap::setupTouchHandling()
     touchListener->onTouchBegan = [&](Touch* touch, Event* event)
     {
         bool isTouchGacha = false;
-        if (_gacha) {
+        auto state = WorldManager::getInstance()->getSceneState();
+        if (_gacha && state != SceneState::Battle) {
             auto image = _gacha->getChildByName<Sprite*>("image");
             Rect targetBox = image->getBoundingBox();
             targetBox.origin = image->convertToWorldSpaceAR(targetBox.origin);
@@ -256,6 +271,19 @@ void WorldMap::addEnemyAnimal(Animal* animal, Vec2 targetPoint)
     animal->startWalk();
 }
 
+void WorldMap::hideGacha()
+{
+    if (_gacha) {
+        _gacha->runAction(FadeOut::create(1.0f));
+    }
+}
+
+void WorldMap::showGacha()
+{
+    if (_gacha) {
+        _gacha->runAction(FadeIn::create(1.0f));
+    }
+}
 
 #pragma - private method
 
@@ -263,3 +291,34 @@ int WorldMap::_calcObjectZOrder(Node* node)
 {
     return 1000 - (int)node->getPosition().y;
 }
+
+BattleState WorldMap::_checkBattleEnd()
+{
+        auto animalList      = WorldManager::getInstance()->getAnimalList();
+        auto enemyAnimalList = WorldManager::getInstance()->getEnemyAnimalList();
+        bool allEnemyIsDead = true;
+        for (auto enemy : enemyAnimalList) {
+            if (enemy->isDead() == false) {
+                allEnemyIsDead = false;
+                break;
+            }
+        }
+        if (allEnemyIsDead) {
+            return BattleState::Win;
+        }
+    
+    
+        bool allAnimalIsDead = true;
+        for (auto animal : animalList) {
+            if (animal->isDead() == false) {
+                allAnimalIsDead = false;
+                break;
+            }
+        }
+        if (allAnimalIsDead) {
+            return BattleState::Lose;
+        }
+    
+        return BattleState::Battle;
+}
+

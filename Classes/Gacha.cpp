@@ -30,38 +30,12 @@ bool Gacha::init() {
 void Gacha::onEnter()
 {
     Node::onEnter();
-    this->setupTouchHandling();
 }
 
 float Gacha::getGachaHeight()
 {
     auto image = this->getChildByName<Sprite*>("image");
     return image->getContentSize().height * getScale();
-}
-
-void Gacha::setupTouchHandling()
-{
-    auto touchListener = EventListenerTouchOneByOne::create();
-
-    touchListener->onTouchBegan = [&](Touch* touch, Event* event)
-    {
-        auto image = this->getChildByName<Sprite*>("image");
-        Rect targetBox = image->getBoundingBox();
-        targetBox.origin = image->convertToWorldSpaceAR(targetBox.origin);
-     
-        Point location = touch->getLocationInView();
-        auto touchLocation = Director::getInstance()->convertToGL(location);
-        
-     
-        //touchPointがtargetBoxの中に含まれているか判定
-        if (targetBox.containsPoint(touchLocation))
-        {
-            this->lotteryGacha();
-        }
-        return true;
-    };
-
-    this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(touchListener, this);
 }
 
 void Gacha::lotteryGacha()

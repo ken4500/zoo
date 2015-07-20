@@ -18,25 +18,32 @@ class Animal : public cocos2d::Node {
 public:
     Animal();
     static Animal* CreateWithSpeceis(std::string specesName);
-    bool initWithSpeceis(std::string specesName);
+    static Animal* CreateWithSpeceis(Species* species);
+    bool initWithSpeceis(Species* species);
 
     float getWorldScale();
     Length* getHeight();
     Length* getSpeed();
+    Length* getDashSpeed();
     std::string getName();
     bool getZOderUpdate();
     bool isEnemy();
     void setIsEnmey(bool isEnemy);
     bool isDead();
-    void setIsDead(bool isDead);
+    AnimalState getState();
 
     void updateWorldScale();
     void jump(Vec2 target, float height, std::function<void ()> callback);
     void startWalk();
     void stopMove();
     void movePoint(Vec2 targetPoint, float dt);
+    void fight(Animal* animal);
+    void dead();
+    void reborn();
+    bool addDamage(float damage);
     
     std::function<void ()> deadCallback;
+    std::function<void ()> startFightCallback;
 
 protected:
     Species* _species;
@@ -48,9 +55,14 @@ protected:
     bool _zOrderUpdate;
     Action* _moveAction;
     bool _isEnemy;
-    bool _isDead;
+    Animal* _targetAnimal;
+    AnimalState _state;
+    float _maxHp;
+    float _hp;
+    float _offense;
     
     void onEnter() override;
+    void update(float dt);
     void _moveNextPoint();
     void _changeAnimalImage();
     
