@@ -124,7 +124,7 @@ void WorldManager::lotteryGacha()
         
         auto mainScene = _getMainScene();
         if (mainScene) {
-            mainScene->showNoticeView("You don't have enough coin!\nPush the battle button", NULL);
+            mainScene->showNoticeView("You don't have enough coin!\nPush the battle button", 0.0f, NULL);
         }
 
         return;
@@ -314,7 +314,7 @@ void WorldManager::winBattle()
     
     auto mainScene = _getMainScene();
     if (mainScene) {
-        mainScene->showResultView(result, CC_CALLBACK_0(WorldManager::_closeResult, this));
+        mainScene->showResultView(result, 1.0f, CC_CALLBACK_0(WorldManager::_closeResult, this));
     }
 }
 
@@ -334,7 +334,7 @@ void WorldManager::loseBattle()
     
     auto mainScene = _getMainScene();
     if (mainScene) {
-        mainScene->showResultView(result, CC_CALLBACK_0(WorldManager::_closeResult, this));
+        mainScene->showResultView(result, 1.0f, CC_CALLBACK_0(WorldManager::_closeResult, this));
     }
 }
 
@@ -426,16 +426,17 @@ void WorldManager::_closeResult()
                 NULL
             ));
         } else {
+            animal->repairHp();
             animal->startWalk();
         }
     }
 
     for (auto animal : _enemyAnimalList) {
-        animal->runAction(Sequence::create(
-            FadeOut::create(0.5f),
-            RemoveSelf::create(),
-            NULL
-        ));
+        if (animal->isDead()) {
+            animal->removeFromParent();
+        } else {
+            animal->escape();
+        }
     }
     _enemyAnimalList = std::vector<Animal*>();
     

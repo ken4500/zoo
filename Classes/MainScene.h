@@ -33,8 +33,8 @@ public:
     void updateLifeLabel(int life);
     void updateLeftTimeLabel(int leftTime);
     void showConsumeCoinEffect(int decreaseCoin);
-    void showNoticeView(std::string message, std::function<void ()> closeCallback);
-    void showResultView(GameResult* result, std::function<void ()> closeCallback);
+    void showNoticeView(std::string message, float delay, std::function<void ()> closeCallback);
+    void showResultView(GameResult* result, float delay, std::function<void ()> closeCallback);
     
 private:
     Gacha* _gacha;

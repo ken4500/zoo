@@ -42,6 +42,10 @@ public:
     void dead();
     void reborn();
     bool addDamage(float damage);
+    bool canAttack();
+    void repairHp();
+    void escape();
+    void endFight();
     
     std::function<void ()> deadCallback;
     std::function<void ()> startFightCallback;
@@ -61,6 +65,7 @@ protected:
     float _maxHp;
     float _hp;
     float _offense;
+    ParticleSystemQuad* _battleEffect;
     
     void onEnter() override;
     void update(float dt);

@@ -54,12 +54,9 @@ void WorldMap::update(float dt)
                     node->setLocalZOrder(1000 - (int)node->getPosition().y);
                 }
                 
-                float distance = (animal->getPosition() - _targetPoint).length();
-                distance *= getScale();
                 if (animal->getState() != AnimalState::Dead
                     && animal->getState() != AnimalState::Battle
-                    && _targetPoint != Vec2::ZERO
-                    && distance < 300)
+                    && _targetPoint != Vec2::ZERO)
                 {
                     animal->movePoint(_targetPoint, dt);
                 }
@@ -88,8 +85,12 @@ void WorldMap::update(float dt)
                 float r1 = animal->getHeight()->getMmLength() / 3;
                 float r2 = enemy->getHeight()->getMmLength() / 3;
                 if (distance->getMmLength() < r1 + r2) {
-                    enemy->fight(animal);
-                    animal->fight(enemy);
+                    if (enemy->canAttack()) {
+                        enemy->fight(animal);
+                    }
+                    if (animal->canAttack()) {
+                        animal->fight(enemy);
+                    }
                 }
             }
         }

@@ -239,18 +239,30 @@ void MainScene::showConsumeCoinEffect(int decreaseCoin)
     ));
 }
 
-void MainScene::showNoticeView(std::string message, std::function<void ()> closeCallback)
+void MainScene::showNoticeView(std::string message, float delay, std::function<void ()> closeCallback)
 {
-    auto layer = NoticeLayer::createWithMessage(message);
-    layer->closeNoticeCallback = closeCallback;
-    this->addChild(layer);
+    runAction(Sequence::create(
+        DelayTime::create(delay),
+        CallFunc::create([this, message, closeCallback ]{
+            auto layer = NoticeLayer::createWithMessage(message);
+            layer->closeNoticeCallback = closeCallback;
+            this->addChild(layer);
+        }),
+        NULL
+    ));
 }
 
-void MainScene::showResultView(GameResult* result, std::function<void ()> closeCallback)
+void MainScene::showResultView(GameResult* result, float delay, std::function<void ()> closeCallback)
 {
-    auto layer = ResultLayer::createWithResult(result);
-    layer->closeResultCallback = closeCallback;
-    this->addChild(layer);
+    runAction(Sequence::create(
+        DelayTime::create(delay),
+        CallFunc::create([this, result, closeCallback ]{
+            auto layer = ResultLayer::createWithResult(result);
+            layer->closeResultCallback = closeCallback;
+            this->addChild(layer);
+        }),
+        NULL
+    ));
 }
 
 #pragma - private method

@@ -2,7 +2,7 @@
   <PropertyGroup Type="Node" Name="AnimalMove1" ID="9b2712b8-9012-415f-a088-855627e4b972" Version="2.2.8.0" />
   <Content ctype="GameProjectContent">
     <Content>
-      <Animation Duration="230" Speed="1.0000" ActivedAnimationName="reborn">
+      <Animation Duration="270" Speed="1.0000" ActivedAnimationName="dead">
         <Timeline ActionTag="-2066128753" Property="Position">
           <PointFrame FrameIndex="1" X="0.0000" Y="0.0000">
             <EasingData Type="0" />
@@ -40,6 +40,12 @@
           <PointFrame FrameIndex="230" X="0.0000" Y="0.0000">
             <EasingData Type="0" />
           </PointFrame>
+          <PointFrame FrameIndex="241" X="0.0000" Y="0.0000">
+            <EasingData Type="0" />
+          </PointFrame>
+          <PointFrame FrameIndex="260" X="-0.0002" Y="100.0000">
+            <EasingData Type="0" />
+          </PointFrame>
         </Timeline>
         <Timeline ActionTag="-2066128753" Property="RotationSkew">
           <ScaleFrame FrameIndex="1" X="0.0000" Y="0.0000">
@@ -55,6 +61,12 @@
             <EasingData Type="0" />
           </ScaleFrame>
           <ScaleFrame FrameIndex="151" X="0.0000" Y="0.0000">
+            <EasingData Type="0" />
+          </ScaleFrame>
+          <ScaleFrame FrameIndex="241" X="0.0000" Y="0.0000">
+            <EasingData Type="0" />
+          </ScaleFrame>
+          <ScaleFrame FrameIndex="260" X="79.2193" Y="79.2192">
             <EasingData Type="0" />
           </ScaleFrame>
         </Timeline>
@@ -83,9 +95,21 @@
           <ScaleFrame FrameIndex="203" X="1.0000" Y="1.0000">
             <EasingData Type="0" />
           </ScaleFrame>
+          <ScaleFrame FrameIndex="241" X="1.0000" Y="1.0000">
+            <EasingData Type="0" />
+          </ScaleFrame>
         </Timeline>
         <Timeline ActionTag="-2066128753" Property="Alpha">
           <IntFrame FrameIndex="190" Value="255">
+            <EasingData Type="0" />
+          </IntFrame>
+          <IntFrame FrameIndex="241" Value="255">
+            <EasingData Type="0" />
+          </IntFrame>
+          <IntFrame FrameIndex="260" Value="255">
+            <EasingData Type="0" />
+          </IntFrame>
+          <IntFrame FrameIndex="270" Value="0">
             <EasingData Type="0" />
           </IntFrame>
         </Timeline>
@@ -103,14 +127,17 @@
         <AnimationInfo Name="reborn" StartIndex="190" EndIndex="240">
           <RenderColor A="255" R="165" G="42" B="42" />
         </AnimationInfo>
+        <AnimationInfo Name="dead" StartIndex="241" EndIndex="280">
+          <RenderColor A="150" R="112" G="128" B="144" />
+        </AnimationInfo>
       </AnimationList>
       <ObjectData Name="Node" Tag="16" ctype="GameNodeObjectData">
         <Size />
         <Children>
-          <AbstractNodeData Name="image" ActionTag="-2066128753" Tag="8" IconVisible="False" LeftMargin="-200.0000" RightMargin="-200.0000" TopMargin="-400.0000" ctype="SpriteObjectData">
+          <AbstractNodeData Name="image" ActionTag="-2066128753" Tag="8" Rotation="79.2193" RotationSkewX="79.2193" RotationSkewY="79.2192" Alpha="25" IconVisible="False" LeftMargin="-200.0002" RightMargin="-199.9998" TopMargin="-500.0000" BottomMargin="100.0000" ctype="SpriteObjectData">
             <Size X="400.0000" Y="400.0000" />
             <AnchorPoint ScaleX="0.5000" />
-            <Position />
+            <Position X="-0.0002" Y="100.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />

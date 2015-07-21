@@ -70,6 +70,7 @@ bool Animal::initWithSpeceis(Species* species)
     _maxHp = mm;
     _hp = mm;
     _offense = mm / 2;
+    _battleEffect = NULL;
     
     setTag((int)MainSceneTag::Animal);
     setCascadeOpacityEnabled(true);
@@ -87,12 +88,14 @@ void Animal::onEnter()
 
 void Animal::update(float dt)
 {
-    if (_state == AnimalState::Battle && _targetAnimal && _targetAnimal->isDead() == false) {
-        bool kill = _targetAnimal->addDamage(_offense * dt);
-        if (kill) {
-            _targetAnimal->release();
-            _targetAnimal = NULL;
-            startWalk();
+    if (_state == AnimalState::Battle && _targetAnimal) {
+        if (_targetAnimal->isDead()) {
+            endFight();
+        } else {
+            bool kill = _targetAnimal->addDamage(_offense * dt);
+            if (kill) {
+                endFight();
+            }
         }
     }
 }
@@ -133,10 +136,14 @@ void Animal::jump(Vec2 target, float height, std::function<void ()> callback)
 
 void Animal::movePoint(Vec2 targetPoint, float dt)
 {
+    auto parent = getParent();
+    if (parent == NULL) {
+        return;
+    }
     Vec2 diff = targetPoint - getPosition();
     if (diff.length() > 10) {
         diff.normalize();
-        Vec2 speed = diff * WorldManager::getInstance()->getDisplayLength(getDashSpeed());
+        Vec2 speed = diff * 200 / parent->getScale();
         setPosition(getPosition() + speed * dt);
     }
 }
@@ -148,8 +155,7 @@ void Animal::stopMove()
 
 void Animal::fight(Animal* animal)
 {
-    if (_state == AnimalState::Battle
-        || _state == AnimalState::Dead) {
+    if (canAttack() == false) {
         return;
     }
 
@@ -157,22 +163,46 @@ void Animal::fight(Animal* animal)
     _targetAnimal = animal;
     _targetAnimal->retain();
     stopAllActions();
-    runAction(_timeline);
-    _timeline->play("battle", true);
-    if (startFightCallback) {
-        startFightCallback();
-    }
+    
+    Vec2 originPoint = getPosition();
+    Vec2 targetPoint = ZMath::divideInternally(getPosition(), animal->getPosition(), 1, 2);
+        auto size = _image->getContentSize() * getScale();
+    Vec2 effectPoint = ZMath::divideInternally(getPosition(), animal->getPosition(), 1, 1) + Vec2(0, size.height / 2);
+    
+    runAction(RepeatForever::create(Sequence::create(
+        MoveTo::create(0.1f, targetPoint),
+        CallFunc::create([this, effectPoint](){
+            auto effect = ParticleSystemQuad::create("effect/hit3.plist");
+            effect->setScale(getScale());
+            effect->setPosition(effectPoint);
+            effect->setZOrder(100000);
+            auto parent = getParent();
+            if (parent) {
+                parent->addChild(effect);
+            }
+        }),
+        MoveTo::create(0.3f, originPoint),
+        DelayTime::create(0.5f),
+        NULL
+    )));
 }
 
 void Animal::dead()
 {
     if (_state != AnimalState::Dead) {
         _state = AnimalState::Dead;
-        stopAllActions();
-        runAction(FadeOut::create(1.0f));
-        if (deadCallback) {
-            deadCallback();
+        if (_battleEffect) {
+            _battleEffect->removeFromParent();
+            _battleEffect = NULL;
         }
+        stopAllActions();
+        runAction(_timeline);
+        _timeline->play("dead", false);
+        _timeline->setLastFrameCallFunc([&]{
+            if (deadCallback) {
+                deadCallback();
+            }
+        });
     }
 }
 
@@ -190,7 +220,7 @@ bool Animal::addDamage(float damage)
 void Animal::reborn()
 {
     _state = AnimalState::Stop;
-    _hp = _maxHp;
+    repairHp();
     stopAllActions();
     runAction(_timeline);
     setOpacity(255);
@@ -210,6 +240,43 @@ void Animal::startWalk()
     runAction(_timeline);
     _timeline->play("walk", true);
     _moveNextPoint();
+}
+
+bool Animal::canAttack()
+{
+    if (_state == AnimalState::Battle
+        || _state == AnimalState::Dead) {
+        return false;
+    }
+    return true;
+}
+
+void Animal::repairHp()
+{
+    _hp = _maxHp;
+}
+
+void Animal::escape()
+{
+    auto target = WorldManager::getInstance()->getOutRandomPlace();
+    float delay = rand_0_1() * 0.5;
+    runAction(Sequence::create(
+        DelayTime::create(delay),
+        JumpTo::create(0.5f, target, 100, 1),
+        RemoveSelf::create(),
+        NULL
+    ));
+}
+
+void Animal::endFight()
+{
+    _targetAnimal->release();
+    _targetAnimal = NULL;
+    if (_battleEffect) {
+        _battleEffect->removeFromParent();
+        _battleEffect = NULL;
+    }
+    startWalk();
 }
 
 #pragma - setter / getter

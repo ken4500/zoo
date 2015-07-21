@@ -9,6 +9,8 @@
 #ifndef __zoo__ZMath__
 #define __zoo__ZMath__
 
+#include "cocos2d.h"
+
 class ZMath{
 public:
     static float min(float a, float b);
@@ -20,6 +22,7 @@ public:
     
     // 乱数
     static int random(int min, int max);
+    static cocos2d::Vec2 divideInternally(cocos2d::Vec2 p1, cocos2d::Vec2 p2, float n, float m);
 
 };
 
