@@ -264,7 +264,7 @@ void WorldManager::startBattle()
     }
     
     
-    for (int i = 0; i < 15; i++) {
+    for (int i = 0; i < ENEMY_NUM; i++) {
         auto enemyAnimal = _enemyGenerater->generate();
         enemyAnimal->setIsEnmey(true);
         _enemyAnimalList.push_back(enemyAnimal);
