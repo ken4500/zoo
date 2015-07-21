@@ -6,8 +6,8 @@
       <ObjectData Name="Node" CustomClassName="WorldMap" Tag="73" ctype="GameNodeObjectData">
         <Size />
         <Children>
-          <AbstractNodeData Name="background" ActionTag="1030570969" Tag="17" IconVisible="False" LeftMargin="-1331.0000" RightMargin="-1331.0000" TopMargin="-1000.0000" BottomMargin="-1000.0000" ctype="SpriteObjectData">
-            <Size X="2662.0000" Y="2000.0000" />
+          <AbstractNodeData Name="background" ActionTag="1414021684" Tag="53" IconVisible="False" LeftMargin="-1136.0000" RightMargin="-1136.0000" TopMargin="-1000.0000" BottomMargin="-1000.0000" ctype="SpriteObjectData">
+            <Size X="2272.0000" Y="2000.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
