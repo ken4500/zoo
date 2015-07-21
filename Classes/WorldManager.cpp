@@ -42,7 +42,6 @@ WorldManager::~WorldManager()
 {
 }
 
-
 #pragma - getter / setter
 
 WorldInfo* WorldManager::getWorldInfo()
@@ -118,7 +117,6 @@ void WorldManager::lotteryGacha()
         return;
     }
     if (_coin <= 0) {
-        
         auto mainScene = _getMainScene();
         if (mainScene) {
             mainScene->showNoticeView("You don't have enough coin!\nPush the battle button", 0.0f, NULL);
@@ -147,59 +145,22 @@ WorldInfo* WorldManager::levelup()
     auto preWorldInfo = _info;
     _info = _loadWoldInfo(_level);
     _gacha->setNewGachaId(_info->gachaId);
-
     auto mainScene = _getMainScene();
-    if (mainScene) {
-        mainScene->levelUpEffect();
-    }
     
-    if (_info->mapName == preWorldInfo->mapName) {
-        _map->setCurrentWidth(_info->width, NULL);
-        auto gachaImage = _gacha->getChildByName<Sprite*>("image");
-        auto gachaLength = Length::scale(_info->width, 0.2);
-        float gachaScale = getImageScale(gachaImage, gachaLength);
-        _gacha->runAction(EaseInOut::create(ScaleTo::create(1.0f, gachaScale), 2));
+    // for tutorial
+    if (_level == 2) {
+        _startTutrialLevelupScene1();
     } else {
-        auto newMap = dynamic_cast<WorldMap*>(CSLoader::createNode(_info->mapName));
-        newMap->initSize(_info->maxWidth, preWorldInfo->width);
-
-        if (mainScene) {
-            mainScene->transitionMap(newMap);
-        }
-        _map->setCurrentWidth(_info->width, NULL);
-        newMap->setCurrentWidth(_info->width, [this, newMap, preWorldInfo]{
-            auto children = _map->getChildren();
-            for(auto node : children) {
-                if (node->getTag() == (int)MainSceneTag::Animal) {
-                    node->retain();
-                    node->removeFromParent();
-                    newMap->addChild(node);
-                    node->release();
-                    auto pos = node->getPosition() * preWorldInfo->maxWidth->getMmLength() / _info->maxWidth->getMmLength();
-                    node->setPosition(pos);
-                    auto animal = dynamic_cast<Animal*>(node);
-                    if (animal) {
-                        animal->updateWorldScale();
-                        animal->startWalk();
-                    }
-                }
-            }
-            _gacha->retain();
-            _gacha->removeFromParent();
-            newMap->setGacha(_gacha);
-            _gacha->release();
-            auto pos = _gacha->getPosition() * preWorldInfo->maxWidth->getMmLength() / _info->maxWidth->getMmLength();
-            _gacha->setPosition(pos);
-            auto scale = _gacha->getScale() * preWorldInfo->maxWidth->getMmLength() / _info->maxWidth->getMmLength();
-            _gacha->setScale(scale);
-            
+        mainScene->levelUpEffect();
+        if (_info->mapName == preWorldInfo->mapName) {
+            _map->setCurrentWidth(_info->width, NULL);
             auto gachaImage = _gacha->getChildByName<Sprite*>("image");
             auto gachaLength = Length::scale(_info->width, 0.2);
             float gachaScale = getImageScale(gachaImage, gachaLength);
             _gacha->runAction(EaseInOut::create(ScaleTo::create(1.0f, gachaScale), 2));
-
-            _map = newMap;
-        });
+        } else {
+            _transitionMap(preWorldInfo, _info);
+        }
     }
     
     return _info;
@@ -275,12 +236,10 @@ void WorldManager::startBattle()
 
 void WorldManager::startTutorial()
 {
-//    auto scene = _getMainScene();
-//    scene->playNovel("novel_opening", [this]{
-//        _enableNextAction = false;
-//    }, false);
-
-    _startTutrialGachScene1();
+    auto scene = _getMainScene();
+    scene->playNovel("novel_opening", [this]{
+        _enableNextAction = false;
+    }, false);
 }
 
 void WorldManager::startTutorialBattle()
@@ -500,6 +459,49 @@ bool WorldManager::_checkAllEnemyDead()
     return allDead;
 }
 
+void WorldManager::_transitionMap(WorldInfo* preWorldInfo, WorldInfo* newWorldInfo)
+{
+    auto newMap = dynamic_cast<WorldMap*>(CSLoader::createNode(newWorldInfo->mapName));
+    newMap->initSize(newWorldInfo->maxWidth, preWorldInfo->width);
+
+    auto mainScene = _getMainScene();
+    mainScene->transitionMap(newMap);
+    _map->setCurrentWidth(newWorldInfo->width, NULL);
+    newMap->setCurrentWidth(newWorldInfo->width, [this, newMap, preWorldInfo, newWorldInfo]{
+        auto children = _map->getChildren();
+        for(auto node : children) {
+            if (node->getTag() == (int)MainSceneTag::Animal) {
+                node->retain();
+                node->removeFromParent();
+                newMap->addChild(node);
+                node->release();
+                auto pos = node->getPosition() * preWorldInfo->maxWidth->getMmLength() / newWorldInfo->maxWidth->getMmLength();
+                node->setPosition(pos);
+                auto animal = dynamic_cast<Animal*>(node);
+                if (animal) {
+                    animal->updateWorldScale();
+                    animal->startWalk();
+                }
+            }
+        }
+        _gacha->retain();
+        _gacha->removeFromParent();
+        newMap->setGacha(_gacha);
+        _gacha->release();
+        auto pos = _gacha->getPosition() * preWorldInfo->maxWidth->getMmLength() / newWorldInfo->maxWidth->getMmLength();
+        _gacha->setPosition(pos);
+        auto scale = _gacha->getScale() * preWorldInfo->maxWidth->getMmLength() / newWorldInfo->maxWidth->getMmLength();
+        _gacha->setScale(scale);
+        
+        auto gachaImage = _gacha->getChildByName<Sprite*>("image");
+        auto gachaLength = Length::scale(newWorldInfo->width, 0.2);
+        float gachaScale = getImageScale(gachaImage, gachaLength);
+        _gacha->runAction(EaseInOut::create(ScaleTo::create(1.0f, gachaScale), 2));
+
+        _map = newMap;
+    });
+}
+
 #pragma - tutorial
 
 void WorldManager::_startTutrialBattleScene1()
@@ -592,9 +594,33 @@ void WorldManager::_startTutrialGachScene1()
 
 void WorldManager::_startTutrialGachScene2()
 {
+    _state = SceneState::Normal;
     _gacha->finishGachaCallback = NULL;
     _enableNextAction = false;
     auto scene = _getMainScene();
     scene->playNovel("novel_tutorial_gacha2", [this]{
     }, false, 2.0f);
+}
+
+void WorldManager::_startTutrialLevelupScene1()
+{
+    auto scene = _getMainScene();
+    scene->playNovel("novel_tutorial_levelup1", [this]{
+        _enableNextAction = false;
+        _startTutrialLevelupScene2();
+    }, false);
+
+}
+
+void WorldManager::_startTutrialLevelupScene2()
+{
+    auto scene = _getMainScene();
+    scene->levelUpEffect();
+    _map->setCurrentWidth(_info->width, NULL);
+    auto gachaImage = _gacha->getChildByName<Sprite*>("image");
+    auto gachaLength = Length::scale(_info->width, 0.2);
+    float gachaScale = getImageScale(gachaImage, gachaLength);
+    _gacha->runAction(EaseInOut::create(ScaleTo::create(1.0f, gachaScale), 2));
+    _enableNextAction = false;
+    scene->playNovel("novel_tutorial_levelup2", NULL, false, 2.5f);
 }

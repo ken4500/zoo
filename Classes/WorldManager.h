@@ -87,11 +87,15 @@ private:
     void _setLeftTime(int leftTime);
     void _repairAllAnimalHp();
     bool _checkAllEnemyDead();
+    void _transitionMap(WorldInfo* preWorldInfo, WorldInfo* newWorldInfo);
+
     void _startTutrialBattleScene1();
     void _startTutrialBattleScene2();
     void _startTutrialBattleScene3();
     void _startTutrialGachScene1();
     void _startTutrialGachScene2();
+    void _startTutrialLevelupScene1();
+    void _startTutrialLevelupScene2();
 
     WorldManager();
     ~WorldManager();
