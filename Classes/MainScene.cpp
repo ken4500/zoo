@@ -197,7 +197,7 @@ void MainScene::playNovel(std::string novelId, std::function<void ()> callback, 
     auto novel = NovelLayer::create(novelJson, 100, false, preCallbackFunc, callback);
     novel->setPosition(Vec2(0, 0));
     novel->setName("novel");
-    if (apearSkipButton == false) {
+    if (apearSkipButton == false && APPEAR_SKIP_BUTTON == false) {
         novel->removeSkipButton();
     }
     addChild(novel);

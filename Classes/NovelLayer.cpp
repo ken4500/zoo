@@ -63,14 +63,13 @@ bool NovelLayer::init()
     dispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 
     // skipボタン作成
-//    auto skipItem = MenuItemImage::create("", "", CC_CALLBACK_1(NovelLayer::_pushedSkipButton, this));
-//    skipItem->setNormalSpriteFrame(cache->getSpriteFrameByName("b_skip.png"));
-//    skipItem->setSelectedSpriteFrame(cache->getSpriteFrameByName("b_skip.png"));
-//    skipItem->setPosition(Vec2(500, 100));
-//    auto menu = Menu::create(skipItem, NULL);
-//    menu->setPosition(Vec2::ZERO);
-//    menu->setName("skip_menu");
-//    addChild(menu, 1);
+    auto skipItem = MenuItemImage::create("ui/skip_button.png", "ui/skip_button.png", CC_CALLBACK_1(NovelLayer::_pushedSkipButton, this));
+    skipItem->setAnchorPoint(Vec2(1.0f, 1.0f));
+    skipItem->setPosition(Vec2(visibleSize.width - 20, visibleSize.height - 20));
+    auto menu = Menu::create(skipItem, NULL);
+    menu->setPosition(Vec2::ZERO);
+    menu->setName("skip_menu");
+    addChild(menu, 1);
 
     return true;
 }

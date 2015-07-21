@@ -35,7 +35,7 @@ WorldManager::WorldManager()
     _info  = _loadWoldInfo(_level);
     _map   = nullptr;
     _enableNextAction = true;
-    _state = SceneState::Normal;
+    _state = SceneState::Tutorial;
 }
 
 WorldManager::~WorldManager()
@@ -279,19 +279,18 @@ void WorldManager::startTutorialBattle()
     enemyAnimal->setIsEnmey(true);
     _enemyAnimalList.push_back(enemyAnimal);
     _map->addEnemyAnimalAtOutRandomPoint(enemyAnimal);
-    
-    enemyAnimal->startFightCallback = [this]() {
-        auto scene = _getMainScene();
-        if (scene) {
-            scene->playNovel("novel_tutorial_battle2", NULL, false);
-        }
+    auto scene = _getMainScene();
+
+    // 1匹目の敵と接触
+    enemyAnimal->startFightCallback = [this, scene]() {
+        scene->playNovel("novel_tutorial_battle2", NULL, false);
     };
     
-    enemyAnimal->deadCallback = [this]() {
-        auto scene = _getMainScene();
-        if (scene) {
-            scene->playNovel("novel_tutorial_battle3", NULL, false);
-        }
+    // 1匹目の敵死亡
+    enemyAnimal->deadCallback = [this, scene]() {
+        scene->playNovel("novel_tutorial_battle3", [this]{
+            _startTutrialScene2();
+        }, false);
     };
 }
 
@@ -480,4 +479,56 @@ void WorldManager::_setLeftTime(int leftTime)
     if (scene) {
         scene->updateLeftTimeLabel(_leftTime);
     }
+}
+
+void WorldManager::_repairAllAnimalHp()
+{
+    for (auto animal : _animalList) {
+        animal->repairHp();
+    }
+}
+
+bool WorldManager::_checkAllEnemyDead()
+{
+    bool allDead = true;
+    for (auto animal : _enemyAnimalList) {
+        if (animal->isDead() == false) {
+            allDead = false;
+            break;
+        }
+    }
+    return allDead;
+}
+
+void WorldManager::_startTutrialScene2()
+{
+    auto scene = _getMainScene();
+    // 敵5匹追加
+    for (int i = 0; i < 5; i++) {
+        auto ant = Animal::CreateWithSpeceis("Ari");
+        ant->setIsEnmey(true);
+        _enemyAnimalList.push_back(ant);
+        _map->addEnemyAnimalAtOutRandomPoint(ant);
+        ant->deadCallback = [this, scene]{
+            _repairAllAnimalHp();
+            if (_checkAllEnemyDead()) {
+                scene->playNovel("novel_tutorial_battle4", [this]{
+                    auto beetle = Animal::CreateWithSpeceis("Kabutomushi");
+                    beetle->setIsEnmey(true);
+                    _enemyAnimalList.push_back(beetle);
+                    _map->addEnemyAnimalAtOutRandomPoint(beetle);
+                    beetle->killAnimalCallback = [this] {
+                        _startTutrialScene3();
+                    };
+                }, false);
+            }
+        };
+    }
+}
+
+void WorldManager::_startTutrialScene3()
+{
+    auto scene = _getMainScene();
+    scene->playNovel("novel_tutorial_battle4", [this]{
+    }, false);
 }

@@ -95,6 +95,9 @@ void Animal::update(float dt)
             bool kill = _targetAnimal->addDamage(_offense * dt);
             if (kill) {
                 endFight();
+                if (killAnimalCallback) {
+                    killAnimalCallback();
+                }
             }
         }
     }
@@ -185,6 +188,10 @@ void Animal::fight(Animal* animal)
         DelayTime::create(0.5f),
         NULL
     )));
+    
+    if (startFightCallback) {
+        startFightCallback();
+    }
 }
 
 void Animal::dead()

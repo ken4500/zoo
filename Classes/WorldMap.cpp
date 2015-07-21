@@ -96,11 +96,13 @@ void WorldMap::update(float dt)
         }
 
         // バトル終了判定
-        auto battleState = _checkBattleEnd();
-        if (battleState == BattleState::Win) {
-            WorldManager::getInstance()->winBattle();
-        } else if (battleState == BattleState::Lose) {
-            WorldManager::getInstance()->loseBattle();
+        if (state == SceneState::Battle) {
+            auto battleState = _checkBattleEnd();
+            if (battleState == BattleState::Win) {
+                WorldManager::getInstance()->winBattle();
+            } else if (battleState == BattleState::Lose) {
+                WorldManager::getInstance()->loseBattle();
+            }
         }
     }
 }

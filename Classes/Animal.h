@@ -49,6 +49,7 @@ public:
     
     std::function<void ()> deadCallback;
     std::function<void ()> startFightCallback;
+    std::function<void ()> killAnimalCallback;
 
 protected:
     Species* _species;

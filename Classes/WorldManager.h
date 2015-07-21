@@ -84,6 +84,10 @@ private:
     void _setCoin(int coin);
     void _setGameActive(bool active);
     void _setLeftTime(int leftTime);
+    void _repairAllAnimalHp();
+    bool _checkAllEnemyDead();
+    void _startTutrialScene2();
+    void _startTutrialScene3();
 
     WorldManager();
     ~WorldManager();

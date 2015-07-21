@@ -34,7 +34,7 @@
     {
       "type": "narration",
       "target": "narration",
-      "value": "Nobody can beat me!"
+      "value": "Nobody can win me!"
     },
     {
       "type": "set",
@@ -54,7 +54,7 @@
     {
       "type": "set",
       "target": "left",
-      "value": "ari_01"
+      "value": "hero_01"
     },
     {
       "type": "name",
@@ -80,7 +80,7 @@
     {
       "type": "set",
       "target": "left",
-      "value": "ari_01"
+      "value": "hero_01"
     },
     {
       "type": "name",
@@ -106,7 +106,7 @@
     {
       "type": "set",
       "target": "left",
-      "value": "ari_01"
+      "value": "hero_01"
     },
     {
       "type": "name",
@@ -126,7 +126,7 @@
     {
       "type": "set",
       "target": "left",
-      "value": "ari_02"
+      "value": "hero_01"
     },
     {
       "type": "name",
@@ -136,7 +136,7 @@
     {
       "type": "set",
       "target": "right",
-      "value": "ari_02"
+      "value": "ari_01"
     },
     {
       "type": "name",
@@ -159,6 +159,16 @@
 },
 "novel_tutorial_battle4": {
   "actions" : [
+    {
+      "type": "set",
+      "target": "left",
+      "value": "hero_01"
+    },
+    {
+      "type": "name",
+      "target": "left",
+      "value": "ANT"
+    },
     {
       "type": "speak",
       "target": "left",
@@ -188,16 +198,6 @@
       "value": "どけよチビ！"
     },
     {
-      "type": "set",
-      "target": "left",
-      "value": "ari_01"
-    },
-    {
-      "type": "name",
-      "target": "left",
-      "value": "ANT"
-    },
-    {
       "type": "speak",
       "target": "left",
       "balloon": "normal",
@@ -216,7 +216,7 @@
     {
       "type": "set",
       "target": "left",
-      "value": "ari_01"
+      "value": "hero_01"
     },
     {
       "type": "name",
