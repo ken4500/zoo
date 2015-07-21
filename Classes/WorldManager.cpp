@@ -45,11 +45,6 @@ WorldManager::~WorldManager()
 
 #pragma - getter / setter
 
-int WorldManager::getGachaId()
-{
-    return _info->gachaId;
-}
-
 WorldInfo* WorldManager::getWorldInfo()
 {
     return _info;
@@ -61,13 +56,13 @@ WorldMap* WorldManager::getMap()
         _map = dynamic_cast<WorldMap*>(CSLoader::createNode(_info->mapName));
         _map->initSize(_info->maxWidth, _info->width);
     
-    
         if (_state != SceneState::Tutorial) {
             _gacha = dynamic_cast<Gacha*>(CSLoader::createNode("Gacha.csb"));
             auto gachaImage = _gacha->getChildByName<Sprite*>("image");
             auto gachaLength = Length::scale(_info->width, 0.2);
             float gachaScale = getImageScale(gachaImage, gachaLength);
             _gacha->setScale(gachaScale);
+            _gacha->setNewGachaId(_info->gachaId);
             _map->setGacha(_gacha);
         }
 
@@ -147,13 +142,15 @@ void WorldManager::releaseAnimal(Animal* animal, bool hit)
 WorldInfo* WorldManager::levelup()
 {
     _level++;
+    auto preWorldInfo = _info;
+    _info = _loadWoldInfo(_level);
+    _gacha->setNewGachaId(_info->gachaId);
+
     auto mainScene = _getMainScene();
     if (mainScene) {
         mainScene->levelUpEffect();
     }
     
-    auto preWorldInfo = _info;
-    _info = _loadWoldInfo(_level);
     if (_info->mapName == preWorldInfo->mapName) {
         _map->setCurrentWidth(_info->width, NULL);
         auto gachaImage = _gacha->getChildByName<Sprite*>("image");

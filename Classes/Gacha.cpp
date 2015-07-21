@@ -44,45 +44,27 @@ void Gacha::lotteryGacha()
         return;
     }
     WorldManager::getInstance()->setEnableNextAction(false);
-    
-    int gachaId = WorldManager::getInstance()->getGachaId();
-    std::vector<float> probabilityList;
-    std::vector<std::string> rewardList;
-    std::vector<bool> hitList;
 
-    auto jsonStr = FileUtils::getInstance()->getStringFromFile("data/gacha.json");
-    rapidjson::Document document;
-    document.Parse<0>(jsonStr.c_str());
-    rapidjson::Value& gachaDoc = document[std::to_string(gachaId).c_str()];
-    float total = 0;
-    for (int i = 0; i < gachaDoc.Size(); i++) {
-        rapidjson::Value& v = gachaDoc[i];
-        float p = v["probability"].GetDouble();
-        total += p;
-        probabilityList.push_back(p);
-        rewardList.push_back(v["reward"].GetString());
-        if (v["hit"].IsNull()) {
-            hitList.push_back(false);
-        } else {
-            hitList.push_back(v["hit"].GetBool());
-        }
-    }
-    
-    float rnd = total * rand_0_1();
-    float lot = 0;
+    _lotteryCount++;
+
     bool isHit = false;
+    bool canLotteryHit = _least < _lotteryCount;
     std::string animalStr;
-    for (int i = 0; i < probabilityList.size(); i++) {
-        lot += probabilityList[i];
-        if (rnd < lot) {
-            animalStr = rewardList[i];
-            isHit = hitList[i];
-            break;
+
+    do {
+        float rnd = _sumProbability * rand_0_1();
+        float lot = 0;
+        for (int i = 0; i < _probabilityList.size(); i++) {
+            lot += _probabilityList[i];
+            if (rnd < lot) {
+                animalStr = _rewardList[i];
+                isHit = _hitList[i];
+                break;
+            }
         }
-    }
+    } while (isHit && canLotteryHit == false);
     
     std::string animationName = (isHit) ? "gacha1" : "gacha2";
-
     this->stopAllActions();
     this->runAction(_timeline);
     _timeline->play(animationName, false);
@@ -99,3 +81,33 @@ void Gacha::lotteryGacha()
         NULL
     ));
 }
+
+void Gacha::setNewGachaId(int gachaId)
+{
+    _lotteryCount = 0;
+    _sumProbability = 0;
+    _probabilityList = std::vector<float>();
+    _rewardList = std::vector<std::string>();
+    _hitList = std::vector<bool>();
+    _least = 0;
+
+    auto jsonStr = FileUtils::getInstance()->getStringFromFile("data/gacha.json");
+    rapidjson::Document document;
+    document.Parse<0>(jsonStr.c_str());
+    rapidjson::Value& gachaDoc = document[std::to_string(gachaId).c_str()];
+    _least = gachaDoc["least"].GetInt();
+    rapidjson::Value& listDoc = gachaDoc["list"];
+    for (int i = 0; i < listDoc.Size(); i++) {
+        rapidjson::Value& v = listDoc[i];
+        float p = v["probability"].GetDouble();
+        _sumProbability += p;
+        _probabilityList.push_back(p);
+        _rewardList.push_back(v["reward"].GetString());
+        if (v["hit"].IsNull()) {
+            _hitList.push_back(false);
+        } else {
+            _hitList.push_back(v["hit"].GetBool());
+        }
+    }
+}
+

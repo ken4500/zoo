@@ -23,9 +23,16 @@ public:
     bool init() override;
     float getGachaHeight();
     void lotteryGacha();
+    void setNewGachaId(int gachaId);
 
 protected:
     cocostudio::timeline::ActionTimeline* _timeline;
+    int _lotteryCount;
+    int _least;
+    std::vector<float> _probabilityList;
+    std::vector<std::string> _rewardList;
+    std::vector<bool> _hitList;
+    float _sumProbability;
 
     void onEnter() override;
 };

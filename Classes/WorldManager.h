@@ -33,7 +33,6 @@ public:
     static WorldManager* getInstance();
     
     // getter, setter
-    int getGachaId();
     WorldMap* getMap();
     WorldInfo* getWorldInfo();
     bool enableNextAction();
