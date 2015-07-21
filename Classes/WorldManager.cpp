@@ -56,7 +56,9 @@ WorldMap* WorldManager::getMap()
         _map = dynamic_cast<WorldMap*>(CSLoader::createNode(_info->mapName));
         _map->initSize(_info->maxWidth, _info->width);
     
-        if (_state != SceneState::Tutorial) {
+        if (_state == SceneState::Tutorial) {
+            _enableNextAction = false;
+        } else {
             _gacha = dynamic_cast<Gacha*>(CSLoader::createNode("Gacha.csb"));
             auto gachaImage = _gacha->getChildByName<Sprite*>("image");
             auto gachaLength = Length::scale(_info->width, 0.2);
@@ -271,27 +273,25 @@ void WorldManager::startBattle()
     _map->hideGacha();
 }
 
+void WorldManager::startTutorial()
+{
+//    auto scene = _getMainScene();
+//    scene->playNovel("novel_opening", [this]{
+//        _enableNextAction = false;
+//    }, false);
+
+    _startTutrialGachScene1();
+}
+
 void WorldManager::startTutorialBattle()
 {
-    _state = SceneState::TutorialBattle;
-    
-    auto enemyAnimal = Animal::CreateWithSpeceis("Ari");
-    enemyAnimal->setIsEnmey(true);
-    _enemyAnimalList.push_back(enemyAnimal);
-    _map->addEnemyAnimalAtOutRandomPoint(enemyAnimal);
     auto scene = _getMainScene();
+    scene->playNovel("novel_tutorial_battle1", [this]{
+        _enableNextAction = true;
+    }, false, 4.0f);
 
-    // 1匹目の敵と接触
-    enemyAnimal->startFightCallback = [this, scene]() {
-        scene->playNovel("novel_tutorial_battle2", NULL, false);
-    };
-    
-    // 1匹目の敵死亡
-    enemyAnimal->deadCallback = [this, scene]() {
-        scene->playNovel("novel_tutorial_battle3", [this]{
-            _startTutrialScene2();
-        }, false);
-    };
+    _state = SceneState::TutorialBattle;
+    _startTutrialBattleScene1();
 }
 
 void WorldManager::winBattle()
@@ -405,7 +405,7 @@ void WorldManager::_endBattle()
     if (_state == SceneState::Battle) {
         _state = SceneState::ShowResult;
     } else if (_state == SceneState::TutorialBattle) {
-        _state = SceneState::TutorialShowResult;
+        _state = SceneState::TutorialGacha;
     }
     this->_setGameActive(false);
 }
@@ -500,7 +500,30 @@ bool WorldManager::_checkAllEnemyDead()
     return allDead;
 }
 
-void WorldManager::_startTutrialScene2()
+#pragma - tutorial
+
+void WorldManager::_startTutrialBattleScene1()
+{
+    auto enemyAnimal = Animal::CreateWithSpeceis("Ari");
+    enemyAnimal->setIsEnmey(true);
+    _enemyAnimalList.push_back(enemyAnimal);
+    _map->addEnemyAnimalAtOutRandomPoint(enemyAnimal);
+    auto scene = _getMainScene();
+
+    // 1匹目の敵と接触
+    enemyAnimal->startFightCallback = [this, scene]() {
+        scene->playNovel("novel_tutorial_battle2", NULL, false);
+    };
+    
+    // 1匹目の敵死亡
+    enemyAnimal->deadCallback = [this, scene]() {
+        scene->playNovel("novel_tutorial_battle3", [this]{
+            _startTutrialBattleScene2();
+        }, false);
+    };
+}
+
+void WorldManager::_startTutrialBattleScene2()
 {
     auto scene = _getMainScene();
     // 敵5匹追加
@@ -512,23 +535,66 @@ void WorldManager::_startTutrialScene2()
         ant->deadCallback = [this, scene]{
             _repairAllAnimalHp();
             if (_checkAllEnemyDead()) {
-                scene->playNovel("novel_tutorial_battle4", [this]{
-                    auto beetle = Animal::CreateWithSpeceis("Kabutomushi");
-                    beetle->setIsEnmey(true);
-                    _enemyAnimalList.push_back(beetle);
-                    _map->addEnemyAnimalAtOutRandomPoint(beetle);
-                    beetle->killAnimalCallback = [this] {
-                        _startTutrialScene3();
-                    };
-                }, false);
+                auto beetle = Animal::CreateWithSpeceis("Kabutomushi");
+                beetle->setIsEnmey(true);
+                _enemyAnimalList.push_back(beetle);
+                _map->addEnemyAnimalAtOutRandomPoint(beetle);
+                beetle->killAnimalCallback = [this] {
+                    _startTutrialBattleScene3();
+                };
+                scene->playNovel("novel_tutorial_battle4", NULL, false);
             }
         };
     }
 }
 
-void WorldManager::_startTutrialScene3()
+void WorldManager::_startTutrialBattleScene3()
 {
     auto scene = _getMainScene();
-    scene->playNovel("novel_tutorial_battle4", [this]{
-    }, false);
+    scene->playNovel("novel_tutorial_battle_end", [this]{
+        _startTutrialGachScene1();
+    }, false, 1.0f);
+}
+
+void WorldManager::_startTutrialGachScene1()
+{
+    _state =SceneState::TutorialGacha;
+    _enableNextAction = false;
+
+    for (auto animal : _animalList) {
+        animal->reborn();
+        animal->startWalk();
+    }
+
+    for (auto animal : _enemyAnimalList) {
+        animal->removeFromParent();
+    }
+    _enemyAnimalList = std::vector<Animal*>();
+    
+    auto scene = _getMainScene();
+    scene->showMenu();
+    
+    _gacha = dynamic_cast<Gacha*>(CSLoader::createNode("Gacha.csb"));
+    auto gachaImage = _gacha->getChildByName<Sprite*>("image");
+    auto gachaLength = Length::scale(_info->width, 0.2);
+    float gachaScale = getImageScale(gachaImage, gachaLength);
+    _gacha->setScale(gachaScale);
+    _gacha->setNewGachaId(_info->gachaId);
+    _map->setGacha(_gacha);
+
+    scene->playNovel("novel_tutorial_gacha1", [this]{
+    }, false, 2.0f);
+    
+    _gacha->finishGachaCallback = [this] (){
+        _startTutrialGachScene2();
+    };
+}
+
+void WorldManager::_startTutrialGachScene2()
+{
+    _gacha->finishGachaCallback = NULL;
+    _enableNextAction = false;
+    auto scene = _getMainScene();
+    scene->playNovel("novel_tutorial_gacha2", [this]{
+    }, false, 2.0f);
 }

@@ -24,6 +24,7 @@ public:
     
     void levelUpEffect();
     void transitionMap(WorldMap* newMap);
+    void playNovel(std::string novelId, std::function<void ()> callback, bool apearSkipButton, float delay);
     void playNovel(std::string novelId, std::function<void ()> callback, bool apearSkipButton);
     void hideMenu();
     void showMenu();

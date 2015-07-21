@@ -268,7 +268,7 @@ void Menu::onTouchEnded(Touch* touch, Event* event)
     if (_selectedItem)
     {
         _selectedItem->unselected();
-        _selectedItem->activate();
+        _selectedItem->activate(); 
     }
     _state = Menu::State::WAITING;
     this->release();

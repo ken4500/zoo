@@ -85,7 +85,7 @@ void MainScene::onEnter()
     this->setupTouchHandling();
     
     if (WorldManager::getInstance()->getSceneState() == SceneState::Tutorial) {
-        playNovel("novel_opening", NULL, false);
+        WorldManager::getInstance()->startTutorial();
     }
     
     updateCoinLabel(WorldManager::getInstance()->getCoin());
@@ -165,6 +165,17 @@ void MainScene::transitionMap(WorldMap* newMap)
         NULL
     ));
     _map = newMap;
+}
+
+void MainScene::playNovel(std::string novelId, std::function<void ()> callback, bool apearSkipButton, float delay)
+{
+    runAction(Sequence::create(
+        DelayTime::create(delay),
+        CallFunc::create([this, novelId, callback, apearSkipButton] {
+            playNovel(novelId, callback, apearSkipButton);
+        }),
+        NULL
+    ));
 }
 
 void MainScene::playNovel(std::string novelId, std::function<void ()> callback, bool apearSkipButton)
@@ -274,13 +285,6 @@ void MainScene::_pushBattleButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::To
             hideMenu();
             _battleStartEffect();
             WorldManager::getInstance()->startTutorialBattle();
-            runAction(Sequence::create(
-                DelayTime::create(5.0f),
-                CallFunc::create([this]{
-                    playNovel("novel_tutorial_battle1", NULL, false);
-                }),
-                NULL
-            ));
         } else {
             hideMenu();
             _battleStartEffect();

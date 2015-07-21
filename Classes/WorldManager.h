@@ -20,7 +20,7 @@ class Animal;
 enum class SceneState {
     Tutorial,
     TutorialBattle,
-    TutorialShowResult,
+    TutorialGacha,
     Normal,
     Battle,
     ShowResult,
@@ -47,6 +47,7 @@ public:
     void lotteryGacha();
     void releaseAnimal(Animal* animal, bool hit);
     WorldInfo* levelup();
+    void startTutorial();
     void startBattle();
     void startTutorialBattle();
     void winBattle();
@@ -86,8 +87,11 @@ private:
     void _setLeftTime(int leftTime);
     void _repairAllAnimalHp();
     bool _checkAllEnemyDead();
-    void _startTutrialScene2();
-    void _startTutrialScene3();
+    void _startTutrialBattleScene1();
+    void _startTutrialBattleScene2();
+    void _startTutrialBattleScene3();
+    void _startTutrialGachScene1();
+    void _startTutrialGachScene2();
 
     WorldManager();
     ~WorldManager();

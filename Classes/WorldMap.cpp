@@ -127,7 +127,7 @@ void WorldMap::setupTouchHandling()
      
         if (isTouchGacha) {
             WorldManager::getInstance()->lotteryGacha();
-        } else {
+        } else if (WorldManager::getInstance()->enableNextAction()) {
             Vec2 touchPos = this->convertTouchToNodeSpace(touch);
             _targetPoint = touchPos;
             auto children = getChildren();
@@ -159,6 +159,23 @@ void WorldMap::setupTouchHandling()
 
 
     touchListener->onTouchEnded = [&](Touch* touch, Event* event)
+    {
+        if (_targetPoint != Vec2::ZERO) {
+            _targetPoint = Vec2::ZERO;
+            auto children = getChildren();
+            for(auto node : children) {
+                if (node->getTag() == (int)MainSceneTag::Animal) {
+                    auto animal = dynamic_cast<Animal*>(node);
+                    if (animal && animal->getZOderUpdate()) {
+                        animal->startWalk();
+                    }
+                }
+            }
+            particle->removeFromParent();
+        }
+    };
+
+    touchListener->onTouchCancelled = [&](Touch* touch, Event* event)
     {
         if (_targetPoint != Vec2::ZERO) {
             _targetPoint = Vec2::ZERO;
@@ -301,31 +318,31 @@ int WorldMap::_calcObjectZOrder(Node* node)
 
 BattleState WorldMap::_checkBattleEnd()
 {
-        auto animalList      = WorldManager::getInstance()->getAnimalList();
-        auto enemyAnimalList = WorldManager::getInstance()->getEnemyAnimalList();
-        bool allEnemyIsDead = true;
-        for (auto enemy : enemyAnimalList) {
-            if (enemy->isDead() == false) {
-                allEnemyIsDead = false;
-                break;
-            }
+    auto animalList      = WorldManager::getInstance()->getAnimalList();
+    auto enemyAnimalList = WorldManager::getInstance()->getEnemyAnimalList();
+    bool allEnemyIsDead = true;
+    for (auto enemy : enemyAnimalList) {
+        if (enemy->isDead() == false) {
+            allEnemyIsDead = false;
+            break;
         }
-        if (allEnemyIsDead) {
-            return BattleState::Win;
+    }
+    if (allEnemyIsDead) {
+        return BattleState::Win;
+    }
+
+
+    bool allAnimalIsDead = true;
+    for (auto animal : animalList) {
+        if (animal->isDead() == false) {
+            allAnimalIsDead = false;
+            break;
         }
-    
-    
-        bool allAnimalIsDead = true;
-        for (auto animal : animalList) {
-            if (animal->isDead() == false) {
-                allAnimalIsDead = false;
-                break;
-            }
-        }
-        if (allAnimalIsDead) {
-            return BattleState::Lose;
-        }
-    
-        return BattleState::Battle;
+    }
+    if (allAnimalIsDead) {
+        return BattleState::Lose;
+    }
+
+    return BattleState::Battle;
 }
 

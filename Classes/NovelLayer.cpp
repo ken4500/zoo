@@ -227,7 +227,7 @@ void NovelLayer::setImage(std::shared_ptr<NovelAction> action)
             _leftNode->setPosition(Vec2(0, 0));
             _leftChara = Sprite::create(imageName);
             _leftChara->setAnchorPoint(Vec2(0, 0));
-            _leftChara->setPosition(Vec2(20, 100));
+            _leftChara->setPosition(Vec2(20, 50));
             addChild(_leftNode);
             _leftNode->addChild(_leftChara);
         } else {
@@ -251,7 +251,7 @@ void NovelLayer::setImage(std::shared_ptr<NovelAction> action)
             _rightNode->setPosition(Vec2(visibleSize.width, 0));
             _rightChara = Sprite::create(imageName);
             _rightChara->setAnchorPoint(Vec2(1, 0));
-            _rightChara->setPosition(Vec2(-20, 100));
+            _rightChara->setPosition(Vec2(-20, 50));
             addChild(_rightNode);
             _rightNode->addChild(_rightChara);
         } else {
@@ -286,7 +286,7 @@ void NovelLayer::setImage(std::shared_ptr<NovelAction> action)
                 
                 Sprite *removedImage = &(*_backGroundImage);
 
-                auto back = Sprite::create(imageName);
+                auto back = Sprite::create(StringUtils::format("chat/back/%s", imageName.c_str()));
                 back->setScale(visibleSize.width/back->getContentSize().width);
                 back->setAnchorPoint(Vec2(0, 0));
                 back->setPosition(Vec2::ZERO);
@@ -326,7 +326,7 @@ void NovelLayer::setNameImage(std::shared_ptr<NovelAction> action)
         if (_leftNameImage == NULL) {
             _leftNameImage = Sprite::create("chat/ui/name_rect.png");
             _leftNameImage->setAnchorPoint(Vec2::ZERO);
-            _leftNameImage->setPosition(Vec2(20, 50));
+            _leftNameImage->setPosition(Vec2(20, 20));
             _leftNode->addChild(_leftNameImage, 11);
             auto nameImageSize = _leftNameImage->getContentSize();
             auto label1 = Label::createWithSystemFont(name.c_str(), "HiraMinProN-W6", 30);
@@ -343,7 +343,7 @@ void NovelLayer::setNameImage(std::shared_ptr<NovelAction> action)
         if (_rightNameImage == NULL) {
             _rightNameImage = Sprite::create("chat/ui/name_rect.png");
             _rightNameImage->setAnchorPoint(Vec2(1, 0));
-            _rightNameImage->setPosition(Vec2(-20, 50));
+            _rightNameImage->setPosition(Vec2(-20, 20));
             _rightNode->addChild(_rightNameImage, 11);
             auto nameImageSize = _rightNameImage->getContentSize();
             auto label1 = Label::createWithSystemFont(name.c_str(), "HiraMinProN-W6", 30);

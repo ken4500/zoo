@@ -77,6 +77,9 @@ void Gacha::lotteryGacha()
             if (isHit == false) {
                 WorldManager::getInstance()->setEnableNextAction(true);
             }
+            if (finishGachaCallback) {
+                finishGachaCallback();
+            }
         }),
         NULL
     ));
