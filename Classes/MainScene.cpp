@@ -10,6 +10,8 @@
 #include "WorldManager.h"
 #include "Animal.h"
 #include "NovelLayer.h"
+#include "ResultLayer.h"
+#include "NoticeLayer.h"
 
 USING_NS_CC;
 
@@ -106,6 +108,8 @@ void MainScene::setupTouchHandling()
 
     this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(touchListener, this);
 }
+
+#pragma - public method
 
 void MainScene::levelUpEffect()
 {
@@ -234,6 +238,22 @@ void MainScene::showConsumeCoinEffect(int decreaseCoin)
         NULL
     ));
 }
+
+void MainScene::showNoticeView(std::string message, std::function<void ()> closeCallback)
+{
+    auto layer = NoticeLayer::createWithMessage(message);
+    layer->closeNoticeCallback = closeCallback;
+    this->addChild(layer);
+}
+
+void MainScene::showResultView(GameResult* result, std::function<void ()> closeCallback)
+{
+    auto layer = ResultLayer::createWithResult(result);
+    layer->closeResultCallback = closeCallback;
+    this->addChild(layer);
+}
+
+#pragma - private method
 
 void MainScene::_pushBattleButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {

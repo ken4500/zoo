@@ -16,5 +16,6 @@
 #include "Length.h"
 #include "WorldInfo.h"
 #include "Species.h"
+#include "GameResult.h"
 
 #endif

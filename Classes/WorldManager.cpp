@@ -121,10 +121,10 @@ void WorldManager::lotteryGacha()
         return;
     }
     if (_coin <= 0) {
-        auto noticeLayer = NoticeLayer::createWithMessage("You don't have enough coin!\nPush the battle button");
+        
         auto mainScene = _getMainScene();
         if (mainScene) {
-            mainScene->addChild(noticeLayer);
+            mainScene->showNoticeView("You don't have enough coin!\nPush the battle button", NULL);
         }
 
         return;
@@ -312,13 +312,10 @@ void WorldManager::winBattle()
     }
     _addCoin(result->getCoin);
     
-    auto layer = ResultLayer::createWithResult(result);
-    layer->closeResultCallback = CC_CALLBACK_0(WorldManager::_closeResult, this);
     auto mainScene = _getMainScene();
     if (mainScene) {
-        mainScene->addChild(layer);
+        mainScene->showResultView(result, CC_CALLBACK_0(WorldManager::_closeResult, this));
     }
-
 }
 
 void WorldManager::loseBattle()
@@ -335,11 +332,9 @@ void WorldManager::loseBattle()
     }
     _addCoin(result->getCoin);
     
-    auto layer = ResultLayer::createWithResult(result);
-    layer->closeResultCallback = CC_CALLBACK_0(WorldManager::_closeResult, this);
     auto mainScene = _getMainScene();
     if (mainScene) {
-        mainScene->addChild(layer);
+        mainScene->showResultView(result, CC_CALLBACK_0(WorldManager::_closeResult, this));
     }
 }
 
