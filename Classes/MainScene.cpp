@@ -12,6 +12,7 @@
 #include "NovelLayer.h"
 #include "ResultLayer.h"
 #include "NoticeLayer.h"
+#include "DebugButton.h"
 
 USING_NS_CC;
 
@@ -68,6 +69,8 @@ bool MainScene::init()
     battleButton->addTouchEventListener(CC_CALLBACK_2(MainScene::_pushBattleButton, this));
     _coinLabel = _menuNode->getChildByName<ui::TextBMFont*>("coinText");
     _lifeLabel = _menuNode->getChildByName<ui::TextBMFont*>("hartText");
+    
+    _setupDebugMenu();
 
     // load the character animation timeline
     _timeline = CSLoader::createTimeline("MainScene.csb");
@@ -277,6 +280,70 @@ void MainScene::showResultView(GameResult* result, float delay, std::function<vo
 }
 
 #pragma - private method
+
+void MainScene::_setupDebugMenu()
+{
+    if (DEBUG_BUTOTN_APPEAR == false) {
+        return;
+    }
+
+    int menuNum = 3;
+    auto size = Director::getInstance()->getVisibleSize();
+    auto dummyImage = Sprite::create("ui/debug_button.png");
+    auto imageSize = dummyImage->getContentSize();
+    auto menuHeight = imageSize.height * menuNum;
+
+    auto debugMenu = Node::create();
+    debugMenu->setPosition(Vec2(size.width, size.height - menuHeight));
+    _rootNode->addChild(debugMenu);
+
+    
+    auto repairLife = DebugButton::create("repair life", [this]() { WorldManager::getInstance()->addLife(5);});
+    repairLife->setAnchorPoint(Vec2(1.0f, 0.0f));
+    repairLife->setPosition(Vec2(0, 0));
+    debugMenu->addChild(repairLife, 1);
+    
+    auto addCoin = DebugButton::create("add coin", [this]() { WorldManager::getInstance()->addCoin(5);});
+    addCoin->setAnchorPoint(Vec2(1.0f, 0.0f));
+    addCoin->setPosition(Vec2(0, 80));
+    debugMenu->addChild(addCoin, 1);
+
+    auto levelup = DebugButton::create("levelup", [this]() { WorldManager::getInstance()->levelup();});
+    levelup->setAnchorPoint(Vec2(1.0f, 0.0f));
+    levelup->setPosition(Vec2(0, 160));
+    debugMenu->addChild(levelup, 1);
+    
+    static bool isOpenDebugMenu = true;
+    auto toggleButton = Button::create("ui/toggle.png");
+    toggleButton->setAnchorPoint(Vec2(0.5f, 0.5f));
+    toggleButton->setScale(0.4f);
+    toggleButton->setPosition(Vec2(-imageSize.width/2, -40));
+    toggleButton->addTouchEventListener(
+        [this, size, menuHeight, debugMenu, toggleButton](Ref* sender,Widget::TouchEventType type){
+            if (type == Widget::TouchEventType::ENDED) {
+                if (isOpenDebugMenu) {
+                    isOpenDebugMenu = false;
+                    toggleButton->setFlippedY(true);
+                    debugMenu->runAction(EaseOut::create(MoveTo::create(0.3f, Vec2(size.width, size.height)), 2));
+                } else {
+                    isOpenDebugMenu = true;
+                    toggleButton->setFlippedY(false);
+                    debugMenu->runAction(EaseOut::create(MoveTo::create(0.3f, Vec2(size.width, size.height - menuHeight)), 2));
+                }
+            }
+        }
+    );
+    debugMenu->addChild(toggleButton, 1);
+    
+    auto debugLabel = ui::Text::create("DEBUG", "", 24);
+    debugLabel->setColor(Color3B::WHITE);
+    debugLabel->setAnchorPoint(Vec2(0.0f, 0.5f));
+    debugLabel->setPosition(Vec2(-imageSize.width/2 + 40, -40));
+    debugMenu->addChild(debugLabel);
+    
+    
+    
+}
 
 void MainScene::_pushBattleButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {

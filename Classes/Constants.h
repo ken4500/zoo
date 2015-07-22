@@ -46,6 +46,7 @@ enum class UnitOfLength
 static const float GAME_FPS = 60;
 
 
+static const bool DEBUG_BUTOTN_APPEAR = true;
 static const float INIT_WORLD_LEVEL = 1;
 static const float INIT_COIN = 8;
 static const float INIT_LIFE = 6;

@@ -128,7 +128,7 @@ void WorldManager::lotteryGacha()
         return;
     }
     
-    _addCoin(-1);
+    addCoin(-1);
     _gacha->lotteryGacha();
 }
 
@@ -268,7 +268,7 @@ void WorldManager::winBattle()
             result->getCoin += 1;
         }
     }
-    _addCoin(result->getCoin);
+    addCoin(result->getCoin);
     
     auto mainScene = _getMainScene();
     if (mainScene) {
@@ -288,7 +288,7 @@ void WorldManager::loseBattle()
             result->getCoin += 1;
         }
     }
-    _addCoin(result->getCoin);
+    addCoin(result->getCoin);
     
     auto mainScene = _getMainScene();
     if (mainScene) {
@@ -305,6 +305,24 @@ void WorldManager::endResult()
     }
     _enableNextAction = true;
 }
+
+void WorldManager::addCoin(int addCoin)
+{
+    _coin += addCoin;
+    auto scene = _getMainScene();
+    scene->updateCoinLabel(_coin);
+    if (addCoin < 0) {
+        scene->showConsumeCoinEffect(abs(addCoin));
+    }
+}
+
+void WorldManager::addLife(int addLife)
+{
+    _life += addLife;
+    auto scene = _getMainScene();
+    scene->updateLifeLabel(_life);
+}
+
 
 #pragma - util method
 
@@ -403,18 +421,6 @@ void WorldManager::_closeResult()
     auto scene = _getMainScene();
     if (scene) {
         scene->hideLeftTime();
-    }
-}
-
-void WorldManager::_addCoin(int addCoin)
-{
-    _coin += addCoin;
-    auto scene = _getMainScene();
-    if (scene) {
-        scene->updateCoinLabel(_coin);
-        if (addCoin < 0) {
-            scene->showConsumeCoinEffect(abs(addCoin));
-        }
     }
 }
 

@@ -53,6 +53,7 @@
 		9F015C941B420DC700F45135 /* Gacha.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F015C901B420DC700F45135 /* Gacha.cpp */; };
 		9F015C951B420DC700F45135 /* GachaReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F015C921B420DC700F45135 /* GachaReader.cpp */; };
 		9F015C9A1B4211FB00F45135 /* Animal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F015C961B4211FB00F45135 /* Animal.cpp */; };
+		9F01C8A61B5FF509009E9D21 /* DebugButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F01C8A41B5FF509009E9D21 /* DebugButton.cpp */; };
 		9F0564671B49D5AA00649A7F /* Species.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F0564651B49D5AA00649A7F /* Species.cpp */; };
 		9F05646C1B49EDE000649A7F /* ScaleBar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F0564681B49EDE000649A7F /* ScaleBar.cpp */; };
 		9F05646D1B49EDE000649A7F /* ScaleBarReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F05646A1B49EDE000649A7F /* ScaleBarReader.cpp */; };
@@ -157,6 +158,8 @@
 		9F015C931B420DC700F45135 /* GachaReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GachaReader.h; sourceTree = "<group>"; };
 		9F015C961B4211FB00F45135 /* Animal.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Animal.cpp; sourceTree = "<group>"; };
 		9F015C971B4211FB00F45135 /* Animal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animal.h; sourceTree = "<group>"; };
+		9F01C8A41B5FF509009E9D21 /* DebugButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DebugButton.cpp; sourceTree = "<group>"; };
+		9F01C8A51B5FF509009E9D21 /* DebugButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugButton.h; sourceTree = "<group>"; };
 		9F0564651B49D5AA00649A7F /* Species.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Species.cpp; sourceTree = "<group>"; };
 		9F0564661B49D5AA00649A7F /* Species.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Species.h; sourceTree = "<group>"; };
 		9F0564681B49EDE000649A7F /* ScaleBar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScaleBar.cpp; sourceTree = "<group>"; };
@@ -527,6 +530,8 @@
 				9F83BA691B54327700605D1D /* WorldMap.h */,
 				9F83BA6A1B54327700605D1D /* WorldMapReader.cpp */,
 				9F83BA6B1B54327700605D1D /* WorldMapReader.h */,
+				9F01C8A41B5FF509009E9D21 /* DebugButton.cpp */,
+				9F01C8A51B5FF509009E9D21 /* DebugButton.h */,
 			);
 			name = Entity;
 			sourceTree = "<group>";
@@ -670,6 +675,7 @@
 				9FB063E21B5818A20088AE2A /* NovelLayer.cpp in Sources */,
 				9F83BA811B55683100605D1D /* SoundManager.cpp in Sources */,
 				9FFC9E6E1B42F8F400869B23 /* ZMath.cpp in Sources */,
+				9F01C8A61B5FF509009E9D21 /* DebugButton.cpp in Sources */,
 				9F425AE91B461732001B2969 /* WorldInfo.cpp in Sources */,
 				9F06E9BF1B5AD21A00107C09 /* ResultLayer.cpp in Sources */,
 				9F06E9C21B5AD27D00107C09 /* GameResult.cpp in Sources */,

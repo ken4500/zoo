@@ -53,6 +53,8 @@ public:
     void winBattle();
     void loseBattle();
     void endResult();
+    void addCoin(int addCoin);
+    void addLife(int addLife);
     
     // util
     float getImageScale(Sprite* image, Length* width);
@@ -81,7 +83,6 @@ private:
     void _leftTimeUpdate(float dt);
     void _endBattle();
     void _closeResult();
-    void _addCoin(int addCoin);
     void _setCoin(int coin);
     void _setGameActive(bool active);
     void _setLeftTime(int leftTime);
