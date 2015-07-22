@@ -267,11 +267,15 @@ void WorldManager::startTutorialBattle()
     _startTutrialBattleScene1();
 }
 
-void WorldManager::winBattle()
+void WorldManager::endBattle(bool win, float showResultViewDelay)
 {
+    if (_state != SceneState::Battle && _state != SceneState::TutorialBattle) {
+        return;
+    }
+
     _endBattle();
     GameResult* result = new GameResult();
-    result->resultState = BattleState::Win;
+    result->resultState = (win) ? BattleState::Win : BattleState::Lose;
     result->playTime = BATTLE_TIME - _leftTime;
     result->getCoin = 0;
     for (auto animal : _enemyAnimalList) {
@@ -283,29 +287,13 @@ void WorldManager::winBattle()
     
     auto mainScene = _getMainScene();
     if (mainScene) {
-        mainScene->showResultView(result, 1.0f, CC_CALLBACK_0(WorldManager::_closeResult, this));
+        mainScene->showResultView(result, showResultViewDelay, CC_CALLBACK_0(WorldManager::_closeResult, this));
     }
 }
 
-void WorldManager::loseBattle()
+void WorldManager::endBattle(bool win)
 {
-    _endBattle();
-    GameResult* result = new GameResult();
-    result->resultState = BattleState::Lose;
-    result->playTime = BATTLE_TIME - _leftTime;
-    result->getCoin = 0;
-    for (auto animal : _enemyAnimalList) {
-        if (animal->isDead()) {
-            result->getCoin += 1;
-        }
-    }
-    
-    UserDataManager::getInstance()->addCoin(result->getCoin);
-    
-    auto mainScene = _getMainScene();
-    if (mainScene) {
-        mainScene->showResultView(result, 1.0f, CC_CALLBACK_0(WorldManager::_closeResult, this));
-    }
+    endBattle(win, 1.0f);
 }
 
 void WorldManager::endResult()
@@ -354,7 +342,7 @@ void WorldManager::_leftTimeUpdate(float dt)
 {
     _leftTime--;
     if (_leftTime == 0) {
-        loseBattle();
+        endBattle(false, 0.0f);
     }
     _setLeftTime(_leftTime);
 }

@@ -157,12 +157,16 @@ void Animal::jump(Vec2 target, float height, std::function<void ()> callback)
 
 void Animal::movePoint(Vec2 targetPoint, float dt)
 {
+    int errorX = rand_0_1() * 150 - 75;
+    int errorY = rand_0_1() * 150 - 75;
+    targetPoint += Vec2(errorX, errorY);
+
     auto parent = getParent();
     if (parent == NULL) {
         return;
     }
     Vec2 diff = targetPoint - getPosition();
-    if (diff.length() > 10) {
+    if (diff.length() > 30) {
         diff.normalize();
         Vec2 speed = diff * 200 / parent->getScale();
         setPosition(getPosition() + speed * dt);
@@ -314,9 +318,6 @@ Length* Animal::getHeight()
 Length* Animal::getSpeed()
 {
     Length* speed = _species->getSpeed();
-    if (_isEnemy) {
-        speed->scale(0.5);
-    }
 
     return speed;
 }

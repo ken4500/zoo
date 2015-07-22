@@ -71,6 +71,8 @@ bool MainScene::init()
     _coinLabel = _menuNode->getChildByName<ui::TextBMFont*>("coinText");
     _lifeLabel = _menuNode->getChildByName<ui::TextBMFont*>("hartText");
     _repairTimeLabel = _menuNode->getChildByName<ui::TextBMFont*>("repairTimeText");
+    _endButton = _rootNode->getChildByName<ui::Button*>("endButton");
+    _endButton->addTouchEventListener(CC_CALLBACK_2(MainScene::_pushEndButton, this));
 
     _setupDebugMenu();
 
@@ -145,11 +147,16 @@ void MainScene::showLeftTIme()
     _timeLeftLabel->setOpacity(0);
     _timeLeftLabel->setVisible(true);
     _timeLeftLabel->runAction(FadeIn::create(0.5f));
+    
+    _endButton->setOpacity(0);
+    _endButton->setVisible(true);
+    _endButton->runAction(FadeIn::create(0.5f));
 }
 
 void MainScene::hideLeftTime()
 {
     _timeLeftLabel->runAction(FadeOut::create(0.5f));
+    _endButton->runAction(FadeOut::create(0.5f));
 }
 
 void MainScene::transitionMap(WorldMap* newMap)
@@ -291,6 +298,7 @@ void MainScene::showResultView(GameResult* result, float delay, std::function<vo
 
 #pragma - private method
 
+static bool isOpenDebugMenu = false;
 void MainScene::_setupDebugMenu()
 {
     if (DEBUG_BUTOTN_APPEAR == false) {
@@ -304,7 +312,11 @@ void MainScene::_setupDebugMenu()
     auto menuHeight = imageSize.height * menuNum;
 
     auto debugMenu = Node::create();
-    debugMenu->setPosition(Vec2(size.width, size.height - menuHeight));
+    if (isOpenDebugMenu) {
+        debugMenu->setPosition(Vec2(size.width, size.height - menuHeight));
+    } else {
+        debugMenu->setPosition(Vec2(size.width, size.height));
+    }
     _rootNode->addChild(debugMenu);
 
     
@@ -333,11 +345,13 @@ void MainScene::_setupDebugMenu()
     resetData->setPosition(Vec2(0, 240));
     debugMenu->addChild(resetData, 1);
     
-    static bool isOpenDebugMenu = true;
     auto toggleButton = Button::create("ui/toggle.png");
     toggleButton->setAnchorPoint(Vec2(0.5f, 0.5f));
     toggleButton->setScale(0.4f);
     toggleButton->setPosition(Vec2(-imageSize.width/2, -40));
+    if (isOpenDebugMenu == false) {
+        toggleButton->setFlippedY(true);
+    }
     toggleButton->addTouchEventListener(
         [this, size, menuHeight, debugMenu, toggleButton](Ref* sender,Widget::TouchEventType type){
             if (type == Widget::TouchEventType::ENDED) {
@@ -381,6 +395,13 @@ void MainScene::_pushBattleButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::To
             _battleStartEffect();
             WorldManager::getInstance()->startBattle();
         }
+    }
+}
+
+void MainScene::_pushEndButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
+{
+    if (eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
+        WorldManager::getInstance()->endBattle(false, 0);
     }
 }
 

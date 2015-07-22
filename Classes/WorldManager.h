@@ -48,8 +48,8 @@ public:
     void startTutorial();
     void startBattle();
     void startTutorialBattle();
-    void winBattle();
-    void loseBattle();
+    void endBattle(bool win, float showResultViewDelay);
+    void endBattle(bool win);
     void endResult();
     void resetData();
     

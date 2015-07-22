@@ -47,12 +47,14 @@ private:
     cocos2d::ui::TextBMFont* _coinLabel;
     cocos2d::ui::TextBMFont* _lifeLabel;
     cocos2d::ui::TextBMFont* _repairTimeLabel;
+    cocos2d::ui::Button* _endButton;
 
     void onEnter() override;
     void update(float dt);
     void setupTouchHandling();
     void _setupDebugMenu();
     void _pushBattleButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
+    void _pushEndButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void _battleStartEffect();
     void _pauseRecursive(Node* node);
     void _resumeRecursive(Node* node);

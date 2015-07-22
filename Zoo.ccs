@@ -45,6 +45,7 @@
           <Image Name="b_ok_up.png" />
           <Image Name="button.png" />
           <Image Name="button2.png" />
+          <Image Name="end.png" />
         </Folder>
         <Project Name="Result.csd" Type="Node" />
         <Project Name="Notice.csd" Type="Node" />
