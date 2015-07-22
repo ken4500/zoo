@@ -20,6 +20,17 @@ public:
     bool save();
     static UserData* load();
     
+    int getWorldLevel();
+    int getCoin();
+    ValueMap getLifeData();
+    ValueVector getAnimalList();
+
+    void setWorldLevel(int level);
+    void setCoin(int coin);
+    void setLifeData(ValueMap lifeData);
+    void setAnimalList(ValueVector animal);
+
+    
 private:
     static std::string getFilePath();
     ValueMap _data;

@@ -72,7 +72,7 @@
 		9F83BA6D1B54327700605D1D /* WorldMapReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F83BA6A1B54327700605D1D /* WorldMapReader.cpp */; };
 		9F83BA811B55683100605D1D /* SoundManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F83BA7F1B55683100605D1D /* SoundManager.cpp */; };
 		9F83BA861B55687700605D1D /* UserData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F83BA821B55687700605D1D /* UserData.cpp */; };
-		9F83BA871B55687700605D1D /* UserDataController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F83BA841B55687700605D1D /* UserDataController.cpp */; };
+		9F83BA871B55687700605D1D /* UserDataManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F83BA841B55687700605D1D /* UserDataManager.cpp */; };
 		9FB063E01B5818A20088AE2A /* NovelAction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FB063D71B5818A20088AE2A /* NovelAction.cpp */; };
 		9FB063E11B5818A20088AE2A /* NovelBalloon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FB063D91B5818A20088AE2A /* NovelBalloon.cpp */; };
 		9FB063E21B5818A20088AE2A /* NovelLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FB063DB1B5818A20088AE2A /* NovelLayer.cpp */; };
@@ -193,8 +193,8 @@
 		9F83BA801B55683100605D1D /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundManager.h; sourceTree = "<group>"; };
 		9F83BA821B55687700605D1D /* UserData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UserData.cpp; sourceTree = "<group>"; };
 		9F83BA831B55687700605D1D /* UserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserData.h; sourceTree = "<group>"; };
-		9F83BA841B55687700605D1D /* UserDataController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UserDataController.cpp; sourceTree = "<group>"; };
-		9F83BA851B55687700605D1D /* UserDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDataController.h; sourceTree = "<group>"; };
+		9F83BA841B55687700605D1D /* UserDataManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UserDataManager.cpp; sourceTree = "<group>"; };
+		9F83BA851B55687700605D1D /* UserDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDataManager.h; sourceTree = "<group>"; };
 		9FB063D71B5818A20088AE2A /* NovelAction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NovelAction.cpp; sourceTree = "<group>"; };
 		9FB063D81B5818A20088AE2A /* NovelAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NovelAction.h; sourceTree = "<group>"; };
 		9FB063D91B5818A20088AE2A /* NovelBalloon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NovelBalloon.cpp; sourceTree = "<group>"; };
@@ -469,8 +469,8 @@
 			children = (
 				9F425AE41B4616E6001B2969 /* WorldManager.cpp */,
 				9F425AE51B4616E6001B2969 /* WorldManager.h */,
-				9F83BA841B55687700605D1D /* UserDataController.cpp */,
-				9F83BA851B55687700605D1D /* UserDataController.h */,
+				9F83BA841B55687700605D1D /* UserDataManager.cpp */,
+				9F83BA851B55687700605D1D /* UserDataManager.h */,
 				9F83BA7F1B55683100605D1D /* SoundManager.cpp */,
 				9F83BA801B55683100605D1D /* SoundManager.h */,
 			);
@@ -696,7 +696,7 @@
 				9F425AEC1B461899001B2969 /* Length.cpp in Sources */,
 				9F83BA6D1B54327700605D1D /* WorldMapReader.cpp in Sources */,
 				9FFC9E711B42FA0100869B23 /* ZUtil.cpp in Sources */,
-				9F83BA871B55687700605D1D /* UserDataController.cpp in Sources */,
+				9F83BA871B55687700605D1D /* UserDataManager.cpp in Sources */,
 				9F015C951B420DC700F45135 /* GachaReader.cpp in Sources */,
 				9FB063E01B5818A20088AE2A /* NovelAction.cpp in Sources */,
 				9F06E9CA1B5DBE3A00107C09 /* NoticeLayer.cpp in Sources */,

@@ -7,6 +7,7 @@
 //
 
 #include "DebugButton.h"
+#include "ColorConstants.h"
 
 USING_NS_CC;
 
@@ -31,7 +32,7 @@ bool DebugButton::init(std::string labelName, std::function<void ()> func)
     }
     
     _func = func;
-    setTitleColor(Color3B::BLACK);
+    setTitleColor(Color3B(COLOR_OUTLINE));
     setTitleFontSize(32);
     setTitleText(labelName);
     addTouchEventListener(CC_CALLBACK_2(DebugButton::_pusheButton, this));

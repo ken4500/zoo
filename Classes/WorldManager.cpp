@@ -12,6 +12,7 @@
 #include "GameResult.h"
 #include "ResultLayer.h"
 #include "NoticeLayer.h"
+#include "UserDataManager.h"
 
 USING_NS_CC;
 
@@ -29,9 +30,8 @@ WorldManager* WorldManager::getInstance()
 
 WorldManager::WorldManager()
 {
-    _level = INIT_WORLD_LEVEL;
-    _coin = INIT_COIN;
-    _life  = INIT_LIFE;
+    auto dataManager = UserDataManager::getInstance();
+    _level = dataManager->getWorldLevel();
     _info  = _loadWoldInfo(_level);
     _map   = nullptr;
     _enableNextAction = true;
@@ -102,33 +102,29 @@ std::vector<Animal*> WorldManager::getEnemyAnimalList()
     return _enemyAnimalList;
 }
 
-int WorldManager::getCoin()
-{
-    return _coin;
-}
-
-int WorldManager::getLife()
-{
-    return _life;
-}
-
 #pragma - public method
+
+void WorldManager::resetData()
+{
+    UserDataManager::getInstance()->reset();
+    sharedWorldManager = nullptr;
+    delete this;
+}
 
 void WorldManager::lotteryGacha()
 {
     if (_enableNextAction == false) {
         return;
     }
-    if (_coin <= 0) {
-        auto mainScene = _getMainScene();
-        if (mainScene) {
-            mainScene->showNoticeView("You don't have enough coin!\nPush the battle button", 0.0f, NULL);
-        }
-
+    int coin = UserDataManager::getInstance()->getCoin();
+    auto mainScene = _getMainScene();
+    if (coin <= 0) {
+        mainScene->showNoticeView("You don't have enough coin!\nPush the battle button", 0.0f, NULL);
         return;
     }
     
-    addCoin(-1);
+    UserDataManager::getInstance()->setCoin(coin - 1);
+    mainScene->updateCoinLabel();
     _gacha->lotteryGacha();
 }
 
@@ -165,6 +161,8 @@ WorldInfo* WorldManager::levelup()
             _transitionMap(preWorldInfo, _info);
         }
     }
+    
+    UserDataManager::getInstance()->setWorldLevel(_level);
     
     return _info;
 }
@@ -211,19 +209,20 @@ Vec2 WorldManager::getOutRandomPlace()
 
 void WorldManager::startBattle()
 {
-    if (_life <= 0 || _enableNextAction == false) {
+    if (UserDataManager::getInstance()->getLife() <= 0 || _enableNextAction == false) {
         return;
     }
 
     _state = SceneState::Battle;
     _setLeftTime(BATTLE_TIME);
     _enemyGenerater = new EnemyGenerater(_info);
-    
+    UserDataManager::getInstance()->decreateLife(1);
     _setGameActive(true);
     
     auto scene = _getMainScene();
     if (scene) {
         scene->showLeftTIme();
+        scene->updateLifeLabel(0);
     }
     
     
@@ -268,7 +267,7 @@ void WorldManager::winBattle()
             result->getCoin += 1;
         }
     }
-    addCoin(result->getCoin);
+    UserDataManager::getInstance()->addCoin(result->getCoin);
     
     auto mainScene = _getMainScene();
     if (mainScene) {
@@ -288,7 +287,8 @@ void WorldManager::loseBattle()
             result->getCoin += 1;
         }
     }
-    addCoin(result->getCoin);
+    
+    UserDataManager::getInstance()->addCoin(result->getCoin);
     
     auto mainScene = _getMainScene();
     if (mainScene) {
@@ -305,24 +305,6 @@ void WorldManager::endResult()
     }
     _enableNextAction = true;
 }
-
-void WorldManager::addCoin(int addCoin)
-{
-    _coin += addCoin;
-    auto scene = _getMainScene();
-    scene->updateCoinLabel(_coin);
-    if (addCoin < 0) {
-        scene->showConsumeCoinEffect(abs(addCoin));
-    }
-}
-
-void WorldManager::addLife(int addLife)
-{
-    _life += addLife;
-    auto scene = _getMainScene();
-    scene->updateLifeLabel(_life);
-}
-
 
 #pragma - util method
 
@@ -421,15 +403,6 @@ void WorldManager::_closeResult()
     auto scene = _getMainScene();
     if (scene) {
         scene->hideLeftTime();
-    }
-}
-
-void WorldManager::_setCoin(int coin)
-{
-    _coin = coin;
-    auto scene = _getMainScene();
-    if (scene) {
-        scene->updateCoinLabel(_coin);
     }
 }
 

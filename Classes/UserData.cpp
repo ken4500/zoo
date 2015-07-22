@@ -39,8 +39,69 @@ UserData* UserData::load()
     return result;
 }
 
+#pragma - getter
+
+int UserData::getWorldLevel()
+{
+    if (_data.find("world_level") == _data.end()) {
+        return INIT_WORLD_LEVEL;
+    } else {
+        return _data["world_level"].asInt();
+    }
+}
+
+int UserData::getCoin()
+{
+    if (_data.find("coin") == _data.end()) {
+        return INIT_COIN;
+    } else {
+        return _data["coin"].asInt();
+    }
+}
+
+ValueMap UserData::getLifeData()
+{
+    if (_data.find("life_data") == _data.end()) {
+        auto initData = ValueMap();
+        initData["current_life"] = INIT_LIFE;
+        initData["max_life"] = INIT_LIFE;
+        initData["last_time"] = (int)time(NULL);
+        _data["life_data"] = initData;
+        save();
+        return initData;
+    } else {
+        ValueMap lifeData = _data["life_data"].asValueMap();
+        return lifeData;
+    }
+}
+
+ValueVector UserData::getAnimalList()
+{
+}
+
+#pragma - setter
+
+void UserData::setWorldLevel(int level)
+{
+    _data["world_level"] = level;
+}
+
+void UserData::setCoin(int coin)
+{
+    _data["coin"] = coin;
+}
+
+void UserData::setLifeData(ValueMap lifeData)
+{
+    _data["life_data"] = lifeData;
+}
+
+void UserData::setAnimalList(ValueVector animal)
+{
+}
+
 std::string UserData::getFilePath()
 {
-    return FileUtils::getInstance()->getWritablePath() + "user_data_20150322";
+    return FileUtils::getInstance()->getWritablePath() + "user_data";
 }
 

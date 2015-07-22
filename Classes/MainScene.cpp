@@ -13,6 +13,7 @@
 #include "ResultLayer.h"
 #include "NoticeLayer.h"
 #include "DebugButton.h"
+#include "UserDataManager.h"
 
 USING_NS_CC;
 
@@ -69,7 +70,8 @@ bool MainScene::init()
     battleButton->addTouchEventListener(CC_CALLBACK_2(MainScene::_pushBattleButton, this));
     _coinLabel = _menuNode->getChildByName<ui::TextBMFont*>("coinText");
     _lifeLabel = _menuNode->getChildByName<ui::TextBMFont*>("hartText");
-    
+    _repairTimeLabel = _menuNode->getChildByName<ui::TextBMFont*>("repairTimeText");
+
     _setupDebugMenu();
 
     // load the character animation timeline
@@ -91,8 +93,10 @@ void MainScene::onEnter()
         WorldManager::getInstance()->startTutorial();
     }
     
-    updateCoinLabel(WorldManager::getInstance()->getCoin());
-    updateLifeLabel(WorldManager::getInstance()->getLife());
+    updateCoinLabel();
+    updateLifeLabel(0);
+    
+    Director::getInstance()->getScheduler()->schedule(CC_CALLBACK_1(MainScene::updateLifeLabel, this), this, 1.0f, false, "update_life");
 }
 
 void MainScene::update(float dt)
@@ -219,14 +223,20 @@ void MainScene::playNovel(std::string novelId, std::function<void ()> callback, 
 
 }
 
-void MainScene::updateCoinLabel(int coin)
+void MainScene::updateCoinLabel()
 {
-    _coinLabel->setString(StringUtils::format("x %d", coin));
+    _coinLabel->setString(StringUtils::format("x %d", UserDataManager::getInstance()->getCoin()));
 }
 
-void MainScene::updateLifeLabel(int life)
+void MainScene::updateLifeLabel(float dt)
 {
-    _lifeLabel->setString(StringUtils::format("x %d", life));
+    auto manager = UserDataManager::getInstance();
+    int maxLife = manager->getMaxLife();
+    int life = manager->getLife();
+    int repirTime = manager->getNextRepairLifeTime();
+    _lifeLabel->setString(StringUtils::format("%d / %d", life, maxLife));
+    
+    _repairTimeLabel->setString(StringUtils::format("%01d:%02d", int(repirTime / 60), repirTime % 60));
 }
 
 void MainScene::updateLeftTimeLabel(int leftTime)
@@ -287,7 +297,7 @@ void MainScene::_setupDebugMenu()
         return;
     }
 
-    int menuNum = 3;
+    int menuNum = 4;
     auto size = Director::getInstance()->getVisibleSize();
     auto dummyImage = Sprite::create("ui/debug_button.png");
     auto imageSize = dummyImage->getContentSize();
@@ -298,12 +308,12 @@ void MainScene::_setupDebugMenu()
     _rootNode->addChild(debugMenu);
 
     
-    auto repairLife = DebugButton::create("repair life", [this]() { WorldManager::getInstance()->addLife(5);});
+    auto repairLife = DebugButton::create("repair life", [this]() { UserDataManager::getInstance()->repairLife(); this->updateLifeLabel(0);});
     repairLife->setAnchorPoint(Vec2(1.0f, 0.0f));
     repairLife->setPosition(Vec2(0, 0));
     debugMenu->addChild(repairLife, 1);
     
-    auto addCoin = DebugButton::create("add coin", [this]() { WorldManager::getInstance()->addCoin(5);});
+    auto addCoin = DebugButton::create("add coin", [this]() { UserDataManager::getInstance()->addCoin(5); this->updateCoinLabel();});
     addCoin->setAnchorPoint(Vec2(1.0f, 0.0f));
     addCoin->setPosition(Vec2(0, 80));
     debugMenu->addChild(addCoin, 1);
@@ -312,6 +322,16 @@ void MainScene::_setupDebugMenu()
     levelup->setAnchorPoint(Vec2(1.0f, 0.0f));
     levelup->setPosition(Vec2(0, 160));
     debugMenu->addChild(levelup, 1);
+
+    auto resetData = DebugButton::create("reset data", [this]() {
+        WorldManager::getInstance()->resetData();
+        Director::getInstance()->replaceScene(
+            TransitionFade::create(1.0f, MainScene::createScene(), Color3B::BLACK)
+        );
+    });
+    resetData->setAnchorPoint(Vec2(1.0f, 0.0f));
+    resetData->setPosition(Vec2(0, 240));
+    debugMenu->addChild(resetData, 1);
     
     static bool isOpenDebugMenu = true;
     auto toggleButton = Button::create("ui/toggle.png");
@@ -348,6 +368,10 @@ void MainScene::_setupDebugMenu()
 void MainScene::_pushBattleButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
     if (eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
+        if (UserDataManager::getInstance()->getLife() <= 0) {
+            showNoticeView("You don't have enough life.\n Life repair by time.", 0, NULL);
+            return;
+        }
         if (WorldManager::getInstance()->getSceneState() == SceneState::Tutorial) {
             hideMenu();
             _battleStartEffect();

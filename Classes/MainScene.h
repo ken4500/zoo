@@ -30,8 +30,8 @@ public:
     void showMenu();
     void showLeftTIme();
     void hideLeftTime();
-    void updateCoinLabel(int coin);
-    void updateLifeLabel(int life);
+    void updateCoinLabel();
+    void updateLifeLabel(float dt);
     void updateLeftTimeLabel(int leftTime);
     void showConsumeCoinEffect(int decreaseCoin);
     void showNoticeView(std::string message, float delay, std::function<void ()> closeCallback);
@@ -46,6 +46,7 @@ private:
     cocos2d::ui::TextBMFont* _timeLeftLabel;
     cocos2d::ui::TextBMFont* _coinLabel;
     cocos2d::ui::TextBMFont* _lifeLabel;
+    cocos2d::ui::TextBMFont* _repairTimeLabel;
 
     void onEnter() override;
     void update(float dt);

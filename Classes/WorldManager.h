@@ -40,8 +40,6 @@ public:
     SceneState getSceneState();
     std::vector<Animal*> getAnimalList();
     std::vector<Animal*> getEnemyAnimalList();
-    int getCoin();
-    int getLife();
 
     // game logic
     void lotteryGacha();
@@ -53,8 +51,7 @@ public:
     void winBattle();
     void loseBattle();
     void endResult();
-    void addCoin(int addCoin);
-    void addLife(int addLife);
+    void resetData();
     
     // util
     float getImageScale(Sprite* image, Length* width);
@@ -67,8 +64,6 @@ public:
 private:
     int _level;
     bool _enableNextAction;
-    int _coin;
-    int _life;
     int _leftTime;
     WorldInfo* _info;
     WorldMap* _map;
