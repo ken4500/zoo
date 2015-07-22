@@ -36,11 +36,11 @@
             <PreSize />
             <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font2.fnt" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="coin" ActionTag="-778894497" Tag="5" IconVisible="False" LeftMargin="-172.5009" RightMargin="100.5009" TopMargin="-4.9998" BottomMargin="-72.0002" ctype="SpriteObjectData">
-            <Size X="72.0000" Y="77.0000" />
+          <AbstractNodeData Name="coin" ActionTag="-778894497" Tag="5" IconVisible="False" LeftMargin="-242.0000" RightMargin="50.0000" TopMargin="-59.9998" BottomMargin="-127.0002" ctype="SpriteObjectData">
+            <Size X="192.0000" Y="187.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="-136.5009" Y="-33.5002" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <Position X="-146.0000" Y="-33.5002" />
+            <Scale ScaleX="0.4000" ScaleY="0.4000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize />
@@ -61,7 +61,7 @@
           <AbstractNodeData Name="okButton" ActionTag="1210879474" Tag="22" IconVisible="False" LeftMargin="-96.5000" RightMargin="-96.5000" TopMargin="110.1981" BottomMargin="-210.1981" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="163" Scale9Height="78" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
             <Size X="193.0000" Y="100.0000" />
             <Children>
-              <AbstractNodeData Name="coinLabel_0" ActionTag="-587949728" Tag="23" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="16.0000" RightMargin="16.0000" TopMargin="11.5000" BottomMargin="11.5000" LabelText="OK" ctype="TextBMFontObjectData">
+              <AbstractNodeData Name="coinLabel_0" ActionTag="-587949728" Tag="23" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="43.5000" RightMargin="43.5000" TopMargin="11.5000" BottomMargin="11.5000" LabelText="OK" ctype="TextBMFontObjectData">
                 <Size X="106.0000" Y="77.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="96.5000" Y="50.0000" />

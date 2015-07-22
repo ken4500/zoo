@@ -164,11 +164,11 @@
           <AbstractNodeData Name="menuNode" ActionTag="-2046749336" Tag="12" IconVisible="True" LeftMargin="33.0452" RightMargin="1102.9548" TopMargin="608.6856" BottomMargin="31.3144" ctype="SingleNodeObjectData">
             <Size />
             <Children>
-              <AbstractNodeData Name="battleButton" ActionTag="280631743" Tag="71" Alpha="225" IconVisible="False" RightMargin="-208.0000" TopMargin="-153.0000" TouchEnable="True" FontSize="48" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="178" Scale9Height="131" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
-                <Size X="208.0000" Y="153.0000" />
+              <AbstractNodeData Name="battleButton" ActionTag="280631743" Tag="71" Alpha="225" IconVisible="False" RightMargin="-247.0000" TopMargin="-244.0000" TouchEnable="True" FontSize="48" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="217" Scale9Height="222" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
+                <Size X="247.0000" Y="244.0000" />
                 <AnchorPoint />
                 <Position />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <Scale ScaleX="0.8000" ScaleY="0.8000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition />
                 <PreSize />
@@ -179,42 +179,42 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="hart" ActionTag="-1146902275" Tag="29" IconVisible="False" RightMargin="-84.0000" TopMargin="-243.0000" BottomMargin="170.0000" ctype="SpriteObjectData">
-                <Size X="84.0000" Y="73.0000" />
+              <AbstractNodeData Name="hart" ActionTag="-1146902275" Tag="29" IconVisible="False" RightMargin="-285.0000" TopMargin="-460.0000" BottomMargin="220.0000" ctype="SpriteObjectData">
+                <Size X="285.0000" Y="240.0000" />
                 <AnchorPoint />
-                <Position Y="170.0000" />
-                <Scale ScaleX="0.8799" ScaleY="0.8799" />
+                <Position Y="220.0000" />
+                <Scale ScaleX="0.2600" ScaleY="0.2600" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition />
                 <PreSize />
                 <FileData Type="Normal" Path="ui/hart.png" Plist="" />
                 <BlendFunc Src="1" Dst="771" />
               </AbstractNodeData>
-              <AbstractNodeData Name="coin" ActionTag="1389668671" Tag="28" IconVisible="False" RightMargin="-72.0000" TopMargin="-337.0000" BottomMargin="260.0000" ctype="SpriteObjectData">
-                <Size X="72.0000" Y="77.0000" />
+              <AbstractNodeData Name="coin" ActionTag="1389668671" Tag="28" IconVisible="False" RightMargin="-192.0000" TopMargin="-487.0000" BottomMargin="300.0000" ctype="SpriteObjectData">
+                <Size X="192.0000" Y="187.0000" />
                 <AnchorPoint />
-                <Position Y="260.0000" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <Position Y="300.0000" />
+                <Scale ScaleX="0.4000" ScaleY="0.4000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition />
                 <PreSize />
                 <FileData Type="Normal" Path="ui/coin.png" Plist="" />
                 <BlendFunc Src="1" Dst="771" />
               </AbstractNodeData>
-              <AbstractNodeData Name="coinText" ActionTag="-1009041307" Tag="33" IconVisible="False" LeftMargin="100.0000" RightMargin="-165.0000" TopMargin="-337.0000" BottomMargin="260.0000" LabelText="x5" ctype="TextBMFontObjectData">
+              <AbstractNodeData Name="coinText" ActionTag="-1009041307" Tag="33" IconVisible="False" LeftMargin="100.0000" RightMargin="-165.0000" TopMargin="-377.0000" BottomMargin="300.0000" LabelText="x5" ctype="TextBMFontObjectData">
                 <Size X="65.0000" Y="77.0000" />
                 <AnchorPoint />
-                <Position X="100.0000" Y="260.0000" />
+                <Position X="100.0000" Y="300.0000" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition />
                 <PreSize X="0.3944" Y="0.1203" />
                 <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font2.fnt" Plist="" />
               </AbstractNodeData>
-              <AbstractNodeData Name="hartText" ActionTag="12703591" Tag="34" IconVisible="False" LeftMargin="100.0000" RightMargin="-165.0000" TopMargin="-247.0000" BottomMargin="170.0000" LabelText="x5" ctype="TextBMFontObjectData">
+              <AbstractNodeData Name="hartText" ActionTag="12703591" Tag="34" IconVisible="False" LeftMargin="100.0000" RightMargin="-165.0000" TopMargin="-297.0000" BottomMargin="220.0000" LabelText="x5" ctype="TextBMFontObjectData">
                 <Size X="65.0000" Y="77.0000" />
                 <AnchorPoint />
-                <Position X="100.0000" Y="170.0000" />
+                <Position X="100.0000" Y="220.0000" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition />
@@ -233,7 +233,7 @@
             <Size X="73.0000" Y="77.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="1.0000" />
             <Position X="568.0000" Y="608.0000" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <Scale ScaleX="2.0000" ScaleY="1.5000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5000" Y="0.9500" />
             <PreSize X="0.0643" Y="0.1203" />

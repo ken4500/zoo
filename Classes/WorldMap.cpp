@@ -45,6 +45,7 @@ void WorldMap::update(float dt)
 {
     Node::update(dt);
     
+    // 指定点まで移動
     auto children = getChildren();
     for(auto node : children) {
         if (node->getTag() == (int)MainSceneTag::Animal) {
@@ -236,7 +237,6 @@ void WorldMap::setCurrentWidth(Length* width, std::function<void ()> callback)
     }
 }
 
-
 #pragma - public method
 
 void WorldMap::setGacha(Gacha* gacha)
@@ -256,7 +256,7 @@ void WorldMap::releaseAnimal(Animal* animal, std::function<void ()> callback)
 {
     float gachaHeight = _gacha->getGachaHeight();
     animal->setPosition(_gacha->getPosition() + Vec2(0, gachaHeight));
-    animal->setLocalZOrder(1000);
+    animal->setLocalZOrder(2000);
     addChild(animal);
     auto target = _gacha->getPosition() + Vec2(rand_0_1() * gachaHeight * 2 - gachaHeight, -gachaHeight * 1.0f);
     animal->jump(target, gachaHeight * 2, callback);
@@ -276,7 +276,7 @@ void WorldMap::addAnimalAtRandomPoint(Animal* animal)
 void WorldMap::addAnimal(Animal* animal, Vec2 targetPoint)
 {
     animal->setPosition(targetPoint);
-    animal->setLocalZOrder(1000);
+    animal->setLocalZOrder(2000);
     addChild(animal);
     animal->startWalk();
 }
@@ -290,7 +290,7 @@ void WorldMap::addEnemyAnimalAtOutRandomPoint(Animal* animal)
 void WorldMap::addEnemyAnimal(Animal* animal, Vec2 targetPoint)
 {
     animal->setPosition(targetPoint);
-    animal->setLocalZOrder(1000);
+    animal->setLocalZOrder(2000);
     addChild(animal);
     animal->startWalk();
 }

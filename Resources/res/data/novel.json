@@ -117,7 +117,7 @@
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "近づくと勝手にバトルが始まるぞ"
+      "value": "近づくとバトルが始まるぞ"
     }
   ]
 },

@@ -36,6 +36,9 @@ WorldManager::WorldManager()
     _map   = nullptr;
     _enableNextAction = true;
     _state = SceneState::Tutorial;
+    if (SKIP_TUTORIAL) {
+        _state = SceneState::Normal;
+    }
 }
 
 WorldManager::~WorldManager()
@@ -148,7 +151,7 @@ WorldInfo* WorldManager::levelup()
     auto mainScene = _getMainScene();
     
     // for tutorial
-    if (_level == 2) {
+    if (_level == 2 && SKIP_TUTORIAL == false) {
         _startTutrialLevelupScene1();
     } else {
         mainScene->levelUpEffect();
@@ -300,6 +303,7 @@ void WorldManager::endResult()
     if (scene) {
         scene->showMenu();
     }
+    _enableNextAction = true;
 }
 
 #pragma - util method
@@ -367,6 +371,7 @@ void WorldManager::_endBattle()
         _state = SceneState::TutorialGacha;
     }
     this->_setGameActive(false);
+    _enableNextAction = false;
 }
 
 void WorldManager::_closeResult()
@@ -605,8 +610,8 @@ void WorldManager::_startTutrialGachScene2()
 void WorldManager::_startTutrialLevelupScene1()
 {
     auto scene = _getMainScene();
+    _enableNextAction = false;
     scene->playNovel("novel_tutorial_levelup1", [this]{
-        _enableNextAction = false;
         _startTutrialLevelupScene2();
     }, false);
 
@@ -614,6 +619,7 @@ void WorldManager::_startTutrialLevelupScene1()
 
 void WorldManager::_startTutrialLevelupScene2()
 {
+    _enableNextAction = false;
     auto scene = _getMainScene();
     scene->levelUpEffect();
     _map->setCurrentWidth(_info->width, NULL);
@@ -621,6 +627,5 @@ void WorldManager::_startTutrialLevelupScene2()
     auto gachaLength = Length::scale(_info->width, 0.2);
     float gachaScale = getImageScale(gachaImage, gachaLength);
     _gacha->runAction(EaseInOut::create(ScaleTo::create(1.0f, gachaScale), 2));
-    _enableNextAction = false;
     scene->playNovel("novel_tutorial_levelup2", NULL, false, 2.5f);
 }
