@@ -36,7 +36,7 @@ WorldManager::WorldManager()
     _map   = nullptr;
     _enableNextAction = true;
     _state = SceneState::Tutorial;
-    if (SKIP_TUTORIAL) {
+    if (SKIP_TUTORIAL || UserDataManager::getInstance()->isEndTutorial()) {
         _state = SceneState::Normal;
     }
 }
@@ -70,9 +70,18 @@ WorldMap* WorldManager::getMap()
             _map->setGacha(_gacha);
         }
 
-        auto hero = Animal::CreateWithSpeceis("Hero");
-        _map->addAnimal(hero, Vec2(0, -200));
-        _animalList.push_back(hero);
+        auto animalList = UserDataManager::getInstance()->getAnimalList();
+        if (animalList.size() == 0) {
+            auto hero = Animal::CreateWithSpeceis("Hero");
+            _map->addAnimal(hero, Vec2(0, -200));
+            _animalList.push_back(hero);
+            UserDataManager::getInstance()->addAnimal(hero);
+        } else {
+            for (Animal* animal : animalList) {
+                _map->addAnimal(animal, getRadomPlace());
+                _animalList.push_back(animal);
+            }
+        }
     }
     return _map;
 }
@@ -130,6 +139,7 @@ void WorldManager::lotteryGacha()
 
 void WorldManager::releaseAnimal(Animal* animal, bool hit)
 {
+    UserDataManager::getInstance()->addAnimal(animal);
     _animalList.push_back(animal);
     if (hit) {
         _map->releaseAnimal(animal, [this] { levelup(); });
@@ -239,9 +249,11 @@ void WorldManager::startBattle()
 void WorldManager::startTutorial()
 {
     auto scene = _getMainScene();
-    scene->playNovel("novel_opening", [this]{
-        _enableNextAction = false;
-    }, false);
+    if (scene) {
+        scene->playNovel("novel_opening", [this]{
+            _enableNextAction = false;
+        }, false);
+    }
 }
 
 void WorldManager::startTutorialBattle()
@@ -521,10 +533,11 @@ void WorldManager::_startTutrialBattleScene2()
         ant->deadCallback = [this, scene]{
             _repairAllAnimalHp();
             if (_checkAllEnemyDead()) {
-                auto beetle = Animal::CreateWithSpeceis("Kabutomushi");
+                auto beetleSpecies = new Species("Kabutomushi");
+                auto beetle = Animal::CreateWithSpeceis("Kabutomushi", beetleSpecies->getMaxHeight()->getMmLength());
                 beetle->setIsEnmey(true);
                 _enemyAnimalList.push_back(beetle);
-                _map->addEnemyAnimalAtOutRandomPoint(beetle);
+                _map->addEnemyAnimal(beetle, Vec2(500, 0));
                 beetle->killAnimalCallback = [this] {
                     _startTutrialBattleScene3();
                 };
@@ -579,6 +592,7 @@ void WorldManager::_startTutrialGachScene1()
 void WorldManager::_startTutrialGachScene2()
 {
     _state = SceneState::Normal;
+    UserDataManager::getInstance()->clearTutorial();
     _gacha->finishGachaCallback = NULL;
     _enableNextAction = false;
     auto scene = _getMainScene();

@@ -43,17 +43,27 @@ void UserDataManager::reset()
     _userData->save();
 }
 
+bool UserDataManager::isEndTutorial()
+{
+    return _userData->isEndTutorial();
+}
+
+void UserDataManager::clearTutorial()
+{
+    _userData->setEndTutorial(true);
+    _userData->save();
+}
 
 int UserDataManager::getWorldLevel()
 {
     return _userData->getWorldLevel();
 }
 
-int UserDataManager::getCoin()
+void UserDataManager::setWorldLevel(int level)
 {
-    return _userData->getCoin();
+    _userData->setWorldLevel(level);
+    _userData->save();
 }
-
 
 // 最大体力の取得
 int UserDataManager::getMaxLife()
@@ -150,14 +160,9 @@ void UserDataManager::addMaxLife(int addMaxLife)
     _userData->save();
 }
 
-std::vector<Animal*> UserDataManager::getAnimalList()
+int UserDataManager::getCoin()
 {
-}
-
-void UserDataManager::setWorldLevel(int level)
-{
-    _userData->setWorldLevel(level);
-    _userData->save();
+    return _userData->getCoin();
 }
 
 void UserDataManager::addCoin(int addCoin)
@@ -173,8 +178,30 @@ void UserDataManager::setCoin(int coin)
     _userData->save();
 }
 
+std::vector<Animal*> UserDataManager::getAnimalList()
+{
+    auto rtnAnimalList = std::vector<Animal*>();
+    auto animalList = _userData->getAnimalList();
+    for (Value v : animalList) {
+        ValueMap animalData = v.asValueMap();
+        std::string name = animalData["name"].asString();
+        float size = animalData["size"].asFloat();
+        auto animal = Animal::CreateWithSpeceis(name, size);
+        rtnAnimalList.push_back(animal);
+    }
+    return rtnAnimalList;
+}
+
 void UserDataManager::addAnimal(Animal* animal)
 {
+    auto animalList = _userData->getAnimalList();
+    auto animalData = ValueMap();
+    animalData["name"] = Value(animal->getName());
+    animalData["size"] = Value(animal->getHeight()->getMmLength());
+    animalList.push_back(Value(animalData));
+    _userData->setAnimalList(animalList);
+    
+    _userData->save();
 }
 
 void UserDataManager::removeAnimal(Animal* animal)

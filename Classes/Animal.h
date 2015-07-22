@@ -18,8 +18,9 @@ class Animal : public cocos2d::Node {
 public:
     Animal();
     static Animal* CreateWithSpeceis(std::string specesName);
+    static Animal* CreateWithSpeceis(std::string specesName, float size);
     static Animal* CreateWithSpeceis(Species* species);
-    bool initWithSpeceis(Species* species);
+    bool initWithSpeceis(Species* species, float size);
 
     float getWorldScale();
     Length* getHeight();
@@ -32,6 +33,7 @@ public:
     bool isDead();
     AnimalState getState();
     Vec2 getCenterPosition();
+    int getHash();
 
     void updateWorldScale();
     void jump(Vec2 target, float height, std::function<void ()> callback);
@@ -55,7 +57,6 @@ protected:
     Species* _species;
     cocos2d::Node* _rootNode;
     cocostudio::timeline::ActionTimeline* _timeline;
-    std::string _name;
     cocos2d::Sprite* _image;
     Length* _height;
     bool _zOrderUpdate;

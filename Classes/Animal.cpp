@@ -19,7 +19,23 @@ Animal* Animal::CreateWithSpeceis(std::string specesName)
 {
     Animal* animal = new(std::nothrow) Animal();
     Species* species = new Species(specesName);
-    if (animal && animal->initWithSpeceis(species))
+    float rnd = CCRANDOM_0_1();
+    float mm = (species->getMaxHeight()->getMmLength() - species->getMinHeight()->getMmLength()) * rnd + species->getMinHeight()->getMmLength();
+    if (animal && animal->initWithSpeceis(species, mm))
+    {
+        animal->autorelease();
+        return animal;
+    }
+    
+    CC_SAFE_DELETE(animal);
+    return nullptr;
+}
+
+Animal* Animal::CreateWithSpeceis(std::string specesName, float size)
+{
+    Animal* animal = new(std::nothrow) Animal();
+    Species* species = new Species(specesName);
+    if (animal && animal->initWithSpeceis(species, size))
     {
         animal->autorelease();
         return animal;
@@ -32,7 +48,9 @@ Animal* Animal::CreateWithSpeceis(std::string specesName)
 Animal* Animal::CreateWithSpeceis(Species* species)
 {
     Animal* animal = new(std::nothrow) Animal();
-    if (animal && animal->initWithSpeceis(species))
+    float rnd = CCRANDOM_0_1();
+    float mm = (species->getMaxHeight()->getMmLength() - species->getMinHeight()->getMmLength()) * rnd + species->getMinHeight()->getMmLength();
+    if (animal && animal->initWithSpeceis(species, mm))
     {
         animal->autorelease();
         return animal;
@@ -43,16 +61,14 @@ Animal* Animal::CreateWithSpeceis(Species* species)
 }
 
 
-bool Animal::initWithSpeceis(Species* species)
+bool Animal::initWithSpeceis(Species* species, float size)
 {
     if (!Node::init()) {
         return false;
     }
     
     _species = species;
-    float rnd = CCRANDOM_0_1();
-    float mm = (_species->getMaxHeight()->getMmLength() - _species->getMinHeight()->getMmLength()) * rnd + _species->getMinHeight()->getMmLength();
-    _height = new Length(UnitOfLength::mm, mm);
+    _height = new Length(UnitOfLength::mm, size);
 
     _rootNode = CSLoader::createNode(_species->getMoveCsbName());
     this->addChild(_rootNode);
@@ -67,9 +83,9 @@ bool Animal::initWithSpeceis(Species* species)
     _zOrderUpdate = false;
     _state = AnimalState::Stop;
     deadCallback = NULL;
-    _maxHp = mm;
-    _hp = mm;
-    _offense = mm / 2;
+    _maxHp = size;
+    _hp = size;
+    _offense = size / 3;
     _battleEffect = NULL;
     
     setTag((int)MainSceneTag::Animal);
@@ -84,6 +100,8 @@ void Animal::onEnter()
     Node::onEnter();
     updateWorldScale();
     scheduleUpdate();
+
+    auto test = getHash();
 }
 
 void Animal::update(float dt)
@@ -311,7 +329,7 @@ Length* Animal::getDashSpeed()
 
 std::string Animal::getName()
 {
-    return _name;
+    return _species->getName();
 }
 
 float Animal::getWorldScale()
@@ -358,6 +376,17 @@ Vec2 Animal::getCenterPosition()
     return this->getPosition() + Vec2(0, size.height / 2);
 }
 
+int Animal::getHash()
+{
+    std::string name = getName();
+    uint8_t bytes_array[4 + name.size()];
+    *((float *)bytes_array) = _height->getMmLength();
+    for (int i = 0; i < name.size(); i++) {
+        bytes_array[4 + i] = name[i];
+    }
+    
+    return ZUtil::toHash32(bytes_array, 4 + name.size());
+}
 
 #pragma - private method
 

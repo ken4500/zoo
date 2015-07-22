@@ -41,6 +41,15 @@ UserData* UserData::load()
 
 #pragma - getter
 
+bool UserData::isEndTutorial()
+{
+    if (_data.find("end_tutorial") == _data.end()) {
+        return false;
+    } else {
+        return _data["end_tutorial"].asBool();
+    }
+}
+
 int UserData::getWorldLevel()
 {
     if (_data.find("world_level") == _data.end()) {
@@ -77,9 +86,19 @@ ValueMap UserData::getLifeData()
 
 ValueVector UserData::getAnimalList()
 {
+    if (_data.find("animal_data") == _data.end()) {
+        return ValueVector();
+    } else {
+        return _data["animal_data"].asValueVector();
+    }
 }
 
 #pragma - setter
+
+void UserData::setEndTutorial(bool endTutorial)
+{
+    _data["end_tutorial"] = endTutorial;
+}
 
 void UserData::setWorldLevel(int level)
 {
@@ -98,6 +117,7 @@ void UserData::setLifeData(ValueMap lifeData)
 
 void UserData::setAnimalList(ValueVector animal)
 {
+    _data["animal_data"] = animal;
 }
 
 std::string UserData::getFilePath()

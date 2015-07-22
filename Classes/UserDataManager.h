@@ -26,8 +26,15 @@ public:
     bool init();
     void reset();
 
+    bool isEndTutorial();
+    void clearTutorial();
+
     int getWorldLevel();
+    void setWorldLevel(int level);
+
     int getCoin();
+    void addCoin(int coin);
+    void setCoin(int coin);
 
     int getMaxLife();
     int getLife();
@@ -38,10 +45,6 @@ public:
     void addMaxLife(int addMaxLife);
 
     std::vector<Animal*> getAnimalList();
-
-    void setWorldLevel(int level);
-    void addCoin(int coin);
-    void setCoin(int coin);
     void addAnimal(Animal* animal);
     void removeAnimal(Animal* animal);
 

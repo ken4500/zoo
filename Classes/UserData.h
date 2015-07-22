@@ -20,11 +20,13 @@ public:
     bool save();
     static UserData* load();
     
+    bool isEndTutorial();
     int getWorldLevel();
     int getCoin();
     ValueMap getLifeData();
     ValueVector getAnimalList();
 
+    void setEndTutorial(bool endTutorial);
     void setWorldLevel(int level);
     void setCoin(int coin);
     void setLifeData(ValueMap lifeData);
