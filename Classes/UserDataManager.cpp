@@ -206,5 +206,18 @@ void UserDataManager::addAnimal(Animal* animal)
 
 void UserDataManager::removeAnimal(Animal* animal)
 {
+    auto animalList = _userData->getAnimalList();
+    for (auto it = animalList.begin(); it != animalList.end();) {
+        auto tmpAnimal = (*it).asValueMap();
+        if (tmpAnimal["name"].asString() == animal->getName()
+            && tmpAnimal["size"].asFloat() == animal->getHeight()->getMmLength()) {
+            it = animalList.erase(it);
+            continue;
+        }
+        it++;
+    }
+    _userData->setAnimalList(animalList);
+    
+    _userData->save();
 }
 

@@ -172,6 +172,18 @@ WorldInfo* WorldManager::levelup()
         }
     }
     
+    // 小さすぎる動物を削除
+    for (auto it = _animalList.begin(); it != _animalList.end(); ) {
+        auto animal = (*it);
+        if (animal->getHeight()->getMmLength() * 20 < _info->width->getMmLength()) {
+            animal->runAction(Sequence::create(ScaleTo::create(0.5, 0), RemoveSelf::create(), NULL));
+            it = _animalList.erase(it);
+            UserDataManager::getInstance()->removeAnimal(animal);
+            continue;
+        }
+        it++;
+    }
+    
     UserDataManager::getInstance()->setWorldLevel(_level);
     
     return _info;
@@ -328,12 +340,6 @@ Length* WorldManager::getLength(float displayLength)
     auto visibleSize = Director::getInstance()->getVisibleSize();
     float mm = worldSize->getLength(UnitOfLength::mm) * displayLength / visibleSize.width;
     return new Length(UnitOfLength::mm, mm);
-}
-
-Vec2 WorldManager::getDisplayPoint(Length x, Length y)
-{
-    auto worldSize = getWorldInfo()->width;
-    
 }
 
 #pragma - private method

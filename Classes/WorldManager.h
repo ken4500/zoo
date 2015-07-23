@@ -57,7 +57,6 @@ public:
     float getImageScale(Sprite* image, Length* width);
     float getDisplayLength(Length* length);
     Length* getLength(float displayLength);
-    Vec2 getDisplayPoint(Length x, Length y);
     Vec2 getRadomPlace();
     Vec2 getOutRandomPlace();
 
