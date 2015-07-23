@@ -27,9 +27,10 @@
         <Project Name="Map1.csd" Type="Node" />
         <Project Name="Map2.csd" Type="Node" />
         <Folder Name="font">
-          <Fnt Name="font1.fnt" />
           <Fnt Name="font2.fnt" />
           <Fnt Name="zoo_font2.fnt" />
+          <Fnt Name="font3.fnt" />
+          <Image Name="font3.png" />
         </Folder>
         <Folder Name="ui">
           <Image Name="empty.png" />
@@ -41,14 +42,20 @@
           <Image Name="levelup.png" />
           <Image Name="battle_start.png" />
           <Image Name="watch.png" />
-          <Image Name="b_ok_down.png" />
-          <Image Name="b_ok_up.png" />
           <Image Name="button.png" />
           <Image Name="button2.png" />
           <Image Name="end.png" />
+          <Image Name="coin_01.png" />
+          <Image Name="coin_02.png" />
+          <Image Name="coin_03.png" />
+          <Image Name="coin_04.png" />
+          <Image Name="coin_05.png" />
+          <Image Name="coin_06.png" />
+          <Image Name="litter_star.png" />
         </Folder>
         <Project Name="Result.csd" Type="Node" />
         <Project Name="Notice.csd" Type="Node" />
+        <Project Name="GetCoin.csd" Type="Node" />
       </RootFolder>
     </Group>
   </SolutionFolder>

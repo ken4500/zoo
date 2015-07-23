@@ -389,6 +389,11 @@ int Animal::getHash()
     return ZUtil::toHash32(bytes_array, 4 + name.size());
 }
 
+int Animal::getCoin()
+{
+    return MAX(1, (int)_height->getLength(UnitOfLength::cm));
+}
+
 #pragma - private method
 
 void Animal::_moveNextPoint()

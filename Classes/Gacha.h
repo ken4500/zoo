@@ -24,6 +24,7 @@ public:
     float getGachaHeight();
     void lotteryGacha();
     void setNewGachaId(int gachaId);
+    int getPrice();
     
     std::function<void()> finishGachaCallback;
 
@@ -31,6 +32,7 @@ protected:
     cocostudio::timeline::ActionTimeline* _timeline;
     int _lotteryCount;
     int _least;
+    int _price;
     std::vector<float> _probabilityList;
     std::vector<std::string> _rewardList;
     std::vector<bool> _hitList;

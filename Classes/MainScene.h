@@ -38,7 +38,6 @@ public:
     void showResultView(GameResult* result, float delay, std::function<void ()> closeCallback);
     
 private:
-    Gacha* _gacha;
     WorldMap* _map;
     Node* _rootNode;
     cocostudio::timeline::ActionTimeline* _timeline;

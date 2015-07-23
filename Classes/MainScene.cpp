@@ -137,6 +137,7 @@ void MainScene::hideMenu()
 
 void MainScene::showMenu()
 {
+    updateCoinLabel();
     auto battleButton = _menuNode->getChildByName<ui::Button*>("battleButton");
     battleButton->setEnabled(true);
     _menuNode->runAction(FadeIn::create(0.5f));
@@ -325,7 +326,10 @@ void MainScene::_setupDebugMenu()
     repairLife->setPosition(Vec2(0, 0));
     debugMenu->addChild(repairLife, 1);
     
-    auto addCoin = DebugButton::create("add coin", [this]() { UserDataManager::getInstance()->addCoin(5); this->updateCoinLabel();});
+    auto addCoin = DebugButton::create("add coin", [this]() {
+        UserDataManager::getInstance()->addCoin(WorldManager::getInstance()->getGachaPrice() * 5);
+        this->updateCoinLabel();
+    });
     addCoin->setAnchorPoint(Vec2(1.0f, 0.0f));
     addCoin->setPosition(Vec2(0, 80));
     debugMenu->addChild(addCoin, 1);
@@ -374,9 +378,6 @@ void MainScene::_setupDebugMenu()
     debugLabel->setAnchorPoint(Vec2(0.0f, 0.5f));
     debugLabel->setPosition(Vec2(-imageSize.width/2 + 40, -40));
     debugMenu->addChild(debugLabel);
-    
-    
-    
 }
 
 void MainScene::_pushBattleButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)

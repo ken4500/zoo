@@ -93,12 +93,14 @@ void Gacha::setNewGachaId(int gachaId)
     _rewardList = std::vector<std::string>();
     _hitList = std::vector<bool>();
     _least = 0;
+    _price = 1;
 
     auto jsonStr = FileUtils::getInstance()->getStringFromFile("data/gacha.json");
     rapidjson::Document document;
     document.Parse<0>(jsonStr.c_str());
     rapidjson::Value& gachaDoc = document[std::to_string(gachaId).c_str()];
     _least = gachaDoc["least"].GetInt();
+    _price = gachaDoc["price"].GetInt();
     rapidjson::Value& listDoc = gachaDoc["list"];
     for (int i = 0; i < listDoc.Size(); i++) {
         rapidjson::Value& v = listDoc[i];
@@ -114,3 +116,7 @@ void Gacha::setNewGachaId(int gachaId)
     }
 }
 
+int Gacha::getPrice()
+{
+    return _price;
+}

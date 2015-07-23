@@ -111,6 +111,11 @@ std::vector<Animal*> WorldManager::getEnemyAnimalList()
     return _enemyAnimalList;
 }
 
+int WorldManager::getGachaPrice()
+{
+    return _gacha->getPrice();
+}
+
 #pragma - public method
 
 void WorldManager::resetData()
@@ -127,12 +132,12 @@ void WorldManager::lotteryGacha()
     }
     int coin = UserDataManager::getInstance()->getCoin();
     auto mainScene = _getMainScene();
-    if (coin <= 0) {
+    if (coin < _gacha->getPrice()) {
         mainScene->showNoticeView("You don't have enough coin!\nPush the battle button", 0.0f, NULL);
         return;
     }
     
-    UserDataManager::getInstance()->setCoin(coin - 1);
+    UserDataManager::getInstance()->setCoin(coin - _gacha->getPrice());
     mainScene->updateCoinLabel();
     _gacha->lotteryGacha();
 }
@@ -142,9 +147,14 @@ void WorldManager::releaseAnimal(Animal* animal, bool hit)
     UserDataManager::getInstance()->addAnimal(animal);
     _animalList.push_back(animal);
     if (hit) {
-        _map->releaseAnimal(animal, [this] { levelup(); });
+        _map->releaseAnimal(animal, [this] {
+            _checkAndRemoveAnimal();
+            levelup();
+        });
     } else {
-        _map->releaseAnimal(animal, nullptr);
+        _map->releaseAnimal(animal, [this] {
+            _checkAndRemoveAnimal();
+        });
     }
 }
 
@@ -175,7 +185,7 @@ WorldInfo* WorldManager::levelup()
     // 小さすぎる動物を削除
     for (auto it = _animalList.begin(); it != _animalList.end(); ) {
         auto animal = (*it);
-        if (animal->getHeight()->getMmLength() * 20 < _info->width->getMmLength()) {
+        if (animal->getHeight()->getMmLength() * 30 < _info->width->getMmLength()) {
             animal->runAction(Sequence::create(ScaleTo::create(0.5, 0), RemoveSelf::create(), NULL));
             it = _animalList.erase(it);
             UserDataManager::getInstance()->removeAnimal(animal);
@@ -253,6 +263,19 @@ void WorldManager::startBattle()
         enemyAnimal->setIsEnmey(true);
         _enemyAnimalList.push_back(enemyAnimal);
         _map->addEnemyAnimalAtOutRandomPoint(enemyAnimal);
+        enemyAnimal->deadCallback = [this, enemyAnimal]() {
+            auto coinEffect = CSLoader::createNode("GetCoin.csb");
+            coinEffect->setPosition(enemyAnimal->getCenterPosition());
+            coinEffect->setZOrder(2000);
+            coinEffect->setScale(1.0f / _map->getScale());
+            auto text = coinEffect->getChildByName<ui::TextBMFont*>("text");
+            text->setString(StringUtils::format("+%d", enemyAnimal->getCoin()));
+            _map->addChild(coinEffect);
+            auto timeLine = CSLoader::createTimeline("GetCoin.csb");
+            coinEffect->runAction(timeLine);
+            timeLine->play("get", false);
+        };
+
     }
     
     _map->hideGacha();
@@ -292,7 +315,7 @@ void WorldManager::endBattle(bool win, float showResultViewDelay)
     result->getCoin = 0;
     for (auto animal : _enemyAnimalList) {
         if (animal->isDead()) {
-            result->getCoin += 1;
+            result->getCoin += animal->getCoin();
         }
     }
     UserDataManager::getInstance()->addCoin(result->getCoin);
@@ -490,6 +513,25 @@ void WorldManager::_transitionMap(WorldInfo* preWorldInfo, WorldInfo* newWorldIn
 
         _map = newMap;
     });
+}
+
+void WorldManager::_checkAndRemoveAnimal()
+{
+    if (_animalList.size() > MAX_ANIMAL_NUM) {
+        float min = INT_MAX;
+        std::vector<Animal*>::iterator minIt;
+        for (auto it = _animalList.begin(); it != _animalList.end(); it++) {
+            auto animal = *it;
+            if (min > animal->getHeight()->getMmLength()) {
+                min = animal->getHeight()->getMmLength();
+                minIt = it;
+            }
+        }
+        auto removeAnimal = *minIt;
+        UserDataManager::getInstance()->removeAnimal(removeAnimal);
+        _animalList.erase(minIt);
+        removeAnimal->escape();
+    }
 }
 
 #pragma - tutorial

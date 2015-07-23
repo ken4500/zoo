@@ -40,6 +40,7 @@ public:
     SceneState getSceneState();
     std::vector<Animal*> getAnimalList();
     std::vector<Animal*> getEnemyAnimalList();
+    int getGachaPrice();
 
     // game logic
     void lotteryGacha();
@@ -83,6 +84,7 @@ private:
     void _repairAllAnimalHp();
     bool _checkAllEnemyDead();
     void _transitionMap(WorldInfo* preWorldInfo, WorldInfo* newWorldInfo);
+    void _checkAndRemoveAnimal();
 
     void _startTutrialBattleScene1();
     void _startTutrialBattleScene2();

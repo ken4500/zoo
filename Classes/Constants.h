@@ -56,6 +56,7 @@ static const bool EASY_MODE = true;
 static const bool APPEAR_SKIP_BUTTON = true;
 static const bool SKIP_TUTORIAL = true;
 static const int REPAIR_LIFE_TIME = 1 * 60;
+static const int MAX_ANIMAL_NUM = 20;
 
 
 
