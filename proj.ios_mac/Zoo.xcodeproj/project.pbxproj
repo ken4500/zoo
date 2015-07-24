@@ -65,6 +65,9 @@
 		9F06E9CA1B5DBE3A00107C09 /* NoticeLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F06E9C81B5DBE3A00107C09 /* NoticeLayer.cpp */; };
 		9F0F163A1B556DBB00217010 /* libcocos2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F0F16361B556D8100217010 /* libcocos2d Mac.a */; };
 		9F0F163B1B556DC600217010 /* libcocos2d iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F0F16381B556D8100217010 /* libcocos2d iOS.a */; };
+		9F19A9DB1B62B0EC00572440 /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9F19A9DA1B62B0EC00572440 /* Localization.strings */; };
+		9F19A9DF1B62B0FF00572440 /* File.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9F19A9DE1B62B0FF00572440 /* File.strings */; };
+		9F19A9E21B62B26F00572440 /* CCLocalizedString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F19A9E01B62B26F00572440 /* CCLocalizedString.cpp */; };
 		9F425AE61B4616E6001B2969 /* WorldManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F425AE41B4616E6001B2969 /* WorldManager.cpp */; };
 		9F425AE91B461732001B2969 /* WorldInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F425AE71B461732001B2969 /* WorldInfo.cpp */; };
 		9F425AEC1B461899001B2969 /* Length.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F425AEA1B461899001B2969 /* Length.cpp */; };
@@ -179,6 +182,10 @@
 		9F06E9C81B5DBE3A00107C09 /* NoticeLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NoticeLayer.cpp; sourceTree = "<group>"; };
 		9F06E9C91B5DBE3A00107C09 /* NoticeLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticeLayer.h; sourceTree = "<group>"; };
 		9F0F16301B556D8100217010 /* cocos2d_libs.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2d_libs.xcodeproj; path = ../cocos2d/build/cocos2d_libs.xcodeproj; sourceTree = "<group>"; };
+		9F19A9DA1B62B0EC00572440 /* Localization.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localization.strings; sourceTree = "<group>"; };
+		9F19A9DE1B62B0FF00572440 /* File.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = File.strings; sourceTree = "<group>"; };
+		9F19A9E01B62B26F00572440 /* CCLocalizedString.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCLocalizedString.cpp; sourceTree = "<group>"; };
+		9F19A9E11B62B26F00572440 /* CCLocalizedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCLocalizedString.h; sourceTree = "<group>"; };
 		9F425AE41B4616E6001B2969 /* WorldManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WorldManager.cpp; sourceTree = "<group>"; };
 		9F425AE51B4616E6001B2969 /* WorldManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldManager.h; sourceTree = "<group>"; };
 		9F425AE71B461732001B2969 /* WorldInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WorldInfo.cpp; sourceTree = "<group>"; };
@@ -345,6 +352,8 @@
 				9FFC9E721B42FAA500869B23 /* CommonInclude.h */,
 				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
+				9F19A9DA1B62B0EC00572440 /* Localization.strings */,
+				9F19A9DE1B62B0FF00572440 /* File.strings */,
 				9F06E9B81B5ACF8A00107C09 /* Model */,
 				9F83BA761B545E0F00605D1D /* Manager */,
 				9FFC9E731B430AD100869B23 /* Entity */,
@@ -451,6 +460,8 @@
 				9FFC9E6D1B42F8F400869B23 /* ZMath.h */,
 				9FFC9E6F1B42FA0100869B23 /* ZUtil.cpp */,
 				9FFC9E701B42FA0100869B23 /* ZUtil.h */,
+				9F19A9E01B62B26F00572440 /* CCLocalizedString.cpp */,
+				9F19A9E11B62B26F00572440 /* CCLocalizedString.h */,
 			);
 			name = Uitl;
 			sourceTree = "<group>";
@@ -642,6 +653,7 @@
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
 				521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */,
+				9F19A9DF1B62B0FF00572440 /* File.strings in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
@@ -651,6 +663,7 @@
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
 				521A8E6419F0C34300D177D7 /* Default-667h@2x.png in Resources */,
+				9F19A9DB1B62B0EC00572440 /* Localization.strings in Resources */,
 				50EF629717ECD46A001EB2F8 /* Icon-58.png in Resources */,
 				41E34A81ACA2320B6C76C445 /* res in Resources */,
 			);
@@ -694,6 +707,7 @@
 				9F83BA6C1B54327700605D1D /* WorldMap.cpp in Sources */,
 				9F05646D1B49EDE000649A7F /* ScaleBarReader.cpp in Sources */,
 				9F425AEC1B461899001B2969 /* Length.cpp in Sources */,
+				9F19A9E21B62B26F00572440 /* CCLocalizedString.cpp in Sources */,
 				9F83BA6D1B54327700605D1D /* WorldMapReader.cpp in Sources */,
 				9FFC9E711B42FA0100869B23 /* ZUtil.cpp in Sources */,
 				9F83BA871B55687700605D1D /* UserDataManager.cpp in Sources */,

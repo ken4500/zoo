@@ -65,13 +65,13 @@
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "今日も世界制服のため頑張るぞ"
+      "value": "I'll do my best again today \nfor world conquest!"
     },
     {
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "左下のボタンを押してくれ！"
+      "value": "Tap the button at the lower left!"
     }
   ]
 },
@@ -91,13 +91,13 @@
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "敵が来たぞ！"
+      "value": "The enemy is coming!"
     },
     {
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "画面をタップして移動だ！"
+      "value": "Tap and hold the screen \nwhere you want to move."
     }
   ]
 },
@@ -117,7 +117,7 @@
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "近づくとバトルが始まるぞ"
+      "value": " When I am close to the enemy, \nI fight automatically."
     }
   ]
 },
@@ -147,19 +147,19 @@
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "強すぎるー"
+      "value": "Oh...too strong..."
     },
     {
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "弱すぎるぜ！"
+      "value": "Too easy!"
     },
     {
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "ドンドン倒すぜ！"
+      "value": "I'll beat more creatures!"
     }
   ]
 },
@@ -189,25 +189,25 @@
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "(ドスンドスン)"
+      "value": "(stomp stomp)"
     },
     {
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "どけよチビ！"
+      "value": "Get out, boy!"
     },
     {
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "こんなでかい生き物がいるなんて・・・"
+      "value": "Wow, I can't believe \nthere is a bigger creature than me..."
     },
     {
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "けど俺のほうが強いはず！"
+      "value": "But I shoud be stronger than him!"
     }
   ]
 },
@@ -232,13 +232,13 @@
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "だめだ・・・"
+      "value": "Oh my god..."
     },
     {
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "世界は広かった・・・"
+      "value": "The world is bigger than I thought..."
     },
     {
       "type": "delay",
@@ -259,13 +259,13 @@
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "目を覚ませ"
+      "value": "Wake up."
     },
     {
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "小さきものよ"
+      "value": "Tiny boy..."
     },
     {
       "type": "delay",
@@ -291,43 +291,43 @@
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "・・・"
+      "value": "..."
     },
     {
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "ここはどこだ？"
+      "value": "Where am I?"
     },
     {
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "世界が知りたいか"
+      "value": "Do you want to know the world?"
     },
     {
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "小さきものよ"
+      "value": "Tiny boy..."
     },
     {
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "(・・・何言ってんだこいつ）"
+      "value": "(...I wonder what he said.）"
     },
     {
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "力を授けよう"
+      "value": "I'll give my power to you."
     },
     {
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "世界の秘密を知るのだ"
+      "value": "Realize the sercrets of the world!"
     }
   ]
 },
@@ -347,13 +347,13 @@
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "・・・"
+      "value": "..."
     },
     {
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "なんだ夢か"
+      "value": "Oh, it was a just dream."
     },
     {
       "type": "speak",
@@ -365,7 +365,13 @@
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "なんだあのでっかいツボは！"
+      "value": "Oh, my!"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "That's such a big pot!"
     },
     {
       "type": "set",
@@ -381,43 +387,37 @@
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "夢ではないぞ"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "小さきものよ"
+      "value": "It was not a dream."
     },
     {
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "でた！変なやつ！"
+      "value": "Here comes a stranger!"
     },
     {
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "そのツボは[c=red]世界のツボ[/c]と\n呼ばれる物だ"
+      "value": "The pot is called the [c=red]world pot[/c]."
     },
     {
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "[c=red]世界のツボ?![/c]"
+      "value": "[c=red]World pod?![/c]"
     },
     {
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "なんだそれ"
+      "value": "...What?"
     },
     {
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "いいからタップしてみろ"
+      "value": "Tap it"
     }
   ]
 },
@@ -437,7 +437,13 @@
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "なんか出てきたぞ！？"
+      "value": "Wow! "
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "It released something."
     },
     {
       "type": "set",
@@ -453,43 +459,43 @@
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "そうだ"
+      "value": "Sure."
     },
     {
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "お前に[c=red]世界のツボ[/c]を\n操る力を与えた"
+      "value": "I gave you my power to control it."
     },
     {
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "ツボから出てきた動物は\n全てお前の手下だ"
+      "value": "Creatures that are released from it \nwork for you"
     },
     {
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "すごい！"
+      "value": "That's great!"
     },
     {
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "これで手下を集めてさっきの\n大きな動物を倒せってことだな！"
+      "value": "You mean I should beat the enemies \n using this pot?"
     },
     {
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "頑張るがよい"
+      "value": "Good luck."
     },
     {
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "小さきものよ"
+      "value": "TIny boy..."
     }
   ]
 },
@@ -509,13 +515,13 @@
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "でかい！"
+      "value": "So big!"
     },
     {
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "強い仲間をゲットしたぜ！"
+      "value": "I have a strong army!"
     }
   ]
 },
@@ -535,13 +541,13 @@
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "わっ！"
+      "value": "Wow!"
     },
     {
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "世界が広がったぞ！"
+      "value": "My world zoomed out!"
     },
     {
       "type": "set",
@@ -557,115 +563,97 @@
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "小さきものよ"
+      "value": "Tiny boy..."
     },
     {
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "わっ親切なおっさんだ！"
+      "value": "Oh, here comes the kind man!"
     },
     {
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "これが[c=red]世界のツボ[/c]のもう一つの力"
+      "value": "This is another power of the world pot."
     },
     {
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "より大きな動物を手にいれることで"
+      "value": "When you get bigger cretures, \nyour world expands."
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "Oh, is that so?"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "I didn't know that the world is so big."
     },
     {
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "お前の世界は広がる"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "へー"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "世界がこんなにも広いなんて"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "初めて知ったぞ！"
+      "value": "Ho-ho!"
     },
     {
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "ほっほっほ"
+      "value": "Your world is still so small."
     },
     {
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "まだお前の世界は\n小さいままだぞ"
+      "value": "Tiny boy..."
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "Really?!"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "..."
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "I have decided!"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "[c=red]I will see all of the world![/c]"
     },
     {
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "小さきものよ"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "ほんとか？！"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "・・・"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "よし！決めたぞ！"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "[c=red]俺は世界を全て見るぞ！[/c]"
+      "value": "Good."
     },
     {
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "頑張るが良い・・・"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "ではまたな"
+      "value": "Keep on going."
     },
     {
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "いろいろありがとう！"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "おっさん！"
+      "value": "Thank you great man!"
     }
   ]
 }

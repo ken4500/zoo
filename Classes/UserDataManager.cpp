@@ -65,6 +65,17 @@ void UserDataManager::setWorldLevel(int level)
     _userData->save();
 }
 
+LanguageType UserDataManager::getLanguage()
+{
+    return _userData->getLanguage();
+}
+
+void UserDataManager::setLanguage(LanguageType language)
+{
+    _userData->setLanguage(language);
+    _userData->save();
+}
+
 // 最大体力の取得
 int UserDataManager::getMaxLife()
 {

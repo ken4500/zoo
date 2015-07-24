@@ -17,5 +17,6 @@
 #include "WorldInfo.h"
 #include "Species.h"
 #include "GameResult.h"
+#include "CCLocalizedString.h"
 
 #endif

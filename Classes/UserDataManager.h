@@ -32,6 +32,9 @@ public:
     int getWorldLevel();
     void setWorldLevel(int level);
 
+    LanguageType getLanguage();
+    void setLanguage(LanguageType language);
+
     int getCoin();
     void addCoin(int coin);
     void setCoin(int coin);

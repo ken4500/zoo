@@ -196,10 +196,12 @@ void MainScene::playNovel(std::string novelId, std::function<void ()> callback, 
 void MainScene::playNovel(std::string novelId, std::function<void ()> callback, bool apearSkipButton)
 {
     // 再生しない
-    auto jsonStr = FileUtils::getInstance()->getStringFromFile("data/novel.json");
+    auto file = CCLS("NOVEL_FILE_NAME");
+    auto jsonStr = FileUtils::getInstance()->getStringFromFile(file);
     rapidjson::Document document;
     document.Parse<0>(jsonStr.c_str());
     rapidjson::Value& novelJson = document[novelId.c_str()];
+    
 
     WorldManager::getInstance()->setEnableNextAction(false);
 

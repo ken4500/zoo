@@ -25,12 +25,14 @@ public:
     int getCoin();
     ValueMap getLifeData();
     ValueVector getAnimalList();
+    LanguageType getLanguage();
 
     void setEndTutorial(bool endTutorial);
     void setWorldLevel(int level);
     void setCoin(int coin);
     void setLifeData(ValueMap lifeData);
     void setAnimalList(ValueVector animal);
+    void setLanguage(LanguageType language);
 
     
 private:

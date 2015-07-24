@@ -155,7 +155,19 @@
           </IntFrame>
         </Timeline>
         <Timeline ActionTag="-1299550960" Property="Scale">
-          <ScaleFrame FrameIndex="13" X="0.8000" Y="0.8000">
+          <ScaleFrame FrameIndex="3" X="0.6000" Y="0.6000">
+            <EasingData Type="2" />
+          </ScaleFrame>
+          <ScaleFrame FrameIndex="20" X="1.0000" Y="1.0000">
+            <EasingData Type="0" />
+          </ScaleFrame>
+          <ScaleFrame FrameIndex="29" X="0.8000" Y="0.8000">
+            <EasingData Type="0" />
+          </ScaleFrame>
+          <ScaleFrame FrameIndex="62" X="0.8000" Y="0.8000">
+            <EasingData Type="0" />
+          </ScaleFrame>
+          <ScaleFrame FrameIndex="70" X="0.4000" Y="0.4000">
             <EasingData Type="0" />
           </ScaleFrame>
         </Timeline>
@@ -187,15 +199,15 @@
       <ObjectData Name="Node" Tag="54" ctype="GameNodeObjectData">
         <Size />
         <Children>
-          <AbstractNodeData Name="coin_01_1" ActionTag="397511332" Tag="55" IconVisible="False" LeftMargin="-27.0000" RightMargin="-27.0000" TopMargin="-164.7107" BottomMargin="70.7107" ctype="SpriteObjectData">
+          <AbstractNodeData Name="coin_01_1" ActionTag="397511332" Tag="55" IconVisible="False" LeftMargin="-27.0000" RightMargin="-27.0000" TopMargin="-193.7859" BottomMargin="99.7859" ctype="SpriteObjectData">
             <Size X="54.0000" Y="94.0000" />
             <AnchorPoint ScaleX="0.5000" />
-            <Position Y="70.7107" />
+            <Position Y="99.7859" />
             <Scale ScaleX="0.8000" ScaleY="0.8000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize />
-            <FileData Type="Normal" Path="ui/coin_02.png" Plist="" />
+            <FileData Type="Normal" Path="ui/coin_04.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
           <AbstractNodeData Name="Node_1" ActionTag="1413738099" Tag="9" IconVisible="True" TopMargin="-120.0000" BottomMargin="120.0000" ctype="SingleNodeObjectData">
@@ -257,7 +269,7 @@
             <Size X="115.0000" Y="77.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="-4.2645" Y="71.5336" />
-            <Scale ScaleX="0.8000" ScaleY="0.8000" />
+            <Scale ScaleX="0.9111" ScaleY="0.9111" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize />

@@ -1,0 +1,672 @@
+{
+"novel_opening": {
+  "skip" : 0,
+  "actions" : [
+    {
+      "type": "set",
+      "target": "background",
+      "value": "back01.jpg"
+    },
+    {
+      "type": "music",
+      "target": "",
+      "value": ""
+    },
+    {
+      "type": "delay",
+      "target": "",
+      "value": "1"
+    },
+    {
+      "type": "set",
+      "target": "narration"
+    },
+    {
+      "type": "narration",
+      "target": "narration",
+      "value": "俺はでかくて強い！"
+    },
+    {
+      "type": "delay",
+      "target": "",
+      "value": "1"
+    },
+    {
+      "type": "narration",
+      "target": "narration",
+      "value": "俺に勝てるやつはいない！"
+    },
+    {
+      "type": "set",
+      "target": "background",
+      "value": "remove"
+    },
+    {
+      "type": "clear",
+      "target": "",
+      "value": ""
+    },
+    {
+      "type": "delay",
+      "target": "",
+      "value": "1"
+    },
+    {
+      "type": "set",
+      "target": "left",
+      "value": "hero_01"
+    },
+    {
+      "type": "name",
+      "target": "left",
+      "value": "ANT"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "今日も世界制服のため頑張るぞ"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "左下のボタンを押してくれ！"
+    }
+  ]
+},
+"novel_tutorial_battle1": {
+  "actions" : [
+    {
+      "type": "set",
+      "target": "left",
+      "value": "hero_01"
+    },
+    {
+      "type": "name",
+      "target": "left",
+      "value": "ANT"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "敵が来たぞ！"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "画面をタップして移動だ！"
+    }
+  ]
+},
+"novel_tutorial_battle2": {
+  "actions" : [
+    {
+      "type": "set",
+      "target": "left",
+      "value": "hero_01"
+    },
+    {
+      "type": "name",
+      "target": "left",
+      "value": "ANT"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "近づくとバトルが始まるぞ"
+    }
+  ]
+},
+"novel_tutorial_battle3": {
+  "actions" : [
+    {
+      "type": "set",
+      "target": "left",
+      "value": "hero_01"
+    },
+    {
+      "type": "name",
+      "target": "left",
+      "value": "ANT"
+    },
+    {
+      "type": "set",
+      "target": "right",
+      "value": "ari_01"
+    },
+    {
+      "type": "name",
+      "target": "right",
+      "value": "ANT"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "強すぎるー"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "弱すぎるぜ！"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "ドンドン倒すぜ！"
+    }
+  ]
+},
+"novel_tutorial_battle4": {
+  "actions" : [
+    {
+      "type": "set",
+      "target": "left",
+      "value": "hero_01"
+    },
+    {
+      "type": "name",
+      "target": "left",
+      "value": "ANT"
+    },
+    {
+      "type": "set",
+      "target": "right",
+      "value": "kabutomushi_01"
+    },
+    {
+      "type": "name",
+      "target": "right",
+      "value": "BEETLE"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "(ドスンドスン)"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "どけよチビ！"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "こんなでかい生き物がいるなんて・・・"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "けど俺のほうが強いはず！"
+    }
+  ]
+},
+"novel_tutorial_battle_end": {
+  "actions" : [
+    {
+      "type": "set",
+      "target": "background",
+      "value": "back02.jpg"
+    },
+    {
+      "type": "set",
+      "target": "left",
+      "value": "hero_01"
+    },
+    {
+      "type": "name",
+      "target": "left",
+      "value": "ANT"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "だめだ・・・"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "世界は広かった・・・"
+    },
+    {
+      "type": "delay",
+      "target": "1",
+      "value": ""
+    },
+    {
+      "type": "set",
+      "target": "right",
+      "value": "god_01"
+    },
+    {
+      "type": "name",
+      "target": "right",
+      "value": "GOD"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "目を覚ませ"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "小さきものよ"
+    },
+    {
+      "type": "delay",
+      "target": "1",
+      "value": ""
+    },
+    {
+      "type": "set",
+      "target": "background",
+      "value": "back03.jpg"
+    },
+    {
+      "type": "set",
+      "target": "left",
+      "value": "hero_01"
+    },
+    {
+      "type": "name",
+      "target": "left",
+      "value": "ANT"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "・・・"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "ここはどこだ？"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "世界が知りたいか"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "小さきものよ"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "(・・・何言ってんだこいつ）"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "力を授けよう"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "世界の秘密を知るのだ"
+    }
+  ]
+},
+"novel_tutorial_gacha1": {
+  "actions" : [
+    {
+      "type": "set",
+      "target": "left",
+      "value": "hero_01"
+    },
+    {
+      "type": "name",
+      "target": "left",
+      "value": "ANT"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "・・・"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "なんだ夢か"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "!?"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "なんだあのでっかいツボは！"
+    },
+    {
+      "type": "set",
+      "target": "right",
+      "value": "god_01"
+    },
+    {
+      "type": "name",
+      "target": "right",
+      "value": "GOD"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "夢ではないぞ"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "小さきものよ"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "でた！変なやつ！"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "そのツボは[c=red]世界のツボ[/c]と\n呼ばれる物だ"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "[c=red]世界のツボ?![/c]"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "なんだそれ"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "いいからタップしてみろ"
+    }
+  ]
+},
+"novel_tutorial_gacha2": {
+  "actions" : [
+    {
+      "type": "set",
+      "target": "left",
+      "value": "hero_01"
+    },
+    {
+      "type": "name",
+      "target": "left",
+      "value": "ANT"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "なんか出てきたぞ！？"
+    },
+    {
+      "type": "set",
+      "target": "right",
+      "value": "god_01"
+    },
+    {
+      "type": "name",
+      "target": "right",
+      "value": "GOD"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "そうだ"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "お前に[c=red]世界のツボ[/c]を\n操る力を与えた"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "ツボから出てきた動物は\n全てお前の手下だ"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "すごい！"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "これで手下を集めてさっきの\n大きな動物を倒せってことだな！"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "頑張るがよい"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "小さきものよ"
+    }
+  ]
+},
+"novel_tutorial_levelup1": {
+  "actions" : [
+    {
+      "type": "set",
+      "target": "left",
+      "value": "hero_01"
+    },
+    {
+      "type": "name",
+      "target": "left",
+      "value": "ANT"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "でかい！"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "強い仲間をゲットしたぜ！"
+    }
+  ]
+},
+"novel_tutorial_levelup2": {
+  "actions" : [
+    {
+      "type": "set",
+      "target": "left",
+      "value": "hero_01"
+    },
+    {
+      "type": "name",
+      "target": "left",
+      "value": "ANT"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "わっ！"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "世界が広がったぞ！"
+    },
+    {
+      "type": "set",
+      "target": "right",
+      "value": "god_01"
+    },
+    {
+      "type": "name",
+      "target": "right",
+      "value": "GOD"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "小さきものよ"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "わっ親切なおっさんだ！"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "これが[c=red]世界のツボ[/c]のもう一つの力"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "より大きな動物を手にいれることで"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "お前の世界は広がる"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "へー"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "世界がこんなにも広いなんて"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "初めて知ったぞ！"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "ほっほっほ"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "まだお前の世界は\n小さいままだぞ"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "小さきものよ"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "ほんとか？！"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "・・・"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "よし！決めたぞ！"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "[c=red]俺は世界を全て見るぞ！[/c]"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "頑張るが良い・・・"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "ではまたな"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "いろいろありがとう！"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "おっさん！"
+    }
+  ]
+}
+}

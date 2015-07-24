@@ -93,6 +93,15 @@ ValueVector UserData::getAnimalList()
     }
 }
 
+LanguageType UserData::getLanguage()
+{
+    if (_data.find("language") == _data.end()) {
+        return CCApplication::getInstance()->getCurrentLanguage();
+    } else {
+        return (LanguageType)_data["language"].asInt();
+    }
+}
+
 #pragma - setter
 
 void UserData::setEndTutorial(bool endTutorial)
@@ -120,8 +129,13 @@ void UserData::setAnimalList(ValueVector animal)
     _data["animal_data"] = animal;
 }
 
+void UserData::setLanguage(LanguageType language)
+{
+    _data["language"] = (int)language;
+}
+
+
 std::string UserData::getFilePath()
 {
     return FileUtils::getInstance()->getWritablePath() + "user_data";
 }
-
