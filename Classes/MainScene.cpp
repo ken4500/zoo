@@ -202,7 +202,6 @@ void MainScene::playNovel(std::string novelId, std::function<void ()> callback, 
     document.Parse<0>(jsonStr.c_str());
     rapidjson::Value& novelJson = document[novelId.c_str()];
     
-
     WorldManager::getInstance()->setEnableNextAction(false);
 
     // pause map
@@ -344,7 +343,7 @@ void MainScene::_setupDebugMenu()
     auto resetData = DebugButton::create("reset data", [this]() {
         WorldManager::getInstance()->resetData();
         Director::getInstance()->replaceScene(
-            TransitionFade::create(1.0f, MainScene::createScene(), Color3B::BLACK)
+            MainScene::createScene()
         );
     });
     resetData->setAnchorPoint(Vec2(1.0f, 0.0f));

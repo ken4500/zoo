@@ -1,5 +1,6 @@
 #include "AppDelegate.h"
 #include "MainScene.h"
+#include "TitleScene.h"
 #include "Constants.h"
 
 USING_NS_CC;
@@ -44,7 +45,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     FileUtils::getInstance()->addSearchPath("res/animal");
 
     // create a scene. it's an autorelease object
-    auto scene = MainScene::createScene();
+    auto scene = TitleScene::createScene();
 
     // run
     director->runWithScene(scene);

@@ -2,7 +2,7 @@
   <PropertyGroup Type="Node" Name="AnimalMove1" ID="9b2712b8-9012-415f-a088-855627e4b972" Version="2.2.8.0" />
   <Content ctype="GameProjectContent">
     <Content>
-      <Animation Duration="270" Speed="1.0000" ActivedAnimationName="dead">
+      <Animation Duration="270" Speed="1.0000" ActivedAnimationName="walk">
         <Timeline ActionTag="-2066128753" Property="Position">
           <PointFrame FrameIndex="1" X="0.0000" Y="0.0000">
             <EasingData Type="0" />
@@ -128,13 +128,13 @@
           <RenderColor A="255" R="165" G="42" B="42" />
         </AnimationInfo>
         <AnimationInfo Name="dead" StartIndex="241" EndIndex="280">
-          <RenderColor A="150" R="112" G="128" B="144" />
+          <RenderColor A="255" R="112" G="128" B="144" />
         </AnimationInfo>
       </AnimationList>
       <ObjectData Name="Node" Tag="16" ctype="GameNodeObjectData">
         <Size />
         <Children>
-          <AbstractNodeData Name="image" ActionTag="-2066128753" Tag="8" IconVisible="False" LeftMargin="-200.0000" RightMargin="-200.0000" TopMargin="-400.0000" ctype="SpriteObjectData">
+          <AbstractNodeData Name="image" ActionTag="-2066128753" Tag="8" Rotation="-3.3333" RotationSkewX="-3.3333" RotationSkewY="-3.3333" IconVisible="False" LeftMargin="-200.0000" RightMargin="-200.0000" TopMargin="-400.0000" ctype="SpriteObjectData">
             <Size X="400.0000" Y="400.0000" />
             <AnchorPoint ScaleX="0.5000" />
             <Position />

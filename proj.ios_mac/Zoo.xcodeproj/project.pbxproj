@@ -71,6 +71,8 @@
 		9F425AE61B4616E6001B2969 /* WorldManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F425AE41B4616E6001B2969 /* WorldManager.cpp */; };
 		9F425AE91B461732001B2969 /* WorldInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F425AE71B461732001B2969 /* WorldInfo.cpp */; };
 		9F425AEC1B461899001B2969 /* Length.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F425AEA1B461899001B2969 /* Length.cpp */; };
+		9F6835D71B62E1A500589EBE /* TitleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F6835D51B62E1A500589EBE /* TitleScene.cpp */; };
+		9F6835DC1B62E4B900589EBE /* SelectLanguageLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F6835DA1B62E4B900589EBE /* SelectLanguageLayer.cpp */; };
 		9F83BA6C1B54327700605D1D /* WorldMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F83BA681B54327700605D1D /* WorldMap.cpp */; };
 		9F83BA6D1B54327700605D1D /* WorldMapReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F83BA6A1B54327700605D1D /* WorldMapReader.cpp */; };
 		9F83BA811B55683100605D1D /* SoundManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F83BA7F1B55683100605D1D /* SoundManager.cpp */; };
@@ -192,6 +194,10 @@
 		9F425AE81B461732001B2969 /* WorldInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldInfo.h; sourceTree = "<group>"; };
 		9F425AEA1B461899001B2969 /* Length.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Length.cpp; sourceTree = "<group>"; };
 		9F425AEB1B461899001B2969 /* Length.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Length.h; sourceTree = "<group>"; };
+		9F6835D51B62E1A500589EBE /* TitleScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TitleScene.cpp; sourceTree = "<group>"; };
+		9F6835D61B62E1A500589EBE /* TitleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleScene.h; sourceTree = "<group>"; };
+		9F6835DA1B62E4B900589EBE /* SelectLanguageLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SelectLanguageLayer.cpp; sourceTree = "<group>"; };
+		9F6835DB1B62E4B900589EBE /* SelectLanguageLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectLanguageLayer.h; sourceTree = "<group>"; };
 		9F83BA681B54327700605D1D /* WorldMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WorldMap.cpp; sourceTree = "<group>"; };
 		9F83BA691B54327700605D1D /* WorldMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldMap.h; sourceTree = "<group>"; };
 		9F83BA6A1B54327700605D1D /* WorldMapReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WorldMapReader.cpp; sourceTree = "<group>"; };
@@ -438,6 +444,8 @@
 				9F06E9C91B5DBE3A00107C09 /* NoticeLayer.h */,
 				9F06E9B91B5AD02000107C09 /* ModalLayer.cpp */,
 				9F06E9BA1B5AD02000107C09 /* ModalLayer.h */,
+				9F6835DA1B62E4B900589EBE /* SelectLanguageLayer.cpp */,
+				9F6835DB1B62E4B900589EBE /* SelectLanguageLayer.h */,
 				9F06E9BD1B5AD21A00107C09 /* ResultLayer.cpp */,
 				9F06E9BE1B5AD21A00107C09 /* ResultLayer.h */,
 			);
@@ -471,6 +479,8 @@
 			children = (
 				46880B8719C43A87006E1F66 /* MainScene.h */,
 				46880B8619C43A87006E1F66 /* MainScene.cpp */,
+				9F6835D51B62E1A500589EBE /* TitleScene.cpp */,
+				9F6835D61B62E1A500589EBE /* TitleScene.h */,
 			);
 			name = Scene;
 			sourceTree = "<group>";
@@ -691,6 +701,7 @@
 				9F01C8A61B5FF509009E9D21 /* DebugButton.cpp in Sources */,
 				9F425AE91B461732001B2969 /* WorldInfo.cpp in Sources */,
 				9F06E9BF1B5AD21A00107C09 /* ResultLayer.cpp in Sources */,
+				9F6835DC1B62E4B900589EBE /* SelectLanguageLayer.cpp in Sources */,
 				9F06E9C21B5AD27D00107C09 /* GameResult.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				9FB063E31B5818A20088AE2A /* NovelPlayer.cpp in Sources */,
@@ -704,6 +715,7 @@
 				9FB063E11B5818A20088AE2A /* NovelBalloon.cpp in Sources */,
 				9F015C9A1B4211FB00F45135 /* Animal.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
+				9F6835D71B62E1A500589EBE /* TitleScene.cpp in Sources */,
 				9F83BA6C1B54327700605D1D /* WorldMap.cpp in Sources */,
 				9F05646D1B49EDE000649A7F /* ScaleBarReader.cpp in Sources */,
 				9F425AEC1B461899001B2969 /* Length.cpp in Sources */,
