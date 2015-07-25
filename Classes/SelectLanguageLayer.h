@@ -24,6 +24,8 @@ public:
     CREATE_FUNC(SelectLanguageLayer);
     bool init() override;
     
+    std::function<void ()> closedCallback;
+    
 protected:
     
 private:

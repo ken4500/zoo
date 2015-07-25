@@ -2,6 +2,10 @@ NOVEL_FILE_NAME = data/novel_ja.json;
 LANGUAGE_PAGE_TITLE = 言語設定;
 ENGLISH = 英語;
 JAPANESE = 日本語;
+TITLE_SCENE_START = 始める;
+TITLE_SCENE_LANGUAGE = 言語設定;
+TITLE_SCENE_CREDIT = クレジット;
+
 
 
 

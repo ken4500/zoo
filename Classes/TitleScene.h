@@ -23,12 +23,18 @@ public:
     CREATE_FUNC(TitleScene);
 
 private:
+    cocos2d::ui::TextBMFont* _startLabel;
+    cocos2d::ui::TextBMFont* _languageLabel;
+    cocos2d::ui::TextBMFont* _creditLabel;
+
     void onEnter() override;
     void onExit() override;
-    
+   
     void _pushStartButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void _pushLanguageButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void _pushCreditButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
+    
+    void _updateLanguage();
 };
 
 #endif /* defined(__Zoo__TitleScene__) */

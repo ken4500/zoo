@@ -83,6 +83,11 @@ void SelectLanguageLayer::_pushButton(cocos2d::Ref* pSender, cocos2d::ui::Widget
     if (eEventType == ui::Widget::TouchEventType::ENDED) {
         this->runAction(Sequence::create(
             FadeOut::create(0.3f),
+            CallFunc::create([this](){
+                if (closedCallback) {
+                    closedCallback();
+                }
+            }),
             RemoveSelf::create(),
             NULL
         ));

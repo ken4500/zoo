@@ -46,15 +46,19 @@ bool TitleScene::init()
     rootNode->setPosition(Vec2::ZERO);
     rootNode->setPosition(Vec2(displaySize.width / 2, displaySize.height / 2));
     
-    
     auto startButton = rootNode->getChildByName<ui::Button*>("Start");
     startButton->addTouchEventListener(CC_CALLBACK_2(TitleScene::_pushStartButton, this));
+    _startLabel = startButton->getChildByName<ui::TextBMFont*>("label");
 
     auto languageButton = rootNode->getChildByName<ui::Button*>("Language");
     languageButton->addTouchEventListener(CC_CALLBACK_2(TitleScene::_pushLanguageButton, this));
+    _languageLabel = languageButton->getChildByName<ui::TextBMFont*>("label");
 
     auto creditButton = rootNode->getChildByName<ui::Button*>("Credit");
     creditButton->addTouchEventListener(CC_CALLBACK_2(TitleScene::_pushCreditButton, this));
+    _creditLabel = creditButton->getChildByName<ui::TextBMFont*>("label");
+    
+    _updateLanguage();
     
     addChild(rootNode);
 
@@ -86,6 +90,9 @@ void TitleScene::_pushLanguageButton(cocos2d::Ref* pSender, cocos2d::ui::Widget:
 {
     if (eEventType == ui::Widget::TouchEventType::ENDED) {
         auto layer = SelectLanguageLayer::create();
+        layer->closedCallback = [this]() {
+            _updateLanguage();
+        };
         this->addChild(layer);
     }
 }
@@ -94,4 +101,12 @@ void TitleScene::_pushCreditButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::T
 {
     if (eEventType == ui::Widget::TouchEventType::ENDED) {
     }
+}
+
+void TitleScene::_updateLanguage()
+{
+    PurgeCCLocalizedStringCached();
+    _startLabel->setString(CCLS("TITLE_SCENE_START"));
+    _languageLabel->setString(CCLS("TITLE_SCENE_LANGUAGE"));
+    _creditLabel->setString(CCLS("TITLE_SCENE_CREDIT"));
 }
