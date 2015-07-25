@@ -1,4 +1,8 @@
 NOVEL_FILE_NAME = data/novel_ja.json;
+LANGUAGE_PAGE_TITLE = 言語設定;
+ENGLISH = 英語;
+JAPANESE = 日本語;
+
 
 
 

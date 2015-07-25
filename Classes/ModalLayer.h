@@ -27,7 +27,7 @@ public:
 protected:
     Vec2 _topPos;
     float _height;
-    
+
     bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *event);
 private:
     

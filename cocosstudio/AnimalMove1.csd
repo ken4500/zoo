@@ -134,7 +134,7 @@
       <ObjectData Name="Node" Tag="16" ctype="GameNodeObjectData">
         <Size />
         <Children>
-          <AbstractNodeData Name="image" ActionTag="-2066128753" Tag="8" Rotation="-3.3333" RotationSkewX="-3.3333" RotationSkewY="-3.3333" IconVisible="False" LeftMargin="-200.0000" RightMargin="-200.0000" TopMargin="-400.0000" ctype="SpriteObjectData">
+          <AbstractNodeData Name="image" ActionTag="-2066128753" Tag="8" IconVisible="False" LeftMargin="-200.0000" RightMargin="-200.0000" TopMargin="-400.0000" ctype="SpriteObjectData">
             <Size X="400.0000" Y="400.0000" />
             <AnchorPoint ScaleX="0.5000" />
             <Position />

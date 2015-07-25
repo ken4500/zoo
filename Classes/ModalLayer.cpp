@@ -24,9 +24,6 @@ bool ModalLayer::initWithHeight(int height)
     if (!Layer::create()) {
         return false;
     }
-//    if (!LayerColor::initWithColor(Color4B(0, 0, 0, 160))) {
-//        return false;
-//    }
     
     _height = height;
     auto displaySize = Director::getInstance()->getVisibleSize();

@@ -8,6 +8,7 @@
 
 #include "TitleScene.h"
 #include "MainScene.h"
+#include "SelectLanguageLayer.h"
 
 USING_NS_CC;
 
@@ -84,6 +85,8 @@ void TitleScene::_pushStartButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::To
 void TitleScene::_pushLanguageButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
     if (eEventType == ui::Widget::TouchEventType::ENDED) {
+        auto layer = SelectLanguageLayer::create();
+        this->addChild(layer);
     }
 }
 

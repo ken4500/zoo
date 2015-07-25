@@ -50,9 +50,10 @@
           <Image Name="coin_02.png" />
           <Image Name="coin_03.png" />
           <Image Name="coin_04.png" />
-          <Image Name="coin_05.png" />
-          <Image Name="coin_06.png" />
           <Image Name="litter_star.png" />
+          <Image Name="flag_cn.png" />
+          <Image Name="flag_jp.png" />
+          <Image Name="flag_us.png" />
         </Folder>
         <Project Name="Result.csd" Type="Node" />
         <Project Name="Notice.csd" Type="Node" />

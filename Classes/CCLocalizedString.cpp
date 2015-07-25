@@ -28,7 +28,7 @@ void PurgeCCLocalizedStringCached()
 
 const char * CCLocalizedString(const char * mKey,const char * mComment)
 {
-    
+    CCLOG("TEST");
     LanguageType curLanguage = UserDataManager::getInstance()->getLanguage();
     const char * fileName;
     switch (curLanguage) {

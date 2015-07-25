@@ -68,14 +68,16 @@ void NoticeLayer::onEnter()
 
 void NoticeLayer::_pushButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
-    this->runAction(Sequence::create(
-        FadeOut::create(0.3f),
-        CallFunc::create([this]{
-            if (closeNoticeCallback) {
-                closeNoticeCallback();
-            }
-        }),
-        RemoveSelf::create(),
-        NULL
-    ));
+    if (eEventType == ui::Widget::TouchEventType::ENDED) {
+        this->runAction(Sequence::create(
+            FadeOut::create(0.3f),
+            CallFunc::create([this]{
+                if (closeNoticeCallback) {
+                    closeNoticeCallback();
+                }
+            }),
+            RemoveSelf::create(),
+            NULL
+        ));
+    }
 }
