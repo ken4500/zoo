@@ -14,6 +14,7 @@
 #include "NoticeLayer.h"
 #include "DebugButton.h"
 #include "UserDataManager.h"
+#include "SoundManager.h"
 
 USING_NS_CC;
 
@@ -97,6 +98,7 @@ void MainScene::onEnter()
     
     updateCoinLabel();
     updateLifeLabel(0);
+    SoundManager::getInstance()->playMainBgm();
     
     Director::getInstance()->getScheduler()->schedule(CC_CALLBACK_1(MainScene::updateLifeLabel, this), this, 1.0f, false, "update_life");
 }

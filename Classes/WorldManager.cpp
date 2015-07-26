@@ -13,6 +13,7 @@
 #include "ResultLayer.h"
 #include "NoticeLayer.h"
 #include "UserDataManager.h"
+#include "SoundManager.h"
 
 USING_NS_CC;
 
@@ -248,6 +249,9 @@ void WorldManager::startBattle()
     _enemyGenerater = new EnemyGenerater(_info);
     UserDataManager::getInstance()->decreateLife(1);
     _setGameActive(true);
+    SoundManager::getInstance()->playBattleStartEffect();
+    SoundManager::getInstance()->playBattleBgm();
+
     
     auto scene = _getMainScene();
     if (scene) {

@@ -26,8 +26,13 @@ public:
 
     void playBgm(string musicName);
     void stopBgm();
+    void fadeOutBgm(float interval);
+    void fadeInBgm(float interval, string musicName);
     void playEffect(string efectName);
-    void playGameBgm();
+    void playTitleBgm();
+    void playMainBgm();
+    void playBattleBgm();
+    void playBattleStartEffect();
     void playNovelTap();
     void playCancellEffect();
 

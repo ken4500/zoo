@@ -10,6 +10,7 @@
 #include "MainScene.h"
 #include "SelectLanguageLayer.h"
 #include "CreditLayer.h"
+#include "SoundManager.h"
 
 USING_NS_CC;
 
@@ -71,6 +72,7 @@ bool TitleScene::init()
 void TitleScene::onEnter()
 {
     Layer::onEnter();
+    SoundManager::getInstance()->playTitleBgm();
 }
 
 void TitleScene::onExit()
@@ -80,6 +82,7 @@ void TitleScene::onExit()
 
 void TitleScene::_pushStartButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
+    SoundManager::getInstance()->fadeOutBgm(1.0f);
     if (eEventType == ui::Widget::TouchEventType::ENDED) {
         Director::getInstance()->replaceScene(
             MainScene::createScene()

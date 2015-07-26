@@ -65,6 +65,7 @@
 		9F06E9CA1B5DBE3A00107C09 /* NoticeLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F06E9C81B5DBE3A00107C09 /* NoticeLayer.cpp */; };
 		9F0F163A1B556DBB00217010 /* libcocos2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F0F16361B556D8100217010 /* libcocos2d Mac.a */; };
 		9F0F163B1B556DC600217010 /* libcocos2d iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F0F16381B556D8100217010 /* libcocos2d iOS.a */; };
+		9F13C23C1B658C160035850A /* sound in Resources */ = {isa = PBXBuildFile; fileRef = 9F13C23B1B658C160035850A /* sound */; };
 		9F19A9DB1B62B0EC00572440 /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9F19A9DA1B62B0EC00572440 /* Localization.strings */; };
 		9F19A9DF1B62B0FF00572440 /* File.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9F19A9DE1B62B0FF00572440 /* File.strings */; };
 		9F19A9E21B62B26F00572440 /* CCLocalizedString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F19A9E01B62B26F00572440 /* CCLocalizedString.cpp */; };
@@ -185,6 +186,7 @@
 		9F06E9C81B5DBE3A00107C09 /* NoticeLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NoticeLayer.cpp; sourceTree = "<group>"; };
 		9F06E9C91B5DBE3A00107C09 /* NoticeLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticeLayer.h; sourceTree = "<group>"; };
 		9F0F16301B556D8100217010 /* cocos2d_libs.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2d_libs.xcodeproj; path = ../cocos2d/build/cocos2d_libs.xcodeproj; sourceTree = "<group>"; };
+		9F13C23B1B658C160035850A /* sound */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sound; sourceTree = "<group>"; };
 		9F19A9DA1B62B0EC00572440 /* Localization.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localization.strings; sourceTree = "<group>"; };
 		9F19A9DE1B62B0FF00572440 /* File.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = File.strings; sourceTree = "<group>"; };
 		9F19A9E01B62B26F00572440 /* CCLocalizedString.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCLocalizedString.cpp; sourceTree = "<group>"; };
@@ -347,6 +349,7 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9F13C23B1B658C160035850A /* sound */,
 				FA144D09A52357282113E0F8 /* res */,
 			);
 			name = Resources;
@@ -660,6 +663,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F13C23C1B658C160035850A /* sound in Resources */,
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
