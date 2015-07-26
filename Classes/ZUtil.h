@@ -18,10 +18,16 @@ class ZUtil{
 public:    
     static void printVec(Vec2 vec);
     static void printVec(Vec2 vec, std::string message);
+    static void printNode(Node* node);
+    static void printNode(Node* node, std::function<void (Node*)> func);
+
+    static void setGlobalZOrderRecursive(Node* node, float zorder);
     
     static float calcDurationTime(cocostudio::timeline::ActionTimeline* timeline, std::string animationName);
     static uint32_t toHash32(uint8_t *bytes, size_t length);
 
+private:
+    static void _printNodeRecursive(Node* node, int count, std::function<void (Node*)> func);
 };
 
 

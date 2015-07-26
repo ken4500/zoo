@@ -63,6 +63,7 @@
         <Project Name="TitleScene.csd" Type="Scene" />
         <Project Name="SelectLanguage.csd" Type="Node" />
         <Project Name="Credit.csd" Type="Node" />
+        <Project Name="Price.csd" Type="Node" />
       </RootFolder>
     </Group>
   </SolutionFolder>

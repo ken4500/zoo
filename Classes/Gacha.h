@@ -11,6 +11,7 @@
 
 #include "cocos2d.h"
 #include "cocostudio/CocoStudio.h"
+#include "ui/CocosGUI.h"
 #include "CommonInclude.h"
 #include "json/document.h"
 #include "json/writer.h"
@@ -37,6 +38,7 @@ protected:
     std::vector<std::string> _rewardList;
     std::vector<bool> _hitList;
     float _sumProbability;
+    cocos2d::ui::TextBMFont* _priceLabel;
 
     void onEnter() override;
 };
