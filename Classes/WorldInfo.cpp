@@ -11,12 +11,44 @@
 #include "json/document.h"
 #include "json/writer.h"
 #include "json/stringbuffer.h"
+#include "UserDataManager.h"
 
 USING_NS_CC;
 
 WorldInfo::WorldInfo(int level)
 {
     this->level = level;
+    _loadLevel();
+}
+
+WorldInfo::~WorldInfo()
+{
+}
+
+WorldInfo* WorldInfo::copy()
+{
+    auto copy = new WorldInfo(this->level);
+    copy->lotteryGachaCount = this->lotteryGachaCount;
+    copy->totalLotteryGachaCount = this->totalLotteryGachaCount;
+    return copy;
+}
+
+void WorldInfo::levelUp()
+{
+    this->level++;
+    this->lotteryGachaCount = 0;
+    _loadLevel();
+}
+
+void WorldInfo::addLotteryGachaCount()
+{
+    lotteryGachaCount++;
+    totalLotteryGachaCount++;
+    UserDataManager::getInstance()->setWorldInfo(this);
+}
+
+void WorldInfo::_loadLevel()
+{
     auto jsonStr = FileUtils::getInstance()->getStringFromFile("data/world.json");
     rapidjson::Document document;
     document.Parse<0>(jsonStr.c_str());
@@ -29,8 +61,4 @@ WorldInfo::WorldInfo(int level)
     this->mapName = worldDoc["map"].GetString();
     this->gachaId = worldDoc["gacha"].GetInt();
     this->imageWidth = worldDoc["imageWidth"].GetInt();
-}
-
-WorldInfo::~WorldInfo()
-{
 }

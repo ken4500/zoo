@@ -23,15 +23,14 @@ public:
     CREATE_FUNC(Gacha);
     bool init() override;
     float getGachaHeight();
-    void lotteryGacha();
-    void setNewGachaId(int gachaId);
+    void lotteryGacha(WorldInfo* _info);
+    void setNewGacha(WorldInfo* _info);
     int getPrice();
     
     std::function<void()> finishGachaCallback;
 
 protected:
     cocostudio::timeline::ActionTimeline* _timeline;
-    int _lotteryCount;
     int _least;
     int _price;
     std::vector<float> _probabilityList;

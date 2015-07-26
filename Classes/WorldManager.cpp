@@ -31,8 +31,7 @@ WorldManager* WorldManager::getInstance()
 WorldManager::WorldManager()
 {
     auto dataManager = UserDataManager::getInstance();
-    _level = dataManager->getWorldLevel();
-    _info  = _loadWoldInfo(_level);
+    _info = dataManager->getWorldInfo();
     _map   = nullptr;
     _enableNextAction = true;
     _state = SceneState::Tutorial;
@@ -66,7 +65,7 @@ WorldMap* WorldManager::getMap()
             auto gachaLength = Length::scale(_info->width, 0.2);
             float gachaScale = getImageScale(gachaImage, gachaLength);
             _gacha->setScale(gachaScale);
-            _gacha->setNewGachaId(_info->gachaId);
+            _gacha->setNewGacha(_info);
             _map->setGacha(_gacha);
         }
 
@@ -139,7 +138,7 @@ void WorldManager::lotteryGacha()
     
     UserDataManager::getInstance()->setCoin(coin - _gacha->getPrice());
     mainScene->updateCoinLabel();
-    _gacha->lotteryGacha();
+    _gacha->lotteryGacha(_info);
 }
 
 void WorldManager::releaseAnimal(Animal* animal, bool hit)
@@ -160,14 +159,13 @@ void WorldManager::releaseAnimal(Animal* animal, bool hit)
 
 WorldInfo* WorldManager::levelup()
 {
-    _level++;
-    auto preWorldInfo = _info;
-    _info = _loadWoldInfo(_level);
-    _gacha->setNewGachaId(_info->gachaId);
+    auto preWorldInfo = _info->copy();
+    _info->levelUp();
+    _gacha->setNewGacha(_info);
     auto mainScene = _getMainScene();
     
     // for tutorial
-    if (_level == 2 && SKIP_TUTORIAL == false) {
+    if (_info->level == 2 && SKIP_TUTORIAL == false) {
         _startTutrialLevelupScene1();
     } else {
         mainScene->levelUpEffect();
@@ -194,7 +192,7 @@ WorldInfo* WorldManager::levelup()
         it++;
     }
     
-    UserDataManager::getInstance()->setWorldLevel(_level);
+    UserDataManager::getInstance()->setWorldInfo(_info);
     
     return _info;
 }
@@ -374,12 +372,6 @@ void WorldManager::_leftTimeUpdate(float dt)
         endBattle(false, 0.0f);
     }
     _setLeftTime(_leftTime);
-}
-
-WorldInfo* WorldManager::_loadWoldInfo(int level)
-{
-    WorldInfo* info = new WorldInfo(level);
-    return info;
 }
 
 MainScene* WorldManager::_getMainScene()
@@ -614,7 +606,7 @@ void WorldManager::_startTutrialGachScene1()
     auto gachaLength = Length::scale(_info->width, 0.2);
     float gachaScale = getImageScale(gachaImage, gachaLength);
     _gacha->setScale(gachaScale);
-    _gacha->setNewGachaId(_info->gachaId);
+    _gacha->setNewGacha(_info);
     _map->setGacha(_gacha);
 
     scene->playNovel("novel_tutorial_gacha1", [this]{

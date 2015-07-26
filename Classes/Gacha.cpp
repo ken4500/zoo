@@ -47,17 +47,17 @@ float Gacha::getGachaHeight()
     return image->getContentSize().height * getScale();
 }
 
-void Gacha::lotteryGacha()
+void Gacha::lotteryGacha(WorldInfo* _info)
 {
     if (WorldManager::getInstance()->enableNextAction() == false) {
         return;
     }
     WorldManager::getInstance()->setEnableNextAction(false);
 
-    _lotteryCount++;
+    _info->addLotteryGachaCount();
 
     bool isHit = false;
-    bool canLotteryHit = _least < _lotteryCount;
+    bool canLotteryHit = _least < _info->lotteryGachaCount;
     std::string animalStr;
 
     do {
@@ -94,9 +94,8 @@ void Gacha::lotteryGacha()
     ));
 }
 
-void Gacha::setNewGachaId(int gachaId)
+void Gacha::setNewGacha(WorldInfo* _info)
 {
-    _lotteryCount = 0;
     _sumProbability = 0;
     _probabilityList = std::vector<float>();
     _rewardList = std::vector<std::string>();
@@ -107,7 +106,7 @@ void Gacha::setNewGachaId(int gachaId)
     auto jsonStr = FileUtils::getInstance()->getStringFromFile("data/gacha.json");
     rapidjson::Document document;
     document.Parse<0>(jsonStr.c_str());
-    rapidjson::Value& gachaDoc = document[std::to_string(gachaId).c_str()];
+    rapidjson::Value& gachaDoc = document[std::to_string(_info->gachaId).c_str()];
     _least = gachaDoc["least"].GetInt();
     _price = gachaDoc["price"].GetInt();
     rapidjson::Value& listDoc = gachaDoc["list"];

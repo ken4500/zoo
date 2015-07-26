@@ -54,14 +54,22 @@ void UserDataManager::clearTutorial()
     _userData->save();
 }
 
-int UserDataManager::getWorldLevel()
+WorldInfo* UserDataManager::getWorldInfo()
 {
-    return _userData->getWorldLevel();
+    auto data = _userData->getWorldInfo();
+    auto info = new WorldInfo(data["level"].asInt());
+    info->lotteryGachaCount = data["gacha_count"].asInt();
+    info->totalLotteryGachaCount = data["total_gacha_count"].asInt();
+    return info;
 }
 
-void UserDataManager::setWorldLevel(int level)
+void UserDataManager::setWorldInfo(WorldInfo* info)
 {
-    _userData->setWorldLevel(level);
+    auto data = _userData->getWorldInfo();
+    data["level"] = info->level;
+    data["gacha_count"] = info->lotteryGachaCount;
+    data["total_gacha_count"] = info->totalLotteryGachaCount;
+    _userData->setWorldInfo(data);
     _userData->save();
 }
 
@@ -228,7 +236,5 @@ void UserDataManager::removeAnimal(Animal* animal)
         it++;
     }
     _userData->setAnimalList(animalList);
-    
     _userData->save();
 }
-

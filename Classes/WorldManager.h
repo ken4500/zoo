@@ -62,7 +62,6 @@ public:
     Vec2 getOutRandomPlace();
 
 private:
-    int _level;
     bool _enableNextAction;
     int _leftTime;
     WorldInfo* _info;
@@ -73,7 +72,6 @@ private:
     std::vector<Animal*> _enemyAnimalList;
     EnemyGenerater* _enemyGenerater;
     
-    WorldInfo* _loadWoldInfo(int level);
     MainScene* _getMainScene();
     void _leftTimeUpdate(float dt);
     void _endBattle();

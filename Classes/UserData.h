@@ -21,14 +21,14 @@ public:
     static UserData* load();
     
     bool isEndTutorial();
-    int getWorldLevel();
+    ValueMap getWorldInfo();
     int getCoin();
     ValueMap getLifeData();
     ValueVector getAnimalList();
     LanguageType getLanguage();
 
     void setEndTutorial(bool endTutorial);
-    void setWorldLevel(int level);
+    void setWorldInfo(ValueMap info);
     void setCoin(int coin);
     void setLifeData(ValueMap lifeData);
     void setAnimalList(ValueVector animal);

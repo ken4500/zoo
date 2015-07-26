@@ -29,8 +29,8 @@ public:
     bool isEndTutorial();
     void clearTutorial();
 
-    int getWorldLevel();
-    void setWorldLevel(int level);
+    WorldInfo* getWorldInfo();
+    void setWorldInfo(WorldInfo* info);
 
     LanguageType getLanguage();
     void setLanguage(LanguageType language);
@@ -52,7 +52,6 @@ public:
     void removeAnimal(Animal* animal);
 
     CC_SYNTHESIZE(UserData*, _userData, UserData);
-
     
 private:
 };

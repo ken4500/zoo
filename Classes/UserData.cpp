@@ -20,10 +20,10 @@ bool UserData::save()
     
     // 保存
     if(FileUtils::getInstance()->writeToFile(_data, path)){
-        CCLOG("save Success:%s", path.c_str());
+        CCLOG("Save Success");
         return true;
     }else{
-        CCLOG("save Failed:%s", path.c_str());
+        CCLOG("Save Failed");
         return false;
     }
 }
@@ -50,12 +50,17 @@ bool UserData::isEndTutorial()
     }
 }
 
-int UserData::getWorldLevel()
+ValueMap UserData::getWorldInfo()
 {
-    if (_data.find("world_level") == _data.end()) {
-        return INIT_WORLD_LEVEL;
+    if (_data.find("world_info") == _data.end()) {
+        auto initData = ValueMap();
+        initData["level"] = INIT_WORLD_LEVEL;
+        initData["gacha_count"] = 0;
+        initData["total_gacha_count"] = 0;
+        _data["world_info"] = initData;
+        return initData;
     } else {
-        return _data["world_level"].asInt();
+        return _data["world_info"].asValueMap();
     }
 }
 
@@ -109,9 +114,9 @@ void UserData::setEndTutorial(bool endTutorial)
     _data["end_tutorial"] = endTutorial;
 }
 
-void UserData::setWorldLevel(int level)
+void UserData::setWorldInfo(ValueMap info)
 {
-    _data["world_level"] = level;
+    _data["world_info"] = info;
 }
 
 void UserData::setCoin(int coin)
