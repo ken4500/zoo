@@ -2,7 +2,7 @@
   <PropertyGroup Type="Node" Name="AnimalMove1" ID="9b2712b8-9012-415f-a088-855627e4b972" Version="2.2.8.0" />
   <Content ctype="GameProjectContent">
     <Content>
-      <Animation Duration="270" Speed="1.0000" ActivedAnimationName="walk">
+      <Animation Duration="350" Speed="1.0000" ActivedAnimationName="dead">
         <Timeline ActionTag="-2066128753" Property="Position">
           <PointFrame FrameIndex="1" X="0.0000" Y="0.0000">
             <EasingData Type="0" />
@@ -46,6 +46,24 @@
           <PointFrame FrameIndex="260" X="-0.0002" Y="100.0000">
             <EasingData Type="0" />
           </PointFrame>
+          <PointFrame FrameIndex="280" X="-0.0002" Y="100.0000">
+            <EasingData Type="0" />
+          </PointFrame>
+          <PointFrame FrameIndex="281" X="-0.0002" Y="0.0000">
+            <EasingData Type="0" />
+          </PointFrame>
+          <PointFrame FrameIndex="329" X="-0.0002" Y="0.0000">
+            <EasingData Type="0" />
+          </PointFrame>
+          <PointFrame FrameIndex="331" X="-0.0002" Y="0.0000">
+            <EasingData Type="2" />
+          </PointFrame>
+          <PointFrame FrameIndex="340" X="-0.0002" Y="30.0000">
+            <EasingData Type="1" />
+          </PointFrame>
+          <PointFrame FrameIndex="350" X="-0.0002" Y="0.0000">
+            <EasingData Type="0" />
+          </PointFrame>
         </Timeline>
         <Timeline ActionTag="-2066128753" Property="RotationSkew">
           <ScaleFrame FrameIndex="1" X="0.0000" Y="0.0000">
@@ -66,7 +84,13 @@
           <ScaleFrame FrameIndex="241" X="0.0000" Y="0.0000">
             <EasingData Type="0" />
           </ScaleFrame>
-          <ScaleFrame FrameIndex="260" X="79.2193" Y="79.2192">
+          <ScaleFrame FrameIndex="260" X="80.0000" Y="79.9999">
+            <EasingData Type="0" />
+          </ScaleFrame>
+          <ScaleFrame FrameIndex="280" X="80.0000" Y="80.0000">
+            <EasingData Type="0" />
+          </ScaleFrame>
+          <ScaleFrame FrameIndex="281" X="0.0000" Y="-0.0001">
             <EasingData Type="0" />
           </ScaleFrame>
         </Timeline>
@@ -98,6 +122,15 @@
           <ScaleFrame FrameIndex="241" X="1.0000" Y="1.0000">
             <EasingData Type="0" />
           </ScaleFrame>
+          <ScaleFrame FrameIndex="281" X="1.0000" Y="1.0000">
+            <EasingData Type="2" />
+          </ScaleFrame>
+          <ScaleFrame FrameIndex="311" X="1.0000" Y="0.9000">
+            <EasingData Type="2" />
+          </ScaleFrame>
+          <ScaleFrame FrameIndex="329" X="1.0000" Y="1.0000">
+            <EasingData Type="0" />
+          </ScaleFrame>
         </Timeline>
         <Timeline ActionTag="-2066128753" Property="Alpha">
           <IntFrame FrameIndex="190" Value="255">
@@ -109,7 +142,10 @@
           <IntFrame FrameIndex="260" Value="255">
             <EasingData Type="0" />
           </IntFrame>
-          <IntFrame FrameIndex="270" Value="0">
+          <IntFrame FrameIndex="280" Value="0">
+            <EasingData Type="0" />
+          </IntFrame>
+          <IntFrame FrameIndex="281" Value="255">
             <EasingData Type="0" />
           </IntFrame>
         </Timeline>
@@ -129,6 +165,12 @@
         </AnimationInfo>
         <AnimationInfo Name="dead" StartIndex="241" EndIndex="280">
           <RenderColor A="255" R="112" G="128" B="144" />
+        </AnimationInfo>
+        <AnimationInfo Name="stop" StartIndex="281" EndIndex="330">
+          <RenderColor A="150" R="255" G="0" B="255" />
+        </AnimationInfo>
+        <AnimationInfo Name="dash" StartIndex="331" EndIndex="351">
+          <RenderColor A="150" R="184" G="134" B="11" />
         </AnimationInfo>
       </AnimationList>
       <ObjectData Name="Node" Tag="16" ctype="GameNodeObjectData">

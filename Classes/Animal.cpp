@@ -80,13 +80,13 @@ bool Animal::initWithSpeceis(Species* species, float size)
     
     _image = _rootNode->getChildByName<Sprite*>("image");
     _changeAnimalImage();
-    _zOrderUpdate = false;
     _state = AnimalState::Stop;
     deadCallback = NULL;
     _maxHp = size;
     _hp = size;
     _offense = size / 3;
     _battleEffect = NULL;
+    _timeLineAction = NULL;
     
     setTag((int)MainSceneTag::Animal);
     setCascadeOpacityEnabled(true);
@@ -100,8 +100,7 @@ void Animal::onEnter()
     Node::onEnter();
     updateWorldScale();
     scheduleUpdate();
-
-    auto test = getHash();
+    _timeLineAction = runAction(_timeline);
 }
 
 void Animal::update(float dt)
@@ -135,12 +134,10 @@ void Animal::jump(Vec2 target, float height, std::function<void ()> callback)
         return;
     }
     _state = AnimalState::Jump;
-    _zOrderUpdate = false;
     float jumpInterval = ZUtil::calcDurationTime(_timeline, "drop");
     this->runAction(Sequence::create(
         JumpTo::create(1, target, height, 1),
         CallFunc::create([this]{
-            runAction(_timeline),
             _timeline->play("drop", false);
         }),
         DelayTime::create(jumpInterval),
@@ -149,7 +146,6 @@ void Animal::jump(Vec2 target, float height, std::function<void ()> callback)
             if (callback) {
                 callback();
             }
-            _zOrderUpdate = true;
         }),
         NULL
     ));
@@ -157,9 +153,20 @@ void Animal::jump(Vec2 target, float height, std::function<void ()> callback)
 
 void Animal::movePoint(Vec2 targetPoint, float dt)
 {
-    int errorX = rand_0_1() * 150 - 75;
-    int errorY = rand_0_1() * 150 - 75;
-    targetPoint += Vec2(errorX, errorY);
+    if (isDead()) {
+        return;
+    }
+    
+    if (_state != AnimalState::MoveTarget) {
+        _state = AnimalState::MoveTarget;
+        stopAllActions();
+        _timeLineAction = runAction(_timeline);
+        _timeline->play("dash", true);
+    }
+
+//    int errorX = rand_0_1() * 150 - 75;
+//    int errorY = rand_0_1() * 150 - 75;
+//    targetPoint += Vec2(errorX, errorY);
 
     auto parent = getParent();
     if (parent == NULL) {
@@ -171,11 +178,6 @@ void Animal::movePoint(Vec2 targetPoint, float dt)
         Vec2 speed = diff * 200 / parent->getScale();
         setPosition(getPosition() + speed * dt);
     }
-}
-
-void Animal::stopMove()
-{
-    this->stopAction(_moveAction);
 }
 
 void Animal::fight(Animal* animal)
@@ -194,7 +196,7 @@ void Animal::fight(Animal* animal)
         auto size = _image->getContentSize() * getScale();
     Vec2 effectPoint = ZMath::divideInternally(getPosition(), animal->getPosition(), 1, 1) + Vec2(0, size.height / 2);
     
-    runAction(RepeatForever::create(Sequence::create(
+    _moveAction = runAction(RepeatForever::create(Sequence::create(
         MoveTo::create(0.1f, targetPoint),
         CallFunc::create([this, effectPoint](){
             auto effect = ParticleSystemQuad::create("effect/hit3.plist");
@@ -225,7 +227,7 @@ void Animal::dead()
             _battleEffect = NULL;
         }
         stopAllActions();
-        runAction(_timeline);
+        _timeLineAction = runAction(_timeline);
         _timeline->play("dead", false);
         _timeline->setLastFrameCallFunc([&]{
             if (deadCallback) {
@@ -248,10 +250,10 @@ bool Animal::addDamage(float damage)
 
 void Animal::reborn()
 {
-    _state = AnimalState::Stop;
+    _state = AnimalState::Reborn;
     repairHp();
     stopAllActions();
-    runAction(_timeline);
+    _timeLineAction = runAction(_timeline);
     setOpacity(255);
     _timeline->play("reborn", false);
     _timeline->setLastFrameCallFunc([this]{
@@ -259,16 +261,70 @@ void Animal::reborn()
     });
 }
 
+void Animal::startFreeAction()
+{
+    int rnd = rand() % 2;
+    switch (rnd) {
+    case 0:
+        startWalk();
+        break;
+    case 1:
+        startStop();
+    default:
+        break;
+    }
+}
+
 void Animal::startWalk()
 {
-    if (_state == AnimalState::Dead) {
+    if (isDead()) {
         return;
     }
-    _state = AnimalState::Walk;
-    stopAllActions();
-    runAction(_timeline);
-    _timeline->play("walk", true);
-    _moveNextPoint();
+
+    if (_state != AnimalState::Walk) {
+        _state = AnimalState::Walk;
+        _timeline->play("walk", true);
+    }
+    
+    Vec2 targetP = WorldManager::getInstance()->getRadomPlace();
+    Vec2 move = targetP - this->getPosition();
+    float speed = WorldManager::getInstance()->getDisplayLength(getSpeed());
+    if (speed == 0) {
+        return;
+    }
+    float duration = move.length() / speed;
+    if (move.x < 0) {
+        _image->setFlippedX(false);
+    } else {
+        _image->setFlippedX(true);
+    }
+    _moveAction = this->runAction(Sequence::create(
+        MoveBy::create(duration, move),
+        CallFunc::create([this](){
+            startFreeAction();
+        }),
+        NULL
+    ));
+}
+
+void Animal::startStop()
+{
+    if (isDead()) {
+        return;
+    }
+    
+    if (_state != AnimalState::Stop) {
+        _state = AnimalState::Stop;
+        _timeline->play("stop", true);
+    }
+    
+    _moveAction = runAction(Sequence::create(
+        DelayTime::create(1.5f),
+        CallFunc::create([this]{
+            startFreeAction();
+        }),
+        NULL
+    ));
 }
 
 bool Animal::canAttack()
@@ -287,6 +343,7 @@ void Animal::repairHp()
 
 void Animal::escape()
 {
+    _state = AnimalState::Escape;
     auto target = WorldManager::getInstance()->getOutRandomPlace();
     float delay = rand_0_1() * 0.5;
     runAction(Sequence::create(
@@ -305,6 +362,8 @@ void Animal::endFight()
         _battleEffect->removeFromParent();
         _battleEffect = NULL;
     }
+    stopAction(_moveAction);
+    stopAction(_timeLineAction);
     startWalk();
 }
 
@@ -339,11 +398,6 @@ float Animal::getWorldScale()
     return scale;
 }
 
-bool Animal::getZOderUpdate()
-{
-    return _zOrderUpdate;
-}
-
 bool Animal::isEnemy()
 {
     return _isEnemy;
@@ -364,6 +418,21 @@ void Animal::setIsEnmey(bool isEnemy)
 bool Animal::isDead()
 {
     return _state == AnimalState::Dead;
+}
+
+bool Animal::isFree()
+{
+    bool isFree = true;
+    switch (_state) {
+    case AnimalState::Battle:
+    case AnimalState::MoveTarget:
+    case AnimalState::Dead:
+        isFree = false;
+        break;
+    default:
+        break;
+    }
+    return isFree;
 }
 
 AnimalState Animal::getState()
@@ -395,29 +464,6 @@ int Animal::getCoin()
 }
 
 #pragma - private method
-
-void Animal::_moveNextPoint()
-{
-    Vec2 targetP = WorldManager::getInstance()->getRadomPlace();
-    Vec2 move = targetP - this->getPosition();
-    float speed = WorldManager::getInstance()->getDisplayLength(getSpeed());
-    if (speed == 0) {
-        return;
-    }
-    float duration = move.length() / speed;
-    if (move.x < 0) {
-        _image->setFlippedX(false);
-    } else {
-        _image->setFlippedX(true);
-    }
-    _moveAction = this->runAction(Sequence::create(
-        MoveBy::create(duration, move),
-        CallFunc::create([this](){
-            _moveNextPoint();
-        }),
-        NULL
-    ));
-}
 
 void Animal::_changeAnimalImage()
 {

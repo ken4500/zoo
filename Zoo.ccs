@@ -54,12 +54,15 @@
           <Image Name="flag_cn.png" />
           <Image Name="flag_jp.png" />
           <Image Name="flag_us.png" />
+          <Image Name="empty_transparency.png" />
+          <Image Name="select.png" />
         </Folder>
         <Project Name="Result.csd" Type="Node" />
         <Project Name="Notice.csd" Type="Node" />
         <Project Name="GetCoin.csd" Type="Node" />
         <Project Name="TitleScene.csd" Type="Scene" />
         <Project Name="SelectLanguage.csd" Type="Node" />
+        <Project Name="Credit.csd" Type="Node" />
       </RootFolder>
     </Group>
   </SolutionFolder>

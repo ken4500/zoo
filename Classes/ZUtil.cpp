@@ -14,6 +14,11 @@ void ZUtil::printVec(Vec2 vec)
     CCLOG("x = %.2f, y = %.2f", vec.x, vec.y);
 }
 
+void ZUtil::printVec(Vec2 vec, std::string message)
+{
+    CCLOG("%s (x = %.2f, y = %.2f)", message.c_str(), vec.x, vec.y);
+}
+
 float ZUtil::calcDurationTime(cocostudio::timeline::ActionTimeline* timeline, std::string animationName)
 {
     auto animationInfo = timeline->getAnimationInfo(animationName);

@@ -17,6 +17,7 @@ using namespace cocos2d;
 class ZUtil{
 public:    
     static void printVec(Vec2 vec);
+    static void printVec(Vec2 vec, std::string message);
     
     static float calcDurationTime(cocostudio::timeline::ActionTimeline* timeline, std::string animationName);
     static uint32_t toHash32(uint8_t *bytes, size_t length);

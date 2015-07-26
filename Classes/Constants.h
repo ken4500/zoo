@@ -19,7 +19,7 @@ static const int BATTLE_TIME = 20;
 static const int ENEMY_NUM = 15;
 static const bool EASY_MODE = true;
 static const bool APPEAR_SKIP_BUTTON = true;
-static const bool SKIP_TUTORIAL = false;
+static const bool SKIP_TUTORIAL = true;
 static const int REPAIR_LIFE_TIME = 1 * 60;
 static const int MAX_ANIMAL_NUM = 20;
 static const float GAME_FPS = 60;
@@ -41,6 +41,8 @@ enum class AnimalState
     MoveTarget,
     Battle,
     Dead,
+    Reborn,
+    Escape
 };
 
 enum class BattleState

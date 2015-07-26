@@ -51,7 +51,7 @@ void WorldMap::update(float dt)
         if (node->getTag() == (int)MainSceneTag::Animal) {
             auto animal = dynamic_cast<Animal*>(node);
             if (animal) {
-                if (animal->getZOderUpdate()) {
+                if (animal->getState() != AnimalState::Jump) {
                     node->setLocalZOrder(1000 - (int)node->getPosition().y);
                 }
                 
@@ -132,15 +132,6 @@ void WorldMap::setupTouchHandling()
         } else if (WorldManager::getInstance()->enableNextAction()) {
             Vec2 touchPos = this->convertTouchToNodeSpace(touch);
             _targetPoint = touchPos;
-            auto children = getChildren();
-            for(auto node : children) {
-                if (node->getTag() == (int)MainSceneTag::Animal) {
-                    auto animal = dynamic_cast<Animal*>(node);
-                    if (animal && animal->getZOderUpdate()) {
-                        animal->stopMove();
-                    }
-                }
-            }
             particle = ParticleSystemQuad::create("effect/particle_circle.plist");
             particle->setScale(1 / this->getScale());
             particle->setPosition(touchPos);
@@ -168,7 +159,7 @@ void WorldMap::setupTouchHandling()
             for(auto node : children) {
                 if (node->getTag() == (int)MainSceneTag::Animal) {
                     auto animal = dynamic_cast<Animal*>(node);
-                    if (animal && animal->getZOderUpdate()) {
+                    if (animal && animal->getState() == AnimalState::MoveTarget) {
                         animal->startWalk();
                     }
                 }
@@ -185,7 +176,7 @@ void WorldMap::setupTouchHandling()
             for(auto node : children) {
                 if (node->getTag() == (int)MainSceneTag::Animal) {
                     auto animal = dynamic_cast<Animal*>(node);
-                    if (animal && animal->getZOderUpdate()) {
+                    if (animal && animal->getState() == AnimalState::MoveTarget) {
                         animal->startWalk();
                     }
                 }

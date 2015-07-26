@@ -9,6 +9,7 @@
 #include "TitleScene.h"
 #include "MainScene.h"
 #include "SelectLanguageLayer.h"
+#include "CreditLayer.h"
 
 USING_NS_CC;
 
@@ -100,6 +101,8 @@ void TitleScene::_pushLanguageButton(cocos2d::Ref* pSender, cocos2d::ui::Widget:
 void TitleScene::_pushCreditButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
     if (eEventType == ui::Widget::TouchEventType::ENDED) {
+        auto layer = CreditLayer::create();
+        this->addChild(layer);
     }
 }
 

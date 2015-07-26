@@ -27,10 +27,10 @@ public:
     Length* getSpeed();
     Length* getDashSpeed();
     std::string getName();
-    bool getZOderUpdate();
     bool isEnemy();
     void setIsEnmey(bool isEnemy);
     bool isDead();
+    bool isFree();
     AnimalState getState();
     Vec2 getCenterPosition();
     int getHash();
@@ -38,8 +38,9 @@ public:
 
     void updateWorldScale();
     void jump(Vec2 target, float height, std::function<void ()> callback);
+    void startFreeAction();
     void startWalk();
-    void stopMove();
+    void startStop();
     void movePoint(Vec2 targetPoint, float dt);
     void fight(Animal* animal);
     void dead();
@@ -60,8 +61,8 @@ protected:
     cocostudio::timeline::ActionTimeline* _timeline;
     cocos2d::Sprite* _image;
     Length* _height;
-    bool _zOrderUpdate;
     Action* _moveAction;
+    Action* _timeLineAction;
     bool _isEnemy;
     Animal* _targetAnimal;
     AnimalState _state;
@@ -72,7 +73,6 @@ protected:
     
     void onEnter() override;
     void update(float dt);
-    void _moveNextPoint();
     void _changeAnimalImage();
     
 };
