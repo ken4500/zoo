@@ -404,7 +404,11 @@ void NovelLayer::playNext() {
                     this->hideItem(false);
                     break;
                 case NovelAction::Type::Music:
-                    SoundManager::getInstance()->playBgm(action->getValue());
+                    if (action->getValue() == "fadeout") {
+                        SoundManager::getInstance()->fadeOutBgm(1.0f);
+                    } else {
+                        SoundManager::getInstance()->playBgm(action->getValue());
+                    }
                     break;
                 case NovelAction::Type::Effect:
                     SoundManager::getInstance()->playEffect(action->getValue());

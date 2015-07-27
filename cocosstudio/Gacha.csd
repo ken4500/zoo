@@ -127,11 +127,11 @@
       <ObjectData Name="Node" CustomClassName="Gacha" Tag="9" ctype="GameNodeObjectData">
         <Size />
         <Children>
-          <AbstractNodeData Name="image" ActionTag="-1437413616" Tag="10" IconVisible="False" LeftMargin="-157.0000" RightMargin="-157.0000" TopMargin="-328.0000" ctype="SpriteObjectData">
+          <AbstractNodeData Name="image" ActionTag="-1437413616" Tag="10" Rotation="-6.6667" RotationSkewX="-6.6667" RotationSkewY="-6.6667" IconVisible="False" LeftMargin="-157.0000" RightMargin="-157.0000" TopMargin="-345.1429" BottomMargin="17.1429" ctype="SpriteObjectData">
             <Size X="314.0000" Y="328.0000" />
             <AnchorPoint ScaleX="0.5000" />
-            <Position />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <Position Y="17.1429" />
+            <Scale ScaleX="0.9571" ScaleY="1.0429" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize />

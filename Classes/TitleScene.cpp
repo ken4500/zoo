@@ -11,6 +11,7 @@
 #include "SelectLanguageLayer.h"
 #include "CreditLayer.h"
 #include "SoundManager.h"
+#include "SceneManager.h"
 
 USING_NS_CC;
 
@@ -82,17 +83,17 @@ void TitleScene::onExit()
 
 void TitleScene::_pushStartButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
-    SoundManager::getInstance()->fadeOutBgm(1.0f);
     if (eEventType == ui::Widget::TouchEventType::ENDED) {
-        Director::getInstance()->replaceScene(
-            MainScene::createScene()
-        );
+        SoundManager::getInstance()->playDecideEffect2();
+        SoundManager::getInstance()->fadeOutBgm(1.0f);
+        SceneManager::getInstance()->enterMainScene();
     }
 }
 
 void TitleScene::_pushLanguageButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
     if (eEventType == ui::Widget::TouchEventType::ENDED) {
+        SoundManager::getInstance()->playDecideEffect2();
         auto layer = SelectLanguageLayer::create();
         layer->closedCallback = [this]() {
             _updateLanguage();
@@ -104,6 +105,7 @@ void TitleScene::_pushLanguageButton(cocos2d::Ref* pSender, cocos2d::ui::Widget:
 void TitleScene::_pushCreditButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
     if (eEventType == ui::Widget::TouchEventType::ENDED) {
+        SoundManager::getInstance()->playDecideEffect2();
         auto layer = CreditLayer::create();
         this->addChild(layer);
     }

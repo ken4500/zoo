@@ -233,6 +233,7 @@ void Animal::dead()
             if (deadCallback) {
                 deadCallback();
             }
+            _timeline->clearLastFrameCallFunc();
         });
     }
 }
@@ -258,6 +259,7 @@ void Animal::reborn()
     _timeline->play("reborn", false);
     _timeline->setLastFrameCallFunc([this]{
         startWalk();
+        _timeline->clearLastFrameCallFunc();
     });
 }
 

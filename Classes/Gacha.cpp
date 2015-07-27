@@ -9,7 +9,7 @@
 #include "Gacha.h"
 #include "WorldManager.h"
 #include "Animal.h"
-
+#include "SoundManager.h"
 
 bool Gacha::init() {
     if (!Node::init()) {
@@ -72,6 +72,11 @@ void Gacha::lotteryGacha(WorldInfo* _info)
             }
         }
     } while (isHit && canLotteryHit == false);
+    
+    if (isHit) {
+    } else {
+        SoundManager::getInstance()->playGachaEffect2();
+    }
     
     std::string animationName = (isHit) ? "gacha1" : "gacha2";
     this->stopAllActions();

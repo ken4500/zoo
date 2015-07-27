@@ -64,6 +64,9 @@
         <Project Name="SelectLanguage.csd" Type="Node" />
         <Project Name="Credit.csd" Type="Node" />
         <Project Name="Price.csd" Type="Node" />
+        <Folder Name="sound">
+          <Folder Name="se" />
+        </Folder>
       </RootFolder>
     </Group>
   </SolutionFolder>

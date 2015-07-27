@@ -64,6 +64,7 @@ void SelectLanguageLayer::onEnter()
 void SelectLanguageLayer::_pushLanguageButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
     if (eEventType == ui::Widget::TouchEventType::ENDED) {
+        SoundManager::getInstance()->playDecideEffect2();
         auto button = dynamic_cast<ui::Button*>(pSender);
         LanguageType lang = (LanguageType)button->getTag();
         UserDataManager::getInstance()->setLanguage(lang);
@@ -81,6 +82,7 @@ void SelectLanguageLayer::_pushLanguageButton(cocos2d::Ref* pSender, cocos2d::ui
 void SelectLanguageLayer::_pushButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
     if (eEventType == ui::Widget::TouchEventType::ENDED) {
+        SoundManager::getInstance()->playDecideEffect2();
         this->runAction(Sequence::create(
             FadeOut::create(0.3f),
             CallFunc::create([this](){

@@ -35,6 +35,11 @@ public:
     void playBattleStartEffect();
     void playNovelTap();
     void playCancellEffect();
+    void playDecideEffect1();
+    void playDecideEffect2();
+    void playGachaEffect1();
+    void playGachaEffect2();
+    void playLevelupEffect();
 
 private:
     int _currentBgmId;

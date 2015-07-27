@@ -66,6 +66,7 @@
 		9F0F163A1B556DBB00217010 /* libcocos2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F0F16361B556D8100217010 /* libcocos2d Mac.a */; };
 		9F0F163B1B556DC600217010 /* libcocos2d iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F0F16381B556D8100217010 /* libcocos2d iOS.a */; };
 		9F13C23C1B658C160035850A /* sound in Resources */ = {isa = PBXBuildFile; fileRef = 9F13C23B1B658C160035850A /* sound */; };
+		9F13C2411B65A71C0035850A /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F13C23F1B65A71C0035850A /* SceneManager.cpp */; };
 		9F19A9DB1B62B0EC00572440 /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9F19A9DA1B62B0EC00572440 /* Localization.strings */; };
 		9F19A9DF1B62B0FF00572440 /* File.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9F19A9DE1B62B0FF00572440 /* File.strings */; };
 		9F19A9E21B62B26F00572440 /* CCLocalizedString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F19A9E01B62B26F00572440 /* CCLocalizedString.cpp */; };
@@ -187,6 +188,8 @@
 		9F06E9C91B5DBE3A00107C09 /* NoticeLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticeLayer.h; sourceTree = "<group>"; };
 		9F0F16301B556D8100217010 /* cocos2d_libs.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2d_libs.xcodeproj; path = ../cocos2d/build/cocos2d_libs.xcodeproj; sourceTree = "<group>"; };
 		9F13C23B1B658C160035850A /* sound */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sound; sourceTree = "<group>"; };
+		9F13C23F1B65A71C0035850A /* SceneManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneManager.cpp; sourceTree = "<group>"; };
+		9F13C2401B65A71C0035850A /* SceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneManager.h; sourceTree = "<group>"; };
 		9F19A9DA1B62B0EC00572440 /* Localization.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localization.strings; sourceTree = "<group>"; };
 		9F19A9DE1B62B0FF00572440 /* File.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = File.strings; sourceTree = "<group>"; };
 		9F19A9E01B62B26F00572440 /* CCLocalizedString.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCLocalizedString.cpp; sourceTree = "<group>"; };
@@ -496,6 +499,8 @@
 		9F83BA761B545E0F00605D1D /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				9F13C23F1B65A71C0035850A /* SceneManager.cpp */,
+				9F13C2401B65A71C0035850A /* SceneManager.h */,
 				9F425AE41B4616E6001B2969 /* WorldManager.cpp */,
 				9F425AE51B4616E6001B2969 /* WorldManager.h */,
 				9F83BA841B55687700605D1D /* UserDataManager.cpp */,
@@ -736,6 +741,7 @@
 				9F015C951B420DC700F45135 /* GachaReader.cpp in Sources */,
 				9FB063E01B5818A20088AE2A /* NovelAction.cpp in Sources */,
 				9F06E9CA1B5DBE3A00107C09 /* NoticeLayer.cpp in Sources */,
+				9F13C2411B65A71C0035850A /* SceneManager.cpp in Sources */,
 				9F06E9C51B5C243700107C09 /* EnemyGenerater.cpp in Sources */,
 				9F05646C1B49EDE000649A7F /* ScaleBar.cpp in Sources */,
 				9F83BA861B55687700605D1D /* UserData.cpp in Sources */,

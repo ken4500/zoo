@@ -10,6 +10,9 @@
 #include "audio/include/AudioEngine.h"
 using namespace cocos2d::experimental;
 
+#define BGM_VOLUME 0.3
+#define SE_VOLUEM 1.0
+
 
 static SoundManager* shared_controller = nullptr;
 
@@ -47,7 +50,7 @@ void SoundManager::playBgm(string musicName)
         _currentBgm = "";
     } else if(_currentBgm != musicName) {
         AudioEngine::stop(_currentBgmId);
-        _currentBgmId = AudioEngine::play2d(musicName.c_str(), true);
+        _currentBgmId = AudioEngine::play2d(musicName.c_str(), true, BGM_VOLUME);
         _currentBgm = musicName;
     }
 }
@@ -90,7 +93,7 @@ void SoundManager::fadeInBgm(float interval, string musicName)
     static float volume = 0;
     float updateDuration = 0.05f;
     int repeatCount = MAX(1, int(interval / updateDuration));
-    float increaseVolume = 1.0f / repeatCount;
+    float increaseVolume = BGM_VOLUME / repeatCount;
 
     Director::getInstance()->getScheduler()->schedule([this, increaseVolume](float dt){
         volume += increaseVolume;
@@ -101,7 +104,7 @@ void SoundManager::fadeInBgm(float interval, string musicName)
 // エフェクト再生
 void SoundManager::playEffect(string effectName)
 {
-    AudioEngine::play2d(effectName.c_str(), false);
+    AudioEngine::play2d(effectName.c_str(), false, SE_VOLUEM);
 }
 
 void SoundManager::playTitleBgm()
@@ -112,16 +115,15 @@ void SoundManager::playTitleBgm()
 void SoundManager::playMainBgm()
 {
     Director::getInstance()->getScheduler()->schedule([&](float dt){
-        playBgm("sound/bgm/main.mp3");
-    }, this, 1.0f, 0, false, false, "schedulerKey");
+        playBgm("sound/bgm/main2.mp3");
+    }, this, 1.0f, 0, false, false, "main_bgm");
 }
 
 void SoundManager::playBattleBgm()
 {
-    fadeOutBgm(0.5f);
     Director::getInstance()->getScheduler()->schedule([&](float dt){
         playBgm("sound/bgm/battle.mp3");
-    }, this, 1.0f, 0, false, false, "schedulerKey");
+    }, this, 1.0f, 0, false, false, "battle_bgm");
 }
 
 void SoundManager::playBattleStartEffect()
@@ -136,4 +138,32 @@ void SoundManager::playNovelTap()
 
 void SoundManager::playCancellEffect()
 {
+    // TODO:
+}
+
+void SoundManager::playDecideEffect1()
+{
+    // TODO:
+}
+
+void SoundManager::playDecideEffect2()
+{
+    playEffect("sound/se/decide2.wav");
+}
+
+void SoundManager::playGachaEffect1()
+{
+    playEffect("sound/se/gacha1.wav");
+}
+
+void SoundManager::playGachaEffect2()
+{
+    Director::getInstance()->getScheduler()->schedule([&](float dt){
+        playEffect("sound/se/gacha2.wav");
+    }, this, 0.2f, 0, false, false, "main_bgm");
+}
+
+void SoundManager::playLevelupEffect()
+{
+    playEffect("sound/se/levelup.wav");
 }

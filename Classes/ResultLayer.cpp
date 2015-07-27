@@ -81,6 +81,7 @@ void ResultLayer::onEnter()
 void ResultLayer::_pushButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
     if (eEventType == ui::Widget::TouchEventType::ENDED) {
+        SoundManager::getInstance()->playDecideEffect2();
         this->runAction(Sequence::create(
             FadeOut::create(0.3f),
             CallFunc::create([this]{

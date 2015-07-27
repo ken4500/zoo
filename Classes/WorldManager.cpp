@@ -14,6 +14,7 @@
 #include "NoticeLayer.h"
 #include "UserDataManager.h"
 #include "SoundManager.h"
+#include "SceneManager.h"
 
 USING_NS_CC;
 
@@ -36,7 +37,8 @@ WorldManager::WorldManager()
     _map   = nullptr;
     _enableNextAction = true;
     _state = SceneState::Tutorial;
-    if (SKIP_TUTORIAL || UserDataManager::getInstance()->isEndTutorial()) {
+    if (SKIP_TUTORIAL || UserDataManager::getInstance()->isEndTutorial()
+        || _info->level > 1) {
         _state = SceneState::Normal;
     }
 }
@@ -250,6 +252,7 @@ void WorldManager::startBattle()
     UserDataManager::getInstance()->decreateLife(1);
     _setGameActive(true);
     SoundManager::getInstance()->playBattleStartEffect();
+    SoundManager::getInstance()->fadeOutBgm(0.5f);
     SoundManager::getInstance()->playBattleBgm();
 
     
@@ -295,10 +298,13 @@ void WorldManager::startTutorial()
 
 void WorldManager::startTutorialBattle()
 {
-    auto scene = _getMainScene();
+   SoundManager::getInstance()->playBattleStartEffect();
+   SoundManager::getInstance()->fadeOutBgm(0.5f);
+   SoundManager::getInstance()->playBattleBgm();
+   auto scene = _getMainScene();
     scene->playNovel("novel_tutorial_battle1", [this]{
         _enableNextAction = true;
-    }, false, 4.0f);
+    }, false, 2.0f);
 
     _state = SceneState::TutorialBattle;
     _startTutrialBattleScene1();
@@ -380,12 +386,7 @@ void WorldManager::_leftTimeUpdate(float dt)
 
 MainScene* WorldManager::_getMainScene()
 {
-    auto scene = Director::getInstance()->getRunningScene();
-    if (scene) {
-        return scene->getChildByName<MainScene*>("main scene");
-    } else {
-        return NULL;
-    }
+    return SceneManager::getInstance()->getMainScene();
 }
 
 void WorldManager::_endBattle()
@@ -401,6 +402,9 @@ void WorldManager::_endBattle()
 
 void WorldManager::_closeResult()
 {
+    SoundManager::getInstance()->fadeOutBgm(1.0f);
+    SoundManager::getInstance()->playMainBgm();
+
     for (auto animal : _animalList) {
         if (animal->isDead()) {
             animal->runAction(Sequence::create(

@@ -15,6 +15,7 @@
 #include "DebugButton.h"
 #include "UserDataManager.h"
 #include "SoundManager.h"
+#include "SceneManager.h"
 
 USING_NS_CC;
 
@@ -124,6 +125,7 @@ void MainScene::setupTouchHandling()
 
 void MainScene::levelUpEffect()
 {
+    SoundManager::getInstance()->playLevelupEffect();
     this->stopAllActions();
     this->runAction(_timeline);
     _timeline->play("zoomout1", false);
@@ -344,9 +346,7 @@ void MainScene::_setupDebugMenu()
 
     auto resetData = DebugButton::create("reset data", [this]() {
         WorldManager::getInstance()->resetData();
-        Director::getInstance()->replaceScene(
-            MainScene::createScene()
-        );
+        SceneManager::getInstance()->resetMainScene();
     });
     resetData->setAnchorPoint(Vec2(1.0f, 0.0f));
     resetData->setPosition(Vec2(0, 240));

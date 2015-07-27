@@ -8,11 +8,6 @@
       "value": "back01.jpg"
     },
     {
-      "type": "music",
-      "target": "",
-      "value": ""
-    },
-    {
       "type": "delay",
       "target": "",
       "value": "1"
@@ -229,6 +224,11 @@
       "value": "ANT"
     },
     {
+      "type": "music",
+      "target": "",
+      "value": "fadeout"
+    },
+    {
       "type": "speak",
       "target": "left",
       "balloon": "normal",
@@ -405,7 +405,7 @@
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "[c=red]World pod?![/c]"
+      "value": "[c=red]World pot?![/c]"
     },
     {
       "type": "speak",
@@ -581,7 +581,7 @@
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "When you get bigger cretures, \nyour world expands."
+      "value": "When you get bigger creatures, \nyour world expands."
     },
     {
       "type": "speak",
