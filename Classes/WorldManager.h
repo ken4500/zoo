@@ -62,6 +62,7 @@ public:
     Vec2 getOutRandomPlace();
 
 private:
+    bool _isNetwork;
     bool _enableNextAction;
     int _leftTime;
     WorldInfo* _info;
@@ -83,6 +84,8 @@ private:
     bool _checkAllEnemyDead();
     void _transitionMap(WorldInfo* preWorldInfo, WorldInfo* newWorldInfo);
     void _checkAndRemoveAnimal();
+    void _createMap();
+    void _createMultiBattlwMap();
 
     void _startTutrialBattleScene1();
     void _startTutrialBattleScene2();

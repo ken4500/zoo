@@ -10,6 +10,7 @@
 #include "SoundManager.h"
 #include "WorldManager.h"
 #include "SelectLanguageLayer.h"
+#include "SceneManager.h"
 
 MenuLayer::MenuLayer()
 {
@@ -69,6 +70,10 @@ void MenuLayer::onEnter()
 
 void MenuLayer::_pushMultiPlayButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
+    if (eEventType == ui::Widget::TouchEventType::ENDED) {
+        SoundManager::getInstance()->playDecideEffect2();
+        SceneManager::getInstance()->enterMultiBattleScene();
+    }
 }
 
 void MenuLayer::_pushEncyclepediaButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)

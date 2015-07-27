@@ -75,8 +75,7 @@
 		9F6835DC1B62E4B900589EBE /* SelectLanguageLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F6835DA1B62E4B900589EBE /* SelectLanguageLayer.cpp */; };
 		9F6835E01B63F2BB00589EBE /* CreditLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F6835DE1B63F2BB00589EBE /* CreditLayer.cpp */; };
 		9F73A0181B6698A300775F31 /* MenuLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F73A0161B6698A300775F31 /* MenuLayer.cpp */; };
-		9F73A01F1B669FE700775F31 /* NetworkingWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9F73A01B1B669FE700775F31 /* NetworkingWrapper.mm */; };
-		9F73A0201B669FE700775F31 /* NetworkManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9F73A01D1B669FE700775F31 /* NetworkManager.mm */; };
+		9F7D50291B66AA1E000CDE3E /* MultiBattleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F7D50271B66AA1E000CDE3E /* MultiBattleScene.cpp */; };
 		9F83BA6C1B54327700605D1D /* WorldMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F83BA681B54327700605D1D /* WorldMap.cpp */; };
 		9F83BA6D1B54327700605D1D /* WorldMapReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F83BA6A1B54327700605D1D /* WorldMapReader.cpp */; };
 		9F83BA811B55683100605D1D /* SoundManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F83BA7F1B55683100605D1D /* SoundManager.cpp */; };
@@ -207,11 +206,8 @@
 		9F6835DF1B63F2BB00589EBE /* CreditLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditLayer.h; sourceTree = "<group>"; };
 		9F73A0161B6698A300775F31 /* MenuLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuLayer.cpp; sourceTree = "<group>"; };
 		9F73A0171B6698A300775F31 /* MenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuLayer.h; sourceTree = "<group>"; };
-		9F73A01A1B669FE700775F31 /* NetworkingWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkingWrapper.h; sourceTree = "<group>"; };
-		9F73A01B1B669FE700775F31 /* NetworkingWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NetworkingWrapper.mm; sourceTree = "<group>"; };
-		9F73A01C1B669FE700775F31 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
-		9F73A01D1B669FE700775F31 /* NetworkManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NetworkManager.mm; sourceTree = "<group>"; };
-		9F73A01E1B669FE700775F31 /* NetworkManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManagerDelegate.h; sourceTree = "<group>"; };
+		9F7D50271B66AA1E000CDE3E /* MultiBattleScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MultiBattleScene.cpp; sourceTree = "<group>"; };
+		9F7D50281B66AA1E000CDE3E /* MultiBattleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiBattleScene.h; sourceTree = "<group>"; };
 		9F83BA681B54327700605D1D /* WorldMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WorldMap.cpp; sourceTree = "<group>"; };
 		9F83BA691B54327700605D1D /* WorldMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldMap.h; sourceTree = "<group>"; };
 		9F83BA6A1B54327700605D1D /* WorldMapReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WorldMapReader.cpp; sourceTree = "<group>"; };
@@ -482,11 +478,6 @@
 		9F73A0191B669F8C00775F31 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				9F73A01A1B669FE700775F31 /* NetworkingWrapper.h */,
-				9F73A01B1B669FE700775F31 /* NetworkingWrapper.mm */,
-				9F73A01C1B669FE700775F31 /* NetworkManager.h */,
-				9F73A01D1B669FE700775F31 /* NetworkManager.mm */,
-				9F73A01E1B669FE700775F31 /* NetworkManagerDelegate.h */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -509,6 +500,8 @@
 			children = (
 				46880B8719C43A87006E1F66 /* MainScene.h */,
 				46880B8619C43A87006E1F66 /* MainScene.cpp */,
+				9F7D50271B66AA1E000CDE3E /* MultiBattleScene.cpp */,
+				9F7D50281B66AA1E000CDE3E /* MultiBattleScene.h */,
 				9F6835D51B62E1A500589EBE /* TitleScene.cpp */,
 				9F6835D61B62E1A500589EBE /* TitleScene.h */,
 			);
@@ -740,7 +733,6 @@
 				9FB063E31B5818A20088AE2A /* NovelPlayer.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* MainScene.cpp in Sources */,
 				9F06E9BB1B5AD02000107C09 /* ModalLayer.cpp in Sources */,
-				9F73A0201B669FE700775F31 /* NetworkManager.mm in Sources */,
 				9F425AE61B4616E6001B2969 /* WorldManager.cpp in Sources */,
 				9F015C941B420DC700F45135 /* Gacha.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
@@ -753,12 +745,12 @@
 				9F83BA6C1B54327700605D1D /* WorldMap.cpp in Sources */,
 				9F05646D1B49EDE000649A7F /* ScaleBarReader.cpp in Sources */,
 				9F425AEC1B461899001B2969 /* Length.cpp in Sources */,
+				9F7D50291B66AA1E000CDE3E /* MultiBattleScene.cpp in Sources */,
 				9F19A9E21B62B26F00572440 /* CCLocalizedString.cpp in Sources */,
 				9F83BA6D1B54327700605D1D /* WorldMapReader.cpp in Sources */,
 				9FFC9E711B42FA0100869B23 /* ZUtil.cpp in Sources */,
 				9F83BA871B55687700605D1D /* UserDataManager.cpp in Sources */,
 				9F015C951B420DC700F45135 /* GachaReader.cpp in Sources */,
-				9F73A01F1B669FE700775F31 /* NetworkingWrapper.mm in Sources */,
 				9FB063E01B5818A20088AE2A /* NovelAction.cpp in Sources */,
 				9F06E9CA1B5DBE3A00107C09 /* NoticeLayer.cpp in Sources */,
 				9F13C2411B65A71C0035850A /* SceneManager.cpp in Sources */,

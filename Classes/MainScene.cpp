@@ -1,6 +1,4 @@
 #include "MainScene.h"
-#include "cocostudio/CocoStudio.h"
-#include "ui/CocosGUI.h"
 #include "Gacha.h"
 #include "GachaReader.h"
 #include "ScaleBar.h"

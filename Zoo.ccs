@@ -69,6 +69,7 @@
           <Folder Name="se" />
         </Folder>
         <Project Name="Menu.csd" Type="Node" />
+        <Project Name="MultiBattleScene.csd" Type="Scene" />
       </RootFolder>
     </Group>
   </SolutionFolder>

@@ -20,9 +20,14 @@ public:
     void enterMainScene();
     void resetMainScene();
     MainScene* getMainScene();
+    void enterMultiBattleScene();
+    void backMainScene();
+    
+    bool isNetwork();
     
 private:
     Scene* _mainScene;
+    bool _isNetwork;
     
     SceneManager();
     ~SceneManager();

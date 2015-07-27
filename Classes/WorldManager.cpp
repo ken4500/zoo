@@ -36,6 +36,7 @@ WorldManager::WorldManager()
     _info = dataManager->getWorldInfo();
     _map   = nullptr;
     _enableNextAction = true;
+    _isNetwork = false;
     _state = SceneState::Tutorial;
     if (SKIP_TUTORIAL || UserDataManager::getInstance()->isEndTutorial()
         || _info->level > 1) {
@@ -56,33 +57,14 @@ WorldInfo* WorldManager::getWorldInfo()
 
 WorldMap* WorldManager::getMap()
 {
-    if (_map == nullptr) {
-        _map = dynamic_cast<WorldMap*>(CSLoader::createNode(_info->mapName));
-        _map->initSize(_info->maxWidth, _info->width);
+    bool network = SceneManager::getInstance()->isNetwork();
     
-        if (_state == SceneState::Tutorial) {
-            _enableNextAction = false;
+    if (_map == nullptr || network ^ _isNetwork) {
+        _isNetwork = network;
+        if (network) {
+            _createMultiBattlwMap();
         } else {
-            _gacha = dynamic_cast<Gacha*>(CSLoader::createNode("Gacha.csb"));
-            auto gachaImage = _gacha->getChildByName<Sprite*>("image");
-            auto gachaLength = Length::scale(_info->width, 0.2);
-            float gachaScale = getImageScale(gachaImage, gachaLength);
-            _gacha->setScale(gachaScale);
-            _gacha->setNewGacha(_info);
-            _map->setGacha(_gacha);
-        }
-
-        auto animalList = UserDataManager::getInstance()->getAnimalList();
-        if (animalList.size() == 0) {
-            auto hero = Animal::CreateWithSpeceis("Hero");
-            _map->addAnimal(hero, Vec2(0, -200));
-            _animalList.push_back(hero);
-            UserDataManager::getInstance()->addAnimal(hero);
-        } else {
-            for (Animal* animal : animalList) {
-                _map->addAnimal(animal, getRadomPlace());
-                _animalList.push_back(animal);
-            }
+            _createMap();
         }
     }
     return _map;
@@ -532,6 +514,54 @@ void WorldManager::_checkAndRemoveAnimal()
         _animalList.erase(minIt);
         removeAnimal->escape();
     }
+}
+
+void WorldManager::_createMap()
+{
+    _map = dynamic_cast<WorldMap*>(CSLoader::createNode(_info->mapName));
+    _map->initSize(_info->maxWidth, _info->width);
+
+    if (_state == SceneState::Tutorial) {
+        _enableNextAction = false;
+    } else {
+        _gacha = dynamic_cast<Gacha*>(CSLoader::createNode("Gacha.csb"));
+        auto gachaImage = _gacha->getChildByName<Sprite*>("image");
+        auto gachaLength = Length::scale(_info->width, 0.2);
+        float gachaScale = getImageScale(gachaImage, gachaLength);
+        _gacha->setScale(gachaScale);
+        _gacha->setNewGacha(_info);
+        _map->setGacha(_gacha);
+    }
+
+    auto animalList = UserDataManager::getInstance()->getAnimalList();
+    if (animalList.size() == 0) {
+        auto hero = Animal::CreateWithSpeceis("Hero");
+        _map->addAnimal(hero, Vec2(0, -200));
+        _animalList.push_back(hero);
+        UserDataManager::getInstance()->addAnimal(hero);
+    } else {
+        for (Animal* animal : animalList) {
+            _map->addAnimal(animal, getRadomPlace());
+            _animalList.push_back(animal);
+        }
+    }
+}
+
+void WorldManager::_createMultiBattlwMap()
+{
+    _map = dynamic_cast<WorldMap*>(CSLoader::createNode(_info->mapName));
+    _map->initSize(_info->maxWidth, _info->width);
+
+    _gacha = dynamic_cast<Gacha*>(CSLoader::createNode("Gacha.csb"));
+    auto gachaImage = _gacha->getChildByName<Sprite*>("image");
+    auto gachaLength = Length::scale(_info->width, 0.2);
+    float gachaScale = getImageScale(gachaImage, gachaLength);
+    _gacha->setScale(gachaScale);
+    _gacha->setNewGacha(_info);
+    _map->setGacha(_gacha);
+
+    _animalList = std::vector<Animal*>();
+    _enemyAnimalList = std::vector<Animal*>();
 }
 
 #pragma - tutorial

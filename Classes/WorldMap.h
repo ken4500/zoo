@@ -44,7 +44,6 @@ protected:
     Length* _maxWidth;
     Length* _currentWidth;
     Gacha* _gacha;
-    std::vector<Animal*> _animalList;
     Vec2 _targetPoint;
     
     int _calcObjectZOrder(Node* node);

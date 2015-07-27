@@ -9,6 +9,7 @@
 #include "SceneManager.h"
 #include "MainScene.h"
 #include "TitleScene.h"
+#include "MultiBattleScene.h"
 #include "SoundManager.h"
 using namespace cocos2d;
 
@@ -27,6 +28,7 @@ SceneManager* SceneManager::getInstance()
 SceneManager::SceneManager()
 {
     _mainScene = NULL;
+    _isNetwork = false;
 }
 
 SceneManager::~SceneManager()
@@ -60,3 +62,28 @@ MainScene* SceneManager::getMainScene()
         return NULL;
     }
 }
+
+void SceneManager::enterMultiBattleScene()
+{
+    _isNetwork = true;
+    _mainScene = MultiBattleScene::createScene();
+    Director::getInstance()->replaceScene(
+        TransitionFade::create(1.0f, _mainScene, Color3B::BLACK)
+    );
+}
+
+void SceneManager::backMainScene()
+{
+    _isNetwork = false;
+    _mainScene = MainScene::createScene();
+    Director::getInstance()->replaceScene(
+        TransitionFade::create(1.0f, _mainScene, Color3B::BLACK)
+    );
+}
+
+
+bool SceneManager::isNetwork()
+{
+    return _isNetwork;
+}
+
