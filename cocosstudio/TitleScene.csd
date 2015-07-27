@@ -130,7 +130,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="BitmapFontLabel_1" ActionTag="-70549337" Tag="12" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="354.0000" RightMargin="354.0000" TopMargin="89.5000" BottomMargin="473.5000" LabelText="OH MY GOD!" ctype="TextBMFontObjectData">
+          <AbstractNodeData Name="title" ActionTag="-70549337" Tag="12" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="354.0000" RightMargin="354.0000" TopMargin="89.5000" BottomMargin="473.5000" LabelText="OH MY GOD!" ctype="TextBMFontObjectData">
             <Size X="428.0000" Y="77.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="568.0000" Y="512.0000" />

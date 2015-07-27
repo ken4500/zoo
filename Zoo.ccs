@@ -68,6 +68,7 @@
         <Folder Name="sound">
           <Folder Name="se" />
         </Folder>
+        <Project Name="Menu.csd" Type="Node" />
       </RootFolder>
     </Group>
   </SolutionFolder>

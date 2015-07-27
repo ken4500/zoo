@@ -53,6 +53,7 @@ private:
     void setupTouchHandling();
     void _setupDebugMenu();
     void _pushBattleButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
+    void _pushOtherMenuButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void _pushEndButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void _battleStartEffect();
     void _pauseRecursive(Node* node);

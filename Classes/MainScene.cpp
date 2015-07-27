@@ -16,6 +16,7 @@
 #include "UserDataManager.h"
 #include "SoundManager.h"
 #include "SceneManager.h"
+#include "MenuLayer.h"
 
 USING_NS_CC;
 
@@ -75,6 +76,8 @@ bool MainScene::init()
     _repairTimeLabel = _menuNode->getChildByName<ui::TextBMFont*>("repairTimeText");
     _endButton = _rootNode->getChildByName<ui::Button*>("endButton");
     _endButton->addTouchEventListener(CC_CALLBACK_2(MainScene::_pushEndButton, this));
+    auto otherMenuButton = _menuNode->getChildByName<ui::Button*>("otherMenu");
+    otherMenuButton->addTouchEventListener(CC_CALLBACK_2(MainScene::_pushOtherMenuButton, this));
 
     _setupDebugMenu();
 
@@ -399,6 +402,15 @@ void MainScene::_pushBattleButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::To
             _battleStartEffect();
             WorldManager::getInstance()->startBattle();
         }
+    }
+}
+
+void MainScene::_pushOtherMenuButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
+{
+    if (eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
+        SoundManager::getInstance()->playDecideEffect2();
+        auto layer = MenuLayer::create();
+        this->addChild(layer);
     }
 }
 
