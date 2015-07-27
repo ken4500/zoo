@@ -1,5 +1,5 @@
 <GameProjectFile>
-  <PropertyGroup Type="Node" Name="Price" ID="37f57dea-174a-49dd-966d-cd8da547b055" Version="2.2.8.0" />
+  <PropertyGroup Type="Node" Name="Price" ID="37f57dea-174a-49dd-966d-cd8da547b055" Version="2.3.1.1" />
   <Content ctype="GameProjectContent">
     <Content>
       <Animation Duration="17" Speed="1.0000">
@@ -24,7 +24,7 @@
         </AnimationInfo>
       </AnimationList>
       <ObjectData Name="Node" Tag="54" ctype="GameNodeObjectData">
-        <Size />
+        <Size X="0.0000" Y="0.0000" />
         <Children>
           <AbstractNodeData Name="coin" ActionTag="397511332" Tag="55" IconVisible="False" LeftMargin="-78.5000" RightMargin="1.5000" TopMargin="-47.0000" BottomMargin="-47.0000" ctype="SpriteObjectData">
             <Size X="77.0000" Y="94.0000" />
@@ -33,7 +33,7 @@
             <Scale ScaleX="0.8000" ScaleY="0.8000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
-            <PreSize />
+            <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="Normal" Path="ui/coin_01.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
@@ -44,7 +44,7 @@
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
-            <PreSize />
+            <PreSize X="0.0000" Y="0.0000" />
             <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font2.fnt" Plist="" />
           </AbstractNodeData>
         </Children>

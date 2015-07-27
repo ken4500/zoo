@@ -1,5 +1,5 @@
 <GameProjectFile>
-  <PropertyGroup Type="Node" Name="GetCoin" ID="ebd31fd8-e8b4-4a89-ba60-11b4f78ef3ff" Version="2.2.8.0" />
+  <PropertyGroup Type="Node" Name="GetCoin" ID="ebd31fd8-e8b4-4a89-ba60-11b4f78ef3ff" Version="2.3.1.1" />
   <Content ctype="GameProjectContent">
     <Content>
       <Animation Duration="70" Speed="1.0000" ActivedAnimationName="get">
@@ -197,7 +197,7 @@
         </AnimationInfo>
       </AnimationList>
       <ObjectData Name="Node" Tag="54" ctype="GameNodeObjectData">
-        <Size />
+        <Size X="0.0000" Y="0.0000" />
         <Children>
           <AbstractNodeData Name="coin_01_1" ActionTag="397511332" Tag="55" IconVisible="False" LeftMargin="-27.0000" RightMargin="-27.0000" TopMargin="-185.7557" BottomMargin="91.7557" ctype="SpriteObjectData">
             <Size X="54.0000" Y="94.0000" />
@@ -206,12 +206,12 @@
             <Scale ScaleX="0.8000" ScaleY="0.8000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
-            <PreSize />
+            <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="Normal" Path="ui/coin_02.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
           <AbstractNodeData Name="Node_1" ActionTag="1413738099" Tag="9" IconVisible="True" TopMargin="-120.0000" BottomMargin="120.0000" ctype="SingleNodeObjectData">
-            <Size />
+            <Size X="0.0000" Y="0.0000" />
             <Children>
               <AbstractNodeData Name="litter_star_left" ActionTag="2017986603" Tag="57" Alpha="0" IconVisible="False" LeftMargin="-30.0000" RightMargin="10.0000" TopMargin="-10.0000" BottomMargin="-10.0000" ctype="SpriteObjectData">
                 <Size X="20.0000" Y="20.0000" />
@@ -220,7 +220,7 @@
                 <Scale ScaleX="0.4000" ScaleY="0.4000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition />
-                <PreSize />
+                <PreSize X="0.0000" Y="0.0000" />
                 <FileData Type="Normal" Path="ui/litter_star.png" Plist="" />
                 <BlendFunc Src="1" Dst="771" />
               </AbstractNodeData>
@@ -231,7 +231,7 @@
                 <Scale ScaleX="0.4000" ScaleY="0.4000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition />
-                <PreSize />
+                <PreSize X="0.0000" Y="0.0000" />
                 <FileData Type="Normal" Path="ui/litter_star.png" Plist="" />
                 <BlendFunc Src="1" Dst="771" />
               </AbstractNodeData>
@@ -242,7 +242,7 @@
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition />
-                <PreSize />
+                <PreSize X="0.0000" Y="0.0000" />
                 <FileData Type="Normal" Path="ui/litter_star.png" Plist="" />
                 <BlendFunc Src="1" Dst="771" />
               </AbstractNodeData>
@@ -253,7 +253,7 @@
                 <Scale ScaleX="0.4000" ScaleY="0.4000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition />
-                <PreSize />
+                <PreSize X="0.0000" Y="0.0000" />
                 <FileData Type="Normal" Path="ui/litter_star.png" Plist="" />
                 <BlendFunc Src="1" Dst="771" />
               </AbstractNodeData>
@@ -263,7 +263,7 @@
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
-            <PreSize />
+            <PreSize X="0.0000" Y="0.0000" />
           </AbstractNodeData>
           <AbstractNodeData Name="text" ActionTag="-1299550960" Tag="10" IconVisible="False" LeftMargin="-61.7645" RightMargin="-53.2355" TopMargin="-110.0336" BottomMargin="33.0336" LabelText="+40" ctype="TextBMFontObjectData">
             <Size X="115.0000" Y="77.0000" />
@@ -272,7 +272,7 @@
             <Scale ScaleX="0.8000" ScaleY="0.8000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
-            <PreSize />
+            <PreSize X="0.0000" Y="0.0000" />
             <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font2.fnt" Plist="" />
           </AbstractNodeData>
         </Children>

@@ -1,5 +1,5 @@
 <GameProjectFile>
-  <PropertyGroup Type="Scene" Name="MainScene" ID="a2ee0952-26b5-49ae-8bf9-4f1d6279b798" Version="2.2.8.0" />
+  <PropertyGroup Type="Scene" Name="MainScene" ID="a2ee0952-26b5-49ae-8bf9-4f1d6279b798" Version="2.3.1.1" />
   <Content ctype="GameProjectContent">
     <Content>
       <Animation Duration="259" Speed="1.0000" ActivedAnimationName="battle_start">
@@ -152,26 +152,26 @@
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
           <AbstractNodeData Name="scaleBar" ActionTag="-840124772" Tag="19" IconVisible="True" PositionPercentXEnabled="True" LeftMargin="1090.5599" RightMargin="45.4401" TopMargin="620.0000" BottomMargin="20.0000" InnerActionSpeed="1.0000" ctype="ProjectNodeObjectData">
-            <Size />
+            <Size X="0.0000" Y="0.0000" />
             <AnchorPoint />
             <Position X="1090.5599" Y="20.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.9600" Y="0.0313" />
-            <PreSize />
+            <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="Normal" Path="ScaleBar.csd" Plist="" />
           </AbstractNodeData>
           <AbstractNodeData Name="menuNode" ActionTag="-2046749336" Tag="12" IconVisible="True" LeftMargin="33.0452" RightMargin="1102.9548" TopMargin="608.6856" BottomMargin="31.3144" ctype="SingleNodeObjectData">
-            <Size />
+            <Size X="0.0000" Y="0.0000" />
             <Children>
-              <AbstractNodeData Name="battleButton" ActionTag="280631743" Tag="71" Alpha="225" IconVisible="False" RightMargin="-247.0000" TopMargin="-244.0000" TouchEnable="True" FontSize="48" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="217" Scale9Height="222" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
+              <AbstractNodeData Name="battleButton" ActionTag="280631743" Tag="71" Alpha="225" IconVisible="False" RightMargin="-247.0000" TopMargin="-244.0000" TouchEnable="True" FontSize="48" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="217" Scale9Height="222" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                 <Size X="247.0000" Y="244.0000" />
                 <AnchorPoint />
                 <Position />
                 <Scale ScaleX="0.8000" ScaleY="0.8000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition />
-                <PreSize />
+                <PreSize X="0.0000" Y="0.0000" />
                 <TextColor A="255" R="65" G="65" B="70" />
                 <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
                 <PressedFileData Type="Normal" Path="ui/battle_button_pressed.png" Plist="" />
@@ -186,7 +186,7 @@
                 <Scale ScaleX="0.2600" ScaleY="0.2600" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition />
-                <PreSize />
+                <PreSize X="0.0000" Y="0.0000" />
                 <FileData Type="Normal" Path="ui/hart.png" Plist="" />
                 <BlendFunc Src="1" Dst="771" />
               </AbstractNodeData>
@@ -197,7 +197,7 @@
                 <Scale ScaleX="0.4000" ScaleY="0.4000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition />
-                <PreSize />
+                <PreSize X="0.0000" Y="0.0000" />
                 <FileData Type="Normal" Path="ui/coin.png" Plist="" />
                 <BlendFunc Src="1" Dst="771" />
               </AbstractNodeData>
@@ -208,7 +208,7 @@
                 <Scale ScaleX="0.8000" ScaleY="0.8000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition />
-                <PreSize />
+                <PreSize X="0.0000" Y="0.0000" />
                 <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font2.fnt" Plist="" />
               </AbstractNodeData>
               <AbstractNodeData Name="hartText" ActionTag="12703591" Tag="34" IconVisible="False" LeftMargin="99.9995" RightMargin="-195.9995" TopMargin="-312.9997" BottomMargin="235.9997" LabelText="5/5" ctype="TextBMFontObjectData">
@@ -218,7 +218,7 @@
                 <Scale ScaleX="0.8000" ScaleY="0.8000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition />
-                <PreSize />
+                <PreSize X="0.0000" Y="0.0000" />
                 <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font2.fnt" Plist="" />
               </AbstractNodeData>
               <AbstractNodeData Name="repairTimeText" ActionTag="-585567466" Tag="36" IconVisible="False" LeftMargin="108.7200" RightMargin="-245.7200" TopMargin="-281.7733" BottomMargin="204.7733" LabelText="0:00" ctype="TextBMFontObjectData">
@@ -228,7 +228,7 @@
                 <Scale ScaleX="0.4000" ScaleY="0.4000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition />
-                <PreSize />
+                <PreSize X="0.0000" Y="0.0000" />
                 <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font2.fnt" Plist="" />
               </AbstractNodeData>
             </Children>
@@ -237,7 +237,7 @@
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.0291" Y="0.0489" />
-            <PreSize />
+            <PreSize X="0.0000" Y="0.0000" />
           </AbstractNodeData>
           <AbstractNodeData Name="timeLabel" ActionTag="583941696" Tag="29" VisibleForFrame="False" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="531.5000" RightMargin="531.5000" TopMargin="32.0000" BottomMargin="531.0000" LabelText="30" ctype="TextBMFontObjectData">
             <Size X="73.0000" Y="77.0000" />
@@ -249,7 +249,7 @@
             <PreSize X="0.0643" Y="0.1203" />
             <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font2.fnt" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="endButton" ActionTag="811670514" Tag="47" Alpha="0" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="10.0000" RightMargin="999.0000" TopMargin="12.8000" BottomMargin="555.2000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="97" Scale9Height="50" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
+          <AbstractNodeData Name="endButton" ActionTag="811670514" Tag="47" Alpha="0" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="10.0000" RightMargin="999.0000" TopMargin="12.8000" BottomMargin="555.2000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="97" Scale9Height="50" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="127.0000" Y="72.0000" />
             <AnchorPoint ScaleY="1.0000" />
             <Position X="10.0000" Y="627.2000" />

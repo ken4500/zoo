@@ -49,6 +49,9 @@ bool TitleScene::init()
     rootNode->setPosition(Vec2::ZERO);
     rootNode->setPosition(Vec2(displaySize.width / 2, displaySize.height / 2));
     
+    auto glove = rootNode->getChildByName("glove");
+    glove->runAction(RepeatForever::create(RotateBy::create(60.0, 360)));
+    
     auto startButton = rootNode->getChildByName<ui::Button*>("Start");
     startButton->addTouchEventListener(CC_CALLBACK_2(TitleScene::_pushStartButton, this));
     _startLabel = startButton->getChildByName<ui::TextBMFont*>("label");

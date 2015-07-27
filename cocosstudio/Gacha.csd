@@ -1,5 +1,5 @@
 <GameProjectFile>
-  <PropertyGroup Type="Node" Name="Gacha" ID="4163edd1-7cfa-4ccb-a308-f827112b5dd0" Version="2.2.8.0" />
+  <PropertyGroup Type="Node" Name="Gacha" ID="4163edd1-7cfa-4ccb-a308-f827112b5dd0" Version="2.3.1.1" />
   <Content ctype="GameProjectContent">
     <Content>
       <Animation Duration="231" Speed="1.0000" ActivedAnimationName="gacha1">
@@ -125,7 +125,7 @@
         </AnimationInfo>
       </AnimationList>
       <ObjectData Name="Node" CustomClassName="Gacha" Tag="9" ctype="GameNodeObjectData">
-        <Size />
+        <Size X="0.0000" Y="0.0000" />
         <Children>
           <AbstractNodeData Name="image" ActionTag="-1437413616" Tag="10" Rotation="-6.6667" RotationSkewX="-6.6667" RotationSkewY="-6.6667" IconVisible="False" LeftMargin="-157.0000" RightMargin="-157.0000" TopMargin="-345.1429" BottomMargin="17.1429" ctype="SpriteObjectData">
             <Size X="314.0000" Y="328.0000" />
@@ -134,18 +134,18 @@
             <Scale ScaleX="0.9571" ScaleY="1.0429" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
-            <PreSize />
+            <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="Normal" Path="Gacha1.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
           <AbstractNodeData Name="price" ActionTag="520973104" Tag="102" IconVisible="True" TopMargin="50.0000" BottomMargin="-50.0000" InnerActionSpeed="1.0000" ctype="ProjectNodeObjectData">
-            <Size />
+            <Size X="0.0000" Y="0.0000" />
             <AnchorPoint />
             <Position Y="-50.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
-            <PreSize />
+            <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="Normal" Path="Price.csd" Plist="" />
           </AbstractNodeData>
         </Children>
