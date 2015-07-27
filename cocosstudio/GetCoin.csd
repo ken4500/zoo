@@ -199,15 +199,15 @@
       <ObjectData Name="Node" Tag="54" ctype="GameNodeObjectData">
         <Size X="0.0000" Y="0.0000" />
         <Children>
-          <AbstractNodeData Name="coin_01_1" ActionTag="397511332" Tag="55" IconVisible="False" LeftMargin="-27.0000" RightMargin="-27.0000" TopMargin="-185.7557" BottomMargin="91.7557" ctype="SpriteObjectData">
-            <Size X="54.0000" Y="94.0000" />
+          <AbstractNodeData Name="coin_01_1" ActionTag="397511332" Tag="55" Alpha="0" IconVisible="False" LeftMargin="-11.5000" RightMargin="-11.5000" TopMargin="-171.0000" BottomMargin="80.0000" ctype="SpriteObjectData">
+            <Size X="23.0000" Y="91.0000" />
             <AnchorPoint ScaleX="0.5000" />
-            <Position Y="91.7557" />
+            <Position Y="80.0000" />
             <Scale ScaleX="0.8000" ScaleY="0.8000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
-            <FileData Type="Normal" Path="ui/coin_02.png" Plist="" />
+            <FileData Type="Normal" Path="ui/coin_03.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
           <AbstractNodeData Name="Node_1" ActionTag="1413738099" Tag="9" IconVisible="True" TopMargin="-120.0000" BottomMargin="120.0000" ctype="SingleNodeObjectData">
@@ -224,18 +224,18 @@
                 <FileData Type="Normal" Path="ui/litter_star.png" Plist="" />
                 <BlendFunc Src="1" Dst="771" />
               </AbstractNodeData>
-              <AbstractNodeData Name="litter_star_top" ActionTag="-1509384707" Tag="58" Alpha="0" IconVisible="False" LeftMargin="-10.0000" RightMargin="-10.0000" TopMargin="-30.0000" BottomMargin="10.0000" ctype="SpriteObjectData">
+              <AbstractNodeData Name="litter_star_top" ActionTag="-1509384707" Tag="58" IconVisible="False" LeftMargin="-10.0000" RightMargin="-10.0000" TopMargin="-30.0000" BottomMargin="10.0000" ctype="SpriteObjectData">
                 <Size X="20.0000" Y="20.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position Y="20.0000" />
-                <Scale ScaleX="0.4000" ScaleY="0.4000" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition />
                 <PreSize X="0.0000" Y="0.0000" />
                 <FileData Type="Normal" Path="ui/litter_star.png" Plist="" />
                 <BlendFunc Src="1" Dst="771" />
               </AbstractNodeData>
-              <AbstractNodeData Name="litter_star_right" ActionTag="1647450330" Tag="59" Alpha="0" IconVisible="False" LeftMargin="10.0000" RightMargin="-30.0000" TopMargin="-10.0000" BottomMargin="-10.0000" ctype="SpriteObjectData">
+              <AbstractNodeData Name="litter_star_right" ActionTag="1647450330" Tag="59" IconVisible="False" LeftMargin="10.0000" RightMargin="-30.0000" TopMargin="-10.0000" BottomMargin="-10.0000" ctype="SpriteObjectData">
                 <Size X="20.0000" Y="20.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="20.0000" />

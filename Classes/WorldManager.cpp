@@ -186,7 +186,7 @@ WorldInfo* WorldManager::levelup()
     // 小さすぎる動物を削除
     for (auto it = _animalList.begin(); it != _animalList.end(); ) {
         auto animal = (*it);
-        if (animal->getHeight()->getMmLength() * 30 < _info->width->getMmLength()) {
+        if (animal->getHeight()->getMmLength() * 50 < _info->width->getMmLength()) {
             animal->runAction(Sequence::create(ScaleTo::create(0.5, 0), RemoveSelf::create(), NULL));
             it = _animalList.erase(it);
             UserDataManager::getInstance()->removeAnimal(animal);
