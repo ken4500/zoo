@@ -32,8 +32,7 @@ WorldManager* WorldManager::getInstance()
 
 WorldManager::WorldManager()
 {
-    auto dataManager = UserDataManager::getInstance();
-    _info = dataManager->getWorldInfo();
+    _info = nullptr;
     _map   = nullptr;
     _enableNextAction = true;
     _isNetwork = false;
@@ -100,6 +99,15 @@ int WorldManager::getGachaPrice()
     return _gacha->getPrice();
 }
 
+int WorldManager::getCoin()
+{
+    if (_isNetwork) {
+        return _multiBattleCoin;
+    } else {
+        return UserDataManager::getInstance()->getCoin();
+    }
+}
+
 #pragma - public method
 
 void WorldManager::resetData()
@@ -114,21 +122,27 @@ void WorldManager::lotteryGacha()
     if (_enableNextAction == false) {
         return;
     }
-    int coin = UserDataManager::getInstance()->getCoin();
+    int coin = getCoin();
     auto mainScene = _getMainScene();
     if (coin < _gacha->getPrice()) {
         mainScene->showNoticeView("You don't have enough coin!\nPush the battle button", 0.0f, NULL);
         return;
     }
     
-    UserDataManager::getInstance()->setCoin(coin - _gacha->getPrice());
+    if (_isNetwork == false) {
+        UserDataManager::getInstance()->setWorldInfo(_info);
+        UserDataManager::getInstance()->setCoin(coin - _gacha->getPrice());
+    }
     mainScene->updateCoinLabel();
     _gacha->lotteryGacha(_info);
 }
 
 void WorldManager::releaseAnimal(Animal* animal, bool hit)
 {
-    UserDataManager::getInstance()->addAnimal(animal);
+    if (_isNetwork == false) {
+        UserDataManager::getInstance()->addAnimal(animal);
+    }
+
     _animalList.push_back(animal);
     if (hit) {
         _map->releaseAnimal(animal, [this] {
@@ -171,13 +185,17 @@ WorldInfo* WorldManager::levelup()
         if (animal->getHeight()->getMmLength() * 50 < _info->width->getMmLength()) {
             animal->runAction(Sequence::create(ScaleTo::create(0.5, 0), RemoveSelf::create(), NULL));
             it = _animalList.erase(it);
-            UserDataManager::getInstance()->removeAnimal(animal);
+            if (_isNetwork == false) {
+                UserDataManager::getInstance()->removeAnimal(animal);
+            }
             continue;
         }
         it++;
     }
     
-    UserDataManager::getInstance()->setWorldInfo(_info);
+    if (_isNetwork == false) {
+        UserDataManager::getInstance()->setWorldInfo(_info);
+    }
     
     return _info;
 }
@@ -510,7 +528,9 @@ void WorldManager::_checkAndRemoveAnimal()
             }
         }
         auto removeAnimal = *minIt;
-        UserDataManager::getInstance()->removeAnimal(removeAnimal);
+        if (_isNetwork == false) {
+            UserDataManager::getInstance()->removeAnimal(removeAnimal);
+        }
         _animalList.erase(minIt);
         removeAnimal->escape();
     }
@@ -518,6 +538,7 @@ void WorldManager::_checkAndRemoveAnimal()
 
 void WorldManager::_createMap()
 {
+    _info = UserDataManager::getInstance()->getWorldInfo();
     _map = dynamic_cast<WorldMap*>(CSLoader::createNode(_info->mapName));
     _map->initSize(_info->maxWidth, _info->width);
 
@@ -549,6 +570,9 @@ void WorldManager::_createMap()
 
 void WorldManager::_createMultiBattlwMap()
 {
+    _info = new WorldInfo(1);
+    _info->network = true;
+    _multiBattleCoin = INIT_MULTIBATTLE_COIN;
     _map = dynamic_cast<WorldMap*>(CSLoader::createNode(_info->mapName));
     _map->initSize(_info->maxWidth, _info->width);
 

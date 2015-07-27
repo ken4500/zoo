@@ -41,6 +41,7 @@ public:
     std::vector<Animal*> getAnimalList();
     std::vector<Animal*> getEnemyAnimalList();
     int getGachaPrice();
+    int getCoin();
 
     // game logic
     void lotteryGacha();
@@ -65,6 +66,7 @@ private:
     bool _isNetwork;
     bool _enableNextAction;
     int _leftTime;
+    int _multiBattleCoin;
     WorldInfo* _info;
     WorldMap* _map;
     Gacha* _gacha;
@@ -77,7 +79,6 @@ private:
     void _leftTimeUpdate(float dt);
     void _endBattle();
     void _closeResult();
-    void _setCoin(int coin);
     void _setGameActive(bool active);
     void _setLeftTime(int leftTime);
     void _repairAllAnimalHp();

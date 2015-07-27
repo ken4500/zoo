@@ -11,13 +11,15 @@
 #include "json/document.h"
 #include "json/writer.h"
 #include "json/stringbuffer.h"
-#include "UserDataManager.h"
 
 USING_NS_CC;
 
 WorldInfo::WorldInfo(int level)
 {
+    lotteryGachaCount = 0;
+    totalLotteryGachaCount = 0;
     this->level = level;
+    network = false;
     _loadLevel();
 }
 
@@ -30,6 +32,7 @@ WorldInfo* WorldInfo::copy()
     auto copy = new WorldInfo(this->level);
     copy->lotteryGachaCount = this->lotteryGachaCount;
     copy->totalLotteryGachaCount = this->totalLotteryGachaCount;
+    copy->network = this->network;
     return copy;
 }
 
@@ -44,7 +47,6 @@ void WorldInfo::addLotteryGachaCount()
 {
     lotteryGachaCount++;
     totalLotteryGachaCount++;
-    UserDataManager::getInstance()->setWorldInfo(this);
 }
 
 void WorldInfo::_loadLevel()

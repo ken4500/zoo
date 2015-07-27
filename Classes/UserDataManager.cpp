@@ -70,7 +70,6 @@ void UserDataManager::setWorldInfo(WorldInfo* info)
     data["gacha_count"] = info->lotteryGachaCount;
     data["total_gacha_count"] = info->totalLotteryGachaCount;
     _userData->setWorldInfo(data);
-    _userData->save();
 }
 
 LanguageType UserDataManager::getLanguage()
@@ -194,7 +193,6 @@ void UserDataManager::addCoin(int addCoin)
 void UserDataManager::setCoin(int coin)
 {
     _userData->setCoin(coin);
-    _userData->save();
 }
 
 std::vector<Animal*> UserDataManager::getAnimalList()

@@ -26,6 +26,7 @@ public:
     int gachaId;
     std::string mapName;
     int imageWidth;
+    bool network;
 
     int lotteryGachaCount;
     int totalLotteryGachaCount;

@@ -88,7 +88,10 @@ void MultiBattleScene::onEnter()
     }
     
     updateCoinLabel();
-    SoundManager::getInstance()->playMainBgm();
+    SoundManager::getInstance()->playBattleStartEffect();
+    SoundManager::getInstance()->fadeOutBgm(0.5f);
+    SoundManager::getInstance()->playBattleBgm();
+    _battleStartEffect();
 }
 
 void MultiBattleScene::update(float dt)
@@ -144,6 +147,7 @@ void MultiBattleScene::transitionMap(WorldMap* newMap)
 
 void MultiBattleScene::updateCoinLabel()
 {
+    _coinLabel->setString(StringUtils::format("x %d", WorldManager::getInstance()->getCoin()));
 }
 
 void MultiBattleScene::showConsumeCoinEffect(int decreaseCoin)

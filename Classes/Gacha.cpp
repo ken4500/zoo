@@ -108,7 +108,11 @@ void Gacha::setNewGacha(WorldInfo* _info)
     _least = 0;
     _price = 1;
 
-    auto jsonStr = FileUtils::getInstance()->getStringFromFile("data/gacha.json");
+    std::string fileName = "data/gacha.json";
+    if (_info->network) {
+        fileName = "data/gacha_multi.json";
+    }
+    auto jsonStr = FileUtils::getInstance()->getStringFromFile(fileName);
     rapidjson::Document document;
     document.Parse<0>(jsonStr.c_str());
     rapidjson::Value& gachaDoc = document[std::to_string(_info->gachaId).c_str()];
