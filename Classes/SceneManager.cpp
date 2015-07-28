@@ -27,7 +27,7 @@ SceneManager* SceneManager::getInstance()
 
 SceneManager::SceneManager()
 {
-    _mainScene = NULL;
+    _scene = NULL;
     _isNetwork = false;
 }
 
@@ -40,24 +40,44 @@ SceneManager::~SceneManager()
 
 void SceneManager::enterMainScene()
 {
-    _mainScene = MainScene::createScene();
-    Director::getInstance()->replaceScene(
-        TransitionFade::create(1.0f, _mainScene, Color3B::BLACK)
-    );
+    _scene = MainScene::createScene();
+    Director::getInstance()->replaceScene(_scene);
+
+//    Director::getInstance()->replaceScene(
+//        TransitionFade::create(1.0f, _scene, Color3B::BLACK)
+//    );
 }
 
 void SceneManager::resetMainScene()
 {
-    _mainScene = MainScene::createScene();
+    _scene = MainScene::createScene();
     Director::getInstance()->replaceScene(
-        TransitionFade::create(1.0f, _mainScene, Color3B::BLACK)
+        TransitionFade::create(1.0f, _scene, Color3B::BLACK)
     );
 }
 
 MainScene* SceneManager::getMainScene()
 {
-    if (_mainScene) {
-        return _mainScene->getChildByName<MainScene*>("main scene");
+    if (_scene) {
+        return dynamic_cast<MainScene*>(_scene->getChildByName("world scene"));
+    } else {
+        return NULL;
+    }
+}
+
+MultiBattleScene* SceneManager::getMultiBattleScene()
+{
+    if (_scene) {
+        return dynamic_cast<MultiBattleScene*>(_scene->getChildByName("world scene"));
+    } else {
+        return NULL;
+    }
+}
+
+WorldSceneInterface* SceneManager::getWorldScene()
+{
+    if (_scene) {
+        return dynamic_cast<WorldSceneInterface*>(_scene->getChildByName("world scene"));
     } else {
         return NULL;
     }
@@ -66,18 +86,18 @@ MainScene* SceneManager::getMainScene()
 void SceneManager::enterMultiBattleScene()
 {
     _isNetwork = true;
-    _mainScene = MultiBattleScene::createScene();
+    _scene = MultiBattleScene::createScene();
     Director::getInstance()->replaceScene(
-        TransitionFade::create(1.0f, _mainScene, Color3B::BLACK)
+        TransitionFade::create(1.0f, _scene, Color3B::BLACK)
     );
 }
 
 void SceneManager::backMainScene()
 {
     _isNetwork = false;
-    _mainScene = MainScene::createScene();
+    _scene = MainScene::createScene();
     Director::getInstance()->replaceScene(
-        TransitionFade::create(1.0f, _mainScene, Color3B::BLACK)
+        TransitionFade::create(1.0f, _scene, Color3B::BLACK)
     );
 }
 

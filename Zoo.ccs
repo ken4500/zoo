@@ -57,6 +57,9 @@
           <Image Name="flag_us.png" />
           <Image Name="empty_transparency.png" />
           <Image Name="select.png" />
+          <Image Name="coin_tree.png" />
+          <Image Name="coin_tree_top.png" />
+          <Image Name="chara_shadow.png" />
         </Folder>
         <Project Name="Result.csd" Type="Node" />
         <Project Name="Notice.csd" Type="Node" />
@@ -70,6 +73,8 @@
         </Folder>
         <Project Name="Menu.csd" Type="Node" />
         <Project Name="MultiBattleScene.csd" Type="Scene" />
+        <Project Name="CoinTree.csd" Type="Node" />
+        <Project Name="DropCoin.csd" Type="Node" />
       </RootFolder>
     </Group>
   </SolutionFolder>

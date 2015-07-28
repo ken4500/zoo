@@ -465,6 +465,15 @@ int Animal::getCoin()
     return MAX(1, (int)_height->getLength(UnitOfLength::cm));
 }
 
+Rect Animal::getBodyRect()
+{
+    auto imageRect = _image->getBoundingBox();
+    imageRect.origin *= getScale();
+    imageRect.origin += getPosition();
+    imageRect.size = imageRect.size * getScale();
+    return imageRect;
+}
+
 #pragma - private method
 
 void Animal::_changeAnimalImage()

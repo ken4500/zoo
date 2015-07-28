@@ -81,6 +81,8 @@
 		9F83BA811B55683100605D1D /* SoundManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F83BA7F1B55683100605D1D /* SoundManager.cpp */; };
 		9F83BA861B55687700605D1D /* UserData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F83BA821B55687700605D1D /* UserData.cpp */; };
 		9F83BA871B55687700605D1D /* UserDataManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F83BA841B55687700605D1D /* UserDataManager.cpp */; };
+		9FA0EA0A1B66E921007F642B /* CoinTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FA0EA061B66E921007F642B /* CoinTree.cpp */; };
+		9FA0EA0B1B66E921007F642B /* CoinTreeReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FA0EA081B66E921007F642B /* CoinTreeReader.cpp */; };
 		9FB063E01B5818A20088AE2A /* NovelAction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FB063D71B5818A20088AE2A /* NovelAction.cpp */; };
 		9FB063E11B5818A20088AE2A /* NovelBalloon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FB063D91B5818A20088AE2A /* NovelBalloon.cpp */; };
 		9FB063E21B5818A20088AE2A /* NovelLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FB063DB1B5818A20088AE2A /* NovelLayer.cpp */; };
@@ -208,6 +210,7 @@
 		9F73A0171B6698A300775F31 /* MenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuLayer.h; sourceTree = "<group>"; };
 		9F7D50271B66AA1E000CDE3E /* MultiBattleScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MultiBattleScene.cpp; sourceTree = "<group>"; };
 		9F7D50281B66AA1E000CDE3E /* MultiBattleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiBattleScene.h; sourceTree = "<group>"; };
+		9F7D502A1B66CA06000CDE3E /* WorldSceneInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WorldSceneInterface.h; sourceTree = "<group>"; };
 		9F83BA681B54327700605D1D /* WorldMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WorldMap.cpp; sourceTree = "<group>"; };
 		9F83BA691B54327700605D1D /* WorldMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldMap.h; sourceTree = "<group>"; };
 		9F83BA6A1B54327700605D1D /* WorldMapReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WorldMapReader.cpp; sourceTree = "<group>"; };
@@ -218,6 +221,10 @@
 		9F83BA831B55687700605D1D /* UserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserData.h; sourceTree = "<group>"; };
 		9F83BA841B55687700605D1D /* UserDataManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UserDataManager.cpp; sourceTree = "<group>"; };
 		9F83BA851B55687700605D1D /* UserDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDataManager.h; sourceTree = "<group>"; };
+		9FA0EA061B66E921007F642B /* CoinTree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CoinTree.cpp; sourceTree = "<group>"; };
+		9FA0EA071B66E921007F642B /* CoinTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoinTree.h; sourceTree = "<group>"; };
+		9FA0EA081B66E921007F642B /* CoinTreeReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CoinTreeReader.cpp; sourceTree = "<group>"; };
+		9FA0EA091B66E921007F642B /* CoinTreeReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoinTreeReader.h; sourceTree = "<group>"; };
 		9FB063D71B5818A20088AE2A /* NovelAction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NovelAction.cpp; sourceTree = "<group>"; };
 		9FB063D81B5818A20088AE2A /* NovelAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NovelAction.h; sourceTree = "<group>"; };
 		9FB063D91B5818A20088AE2A /* NovelBalloon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NovelBalloon.cpp; sourceTree = "<group>"; };
@@ -504,6 +511,7 @@
 				9F7D50281B66AA1E000CDE3E /* MultiBattleScene.h */,
 				9F6835D51B62E1A500589EBE /* TitleScene.cpp */,
 				9F6835D61B62E1A500589EBE /* TitleScene.h */,
+				9F7D502A1B66CA06000CDE3E /* WorldSceneInterface.h */,
 			);
 			name = Scene;
 			sourceTree = "<group>";
@@ -578,6 +586,10 @@
 				9F83BA6B1B54327700605D1D /* WorldMapReader.h */,
 				9F01C8A41B5FF509009E9D21 /* DebugButton.cpp */,
 				9F01C8A51B5FF509009E9D21 /* DebugButton.h */,
+				9FA0EA061B66E921007F642B /* CoinTree.cpp */,
+				9FA0EA071B66E921007F642B /* CoinTree.h */,
+				9FA0EA081B66E921007F642B /* CoinTreeReader.cpp */,
+				9FA0EA091B66E921007F642B /* CoinTreeReader.h */,
 			);
 			name = Entity;
 			sourceTree = "<group>";
@@ -725,7 +737,9 @@
 				9FFC9E6E1B42F8F400869B23 /* ZMath.cpp in Sources */,
 				9F01C8A61B5FF509009E9D21 /* DebugButton.cpp in Sources */,
 				9F425AE91B461732001B2969 /* WorldInfo.cpp in Sources */,
+				9FA0EA0A1B66E921007F642B /* CoinTree.cpp in Sources */,
 				9F06E9BF1B5AD21A00107C09 /* ResultLayer.cpp in Sources */,
+				9FA0EA0B1B66E921007F642B /* CoinTreeReader.cpp in Sources */,
 				9F6835DC1B62E4B900589EBE /* SelectLanguageLayer.cpp in Sources */,
 				9F06E9C21B5AD27D00107C09 /* GameResult.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,

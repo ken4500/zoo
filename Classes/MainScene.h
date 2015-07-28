@@ -5,12 +5,13 @@
 #include "cocostudio/CocoStudio.h"
 #include "CocosGUI.h"
 #include "CommonInclude.h"
+#include "WorldSceneInterface.h"
 class Gacha;
 class Animal;
 class WorldMap;
 using namespace cocos2d;
 
-class MainScene : public cocos2d::Layer
+class MainScene : public cocos2d::Layer, public WorldSceneInterface
 {
 public:
     // there's no "id" in cpp, so we recommend returning the class instance pointer

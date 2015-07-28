@@ -85,7 +85,12 @@ void WorldMap::update(float dt)
                 auto distance = Length::createWithDisplayLength(displayDistanse);
                 float r1 = animal->getHeight()->getMmLength() / 3;
                 float r2 = enemy->getHeight()->getMmLength() / 3;
-                if (distance->getMmLength() < r1 + r2) {
+                
+                auto rect1 = animal->getBodyRect();
+                auto rect2 = enemy->getBodyRect();
+                
+                if(rect1.intersectsRect(rect2)) {
+//                if (distance->getMmLength() < r1 + r2) {
                     if (enemy->canAttack()) {
                         enemy->fight(animal);
                     }

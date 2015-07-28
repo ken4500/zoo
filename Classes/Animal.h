@@ -35,6 +35,7 @@ public:
     Vec2 getCenterPosition();
     int getHash();
     int getCoin();
+    Rect getBodyRect();
 
     void updateWorldScale();
     void jump(Vec2 target, float height, std::function<void ()> callback);

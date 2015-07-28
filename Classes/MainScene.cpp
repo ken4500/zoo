@@ -15,6 +15,7 @@
 #include "SoundManager.h"
 #include "SceneManager.h"
 #include "MenuLayer.h"
+#include "CoinTreeReader.h"
 
 USING_NS_CC;
 
@@ -27,7 +28,7 @@ Scene* MainScene::createScene()
     
     // "layer" is an autorelease object
     auto layer = MainScene::create();
-    layer->setName("main scene");
+    layer->setName("world scene");
 
     // add layer as a child to scene
     scene->addChild(layer);
@@ -52,6 +53,7 @@ bool MainScene::init()
     instance->registReaderObject("GachaReader", (ObjectFactory::Instance) GachaReader::getInstance);
     instance->registReaderObject("ScaleBarReader", (ObjectFactory::Instance) ScaleBarReader::getInstance);
     instance->registReaderObject("WorldMapReader", (ObjectFactory::Instance) WorldMapReader::getInstance);
+    instance->registReaderObject("CoinTreeReader", (ObjectFactory::Instance) CoinTreeReader::getInstance);
 
     _rootNode = CSLoader::createNode("MainScene.csb");
     _rootNode->setAnchorPoint(Vec2(0.5f, 0.5f));
@@ -101,7 +103,7 @@ void MainScene::onEnter()
     updateCoinLabel();
     updateLifeLabel(0);
     SoundManager::getInstance()->playMainBgm();
-    
+        
     Director::getInstance()->getScheduler()->schedule(CC_CALLBACK_1(MainScene::updateLifeLabel, this), this, 1.0f, false, "update_life");
 }
 

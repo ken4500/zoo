@@ -15,6 +15,10 @@
 #include "UserDataManager.h"
 #include "SoundManager.h"
 #include "SceneManager.h"
+#include "WorldMap.h"
+#include "MainScene.h"
+#include "MultiBattleScene.h"
+
 
 USING_NS_CC;
 
@@ -123,17 +127,23 @@ void WorldManager::lotteryGacha()
         return;
     }
     int coin = getCoin();
-    auto mainScene = _getMainScene();
+    auto worldScene = SceneManager::getInstance()->getWorldScene();
     if (coin < _gacha->getPrice()) {
-        mainScene->showNoticeView("You don't have enough coin!\nPush the battle button", 0.0f, NULL);
+        std::string noticeMessage = "You don't have enough coin!\nPush the battle button";
+        if (_isNetwork) {
+            noticeMessage = "You don't have enough coin!\nCollect from coin tree";
+        }
+        worldScene->showNoticeView(noticeMessage, 0.0f, NULL);
         return;
     }
     
-    if (_isNetwork == false) {
+    if (_isNetwork) {
+        _multiBattleCoin -= _gacha->getPrice();
+    } else {
         UserDataManager::getInstance()->setWorldInfo(_info);
         UserDataManager::getInstance()->setCoin(coin - _gacha->getPrice());
     }
-    mainScene->updateCoinLabel();
+    worldScene->updateCoinLabel();
     _gacha->lotteryGacha(_info);
 }
 
@@ -161,13 +171,12 @@ WorldInfo* WorldManager::levelup()
     auto preWorldInfo = _info->copy();
     _info->levelUp();
     _gacha->setNewGacha(_info);
-    auto mainScene = _getMainScene();
     
     // for tutorial
     if (_info->level == 2 && SKIP_TUTORIAL == false) {
         _startTutrialLevelupScene1();
     } else {
-        mainScene->levelUpEffect();
+        SceneManager::getInstance()->getWorldScene()->levelUpEffect();
         if (_info->mapName == preWorldInfo->mapName) {
             _map->setCurrentWidth(_info->width, NULL);
             auto gachaImage = _gacha->getChildByName<Sprite*>("image");
@@ -256,7 +265,7 @@ void WorldManager::startBattle()
     SoundManager::getInstance()->playBattleBgm();
 
     
-    auto scene = _getMainScene();
+    auto scene = SceneManager::getInstance()->getMainScene();
     if (scene) {
         scene->showLeftTIme();
         scene->updateLifeLabel(0);
@@ -280,7 +289,6 @@ void WorldManager::startBattle()
             coinEffect->runAction(timeLine);
             timeLine->play("get", false);
         };
-
     }
     
     _map->hideGacha();
@@ -288,7 +296,7 @@ void WorldManager::startBattle()
 
 void WorldManager::startTutorial()
 {
-    auto scene = _getMainScene();
+    auto scene = SceneManager::getInstance()->getMainScene();
     if (scene) {
         scene->playNovel("novel_opening", [this]{
             _enableNextAction = false;
@@ -301,7 +309,7 @@ void WorldManager::startTutorialBattle()
    SoundManager::getInstance()->playBattleStartEffect();
    SoundManager::getInstance()->fadeOutBgm(0.5f);
    SoundManager::getInstance()->playBattleBgm();
-   auto scene = _getMainScene();
+    auto scene = SceneManager::getInstance()->getMainScene();
     scene->playNovel("novel_tutorial_battle1", [this]{
         _enableNextAction = true;
     }, false, 2.0f);
@@ -328,7 +336,7 @@ void WorldManager::endBattle(bool win, float showResultViewDelay)
     }
     UserDataManager::getInstance()->addCoin(result->getCoin);
     
-    auto mainScene = _getMainScene();
+    auto mainScene = SceneManager::getInstance()->getMainScene();
     if (mainScene) {
         mainScene->showResultView(result, showResultViewDelay, CC_CALLBACK_0(WorldManager::_closeResult, this));
     }
@@ -342,7 +350,7 @@ void WorldManager::endBattle(bool win)
 void WorldManager::endResult()
 {
     _map->showGacha();
-    auto scene = _getMainScene();
+    auto scene = SceneManager::getInstance()->getMainScene();
     if (scene) {
         scene->showMenu();
     }
@@ -382,11 +390,6 @@ void WorldManager::_leftTimeUpdate(float dt)
         endBattle(false, 0.0f);
     }
     _setLeftTime(_leftTime);
-}
-
-MainScene* WorldManager::_getMainScene()
-{
-    return SceneManager::getInstance()->getMainScene();
 }
 
 void WorldManager::_endBattle()
@@ -429,7 +432,7 @@ void WorldManager::_closeResult()
     }
     _enemyAnimalList = std::vector<Animal*>();
     
-    auto scene = _getMainScene();
+    auto scene = SceneManager::getInstance()->getMainScene();
     if (scene) {
         scene->hideLeftTime();
     }
@@ -447,7 +450,7 @@ void WorldManager::_setGameActive(bool active)
 void WorldManager::_setLeftTime(int leftTime)
 {
     _leftTime = leftTime;
-    auto scene = _getMainScene();
+    auto scene = SceneManager::getInstance()->getMainScene();
     if (scene) {
         scene->updateLeftTimeLabel(_leftTime);
     }
@@ -477,7 +480,7 @@ void WorldManager::_transitionMap(WorldInfo* preWorldInfo, WorldInfo* newWorldIn
     auto newMap = dynamic_cast<WorldMap*>(CSLoader::createNode(newWorldInfo->mapName));
     newMap->initSize(newWorldInfo->maxWidth, preWorldInfo->width);
 
-    auto mainScene = _getMainScene();
+    auto mainScene = SceneManager::getInstance()->getMainScene();
     mainScene->transitionMap(newMap);
     _map->setCurrentWidth(newWorldInfo->width, NULL);
     newMap->setCurrentWidth(newWorldInfo->width, [this, newMap, preWorldInfo, newWorldInfo]{
@@ -596,7 +599,7 @@ void WorldManager::_startTutrialBattleScene1()
     enemyAnimal->setIsEnmey(true);
     _enemyAnimalList.push_back(enemyAnimal);
     _map->addEnemyAnimalAtOutRandomPoint(enemyAnimal);
-    auto scene = _getMainScene();
+    auto scene = SceneManager::getInstance()->getMainScene();
 
     // 1匹目の敵と接触
     enemyAnimal->startFightCallback = [this, scene]() {
@@ -613,7 +616,7 @@ void WorldManager::_startTutrialBattleScene1()
 
 void WorldManager::_startTutrialBattleScene2()
 {
-    auto scene = _getMainScene();
+    auto scene = SceneManager::getInstance()->getMainScene();
     // 敵5匹追加
     for (int i = 0; i < 5; i++) {
         auto ant = Animal::CreateWithSpeceis("Ari");
@@ -639,7 +642,7 @@ void WorldManager::_startTutrialBattleScene2()
 
 void WorldManager::_startTutrialBattleScene3()
 {
-    auto scene = _getMainScene();
+    auto scene = SceneManager::getInstance()->getMainScene();
     scene->playNovel("novel_tutorial_battle_end", [this]{
         _startTutrialGachScene1();
     }, false, 1.0f);
@@ -660,7 +663,7 @@ void WorldManager::_startTutrialGachScene1()
     }
     _enemyAnimalList = std::vector<Animal*>();
     
-    auto scene = _getMainScene();
+    auto scene = SceneManager::getInstance()->getMainScene();
     scene->showMenu();
     
     _gacha = dynamic_cast<Gacha*>(CSLoader::createNode("Gacha.csb"));
@@ -685,14 +688,14 @@ void WorldManager::_startTutrialGachScene2()
     UserDataManager::getInstance()->clearTutorial();
     _gacha->finishGachaCallback = NULL;
     _enableNextAction = false;
-    auto scene = _getMainScene();
+    auto scene = SceneManager::getInstance()->getMainScene();
     scene->playNovel("novel_tutorial_gacha2", [this]{
     }, false, 2.0f);
 }
 
 void WorldManager::_startTutrialLevelupScene1()
 {
-    auto scene = _getMainScene();
+    auto scene = SceneManager::getInstance()->getMainScene();
     _enableNextAction = false;
     scene->playNovel("novel_tutorial_levelup1", [this]{
         _startTutrialLevelupScene2();
@@ -703,7 +706,7 @@ void WorldManager::_startTutrialLevelupScene1()
 void WorldManager::_startTutrialLevelupScene2()
 {
     _enableNextAction = false;
-    auto scene = _getMainScene();
+    auto scene = SceneManager::getInstance()->getMainScene();
     scene->levelUpEffect();
     _map->setCurrentWidth(_info->width, NULL);
     auto gachaImage = _gacha->getChildByName<Sprite*>("image");

@@ -10,12 +10,11 @@
 #define __Zoo__WorldManager__
 
 #include "cocos2d.h"
-#include "WorldMap.h"
-#include "MainScene.h"
 #include "CommonInclude.h"
 #include "EnemyGenerater.h"
 class Gacha;
 class Animal;
+class WorldMap;
 
 enum class SceneState {
     Tutorial,
@@ -75,7 +74,7 @@ private:
     std::vector<Animal*> _enemyAnimalList;
     EnemyGenerater* _enemyGenerater;
     
-    MainScene* _getMainScene();
+    
     void _leftTimeUpdate(float dt);
     void _endBattle();
     void _closeResult();

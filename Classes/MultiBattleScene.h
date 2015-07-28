@@ -13,12 +13,13 @@
 #include "cocostudio/CocoStudio.h"
 #include "CocosGUI.h"
 #include "CommonInclude.h"
+#include "WorldSceneInterface.h"
 class Gacha;
 class Animal;
 class WorldMap;
 using namespace cocos2d;
 
-class MultiBattleScene : public cocos2d::Layer
+class MultiBattleScene : public cocos2d::Layer, public WorldSceneInterface
 {
 public:
     // there's no "id" in cpp, so we recommend returning the class instance pointer
@@ -36,6 +37,8 @@ public:
     void updateLeftTimeLabel(int leftTime);
     void showConsumeCoinEffect(int decreaseCoin);
     void showResultView(GameResult* result, float delay, std::function<void ()> closeCallback);
+    void showNoticeView(std::string message, float delay, std::function<void ()> closeCallback);
+
     
 private:
     WorldMap* _map;

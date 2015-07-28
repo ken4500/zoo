@@ -10,6 +10,7 @@
 #include "ResultLayer.h"
 #include "SoundManager.h"
 #include "SceneManager.h"
+#include "NoticeLayer.h"
 
 USING_NS_CC;
 
@@ -22,7 +23,7 @@ Scene* MultiBattleScene::createScene()
     
     // "layer" is an autorelease object
     auto layer = MultiBattleScene::create();
-    layer->setName("main scene");
+    layer->setName("world scene");
 
     // add layer as a child to scene
     scene->addChild(layer);
@@ -181,6 +182,20 @@ void MultiBattleScene::showResultView(GameResult* result, float delay, std::func
         NULL
     ));
 }
+
+void MultiBattleScene::showNoticeView(std::string message, float delay, std::function<void ()> closeCallback)
+{
+    runAction(Sequence::create(
+        DelayTime::create(delay),
+        CallFunc::create([this, message, closeCallback ]{
+            auto layer = NoticeLayer::createWithMessage(message);
+            layer->closeNoticeCallback = closeCallback;
+            this->addChild(layer);
+        }),
+        NULL
+    ));
+}
+
 
 #pragma - private method
 
