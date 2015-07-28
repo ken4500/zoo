@@ -1,6 +1,6 @@
 //
 //  NetworkManager.m
-//  zoo
+//  Doodler
 //
 //  Created by Daniel Haaser on 5/25/15.
 //
@@ -21,11 +21,26 @@
 @property (nonatomic, strong) MCPeerID* peerID;
 @property (retain, nonatomic) MCAdvertiserAssistant *advertiserAssistant;
 
+@property (atomic, strong) NSMutableArray* connectedPeers;
+
 @end
 
 @implementation NetworkManager
 {
     NetworkManagerDelegate* _delegate;
+}
+
+- (instancetype)initWithServiceName:(NSString *)serviceName minumumNumberOfPeers:(NSUInteger)minimum andMaximumNumberOfPeers:(NSUInteger)maximum
+{
+    if (self = [super init])
+    {
+        self.connectedPeers = [NSMutableArray array];
+        self.serviceName = serviceName;
+        self.minPeers = minimum;
+        self.maxPeers = maximum;
+    }
+    
+    return self;
 }
 
 - (void)setDelegate:(NetworkManagerDelegate*)p_delegate
@@ -37,21 +52,26 @@
 {
     self.peerID = [[MCPeerID alloc] initWithDisplayName:[UIDevice currentDevice].name];
 
-    _session = [[MCSession alloc] initWithPeer:self.peerID securityIdentity:nil encryptionPreference:MCEncryptionRequired];
+    _session = [[MCSession alloc] initWithPeer:self.peerID securityIdentity:nil encryptionPreference:MCEncryptionNone];
     _session.delegate = self;
-
-    _advertiserAssistant = [[MCAdvertiserAssistant alloc] initWithServiceType:@"zoo-game" discoveryInfo:nil session:_session];
+    
+    _advertiserAssistant = [[MCAdvertiserAssistant alloc] initWithServiceType:self.serviceName discoveryInfo:nil session:_session];
     [_advertiserAssistant start];
 }
 
-- (void)showPeerList
+- (void)stopAdvertisingAvailability
 {
+    [_advertiserAssistant stop];
+}
+
+- (void)showPeerList
+{    
     // Display view listing nearby peers
-    MCBrowserViewController *browserViewController = [[MCBrowserViewController alloc] initWithServiceType:@"zoo-game" session:_session];
+    MCBrowserViewController *browserViewController = [[MCBrowserViewController alloc] initWithServiceType:self.serviceName session:_session];
     
     browserViewController.delegate = self;
-    browserViewController.minimumNumberOfPeers = 1;
-    browserViewController.maximumNumberOfPeers = 1;
+    browserViewController.minimumNumberOfPeers = self.minPeers;
+    browserViewController.maximumNumberOfPeers = self.maxPeers;
     
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
     UIViewController *rootViewController = window.rootViewController;
@@ -62,6 +82,7 @@
 - (void)disconnect
 {
     [self.session disconnect];
+    [self.connectedPeers removeAllObjects];
     
     self.session.delegate = nil;
     
@@ -75,6 +96,22 @@
     [self.session sendData:data toPeers:self.session.connectedPeers withMode:MCSessionSendDataReliable error:&error];
 }
 
+- (NSArray*)getPeerList
+{
+    NSMutableArray* peerDisplayNames = [@[] mutableCopy];
+    
+    if (self.session && self.connectedPeers)
+    {
+        for (MCPeerID* otherPeerID in self.connectedPeers)
+        {
+            [peerDisplayNames addObject:[NSString stringWithString:otherPeerID.displayName]];
+        }
+    }
+    
+    return [NSArray arrayWithArray:peerDisplayNames];
+}
+
+#pragma mark -
 #pragma mark - MCBrowserViewControllerDelegate methods
 
 // Override this method to filter out peers based on application specific needs
@@ -101,6 +138,21 @@
 // Remote peer changed state
 - (void)session:(MCSession *)session peer:(MCPeerID *)peerID didChangeState:(MCSessionState)state
 {
+    if (state == MCSessionStateConnected)
+    {
+        [self.connectedPeers addObject:peerID];
+        
+        [[UIApplication sharedApplication].keyWindow.rootViewController dismissModalViewControllerAnimated:true];
+    }
+    else
+    {
+        MCPeerID* existingPeerObject = [self peerIDInConnectedPeersWithDisplayName:peerID.displayName];
+        if (existingPeerObject)
+        {
+            [self.connectedPeers removeObject:existingPeerObject];
+        }
+    }
+    
     ConnectionState changedState;
     NSString* stateString = @"";
     
@@ -109,8 +161,6 @@
         case MCSessionStateConnected:
             changedState = ConnectionState::CONNECTED;
             stateString = @"connected to";
-            
-            [[UIApplication sharedApplication].keyWindow.rootViewController dismissModalViewControllerAnimated:true];
             break;
             
         case MCSessionStateConnecting:
@@ -163,6 +213,57 @@
 - (void)session:(MCSession *)session didFinishReceivingResourceWithName:(NSString *)resourceName fromPeer:(MCPeerID *)peerID atURL:(NSURL *)localURL withError:(NSError *)error
 {
     
+}
+
+#pragma mark -
+#pragma mark Getters / Setters
+
+- (void)setServiceName:(NSString *)serviceName
+{
+    if (![_serviceName isEqualToString:serviceName])
+    {
+        _serviceName = [[self stringFilteredForBonjourDiscoveryServiceName:serviceName] copy];
+    }
+}
+
+#pragma mark -
+#pragma mark Private Methods
+
+- (MCPeerID*)peerIDInConnectedPeersWithDisplayName:(NSString*)displayName
+{
+    for (MCPeerID* peerID in self.connectedPeers)
+    {
+        if ([peerID.displayName isEqualToString:displayName])
+        {
+            return peerID;
+        }
+    }
+    
+    return nil;
+}
+
+- (NSString*)stringFilteredForBonjourDiscoveryServiceName:(NSString*)inputString
+{
+    // Bonjour discovery service names must contain only
+    // lowercase ascii letters or numbers and hyphens
+    // of maximum length 15 characters
+    
+    NSString* lowercase = [inputString lowercaseString];
+    NSString* withoutSpaces = [lowercase stringByReplacingOccurrencesOfString:@" " withString:@"-"];
+    
+    NSCharacterSet* characterSet = [[NSCharacterSet characterSetWithCharactersInString:@"abcdefghijklmnopqrstuvwxyz1234567890-"] invertedSet];
+    NSString* filtered = [[withoutSpaces componentsSeparatedByCharactersInSet:characterSet] componentsJoinedByString:@""];
+    
+    if (filtered.length > 15)
+    {
+        filtered = [withoutSpaces substringToIndex:15];
+    }
+    else if (filtered.length == 0)
+    {
+        filtered = @"oops";
+    }
+    
+    return filtered;
 }
 
 @end

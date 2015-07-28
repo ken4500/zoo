@@ -29,6 +29,8 @@ SceneManager::SceneManager()
 {
     _scene = NULL;
     _isNetwork = false;
+    this->networkingWrapper = std::unique_ptr<NetworkingWrapper>(new NetworkingWrapper());
+    this->networkingWrapper->setDelegate(this);
 }
 
 SceneManager::~SceneManager()
@@ -101,9 +103,55 @@ void SceneManager::backMainScene()
     );
 }
 
+#pragma - network
 
 bool SceneManager::isNetwork()
 {
     return _isNetwork;
 }
+
+void SceneManager::showPeerList()
+{
+    networkingWrapper->showPeerList();
+}
+
+void SceneManager::receiveMultiplayerInvitations()
+{
+    networkingWrapper->startAdvertisingAvailability();
+}
+
+void SceneManager::sendData(const void* data, unsigned long length)
+{
+    networkingWrapper->sendData(data, length);
+}
+
+void SceneManager::receivedData(const void* data, unsigned long length)
+{
+    auto multiplayScene = getMultiBattleScene();
+    if (multiplayScene) {
+        // TODO
+    }
+}
+
+void SceneManager::stateChanged(ConnectionState state)
+{
+    switch (state) {
+        case ConnectionState::CONNECTING:
+            CCLOG("Connecting...");
+            break;
+        case ConnectionState::CONNECTED:
+            CCLOG("Connected");
+            if (isNetwork() == false) {
+                networkingWrapper->stopAdvertisingAvailability();
+                enterMultiBattleScene();
+            }
+            break;
+        case ConnectionState::NOT_CONNECTED:
+            CCLOG("Not connected");
+            break;
+        default:
+            break;
+    }
+}
+
 

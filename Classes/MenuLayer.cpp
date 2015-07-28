@@ -78,6 +78,10 @@ void MenuLayer::_pushMultiPlayButton(cocos2d::Ref* pSender, cocos2d::ui::Widget:
 
 void MenuLayer::_pushEncyclepediaButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
+    if (eEventType == ui::Widget::TouchEventType::ENDED) {
+        SceneManager::getInstance()->receiveMultiplayerInvitations();
+        SceneManager::getInstance()->showPeerList();
+    }
 }
 
 void MenuLayer::_pushLanguageButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)

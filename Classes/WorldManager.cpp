@@ -559,6 +559,7 @@ void WorldManager::_checkAndRemoveAnimal()
 
 void WorldManager::_createMap()
 {
+    _info = UserDataManager::getInstance()->getWorldInfo();
     _map = dynamic_cast<WorldMap*>(CSLoader::createNode(_info->mapName));
     _map->initSize(_info->maxWidth, _info->width);
 

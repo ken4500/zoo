@@ -83,6 +83,9 @@
 		9F83BA871B55687700605D1D /* UserDataManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F83BA841B55687700605D1D /* UserDataManager.cpp */; };
 		9FA0EA0A1B66E921007F642B /* CoinTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FA0EA061B66E921007F642B /* CoinTree.cpp */; };
 		9FA0EA0B1B66E921007F642B /* CoinTreeReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FA0EA081B66E921007F642B /* CoinTreeReader.cpp */; };
+		9FA0EA1B1B681DD0007F642B /* NetworkingWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9FA0EA171B681DD0007F642B /* NetworkingWrapper.mm */; };
+		9FA0EA1C1B681DD0007F642B /* NetworkManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9FA0EA191B681DD0007F642B /* NetworkManager.mm */; };
+		9FA0EA1E1B681E1B007F642B /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA0EA1D1B681E1B007F642B /* MultipeerConnectivity.framework */; };
 		9FB063E01B5818A20088AE2A /* NovelAction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FB063D71B5818A20088AE2A /* NovelAction.cpp */; };
 		9FB063E11B5818A20088AE2A /* NovelBalloon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FB063D91B5818A20088AE2A /* NovelBalloon.cpp */; };
 		9FB063E21B5818A20088AE2A /* NovelLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FB063DB1B5818A20088AE2A /* NovelLayer.cpp */; };
@@ -226,6 +229,12 @@
 		9FA0EA081B66E921007F642B /* CoinTreeReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CoinTreeReader.cpp; sourceTree = "<group>"; };
 		9FA0EA091B66E921007F642B /* CoinTreeReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoinTreeReader.h; sourceTree = "<group>"; };
 		9FA0EA131B67F915007F642B /* AbstractBattleEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AbstractBattleEntity.h; sourceTree = "<group>"; };
+		9FA0EA161B681DD0007F642B /* NetworkingWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkingWrapper.h; sourceTree = "<group>"; };
+		9FA0EA171B681DD0007F642B /* NetworkingWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NetworkingWrapper.mm; sourceTree = "<group>"; };
+		9FA0EA181B681DD0007F642B /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
+		9FA0EA191B681DD0007F642B /* NetworkManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NetworkManager.mm; sourceTree = "<group>"; };
+		9FA0EA1A1B681DD0007F642B /* NetworkManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManagerDelegate.h; sourceTree = "<group>"; };
+		9FA0EA1D1B681E1B007F642B /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = DEVELOPER_DIR; };
 		9FB063D71B5818A20088AE2A /* NovelAction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NovelAction.cpp; sourceTree = "<group>"; };
 		9FB063D81B5818A20088AE2A /* NovelAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NovelAction.h; sourceTree = "<group>"; };
 		9FB063D91B5818A20088AE2A /* NovelBalloon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NovelBalloon.cpp; sourceTree = "<group>"; };
@@ -259,6 +268,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FA0EA1E1B681E1B007F642B /* MultipeerConnectivity.framework in Frameworks */,
 				9F06E9B51B59F3E400107C09 /* libcocos2d iOS.a in Frameworks */,
 				9F0F163B1B556DC600217010 /* libcocos2d iOS.a in Frameworks */,
 				52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */,
@@ -338,6 +348,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9FA0EA1D1B681E1B007F642B /* MultipeerConnectivity.framework */,
 				8262943D1AAF051F00CB7CF7 /* Security.framework */,
 				52B47A461A53D09B004E4C60 /* Security.framework */,
 				D6B0611A1803AB670077942B /* CoreMotion.framework */,
@@ -486,6 +497,11 @@
 		9F73A0191B669F8C00775F31 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				9FA0EA161B681DD0007F642B /* NetworkingWrapper.h */,
+				9FA0EA171B681DD0007F642B /* NetworkingWrapper.mm */,
+				9FA0EA181B681DD0007F642B /* NetworkManager.h */,
+				9FA0EA191B681DD0007F642B /* NetworkManager.mm */,
+				9FA0EA1A1B681DD0007F642B /* NetworkManagerDelegate.h */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -734,6 +750,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F6835E01B63F2BB00589EBE /* CreditLayer.cpp in Sources */,
+				9FA0EA1B1B681DD0007F642B /* NetworkingWrapper.mm in Sources */,
 				9FB063E21B5818A20088AE2A /* NovelLayer.cpp in Sources */,
 				9F83BA811B55683100605D1D /* SoundManager.cpp in Sources */,
 				9FFC9E6E1B42F8F400869B23 /* ZMath.cpp in Sources */,
@@ -745,6 +762,7 @@
 				9F6835DC1B62E4B900589EBE /* SelectLanguageLayer.cpp in Sources */,
 				9F06E9C21B5AD27D00107C09 /* GameResult.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
+				9FA0EA1C1B681DD0007F642B /* NetworkManager.mm in Sources */,
 				9F73A0181B6698A300775F31 /* MenuLayer.cpp in Sources */,
 				9FB063E31B5818A20088AE2A /* NovelPlayer.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* MainScene.cpp in Sources */,

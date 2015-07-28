@@ -1,13 +1,13 @@
 //
 //  NetworkManagerDelegate.h
-//  zoo
+//  Doodler
 //
 //  Created by Daniel Haaser on 5/26/15.
 //
 //
 
-#ifndef __Zoo__NetworkManagerDelegate__
-#define __Zoo__NetworkManagerDelegate__
+#ifndef __Doodler__NetworkManagerDelegate__
+#define __Doodler__NetworkManagerDelegate__
 
 enum class ConnectionState
 {
@@ -23,4 +23,4 @@ public:
     virtual void stateChanged(ConnectionState state) = 0;
 };
 
-#endif /* defined(__Zoo__NetworkManagerDelegate__) */
+#endif /* defined(__Doodler__NetworkManagerDelegate__) */
