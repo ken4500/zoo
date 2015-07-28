@@ -99,6 +99,12 @@ std::vector<Animal*> WorldManager::getEnemyAnimalList()
     return _enemyAnimalList;
 }
 
+std::vector<CoinTree*> WorldManager::getCoinTreeList()
+{
+    return _coinTreeList;
+}
+
+
 int WorldManager::getGachaPrice()
 {
     return _gacha->getPrice();

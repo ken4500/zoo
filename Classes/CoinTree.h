@@ -13,8 +13,9 @@
 #include "cocostudio/CocoStudio.h"
 #include "CocosGUI.h"
 #include "CommonInclude.h"
+#include "AbstractBattleEntity.h"
 
-class CoinTree : public cocos2d::Node {
+class CoinTree : public AbstractBattleEntity {
 public:
     CREATE_FUNC(CoinTree);
     bool init() override;
@@ -26,6 +27,7 @@ public:
     Rect getBodyRect();
     bool addDamage(float damage);
     void disappear();
+    bool isDead();
 
 protected:
     cocostudio::timeline::ActionTimeline* _timeline;
@@ -36,6 +38,7 @@ protected:
     int _preDropPos;
     float _hp;
     Length* _length;
+    bool _isSwaying;
     
     void onEnter() override;
 

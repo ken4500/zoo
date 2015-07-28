@@ -39,6 +39,7 @@ public:
     SceneState getSceneState();
     std::vector<Animal*> getAnimalList();
     std::vector<Animal*> getEnemyAnimalList();
+    std::vector<CoinTree*> getCoinTreeList();
     int getGachaPrice();
     int getCoin();
 

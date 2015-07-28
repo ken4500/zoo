@@ -225,6 +225,7 @@
 		9FA0EA071B66E921007F642B /* CoinTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoinTree.h; sourceTree = "<group>"; };
 		9FA0EA081B66E921007F642B /* CoinTreeReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CoinTreeReader.cpp; sourceTree = "<group>"; };
 		9FA0EA091B66E921007F642B /* CoinTreeReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoinTreeReader.h; sourceTree = "<group>"; };
+		9FA0EA131B67F915007F642B /* AbstractBattleEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AbstractBattleEntity.h; sourceTree = "<group>"; };
 		9FB063D71B5818A20088AE2A /* NovelAction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NovelAction.cpp; sourceTree = "<group>"; };
 		9FB063D81B5818A20088AE2A /* NovelAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NovelAction.h; sourceTree = "<group>"; };
 		9FB063D91B5818A20088AE2A /* NovelBalloon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NovelBalloon.cpp; sourceTree = "<group>"; };
@@ -590,6 +591,7 @@
 				9FA0EA071B66E921007F642B /* CoinTree.h */,
 				9FA0EA081B66E921007F642B /* CoinTreeReader.cpp */,
 				9FA0EA091B66E921007F642B /* CoinTreeReader.h */,
+				9FA0EA131B67F915007F642B /* AbstractBattleEntity.h */,
 			);
 			name = Entity;
 			sourceTree = "<group>";

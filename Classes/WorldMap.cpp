@@ -48,43 +48,61 @@ void WorldMap::update(float dt)
     
     // 指定点まで移動
     auto children = getChildren();
-    for(auto node : children) {
-        if (node->getTag() == (int)MainSceneTag::Animal
-            || node->getTag() == (int)MainSceneTag::EnemyAnimal)
-        {
+    if (_targetPoint != Vec2::ZERO) {
+        for(auto node : children) {
+            int tag = node->getTag();
+            if (tag != (int)MainSceneTag::Animal) {
+                continue;
+            }
+
             auto animal = dynamic_cast<Animal*>(node);
-            if (animal) {
-                if (animal->getState() != AnimalState::Jump) {
-                    node->setLocalZOrder(1000 - (int)node->getPosition().y);
-                }
-                
-                if (animal->getState() != AnimalState::Dead
-                    && animal->getState() != AnimalState::Battle
-                    && _targetPoint != Vec2::ZERO)
-                {
-                    animal->movePoint(_targetPoint, dt);
-                }
+            if (animal
+                && animal->getState() != AnimalState::Dead
+                && animal->getState() != AnimalState::Battle)
+            {
+                animal->movePoint(_targetPoint, dt);
             }
         }
     }
-    
+
+    // Zオーダー更新
+    for(auto node : children) {
+        int tag = node->getTag();
+        if (tag != (int)MainSceneTag::Animal
+            && tag != (int)MainSceneTag::EnemyAnimal)
+        {
+            continue;
+        }
+
+        auto animal = dynamic_cast<Animal*>(node);
+        if (animal) {
+            if (animal->getState() != AnimalState::Jump) {
+                node->setLocalZOrder(1000 - (int)node->getPosition().y);
+            }
+        }
+    }
+
     auto manager = WorldManager::getInstance();
     auto state = manager->getSceneState();
     if (state == SceneState::Battle
         || state == SceneState::TutorialBattle) {
         auto animalList = manager->getAnimalList();
         auto enemyAnimalList = manager->getEnemyAnimalList();
+        auto treeList = manager->getCoinTreeList();
 
         // 接近判定
-        for (auto enemy : enemyAnimalList) {
-            if (enemy->isDead()) {
+        for (auto animal : animalList) {
+            if (animal->isDead()) {
                 continue;
             }
-            for (auto animal : animalList) {
-                if (animal->isDead()) {
+            
+            auto rect1 = animal->getBodyRect();
+            
+            // 敵との接近判定
+            for (auto enemy : enemyAnimalList) {
+                if (enemy->isDead()) {
                     continue;
                 }
-                auto rect1 = animal->getBodyRect();
                 auto rect2 = enemy->getBodyRect();
                 
                 if(rect1.intersectsRect(rect2)) {
@@ -96,7 +114,22 @@ void WorldMap::update(float dt)
                     }
                 }
             }
+            
+            // コインツリーとの接近判定
+            for (auto tree : treeList) {
+                if (tree->isDead()) {
+                    continue;
+                }
+                auto rect2 = tree->getBodyRect();
+                
+                if(rect1.intersectsRect(rect2)) {
+                    if (animal->canAttack()) {
+                        animal->fight(tree);
+                    }
+                }
+            }
         }
+        
 
         // バトル終了判定
         if (state == SceneState::Battle) {

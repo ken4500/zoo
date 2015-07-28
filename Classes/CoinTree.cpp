@@ -19,6 +19,7 @@ bool CoinTree::init() {
     // retain the character animation timeline so it doesn't get deallocated
     _timeline->retain();
     _preDropPos = -1;
+    _isSwaying = false;
 
     return true;
 }
@@ -60,9 +61,13 @@ void CoinTree::sprout()
 
 void CoinTree::sway()
 {
+    _isSwaying = true;
     stopAllActions();
     runAction(_timeline);
-    _timeline->play("sway", true);
+    _timeline->play("sway", false);
+    _timeline->setLastFrameCallFunc([this]{
+        _isSwaying = false;
+    });
 }
 
 void CoinTree::dropCoin()
@@ -124,6 +129,9 @@ bool CoinTree::addDamage(float damage)
         fellDown();
         return true;
     }
+    if (_isSwaying == false) {
+        sway();
+    }
     _hp -= damage;
     return false;
 }
@@ -142,4 +150,8 @@ void CoinTree::disappear()
     }
 }
 
+bool CoinTree::isDead()
+{
+    return _hp <= 0;
+}
 

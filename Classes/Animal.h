@@ -13,8 +13,9 @@
 #include "cocostudio/CocoStudio.h"
 #include "CommonInclude.h"
 #include "Species.h"
+#include "AbstractBattleEntity.h"
 
-class Animal : public cocos2d::Node {
+class Animal : public AbstractBattleEntity {
 public:
     Animal();
     static Animal* CreateWithSpeceis(std::string specesName);
@@ -43,7 +44,7 @@ public:
     void startWalk();
     void startStop();
     void movePoint(Vec2 targetPoint, float dt);
-    void fight(Animal* animal);
+    void fight(AbstractBattleEntity* entity);
     void dead();
     void reborn();
     bool addDamage(float damage);
@@ -65,7 +66,7 @@ protected:
     Action* _moveAction;
     Action* _timeLineAction;
     bool _isEnemy;
-    Animal* _targetAnimal;
+    AbstractBattleEntity* _target;
     AnimalState _state;
     float _maxHp;
     float _hp;

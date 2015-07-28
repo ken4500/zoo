@@ -105,11 +105,11 @@ void Animal::onEnter()
 
 void Animal::update(float dt)
 {
-    if (_state == AnimalState::Battle && _targetAnimal) {
-        if (_targetAnimal->isDead()) {
+    if (_state == AnimalState::Battle && _target) {
+        if (_target->isDead()) {
             endFight();
         } else {
-            bool kill = _targetAnimal->addDamage(_offense * dt);
+            bool kill = _target->addDamage(_offense * dt);
             if (kill) {
                 endFight();
                 if (killAnimalCallback) {
@@ -180,21 +180,21 @@ void Animal::movePoint(Vec2 targetPoint, float dt)
     }
 }
 
-void Animal::fight(Animal* animal)
+void Animal::fight(AbstractBattleEntity* entity)
 {
     if (canAttack() == false) {
         return;
     }
 
     _state = AnimalState::Battle;
-    _targetAnimal = animal;
-    _targetAnimal->retain();
+    _target = entity;
+    _target->retain();
     stopAllActions();
     
     Vec2 originPoint = getPosition();
-    Vec2 targetPoint = ZMath::divideInternally(getPosition(), animal->getPosition(), 1, 2);
+    Vec2 targetPoint = ZMath::divideInternally(getPosition(), entity->getPosition(), 1, 2);
         auto size = _image->getContentSize() * getScale();
-    Vec2 effectPoint = ZMath::divideInternally(getPosition(), animal->getPosition(), 1, 1) + Vec2(0, size.height / 2);
+    Vec2 effectPoint = ZMath::divideInternally(getPosition(), entity->getPosition(), 1, 1) + Vec2(0, size.height / 2);
     
     _moveAction = runAction(RepeatForever::create(Sequence::create(
         MoveTo::create(0.1f, targetPoint),
@@ -358,8 +358,8 @@ void Animal::escape()
 
 void Animal::endFight()
 {
-    _targetAnimal->release();
-    _targetAnimal = NULL;
+    _target->release();
+    _target = NULL;
     if (_battleEffect) {
         _battleEffect->removeFromParent();
         _battleEffect = NULL;
