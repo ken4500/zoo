@@ -9,6 +9,7 @@
 #include "WorldMap.h"
 #include "Gacha.h"
 #include "Animal.h"
+#include "CoinTree.h"
 
 using namespace cocos2d;
 
@@ -48,7 +49,9 @@ void WorldMap::update(float dt)
     // 指定点まで移動
     auto children = getChildren();
     for(auto node : children) {
-        if (node->getTag() == (int)MainSceneTag::Animal) {
+        if (node->getTag() == (int)MainSceneTag::Animal
+            || node->getTag() == (int)MainSceneTag::EnemyAnimal)
+        {
             auto animal = dynamic_cast<Animal*>(node);
             if (animal) {
                 if (animal->getState() != AnimalState::Jump) {
@@ -81,16 +84,10 @@ void WorldMap::update(float dt)
                 if (animal->isDead()) {
                     continue;
                 }
-                float displayDistanse = enemy->getCenterPosition().distance(animal->getCenterPosition()) * getScale();
-                auto distance = Length::createWithDisplayLength(displayDistanse);
-                float r1 = animal->getHeight()->getMmLength() / 3;
-                float r2 = enemy->getHeight()->getMmLength() / 3;
-                
                 auto rect1 = animal->getBodyRect();
                 auto rect2 = enemy->getBodyRect();
                 
                 if(rect1.intersectsRect(rect2)) {
-//                if (distance->getMmLength() < r1 + r2) {
                     if (enemy->canAttack()) {
                         enemy->fight(animal);
                     }
@@ -242,6 +239,12 @@ void WorldMap::setGacha(Gacha* gacha)
     gacha->setPosition(Vec2(0, 0));
     gacha->setLocalZOrder(_calcObjectZOrder(gacha));
     addChild(gacha);
+}
+
+void WorldMap::setCoinTree(CoinTree* tree)
+{
+    tree->setLocalZOrder(_calcObjectZOrder(tree));
+    addChild(tree);
 }
 
 Gacha* WorldMap::getGacha()

@@ -15,6 +15,7 @@
 class Gacha;
 class Animal;
 class WorldMap;
+class CoinTree;
 
 enum class SceneState {
     Tutorial,
@@ -23,7 +24,6 @@ enum class SceneState {
     Normal,
     Battle,
     ShowResult,
-    
 };
 
 class WorldManager : cocos2d::Ref
@@ -72,6 +72,7 @@ private:
     SceneState _state;
     std::vector<Animal*> _animalList;
     std::vector<Animal*> _enemyAnimalList;
+    std::vector<CoinTree*> _coinTreeList;
     EnemyGenerater* _enemyGenerater;
     
     
@@ -86,6 +87,7 @@ private:
     void _checkAndRemoveAnimal();
     void _createMap();
     void _createMultiBattlwMap();
+    void _makeCoinTree();
 
     void _startTutrialBattleScene1();
     void _startTutrialBattleScene2();

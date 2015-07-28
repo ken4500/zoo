@@ -3,6 +3,53 @@
   <Content ctype="GameProjectContent">
     <Content>
       <Animation Duration="350" Speed="1.0000" ActivedAnimationName="dead">
+        <Timeline ActionTag="-929337761" Property="Position">
+          <PointFrame FrameIndex="241" X="0.0000" Y="29.2617">
+            <EasingData Type="0" />
+          </PointFrame>
+          <PointFrame FrameIndex="260" X="0.0000" Y="29.2617">
+            <EasingData Type="0" />
+          </PointFrame>
+          <PointFrame FrameIndex="281" X="0.0000" Y="29.2617">
+            <EasingData Type="0" />
+          </PointFrame>
+        </Timeline>
+        <Timeline ActionTag="-929337761" Property="Scale">
+          <ScaleFrame FrameIndex="241" X="3.5000" Y="1.0000">
+            <EasingData Type="0" />
+          </ScaleFrame>
+          <ScaleFrame FrameIndex="260" X="3.5000" Y="1.0000">
+            <EasingData Type="0" />
+          </ScaleFrame>
+          <ScaleFrame FrameIndex="281" X="3.5000" Y="1.0000">
+            <EasingData Type="0" />
+          </ScaleFrame>
+        </Timeline>
+        <Timeline ActionTag="-929337761" Property="RotationSkew">
+          <ScaleFrame FrameIndex="241" X="0.0000" Y="0.0000">
+            <EasingData Type="0" />
+          </ScaleFrame>
+          <ScaleFrame FrameIndex="260" X="0.0000" Y="0.0000">
+            <EasingData Type="0" />
+          </ScaleFrame>
+          <ScaleFrame FrameIndex="281" X="0.0000" Y="0.0000">
+            <EasingData Type="0" />
+          </ScaleFrame>
+        </Timeline>
+        <Timeline ActionTag="-929337761" Property="Alpha">
+          <IntFrame FrameIndex="241" Value="142">
+            <EasingData Type="0" />
+          </IntFrame>
+          <IntFrame FrameIndex="260" Value="140">
+            <EasingData Type="0" />
+          </IntFrame>
+          <IntFrame FrameIndex="280" Value="0">
+            <EasingData Type="0" />
+          </IntFrame>
+          <IntFrame FrameIndex="281" Value="255">
+            <EasingData Type="0" />
+          </IntFrame>
+        </Timeline>
         <Timeline ActionTag="-2066128753" Property="Position">
           <PointFrame FrameIndex="1" X="0.0000" Y="0.0000">
             <EasingData Type="0" />
@@ -176,7 +223,7 @@
       <ObjectData Name="Node" Tag="16" ctype="GameNodeObjectData">
         <Size X="0.0000" Y="0.0000" />
         <Children>
-          <AbstractNodeData Name="chara_shadow_1" ActionTag="-929337761" Tag="125" Alpha="145" IconVisible="False" LeftMargin="-50.0000" RightMargin="-50.0000" TopMargin="-79.2617" BottomMargin="-20.7383" ctype="SpriteObjectData">
+          <AbstractNodeData Name="chara_shadow_1" ActionTag="-929337761" Tag="125" Alpha="142" IconVisible="False" LeftMargin="-50.0000" RightMargin="-50.0000" TopMargin="-79.2617" BottomMargin="-20.7383" ctype="SpriteObjectData">
             <Size X="100.0000" Y="100.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position Y="29.2617" />

@@ -18,6 +18,7 @@
 #include "WorldMap.h"
 #include "MainScene.h"
 #include "MultiBattleScene.h"
+#include "CoinTree.h"
 
 
 USING_NS_CC;
@@ -263,15 +264,15 @@ void WorldManager::startBattle()
     SoundManager::getInstance()->playBattleStartEffect();
     SoundManager::getInstance()->fadeOutBgm(0.5f);
     SoundManager::getInstance()->playBattleBgm();
-
+    _enemyAnimalList = std::vector<Animal*>();
+    _coinTreeList = std::vector<CoinTree*>();
     
     auto scene = SceneManager::getInstance()->getMainScene();
     if (scene) {
         scene->showLeftTIme();
         scene->updateLifeLabel(0);
     }
-    
-    
+
     for (int i = 0; i < ENEMY_NUM; i++) {
         auto enemyAnimal = _enemyGenerater->generate();
         enemyAnimal->setIsEnmey(true);
@@ -290,6 +291,8 @@ void WorldManager::startBattle()
             timeLine->play("get", false);
         };
     }
+    
+    _makeCoinTree();
     
     _map->hideGacha();
 }
@@ -431,6 +434,11 @@ void WorldManager::_closeResult()
         }
     }
     _enemyAnimalList = std::vector<Animal*>();
+
+    for (auto tree : _coinTreeList) {
+        tree->disappear();
+    }
+    _coinTreeList = std::vector<CoinTree*>();
     
     auto scene = SceneManager::getInstance()->getMainScene();
     if (scene) {
@@ -589,6 +597,16 @@ void WorldManager::_createMultiBattlwMap()
 
     _animalList = std::vector<Animal*>();
     _enemyAnimalList = std::vector<Animal*>();
+}
+
+void WorldManager::_makeCoinTree()
+{
+    auto tree = dynamic_cast<CoinTree*>(CSLoader::createNode("CoinTree.csb"));
+    tree->setPosition((getRadomPlace() + Vec2(0, -100)) * 0.8f);
+    tree->setLength(new Length(_info->width->getMmLength() * 0.2));
+    _map->setCoinTree(tree);
+    tree->sprout();
+    _coinTreeList.push_back(tree);
 }
 
 #pragma - tutorial

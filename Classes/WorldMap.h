@@ -15,6 +15,7 @@
 #include "WorldManager.h"
 class Gacha;
 class Animal;
+class CoinTree;
 
 class WorldMap : public cocos2d::Node {
 public:
@@ -30,6 +31,7 @@ public:
     void setGacha(Gacha* gacha);
     Gacha* getGacha();
     bool isMaxScale();
+    void setCoinTree(CoinTree* tree);
 
     void releaseAnimal(Animal* animal, std::function<void ()> callback);
     void addAnimalAtRandomPoint(Animal* animal);

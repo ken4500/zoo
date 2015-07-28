@@ -2,7 +2,7 @@
   <PropertyGroup Type="Node" Name="DropCoin" ID="b7b4ba6e-7140-4958-8367-3d3924d95af0" Version="2.3.1.1" />
   <Content ctype="GameProjectContent">
     <Content>
-      <Animation Duration="70" Speed="1.0000" ActivedAnimationName="get">
+      <Animation Duration="70" Speed="1.0000">
         <Timeline ActionTag="397511332" Property="Position">
           <PointFrame FrameIndex="1" X="0.0000" Y="0.0000">
             <EasingData Type="4" />
@@ -192,7 +192,7 @@
         </Timeline>
       </Animation>
       <AnimationList>
-        <AnimationInfo Name="get" StartIndex="1" EndIndex="71">
+        <AnimationInfo Name="drop" StartIndex="1" EndIndex="71">
           <RenderColor A="255" R="102" G="205" B="170" />
         </AnimationInfo>
       </AnimationList>
