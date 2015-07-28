@@ -4,6 +4,15 @@
     <Content>
       <Animation Duration="350" Speed="1.0000" ActivedAnimationName="dead">
         <Timeline ActionTag="-929337761" Property="Position">
+          <PointFrame FrameIndex="189" X="0.0000" Y="29.2617">
+            <EasingData Type="0" />
+          </PointFrame>
+          <PointFrame FrameIndex="190" X="0.0000" Y="29.2617">
+            <EasingData Type="0" />
+          </PointFrame>
+          <PointFrame FrameIndex="240" X="0.0000" Y="29.2617">
+            <EasingData Type="0" />
+          </PointFrame>
           <PointFrame FrameIndex="241" X="0.0000" Y="29.2617">
             <EasingData Type="0" />
           </PointFrame>
@@ -15,6 +24,15 @@
           </PointFrame>
         </Timeline>
         <Timeline ActionTag="-929337761" Property="Scale">
+          <ScaleFrame FrameIndex="189" X="3.5000" Y="1.0000">
+            <EasingData Type="0" />
+          </ScaleFrame>
+          <ScaleFrame FrameIndex="190" X="3.5000" Y="1.0000">
+            <EasingData Type="0" />
+          </ScaleFrame>
+          <ScaleFrame FrameIndex="240" X="3.5000" Y="1.0000">
+            <EasingData Type="0" />
+          </ScaleFrame>
           <ScaleFrame FrameIndex="241" X="3.5000" Y="1.0000">
             <EasingData Type="0" />
           </ScaleFrame>
@@ -26,6 +44,15 @@
           </ScaleFrame>
         </Timeline>
         <Timeline ActionTag="-929337761" Property="RotationSkew">
+          <ScaleFrame FrameIndex="189" X="0.0000" Y="0.0000">
+            <EasingData Type="0" />
+          </ScaleFrame>
+          <ScaleFrame FrameIndex="190" X="0.0000" Y="0.0000">
+            <EasingData Type="0" />
+          </ScaleFrame>
+          <ScaleFrame FrameIndex="240" X="0.0000" Y="0.0000">
+            <EasingData Type="0" />
+          </ScaleFrame>
           <ScaleFrame FrameIndex="241" X="0.0000" Y="0.0000">
             <EasingData Type="0" />
           </ScaleFrame>
@@ -37,6 +64,15 @@
           </ScaleFrame>
         </Timeline>
         <Timeline ActionTag="-929337761" Property="Alpha">
+          <IntFrame FrameIndex="189" Value="142">
+            <EasingData Type="0" />
+          </IntFrame>
+          <IntFrame FrameIndex="190" Value="0">
+            <EasingData Type="0" />
+          </IntFrame>
+          <IntFrame FrameIndex="240" Value="139">
+            <EasingData Type="0" />
+          </IntFrame>
           <IntFrame FrameIndex="241" Value="142">
             <EasingData Type="0" />
           </IntFrame>

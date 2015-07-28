@@ -19,6 +19,7 @@ bool CoinTree::init() {
     // retain the character animation timeline so it doesn't get deallocated
     _timeline->retain();
     _preDropPos = -1;
+    _dropCount = 5;
     _isSwaying = false;
 
     return true;
@@ -45,7 +46,8 @@ void CoinTree::setLength(Length* length)
 {
     _length = length;
     _dropCoin = MAX(1, (int)length->getLength(UnitOfLength::cm));
-    _hp = length->getMmLength() * 3;
+    _maxHp = length->getMmLength() * 3;
+    _hp = _maxHp;
     if (_image) {
         float scale = WorldManager::getInstance()->getImageScale(_image, _length);
         setScale(scale);
@@ -72,6 +74,8 @@ void CoinTree::sway()
 
 void CoinTree::dropCoin()
 {
+    WorldManager::getInstance()->addCoin(_dropCoin);
+
     auto dropCoin = CSLoader::createNode("DropCoin.csb");
     int rnd;
     do {
@@ -124,7 +128,15 @@ bool CoinTree::addDamage(float damage)
     if (_hp == 0) {
         return false;
     }
-    if (_hp > 0 && _hp - damage <= 0) {
+    
+    for (int i = 1; i < _dropCount; i++) {
+        int threshold = int(i * _maxHp / _dropCount);
+        if (threshold < _hp && _hp <= threshold + damage) {
+            dropCoin();
+        }
+    }
+    
+    if (0 < _hp && _hp <= damage) {
         _hp = 0;
         fellDown();
         return true;

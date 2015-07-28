@@ -7,10 +7,6 @@
         <Project Name="Gacha.csd" Type="Node" />
         <Project Name="AnimalMove1.csd" Type="Node" />
         <Project Name="ScaleBar.csd" Type="Node" />
-        <Image Name="Gacha1.png" />
-        <Image Name="Gacha2.png" />
-        <Image Name="Gacha3.png" />
-        <Image Name="Gacha4.png" />
         <Folder Name="animal">
           <Image Name="ant.png" />
         </Folder>
@@ -60,6 +56,7 @@
           <Image Name="coin_tree.png" />
           <Image Name="coin_tree_top.png" />
           <Image Name="chara_shadow.png" />
+          <Image Name="tubo_ao.png" />
         </Folder>
         <Project Name="Result.csd" Type="Node" />
         <Project Name="Notice.csd" Type="Node" />

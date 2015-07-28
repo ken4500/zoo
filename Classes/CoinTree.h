@@ -35,7 +35,9 @@ protected:
     cocos2d::Node* _dropListNode;
     std::vector<cocos2d::Node*> _dropPointList;
     int _dropCoin;
+    int _dropCount;
     int _preDropPos;
+    float _maxHp;
     float _hp;
     Length* _length;
     bool _isSwaying;

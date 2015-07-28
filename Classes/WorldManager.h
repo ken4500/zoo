@@ -42,6 +42,7 @@ public:
     std::vector<CoinTree*> getCoinTreeList();
     int getGachaPrice();
     int getCoin();
+    void addCoin(int addCoin);
 
     // game logic
     void lotteryGacha();
@@ -67,6 +68,7 @@ private:
     bool _enableNextAction;
     int _leftTime;
     int _multiBattleCoin;
+    int _beforeBattleCoin;
     WorldInfo* _info;
     WorldMap* _map;
     Gacha* _gacha;

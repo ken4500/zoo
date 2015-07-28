@@ -37,7 +37,7 @@ WorldManager* WorldManager::getInstance()
 
 WorldManager::WorldManager()
 {
-    _info = nullptr;
+    _info = UserDataManager::getInstance()->getWorldInfo();
     _map   = nullptr;
     _enableNextAction = true;
     _isNetwork = false;
@@ -104,7 +104,6 @@ std::vector<CoinTree*> WorldManager::getCoinTreeList()
     return _coinTreeList;
 }
 
-
 int WorldManager::getGachaPrice()
 {
     return _gacha->getPrice();
@@ -116,6 +115,15 @@ int WorldManager::getCoin()
         return _multiBattleCoin;
     } else {
         return UserDataManager::getInstance()->getCoin();
+    }
+}
+
+void WorldManager::addCoin(int addCoin)
+{
+    if (_isNetwork) {
+        _multiBattleCoin += addCoin;
+    } else {
+        UserDataManager::getInstance()->addCoin(addCoin);
     }
 }
 
@@ -263,6 +271,7 @@ void WorldManager::startBattle()
     }
 
     _state = SceneState::Battle;
+    _beforeBattleCoin = getCoin();
     _setLeftTime(BATTLE_TIME);
     _enemyGenerater = new EnemyGenerater(_info);
     UserDataManager::getInstance()->decreateLife(1);
@@ -285,6 +294,7 @@ void WorldManager::startBattle()
         _enemyAnimalList.push_back(enemyAnimal);
         _map->addEnemyAnimalAtOutRandomPoint(enemyAnimal);
         enemyAnimal->deadCallback = [this, enemyAnimal]() {
+            addCoin(enemyAnimal->getCoin());
             auto coinEffect = CSLoader::createNode("GetCoin.csb");
             coinEffect->setPosition(enemyAnimal->getCenterPosition());
             coinEffect->setZOrder(2000);
@@ -337,13 +347,7 @@ void WorldManager::endBattle(bool win, float showResultViewDelay)
     GameResult* result = new GameResult();
     result->resultState = (win) ? BattleState::Win : BattleState::Lose;
     result->playTime = BATTLE_TIME - _leftTime;
-    result->getCoin = 0;
-    for (auto animal : _enemyAnimalList) {
-        if (animal->isDead()) {
-            result->getCoin += animal->getCoin();
-        }
-    }
-    UserDataManager::getInstance()->addCoin(result->getCoin);
+    result->getCoin = getCoin() - _beforeBattleCoin;
     
     auto mainScene = SceneManager::getInstance()->getMainScene();
     if (mainScene) {
@@ -555,7 +559,6 @@ void WorldManager::_checkAndRemoveAnimal()
 
 void WorldManager::_createMap()
 {
-    _info = UserDataManager::getInstance()->getWorldInfo();
     _map = dynamic_cast<WorldMap*>(CSLoader::createNode(_info->mapName));
     _map->initSize(_info->maxWidth, _info->width);
 

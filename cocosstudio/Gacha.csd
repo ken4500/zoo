@@ -4,7 +4,7 @@
     <Content>
       <Animation Duration="231" Speed="1.0000" ActivedAnimationName="gacha1">
         <Timeline ActionTag="-1437413616" Property="Position">
-          <PointFrame FrameIndex="1" X="0.0000" Y="0.0000">
+          <PointFrame FrameIndex="1" X="0.0000" Y="-25.0000">
             <EasingData Type="0" />
           </PointFrame>
           <PointFrame FrameIndex="22" X="0.0000" Y="40.0000">
@@ -78,38 +78,6 @@
             <EasingData Type="0" />
           </ScaleFrame>
         </Timeline>
-        <Timeline ActionTag="-1437413616" Property="FileData">
-          <TextureFrame FrameIndex="1" Tween="False">
-            <TextureFile Type="Normal" Path="Gacha1.png" Plist="" />
-          </TextureFrame>
-          <TextureFrame FrameIndex="132" Tween="False">
-            <TextureFile Type="Normal" Path="Gacha2.png" Plist="" />
-          </TextureFrame>
-          <TextureFrame FrameIndex="133" Tween="False">
-            <TextureFile Type="Normal" Path="Gacha3.png" Plist="" />
-          </TextureFrame>
-          <TextureFrame FrameIndex="135" Tween="False">
-            <TextureFile Type="Normal" Path="Gacha3.png" Plist="" />
-          </TextureFrame>
-          <TextureFrame FrameIndex="137" Tween="False">
-            <TextureFile Type="Normal" Path="Gacha4.png" Plist="" />
-          </TextureFrame>
-          <TextureFrame FrameIndex="140" Tween="False">
-            <TextureFile Type="Normal" Path="Gacha1.png" Plist="" />
-          </TextureFrame>
-          <TextureFrame FrameIndex="208" Tween="False">
-            <TextureFile Type="Normal" Path="Gacha2.png" Plist="" />
-          </TextureFrame>
-          <TextureFrame FrameIndex="212" Tween="False">
-            <TextureFile Type="Normal" Path="Gacha3.png" Plist="" />
-          </TextureFrame>
-          <TextureFrame FrameIndex="216" Tween="False">
-            <TextureFile Type="Normal" Path="Gacha4.png" Plist="" />
-          </TextureFrame>
-          <TextureFrame FrameIndex="220" Tween="False">
-            <TextureFile Type="Normal" Path="Gacha1.png" Plist="" />
-          </TextureFrame>
-        </Timeline>
         <Timeline ActionTag="520973104" Property="Position">
           <PointFrame FrameIndex="1" X="0.0000" Y="-40.0000">
             <EasingData Type="0" />
@@ -127,15 +95,26 @@
       <ObjectData Name="Node" CustomClassName="Gacha" Tag="9" ctype="GameNodeObjectData">
         <Size X="0.0000" Y="0.0000" />
         <Children>
-          <AbstractNodeData Name="image" ActionTag="-1437413616" Tag="10" IconVisible="False" LeftMargin="-157.0000" RightMargin="-157.0000" TopMargin="-328.0000" ctype="SpriteObjectData">
-            <Size X="314.0000" Y="328.0000" />
+          <AbstractNodeData Name="chara_shadow_2" ActionTag="-738948805" Tag="202" Alpha="111" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="-50.0000" RightMargin="-50.0000" TopMargin="-80.0000" BottomMargin="-20.0000" ctype="SpriteObjectData">
+            <Size X="100.0000" Y="100.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position Y="30.0000" />
+            <Scale ScaleX="4.0000" ScaleY="1.5000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition />
+            <PreSize X="0.2500" Y="0.2500" />
+            <FileData Type="Normal" Path="ui/chara_shadow.png" Plist="" />
+            <BlendFunc Src="1" Dst="771" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="image" ActionTag="-1437413616" Tag="10" IconVisible="False" LeftMargin="-200.0000" RightMargin="-200.0000" TopMargin="-375.0000" BottomMargin="-25.0000" ctype="SpriteObjectData">
+            <Size X="400.0000" Y="400.0000" />
             <AnchorPoint ScaleX="0.5000" />
-            <Position />
+            <Position Y="-25.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
-            <FileData Type="Normal" Path="Gacha1.png" Plist="" />
+            <FileData Type="Normal" Path="ui/tubo_ao.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
           <AbstractNodeData Name="price" ActionTag="520973104" Tag="102" IconVisible="True" TopMargin="40.0000" BottomMargin="-40.0000" InnerActionSpeed="1.0000" ctype="ProjectNodeObjectData">
