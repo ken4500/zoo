@@ -45,7 +45,7 @@ void SceneManager::enterMainScene()
 {
     _scene = MainScene::createScene();
     Director::getInstance()->replaceScene(
-        TransitionPageTurn::create(1.0f, _scene, false)
+        TransitionPageTurn::create(0.6f, _scene, false)
     );
 }
 

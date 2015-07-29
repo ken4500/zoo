@@ -60,7 +60,7 @@ void WorldInfo::_loadLevel()
     float maxValue = (float)worldDoc["maxValue"].GetDouble();
     this->width = new Length(Length::toUnit(unit), value);
     this->maxWidth = new Length(Length::toUnit(unit), maxValue);
-    this->mapName = worldDoc["map"].GetString();
+    this->mapName = StringUtils::format("map/%s", worldDoc["map"].GetString());
     this->gachaId = worldDoc["gacha"].GetInt();
     this->imageWidth = worldDoc["imageWidth"].GetInt();
 }

@@ -21,9 +21,13 @@
           <Image Name="map2.jpg" />
           <Image Name="title_back.jpg" />
           <Image Name="glove.png" />
+          <Image Name="ma11.png" />
+          <Image Name="map10.png" />
+          <Image Name="map3.jpg" />
+          <Image Name="map4.jpg" />
+          <Image Name="map5.png" />
+          <Image Name="map7.png" />
         </Folder>
-        <Project Name="Map1.csd" Type="Node" />
-        <Project Name="Map2.csd" Type="Node" />
         <Folder Name="font">
           <Fnt Name="font2.fnt" />
           <Fnt Name="zoo_font2.fnt" />
@@ -76,6 +80,19 @@
         <Project Name="DropCoin.csd" Type="Node" />
         <Folder Name="effect">
           <PlistParticleFile Name="star.plist" />
+        </Folder>
+        <Folder Name="map">
+          <Project Name="Map1.csd" Type="Node" />
+          <Project Name="Map2.csd" Type="Node" />
+          <Project Name="Map3.csd" Type="Node" />
+          <Project Name="Map4.csd" Type="Node" />
+          <Project Name="Map5.csd" Type="Node" />
+          <Project Name="Map6.csd" Type="Node" />
+          <Project Name="Map7.csd" Type="Node" />
+          <Project Name="Map8.csd" Type="Node" />
+          <Project Name="Map9.csd" Type="Node" />
+          <Project Name="Map10.csd" Type="Node" />
+          <Project Name="Map11.csd" Type="Node" />
         </Folder>
       </RootFolder>
     </Group>
