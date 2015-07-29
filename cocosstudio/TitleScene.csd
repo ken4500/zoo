@@ -38,6 +38,17 @@
             <FileData Type="Normal" Path="back/title_back.jpg" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
+          <AbstractNodeData Name="star_effect" ActionTag="324184644" Tag="239" IconVisible="True" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="568.0000" RightMargin="568.0000" TopMargin="320.0000" BottomMargin="320.0000" ctype="ParticleObjectData">
+            <Size X="0.0000" Y="0.0000" />
+            <AnchorPoint />
+            <Position X="568.0000" Y="320.0000" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.5000" Y="0.5000" />
+            <PreSize X="0.0000" Y="0.0000" />
+            <FileData Type="Normal" Path="effect/star.plist" Plist="" />
+            <BlendFunc Src="770" Dst="1" />
+          </AbstractNodeData>
           <AbstractNodeData Name="glove" ActionTag="-347546047" Tag="113" Rotation="360.0000" RotationSkewX="360.0000" RotationSkewY="360.0000" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="304.0000" RightMargin="304.0000" TopMargin="313.2900" BottomMargin="-197.2900" ctype="SpriteObjectData">
             <Size X="528.0000" Y="524.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
@@ -47,6 +58,28 @@
             <PrePosition X="0.5000" Y="0.1011" />
             <PreSize X="0.4648" Y="0.8188" />
             <FileData Type="Normal" Path="back/glove.png" Plist="" />
+            <BlendFunc Src="1" Dst="771" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="moon_2" ActionTag="1276821145" Tag="263" IconVisible="False" LeftMargin="120.9107" RightMargin="854.0892" TopMargin="127.1718" BottomMargin="352.8282" ctype="SpriteObjectData">
+            <Size X="161.0000" Y="160.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="201.4107" Y="432.8282" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.1773" Y="0.6763" />
+            <PreSize X="0.0000" Y="0.0000" />
+            <FileData Type="Normal" Path="ui/moon.png" Plist="" />
+            <BlendFunc Src="1" Dst="771" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="sun_1" ActionTag="-1359428348" Tag="262" IconVisible="False" LeftMargin="725.5352" RightMargin="29.4648" TopMargin="-218.1207" BottomMargin="473.1207" ctype="SpriteObjectData">
+            <Size X="381.0000" Y="385.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="916.0352" Y="665.6207" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.8064" Y="1.0400" />
+            <PreSize X="0.0000" Y="0.0000" />
+            <FileData Type="Normal" Path="ui/sun.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
           <AbstractNodeData Name="Start" ActionTag="-341345126" Tag="39" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="408.0000" RightMargin="408.0000" TopMargin="270.0000" BottomMargin="270.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="163" Scale9Height="78" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">

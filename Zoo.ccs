@@ -57,6 +57,8 @@
           <Image Name="coin_tree_top.png" />
           <Image Name="chara_shadow.png" />
           <Image Name="tubo_ao.png" />
+          <Image Name="moon.png" />
+          <Image Name="sun.png" />
         </Folder>
         <Project Name="Result.csd" Type="Node" />
         <Project Name="Notice.csd" Type="Node" />
@@ -72,6 +74,9 @@
         <Project Name="MultiBattleScene.csd" Type="Scene" />
         <Project Name="CoinTree.csd" Type="Node" />
         <Project Name="DropCoin.csd" Type="Node" />
+        <Folder Name="effect">
+          <PlistParticleFile Name="star.plist" />
+        </Folder>
       </RootFolder>
     </Group>
   </SolutionFolder>
