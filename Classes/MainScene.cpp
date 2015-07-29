@@ -98,12 +98,13 @@ void MainScene::onEnter()
     
     if (WorldManager::getInstance()->getSceneState() == SceneState::Tutorial) {
         WorldManager::getInstance()->startTutorial();
+    } else {
+        SoundManager::getInstance()->playMainBgm();
     }
     
     updateCoinLabel();
     updateLifeLabel(0);
-    SoundManager::getInstance()->playMainBgm();
-        
+    
     Director::getInstance()->getScheduler()->schedule(CC_CALLBACK_1(MainScene::updateLifeLabel, this), this, 1.0f, false, "update_life");
 }
 

@@ -218,8 +218,10 @@ void NovelLayer::hideItem(bool fade) {
 void NovelLayer::setImage(std::shared_ptr<NovelAction> action)
 {
     auto visibleSize = Director::getInstance()->getVisibleSize();
+    auto value = action->getValue();
     auto imageName = action->getValue();
     auto target = action->getTarget();
+    auto effect = action->getValue2();
     if (target == NovelAction::Target::Left) {
         imageName = StringUtils::format("chat/character/chat_%s.png", imageName.c_str());
         if (_leftChara == NULL) {
@@ -231,7 +233,7 @@ void NovelLayer::setImage(std::shared_ptr<NovelAction> action)
             addChild(_leftNode);
             _leftNode->addChild(_leftChara);
         } else {
-            if (imageName == "remove") {
+            if (value == "remove") {
                 _leftNameImage->removeFromParent();
                 _leftNameImage = NULL;
                 _leftChara->removeFromParent();
@@ -255,7 +257,7 @@ void NovelLayer::setImage(std::shared_ptr<NovelAction> action)
             addChild(_rightNode);
             _rightNode->addChild(_rightChara);
         } else {
-            if (imageName == "remove") {
+            if (value == "remove") {
                 _rightNameImage->removeFromParent();
                 _rightNameImage = NULL;
                 _rightChara->removeFromParent();
@@ -269,8 +271,18 @@ void NovelLayer::setImage(std::shared_ptr<NovelAction> action)
             }
         }
     } else if (target == NovelAction::Target::Background) {
-        if (imageName == "remove") {
-            _backGroundImage->removeFromParent();
+        if (value == "remove") {
+            if (effect == "nextPage") {
+                _backGroundImage->runAction(Sequence::create(
+                    PageTurn3D::create(0.6f, Size(100, 100)),
+                    RemoveSelf::create(),
+                    NULL
+                ));
+            } else if (effect == "fade") {
+                _backGroundImage->runAction(Sequence::create(FadeOut::create(1.0f), RemoveSelf::create(), NULL));
+            } else {
+                _backGroundImage->removeFromParent();
+            }
             _backGroundImage = NULL;
         } else {
             if (_backGroundImage == NULL) {
@@ -279,40 +291,51 @@ void NovelLayer::setImage(std::shared_ptr<NovelAction> action)
                 back->setAnchorPoint(Vec2(0, 0));
                 back->setPosition(Vec2::ZERO);
                 back->setZOrder(-1);
-                _backGroundImage = back;
-                addChild(back);
+                _backGroundImage = NodeGrid::create();
+                _backGroundImage->addChild(back);
+                _backGroundImage->setCascadeOpacityEnabled(true);
+                addChild(_backGroundImage);
+                
             } else {
                 clearBalloons();
                 
-                Sprite *removedImage = &(*_backGroundImage);
+                auto removedImage = _backGroundImage;
 
                 auto back = Sprite::create(StringUtils::format("chat/back/%s", imageName.c_str()));
                 back->setScale(visibleSize.width/back->getContentSize().width);
                 back->setAnchorPoint(Vec2(0, 0));
                 back->setPosition(Vec2::ZERO);
                 back->setZOrder(removedImage->getZOrder()-1);
-                back->setOpacity(0);
-                _backGroundImage = back;
-                addChild(back);
+                _backGroundImage = NodeGrid::create();
+                _backGroundImage->addChild(back);
+                _backGroundImage->setCascadeOpacityEnabled(true);
+                addChild(_backGroundImage);
                 
-                auto dummyBack = LayerColor::create(Color4B::BLACK, visibleSize.width, visibleSize.height);
-                addChild(dummyBack, -100);
-                dummyBack->runAction(Sequence::create(
-                    DelayTime::create(1.0f),
-                    RemoveSelf::create(),
-                    NULL
-                ));
+                if (effect == "nextPage") {
+                    removedImage->runAction(Sequence::create(
+                        PageTurn3D::create(0.6f, Size(100, 100)),
+                        RemoveSelf::create(),
+                        NULL
+                    ));
+                } else {
+                    auto dummyBack = LayerColor::create(Color4B::BLACK, visibleSize.width, visibleSize.height);
+                    addChild(dummyBack, -100);
+                    dummyBack->runAction(Sequence::create(
+                        DelayTime::create(1.0f),
+                        RemoveSelf::create(),
+                        NULL
+                    ));
 
-                back->runAction(Sequence::create(
-                    FadeIn::create(1.0f),
-                    NULL
-                ));
+                    removedImage->runAction(Sequence::create(
+                        FadeOut::create(1.0f),
+                        RemoveSelf::create(),
+                        NULL
+                    ));
+                
+                    _backGroundImage->setOpacity(0);
+                    _backGroundImage->runAction(FadeIn::create(1.0f));
+                }
 
-                removedImage->runAction(Sequence::create(
-                    FadeOut::create(1.0f),
-                    RemoveSelf::create(),
-                    NULL
-                ));
             }
         }
     }

@@ -11,6 +11,7 @@
 #include "TitleScene.h"
 #include "MultiBattleScene.h"
 #include "SoundManager.h"
+#include "CommandGenerater.h"
 using namespace cocos2d;
 
 #pragma mark -
@@ -43,11 +44,9 @@ SceneManager::~SceneManager()
 void SceneManager::enterMainScene()
 {
     _scene = MainScene::createScene();
-    Director::getInstance()->replaceScene(_scene);
-
-//    Director::getInstance()->replaceScene(
-//        TransitionFade::create(1.0f, _scene, Color3B::BLACK)
-//    );
+    Director::getInstance()->replaceScene(
+        TransitionPageTurn::create(1.0f, _scene, false)
+    );
 }
 
 void SceneManager::resetMainScene()
@@ -87,6 +86,7 @@ WorldSceneInterface* SceneManager::getWorldScene()
 
 void SceneManager::enterMultiBattleScene()
 {
+
     _isNetwork = true;
     _scene = MultiBattleScene::createScene();
     Director::getInstance()->replaceScene(
@@ -98,6 +98,7 @@ void SceneManager::backMainScene()
 {
     _isNetwork = false;
     _scene = MainScene::createScene();
+    networkingWrapper->disconnect();
     Director::getInstance()->replaceScene(
         TransitionFade::create(1.0f, _scene, Color3B::BLACK)
     );
@@ -129,7 +130,9 @@ void SceneManager::receivedData(const void* data, unsigned long length)
 {
     auto multiplayScene = getMultiBattleScene();
     if (multiplayScene) {
-        // TODO
+        const char* cstr = reinterpret_cast<const char*>(data);
+        std::string json = std::string(cstr, length);
+        CommandGenerater::excCommand(json);
     }
 }
 
@@ -142,12 +145,17 @@ void SceneManager::stateChanged(ConnectionState state)
         case ConnectionState::CONNECTED:
             CCLOG("Connected");
             if (isNetwork() == false) {
-                networkingWrapper->stopAdvertisingAvailability();
                 enterMultiBattleScene();
             }
             break;
         case ConnectionState::NOT_CONNECTED:
             CCLOG("Not connected");
+            if (isNetwork()) {
+                getMultiBattleScene()->showNoticeView("Network was disconnected...", 0.0f, [this]{
+                    backMainScene();
+                });
+            }
+            networkingWrapper->disconnect();
             break;
         default:
             break;

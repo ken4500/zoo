@@ -49,7 +49,7 @@ private:
     Sprite* _rightNameImage = NULL;
     Node* _leftNode = NULL;
     Node* _rightNode = NULL;
-    Sprite* _backGroundImage = NULL;
+    NodeGrid* _backGroundImage = NULL;
     Sprite* _leftChara =  NULL;
     Sprite* _rightChara = NULL;
     int _debugSkip;

@@ -5,12 +5,13 @@
     {
       "type": "set",
       "target": "background",
-      "value": "back01.jpg"
+      "value": "back01.jpg",
+      "value2": ""
     },
     {
-      "type": "delay",
+      "type": "music",
       "target": "",
-      "value": "1"
+      "value": ""
     },
     {
       "type": "set",
@@ -19,22 +20,12 @@
     {
       "type": "narration",
       "target": "narration",
-      "value": "俺はでかくて強い！"
-    },
-    {
-      "type": "delay",
-      "target": "",
-      "value": "1"
+      "value": "これは小さなアリの大きな話"
     },
     {
       "type": "narration",
       "target": "narration",
-      "value": "俺に勝てるやつはいない！"
-    },
-    {
-      "type": "set",
-      "target": "background",
-      "value": "remove"
+      "value": "このアリは自分が世界で一番強いと\n勘違いしておりました"
     },
     {
       "type": "clear",
@@ -42,9 +33,10 @@
       "value": ""
     },
     {
-      "type": "delay",
-      "target": "",
-      "value": "1"
+      "type": "set",
+      "target": "background",
+      "value": "remove",
+      "value2": "nextPage"
     },
     {
       "type": "set",
@@ -54,7 +46,7 @@
     {
       "type": "name",
       "target": "left",
-      "value": "ANT"
+      "value": "アリ"
     },
     {
       "type": "speak",
@@ -80,7 +72,7 @@
     {
       "type": "name",
       "target": "left",
-      "value": "ANT"
+      "value": "アリ"
     },
     {
       "type": "speak",
@@ -106,13 +98,13 @@
     {
       "type": "name",
       "target": "left",
-      "value": "ANT"
+      "value": "アリ"
     },
     {
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "近づくとバトルが始まるぞ"
+      "value": "近づくと勝手にバトルが始まるぞ"
     }
   ]
 },
@@ -126,7 +118,7 @@
     {
       "type": "name",
       "target": "left",
-      "value": "ANT"
+      "value": "アリ"
     },
     {
       "type": "set",
@@ -136,7 +128,7 @@
     {
       "type": "name",
       "target": "right",
-      "value": "ANT"
+      "value": "アリ"
     },
     {
       "type": "speak",
@@ -168,7 +160,7 @@
     {
       "type": "name",
       "target": "left",
-      "value": "ANT"
+      "value": "アリ"
     },
     {
       "type": "set",
@@ -178,7 +170,7 @@
     {
       "type": "name",
       "target": "right",
-      "value": "BEETLE"
+      "value": "かぶと虫"
     },
     {
       "type": "speak",
@@ -197,12 +189,6 @@
       "target": "left",
       "balloon": "normal",
       "value": "こんなでかい生き物がいるなんて・・・"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "けど俺のほうが強いはず！"
     }
   ]
 },
@@ -211,7 +197,8 @@
     {
       "type": "set",
       "target": "background",
-      "value": "back02.jpg"
+      "value": "back02.jpg",
+      "value2": ""
     },
     {
       "type": "set",
@@ -221,7 +208,7 @@
     {
       "type": "name",
       "target": "left",
-      "value": "ANT"
+      "value": "アリ"
     },
     {
       "type": "music",
@@ -242,8 +229,8 @@
     },
     {
       "type": "delay",
-      "target": "1",
-      "value": ""
+      "target": "",
+      "value": "1"
     },
     {
       "type": "set",
@@ -253,7 +240,7 @@
     {
       "type": "name",
       "target": "right",
-      "value": "GOD"
+      "value": "神"
     },
     {
       "type": "speak",
@@ -269,13 +256,14 @@
     },
     {
       "type": "delay",
-      "target": "1",
-      "value": ""
+      "target": "",
+      "value": "1"
     },
     {
       "type": "set",
       "target": "background",
-      "value": "back03.jpg"
+      "value": "back03.jpg",
+      "value2": "fade"
     },
     {
       "type": "set",
@@ -285,7 +273,7 @@
     {
       "type": "name",
       "target": "left",
-      "value": "ANT"
+      "value": "アリ"
     },
     {
       "type": "speak",
@@ -328,6 +316,27 @@
       "target": "right",
       "balloon": "normal",
       "value": "世界の秘密を知るのだ"
+    },
+    {
+      "type": "set",
+      "target": "left",
+      "value": "remove"
+    },
+    {
+      "type": "set",
+      "target": "right",
+      "value": "remove"
+    },
+    {
+      "type": "set",
+      "target": "background",
+      "value": "remove",
+      "value2": "nextPage"
+    },
+    {
+      "type": "delay",
+      "target": "",
+      "value": "1"
     }
   ]
 },
@@ -341,7 +350,7 @@
     {
       "type": "name",
       "target": "left",
-      "value": "ANT"
+      "value": "アリ"
     },
     {
       "type": "speak",
@@ -375,7 +384,7 @@
     {
       "type": "name",
       "target": "right",
-      "value": "GOD"
+      "value": "神"
     },
     {
       "type": "speak",
@@ -490,6 +499,11 @@
       "target": "right",
       "balloon": "normal",
       "value": "小さきものよ"
+    },
+    {
+      "type": "music",
+      "target": "",
+      "value": "sound/bgm/main.mp3"
     }
   ]
 },

@@ -56,6 +56,10 @@ public:
     void endResult();
     void resetData();
     
+    // network game logic
+    void releaseAnimalByNetwork(Animal* animal);
+    void createTreeByNetwork(CoinTree* tree, Vec2 worldPosition);
+    
     // util
     float getImageScale(Sprite* image, Length* width);
     float getDisplayLength(Length* length);
@@ -86,6 +90,7 @@ private:
     void _setLeftTime(int leftTime);
     void _repairAllAnimalHp();
     bool _checkAllEnemyDead();
+    int _getAliveEnemy();
     void _transitionMap(WorldInfo* preWorldInfo, WorldInfo* newWorldInfo);
     void _checkAndRemoveAnimal();
     void _createMap();

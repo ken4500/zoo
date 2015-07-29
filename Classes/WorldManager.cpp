@@ -19,6 +19,7 @@
 #include "MainScene.h"
 #include "MultiBattleScene.h"
 #include "CoinTree.h"
+#include "CommandGenerater.h"
 
 
 USING_NS_CC;
@@ -166,6 +167,8 @@ void WorldManager::releaseAnimal(Animal* animal, bool hit)
 {
     if (_isNetwork == false) {
         UserDataManager::getInstance()->addAnimal(animal);
+    } else {
+        CommandGenerater::releaseAnimal(animal);
     }
 
     _animalList.push_back(animal);
@@ -370,6 +373,17 @@ void WorldManager::endResult()
     _enableNextAction = true;
 }
 
+#pragma - network game logic
+void WorldManager::releaseAnimalByNetwork(Animal* animal)
+{
+    _map->releaseAnimal(animal, nullptr);
+}
+
+void WorldManager::createTreeByNetwork(CoinTree* tree, Vec2 worldPosition)
+{
+    
+}
+
 #pragma - util method
 
 float WorldManager::getImageScale(Sprite* image, Length* width)
@@ -483,14 +497,18 @@ void WorldManager::_repairAllAnimalHp()
 
 bool WorldManager::_checkAllEnemyDead()
 {
-    bool allDead = true;
+    return _getAliveEnemy() == 0;
+}
+
+int WorldManager::_getAliveEnemy()
+{
+    int aliveCount = 0;
     for (auto animal : _enemyAnimalList) {
         if (animal->isDead() == false) {
-            allDead = false;
-            break;
+            aliveCount++;
         }
     }
-    return allDead;
+    return aliveCount;
 }
 
 void WorldManager::_transitionMap(WorldInfo* preWorldInfo, WorldInfo* newWorldInfo)
@@ -642,18 +660,20 @@ void WorldManager::_startTutrialBattleScene1()
     };
 }
 
+static bool appearKabutomushi = false;
 void WorldManager::_startTutrialBattleScene2()
 {
     auto scene = SceneManager::getInstance()->getMainScene();
     // 敵5匹追加
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 10; i++) {
         auto ant = Animal::CreateWithSpeceis("Ari");
         ant->setIsEnmey(true);
         _enemyAnimalList.push_back(ant);
         _map->addEnemyAnimalAtOutRandomPoint(ant);
         ant->deadCallback = [this, scene]{
-            _repairAllAnimalHp();
-            if (_checkAllEnemyDead()) {
+            int alive = _getAliveEnemy();
+            if (alive == 7 && appearKabutomushi == false) {
+                appearKabutomushi = true;
                 auto beetleSpecies = new Species("Kabutomushi");
                 auto beetle = Animal::CreateWithSpeceis("Kabutomushi", beetleSpecies->getMaxHeight()->getMmLength());
                 beetle->setIsEnmey(true);
@@ -663,6 +683,8 @@ void WorldManager::_startTutrialBattleScene2()
                     _startTutrialBattleScene3();
                 };
                 scene->playNovel("novel_tutorial_battle4", NULL, false);
+            } else {
+                _repairAllAnimalHp();
             }
         };
     }

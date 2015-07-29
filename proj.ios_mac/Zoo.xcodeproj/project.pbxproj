@@ -83,9 +83,11 @@
 		9F83BA871B55687700605D1D /* UserDataManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F83BA841B55687700605D1D /* UserDataManager.cpp */; };
 		9FA0EA0A1B66E921007F642B /* CoinTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FA0EA061B66E921007F642B /* CoinTree.cpp */; };
 		9FA0EA0B1B66E921007F642B /* CoinTreeReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FA0EA081B66E921007F642B /* CoinTreeReader.cpp */; };
-		9FA0EA1B1B681DD0007F642B /* NetworkingWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9FA0EA171B681DD0007F642B /* NetworkingWrapper.mm */; };
-		9FA0EA1C1B681DD0007F642B /* NetworkManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9FA0EA191B681DD0007F642B /* NetworkManager.mm */; };
 		9FA0EA1E1B681E1B007F642B /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA0EA1D1B681E1B007F642B /* MultipeerConnectivity.framework */; };
+		9FA0EA281B68349E007F642B /* NetworkingWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9FA0EA241B68349E007F642B /* NetworkingWrapper.mm */; };
+		9FA0EA291B68349E007F642B /* NetworkManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9FA0EA261B68349E007F642B /* NetworkManager.mm */; };
+		9FA0EA2C1B683A45007F642B /* JSONPacker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FA0EA2A1B683A45007F642B /* JSONPacker.cpp */; };
+		9FA0EA2F1B683CFF007F642B /* CommandGenerater.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FA0EA2D1B683CFF007F642B /* CommandGenerater.cpp */; };
 		9FB063E01B5818A20088AE2A /* NovelAction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FB063D71B5818A20088AE2A /* NovelAction.cpp */; };
 		9FB063E11B5818A20088AE2A /* NovelBalloon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FB063D91B5818A20088AE2A /* NovelBalloon.cpp */; };
 		9FB063E21B5818A20088AE2A /* NovelLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FB063DB1B5818A20088AE2A /* NovelLayer.cpp */; };
@@ -229,12 +231,16 @@
 		9FA0EA081B66E921007F642B /* CoinTreeReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CoinTreeReader.cpp; sourceTree = "<group>"; };
 		9FA0EA091B66E921007F642B /* CoinTreeReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoinTreeReader.h; sourceTree = "<group>"; };
 		9FA0EA131B67F915007F642B /* AbstractBattleEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AbstractBattleEntity.h; sourceTree = "<group>"; };
-		9FA0EA161B681DD0007F642B /* NetworkingWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkingWrapper.h; sourceTree = "<group>"; };
-		9FA0EA171B681DD0007F642B /* NetworkingWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NetworkingWrapper.mm; sourceTree = "<group>"; };
-		9FA0EA181B681DD0007F642B /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
-		9FA0EA191B681DD0007F642B /* NetworkManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NetworkManager.mm; sourceTree = "<group>"; };
-		9FA0EA1A1B681DD0007F642B /* NetworkManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManagerDelegate.h; sourceTree = "<group>"; };
 		9FA0EA1D1B681E1B007F642B /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = DEVELOPER_DIR; };
+		9FA0EA231B68349E007F642B /* NetworkingWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkingWrapper.h; sourceTree = "<group>"; };
+		9FA0EA241B68349E007F642B /* NetworkingWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NetworkingWrapper.mm; sourceTree = "<group>"; };
+		9FA0EA251B68349E007F642B /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
+		9FA0EA261B68349E007F642B /* NetworkManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NetworkManager.mm; sourceTree = "<group>"; };
+		9FA0EA271B68349E007F642B /* NetworkManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManagerDelegate.h; sourceTree = "<group>"; };
+		9FA0EA2A1B683A45007F642B /* JSONPacker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JSONPacker.cpp; sourceTree = "<group>"; };
+		9FA0EA2B1B683A45007F642B /* JSONPacker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONPacker.h; sourceTree = "<group>"; };
+		9FA0EA2D1B683CFF007F642B /* CommandGenerater.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CommandGenerater.cpp; sourceTree = "<group>"; };
+		9FA0EA2E1B683CFF007F642B /* CommandGenerater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommandGenerater.h; sourceTree = "<group>"; };
 		9FB063D71B5818A20088AE2A /* NovelAction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NovelAction.cpp; sourceTree = "<group>"; };
 		9FB063D81B5818A20088AE2A /* NovelAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NovelAction.h; sourceTree = "<group>"; };
 		9FB063D91B5818A20088AE2A /* NovelBalloon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NovelBalloon.cpp; sourceTree = "<group>"; };
@@ -497,11 +503,11 @@
 		9F73A0191B669F8C00775F31 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				9FA0EA161B681DD0007F642B /* NetworkingWrapper.h */,
-				9FA0EA171B681DD0007F642B /* NetworkingWrapper.mm */,
-				9FA0EA181B681DD0007F642B /* NetworkManager.h */,
-				9FA0EA191B681DD0007F642B /* NetworkManager.mm */,
-				9FA0EA1A1B681DD0007F642B /* NetworkManagerDelegate.h */,
+				9FA0EA231B68349E007F642B /* NetworkingWrapper.h */,
+				9FA0EA241B68349E007F642B /* NetworkingWrapper.mm */,
+				9FA0EA251B68349E007F642B /* NetworkManager.h */,
+				9FA0EA261B68349E007F642B /* NetworkManager.mm */,
+				9FA0EA271B68349E007F642B /* NetworkManagerDelegate.h */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -515,6 +521,10 @@
 				9FFC9E701B42FA0100869B23 /* ZUtil.h */,
 				9F19A9E01B62B26F00572440 /* CCLocalizedString.cpp */,
 				9F19A9E11B62B26F00572440 /* CCLocalizedString.h */,
+				9FA0EA2A1B683A45007F642B /* JSONPacker.cpp */,
+				9FA0EA2B1B683A45007F642B /* JSONPacker.h */,
+				9FA0EA2D1B683CFF007F642B /* CommandGenerater.cpp */,
+				9FA0EA2E1B683CFF007F642B /* CommandGenerater.h */,
 			);
 			name = Uitl;
 			sourceTree = "<group>";
@@ -750,7 +760,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F6835E01B63F2BB00589EBE /* CreditLayer.cpp in Sources */,
-				9FA0EA1B1B681DD0007F642B /* NetworkingWrapper.mm in Sources */,
+				9FA0EA281B68349E007F642B /* NetworkingWrapper.mm in Sources */,
 				9FB063E21B5818A20088AE2A /* NovelLayer.cpp in Sources */,
 				9F83BA811B55683100605D1D /* SoundManager.cpp in Sources */,
 				9FFC9E6E1B42F8F400869B23 /* ZMath.cpp in Sources */,
@@ -762,7 +772,7 @@
 				9F6835DC1B62E4B900589EBE /* SelectLanguageLayer.cpp in Sources */,
 				9F06E9C21B5AD27D00107C09 /* GameResult.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
-				9FA0EA1C1B681DD0007F642B /* NetworkManager.mm in Sources */,
+				9FA0EA291B68349E007F642B /* NetworkManager.mm in Sources */,
 				9F73A0181B6698A300775F31 /* MenuLayer.cpp in Sources */,
 				9FB063E31B5818A20088AE2A /* NovelPlayer.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* MainScene.cpp in Sources */,
@@ -772,6 +782,7 @@
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				9FB063E91B581B140088AE2A /* LabelColor.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
+				9FA0EA2C1B683A45007F642B /* JSONPacker.cpp in Sources */,
 				9FB063E11B5818A20088AE2A /* NovelBalloon.cpp in Sources */,
 				9F015C9A1B4211FB00F45135 /* Animal.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
@@ -785,6 +796,7 @@
 				9FFC9E711B42FA0100869B23 /* ZUtil.cpp in Sources */,
 				9F83BA871B55687700605D1D /* UserDataManager.cpp in Sources */,
 				9F015C951B420DC700F45135 /* GachaReader.cpp in Sources */,
+				9FA0EA2F1B683CFF007F642B /* CommandGenerater.cpp in Sources */,
 				9FB063E01B5818A20088AE2A /* NovelAction.cpp in Sources */,
 				9F06E9CA1B5DBE3A00107C09 /* NoticeLayer.cpp in Sources */,
 				9F13C2411B65A71C0035850A /* SceneManager.cpp in Sources */,
