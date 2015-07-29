@@ -22,6 +22,7 @@ bool Gacha::init() {
     _timeline->retain();
     
     std::srand((int)time(NULL));
+    setTag((int)EntityTag::Gacha);
     
     return true;
 }
@@ -140,4 +141,17 @@ void Gacha::setNewGacha(WorldInfo* _info)
 int Gacha::getPrice()
 {
     return _price;
+}
+
+void Gacha::setOpponent(bool isOpponent)
+{
+    _isOppnentGacha = isOpponent;
+    auto image = this->getChildByName<Sprite*>("image");
+    image->setColor(Color3B::YELLOW);
+
+}
+
+bool Gacha::isOpponent()
+{
+    return _isOppnentGacha;
 }

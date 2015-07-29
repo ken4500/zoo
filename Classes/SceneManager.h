@@ -29,18 +29,24 @@ public:
     void backMainScene();
     
     bool isNetwork();
+    bool isHost();
     void showPeerList();
     void receiveMultiplayerInvitations();
     void sendData(const void* data, unsigned long length);
-
-
     
+    void setOpponentUserInfo(std::string name, int userId);
+    void sendUserInfo();
+
 private:
     std::unique_ptr<NetworkingWrapper> networkingWrapper;
     Scene* _scene;
     bool _isNetwork;
+    int _userId;
+    int _opponentUserId;
+    std::string _opponentName;
     void receivedData(const void* data, unsigned long length);
     void stateChanged(ConnectionState state);
+    
     
     SceneManager();
     ~SceneManager();

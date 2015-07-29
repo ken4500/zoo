@@ -10,6 +10,7 @@
 #include "Gacha.h"
 #include "Animal.h"
 #include "CoinTree.h"
+#include "SceneManager.h"
 
 using namespace cocos2d;
 
@@ -38,6 +39,7 @@ void WorldMap::onEnter()
             object->setLocalZOrder(_calcObjectZOrder(object));
         }
     }
+    setCascadeOpacityEnabled(true);
 
     this->setupTouchHandling();
 }
@@ -51,7 +53,7 @@ void WorldMap::update(float dt)
     if (_targetPoint != Vec2::ZERO) {
         for(auto node : children) {
             int tag = node->getTag();
-            if (tag != (int)MainSceneTag::Animal) {
+            if (tag != (int)EntityTag::Animal) {
                 continue;
             }
 
@@ -68,8 +70,8 @@ void WorldMap::update(float dt)
     // Zオーダー更新
     for(auto node : children) {
         int tag = node->getTag();
-        if (tag != (int)MainSceneTag::Animal
-            && tag != (int)MainSceneTag::EnemyAnimal)
+        if (tag != (int)EntityTag::Animal
+            && tag != (int)EntityTag::EnemyAnimal)
         {
             continue;
         }
@@ -153,8 +155,9 @@ void WorldMap::setupTouchHandling()
     {
         bool isTouchGacha = false;
         auto state = WorldManager::getInstance()->getSceneState();
-        if (_gacha && state != SceneState::Battle) {
-            auto image = _gacha->getChildByName<Sprite*>("image");
+        auto gacha = WorldManager::getInstance()->getGacha();
+        if (gacha && state != SceneState::Battle) {
+            auto image = gacha->getChildByName<Sprite*>("image");
             Rect targetBox = image->getBoundingBox();
             targetBox.origin = image->convertToWorldSpaceAR(targetBox.origin);
             Point location = touch->getLocationInView();
@@ -192,7 +195,7 @@ void WorldMap::setupTouchHandling()
             _targetPoint = Vec2::ZERO;
             auto children = getChildren();
             for(auto node : children) {
-                if (node->getTag() == (int)MainSceneTag::Animal) {
+                if (node->getTag() == (int)EntityTag::Animal) {
                     auto animal = dynamic_cast<Animal*>(node);
                     if (animal && animal->getState() == AnimalState::MoveTarget) {
                         animal->startWalk();
@@ -209,7 +212,7 @@ void WorldMap::setupTouchHandling()
             _targetPoint = Vec2::ZERO;
             auto children = getChildren();
             for(auto node : children) {
-                if (node->getTag() == (int)MainSceneTag::Animal) {
+                if (node->getTag() == (int)EntityTag::Animal) {
                     auto animal = dynamic_cast<Animal*>(node);
                     if (animal && animal->getState() == AnimalState::MoveTarget) {
                         animal->startWalk();
@@ -268,9 +271,17 @@ void WorldMap::setCurrentWidth(Length* width, std::function<void ()> callback)
 
 void WorldMap::setGacha(Gacha* gacha)
 {
-    _gacha = gacha;
-    gacha->setPosition(Vec2(0, 0));
-    gacha->setLocalZOrder(_calcObjectZOrder(gacha));
+    if (SceneManager::getInstance()->isNetwork()) {
+        gacha->setOpacity(200);
+        if (gacha->isOpponent()) {
+            gacha->setLocalZOrder(_calcObjectZOrder(gacha) - 1);
+        } else {
+            gacha->setLocalZOrder(_calcObjectZOrder(gacha));
+        }
+    } else {
+        gacha->setPosition(Vec2(0, 0));
+        gacha->setLocalZOrder(_calcObjectZOrder(gacha));
+    }
     addChild(gacha);
 }
 
@@ -280,18 +291,39 @@ void WorldMap::setCoinTree(CoinTree* tree)
     addChild(tree);
 }
 
-Gacha* WorldMap::getGacha()
-{
-    return _gacha;
-}
-
 void WorldMap::releaseAnimal(Animal* animal, std::function<void ()> callback)
 {
-    float gachaHeight = _gacha->getGachaHeight();
-    animal->setPosition(_gacha->getPosition() + Vec2(0, gachaHeight));
+    auto gacha = WorldManager::getInstance()->getGacha();
+    float gachaHeight = gacha->getGachaHeight();
+    animal->setPosition(gacha->getPosition() + Vec2(0, gachaHeight));
     animal->setLocalZOrder(2000);
     addChild(animal);
-    auto target = _gacha->getPosition() + Vec2(rand_0_1() * gachaHeight * 2 - gachaHeight, -gachaHeight * 1.0f);
+    Vec2 target;
+    if (SceneManager::getInstance()->isNetwork()) {
+        if (SceneManager::getInstance()->isHost()) {
+            target = gacha->getPosition() + Vec2(-gachaHeight, -gachaHeight * 1.0f);
+        } else {
+            target = gacha->getPosition() + Vec2(gachaHeight, -gachaHeight * 1.0f);
+        }
+    } else {
+        target = gacha->getPosition() + Vec2(rand_0_1() * gachaHeight * 2 - gachaHeight, -gachaHeight * 1.0f);
+    }
+    animal->jump(target, gachaHeight * 2, callback);
+}
+
+void WorldMap::releaseOpponentAnimal(Animal* animal, std::function<void ()> callback)
+{
+    auto gacha = WorldManager::getInstance()->getOpponentGacha();
+    float gachaHeight = gacha->getGachaHeight();
+    animal->setPosition(gacha->getPosition() + Vec2(0, gachaHeight));
+    animal->setLocalZOrder(2000);
+    addChild(animal);
+    Vec2 target;
+    if (SceneManager::getInstance()->isHost()) {
+        target = gacha->getPosition() + Vec2(gachaHeight, -gachaHeight * 1.0f);
+    } else {
+        target = gacha->getPosition() + Vec2(-gachaHeight, -gachaHeight * 1.0f);
+    }
     animal->jump(target, gachaHeight * 2, callback);
 }
 
@@ -330,15 +362,17 @@ void WorldMap::addEnemyAnimal(Animal* animal, Vec2 targetPoint)
 
 void WorldMap::hideGacha()
 {
-    if (_gacha) {
-        _gacha->runAction(FadeOut::create(0.5f));
+    auto gacha = WorldManager::getInstance()->getGacha();
+    if (gacha) {
+        gacha->runAction(FadeOut::create(0.5f));
     }
 }
 
 void WorldMap::showGacha()
 {
-    if (_gacha) {
-        _gacha->runAction(FadeIn::create(0.5f));
+    auto gacha = WorldManager::getInstance()->getGacha();
+    if (gacha) {
+        gacha->runAction(FadeIn::create(0.5f));
     }
 }
 

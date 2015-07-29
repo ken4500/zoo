@@ -26,6 +26,8 @@ public:
     void lotteryGacha(WorldInfo* _info);
     void setNewGacha(WorldInfo* _info);
     int getPrice();
+    void setOpponent(bool isOpponent);
+    bool isOpponent();
     
     std::function<void()> finishGachaCallback;
 
@@ -33,6 +35,7 @@ protected:
     cocostudio::timeline::ActionTimeline* _timeline;
     int _least;
     int _price;
+    bool _isOppnentGacha;
     std::vector<float> _probabilityList;
     std::vector<std::string> _rewardList;
     std::vector<bool> _hitList;

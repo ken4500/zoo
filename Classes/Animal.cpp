@@ -87,8 +87,10 @@ bool Animal::initWithSpeceis(Species* species, float size)
     _offense = size / 3;
     _battleEffect = NULL;
     _timeLineAction = NULL;
+    _isOpponent = false;
+    _isEnemy = false;
     
-    setTag((int)MainSceneTag::Animal);
+    setTag((int)EntityTag::Animal);
     setCascadeOpacityEnabled(true);
 
     
@@ -409,10 +411,27 @@ void Animal::setIsEnmey(bool isEnemy)
 {
     _isEnemy = isEnemy;
     if (isEnemy) {
-        setTag((int)MainSceneTag::EnemyAnimal);
+        setTag((int)EntityTag::EnemyAnimal);
         _image->setColor(Color3B(COLOR_RED));
     } else {
-        setTag((int)MainSceneTag::EnemyAnimal);
+        setTag((int)EntityTag::EnemyAnimal);
+        _image->setColor(Color3B::WHITE);
+    }
+}
+
+bool Animal::isOpponent()
+{
+    return _isOpponent;
+}
+
+void Animal::setIsOpponent(bool isOpponent)
+{
+    _isOpponent = isOpponent;
+    if (isOpponent) {
+        setTag((int)EntityTag::OpponentAnimal);
+        _image->setColor(Color3B(COLOR_YELLOW));
+    } else {
+        setTag((int)EntityTag::EnemyAnimal);
         _image->setColor(Color3B::WHITE);
     }
 }

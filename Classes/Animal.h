@@ -30,6 +30,8 @@ public:
     std::string getName();
     bool isEnemy();
     void setIsEnmey(bool isEnemy);
+    bool isOpponent();
+    void setIsOpponent(bool isOpponent);
     bool isDead();
     bool isFree();
     AnimalState getState();
@@ -66,6 +68,7 @@ protected:
     Action* _moveAction;
     Action* _timeLineAction;
     bool _isEnemy;
+    bool _isOpponent;
     AbstractBattleEntity* _target;
     AnimalState _state;
     float _maxHp;

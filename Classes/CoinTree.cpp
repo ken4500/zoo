@@ -21,6 +21,7 @@ bool CoinTree::init() {
     _preDropPos = -1;
     _dropCount = 5;
     _isSwaying = false;
+    setTag((int)EntityTag::CoinTree);
 
     return true;
 }

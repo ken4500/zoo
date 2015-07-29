@@ -32,6 +32,8 @@ SceneManager::SceneManager()
     _isNetwork = false;
     this->networkingWrapper = std::unique_ptr<NetworkingWrapper>(new NetworkingWrapper());
     this->networkingWrapper->setDelegate(this);
+    _userId = 0;
+    _opponentUserId = 0;
 }
 
 SceneManager::~SceneManager()
@@ -111,6 +113,15 @@ bool SceneManager::isNetwork()
     return _isNetwork;
 }
 
+bool SceneManager::isHost()
+{
+    if (_userId > _opponentUserId) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 void SceneManager::showPeerList()
 {
     networkingWrapper->showPeerList();
@@ -145,6 +156,7 @@ void SceneManager::stateChanged(ConnectionState state)
         case ConnectionState::CONNECTED:
             CCLOG("Connected");
             if (isNetwork() == false) {
+                sendUserInfo();
                 enterMultiBattleScene();
             }
             break;
@@ -160,6 +172,19 @@ void SceneManager::stateChanged(ConnectionState state)
         default:
             break;
     }
+}
+
+void SceneManager::setOpponentUserInfo(std::string name, int userId)
+{
+    _opponentName = name;
+    _opponentUserId = userId;
+}
+
+void SceneManager::sendUserInfo()
+{
+    auto name = networkingWrapper->getDeviceName();
+    _userId = rand() % 100000;
+    CommandGenerater::sendUserInfo(name, _userId);
 }
 
 

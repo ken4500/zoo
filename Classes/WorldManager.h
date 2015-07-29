@@ -43,6 +43,8 @@ public:
     int getGachaPrice();
     int getCoin();
     void addCoin(int addCoin);
+    Gacha* getGacha();
+    Gacha* getOpponentGacha();
 
     // game logic
     void lotteryGacha();
@@ -76,6 +78,7 @@ private:
     WorldInfo* _info;
     WorldMap* _map;
     Gacha* _gacha;
+    Gacha* _opponentGacha;
     SceneState _state;
     std::vector<Animal*> _animalList;
     std::vector<Animal*> _enemyAnimalList;

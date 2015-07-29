@@ -29,11 +29,11 @@ public:
     Length* getMaxWidth();
     void setCurrentWidth(Length* length, std::function<void ()> callback);
     void setGacha(Gacha* gacha);
-    Gacha* getGacha();
     bool isMaxScale();
     void setCoinTree(CoinTree* tree);
 
     void releaseAnimal(Animal* animal, std::function<void ()> callback);
+    void releaseOpponentAnimal(Animal* animal, std::function<void ()> callback);
     void addAnimalAtRandomPoint(Animal* animal);
     void addAnimal(Animal* animal, Vec2 targetPoint);
     void addEnemyAnimalAtOutRandomPoint(Animal* animal);
@@ -45,7 +45,6 @@ public:
 protected:
     Length* _maxWidth;
     Length* _currentWidth;
-    Gacha* _gacha;
     Vec2 _targetPoint;
     
     int _calcObjectZOrder(Node* node);

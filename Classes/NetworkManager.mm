@@ -117,18 +117,24 @@
 // Override this method to filter out peers based on application specific needs
 - (BOOL)browserViewController:(MCBrowserViewController *)browserViewController shouldPresentNearbyPeer:(MCPeerID *)peerID withDiscoveryInfo:(NSDictionary *)info
 {
+    if (peerID.displayName == _peerID.displayName) {
+        return NO;
+    }
     return YES;
 }
 
 // Override this to know when the user has pressed the "done" button in the MCBrowserViewController
 - (void)browserViewControllerDidFinish:(MCBrowserViewController *)browserViewController
 {
+    [self stopAdvertisingAvailability];
     [browserViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 // Override this to know when the user has pressed the "cancel" button in the MCBrowserViewController
 - (void)browserViewControllerWasCancelled:(MCBrowserViewController *)browserViewController
 {
+    [self stopAdvertisingAvailability];
+    [self disconnect];
     [browserViewController dismissViewControllerAnimated:YES completion:nil];
 }
 

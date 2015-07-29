@@ -128,6 +128,16 @@ void WorldManager::addCoin(int addCoin)
     }
 }
 
+Gacha* WorldManager::getGacha()
+{
+    return _gacha;
+}
+
+Gacha* WorldManager::getOpponentGacha()
+{
+    return _opponentGacha;
+}
+
 #pragma - public method
 
 void WorldManager::resetData()
@@ -376,7 +386,8 @@ void WorldManager::endResult()
 #pragma - network game logic
 void WorldManager::releaseAnimalByNetwork(Animal* animal)
 {
-    _map->releaseAnimal(animal, nullptr);
+    animal->setIsOpponent(true);
+    _map->releaseOpponentAnimal(animal, nullptr);
 }
 
 void WorldManager::createTreeByNetwork(CoinTree* tree, Vec2 worldPosition)
@@ -522,7 +533,7 @@ void WorldManager::_transitionMap(WorldInfo* preWorldInfo, WorldInfo* newWorldIn
     newMap->setCurrentWidth(newWorldInfo->width, [this, newMap, preWorldInfo, newWorldInfo]{
         auto children = _map->getChildren();
         for(auto node : children) {
-            if (node->getTag() == (int)MainSceneTag::Animal) {
+            if (node->getTag() == (int)EntityTag::Animal) {
                 node->retain();
                 node->removeFromParent();
                 newMap->addChild(node);
@@ -622,6 +633,13 @@ void WorldManager::_createMultiBattlwMap()
     _gacha->setScale(gachaScale);
     _gacha->setNewGacha(_info);
     _map->setGacha(_gacha);
+
+    _opponentGacha = dynamic_cast<Gacha*>(CSLoader::createNode("Gacha.csb"));
+    gachaScale = getImageScale(gachaImage, gachaLength);
+    _opponentGacha->setScale(gachaScale);
+    _opponentGacha->setNewGacha(_info);
+    _map->setGacha(_opponentGacha);
+    _opponentGacha->setOpponent(true);
 
     _animalList = std::vector<Animal*>();
     _enemyAnimalList = std::vector<Animal*>();
