@@ -34,7 +34,7 @@ public:
     void receiveMultiplayerInvitations();
     void sendData(const void* data, unsigned long length);
     
-    void setOpponentUserInfo(std::string name, int userId);
+    void setOpponentUserInfo(std::string name, int userId, int time);
     void sendUserInfo();
 
 private:
@@ -42,7 +42,9 @@ private:
     Scene* _scene;
     bool _isNetwork;
     int _userId;
+    double _startTime;
     int _opponentUserId;
+    double _opponentStartTime;
     std::string _opponentName;
     void receivedData(const void* data, unsigned long length);
     void stateChanged(ConnectionState state);

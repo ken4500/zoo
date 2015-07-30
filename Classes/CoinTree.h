@@ -20,6 +20,7 @@ public:
     CREATE_FUNC(CoinTree);
     bool init() override;
     void setLength(Length* length);
+    Length* getLength();
     void sprout();
     void sway();
     void dropCoin();
@@ -28,12 +29,17 @@ public:
     bool addDamage(float damage);
     void disappear();
     bool isDead();
+    int getId();
+    void setId(int id);
+    Vec2 getRealPosition();
+    void setRealPosition(Vec2 position);
 
 protected:
     cocostudio::timeline::ActionTimeline* _timeline;
     cocos2d::Sprite* _image;
     cocos2d::Node* _dropListNode;
     std::vector<cocos2d::Node*> _dropPointList;
+    int _id;
     int _dropCoin;
     int _dropCount;
     int _preDropPos;

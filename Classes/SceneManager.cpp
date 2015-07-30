@@ -88,7 +88,6 @@ WorldSceneInterface* SceneManager::getWorldScene()
 
 void SceneManager::enterMultiBattleScene()
 {
-
     _isNetwork = true;
     _scene = MultiBattleScene::createScene();
     Director::getInstance()->replaceScene(
@@ -174,16 +173,21 @@ void SceneManager::stateChanged(ConnectionState state)
     }
 }
 
-void SceneManager::setOpponentUserInfo(std::string name, int userId)
+void SceneManager::setOpponentUserInfo(std::string name, int userId, int time)
 {
     _opponentName = name;
     _opponentUserId = userId;
+    _opponentStartTime = time;
+    
+    CCLOG("player time = %f, opponent time = %f", _startTime, _opponentStartTime);
+    CCLOG("diff time = %f", _startTime - _opponentStartTime);
 }
 
 void SceneManager::sendUserInfo()
 {
     auto name = networkingWrapper->getDeviceName();
     _userId = rand() % 100000;
+    _startTime = ZUtil::getTime();
     CommandGenerater::sendUserInfo(name, _userId);
 }
 

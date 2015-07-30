@@ -87,7 +87,9 @@ void WorldMap::update(float dt)
     auto manager = WorldManager::getInstance();
     auto state = manager->getSceneState();
     if (state == SceneState::Battle
-        || state == SceneState::TutorialBattle) {
+        || state == SceneState::TutorialBattle
+        || state == SceneState::MultiBattle)
+    {
         auto animalList = manager->getAnimalList();
         auto enemyAnimalList = manager->getEnemyAnimalList();
         auto treeList = manager->getCoinTreeList();
@@ -197,7 +199,7 @@ void WorldMap::setupTouchHandling()
             for(auto node : children) {
                 if (node->getTag() == (int)EntityTag::Animal) {
                     auto animal = dynamic_cast<Animal*>(node);
-                    if (animal && animal->getState() == AnimalState::MoveTarget) {
+                    if (animal && animal->getState() == AnimalState::Dash) {
                         animal->startWalk();
                     }
                 }
@@ -214,7 +216,7 @@ void WorldMap::setupTouchHandling()
             for(auto node : children) {
                 if (node->getTag() == (int)EntityTag::Animal) {
                     auto animal = dynamic_cast<Animal*>(node);
-                    if (animal && animal->getState() == AnimalState::MoveTarget) {
+                    if (animal && animal->getState() == AnimalState::Dash) {
                         animal->startWalk();
                     }
                 }
@@ -274,9 +276,9 @@ void WorldMap::setGacha(Gacha* gacha)
     if (SceneManager::getInstance()->isNetwork()) {
         gacha->setOpacity(200);
         if (gacha->isOpponent()) {
-            gacha->setLocalZOrder(_calcObjectZOrder(gacha) - 1);
-        } else {
             gacha->setLocalZOrder(_calcObjectZOrder(gacha));
+        } else {
+            gacha->setLocalZOrder(_calcObjectZOrder(gacha) - 1);
         }
     } else {
         gacha->setPosition(Vec2(0, 0));
@@ -289,6 +291,7 @@ void WorldMap::setCoinTree(CoinTree* tree)
 {
     tree->setLocalZOrder(_calcObjectZOrder(tree));
     addChild(tree);
+    //tree->sprout();
 }
 
 void WorldMap::releaseAnimal(Animal* animal, std::function<void ()> callback)

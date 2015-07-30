@@ -73,6 +73,8 @@ void MenuLayer::_pushMultiPlayButton(cocos2d::Ref* pSender, cocos2d::ui::Widget:
     if (eEventType == ui::Widget::TouchEventType::ENDED) {
         SoundManager::getInstance()->playDecideEffect2();
         SceneManager::getInstance()->enterMultiBattleScene();
+
+        WorldManager::getInstance()->startMultiplayTest();
     }
 }
 

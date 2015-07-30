@@ -23,6 +23,7 @@ enum class SceneState {
     TutorialGacha,
     Normal,
     Battle,
+    MultiBattle,
     ShowResult,
 };
 
@@ -39,6 +40,7 @@ public:
     SceneState getSceneState();
     std::vector<Animal*> getAnimalList();
     std::vector<Animal*> getEnemyAnimalList();
+    std::vector<Animal*> getOpponentAnimalList();
     std::vector<CoinTree*> getCoinTreeList();
     int getGachaPrice();
     int getCoin();
@@ -52,6 +54,8 @@ public:
     WorldInfo* levelup();
     void startTutorial();
     void startBattle();
+    void startMultiplayBattle();
+    void startMultiplayTest();
     void startTutorialBattle();
     void endBattle(bool win, float showResultViewDelay);
     void endBattle(bool win);
@@ -60,7 +64,7 @@ public:
     
     // network game logic
     void releaseAnimalByNetwork(Animal* animal);
-    void createTreeByNetwork(CoinTree* tree, Vec2 worldPosition);
+    void createTreeByNetwork(CoinTree* tree);
     
     // util
     float getImageScale(Sprite* image, Length* width);
@@ -82,6 +86,7 @@ private:
     SceneState _state;
     std::vector<Animal*> _animalList;
     std::vector<Animal*> _enemyAnimalList;
+    std::vector<Animal*> _opponentAnimalList;
     std::vector<CoinTree*> _coinTreeList;
     EnemyGenerater* _enemyGenerater;
     

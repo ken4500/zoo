@@ -43,7 +43,7 @@ enum class AnimalState
     Stop,
     Jump,
     Walk,
-    MoveTarget,
+    Dash,
     Battle,
     Dead,
     Reborn,

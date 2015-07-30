@@ -84,15 +84,12 @@ void MultiBattleScene::onEnter()
     Layer::onEnter();
     this->setupTouchHandling();
     
-    if (WorldManager::getInstance()->getSceneState() == SceneState::Tutorial) {
-        WorldManager::getInstance()->startTutorial();
-    }
-    
     updateCoinLabel();
     SoundManager::getInstance()->playBattleStartEffect();
     SoundManager::getInstance()->fadeOutBgm(0.5f);
     SoundManager::getInstance()->playBattleBgm();
     _battleStartEffect();
+    WorldManager::getInstance()->startMultiplayBattle();
 }
 
 void MultiBattleScene::update(float dt)

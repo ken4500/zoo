@@ -21,6 +21,8 @@ public:
     static void printNode(Node* node);
     static void printNode(Node* node, std::function<void (Node*)> func);
 
+    static double getTime();
+
     static void setGlobalZOrderRecursive(Node* node, float zorder);
     
     static float calcDurationTime(cocostudio::timeline::ActionTimeline* timeline, std::string animationName);

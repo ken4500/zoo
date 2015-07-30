@@ -17,6 +17,11 @@ public:
     virtual bool isDead() = 0;
     virtual bool addDamage(float damage) = 0;
     virtual Rect getBodyRect() = 0;
+    virtual int getId() = 0;
+    virtual void setId(int id) = 0;
+
+    virtual Vec2 getRealPosition() = 0;
+    virtual void setRealPosition(Vec2 position) = 0;
 };
 
 

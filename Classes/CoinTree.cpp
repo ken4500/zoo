@@ -22,6 +22,7 @@ bool CoinTree::init() {
     _dropCount = 5;
     _isSwaying = false;
     setTag((int)EntityTag::CoinTree);
+    _id = rand();
 
     return true;
 }
@@ -53,6 +54,11 @@ void CoinTree::setLength(Length* length)
         float scale = WorldManager::getInstance()->getImageScale(_image, _length);
         setScale(scale);
     }
+}
+
+Length* CoinTree::getLength()
+{
+    return _length;
 }
 
 void CoinTree::sprout()
@@ -168,3 +174,29 @@ bool CoinTree::isDead()
     return _hp <= 0;
 }
 
+int CoinTree::getId()
+{
+    return _id;
+}
+
+void CoinTree::setId(int id)
+{
+    _id = id;
+}
+
+Vec2 CoinTree::getRealPosition()
+{
+    auto info = WorldManager::getInstance()->getWorldInfo();
+    auto pos = getPosition();
+    float x = pos.x * info->maxWidth->getMmLength() / info->imageWidth;
+    float y = pos.y * info->maxWidth->getMmLength() / info->imageWidth;
+    return Vec2(x, y);
+}
+
+void CoinTree::setRealPosition(Vec2 position)
+{
+    auto info = WorldManager::getInstance()->getWorldInfo();
+    float x = position.x * info->imageWidth / info->maxWidth->getMmLength();
+    float y = position.y * info->imageWidth / info->maxWidth->getMmLength();
+    setPosition(Vec2(x, y));
+}

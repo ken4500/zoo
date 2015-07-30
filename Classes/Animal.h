@@ -39,6 +39,10 @@ public:
     int getHash();
     int getCoin();
     Rect getBodyRect();
+    int getId();
+    void setId(int id);
+    Vec2 getRealPosition();
+    void setRealPosition(Vec2 position);
 
     void updateWorldScale();
     void jump(Vec2 target, float height, std::function<void ()> callback);
@@ -60,6 +64,7 @@ public:
     std::function<void ()> killAnimalCallback;
 
 protected:
+    int _id;
     Species* _species;
     cocos2d::Node* _rootNode;
     cocostudio::timeline::ActionTimeline* _timeline;
@@ -75,6 +80,8 @@ protected:
     float _hp;
     float _offense;
     ParticleSystemQuad* _battleEffect;
+    Vec2 _targetPointByWalk;
+    Vec2 _targetPointByDash;
     
     void onEnter() override;
     void update(float dt);

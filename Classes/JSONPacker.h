@@ -15,7 +15,8 @@ namespace JSONPacker
 struct CommandData
 {
     std::string commandName;
-    float time;
+    double time;
+    std::vector<int> intDataList;
     std::vector<float> numberDataList;
     std::vector<std::string> stringDataList;
 };

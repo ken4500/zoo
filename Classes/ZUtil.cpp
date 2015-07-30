@@ -8,6 +8,7 @@
 
 #include "ZUtil.h"
 #include "ZMath.h"
+#include <sys/time.h>
 
 void ZUtil::printVec(Vec2 vec)
 {
@@ -47,6 +48,13 @@ void ZUtil::_printNodeRecursive(Node* node, int count, std::function<void (Node*
     for (auto child : node->getChildren()) {
         _printNodeRecursive(child, count + 1, func);
     }
+}
+
+double ZUtil::getTime()
+{
+    struct timeval t;
+    gettimeofday(&t, NULL);
+    return t.tv_sec + t.tv_usec / 1000000.0;
 }
 
 void ZUtil::setGlobalZOrderRecursive(Node* node, float zorder)

@@ -89,6 +89,7 @@ bool Animal::initWithSpeceis(Species* species, float size)
     _timeLineAction = NULL;
     _isOpponent = false;
     _isEnemy = false;
+    _id = rand();
     
     setTag((int)EntityTag::Animal);
     setCascadeOpacityEnabled(true);
@@ -159,8 +160,8 @@ void Animal::movePoint(Vec2 targetPoint, float dt)
         return;
     }
     
-    if (_state != AnimalState::MoveTarget) {
-        _state = AnimalState::MoveTarget;
+    if (_state != AnimalState::Dash) {
+        _state = AnimalState::Dash;
         stopAllActions();
         _timeLineAction = runAction(_timeline);
         _timeline->play("dash", true);
@@ -446,7 +447,7 @@ bool Animal::isFree()
     bool isFree = true;
     switch (_state) {
     case AnimalState::Battle:
-    case AnimalState::MoveTarget:
+    case AnimalState::Dash:
     case AnimalState::Dead:
         isFree = false;
         break;
@@ -491,6 +492,34 @@ Rect Animal::getBodyRect()
     imageRect.origin += getPosition();
     imageRect.size = imageRect.size * getScale();
     return imageRect;
+}
+
+int Animal::getId()
+{
+    return _id;
+}
+
+void Animal::setId(int id)
+{
+    _id = id;
+}
+
+Vec2 Animal::getRealPosition()
+{
+    auto info = WorldManager::getInstance()->getWorldInfo();
+    auto pos = getPosition();
+    float x = pos.x * info->maxWidth->getMmLength() / info->imageWidth;
+    float y = pos.y * info->maxWidth->getMmLength() / info->imageWidth;
+    return Vec2(x, y);
+}
+
+void Animal::setRealPosition(Vec2 position)
+{
+    auto info = WorldManager::getInstance()->getWorldInfo();
+    auto pos = getPosition();
+    float x = pos.x * info->imageWidth / info->maxWidth->getMmLength();
+    float y = pos.y * info->imageWidth / info->maxWidth->getMmLength();
+    setPosition(Vec2(x, y));
 }
 
 #pragma - private method
