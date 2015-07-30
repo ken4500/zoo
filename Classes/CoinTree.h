@@ -24,7 +24,7 @@ public:
     void sprout();
     void sway();
     void dropCoin();
-    void fellDown();
+    void fellDown(bool dropCoin);
     Rect getBodyRect();
     bool addDamage(float damage);
     void disappear();
@@ -33,6 +33,8 @@ public:
     void setId(int id);
     Vec2 getRealPosition();
     void setRealPosition(Vec2 position);
+    
+    std::function<void (AbstractBattleEntity* entity)> deadCallback;
 
 protected:
     cocostudio::timeline::ActionTimeline* _timeline;
@@ -47,6 +49,7 @@ protected:
     float _hp;
     Length* _length;
     bool _isSwaying;
+    bool _isDead;
     
     void onEnter() override;
 

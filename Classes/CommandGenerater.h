@@ -23,8 +23,10 @@ public:
     static void sendData(std::vector<CommandData> data);
 
     static CommandData sendUserInfo(std::string name, int userId);
-    static CommandData releaseAnimal(Animal* aniaml);
     static CommandData makeCoinTree(CoinTree* coinTree);
+    static CommandData deadCoinTree(CoinTree* coinTree);
+    static CommandData releaseAnimal(Animal* animal);
+    static CommandData removeAnimal(Animal* animal);
     static CommandData walkAnimal(Animal* animal);
     static CommandData dashAnimal(Animal* animal);
     static CommandData stopAnimal(Animal* animal);

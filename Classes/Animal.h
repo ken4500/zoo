@@ -63,9 +63,9 @@ public:
     void escape();
     void endFight();
     
-    std::function<void ()> deadCallback;
-    std::function<void ()> startFightCallback;
-    std::function<void ()> killAnimalCallback;
+    std::function<void (AbstractBattleEntity* entity)> deadCallback;
+    std::function<void (AbstractBattleEntity* entity, AbstractBattleEntity* fightEntity)> startFightCallback;
+    std::function<void (AbstractBattleEntity* entity, AbstractBattleEntity* killEntity)> killAnimalCallback;
 
 protected:
     int _id;

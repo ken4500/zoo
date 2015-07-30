@@ -22,6 +22,9 @@ public:
 
     virtual Vec2 getRealPosition() = 0;
     virtual void setRealPosition(Vec2 position) = 0;
+
+    std::function<void (AbstractBattleEntity* entity)> deadCallback;
+
 };
 
 

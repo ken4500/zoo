@@ -253,6 +253,9 @@ WorldInfo* WorldManager::levelup()
             it = _animalList.erase(it);
             if (_isNetwork == false) {
                 UserDataManager::getInstance()->removeAnimal(animal);
+            } else {
+                auto command = CommandGenerater::removeAnimal(animal);
+                CommandGenerater::sendData(command);
             }
             continue;
         }
@@ -335,7 +338,7 @@ void WorldManager::startBattle()
         enemyAnimal->setIsEnmey(true);
         _enemyAnimalList.push_back(enemyAnimal);
         _map->addEnemyAnimalAtOutRandomPoint(enemyAnimal);
-        enemyAnimal->deadCallback = [this, enemyAnimal]() {
+        enemyAnimal->deadCallback = [this, enemyAnimal](AbstractBattleEntity* entity) {
             addCoin(enemyAnimal->getCoin());
             auto coinEffect = CSLoader::createNode("GetCoin.csb");
             coinEffect->setPosition(enemyAnimal->getCenterPosition());
@@ -442,8 +445,35 @@ void WorldManager::releaseAnimalByNetwork(Animal* animal)
 
 void WorldManager::createTreeByNetwork(CoinTree* tree)
 {
+    tree->deadCallback = CC_CALLBACK_1(WorldManager::_deadCoinTreeCallback, this);
     _coinTreeList.push_back(tree);
     _map->setCoinTree(tree);
+}
+
+void WorldManager::deadTreeByNetwork(int treeId)
+{
+    for (auto it = _coinTreeList.begin(); it != _coinTreeList.end(); ) {
+        auto tree = (*it);
+        if (tree->getId() == treeId) {
+            tree->fellDown(false);
+            it = _coinTreeList.erase(it);
+            continue;
+        }
+        it++;
+    }
+}
+
+void WorldManager::removeAnimalByNetwork(int animalId)
+{
+    for (auto it = _opponentAnimalList.begin(); it != _opponentAnimalList.end(); ) {
+        auto animal = (*it);
+        if (animal->getId() == animalId) {
+            animal->runAction(Sequence::create(ScaleTo::create(0.5, 0), RemoveSelf::create(), NULL));
+            it = _opponentAnimalList.erase(it);
+            continue;
+        }
+        it++;
+    }
 }
 
 #pragma - util method
@@ -656,6 +686,10 @@ void WorldManager::_createMap()
     _info = UserDataManager::getInstance()->getWorldInfo();
     _map = dynamic_cast<WorldMap*>(CSLoader::createNode(_info->mapName));
     _map->initSize(_info->maxWidth, _info->width);
+    _animalList = std::vector<Animal*>();
+    _enemyAnimalList = std::vector<Animal*>();
+    _opponentAnimalList = std::vector<Animal*>();
+    _coinTreeList = std::vector<CoinTree*>();
 
     if (_state == SceneState::Tutorial) {
         _enableNextAction = false;
@@ -691,6 +725,10 @@ void WorldManager::_createMultiBattlwMap()
     _multiBattleCoin = INIT_MULTIBATTLE_COIN;
     _map = dynamic_cast<WorldMap*>(CSLoader::createNode(_info->mapName));
     _map->initSize(_info->maxWidth, _info->width);
+    _animalList = std::vector<Animal*>();
+    _enemyAnimalList = std::vector<Animal*>();
+    _opponentAnimalList = std::vector<Animal*>();
+    _coinTreeList = std::vector<CoinTree*>();
 
     _opponentGacha = dynamic_cast<Gacha*>(CSLoader::createNode("Gacha.csb"));
     auto gachaImage = _gacha->getChildByName<Sprite*>("image");
@@ -707,10 +745,6 @@ void WorldManager::_createMultiBattlwMap()
     _gacha->setNewGacha(_info);
     _map->setGacha(_gacha);
     _gacha->finishGachaCallback = CC_CALLBACK_0(WorldManager::_finishGachaCallback, this);
-
-    _animalList = std::vector<Animal*>();
-    _enemyAnimalList = std::vector<Animal*>();
-    _opponentAnimalList = std::vector<Animal*>();
 }
 
 void WorldManager::_makeCoinTree()
@@ -718,6 +752,7 @@ void WorldManager::_makeCoinTree()
     auto tree = dynamic_cast<CoinTree*>(CSLoader::createNode("CoinTree.csb"));
     tree->setPosition((getRadomPlace() + Vec2(0, -100)) * 0.8f);
     tree->setLength(new Length(_info->width->getMmLength() * 0.06));
+    tree->deadCallback = CC_CALLBACK_1(WorldManager::_deadCoinTreeCallback, this);
     _map->setCoinTree(tree);
     _coinTreeList.push_back(tree);
     if (_isNetwork) {
@@ -768,6 +803,12 @@ void WorldManager::_makeCoinTreePerTime(float dt)
     Director::getInstance()->getScheduler()->schedule(CC_CALLBACK_1(WorldManager::_makeCoinTreePerTime, this), this, nextTime, false, "next_make_tree");
 }
 
+void WorldManager::_deadCoinTreeCallback(AbstractBattleEntity* deadTree)
+{
+    CoinTree* tree = dynamic_cast<CoinTree*>(deadTree);
+    auto command = CommandGenerater::deadCoinTree(tree);
+    CommandGenerater::sendData(command);
+}
 
 #pragma - tutorial
 
@@ -780,12 +821,12 @@ void WorldManager::_startTutrialBattleScene1()
     auto scene = SceneManager::getInstance()->getMainScene();
 
     // 1匹目の敵と接触
-    enemyAnimal->startFightCallback = [this, scene]() {
+    enemyAnimal->startFightCallback = [this, scene](AbstractBattleEntity* e, AbstractBattleEntity* t) {
         scene->playNovel("novel_tutorial_battle2", NULL, false);
     };
     
     // 1匹目の敵死亡
-    enemyAnimal->deadCallback = [this, scene]() {
+    enemyAnimal->deadCallback = [this, scene](AbstractBattleEntity* e) {
         scene->playNovel("novel_tutorial_battle3", [this]{
             _startTutrialBattleScene2();
         }, false);
@@ -802,7 +843,7 @@ void WorldManager::_startTutrialBattleScene2()
         ant->setIsEnmey(true);
         _enemyAnimalList.push_back(ant);
         _map->addEnemyAnimalAtOutRandomPoint(ant);
-        ant->deadCallback = [this, scene]{
+        ant->deadCallback = [this, scene] (AbstractBattleEntity* d) {
             int alive = _getAliveEnemy();
             if (alive == 7 && appearKabutomushi == false) {
                 appearKabutomushi = true;
@@ -811,7 +852,7 @@ void WorldManager::_startTutrialBattleScene2()
                 beetle->setIsEnmey(true);
                 _enemyAnimalList.push_back(beetle);
                 _map->addEnemyAnimal(beetle, Vec2(500, 0));
-                beetle->killAnimalCallback = [this] {
+                beetle->killAnimalCallback = [this] (AbstractBattleEntity* e, AbstractBattleEntity* k) {
                     _startTutrialBattleScene3();
                 };
                 scene->playNovel("novel_tutorial_battle4", NULL, false);

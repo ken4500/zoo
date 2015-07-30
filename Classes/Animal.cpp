@@ -115,7 +115,7 @@ void Animal::update(float dt)
             if (kill) {
                 endFight();
                 if (killAnimalCallback) {
-                    killAnimalCallback();
+                    killAnimalCallback(this, _target);
                 }
             }
         }
@@ -237,7 +237,7 @@ void Animal::fight(AbstractBattleEntity* entity)
     _moveAction->retain();
     
     if (startFightCallback) {
-        startFightCallback();
+        startFightCallback(this, _target);
     }
 }
 
@@ -249,7 +249,7 @@ void Animal::dead()
         _timeline->play("dead", false);
         _timeline->setLastFrameCallFunc([&]{
             if (deadCallback) {
-                deadCallback();
+                deadCallback(this);
             }
             _timeline->clearLastFrameCallFunc();
         });

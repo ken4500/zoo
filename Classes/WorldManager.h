@@ -16,6 +16,7 @@ class Gacha;
 class Animal;
 class WorldMap;
 class CoinTree;
+class AbstractBattleEntity;
 
 enum class SceneState {
     Tutorial,
@@ -67,6 +68,8 @@ public:
     // network game logic
     void releaseAnimalByNetwork(Animal* animal);
     void createTreeByNetwork(CoinTree* tree);
+    void deadTreeByNetwork(int treeId);
+    void removeAnimalByNetwork(int animalId);
     
     // util
     float getImageScale(Sprite* image, Length* width);
@@ -112,6 +115,7 @@ private:
     // network
     void _sendAnimalStatus(float dt);
     void _makeCoinTreePerTime(float dt);
+    void _deadCoinTreeCallback(AbstractBattleEntity* deadTree);
 
     // tutorial
     void _startTutrialBattleScene1();

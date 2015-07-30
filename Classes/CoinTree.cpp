@@ -23,6 +23,7 @@ bool CoinTree::init() {
     _isSwaying = false;
     setTag((int)EntityTag::CoinTree);
     _id = rand();
+    _isDead = false;
 
     return true;
 }
@@ -103,18 +104,28 @@ void CoinTree::dropCoin()
     timeline->play("drop", false);
 }
 
-void CoinTree::fellDown()
+void CoinTree::fellDown(bool drop)
 {
-    _timeline->play("fall", false);
+    if (isDead()) {
+        return;
+    }
     
-    for (int i = 0; i < 5; i++) {
-        runAction(Sequence::create(
-            DelayTime::create(0.1 * i),
-            CallFunc::create([this]{
-                dropCoin();
-            }),
-            NULL
-        ));
+    _timeline->play("fall", false);
+    _isDead = true;
+    if (deadCallback) {
+        deadCallback(this);
+    }
+    
+    if (drop) {
+        for (int i = 0; i < 5; i++) {
+            runAction(Sequence::create(
+                DelayTime::create(0.1 * i),
+                CallFunc::create([this]{
+                    dropCoin();
+                }),
+                NULL
+            ));
+        }
     }
 }
 
@@ -143,7 +154,7 @@ bool CoinTree::addDamage(float damage)
     
     if (0 < _hp && _hp <= damage) {
         _hp = 0;
-        fellDown();
+        fellDown(true);
         return true;
     }
     if (_isSwaying == false) {
@@ -167,7 +178,7 @@ void CoinTree::disappear()
 
 bool CoinTree::isDead()
 {
-    return _hp <= 0;
+    return _isDead;
 }
 
 int CoinTree::getId()
