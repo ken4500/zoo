@@ -43,13 +43,16 @@ public:
     void setId(int id);
     Vec2 getRealPosition();
     void setRealPosition(Vec2 position);
+    Vec2 getTargetPointByWalk();
+    Vec2 getTargetPointByDash();
 
     void updateWorldScale();
     void jump(Vec2 target, float height, std::function<void ()> callback);
     void startFreeAction();
     void startWalk();
+    void startWalk(Vec2 targetPoint, Length speed);
     void startStop();
-    void movePoint(Vec2 targetPoint, float dt);
+    void startDash(Vec2 targetPoint, Length speed);
     void fight(AbstractBattleEntity* entity);
     void dead();
     void reborn();
@@ -86,6 +89,7 @@ protected:
     void onEnter() override;
     void update(float dt);
     void _changeAnimalImage();
+    void _stopMoveAction();
     
 };
 

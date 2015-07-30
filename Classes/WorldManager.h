@@ -42,11 +42,14 @@ public:
     std::vector<Animal*> getEnemyAnimalList();
     std::vector<Animal*> getOpponentAnimalList();
     std::vector<CoinTree*> getCoinTreeList();
+    Animal* getOpponentAnimal(int id);
+    CoinTree* getCointTree(int id);
     int getGachaPrice();
     int getCoin();
     void addCoin(int addCoin);
     Gacha* getGacha();
     Gacha* getOpponentGacha();
+    Length getDashSpeed();
 
     // game logic
     void lotteryGacha();
@@ -90,7 +93,6 @@ private:
     std::vector<CoinTree*> _coinTreeList;
     EnemyGenerater* _enemyGenerater;
     
-    
     void _leftTimeUpdate(float dt);
     void _endBattle();
     void _closeResult();
@@ -105,6 +107,10 @@ private:
     void _createMultiBattlwMap();
     void _makeCoinTree();
 
+    // network
+    void _sendAnimalStatus(float dt);
+
+    // tutorial
     void _startTutrialBattleScene1();
     void _startTutrialBattleScene2();
     void _startTutrialBattleScene3();

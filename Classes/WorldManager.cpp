@@ -110,6 +110,26 @@ std::vector<CoinTree*> WorldManager::getCoinTreeList()
     return _coinTreeList;
 }
 
+Animal* WorldManager::getOpponentAnimal(int id)
+{
+    for (auto animal : _opponentAnimalList) {
+        if (animal->getId() == id) {
+            return animal;
+        }
+    }
+    return nullptr;
+}
+
+CoinTree* WorldManager::getCointTree(int id)
+{
+    for (auto tree : _coinTreeList) {
+        if (tree->getId() == id) {
+            return tree;
+        }
+    }
+    return nullptr;
+}
+
 int WorldManager::getGachaPrice()
 {
     return _gacha->getPrice();
@@ -141,6 +161,11 @@ Gacha* WorldManager::getGacha()
 Gacha* WorldManager::getOpponentGacha()
 {
     return _opponentGacha;
+}
+
+Length WorldManager::getDashSpeed()
+{
+    return Length(_info->width->getMmLength() * 0.2);
 }
 
 #pragma - public method
@@ -183,7 +208,8 @@ void WorldManager::releaseAnimal(Animal* animal, bool hit)
     if (_isNetwork == false) {
         UserDataManager::getInstance()->addAnimal(animal);
     } else {
-        CommandGenerater::releaseAnimal(animal);
+        auto command = CommandGenerater::releaseAnimal(animal);
+        CommandGenerater::sendData(command);
     }
 
     _animalList.push_back(animal);
@@ -337,6 +363,9 @@ void WorldManager::startMultiplayBattle()
     _opponentAnimalList = std::vector<Animal*>();
     _enemyAnimalList = std::vector<Animal*>();
     _coinTreeList = std::vector<CoinTree*>();
+
+    Director::getInstance()->getScheduler()->schedule(CC_CALLBACK_1(WorldManager::_sendAnimalStatus, this), this, 0.5f, false, "send_animal_statu");
+
 }
 
 void WorldManager::startMultiplayTest()
@@ -677,7 +706,36 @@ void WorldManager::_makeCoinTree()
     _map->setCoinTree(tree);
     _coinTreeList.push_back(tree);
     if (_isNetwork) {
-        CommandGenerater::makeCoinTree(tree);
+        auto command = CommandGenerater::makeCoinTree(tree);
+        CommandGenerater::sendData(command);
+    }
+}
+
+#pragma - network
+
+void WorldManager::_sendAnimalStatus(float dt)
+{
+    std::vector<CommandData> commandList;
+    for (auto animal : _animalList) {
+        auto state = animal->getState();
+        switch (state) {
+            case AnimalState::Battle:
+                break;
+            case AnimalState::Dash:
+                commandList.push_back(CommandGenerater::dashAnimal(animal));
+                break;
+            case AnimalState::Walk:
+                commandList.push_back(CommandGenerater::walkAnimal(animal));
+                break;
+            case AnimalState::Stop:
+                break;
+            default:
+                break;
+        }
+    }
+    
+    if (commandList.size() > 0) {
+        CommandGenerater::sendData(commandList);
     }
 }
 

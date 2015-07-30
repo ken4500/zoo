@@ -32,6 +32,7 @@ void WorldMap::onEnter()
     Node::onEnter();
     
     this->scheduleUpdate();
+    this->schedule(CC_CALLBACK_1(WorldMap::updateDash, this), 0.5, "updateDash");
     
     auto mapObjects = getChildren();
     for (Node* object : mapObjects) {
@@ -44,29 +45,38 @@ void WorldMap::onEnter()
     this->setupTouchHandling();
 }
 
-void WorldMap::update(float dt)
+void WorldMap::updateDash(float dt)
 {
-    Node::update(dt);
+    if (_targetPoint == Vec2::ZERO) {
+        return;
+    }
+
+    Length dashSpeed = WorldManager::getInstance()->getDashSpeed();
     
     // 指定点まで移動
     auto children = getChildren();
-    if (_targetPoint != Vec2::ZERO) {
-        for(auto node : children) {
-            int tag = node->getTag();
-            if (tag != (int)EntityTag::Animal) {
-                continue;
-            }
+    for(auto node : children) {
+        int tag = node->getTag();
+        if (tag != (int)EntityTag::Animal) {
+            continue;
+        }
 
-            auto animal = dynamic_cast<Animal*>(node);
-            if (animal
-                && animal->getState() != AnimalState::Dead
-                && animal->getState() != AnimalState::Battle)
-            {
-                animal->movePoint(_targetPoint, dt);
-            }
+        auto animal = dynamic_cast<Animal*>(node);
+        if (animal
+            && animal->getState() != AnimalState::Dead
+            && animal->getState() != AnimalState::Battle)
+        {
+            animal->startDash(_targetPoint, dashSpeed);
         }
     }
+}
 
+
+void WorldMap::update(float dt)
+{
+    Node::update(dt);
+    auto children = getChildren();
+    
     // Zオーダー更新
     for(auto node : children) {
         int tag = node->getTag();

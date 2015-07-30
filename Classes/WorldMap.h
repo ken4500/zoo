@@ -22,6 +22,7 @@ public:
     CREATE_FUNC(WorldMap);
     bool init() override;
     void onEnter() override;
+    void updateDash(float dt);
     void update(float dt);
     void initSize(Length* maxWidth, Length* currentWidth);
 

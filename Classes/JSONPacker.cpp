@@ -16,69 +16,88 @@ namespace JSONPacker
 {
     std::string packCommandData(CommandData command)
     {
+        std::vector<CommandData> commandList;
+        commandList.push_back(command);
+        return packCommandData(commandList);
+    }
+
+    std::string packCommandData(std::vector<CommandData> commandList)
+    {
         rapidjson::Document document;
-        document.SetObject();
+        document.SetArray();
+        
+        for (auto command : commandList) {
+            rapidjson::Value commandDoc(rapidjson::kObjectType);
 
-        document.AddMember("c",  command.commandName.c_str(), document.GetAllocator());
-        document.AddMember("t",  command.time, document.GetAllocator());
-        
-        rapidjson::Value numList(rapidjson::kArrayType);
-        for (float number : command.numberDataList) {
-            numList.PushBack(number, document.GetAllocator());
-        }
-        
-        rapidjson::Value stringList(rapidjson::kArrayType);
-        for (std::string str : command.stringDataList) {
-            stringList.PushBack(str.c_str(), document.GetAllocator());
+            commandDoc.AddMember("c",  command.commandName.c_str(), document.GetAllocator());
+            commandDoc.AddMember("t",  command.time, document.GetAllocator());
+            
+            rapidjson::Value numList(rapidjson::kArrayType);
+            for (float number : command.numberDataList) {
+                numList.PushBack(number, document.GetAllocator());
+            }
+            
+            rapidjson::Value stringList(rapidjson::kArrayType);
+            for (std::string str : command.stringDataList) {
+                stringList.PushBack(str.c_str(), document.GetAllocator());
+            }
+
+            rapidjson::Value intList(rapidjson::kArrayType);
+            for (int i : command.intDataList) {
+                intList.PushBack(i, document.GetAllocator());
+            }
+            
+            commandDoc.AddMember("nl", numList, document.GetAllocator());
+            commandDoc.AddMember("sl", stringList, document.GetAllocator());
+            commandDoc.AddMember("il", intList, document.GetAllocator());
+
+            document.PushBack(commandDoc, document.GetAllocator());
         }
 
-        rapidjson::Value intList(rapidjson::kArrayType);
-        for (int i : command.intDataList) {
-            intList.PushBack(i, document.GetAllocator());
-        }
-        
-        document.AddMember("nl", numList, document.GetAllocator());
-        document.AddMember("sl", stringList, document.GetAllocator());
-        document.AddMember("il", intList, document.GetAllocator());
-        
         rapidjson::StringBuffer buffer;
         rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
         document.Accept(writer);
         
         return std::string(buffer.GetString(), buffer.Size());
     }
+
     
-    CommandData unpackCommandDataJSON(std::string json)
+    std::vector<CommandData> unpackCommandDataJSON(std::string json)
     {
+        std::vector<CommandData> commandList;
+    
         rapidjson::Document document;
         document.Parse<0>(json.c_str());
 
-        CommandData result;
-        result.commandName  = document["c"].GetString();
-        result.time         = document["t"].GetDouble();
+        for (int i = 0; i < document.Size(); i++) {
+            rapidjson::Value& commandDoc = document[i];
+            CommandData command;
+            
+            command.commandName  = commandDoc["c"].GetString();
+            command.time         = commandDoc["t"].GetDouble();
 
-        result.numberDataList = std::vector<float>();
-        rapidjson::Value& listDoc = document["nl"];
-        for (int i = 0; i < listDoc.Size(); i++) {
-            result.numberDataList.push_back(listDoc[i].GetDouble());
+            command.numberDataList = std::vector<float>();
+            rapidjson::Value& listDoc = commandDoc["nl"];
+            for (int i = 0; i < listDoc.Size(); i++) {
+                command.numberDataList.push_back(listDoc[i].GetDouble());
+            }
+
+            command.stringDataList = std::vector<std::string>();
+            listDoc = commandDoc["sl"];
+            for (int i = 0; i < listDoc.Size(); i++) {
+                command.stringDataList.push_back(listDoc[i].GetString());
+            }
+
+            command.intDataList = std::vector<int>();
+            listDoc = commandDoc["il"];
+            for (int i = 0; i < listDoc.Size(); i++) {
+                command.intDataList.push_back(listDoc[i].GetInt());
+            }
+
+            commandList.push_back(command);
         }
 
-        result.stringDataList = std::vector<std::string>();
-        listDoc = document["sl"];
-        CCLOG("#####json = %s", json.c_str());
-        CCLOG("#####command = %s", result.commandName.c_str());
-        CCLOG("#####size = %d", listDoc.Size());
-        for (int i = 0; i < listDoc.Size(); i++) {
-            result.stringDataList.push_back(listDoc[i].GetString());
-        }
-
-        result.intDataList = std::vector<int>();
-        listDoc = document["il"];
-        for (int i = 0; i < listDoc.Size(); i++) {
-            result.intDataList.push_back(listDoc[i].GetInt());
-        }
-        
-        return result;
+        return commandList;
     }
 
 }

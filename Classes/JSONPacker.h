@@ -21,8 +21,9 @@ struct CommandData
     std::vector<std::string> stringDataList;
 };
 
-CommandData unpackCommandDataJSON(std::string json);
+std::vector<CommandData> unpackCommandDataJSON(std::string json);
 std::string packCommandData(CommandData commandData);
+std::string packCommandData(std::vector<CommandData> commandList);
 
 }
 

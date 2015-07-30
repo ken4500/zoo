@@ -90,6 +90,7 @@ bool Animal::initWithSpeceis(Species* species, float size)
     _isOpponent = false;
     _isEnemy = false;
     _id = rand();
+    _moveAction = nullptr;
     
     setTag((int)EntityTag::Animal);
     setCascadeOpacityEnabled(true);
@@ -145,7 +146,9 @@ void Animal::jump(Vec2 target, float height, std::function<void ()> callback)
         }),
         DelayTime::create(jumpInterval),
         CallFunc::create([this, callback]{
-            startWalk();
+            if (isOpponent() == false) {
+                startWalk();
+            }
             if (callback) {
                 callback();
             }
@@ -154,7 +157,7 @@ void Animal::jump(Vec2 target, float height, std::function<void ()> callback)
     ));
 }
 
-void Animal::movePoint(Vec2 targetPoint, float dt)
+void Animal::startDash(Vec2 targetPoint, Length speed)
 {
     if (isDead()) {
         return;
@@ -162,25 +165,42 @@ void Animal::movePoint(Vec2 targetPoint, float dt)
     
     if (_state != AnimalState::Dash) {
         _state = AnimalState::Dash;
-        stopAllActions();
-        _timeLineAction = runAction(_timeline);
         _timeline->play("dash", true);
+    } else {
+        if ((_targetPointByDash - targetPoint).length() < 30) {
+            return;
+        }
     }
 
-//    int errorX = rand_0_1() * 150 - 75;
-//    int errorY = rand_0_1() * 150 - 75;
-//    targetPoint += Vec2(errorX, errorY);
+    _targetPointByDash = targetPoint;
+    float s = speed.getDisplayLength();
+    Vec2 move = targetPoint - this->getPosition();
 
-    auto parent = getParent();
-    if (parent == NULL) {
+    if (speed.getMmLength() == 0) {
         return;
     }
-    Vec2 diff = targetPoint - getPosition();
-    if (diff.length() > 30) {
-        diff.normalize();
-        Vec2 speed = diff * 200 / parent->getScale();
-        setPosition(getPosition() + speed * dt);
+
+    float duration = move.length() / s;
+    if (move.x < 0) {
+        _image->setFlippedX(false);
+    } else {
+        _image->setFlippedX(true);
     }
+
+
+    _stopMoveAction();
+    if (isOpponent()) {
+        _moveAction = this->runAction(MoveBy::create(duration, move));
+    } else {
+        _moveAction = this->runAction(Sequence::create(
+            MoveBy::create(duration, move),
+            CallFunc::create([this](){
+                startFreeAction();
+            }),
+            NULL
+        ));
+    }
+    _moveAction->retain();
 }
 
 void Animal::fight(AbstractBattleEntity* entity)
@@ -199,6 +219,7 @@ void Animal::fight(AbstractBattleEntity* entity)
         auto size = _image->getContentSize() * getScale();
     Vec2 effectPoint = ZMath::divideInternally(getPosition(), entity->getPosition(), 1, 1) + Vec2(0, size.height / 2);
     
+    _stopMoveAction();
     _moveAction = runAction(RepeatForever::create(Sequence::create(
         MoveTo::create(0.1f, targetPoint),
         CallFunc::create([this, effectPoint](){
@@ -215,6 +236,7 @@ void Animal::fight(AbstractBattleEntity* entity)
         DelayTime::create(0.5f),
         NULL
     )));
+    _moveAction->retain();
     
     if (startFightCallback) {
         startFightCallback();
@@ -282,35 +304,51 @@ void Animal::startFreeAction()
 
 void Animal::startWalk()
 {
-    if (isDead()) {
+    if (isDead() || isOpponent()) {
         return;
     }
 
+    Vec2 targetP = WorldManager::getInstance()->getRadomPlace();
+    auto speed = getSpeed();
+    startWalk(targetP, *speed);
+}
+
+void Animal::startWalk(Vec2 targetP, Length speed)
+{
     if (_state != AnimalState::Walk) {
         _state = AnimalState::Walk;
         _timeline->play("walk", true);
     }
     
-    Vec2 targetP = WorldManager::getInstance()->getRadomPlace();
+    _targetPointByWalk = targetP;
+    float s = speed.getDisplayLength();
     Vec2 move = targetP - this->getPosition();
-    float speed = WorldManager::getInstance()->getDisplayLength(getSpeed());
-    if (speed == 0) {
+    
+    if (speed.getMmLength() == 0) {
         return;
     }
-    float duration = move.length() / speed;
+    float duration = move.length() / s;
     if (move.x < 0) {
         _image->setFlippedX(false);
     } else {
         _image->setFlippedX(true);
     }
-    _moveAction = this->runAction(Sequence::create(
-        MoveBy::create(duration, move),
-        CallFunc::create([this](){
-            startFreeAction();
-        }),
-        NULL
-    ));
+
+    _stopMoveAction();
+    if (isOpponent()) {
+        _moveAction = this->runAction(MoveBy::create(duration, move));
+    } else {
+        _moveAction = this->runAction(Sequence::create(
+            MoveBy::create(duration, move),
+            CallFunc::create([this](){
+                startFreeAction();
+            }),
+            NULL
+        ));
+    }
+    _moveAction->retain();
 }
+
 
 void Animal::startStop()
 {
@@ -323,6 +361,7 @@ void Animal::startStop()
         _timeline->play("stop", true);
     }
     
+    _stopMoveAction();
     _moveAction = runAction(Sequence::create(
         DelayTime::create(1.5f),
         CallFunc::create([this]{
@@ -330,6 +369,7 @@ void Animal::startStop()
         }),
         NULL
     ));
+    _moveAction->retain();
 }
 
 bool Animal::canAttack()
@@ -367,7 +407,7 @@ void Animal::endFight()
         _battleEffect->removeFromParent();
         _battleEffect = NULL;
     }
-    stopAction(_moveAction);
+    _stopMoveAction();
     stopAction(_timeLineAction);
     startWalk();
 }
@@ -522,6 +562,16 @@ void Animal::setRealPosition(Vec2 position)
     setPosition(Vec2(x, y));
 }
 
+Vec2 Animal::getTargetPointByWalk()
+{
+    return _targetPointByWalk;
+}
+
+Vec2 Animal::getTargetPointByDash()
+{
+    return _targetPointByDash;
+}
+
 #pragma - private method
 
 void Animal::_changeAnimalImage()
@@ -529,3 +579,15 @@ void Animal::_changeAnimalImage()
     _image->setTexture(_species->getImageName());
 }
 
+void Animal::_stopMoveAction()
+{
+    if (_moveAction == nullptr) {
+        return;
+    }
+    
+    if (_moveAction->isDone() == false) {
+        this->stopAction(_moveAction);
+    }
+    _moveAction->release();
+    _moveAction = nullptr;
+}

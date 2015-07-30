@@ -54,7 +54,9 @@ double ZUtil::getTime()
 {
     struct timeval t;
     gettimeofday(&t, NULL);
-    return t.tv_sec + t.tv_usec / 1000000.0;
+    double time = t.tv_sec + t.tv_usec / 1000000.0;
+    time -= int(time / 100000) * 100000;
+    return time;
 }
 
 void ZUtil::setGlobalZOrderRecursive(Node* node, float zorder)

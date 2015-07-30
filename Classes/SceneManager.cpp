@@ -90,6 +90,7 @@ void SceneManager::enterMultiBattleScene()
 {
     _isNetwork = true;
     _scene = MultiBattleScene::createScene();
+    sendUserInfo();
     Director::getInstance()->replaceScene(
         TransitionFade::create(1.0f, _scene, Color3B::BLACK)
     );
@@ -134,6 +135,9 @@ void SceneManager::receiveMultiplayerInvitations()
 void SceneManager::sendData(const void* data, unsigned long length)
 {
     networkingWrapper->sendData(data, length);
+
+    // FOR DEBUG
+//    receivedData(data, length);
 }
 
 void SceneManager::receivedData(const void* data, unsigned long length)
@@ -155,7 +159,6 @@ void SceneManager::stateChanged(ConnectionState state)
         case ConnectionState::CONNECTED:
             CCLOG("Connected");
             if (isNetwork() == false) {
-                sendUserInfo();
                 enterMultiBattleScene();
             }
             break;
@@ -173,7 +176,7 @@ void SceneManager::stateChanged(ConnectionState state)
     }
 }
 
-void SceneManager::setOpponentUserInfo(std::string name, int userId, int time)
+void SceneManager::setOpponentUserInfo(std::string name, int userId, double time)
 {
     _opponentName = name;
     _opponentUserId = userId;
@@ -186,9 +189,10 @@ void SceneManager::setOpponentUserInfo(std::string name, int userId, int time)
 void SceneManager::sendUserInfo()
 {
     auto name = networkingWrapper->getDeviceName();
-    _userId = rand() % 100000;
+    _userId = rand();
     _startTime = ZUtil::getTime();
-    CommandGenerater::sendUserInfo(name, _userId);
+    auto command = CommandGenerater::sendUserInfo(name, _userId);
+    CommandGenerater::sendData(command);
 }
 
 

@@ -14,46 +14,74 @@
 void CommandGenerater::excCommand(std::string dataStr)
 {
     auto data = JSONPacker::unpackCommandDataJSON(dataStr);
-    if (data.commandName == "create_animal")
-    {
-        auto animal = Animal::CreateWithSpeceis(data.stringDataList[0], data.numberDataList[0]);
-        animal->setId(data.intDataList[0]);
-        WorldManager::getInstance()->releaseAnimalByNetwork(animal);
-    }
-    else if (data.commandName == "user_info")
-    {
-        auto name = data.stringDataList[0];
-        auto id = data.numberDataList[0];
-        SceneManager::getInstance()->setOpponentUserInfo(name, id, data.time);
-    }
-    else if (data.commandName == "create_tree")
-    {
-        auto id = data.intDataList[0];
-        auto length = new Length(data.numberDataList[0]);
-        auto pos = Vec2(data.numberDataList[1], data.numberDataList[2]);
-        auto tree = dynamic_cast<CoinTree*>(CSLoader::createNode("CoinTree.csb"));
-        tree->setLength(length);
-        tree->setId(id);
-        tree->setRealPosition(pos);
-        WorldManager::getInstance()->createTreeByNetwork(tree);
-    }
-    else if (data.commandName == "walk_animal")
-    {
+    for (auto command : data) {
+
+        if (command.commandName == "create_animal")
+        {
+            auto animal = Animal::CreateWithSpeceis(command.stringDataList[0], command.numberDataList[0]);
+            animal->setId(command.intDataList[0]);
+            WorldManager::getInstance()->releaseAnimalByNetwork(animal);
+        }
+        else if (command.commandName == "user_info")
+        {
+            auto name = command.stringDataList[0];
+            auto id = command.numberDataList[0];
+            SceneManager::getInstance()->setOpponentUserInfo(name, id, command.time);
+        }
+        else if (command.commandName == "create_tree")
+        {
+            auto id = command.intDataList[0];
+            auto length = new Length(command.numberDataList[0]);
+            auto pos = Vec2(command.numberDataList[1], command.numberDataList[2]);
+            auto tree = dynamic_cast<CoinTree*>(CSLoader::createNode("CoinTree.csb"));
+            tree->setLength(length);
+            tree->setId(id);
+            tree->setRealPosition(pos);
+            WorldManager::getInstance()->createTreeByNetwork(tree);
+        }
+        else if (command.commandName == "walk_animal")
+        {
+            int id = command.intDataList[0];
+            auto animal = WorldManager::getInstance()->getOpponentAnimal(id);
+            Vec2 targetPoint = Vec2(command.numberDataList[0], command.numberDataList[1]);
+            auto speed = Length(command.numberDataList[2]);
+            animal->startWalk(targetPoint, speed);
+        }
+        else if (command.commandName == "dash_animal")
+        {
+            int id = command.intDataList[0];
+            auto animal = WorldManager::getInstance()->getOpponentAnimal(id);
+            Vec2 targetPoint = Vec2(command.numberDataList[0], command.numberDataList[1]);
+            auto speed = Length(command.numberDataList[2]);
+            animal->startDash(targetPoint, speed);
+        }
     }
 }
 
-void CommandGenerater::sendUserInfo(std::string name, int userId)
+void CommandGenerater::sendData(CommandData data)
+{
+    auto json = JSONPacker::packCommandData(data);
+    SceneManager::getInstance()->sendData(json.c_str(), json.length());
+}
+
+void CommandGenerater::sendData(std::vector<CommandData> data)
+{
+    auto json = JSONPacker::packCommandData(data);
+    SceneManager::getInstance()->sendData(json.c_str(), json.length());    
+}
+
+
+CommandData CommandGenerater::sendUserInfo(std::string name, int userId)
 {
     CommandData data;
     data.commandName = "user_info";
     data.time = ZUtil::getTime();
     data.stringDataList.push_back(name);
     data.numberDataList.push_back(userId);
-    auto json = JSONPacker::packCommandData(data);
-    SceneManager::getInstance()->sendData(json.c_str(), json.length());
+    return data;
 }
 
-void CommandGenerater::releaseAnimal(Animal* animal)
+CommandData CommandGenerater::releaseAnimal(Animal* animal)
 {
     CommandData data;
     data.commandName = "create_animal";
@@ -61,11 +89,10 @@ void CommandGenerater::releaseAnimal(Animal* animal)
     data.intDataList.push_back(animal->getId());
     data.stringDataList.push_back(animal->getName());
     data.numberDataList.push_back(animal->getHeight()->getMmLength());
-    auto json = JSONPacker::packCommandData(data);
-    SceneManager::getInstance()->sendData(json.c_str(), json.length());
+    return data;
 }
 
-void CommandGenerater::makeCoinTree(CoinTree* coinTree)
+CommandData CommandGenerater::makeCoinTree(CoinTree* coinTree)
 {
     CommandData data;
     data.commandName = "create_tree";
@@ -77,23 +104,40 @@ void CommandGenerater::makeCoinTree(CoinTree* coinTree)
     data.numberDataList.push_back(pos.x);
     data.numberDataList.push_back(pos.y);
     
-    auto json = JSONPacker::packCommandData(data);
-    SceneManager::getInstance()->sendData(json.c_str(), json.length());
+    return data;
 }
 
-void CommandGenerater::walkAnimal(Animal* animal, Vec2 targetPoint, double time)
+CommandData CommandGenerater::walkAnimal(Animal* animal)
 {
     CommandData data;
     data.commandName = "walk_animal";
     data.time = ZUtil::getTime();
     data.intDataList.push_back(animal->getId());
-    data.stringDataList.push_back(animal->getName());
-    data.numberDataList.push_back(animal->getHeight()->getMmLength());
-
-    data.numberDataList.push_back(targetPoint.x);
-    data.numberDataList.push_back(targetPoint.y);
-    data.numberDataList.push_back(time);
-    
-    auto json = JSONPacker::packCommandData(data);
-    SceneManager::getInstance()->sendData(json.c_str(), json.length());
+    auto target = animal->getTargetPointByWalk();
+    data.numberDataList.push_back(target.x);
+    data.numberDataList.push_back(target.y);
+    data.numberDataList.push_back(animal->getSpeed()->getMmLength());
+    return data;
 }
+
+CommandData CommandGenerater::dashAnimal(Animal* animal)
+{
+    CommandData data;
+    data.commandName = "dash_animal";
+    data.time = ZUtil::getTime();
+    data.intDataList.push_back(animal->getId());
+    auto target = animal->getTargetPointByDash();
+    data.numberDataList.push_back(target.x);
+    data.numberDataList.push_back(target.y);
+    data.numberDataList.push_back(WorldManager::getInstance()->getDashSpeed().getMmLength());
+    return data;
+}
+
+CommandData CommandGenerater::stopAnimal(Animal* animal)
+{
+}
+
+CommandData CommandGenerater::fightAnimal(Animal* animal)
+{
+}
+

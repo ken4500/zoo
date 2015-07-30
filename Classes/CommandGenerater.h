@@ -19,10 +19,16 @@ using namespace JSONPacker;
 class CommandGenerater {
 public:
     static void excCommand(std::string dataStr);
-    static void sendUserInfo(std::string name, int userId);
-    static void releaseAnimal(Animal* aniaml);
-    static void makeCoinTree(CoinTree* coinTree);
-    static void walkAnimal(Animal* animal, Vec2 targetPoint, double time);
+    static void sendData(CommandData data);
+    static void sendData(std::vector<CommandData> data);
+
+    static CommandData sendUserInfo(std::string name, int userId);
+    static CommandData releaseAnimal(Animal* aniaml);
+    static CommandData makeCoinTree(CoinTree* coinTree);
+    static CommandData walkAnimal(Animal* animal);
+    static CommandData dashAnimal(Animal* animal);
+    static CommandData stopAnimal(Animal* animal);
+    static CommandData fightAnimal(Animal* animal);
 };
 
 #endif /* defined(__Zoo__CommandGenerater__) */

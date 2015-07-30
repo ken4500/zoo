@@ -34,7 +34,7 @@ public:
     void receiveMultiplayerInvitations();
     void sendData(const void* data, unsigned long length);
     
-    void setOpponentUserInfo(std::string name, int userId, int time);
+    void setOpponentUserInfo(std::string name, int userId, double time);
     void sendUserInfo();
 
 private:
