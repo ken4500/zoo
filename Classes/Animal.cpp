@@ -352,15 +352,17 @@ void Animal::startStop()
         _timeline->play("stop", true);
     }
     
-    _stopMoveAction();
-    _moveAction = runAction(Sequence::create(
-        DelayTime::create(1.5f),
-        CallFunc::create([this]{
-            startFreeAction();
-        }),
-        NULL
-    ));
-    _moveAction->retain();
+    if (isOpponent() == false) {
+        _stopMoveAction();
+        _moveAction = runAction(Sequence::create(
+            DelayTime::create(1.5f),
+            CallFunc::create([this]{
+                startFreeAction();
+            }),
+            NULL
+        ));
+        _moveAction->retain();
+    }
 }
 
 bool Animal::canAttack()
@@ -532,20 +534,13 @@ void Animal::setId(int id)
 
 Vec2 Animal::getRealPosition()
 {
-    auto info = WorldManager::getInstance()->getWorldInfo();
-    auto pos = getPosition();
-    float x = pos.x * info->maxWidth->getMmLength() / info->imageWidth;
-    float y = pos.y * info->maxWidth->getMmLength() / info->imageWidth;
-    return Vec2(x, y);
+    return WorldManager::getInstance()->getRealPosition(getPosition());
 }
 
 void Animal::setRealPosition(Vec2 position)
 {
-    auto info = WorldManager::getInstance()->getWorldInfo();
-    auto pos = getPosition();
-    float x = pos.x * info->imageWidth / info->maxWidth->getMmLength();
-    float y = pos.y * info->imageWidth / info->maxWidth->getMmLength();
-    setPosition(Vec2(x, y));
+    auto pos = WorldManager::getInstance()->getDisplayPosition(position);
+    setPosition(pos);
 }
 
 Vec2 Animal::getTargetPointByWalk()
@@ -556,6 +551,11 @@ Vec2 Animal::getTargetPointByWalk()
 Vec2 Animal::getTargetPointByDash()
 {
     return _targetPointByDash;
+}
+
+AbstractBattleEntity* Animal::getFightTarget()
+{
+    return _target;
 }
 
 #pragma - private method

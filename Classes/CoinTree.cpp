@@ -30,7 +30,7 @@ bool CoinTree::init() {
 void CoinTree::onEnter()
 {
     Node::onEnter();
-    _image = getChildByName("image")->getChildByName<Sprite*>("top");
+    _image = getChildByName<Sprite*>("image");
 
     _dropListNode = getChildByName("dropList");
     _dropPointList = std::vector<cocos2d::Node*>();
@@ -124,6 +124,7 @@ Rect CoinTree::getBodyRect()
     imageRect.origin *= getScale();
     imageRect.origin += getPosition();
     imageRect.size = imageRect.size * getScale();
+    
     return imageRect;
 }
 

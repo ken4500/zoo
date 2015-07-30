@@ -9,6 +9,7 @@
 #include "CommandGenerater.h"
 #include "WorldManager.h"
 #include "SceneManager.h"
+
 #include <sys/time.h>
 
 void CommandGenerater::excCommand(std::string dataStr)
@@ -44,6 +45,7 @@ void CommandGenerater::excCommand(std::string dataStr)
             int id = command.intDataList[0];
             auto animal = WorldManager::getInstance()->getOpponentAnimal(id);
             Vec2 targetPoint = Vec2(command.numberDataList[0], command.numberDataList[1]);
+            targetPoint = WorldManager::getInstance()->getDisplayPosition(targetPoint);
             auto speed = Length(command.numberDataList[2]);
             animal->startWalk(targetPoint, speed);
         }
@@ -52,8 +54,29 @@ void CommandGenerater::excCommand(std::string dataStr)
             int id = command.intDataList[0];
             auto animal = WorldManager::getInstance()->getOpponentAnimal(id);
             Vec2 targetPoint = Vec2(command.numberDataList[0], command.numberDataList[1]);
+            targetPoint = WorldManager::getInstance()->getDisplayPosition(targetPoint);
             auto speed = Length(command.numberDataList[2]);
             animal->startDash(targetPoint, speed);
+        }
+        else if (command.commandName == "stop_animal")
+        {
+            int id = command.intDataList[0];
+            auto animal = WorldManager::getInstance()->getOpponentAnimal(id);
+            Vec2 position = Vec2(command.numberDataList[0], command.numberDataList[1]);
+            animal->setRealPosition(position);
+            animal->startStop();
+        }
+        else if (command.commandName == "fight_tree")
+        {
+            int id = command.intDataList[0];
+            int treeId = command.intDataList[1];
+            auto animal = WorldManager::getInstance()->getOpponentAnimal(id);
+            auto tree = dynamic_cast<AbstractBattleEntity*>(WorldManager::getInstance()->getCointTree(treeId));
+            Vec2 position = Vec2(command.numberDataList[0], command.numberDataList[1]);
+            animal->setRealPosition(position);
+            if (tree) {
+                animal->fight(tree);
+            }
         }
     }
 }
@@ -114,6 +137,7 @@ CommandData CommandGenerater::walkAnimal(Animal* animal)
     data.time = ZUtil::getTime();
     data.intDataList.push_back(animal->getId());
     auto target = animal->getTargetPointByWalk();
+    target = WorldManager::getInstance()->getRealPosition(target);
     data.numberDataList.push_back(target.x);
     data.numberDataList.push_back(target.y);
     data.numberDataList.push_back(animal->getSpeed()->getMmLength());
@@ -127,6 +151,7 @@ CommandData CommandGenerater::dashAnimal(Animal* animal)
     data.time = ZUtil::getTime();
     data.intDataList.push_back(animal->getId());
     auto target = animal->getTargetPointByDash();
+    target = WorldManager::getInstance()->getRealPosition(target);
     data.numberDataList.push_back(target.x);
     data.numberDataList.push_back(target.y);
     data.numberDataList.push_back(WorldManager::getInstance()->getDashSpeed().getMmLength());
@@ -135,9 +160,26 @@ CommandData CommandGenerater::dashAnimal(Animal* animal)
 
 CommandData CommandGenerater::stopAnimal(Animal* animal)
 {
+    CommandData data;
+    data.commandName = "stop_animal";
+    data.time = ZUtil::getTime();
+    data.intDataList.push_back(animal->getId());
+    auto position = animal->getRealPosition();
+    data.numberDataList.push_back(position.x);
+    data.numberDataList.push_back(position.y);
+    return data;
 }
 
-CommandData CommandGenerater::fightAnimal(Animal* animal)
+CommandData CommandGenerater::fightTree(Animal* animal, AbstractBattleEntity* tree)
 {
+    CommandData data;
+    data.commandName = "fight_tree";
+    data.time = ZUtil::getTime();
+    data.intDataList.push_back(animal->getId());
+    data.intDataList.push_back(tree->getId());
+    auto position = animal->getRealPosition();
+    data.numberDataList.push_back(position.x);
+    data.numberDataList.push_back(position.y);
+    return data;
 }
 

@@ -363,7 +363,7 @@ void WorldManager::startMultiplayBattle()
     _coinTreeList = std::vector<CoinTree*>();
 
     Director::getInstance()->getScheduler()->schedule(CC_CALLBACK_1(WorldManager::_sendAnimalStatus, this), this, 0.5f, false, "send_animal_statu");
-
+    _makeCoinTreePerTime(0);
 }
 
 void WorldManager::startMultiplayTest()
@@ -468,6 +468,20 @@ Length* WorldManager::getLength(float displayLength)
     auto visibleSize = Director::getInstance()->getVisibleSize();
     float mm = worldSize->getLength(UnitOfLength::mm) * displayLength / visibleSize.width;
     return new Length(UnitOfLength::mm, mm);
+}
+
+Vec2 WorldManager::getRealPosition(Vec2 displayPosition)
+{
+    float x = displayPosition.x * _info->maxWidth->getMmLength() / _info->imageWidth;
+    float y = displayPosition.y * _info->maxWidth->getMmLength() / _info->imageWidth;
+    return Vec2(x, y);
+}
+
+Vec2 WorldManager::getDisplayPosition(Vec2 readlPosition)
+{
+    float x = readlPosition.x * _info->imageWidth / _info->maxWidth->getMmLength();
+    float y = readlPosition.y * _info->imageWidth / _info->maxWidth->getMmLength();
+    return Vec2(x, y);
 }
 
 #pragma - private method
@@ -578,8 +592,8 @@ void WorldManager::_transitionMap(WorldInfo* preWorldInfo, WorldInfo* newWorldIn
     auto newMap = dynamic_cast<WorldMap*>(CSLoader::createNode(newWorldInfo->mapName));
     newMap->initSize(newWorldInfo->maxWidth, preWorldInfo->width);
 
-    auto mainScene = SceneManager::getInstance()->getMainScene();
-    mainScene->transitionMap(newMap);
+    auto scene = SceneManager::getInstance()->getWorldScene();
+    scene->transitionMap(newMap);
     _map->setCurrentWidth(newWorldInfo->width, NULL);
     newMap->setCurrentWidth(newWorldInfo->width, [this, newMap, preWorldInfo, newWorldInfo]{
         auto children = _map->getChildren();
@@ -703,7 +717,7 @@ void WorldManager::_makeCoinTree()
 {
     auto tree = dynamic_cast<CoinTree*>(CSLoader::createNode("CoinTree.csb"));
     tree->setPosition((getRadomPlace() + Vec2(0, -100)) * 0.8f);
-    tree->setLength(new Length(_info->width->getMmLength() * 0.2));
+    tree->setLength(new Length(_info->width->getMmLength() * 0.06));
     _map->setCoinTree(tree);
     _coinTreeList.push_back(tree);
     if (_isNetwork) {
@@ -726,6 +740,7 @@ void WorldManager::_sendAnimalStatus(float dt)
         auto state = animal->getState();
         switch (state) {
             case AnimalState::Battle:
+                commandList.push_back(CommandGenerater::fightTree(animal, animal->getFightTarget()));
                 break;
             case AnimalState::Dash:
                 commandList.push_back(CommandGenerater::dashAnimal(animal));
@@ -734,6 +749,7 @@ void WorldManager::_sendAnimalStatus(float dt)
                 commandList.push_back(CommandGenerater::walkAnimal(animal));
                 break;
             case AnimalState::Stop:
+                commandList.push_back(CommandGenerater::stopAnimal(animal));
                 break;
             default:
                 break;
@@ -744,6 +760,14 @@ void WorldManager::_sendAnimalStatus(float dt)
         CommandGenerater::sendData(commandList);
     }
 }
+
+void WorldManager::_makeCoinTreePerTime(float dt)
+{
+    _makeCoinTree();
+    int nextTime = rand() % 20 + 10;
+    Director::getInstance()->getScheduler()->schedule(CC_CALLBACK_1(WorldManager::_makeCoinTreePerTime, this), this, nextTime, false, "next_make_tree");
+}
+
 
 #pragma - tutorial
 

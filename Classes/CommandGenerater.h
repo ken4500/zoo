@@ -28,7 +28,7 @@ public:
     static CommandData walkAnimal(Animal* animal);
     static CommandData dashAnimal(Animal* animal);
     static CommandData stopAnimal(Animal* animal);
-    static CommandData fightAnimal(Animal* animal);
+    static CommandData fightTree(Animal* animal, AbstractBattleEntity* tree);
 };
 
 #endif /* defined(__Zoo__CommandGenerater__) */

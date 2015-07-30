@@ -72,6 +72,8 @@ public:
     float getImageScale(Sprite* image, Length* width);
     float getDisplayLength(Length* length);
     Length* getLength(float displayLength);
+    Vec2 getRealPosition(Vec2 displayPosition);
+    Vec2 getDisplayPosition(Vec2 readlPosition);
     Vec2 getRadomPlace();
     Vec2 getOutRandomPlace();
 
@@ -109,6 +111,7 @@ private:
 
     // network
     void _sendAnimalStatus(float dt);
+    void _makeCoinTreePerTime(float dt);
 
     // tutorial
     void _startTutrialBattleScene1();

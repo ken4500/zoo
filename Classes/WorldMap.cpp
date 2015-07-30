@@ -81,7 +81,8 @@ void WorldMap::update(float dt)
     for(auto node : children) {
         int tag = node->getTag();
         if (tag != (int)EntityTag::Animal
-            && tag != (int)EntityTag::EnemyAnimal)
+            && tag != (int)EntityTag::EnemyAnimal
+            && tag != (int)EntityTag::OpponentAnimal)
         {
             continue;
         }
@@ -301,7 +302,7 @@ void WorldMap::setCoinTree(CoinTree* tree)
 {
     tree->setLocalZOrder(_calcObjectZOrder(tree));
     addChild(tree);
-    //tree->sprout();
+    tree->sprout();
 }
 
 void WorldMap::releaseAnimal(Animal* animal, std::function<void ()> callback)

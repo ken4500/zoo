@@ -45,6 +45,7 @@ public:
     void setRealPosition(Vec2 position);
     Vec2 getTargetPointByWalk();
     Vec2 getTargetPointByDash();
+    AbstractBattleEntity* getFightTarget();
 
     void updateWorldScale();
     void jump(Vec2 target, float height, std::function<void ()> callback);

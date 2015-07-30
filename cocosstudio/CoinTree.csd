@@ -4,19 +4,19 @@
     <Content>
       <Animation Duration="209" Speed="1.0000">
         <Timeline ActionTag="-239982563" Property="Position">
-          <PointFrame FrameIndex="1" X="42.5000" Y="278.0000">
+          <PointFrame FrameIndex="1" X="50.0000" Y="278.0000">
             <EasingData Type="0" />
           </PointFrame>
-          <PointFrame FrameIndex="46" X="42.5000" Y="278.0000">
+          <PointFrame FrameIndex="46" X="50.0000" Y="278.0000">
             <EasingData Type="0" />
           </PointFrame>
-          <PointFrame FrameIndex="100" X="42.5000" Y="278.0000">
+          <PointFrame FrameIndex="100" X="50.0000" Y="278.0000">
             <EasingData Type="0" />
           </PointFrame>
-          <PointFrame FrameIndex="101" X="42.5000" Y="278.0000">
+          <PointFrame FrameIndex="101" X="50.0000" Y="278.0000">
             <EasingData Type="0" />
           </PointFrame>
-          <PointFrame FrameIndex="131" X="42.5000" Y="278.0000">
+          <PointFrame FrameIndex="131" X="50.0000" Y="278.0000">
             <EasingData Type="0" />
           </PointFrame>
         </Timeline>
@@ -200,6 +200,9 @@
           </IntFrame>
         </Timeline>
         <Timeline ActionTag="1125897806" Property="FileData">
+          <TextureFrame FrameIndex="0" Tween="False">
+            <TextureFile Type="Normal" Path="ui/coin_tree.png" Plist="" />
+          </TextureFrame>
           <TextureFrame FrameIndex="131" Tween="False">
             <TextureFile Type="Normal" Path="ui/coin_tree.png" Plist="" />
           </TextureFrame>
@@ -281,16 +284,16 @@
       <ObjectData Name="Node" CustomClassName="CoinTree" Tag="112" ctype="GameNodeObjectData">
         <Size X="0.0000" Y="0.0000" />
         <Children>
-          <AbstractNodeData Name="image" ActionTag="1125897806" Tag="113" IconVisible="False" LeftMargin="-42.5000" RightMargin="-42.5000" TopMargin="-106.0000" ctype="SpriteObjectData">
-            <Size X="85.0000" Y="106.0000" />
+          <AbstractNodeData Name="image" ActionTag="1125897806" Tag="113" IconVisible="False" LeftMargin="-50.0000" RightMargin="-50.0000" TopMargin="-160.0000" ctype="SpriteObjectData">
+            <Size X="100.0000" Y="160.0000" />
             <Children>
-              <AbstractNodeData Name="top" ActionTag="-239982563" Tag="114" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="-83.5000" RightMargin="-83.5000" TopMargin="-172.0000" ctype="SpriteObjectData">
+              <AbstractNodeData Name="top" ActionTag="-239982563" Tag="114" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="-76.0000" RightMargin="-76.0000" TopMargin="-118.0000" ctype="SpriteObjectData">
                 <Size X="252.0000" Y="278.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="1.0000" />
-                <Position X="42.5000" Y="278.0000" />
+                <Position X="50.0000" Y="278.0000" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.5000" Y="2.6226" />
+                <PrePosition X="0.5000" Y="1.7375" />
                 <PreSize X="1.0000" Y="1.0000" />
                 <FileData Type="Normal" Path="ui/coin_tree_top.png" Plist="" />
                 <BlendFunc Src="1" Dst="771" />
@@ -308,55 +311,55 @@
           <AbstractNodeData Name="dropList" ActionTag="2099738225" Tag="126" IconVisible="True" TopMargin="-100.0000" BottomMargin="100.0000" ctype="SingleNodeObjectData">
             <Size X="0.0000" Y="0.0000" />
             <Children>
-              <AbstractNodeData Name="dropPoint0" ActionTag="-149528144" Tag="132" IconVisible="True" LeftMargin="94.0000" RightMargin="-94.0000" TopMargin="-16.0000" BottomMargin="16.0000" ctype="SingleNodeObjectData">
+              <AbstractNodeData Name="dropPoint0" ActionTag="-149528144" Tag="132" IconVisible="True" LeftMargin="105.0000" RightMargin="-105.0000" TopMargin="-16.0000" BottomMargin="16.0000" ctype="SingleNodeObjectData">
                 <Size X="0.0000" Y="0.0000" />
                 <AnchorPoint />
-                <Position X="94.0000" Y="16.0000" />
+                <Position X="105.0000" Y="16.0000" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition />
                 <PreSize X="0.0000" Y="0.0000" />
               </AbstractNodeData>
-              <AbstractNodeData Name="dropPoint1" ActionTag="2095285173" Tag="128" IconVisible="True" LeftMargin="94.0000" RightMargin="-94.0000" TopMargin="-16.0000" BottomMargin="16.0000" ctype="SingleNodeObjectData">
+              <AbstractNodeData Name="dropPoint1" ActionTag="2095285173" Tag="128" IconVisible="True" LeftMargin="74.0000" RightMargin="-74.0000" TopMargin="-8.0000" BottomMargin="8.0000" ctype="SingleNodeObjectData">
                 <Size X="0.0000" Y="0.0000" />
                 <AnchorPoint />
-                <Position X="94.0000" Y="16.0000" />
+                <Position X="74.0000" Y="8.0000" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition />
                 <PreSize X="0.0000" Y="0.0000" />
               </AbstractNodeData>
-              <AbstractNodeData Name="dropPoint2" ActionTag="-1670151157" Tag="127" IconVisible="True" LeftMargin="42.0000" RightMargin="-42.0000" TopMargin="-7.0000" BottomMargin="7.0000" ctype="SingleNodeObjectData">
+              <AbstractNodeData Name="dropPoint2" ActionTag="-1670151157" Tag="127" IconVisible="True" LeftMargin="30.0000" RightMargin="-30.0000" TopMargin="-1.0000" BottomMargin="1.0000" ctype="SingleNodeObjectData">
                 <Size X="0.0000" Y="0.0000" />
                 <AnchorPoint />
-                <Position X="42.0000" Y="7.0000" />
+                <Position X="30.0000" Y="1.0000" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition />
                 <PreSize X="0.0000" Y="0.0000" />
               </AbstractNodeData>
-              <AbstractNodeData Name="dropPoint3" ActionTag="853768446" Tag="129" IconVisible="True" ctype="SingleNodeObjectData">
+              <AbstractNodeData Name="dropPoint3" ActionTag="853768446" Tag="129" IconVisible="True" LeftMargin="-42.0000" RightMargin="42.0000" ctype="SingleNodeObjectData">
                 <Size X="0.0000" Y="0.0000" />
                 <AnchorPoint />
-                <Position />
+                <Position X="-42.0000" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition />
                 <PreSize X="0.0000" Y="0.0000" />
               </AbstractNodeData>
-              <AbstractNodeData Name="dropPoint4" ActionTag="-2051376555" Tag="131" IconVisible="True" LeftMargin="-42.0000" RightMargin="42.0000" TopMargin="-7.0000" BottomMargin="7.0000" ctype="SingleNodeObjectData">
+              <AbstractNodeData Name="dropPoint4" ActionTag="-2051376555" Tag="131" IconVisible="True" LeftMargin="-71.0000" RightMargin="71.0000" TopMargin="-8.4400" BottomMargin="8.4400" ctype="SingleNodeObjectData">
                 <Size X="0.0000" Y="0.0000" />
                 <AnchorPoint />
-                <Position X="-42.0000" Y="7.0000" />
+                <Position X="-71.0000" Y="8.4400" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition />
                 <PreSize X="0.0000" Y="0.0000" />
               </AbstractNodeData>
-              <AbstractNodeData Name="dropPoint5" ActionTag="75060365" Tag="130" IconVisible="True" LeftMargin="-94.0000" RightMargin="94.0000" TopMargin="-16.0000" BottomMargin="16.0000" ctype="SingleNodeObjectData">
+              <AbstractNodeData Name="dropPoint5" ActionTag="75060365" Tag="130" IconVisible="True" LeftMargin="-111.0000" RightMargin="111.0000" TopMargin="-21.0000" BottomMargin="21.0000" ctype="SingleNodeObjectData">
                 <Size X="0.0000" Y="0.0000" />
                 <AnchorPoint />
-                <Position X="-94.0000" Y="16.0000" />
+                <Position X="-111.0000" Y="21.0000" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition />
