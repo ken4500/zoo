@@ -23,7 +23,7 @@ public:
     // implement the "static create()" method manually
     CREATE_FUNC(MainScene);
     
-    void levelUpEffect();
+    void levelUpEffect(std::function<void()> callback);
     void transitionMap(WorldMap* newMap);
     void playNovel(std::string novelId, std::function<void ()> callback, bool apearSkipButton, float delay);
     void playNovel(std::string novelId, std::function<void ()> callback, bool apearSkipButton);

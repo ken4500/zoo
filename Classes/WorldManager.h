@@ -36,7 +36,6 @@ public:
     WorldMap* getMap();
     WorldInfo* getWorldInfo();
     bool enableNextAction();
-    void setEnableNextAction(bool enable);
     SceneState getSceneState();
     std::vector<Animal*> getAnimalList();
     std::vector<Animal*> getEnemyAnimalList();
@@ -106,6 +105,7 @@ private:
     void _createMap();
     void _createMultiBattlwMap();
     void _makeCoinTree();
+    void _finishGachaCallback();
 
     // network
     void _sendAnimalStatus(float dt);

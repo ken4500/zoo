@@ -14,7 +14,7 @@ class WorldSceneInterface
 public:
     virtual void updateCoinLabel() = 0;
     virtual void showNoticeView(std::string message, float delay, std::function<void ()> closeCallback) = 0;
-    virtual void levelUpEffect() = 0;
+    virtual void levelUpEffect(std::function<void()> callback) = 0;
 };
 
 

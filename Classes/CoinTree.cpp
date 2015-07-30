@@ -42,6 +42,9 @@ void CoinTree::onEnter()
         float scale = WorldManager::getInstance()->getImageScale(_image, _length);
         setScale(scale);
     }
+    
+    runAction(_timeline);
+    _timeline->play("default", false);
 }
 
 void CoinTree::setLength(Length* length)
@@ -63,16 +66,12 @@ Length* CoinTree::getLength()
 
 void CoinTree::sprout()
 {
-    stopAllActions();
-    runAction(_timeline);
     _timeline->play("sprout", false);
 }
 
 void CoinTree::sway()
 {
     _isSwaying = true;
-    stopAllActions();
-    runAction(_timeline);
     _timeline->play("sway", false);
     _timeline->setLastFrameCallFunc([this]{
         _isSwaying = false;
@@ -106,8 +105,6 @@ void CoinTree::dropCoin()
 
 void CoinTree::fellDown()
 {
-    stopAllActions();
-    runAction(_timeline);
     _timeline->play("fall", false);
     
     for (int i = 0; i < 5; i++) {
@@ -158,8 +155,6 @@ bool CoinTree::addDamage(float damage)
 void CoinTree::disappear()
 {
     if (_hp > 0) {
-        stopAllActions();
-        runAction(_timeline);
         _timeline->play("disappear", false);
         _timeline->setLastFrameCallFunc([this]{
             removeFromParent();

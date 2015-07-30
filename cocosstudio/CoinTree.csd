@@ -274,6 +274,9 @@
         <AnimationInfo Name="disappear" StartIndex="181" EndIndex="210">
           <RenderColor A="150" R="255" G="0" B="255" />
         </AnimationInfo>
+        <AnimationInfo Name="default" StartIndex="0" EndIndex="0">
+          <RenderColor A="150" R="255" G="255" B="224" />
+        </AnimationInfo>
       </AnimationList>
       <ObjectData Name="Node" CustomClassName="CoinTree" Tag="112" ctype="GameNodeObjectData">
         <Size X="0.0000" Y="0.0000" />

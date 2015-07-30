@@ -50,11 +50,6 @@ float Gacha::getGachaHeight()
 
 void Gacha::lotteryGacha(WorldInfo* _info)
 {
-    if (WorldManager::getInstance()->enableNextAction() == false) {
-        return;
-    }
-    WorldManager::getInstance()->setEnableNextAction(false);
-
     _info->addLotteryGachaCount();
 
     bool isHit = false;
@@ -89,10 +84,7 @@ void Gacha::lotteryGacha(WorldInfo* _info)
         CallFunc::create([this, animalStr, isHit](){
             auto animal = Animal::CreateWithSpeceis(animalStr);
             WorldManager::getInstance()->releaseAnimal(animal, isHit);
-            if (isHit == false) {
-                WorldManager::getInstance()->setEnableNextAction(true);
-            }
-            if (finishGachaCallback) {
+            if (finishGachaCallback && isHit == false) {
                 finishGachaCallback();
             }
         }),

@@ -74,7 +74,6 @@ protected:
     cocos2d::Sprite* _image;
     Length* _height;
     Action* _moveAction;
-    Action* _timeLineAction;
     bool _isEnemy;
     bool _isOpponent;
     AbstractBattleEntity* _target;
@@ -82,7 +81,6 @@ protected:
     float _maxHp;
     float _hp;
     float _offense;
-    ParticleSystemQuad* _battleEffect;
     Vec2 _targetPointByWalk;
     Vec2 _targetPointByDash;
     

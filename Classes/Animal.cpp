@@ -85,8 +85,6 @@ bool Animal::initWithSpeceis(Species* species, float size)
     _maxHp = size;
     _hp = size;
     _offense = size / 3;
-    _battleEffect = NULL;
-    _timeLineAction = NULL;
     _isOpponent = false;
     _isEnemy = false;
     _id = rand();
@@ -104,7 +102,7 @@ void Animal::onEnter()
     Node::onEnter();
     updateWorldScale();
     scheduleUpdate();
-    _timeLineAction = runAction(_timeline);
+    runAction(_timeline);
 }
 
 void Animal::update(float dt)
@@ -212,13 +210,13 @@ void Animal::fight(AbstractBattleEntity* entity)
     _state = AnimalState::Battle;
     _target = entity;
     _target->retain();
-    stopAllActions();
     
     Vec2 originPoint = getPosition();
     Vec2 targetPoint = ZMath::divideInternally(getPosition(), entity->getPosition(), 1, 2);
         auto size = _image->getContentSize() * getScale();
     Vec2 effectPoint = ZMath::divideInternally(getPosition(), entity->getPosition(), 1, 1) + Vec2(0, size.height / 2);
     
+    _timeline->play("default", false);
     _stopMoveAction();
     _moveAction = runAction(RepeatForever::create(Sequence::create(
         MoveTo::create(0.1f, targetPoint),
@@ -247,12 +245,7 @@ void Animal::dead()
 {
     if (_state != AnimalState::Dead) {
         _state = AnimalState::Dead;
-        if (_battleEffect) {
-            _battleEffect->removeFromParent();
-            _battleEffect = NULL;
-        }
-        stopAllActions();
-        _timeLineAction = runAction(_timeline);
+        _stopMoveAction();
         _timeline->play("dead", false);
         _timeline->setLastFrameCallFunc([&]{
             if (deadCallback) {
@@ -278,8 +271,6 @@ void Animal::reborn()
 {
     _state = AnimalState::Reborn;
     repairHp();
-    stopAllActions();
-    _timeLineAction = runAction(_timeline);
     setOpacity(255);
     _timeline->play("reborn", false);
     _timeline->setLastFrameCallFunc([this]{
@@ -403,12 +394,7 @@ void Animal::endFight()
 {
     _target->release();
     _target = NULL;
-    if (_battleEffect) {
-        _battleEffect->removeFromParent();
-        _battleEffect = NULL;
-    }
     _stopMoveAction();
-    stopAction(_timeLineAction);
     startWalk();
 }
 

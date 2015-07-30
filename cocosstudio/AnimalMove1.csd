@@ -2,7 +2,7 @@
   <PropertyGroup Type="Node" Name="AnimalMove1" ID="9b2712b8-9012-415f-a088-855627e4b972" Version="2.3.1.1" />
   <Content ctype="GameProjectContent">
     <Content>
-      <Animation Duration="350" Speed="1.0000" ActivedAnimationName="stop">
+      <Animation Duration="350" Speed="1.0000">
         <Timeline ActionTag="-929337761" Property="Position">
           <PointFrame FrameIndex="189" X="0.0000" Y="29.2617">
             <EasingData Type="0" />
@@ -255,11 +255,14 @@
         <AnimationInfo Name="dash" StartIndex="331" EndIndex="351">
           <RenderColor A="255" R="184" G="134" B="11" />
         </AnimationInfo>
+        <AnimationInfo Name="default" StartIndex="0" EndIndex="0">
+          <RenderColor A="150" R="255" G="99" B="71" />
+        </AnimationInfo>
       </AnimationList>
       <ObjectData Name="Node" Tag="16" ctype="GameNodeObjectData">
         <Size X="0.0000" Y="0.0000" />
         <Children>
-          <AbstractNodeData Name="chara_shadow_1" ActionTag="-929337761" Tag="125" Alpha="144" IconVisible="False" LeftMargin="-50.0000" RightMargin="-50.0000" TopMargin="-79.2617" BottomMargin="-20.7383" ctype="SpriteObjectData">
+          <AbstractNodeData Name="chara_shadow_1" ActionTag="-929337761" Tag="125" Alpha="142" IconVisible="False" LeftMargin="-50.0000" RightMargin="-50.0000" TopMargin="-79.2617" BottomMargin="-20.7383" ctype="SpriteObjectData">
             <Size X="100.0000" Y="100.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position Y="29.2617" />
@@ -270,10 +273,10 @@
             <FileData Type="Normal" Path="ui/chara_shadow.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="image" ActionTag="-2066128753" Tag="8" RotationSkewY="-0.0001" IconVisible="False" LeftMargin="-200.0002" RightMargin="-199.9998" TopMargin="-400.0000" ctype="SpriteObjectData">
+          <AbstractNodeData Name="image" ActionTag="-2066128753" Tag="8" IconVisible="False" LeftMargin="-200.0000" RightMargin="-200.0000" TopMargin="-400.0000" ctype="SpriteObjectData">
             <Size X="400.0000" Y="400.0000" />
             <AnchorPoint ScaleX="0.5000" />
-            <Position X="-0.0002" />
+            <Position />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />

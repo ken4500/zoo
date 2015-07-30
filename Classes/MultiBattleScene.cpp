@@ -111,13 +111,17 @@ void MultiBattleScene::setupTouchHandling()
 
 #pragma - public method
 
-void MultiBattleScene::levelUpEffect()
+void MultiBattleScene::levelUpEffect(std::function<void()> callback)
 {
     SoundManager::getInstance()->playLevelupEffect();
     this->stopAllActions();
     this->runAction(_timeline);
     _timeline->play("zoomout1", false);
-    _timeline->setLastFrameCallFunc([](){ WorldManager::getInstance()->setEnableNextAction(true); });
+    _timeline->setLastFrameCallFunc([callback](){
+        if (callback) {
+            callback();
+        }
+    });
 }
 
 

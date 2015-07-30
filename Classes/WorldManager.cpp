@@ -80,11 +80,6 @@ bool WorldManager::enableNextAction()
     return _enableNextAction;
 }
 
-void WorldManager::setEnableNextAction(bool enable)
-{
-    _enableNextAction = enable;
-}
-
 SceneState WorldManager::getSceneState()
 {
     return _state;
@@ -193,6 +188,8 @@ void WorldManager::lotteryGacha()
         return;
     }
     
+    _enableNextAction = false;
+
     if (_isNetwork) {
         _multiBattleCoin -= _gacha->getPrice();
     } else {
@@ -235,7 +232,8 @@ WorldInfo* WorldManager::levelup()
     if (_info->level == 2 && SKIP_TUTORIAL == false) {
         _startTutrialLevelupScene1();
     } else {
-        SceneManager::getInstance()->getWorldScene()->levelUpEffect();
+        _enableNextAction = false;
+        SceneManager::getInstance()->getWorldScene()->levelUpEffect(CC_CALLBACK_0(WorldManager::_finishGachaCallback, this));
         if (_info->mapName == preWorldInfo->mapName) {
             _map->setCurrentWidth(_info->width, NULL);
             auto gachaImage = _gacha->getChildByName<Sprite*>("image");
@@ -388,10 +386,11 @@ void WorldManager::startTutorial()
 
 void WorldManager::startTutorialBattle()
 {
-   SoundManager::getInstance()->playBattleStartEffect();
-   SoundManager::getInstance()->fadeOutBgm(0.5f);
-   SoundManager::getInstance()->playBattleBgm();
+    SoundManager::getInstance()->playBattleStartEffect();
+    SoundManager::getInstance()->fadeOutBgm(0.5f);
+    SoundManager::getInstance()->playBattleBgm();
     auto scene = SceneManager::getInstance()->getMainScene();
+    _enableNextAction = false;
     scene->playNovel("novel_tutorial_battle1", [this]{
         _enableNextAction = true;
     }, false, 2.0f);
@@ -653,6 +652,7 @@ void WorldManager::_createMap()
         float gachaScale = getImageScale(gachaImage, gachaLength);
         _gacha->setScale(gachaScale);
         _gacha->setNewGacha(_info);
+        _gacha->finishGachaCallback = CC_CALLBACK_0(WorldManager::_finishGachaCallback, this);
         _map->setGacha(_gacha);
     }
 
@@ -692,6 +692,7 @@ void WorldManager::_createMultiBattlwMap()
     _gacha->setScale(gachaScale);
     _gacha->setNewGacha(_info);
     _map->setGacha(_gacha);
+    _gacha->finishGachaCallback = CC_CALLBACK_0(WorldManager::_finishGachaCallback, this);
 
     _animalList = std::vector<Animal*>();
     _enemyAnimalList = std::vector<Animal*>();
@@ -709,6 +710,11 @@ void WorldManager::_makeCoinTree()
         auto command = CommandGenerater::makeCoinTree(tree);
         CommandGenerater::sendData(command);
     }
+}
+
+void WorldManager::_finishGachaCallback()
+{
+    _enableNextAction = true;
 }
 
 #pragma - network
@@ -827,6 +833,7 @@ void WorldManager::_startTutrialGachScene1()
     _map->setGacha(_gacha);
 
     scene->playNovel("novel_tutorial_gacha1", [this]{
+        _enableNextAction = true;
     }, false, 2.0f);
     
     _gacha->finishGachaCallback = [this] (){
@@ -838,10 +845,11 @@ void WorldManager::_startTutrialGachScene2()
 {
     _state = SceneState::Normal;
     UserDataManager::getInstance()->clearTutorial();
-    _gacha->finishGachaCallback = NULL;
+    _gacha->finishGachaCallback = CC_CALLBACK_0(WorldManager::_finishGachaCallback, this);
     _enableNextAction = false;
     auto scene = SceneManager::getInstance()->getMainScene();
     scene->playNovel("novel_tutorial_gacha2", [this]{
+        _enableNextAction = true;
     }, false, 2.0f);
 }
 
@@ -859,7 +867,7 @@ void WorldManager::_startTutrialLevelupScene2()
 {
     _enableNextAction = false;
     auto scene = SceneManager::getInstance()->getMainScene();
-    scene->levelUpEffect();
+    scene->levelUpEffect(NULL);
     _map->setCurrentWidth(_info->width, NULL);
     auto gachaImage = _gacha->getChildByName<Sprite*>("image");
     auto gachaLength = Length::scale(_info->width, 0.2);

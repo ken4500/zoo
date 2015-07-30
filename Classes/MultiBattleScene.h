@@ -31,7 +31,7 @@ public:
     // implement the "static create()" method manually
     CREATE_FUNC(MultiBattleScene);
     
-    void levelUpEffect();
+    void levelUpEffect(std::function<void()> callback);
     void transitionMap(WorldMap* newMap);
     void updateCoinLabel();
     void updateLeftTimeLabel(int leftTime);

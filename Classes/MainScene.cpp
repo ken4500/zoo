@@ -127,13 +127,17 @@ void MainScene::setupTouchHandling()
 
 #pragma - public method
 
-void MainScene::levelUpEffect()
+void MainScene::levelUpEffect(std::function<void()> callback)
 {
     SoundManager::getInstance()->playLevelupEffect();
     this->stopAllActions();
     this->runAction(_timeline);
     _timeline->play("zoomout1", false);
-    _timeline->setLastFrameCallFunc([](){ WorldManager::getInstance()->setEnableNextAction(true); });
+    _timeline->setLastFrameCallFunc([callback](){
+        if (callback) {
+            callback();
+        }
+    });
 }
 
 void MainScene::hideMenu()
@@ -210,8 +214,6 @@ void MainScene::playNovel(std::string novelId, std::function<void ()> callback, 
     document.Parse<0>(jsonStr.c_str());
     rapidjson::Value& novelJson = document[novelId.c_str()];
     
-    WorldManager::getInstance()->setEnableNextAction(false);
-
     // pause map
     _pauseRecursive(_map);
 
@@ -221,11 +223,9 @@ void MainScene::playNovel(std::string novelId, std::function<void ()> callback, 
         if (novel) {
             novel->removeFromParent();
         }
-        WorldManager::getInstance()->setEnableNextAction(true);
         
         // resume map
         _resumeRecursive(_map);
-
     };
     
     // 会話生成&開始
@@ -390,6 +390,10 @@ void MainScene::_setupDebugMenu()
 void MainScene::_pushBattleButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
     if (eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
+        if (WorldManager::getInstance()->enableNextAction() == false) {
+            return;
+        }
+
         if (UserDataManager::getInstance()->getLife() <= 0) {
             showNoticeView("You don't have enough life.\n Life repair by time.", 0, NULL);
             return;
