@@ -9,6 +9,8 @@
         <Project Name="ScaleBar.csd" Type="Node" />
         <Folder Name="animal">
           <Image Name="ant.png" />
+          <Image Name="ari_main01.png" />
+          <Image Name="ari_main02.png" />
         </Folder>
         <Folder Name="back">
           <Image Name="background.jpg" />

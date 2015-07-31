@@ -72,7 +72,9 @@ protected:
     Species* _species;
     cocos2d::Node* _rootNode;
     cocostudio::timeline::ActionTimeline* _timeline;
+    cocos2d::Node* _imageNode;
     cocos2d::Sprite* _image;
+    cocos2d::Sprite* _backImage;
     Length* _height;
     Action* _moveAction;
     bool _isEnemy;

@@ -78,7 +78,9 @@ bool Animal::initWithSpeceis(Species* species, float size)
     // retain the character animation timeline so it doesn't get deallocated
     _timeline->retain();
     
-    _image = _rootNode->getChildByName<Sprite*>("image");
+    _imageNode = _rootNode->getChildByName("imageNode");
+    _image     = _imageNode->getChildByName<Sprite*>("image");
+    _backImage = _imageNode->getChildByName<Sprite*>("back");
     _changeAnimalImage();
     _state = AnimalState::Stop;
     deadCallback = NULL;
@@ -181,8 +183,10 @@ void Animal::startDash(Vec2 targetPoint, Length speed)
     float duration = move.length() / s;
     if (move.x < 0) {
         _image->setFlippedX(false);
+        _backImage->setFlippedX(false);
     } else {
         _image->setFlippedX(true);
+        _backImage->setFlippedX(true);
     }
 
 
@@ -321,8 +325,10 @@ void Animal::startWalk(Vec2 targetP, Length speed)
     float duration = move.length() / s;
     if (move.x < 0) {
         _image->setFlippedX(false);
+        _backImage->setFlippedX(false);
     } else {
         _image->setFlippedX(true);
+        _backImage->setFlippedX(true);
     }
 
     _stopMoveAction();
@@ -562,7 +568,8 @@ AbstractBattleEntity* Animal::getFightTarget()
 
 void Animal::_changeAnimalImage()
 {
-    _image->setTexture(_species->getImageName());
+    _image->setTexture(StringUtils::format("%s01.png", _species->getImageName().c_str()));
+    _backImage->setTexture(StringUtils::format("%s02.png", _species->getImageName().c_str()));
 }
 
 void Animal::_stopMoveAction()
