@@ -244,18 +244,18 @@
       <ObjectData Name="Node" Tag="16" ctype="GameNodeObjectData">
         <Size X="0.0000" Y="0.0000" />
         <Children>
-          <AbstractNodeData Name="chara_shadow_1" ActionTag="-929337761" Tag="125" Alpha="0" IconVisible="False" LeftMargin="163.0000" RightMargin="-263.0000" TopMargin="-79.2617" BottomMargin="-20.7383" ctype="SpriteObjectData">
+          <AbstractNodeData Name="chara_shadow_1" ActionTag="-929337761" Tag="125" Alpha="142" IconVisible="False" LeftMargin="-50.0000" RightMargin="-50.0000" TopMargin="-79.2617" BottomMargin="-20.7383" ctype="SpriteObjectData">
             <Size X="100.0000" Y="100.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="213.0000" Y="29.2617" />
-            <Scale ScaleX="3.5714" ScaleY="1.0000" />
+            <Position Y="29.2617" />
+            <Scale ScaleX="3.5000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="Normal" Path="ui/chara_shadow.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="imageNode" ActionTag="409811831" Tag="324" Rotation="90.0000" RotationSkewX="90.0000" RotationSkewY="90.0000" Alpha="0" IconVisible="True" TopMargin="-140.0000" BottomMargin="140.0000" ctype="SingleNodeObjectData">
+          <AbstractNodeData Name="imageNode" ActionTag="409811831" Tag="324" IconVisible="True" ctype="SingleNodeObjectData">
             <Size X="0.0000" Y="0.0000" />
             <Children>
               <AbstractNodeData Name="back" ActionTag="-583413097" Tag="323" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-200.0000" RightMargin="-200.0000" TopMargin="-400.0000" ctype="SpriteObjectData">
@@ -282,7 +282,7 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint />
-            <Position Y="140.0000" />
+            <Position />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />

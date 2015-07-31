@@ -22,7 +22,6 @@ bool CoinTree::init() {
     _preDropPos = -1;
     _dropCount = 5;
     _isSwaying = false;
-    setTag((int)EntityTag::CoinTree);
     _id = rand();
     _isDead = false;
 
@@ -45,6 +44,7 @@ void CoinTree::onEnter()
         setScale(scale);
     }
     
+    setTag((int)EntityTag::CoinTree);
     runAction(_timeline);
     _timeline->play("default", false);
 }

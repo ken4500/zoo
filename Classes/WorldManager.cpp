@@ -634,6 +634,10 @@ void WorldManager::_transitionMap(WorldInfo* preWorldInfo, WorldInfo* newWorldIn
                 || tag == (int)EntityTag::EnemyAnimal
                 || tag == (int)EntityTag::OpponentAnimal)
             {
+                auto entinty = dynamic_cast<AbstractBattleEntity*>(node);
+                if (entinty == nullptr || entinty->isDead()) {
+                    continue;
+                }
                 node->retain();
                 node->removeFromParent();
                 newMap->addChild(node);
@@ -813,6 +817,18 @@ void WorldManager::_deadCoinTreeCallback(AbstractBattleEntity* deadTree)
     CoinTree* tree = dynamic_cast<CoinTree*>(deadTree);
     auto command = CommandGenerater::deadCoinTree(tree);
     CommandGenerater::sendData(command);
+    
+    int treeId = tree->getId();
+    for (auto it = _coinTreeList.begin(); it != _coinTreeList.end(); ) {
+        auto tree = (*it);
+        if (tree->getId() == treeId) {
+            tree->fellDown(false);
+            it = _coinTreeList.erase(it);
+            continue;
+        }
+        it++;
+    }
+
 }
 
 #pragma - tutorial

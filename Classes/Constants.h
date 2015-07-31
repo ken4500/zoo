@@ -24,7 +24,7 @@ static const int REPAIR_LIFE_TIME = 5 * 60;
 static const int MAX_ANIMAL_NUM = 20;
 static const float GAME_FPS = 60;
 
-static const float INIT_MULTIBATTLE_COIN = 3;
+static const float INIT_MULTIBATTLE_COIN = 300;
 
 
 enum class EntityTag
