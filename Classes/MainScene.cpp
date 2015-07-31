@@ -56,9 +56,8 @@ bool MainScene::init()
     instance->registReaderObject("CoinTreeReader", (ObjectFactory::Instance) CoinTreeReader::getInstance);
 
     _rootNode = CSLoader::createNode("MainScene.csb");
-    _rootNode->setAnchorPoint(Vec2(0.5f, 0.5f));
-    _rootNode->setPosition(Vec2::ZERO);
-    _rootNode->setPosition(Vec2(displaySize.width / 2, displaySize.height / 2));
+//    _rootNode->setAnchorPoint(Vec2(0.5f, 0.5f));
+//    _rootNode->setPosition(Vec2(displaySize.width / 2, displaySize.height / 2));
     _timeLeftLabel = _rootNode->getChildByName<ui::TextBMFont*>("timeLabel");
 
     _map = WorldManager::getInstance()->getMap();
