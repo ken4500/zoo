@@ -276,6 +276,12 @@ WorldInfo* WorldManager::levelup()
     } else {
         auto command = CommandGenerater::levelUp(_info);
         CommandGenerater::sendData(command);
+        bool isFront = _gachaIsFrontZOrder(false);
+        if (isFront) {
+            _gacha->setZOrder(_opponentGacha->getZOrder() + 1);
+        } else {
+            _gacha->setZOrder(_opponentGacha->getZOrder() - 1);
+        }
     }
     
     return _info;
@@ -498,6 +504,15 @@ void WorldManager::levelupOpponent(int level)
     auto gachaLength = Length::scale(_opponentInfo->width, 0.2);
     float gachaScale = getImageScale(gachaImage, gachaLength);
     _opponentGacha->runAction(EaseInOut::create(ScaleTo::create(1.0f, gachaScale), 2));
+    
+    bool isFront = _gachaIsFrontZOrder(true);
+    if (isFront) {
+        _opponentGacha->setZOrder(_gacha->getZOrder() + 1);
+        _opponentGacha->setOpacity(200);
+    } else {
+        _opponentGacha->setZOrder(_gacha->getZOrder() - 1);
+        _opponentGacha->setOpacity(100);
+    }
 }
 
 #pragma - util method
@@ -875,6 +890,17 @@ void WorldManager::_deadCoinTreeCallback(AbstractBattleEntity* deadTree)
     }
 
 }
+
+bool WorldManager::_gachaIsFrontZOrder(bool isOpponent)
+{
+    bool playerIsFront = _info->level <= _opponentInfo->level;
+    if (isOpponent) {
+        return !playerIsFront;
+    } else {
+        return playerIsFront;
+    }
+}
+
 
 #pragma - tutorial
 

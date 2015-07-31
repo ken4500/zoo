@@ -121,6 +121,7 @@ private:
     void _sendAnimalStatus(float dt);
     void _makeCoinTreePerTime(float dt);
     void _deadCoinTreeCallback(AbstractBattleEntity* deadTree);
+    bool _gachaIsFrontZOrder(bool isOpponent);
 
     // tutorial
     void _startTutrialBattleScene1();

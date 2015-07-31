@@ -53,7 +53,7 @@ void CoinTree::setLength(Length length)
 {
     _length = new Length(length.getMmLength());
     _dropCoin = MAX(1, (int)length.getLength(UnitOfLength::cm));
-    _maxHp = length.getMmLength() * 3000;
+    _maxHp = length.getMmLength() * 3;
     _hp = _maxHp;
     if (_image) {
         float scale = WorldManager::getInstance()->getImageScale(_image, *_length);
