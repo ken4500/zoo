@@ -35,9 +35,9 @@ UnitOfLength Length::toUnit(std::string str)
     return Length::toUnitMap[str];
 }
 
-Length* Length::createWithDisplayLength(float displayLength)
+Length Length::createWithDisplayLength(float displayLength)
 {
-    return WorldManager::getInstance()->getLength(displayLength);
+    return *WorldManager::getInstance()->getLength(displayLength);
 }
 
 #pragma - core
@@ -98,24 +98,24 @@ float Length::getDisplayLength()
 
 #pragma - calculate
 
-Length* Length::add(Length* l)
+Length Length::add(Length l)
 {
-    _mm += l->getMmLength();
-    return this;
+    _mm += l.getMmLength();
+    return Length(_mm);
 }
 
-Length* Length::scale(float scale)
+Length Length::scale(float scale)
 {
     _mm *= scale;
-    return this;
+    return Length(_mm);
 }
 
-Length* Length::add(Length* l1, Length* l2)
+Length Length::add(Length l1, Length l2)
 {
-    return new Length(l1->getMmLength() + l2->getMmLength());
+    return Length(l1.getMmLength() + l2.getMmLength());
 }
 
-Length* Length::scale(Length* l, float scale)
+Length Length::scale(Length l, float scale)
 {
-    return new Length(l->getMmLength() * scale);
+    return Length(l.getMmLength() * scale);
 }

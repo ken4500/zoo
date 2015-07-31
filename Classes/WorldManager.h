@@ -73,7 +73,7 @@ public:
     void levelupOpponent(int level);
     
     // util
-    float getImageScale(Sprite* image, Length* width);
+    float getImageScale(Sprite* image, Length width);
     float getDisplayLength(Length* length);
     Length* getLength(float displayLength);
     Vec2 getRealPosition(Vec2 displayPosition);

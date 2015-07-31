@@ -160,7 +160,7 @@ Gacha* WorldManager::getOpponentGacha()
 
 Length WorldManager::getDashSpeed()
 {
-    return Length(_info->width->getMmLength() * 0.2);
+    return Length(_info->width.getMmLength() * 0.2);
 }
 
 #pragma - public method
@@ -249,7 +249,7 @@ WorldInfo* WorldManager::levelup()
     // 小さすぎる動物を削除
     for (auto it = _animalList.begin(); it != _animalList.end(); ) {
         auto animal = (*it);
-        if (animal->getHeight().getMmLength() * 50 < _info->width->getMmLength()) {
+        if (animal->getHeight().getMmLength() * 50 < _info->width.getMmLength()) {
             animal->runAction(Sequence::create(ScaleTo::create(0.5, 0), RemoveSelf::create(), NULL));
             it = _animalList.erase(it);
             if (_isNetwork == false) {
@@ -278,7 +278,7 @@ Vec2 WorldManager::getRadomPlace()
     auto back = _map->getChildByName<Sprite*>("background");
     auto imageSize = back->getContentSize();
     auto displaySize = Director::getInstance()->getVisibleSize();
-    float w = imageSize.width * _info->width->getMmLength() / _info->maxWidth->getMmLength();
+    float w = imageSize.width * _info->width.getMmLength() / _info->maxWidth.getMmLength();
     float h = w * displaySize.height / displaySize.width;
     float x = w * rand_0_1() - w / 2;
     float y = h * rand_0_1() - h / 2;
@@ -290,7 +290,7 @@ Vec2 WorldManager::getOutRandomPlace()
     auto back = _map->getChildByName<Sprite*>("background");
     auto imageSize = back->getContentSize();
     auto displaySize = Director::getInstance()->getVisibleSize();
-    float w = imageSize.width * _info->width->getMmLength() / _info->maxWidth->getMmLength();
+    float w = imageSize.width * _info->width.getMmLength() / _info->maxWidth.getMmLength();
     float h = w * displaySize.height / displaySize.width;
     float x, y;
     
@@ -495,10 +495,10 @@ void WorldManager::levelupOpponent(int level)
 
 #pragma - util method
 
-float WorldManager::getImageScale(Sprite* image, Length* width)
+float WorldManager::getImageScale(Sprite* image, Length width)
 {
     auto contentSize = image->getContentSize();
-    float scale = (width->getLength(UnitOfLength::mm) * _info->imageWidth) / (_info->maxWidth->getLength(UnitOfLength::mm) * contentSize.width);
+    float scale = (width.getLength(UnitOfLength::mm) * _info->imageWidth) / (_info->maxWidth.getLength(UnitOfLength::mm) * contentSize.width);
     return scale;
 }
 
@@ -506,28 +506,28 @@ float WorldManager::getDisplayLength(Length* length)
 {
     auto worldSize = getWorldInfo()->width;
     auto visibleSize = Director::getInstance()->getVisibleSize();
-    return (length->getLength(UnitOfLength::mm) * visibleSize.width) / worldSize->getLength(UnitOfLength::mm);
+    return (length->getLength(UnitOfLength::mm) * visibleSize.width) / worldSize.getLength(UnitOfLength::mm);
 }
 
 Length* WorldManager::getLength(float displayLength)
 {
     auto worldSize = getWorldInfo()->width;
     auto visibleSize = Director::getInstance()->getVisibleSize();
-    float mm = worldSize->getLength(UnitOfLength::mm) * displayLength / visibleSize.width;
+    float mm = worldSize.getLength(UnitOfLength::mm) * displayLength / visibleSize.width;
     return new Length(UnitOfLength::mm, mm);
 }
 
 Vec2 WorldManager::getRealPosition(Vec2 displayPosition)
 {
-    float x = displayPosition.x * _info->maxWidth->getMmLength() / _info->imageWidth;
-    float y = displayPosition.y * _info->maxWidth->getMmLength() / _info->imageWidth;
+    float x = displayPosition.x * _info->maxWidth.getMmLength() / _info->imageWidth;
+    float y = displayPosition.y * _info->maxWidth.getMmLength() / _info->imageWidth;
     return Vec2(x, y);
 }
 
 Vec2 WorldManager::getDisplayPosition(Vec2 readlPosition)
 {
-    float x = readlPosition.x * _info->imageWidth / _info->maxWidth->getMmLength();
-    float y = readlPosition.y * _info->imageWidth / _info->maxWidth->getMmLength();
+    float x = readlPosition.x * _info->imageWidth / _info->maxWidth.getMmLength();
+    float y = readlPosition.y * _info->imageWidth / _info->maxWidth.getMmLength();
     return Vec2(x, y);
 }
 
@@ -659,7 +659,7 @@ void WorldManager::_transitionMap(WorldInfo* preWorldInfo, WorldInfo* newWorldIn
                 node->removeFromParent();
                 newMap->addChild(node);
                 node->release();
-                auto pos = node->getPosition() * preWorldInfo->maxWidth->getMmLength() / newWorldInfo->maxWidth->getMmLength();
+                auto pos = node->getPosition() * preWorldInfo->maxWidth.getMmLength() / newWorldInfo->maxWidth.getMmLength();
                 node->setPosition(pos);
                 auto animal = dynamic_cast<Animal*>(node);
                 if (animal) {
@@ -672,9 +672,9 @@ void WorldManager::_transitionMap(WorldInfo* preWorldInfo, WorldInfo* newWorldIn
         _gacha->removeFromParent();
         newMap->setGacha(_gacha);
         _gacha->release();
-        auto pos = _gacha->getPosition() * preWorldInfo->maxWidth->getMmLength() / newWorldInfo->maxWidth->getMmLength();
+        auto pos = _gacha->getPosition() * preWorldInfo->maxWidth.getMmLength() / newWorldInfo->maxWidth.getMmLength();
         _gacha->setPosition(pos);
-        auto scale = _gacha->getScale() * preWorldInfo->maxWidth->getMmLength() / newWorldInfo->maxWidth->getMmLength();
+        auto scale = _gacha->getScale() * preWorldInfo->maxWidth.getMmLength() / newWorldInfo->maxWidth.getMmLength();
         _gacha->setScale(scale);
         
         auto gachaImage = _gacha->getChildByName<Sprite*>("image");
@@ -779,7 +779,7 @@ void WorldManager::_makeCoinTree()
 {
     auto tree = dynamic_cast<CoinTree*>(CSLoader::createNode("CoinTree.csb"));
     tree->setPosition((getRadomPlace() + Vec2(0, -100)) * 0.8f);
-    tree->setLength(new Length(_info->width->getMmLength() * 0.06));
+    tree->setLength(Length(_info->width.getMmLength() * 0.06));
     tree->deadCallback = CC_CALLBACK_1(WorldManager::_deadCoinTreeCallback, this);
     _map->setCoinTree(tree);
     _coinTreeList.push_back(tree);
@@ -888,7 +888,7 @@ void WorldManager::_startTutrialBattleScene2()
             if (alive == 7 && appearKabutomushi == false) {
                 appearKabutomushi = true;
                 auto beetleSpecies = new Species("Kabutomushi");
-                auto beetle = Animal::CreateWithSpeceis("Kabutomushi", beetleSpecies->getMaxHeight()->getMmLength());
+                auto beetle = Animal::CreateWithSpeceis("Kabutomushi", beetleSpecies->getMaxHeight().getMmLength());
                 beetle->setIsEnmey(true);
                 _enemyAnimalList.push_back(beetle);
                 _map->addEnemyAnimal(beetle, Vec2(500, 0));

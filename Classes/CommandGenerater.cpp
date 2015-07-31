@@ -30,7 +30,7 @@ void CommandGenerater::excCommand(std::string dataStr)
             auto length = new Length(command.numberDataList[0]);
             auto pos = Vec2(command.numberDataList[1], command.numberDataList[2]);
             auto tree = dynamic_cast<CoinTree*>(CSLoader::createNode("CoinTree.csb"));
-            tree->setLength(length);
+            tree->setLength(*length);
             tree->setId(id);
             tree->setRealPosition(pos);
             WorldManager::getInstance()->createTreeByNetwork(tree);
@@ -125,7 +125,7 @@ CommandData CommandGenerater::makeCoinTree(CoinTree* coinTree)
     data.commandName = "create_tree";
     data.time = ZUtil::getTime();
     data.intDataList.push_back(coinTree->getId());
-    data.numberDataList.push_back(coinTree->getLength()->getMmLength());
+    data.numberDataList.push_back(coinTree->getLength().getMmLength());
    
     Vec2 pos = coinTree->getRealPosition();
     data.numberDataList.push_back(pos.x);

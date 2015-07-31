@@ -14,10 +14,10 @@ EnemyGenerater::EnemyGenerater(WorldInfo* info)
     _info = info;
     std::vector<Species*> allSpecies = Species::getAllSpecies();
     _speciesList = std::vector<Species*>();
-    float min = _info->width->getMmLength() / 20;
-    float max = _info->width->getMmLength() / 8;
+    float min = _info->width.getMmLength() / 20;
+    float max = _info->width.getMmLength() / 8;
     for (Species* species : allSpecies) {
-        float height = species->getAverageHeight()->getMmLength();
+        float height = species->getAverageHeight().getMmLength();
         if (min <= height && height <= max) {
             _speciesList.push_back(species);
         }

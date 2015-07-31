@@ -14,7 +14,9 @@
 
 USING_NS_CC;
 
-WorldInfo::WorldInfo(int level)
+WorldInfo::WorldInfo(int level) :
+maxWidth(0),
+width(0)
 {
     lotteryGachaCount = 0;
     totalLotteryGachaCount = 0;
@@ -58,8 +60,8 @@ void WorldInfo::_loadLevel()
     std::string unit = worldDoc["unit"].GetString();
     float value = (float)worldDoc["value"].GetDouble();
     float maxValue = (float)worldDoc["maxValue"].GetDouble();
-    this->width = new Length(Length::toUnit(unit), value);
-    this->maxWidth = new Length(Length::toUnit(unit), maxValue);
+    this->width = Length(Length::toUnit(unit), value);
+    this->maxWidth = Length(Length::toUnit(unit), maxValue);
     this->mapName = StringUtils::format("map/%s", worldDoc["map"].GetString());
     this->gachaId = worldDoc["gacha"].GetInt();
     this->imageWidth = worldDoc["imageWidth"].GetInt();

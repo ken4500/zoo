@@ -15,7 +15,7 @@ class Length {
 public:
     Length(float length);
     Length(UnitOfLength unit, float length);
-    static Length* createWithDisplayLength(float displayLength);
+    static Length createWithDisplayLength(float displayLength);
     static std::string toString(UnitOfLength unit);
     static UnitOfLength toUnit(std::string str);
 
@@ -26,11 +26,11 @@ public:
     float getLength(UnitOfLength unit);
     float getDisplayLength();
     
-    Length* add(Length* l);
-    Length* scale(float scale);
+    Length add(Length l);
+    Length scale(float scale);
     
-    static Length* add(Length* l1, Length* l2);
-    static Length* scale(Length* l, float scale);
+    static Length add(Length l1, Length l2);
+    static Length scale(Length l, float scale);
     Length operator*(float scale) const
     {
         return Length(_mm * scale);

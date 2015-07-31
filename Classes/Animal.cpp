@@ -21,7 +21,7 @@ Animal* Animal::CreateWithSpeceis(std::string specesName)
     Animal* animal = new(std::nothrow) Animal();
     Species* species = new Species(specesName);
     float rnd = CCRANDOM_0_1();
-    float mm = (species->getMaxHeight()->getMmLength() - species->getMinHeight()->getMmLength()) * rnd + species->getMinHeight()->getMmLength();
+    float mm = (species->getMaxHeight().getMmLength() - species->getMinHeight().getMmLength()) * rnd + species->getMinHeight().getMmLength();
     if (animal && animal->initWithSpeceis(species, mm))
     {
         animal->autorelease();
@@ -50,7 +50,7 @@ Animal* Animal::CreateWithSpeceis(Species* species)
 {
     Animal* animal = new(std::nothrow) Animal();
     float rnd = CCRANDOM_0_1();
-    float mm = (species->getMaxHeight()->getMmLength() - species->getMinHeight()->getMmLength()) * rnd + species->getMinHeight()->getMmLength();
+    float mm = (species->getMaxHeight().getMmLength() - species->getMinHeight().getMmLength()) * rnd + species->getMinHeight().getMmLength();
     if (animal && animal->initWithSpeceis(species, mm))
     {
         animal->autorelease();
@@ -415,9 +415,9 @@ Length Animal::getHeight()
 
 Length Animal::getSpeed()
 {
-    Length* speed = _species->getSpeed();
+    Length speed = _species->getSpeed();
 
-    return *speed;
+    return speed;
 }
 
 Length Animal::getDashSpeed()
@@ -437,7 +437,7 @@ std::string Animal::getName()
 
 float Animal::getWorldScale()
 {
-    float scale = WorldManager::getInstance()->getImageScale(_image, &_height);
+    float scale = WorldManager::getInstance()->getImageScale(_image, _height);
     return scale;
 }
 

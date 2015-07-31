@@ -16,6 +16,17 @@ using namespace cocos2d;
 
 #pragma - life cycle
 
+WorldMap::WorldMap() :
+_maxWidth(0),
+_currentWidth(0)
+{
+}
+
+WorldMap::~WorldMap()
+{
+}
+
+
 bool WorldMap::init() {
     if (!Node::init()) {
         return false;
@@ -241,33 +252,33 @@ void WorldMap::setupTouchHandling()
 
 #pragma - getter/setter
 
-void WorldMap::initSize(Length* maxWidth, Length* currentWidth)
+void WorldMap::initSize(Length maxWidth, Length currentWidth)
 {
     _maxWidth = maxWidth;
     _currentWidth = currentWidth;
     auto back = getChildByName<Sprite*>("background");
     Size size = Director::getInstance()->getVisibleSize();
-    float scale = size.width * _maxWidth->getMmLength() / ( _currentWidth->getMmLength() * back->getContentSize().width);
+    float scale = size.width * _maxWidth.getMmLength() / ( _currentWidth.getMmLength() * back->getContentSize().width);
     this->setScale(scale);
 }
 
-Length* WorldMap::getCurrentWidth()
+Length WorldMap::getCurrentWidth()
 {
     return _currentWidth;
 }
 
-Length* WorldMap::getMaxWidth()
+Length WorldMap::getMaxWidth()
 {
     return _maxWidth;
 }
 
-void WorldMap::setCurrentWidth(Length* width, std::function<void ()> callback)
+void WorldMap::setCurrentWidth(Length width, std::function<void ()> callback)
 {
     _currentWidth = width;
     auto back = getChildByName<Sprite*>("background");
     Size size = Director::getInstance()->getVisibleSize();
     auto hoge = back->getContentSize();
-    float scale = size.width * _maxWidth->getMmLength() / ( _currentWidth->getMmLength() * back->getContentSize().width);
+    float scale = size.width * _maxWidth.getMmLength() / ( _currentWidth.getMmLength() * back->getContentSize().width);
     if (callback) {
         runAction(Sequence::create(
             EaseIn::create(ScaleTo::create(1.0f, scale), 2),
@@ -342,7 +353,7 @@ void WorldMap::releaseOpponentAnimal(Animal* animal, std::function<void ()> call
 
 bool WorldMap::isMaxScale()
 {
-    return _maxWidth->getLength() <= _currentWidth->getLength();
+    return _maxWidth.getLength() <= _currentWidth.getLength();
 }
 
 void WorldMap::addAnimalAtRandomPoint(Animal* animal)

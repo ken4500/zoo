@@ -11,7 +11,11 @@
 USING_NS_CC;
 
 Species::Species(std::string name) :
-_moveCsbName("AnimalMove1.csb")
+_moveCsbName("AnimalMove1.csb"),
+_maxHeight(0),
+_minHeight(0),
+_speed(0),
+_dashSpeed(0)
 {
     auto jsonStr = FileUtils::getInstance()->getStringFromFile("data/animal.json");
     rapidjson::Document document;
@@ -21,7 +25,11 @@ _moveCsbName("AnimalMove1.csb")
 }
 
 Species::Species(std::string name, rapidjson::Value& json) :
-_moveCsbName("AnimalMove1.csb")
+_moveCsbName("AnimalMove1.csb"),
+_maxHeight(0),
+_minHeight(0),
+_speed(0),
+_dashSpeed(0)
 {
     init(name, json);
 }
@@ -30,17 +38,17 @@ void Species::init(std::string name, rapidjson::Value& json)
 {
     UnitOfLength unit = Length::toUnit(json["unit"].GetString());
     _name = name;
-    _maxHeight = new Length(unit, (float)json["maxHeight"].GetDouble());
-    _minHeight = new Length(unit, (float)json["minHeight"].GetDouble());
-    _speed = new Length(unit, (float)json["speed"].GetDouble());
+    _maxHeight = Length(unit, (float)json["maxHeight"].GetDouble());
+    _minHeight = Length(unit, (float)json["minHeight"].GetDouble());
+    _speed = Length(unit, (float)json["speed"].GetDouble());
     _imageName = json["image"].GetString();
     if (json["move"].IsNull() == false) {
         _move = json["move"].GetBool();
     }
     if (json["dash"].IsNull()) {
-        _dashSpeed = new Length(UnitOfLength::mm, _speed->getMmLength() * 2);
+        _dashSpeed = Length(UnitOfLength::mm, _speed.getMmLength() * 2);
     } else {
-        _dashSpeed = new Length(unit, (float)json["dash"].GetDouble());
+        _dashSpeed = Length(unit, (float)json["dash"].GetDouble());
     }
 }
 
@@ -49,27 +57,27 @@ std::string Species::getName()
     return _name;
 }
 
-Length* Species::getMaxHeight()
+Length Species::getMaxHeight()
 {
     return _maxHeight;
 }
 
-Length* Species::getMinHeight()
+Length Species::getMinHeight()
 {
     return _minHeight;
 }
 
-Length* Species::getAverageHeight()
+Length Species::getAverageHeight()
 {
-    return new Length(_minHeight->getMmLength() + _maxHeight->getMmLength() / 2);
+    return Length(_minHeight.getMmLength() + _maxHeight.getMmLength() / 2);
 }
 
-Length* Species::getSpeed()
+Length Species::getSpeed()
 {
     return _speed;
 }
 
-Length* Species::getDashSpeed()
+Length Species::getDashSpeed()
 {
     return _dashSpeed;
 }

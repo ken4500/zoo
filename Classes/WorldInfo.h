@@ -20,8 +20,8 @@ public:
     void addLotteryGachaCount();
     WorldInfo* copy();
 
-    Length* width;
-    Length* maxWidth;
+    Length width;
+    Length maxWidth;
     int level;
     int gachaId;
     std::string mapName;

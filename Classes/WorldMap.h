@@ -19,16 +19,18 @@ class CoinTree;
 
 class WorldMap : public cocos2d::Node {
 public:
+    WorldMap();
+    ~WorldMap();
     CREATE_FUNC(WorldMap);
     bool init() override;
     void onEnter() override;
     void updateDash(float dt);
     void update(float dt);
-    void initSize(Length* maxWidth, Length* currentWidth);
+    void initSize(Length maxWidth, Length currentWidth);
 
-    Length* getCurrentWidth();
-    Length* getMaxWidth();
-    void setCurrentWidth(Length* length, std::function<void ()> callback);
+    Length getCurrentWidth();
+    Length getMaxWidth();
+    void setCurrentWidth(Length length, std::function<void ()> callback);
     void setGacha(Gacha* gacha);
     bool isMaxScale();
     void setCoinTree(CoinTree* tree);
@@ -44,8 +46,8 @@ public:
     void vibrationMap();
     
 protected:
-    Length* _maxWidth;
-    Length* _currentWidth;
+    Length _maxWidth;
+    Length _currentWidth;
     Vec2 _targetPoint;
     
     int _calcObjectZOrder(Node* node);

@@ -40,7 +40,7 @@ void CoinTree::onEnter()
     }
 
     if (_length) {
-        float scale = WorldManager::getInstance()->getImageScale(_image, _length);
+        float scale = WorldManager::getInstance()->getImageScale(_image, *_length);
         setScale(scale);
     }
     
@@ -49,21 +49,21 @@ void CoinTree::onEnter()
     _timeline->play("default", false);
 }
 
-void CoinTree::setLength(Length* length)
+void CoinTree::setLength(Length length)
 {
-    _length = length;
-    _dropCoin = MAX(1, (int)length->getLength(UnitOfLength::cm));
-    _maxHp = length->getMmLength() * 3;
+    _length = new Length(length.getMmLength());
+    _dropCoin = MAX(1, (int)length.getLength(UnitOfLength::cm));
+    _maxHp = length.getMmLength() * 3;
     _hp = _maxHp;
     if (_image) {
-        float scale = WorldManager::getInstance()->getImageScale(_image, _length);
+        float scale = WorldManager::getInstance()->getImageScale(_image, *_length);
         setScale(scale);
     }
 }
 
-Length* CoinTree::getLength()
+Length CoinTree::getLength()
 {
-    return _length;
+    return *_length;
 }
 
 void CoinTree::sprout()
@@ -198,15 +198,15 @@ Vec2 CoinTree::getRealPosition()
 {
     auto info = WorldManager::getInstance()->getWorldInfo();
     auto pos = getPosition();
-    float x = pos.x * info->maxWidth->getMmLength() / info->imageWidth;
-    float y = pos.y * info->maxWidth->getMmLength() / info->imageWidth;
+    float x = pos.x * info->maxWidth.getMmLength() / info->imageWidth;
+    float y = pos.y * info->maxWidth.getMmLength() / info->imageWidth;
     return Vec2(x, y);
 }
 
 void CoinTree::setRealPosition(Vec2 position)
 {
     auto info = WorldManager::getInstance()->getWorldInfo();
-    float x = position.x * info->imageWidth / info->maxWidth->getMmLength();
-    float y = position.y * info->imageWidth / info->maxWidth->getMmLength();
+    float x = position.x * info->imageWidth / info->maxWidth.getMmLength();
+    float y = position.y * info->imageWidth / info->maxWidth.getMmLength();
     setPosition(Vec2(x, y));
 }

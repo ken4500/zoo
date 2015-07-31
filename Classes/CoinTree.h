@@ -20,8 +20,8 @@ class CoinTree : public AbstractBattleEntity {
 public:
     CREATE_FUNC(CoinTree);
     bool init() override;
-    void setLength(Length* length);
-    Length* getLength();
+    void setLength(Length length);
+    Length getLength();
     void sprout();
     void sway();
     void dropCoin();

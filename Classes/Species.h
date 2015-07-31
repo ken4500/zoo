@@ -19,11 +19,11 @@ public:
     Species(std::string name, rapidjson::Value& json);
     Species(std::string name);
     std::string getName();
-    Length* getMaxHeight();
-    Length* getAverageHeight();
-    Length* getMinHeight();
-    Length* getSpeed();
-    Length* getDashSpeed();
+    Length getMaxHeight();
+    Length getAverageHeight();
+    Length getMinHeight();
+    Length getSpeed();
+    Length getDashSpeed();
     std::string getImageName();
     std::string getMoveCsbName();
     bool isMove();
@@ -32,10 +32,10 @@ public:
 
 protected:
     std::string _name;
-    Length* _maxHeight;
-    Length* _minHeight;
-    Length* _speed;
-    Length* _dashSpeed;
+    Length _maxHeight;
+    Length _minHeight;
+    Length _speed;
+    Length _dashSpeed;
     std::string _imageName;
     std::string _moveCsbName;
     bool _move;
