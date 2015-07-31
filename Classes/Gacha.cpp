@@ -92,7 +92,7 @@ void Gacha::lotteryGacha(WorldInfo* _info)
     ));
 }
 
-void Gacha::setNewGacha(WorldInfo* _info)
+void Gacha::setNewGacha(WorldInfo* info)
 {
     _sumProbability = 0;
     _probabilityList = std::vector<float>();
@@ -102,13 +102,13 @@ void Gacha::setNewGacha(WorldInfo* _info)
     _price = 1;
 
     std::string fileName = "data/gacha.json";
-    if (_info->network) {
+    if (info->network) {
         fileName = "data/gacha_multi.json";
     }
     auto jsonStr = FileUtils::getInstance()->getStringFromFile(fileName);
     rapidjson::Document document;
     document.Parse<0>(jsonStr.c_str());
-    rapidjson::Value& gachaDoc = document[std::to_string(_info->gachaId).c_str()];
+    rapidjson::Value& gachaDoc = document[std::to_string(info->gachaId).c_str()];
     _least = gachaDoc["least"].GetInt();
     _price = gachaDoc["price"].GetInt();
     rapidjson::Value& listDoc = gachaDoc["list"];
