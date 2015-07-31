@@ -89,6 +89,11 @@ void CommandGenerater::excCommand(std::string dataStr)
                 animal->fight(tree);
             }
         }
+        else if (command.commandName == "levelup")
+        {
+            int level = command.intDataList[0];
+            WorldManager::getInstance()->levelupOpponent(level);
+        }
     }
 }
 
@@ -146,7 +151,7 @@ CommandData CommandGenerater::releaseAnimal(Animal* animal)
     data.time = ZUtil::getTime();
     data.intDataList.push_back(animal->getId());
     data.stringDataList.push_back(animal->getName());
-    data.numberDataList.push_back(animal->getHeight()->getMmLength());
+    data.numberDataList.push_back(animal->getHeight().getMmLength());
     return data;
 }
 
@@ -169,7 +174,7 @@ CommandData CommandGenerater::walkAnimal(Animal* animal)
     target = WorldManager::getInstance()->getRealPosition(target);
     data.numberDataList.push_back(target.x);
     data.numberDataList.push_back(target.y);
-    data.numberDataList.push_back(animal->getSpeed()->getMmLength());
+    data.numberDataList.push_back(animal->getSpeed().getMmLength());
     return data;
 }
 
@@ -212,3 +217,11 @@ CommandData CommandGenerater::fightTree(Animal* animal, AbstractBattleEntity* tr
     return data;
 }
 
+CommandData CommandGenerater::levelUp(WorldInfo* info)
+{
+    CommandData data;
+    data.commandName = "levelup";
+    data.time = ZUtil::getTime();
+    data.intDataList.push_back(info->level);
+    return data;
+}

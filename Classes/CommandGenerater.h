@@ -31,6 +31,7 @@ public:
     static CommandData dashAnimal(Animal* animal);
     static CommandData stopAnimal(Animal* animal);
     static CommandData fightTree(Animal* animal, AbstractBattleEntity* tree);
+    static CommandData levelUp(WorldInfo* info);
 };
 
 #endif /* defined(__Zoo__CommandGenerater__) */

@@ -88,6 +88,7 @@
 		9FA0EA291B68349E007F642B /* NetworkManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9FA0EA261B68349E007F642B /* NetworkManager.mm */; };
 		9FA0EA2C1B683A45007F642B /* JSONPacker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FA0EA2A1B683A45007F642B /* JSONPacker.cpp */; };
 		9FA0EA2F1B683CFF007F642B /* CommandGenerater.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FA0EA2D1B683CFF007F642B /* CommandGenerater.cpp */; };
+		9FA0EA371B6BDB16007F642B /* Weight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FA0EA351B6BDB16007F642B /* Weight.cpp */; };
 		9FB063E01B5818A20088AE2A /* NovelAction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FB063D71B5818A20088AE2A /* NovelAction.cpp */; };
 		9FB063E11B5818A20088AE2A /* NovelBalloon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FB063D91B5818A20088AE2A /* NovelBalloon.cpp */; };
 		9FB063E21B5818A20088AE2A /* NovelLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FB063DB1B5818A20088AE2A /* NovelLayer.cpp */; };
@@ -241,6 +242,8 @@
 		9FA0EA2B1B683A45007F642B /* JSONPacker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONPacker.h; sourceTree = "<group>"; };
 		9FA0EA2D1B683CFF007F642B /* CommandGenerater.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CommandGenerater.cpp; sourceTree = "<group>"; };
 		9FA0EA2E1B683CFF007F642B /* CommandGenerater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommandGenerater.h; sourceTree = "<group>"; };
+		9FA0EA351B6BDB16007F642B /* Weight.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Weight.cpp; sourceTree = "<group>"; };
+		9FA0EA361B6BDB16007F642B /* Weight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Weight.h; sourceTree = "<group>"; };
 		9FB063D71B5818A20088AE2A /* NovelAction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NovelAction.cpp; sourceTree = "<group>"; };
 		9FB063D81B5818A20088AE2A /* NovelAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NovelAction.h; sourceTree = "<group>"; };
 		9FB063D91B5818A20088AE2A /* NovelBalloon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NovelBalloon.cpp; sourceTree = "<group>"; };
@@ -468,6 +471,8 @@
 				9F06E9C11B5AD27D00107C09 /* GameResult.h */,
 				9F06E9C31B5C243700107C09 /* EnemyGenerater.cpp */,
 				9F06E9C41B5C243700107C09 /* EnemyGenerater.h */,
+				9FA0EA351B6BDB16007F642B /* Weight.cpp */,
+				9FA0EA361B6BDB16007F642B /* Weight.h */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -802,6 +807,7 @@
 				9F13C2411B65A71C0035850A /* SceneManager.cpp in Sources */,
 				9F06E9C51B5C243700107C09 /* EnemyGenerater.cpp in Sources */,
 				9F05646C1B49EDE000649A7F /* ScaleBar.cpp in Sources */,
+				9FA0EA371B6BDB16007F642B /* Weight.cpp in Sources */,
 				9F83BA861B55687700605D1D /* UserData.cpp in Sources */,
 				9F0564671B49D5AA00649A7F /* Species.cpp in Sources */,
 			);

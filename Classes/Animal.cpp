@@ -11,7 +11,8 @@
 
 #pragma - Lifecycle
 
-Animal::Animal()
+Animal::Animal() :
+_height(0)
 {
 }
 
@@ -68,7 +69,7 @@ bool Animal::initWithSpeceis(Species* species, float size)
     }
     
     _species = species;
-    _height = new Length(UnitOfLength::mm, size);
+    _height = Length(UnitOfLength::mm, size);
 
     _rootNode = CSLoader::createNode(_species->getMoveCsbName());
     this->addChild(_rootNode);
@@ -305,7 +306,7 @@ void Animal::startWalk()
 
     Vec2 targetP = WorldManager::getInstance()->getRadomPlace();
     auto speed = getSpeed();
-    startWalk(targetP, *speed);
+    startWalk(targetP, speed);
 }
 
 void Animal::startWalk(Vec2 targetP, Length speed)
@@ -345,7 +346,6 @@ void Animal::startWalk(Vec2 targetP, Length speed)
     }
     _moveAction->retain();
 }
-
 
 void Animal::startStop()
 {
@@ -408,22 +408,26 @@ void Animal::endFight()
 
 #pragma - setter / getter
 
-Length* Animal::getHeight()
+Length Animal::getHeight()
 {
     return _height;
 }
 
-Length* Animal::getSpeed()
+Length Animal::getSpeed()
 {
     Length* speed = _species->getSpeed();
 
-    return speed;
+    return *speed;
 }
 
-Length* Animal::getDashSpeed()
+Length Animal::getDashSpeed()
 {
-    return WorldManager::getInstance()->getLength(100);
-//    return _species->getDashSpeed();
+    return *WorldManager::getInstance()->getLength(100);
+}
+
+Weight Animal::getWeight()
+{
+    return Weight(_height);
 }
 
 std::string Animal::getName()
@@ -433,7 +437,7 @@ std::string Animal::getName()
 
 float Animal::getWorldScale()
 {
-    float scale = WorldManager::getInstance()->getImageScale(_image, _height);
+    float scale = WorldManager::getInstance()->getImageScale(_image, &_height);
     return scale;
 }
 
@@ -506,7 +510,7 @@ int Animal::getHash()
 {
     std::string name = getName();
     uint8_t bytes_array[4 + name.size()];
-    *((float *)bytes_array) = _height->getMmLength();
+    *((float *)bytes_array) = _height.getMmLength();
     for (int i = 0; i < name.size(); i++) {
         bytes_array[4 + i] = name[i];
     }
@@ -516,7 +520,7 @@ int Animal::getHash()
 
 int Animal::getCoin()
 {
-    return MAX(1, (int)_height->getLength(UnitOfLength::cm));
+    return MAX(1, (int)_height.getLength(UnitOfLength::cm));
 }
 
 Rect Animal::getBodyRect()

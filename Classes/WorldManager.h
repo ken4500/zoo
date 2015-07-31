@@ -70,6 +70,7 @@ public:
     void createTreeByNetwork(CoinTree* tree);
     void deadTreeByNetwork(int treeId);
     void removeAnimalByNetwork(int animalId);
+    void levelupOpponent(int level);
     
     // util
     float getImageScale(Sprite* image, Length* width);
@@ -87,6 +88,7 @@ private:
     int _multiBattleCoin;
     int _beforeBattleCoin;
     WorldInfo* _info;
+    WorldInfo* _opponentInfo;
     WorldMap* _map;
     Gacha* _gacha;
     Gacha* _opponentGacha;

@@ -214,7 +214,7 @@ void UserDataManager::addAnimal(Animal* animal)
     auto animalList = _userData->getAnimalList();
     auto animalData = ValueMap();
     animalData["name"] = Value(animal->getName());
-    animalData["size"] = Value(animal->getHeight()->getMmLength());
+    animalData["size"] = Value(animal->getHeight().getMmLength());
     animalList.push_back(Value(animalData));
     _userData->setAnimalList(animalList);
     
@@ -227,7 +227,7 @@ void UserDataManager::removeAnimal(Animal* animal)
     for (auto it = animalList.begin(); it != animalList.end();) {
         auto tmpAnimal = (*it).asValueMap();
         if (tmpAnimal["name"].asString() == animal->getName()
-            && tmpAnimal["size"].asFloat() == animal->getHeight()->getMmLength()) {
+            && tmpAnimal["size"].asFloat() == animal->getHeight().getMmLength()) {
             it = animalList.erase(it);
             continue;
         }

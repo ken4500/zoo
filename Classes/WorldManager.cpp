@@ -249,7 +249,7 @@ WorldInfo* WorldManager::levelup()
     // 小さすぎる動物を削除
     for (auto it = _animalList.begin(); it != _animalList.end(); ) {
         auto animal = (*it);
-        if (animal->getHeight()->getMmLength() * 50 < _info->width->getMmLength()) {
+        if (animal->getHeight().getMmLength() * 50 < _info->width->getMmLength()) {
             animal->runAction(Sequence::create(ScaleTo::create(0.5, 0), RemoveSelf::create(), NULL));
             it = _animalList.erase(it);
             if (_isNetwork == false) {
@@ -265,6 +265,9 @@ WorldInfo* WorldManager::levelup()
     
     if (_isNetwork == false) {
         UserDataManager::getInstance()->setWorldInfo(_info);
+    } else {
+        auto command = CommandGenerater::levelUp(_info);
+        CommandGenerater::sendData(command);
     }
     
     return _info;
@@ -437,6 +440,7 @@ void WorldManager::endResult()
 }
 
 #pragma - network game logic
+
 void WorldManager::releaseAnimalByNetwork(Animal* animal)
 {
     _opponentAnimalList.push_back(animal);
@@ -475,6 +479,18 @@ void WorldManager::removeAnimalByNetwork(int animalId)
         }
         it++;
     }
+}
+
+void WorldManager::levelupOpponent(int level)
+{
+    delete _opponentInfo;
+    _opponentInfo = new WorldInfo(level);
+    _opponentInfo->network = true;
+    _opponentGacha->setNewGacha(_opponentInfo);
+    auto gachaImage = _opponentGacha->getChildByName<Sprite*>("image");
+    auto gachaLength = Length::scale(_opponentInfo->width, 0.2);
+    float gachaScale = getImageScale(gachaImage, gachaLength);
+    _opponentGacha->runAction(EaseInOut::create(ScaleTo::create(1.0f, gachaScale), 2));
 }
 
 #pragma - util method
@@ -677,8 +693,8 @@ void WorldManager::_checkAndRemoveAnimal()
         std::vector<Animal*>::iterator minIt;
         for (auto it = _animalList.begin(); it != _animalList.end(); it++) {
             auto animal = *it;
-            if (min > animal->getHeight()->getMmLength()) {
-                min = animal->getHeight()->getMmLength();
+            if (min > animal->getHeight().getMmLength()) {
+                min = animal->getHeight().getMmLength();
                 minIt = it;
             }
         }
@@ -732,6 +748,8 @@ void WorldManager::_createMultiBattlwMap()
 {
     _info = new WorldInfo(1);
     _info->network = true;
+    _opponentInfo = new WorldInfo(1);
+    _opponentInfo->network = true;
     _multiBattleCoin = INIT_MULTIBATTLE_COIN;
     _map = dynamic_cast<WorldMap*>(CSLoader::createNode(_info->mapName));
     _map->initSize(_info->maxWidth, _info->width);

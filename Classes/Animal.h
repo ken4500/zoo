@@ -24,9 +24,9 @@ public:
     bool initWithSpeceis(Species* species, float size);
 
     float getWorldScale();
-    Length* getHeight();
-    Length* getSpeed();
-    Length* getDashSpeed();
+    Length getHeight();
+    Length getSpeed();
+    Length getDashSpeed();
     std::string getName();
     bool isEnemy();
     void setIsEnmey(bool isEnemy);
@@ -38,6 +38,7 @@ public:
     Vec2 getCenterPosition();
     int getHash();
     int getCoin();
+    Weight getWeight();
     Rect getBodyRect();
     int getId();
     void setId(int id);
@@ -75,7 +76,7 @@ protected:
     cocos2d::Node* _imageNode;
     cocos2d::Sprite* _image;
     cocos2d::Sprite* _backImage;
-    Length* _height;
+    Length _height;
     Action* _moveAction;
     bool _isEnemy;
     bool _isOpponent;

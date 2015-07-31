@@ -66,4 +66,14 @@ enum class UnitOfLength
     km = 1000000,
 };
 
+enum class UnitOfWeight
+{
+    Unkown = 0,
+    mg = 1,
+    g  = 1000,
+    kg = 1000000,
+    t  = 1000000000,
+};
+
+
 #endif
