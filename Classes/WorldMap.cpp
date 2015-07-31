@@ -170,12 +170,11 @@ void WorldMap::setupTouchHandling()
         auto state = WorldManager::getInstance()->getSceneState();
         auto gacha = WorldManager::getInstance()->getGacha();
         if (gacha && state != SceneState::Battle) {
-            auto image = gacha->getChildByName<Sprite*>("image");
-            Rect targetBox = image->getBoundingBox();
-            targetBox.origin = image->convertToWorldSpaceAR(targetBox.origin);
             Point location = touch->getLocationInView();
             auto touchLocation = Director::getInstance()->convertToGL(location);
-            isTouchGacha = targetBox.containsPoint(touchLocation);
+            auto gachaP = gacha->convertToNodeSpace(touchLocation);
+            ZUtil::printVec(gachaP, "gacha_point");
+            isTouchGacha = gacha->touchIsInGacha(gachaP);
         }
      
         if (isTouchGacha) {

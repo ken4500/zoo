@@ -147,3 +147,14 @@ bool Gacha::isOpponent()
 {
     return _isOppnentGacha;
 }
+
+bool Gacha::touchIsInGacha(Vec2 position)
+{
+    // FIXME:
+    if (-200 < position.x && position.x < 200
+        && 60 < position.y && position.y < 300)
+    {
+        return true;
+    }
+    return false;
+}

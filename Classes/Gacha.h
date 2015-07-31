@@ -28,6 +28,7 @@ public:
     int getPrice();
     void setOpponent(bool isOpponent);
     bool isOpponent();
+    bool touchIsInGacha(Vec2 position);
     
     std::function<void()> finishGachaCallback;
 
