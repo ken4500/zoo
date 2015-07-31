@@ -34,6 +34,8 @@ public:
     void updateCoinLabel();
     void updateLifeLabel(float dt);
     void updateLeftTimeLabel(int leftTime);
+    void setLevelLabel(int level);
+    void setWeightLabel(Weight weight);
     void showConsumeCoinEffect(int decreaseCoin);
     void showNoticeView(std::string message, float delay, std::function<void ()> closeCallback);
     void showResultView(GameResult* result, float delay, std::function<void ()> closeCallback);
@@ -47,6 +49,8 @@ private:
     cocos2d::ui::TextBMFont* _coinLabel;
     cocos2d::ui::TextBMFont* _lifeLabel;
     cocos2d::ui::TextBMFont* _repairTimeLabel;
+    cocos2d::ui::TextBMFont* _levelLabel;
+    cocos2d::ui::TextBMFont* _weightLabel;
     cocos2d::ui::Button* _endButton;
 
     void onEnter() override;

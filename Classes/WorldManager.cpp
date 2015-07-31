@@ -450,7 +450,6 @@ void WorldManager::releaseAnimalByNetwork(Animal* animal)
 
 void WorldManager::createTreeByNetwork(CoinTree* tree)
 {
-    tree->deadCallback = CC_CALLBACK_1(WorldManager::_deadCoinTreeCallback, this);
     _coinTreeList.push_back(tree);
     _map->setCoinTree(tree);
 }

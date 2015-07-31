@@ -44,6 +44,12 @@ bool CreditLayer::init()
 void CreditLayer::onEnter()
 {
     LayerColor::onEnter();
+
+    auto dispatcher = Director::getInstance()->getEventDispatcher();
+    auto listener = EventListenerTouchOneByOne::create();
+    listener->setSwallowTouches(true);
+    listener->onTouchBegan = CC_CALLBACK_2(CreditLayer::onTouchBegan, this);
+    dispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 }
 
 void CreditLayer::_pushButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)

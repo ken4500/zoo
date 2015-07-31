@@ -59,6 +59,12 @@ bool SelectLanguageLayer::init()
 void SelectLanguageLayer::onEnter()
 {
     LayerColor::onEnter();
+    
+    auto dispatcher = Director::getInstance()->getEventDispatcher();
+    auto listener = EventListenerTouchOneByOne::create();
+    listener->setSwallowTouches(true);
+    listener->onTouchBegan = CC_CALLBACK_2(SelectLanguageLayer::onTouchBegan, this);
+    dispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 }
 
 void SelectLanguageLayer::_pushLanguageButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)

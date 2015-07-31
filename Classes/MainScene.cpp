@@ -73,6 +73,9 @@ bool MainScene::init()
     _coinLabel = _menuNode->getChildByName<ui::TextBMFont*>("coinText");
     _lifeLabel = _menuNode->getChildByName<ui::TextBMFont*>("hartText");
     _repairTimeLabel = _menuNode->getChildByName<ui::TextBMFont*>("repairTimeText");
+    _levelLabel = _rootNode->getChildByName<ui::TextBMFont*>("levelLabel");
+    _weightLabel = _rootNode->getChildByName<ui::TextBMFont*>("weightLabel");
+
     _endButton = _rootNode->getChildByName<ui::Button*>("endButton");
     _endButton->addTouchEventListener(CC_CALLBACK_2(MainScene::_pushEndButton, this));
     auto otherMenuButton = _menuNode->getChildByName<ui::Button*>("otherMenu");
@@ -101,6 +104,8 @@ void MainScene::onEnter()
         SoundManager::getInstance()->playMainBgm();
     }
     
+    int level = WorldManager::getInstance()->getWorldInfo()->level;
+    setLevelLabel(level);
     updateCoinLabel();
     updateLifeLabel(0);
     
@@ -129,6 +134,8 @@ void MainScene::setupTouchHandling()
 void MainScene::levelUpEffect(std::function<void()> callback)
 {
     SoundManager::getInstance()->playLevelupEffect();
+    int newLevel = WorldManager::getInstance()->getWorldInfo()->level;
+    setLevelLabel(newLevel);
     this->stopAllActions();
     this->runAction(_timeline);
     _timeline->play("zoomout1", false);
@@ -144,6 +151,8 @@ void MainScene::hideMenu()
     auto battleButton = _menuNode->getChildByName<ui::Button*>("battleButton");
     battleButton->setEnabled(false);
     _menuNode->runAction(FadeOut::create(0.5f));
+    _levelLabel->runAction(FadeOut::create(0.5f));
+    _weightLabel->runAction(FadeOut::create(0.5f));
 }
 
 void MainScene::showMenu()
@@ -152,6 +161,8 @@ void MainScene::showMenu()
     auto battleButton = _menuNode->getChildByName<ui::Button*>("battleButton");
     battleButton->setEnabled(true);
     _menuNode->runAction(FadeIn::create(0.5f));
+    _levelLabel->runAction(FadeIn::create(0.5f));
+    _weightLabel->runAction(FadeIn::create(0.5f));
 }
 
 void MainScene::showLeftTIme()
@@ -169,6 +180,16 @@ void MainScene::hideLeftTime()
 {
     _timeLeftLabel->runAction(FadeOut::create(0.5f));
     _endButton->runAction(FadeOut::create(0.5f));
+}
+
+void MainScene::setLevelLabel(int level)
+{
+    _levelLabel->setString(StringUtils::format("LEVEL%d", level));
+}
+
+void MainScene::setWeightLabel(Weight weight)
+{
+    _weightLabel->setString(StringUtils::format("%.02f %s", weight.getWeight(), weight.getUnitStr().c_str()));
 }
 
 void MainScene::transitionMap(WorldMap* newMap)
