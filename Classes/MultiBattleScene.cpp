@@ -60,9 +60,8 @@ bool MultiBattleScene::init()
     instance->registReaderObject("WorldMapReader", (ObjectFactory::Instance) WorldMapReader::getInstance);
 
     _rootNode = CSLoader::createNode("MultiBattleScene.csb");
-//    _rootNode->setAnchorPoint(Vec2(0.5f, 0.5f));
-//    _rootNode->setPosition(Vec2(displaySize.width / 2, displaySize.height / 2));
     _timeLeftLabel = _rootNode->getChildByName<ui::TextBMFont*>("timeLabel");
+    _timeLeftLabel->setPosition(Vec2(_timeLeftLabel->getPosition().x, displaySize.height * 0.98f));
 
     _map = WorldManager::getInstance()->getMap();
     _map->setAnchorPoint(Vec2(0.5f, 0.5f));
@@ -74,11 +73,12 @@ bool MultiBattleScene::init()
     _menuNode->setCascadeOpacityEnabled(true);
     _coinLabel = _menuNode->getChildByName<ui::TextBMFont*>("coinText");
     _levelLabel = _rootNode->getChildByName<ui::TextBMFont*>("levelLabel");
+    _levelLabel->setPosition(Vec2(_levelLabel->getPosition().x, displaySize.height * 0.98f));
     _weightLabel = _rootNode->getChildByName<ui::TextBMFont*>("weightLabel");
 
     _endButton = _rootNode->getChildByName<ui::Button*>("endButton");
     _endButton->addTouchEventListener(CC_CALLBACK_2(MultiBattleScene::_pushEndButton, this));
-
+    _endButton->setPosition(Vec2(_endButton->getPosition().x, displaySize.height * 0.98f));
 
     // load the character animation timeline
     _timeline = CSLoader::createTimeline("MainScene.csb");

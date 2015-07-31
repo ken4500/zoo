@@ -289,13 +289,13 @@
             <PreSize X="0.1769" Y="0.1203" />
             <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font2.fnt" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="levelLabel" ActionTag="1209458093" Tag="19" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="430.5000" RightMargin="430.5000" TopMargin="25.6000" BottomMargin="537.4000" LabelText="LEVEL 3" ctype="TextBMFontObjectData">
+          <AbstractNodeData Name="levelLabel" ActionTag="1209458093" Tag="19" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="430.5000" RightMargin="430.5000" TopMargin="12.8000" BottomMargin="550.2000" LabelText="LEVEL 3" ctype="TextBMFontObjectData">
             <Size X="275.0000" Y="77.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="1.0000" />
-            <Position X="568.0000" Y="614.4000" />
+            <Position X="568.0000" Y="627.2000" />
             <Scale ScaleX="0.8000" ScaleY="0.8000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5000" Y="0.9600" />
+            <PrePosition X="0.5000" Y="0.9800" />
             <PreSize X="0.2421" Y="0.1203" />
             <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font2.fnt" Plist="" />
           </AbstractNodeData>

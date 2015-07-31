@@ -64,9 +64,8 @@ bool MainScene::init()
     instance->registReaderObject("CoinTreeReader", (ObjectFactory::Instance) CoinTreeReader::getInstance);
 
     _rootNode = CSLoader::createNode("MainScene.csb");
-//    _rootNode->setAnchorPoint(Vec2(0.5f, 0.5f));
-//    _rootNode->setPosition(Vec2(displaySize.width / 2, displaySize.height / 2));
     _timeLeftLabel = _rootNode->getChildByName<ui::TextBMFont*>("timeLabel");
+    _timeLeftLabel->setPosition(Vec2(_timeLeftLabel->getPosition().x, displaySize.height * 0.95f));
     _countUpAction = nullptr;
 
     _map = WorldManager::getInstance()->getMap();
@@ -83,10 +82,12 @@ bool MainScene::init()
     _lifeLabel = _menuNode->getChildByName<ui::TextBMFont*>("hartText");
     _repairTimeLabel = _menuNode->getChildByName<ui::TextBMFont*>("repairTimeText");
     _levelLabel = _rootNode->getChildByName<ui::TextBMFont*>("levelLabel");
+    _levelLabel->setPosition(Vec2(_levelLabel->getPosition().x, displaySize.height * 0.98f));
     _weightLabel = _rootNode->getChildByName<ui::TextBMFont*>("weightLabel");
 
     _endButton = _rootNode->getChildByName<ui::Button*>("endButton");
     _endButton->addTouchEventListener(CC_CALLBACK_2(MainScene::_pushEndButton, this));
+    _endButton->setPosition(Vec2(_endButton->getPosition().x, displaySize.height * 0.98f));
     auto otherMenuButton = _menuNode->getChildByName<ui::Button*>("otherMenu");
     otherMenuButton->addTouchEventListener(CC_CALLBACK_2(MainScene::_pushOtherMenuButton, this));
 
