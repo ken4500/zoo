@@ -21,6 +21,14 @@ USING_NS_CC;
 
 using namespace cocostudio::timeline;
 
+MainScene::MainScene() :
+_preWeight(0)
+{
+}
+MainScene::~MainScene()
+{
+}
+
 Scene* MainScene::createScene()
 {
     // "scene" is an autorelease object
@@ -59,6 +67,7 @@ bool MainScene::init()
 //    _rootNode->setAnchorPoint(Vec2(0.5f, 0.5f));
 //    _rootNode->setPosition(Vec2(displaySize.width / 2, displaySize.height / 2));
     _timeLeftLabel = _rootNode->getChildByName<ui::TextBMFont*>("timeLabel");
+    _countUpAction = nullptr;
 
     _map = WorldManager::getInstance()->getMap();
     _map->setAnchorPoint(Vec2(0.5f, 0.5f));
@@ -104,10 +113,11 @@ void MainScene::onEnter()
         SoundManager::getInstance()->playMainBgm();
     }
     
-    int level = WorldManager::getInstance()->getWorldInfo()->level;
-    setLevelLabel(level);
+    updateLevelLabel();
     updateCoinLabel();
     updateLifeLabel(0);
+    _preWeight = WorldManager::getInstance()->getTotalWeight();
+    _weightLabel->setString(StringUtils::format("%.02f %s", _preWeight.getWeight(), _preWeight.getUnitStr().c_str()));
     
     Director::getInstance()->getScheduler()->schedule(CC_CALLBACK_1(MainScene::updateLifeLabel, this), this, 1.0f, false, "update_life");
 }
@@ -134,8 +144,7 @@ void MainScene::setupTouchHandling()
 void MainScene::levelUpEffect(std::function<void()> callback)
 {
     SoundManager::getInstance()->playLevelupEffect();
-    int newLevel = WorldManager::getInstance()->getWorldInfo()->level;
-    setLevelLabel(newLevel);
+    updateLevelLabel();
     this->stopAllActions();
     this->runAction(_timeline);
     _timeline->play("zoomout1", false);
@@ -182,14 +191,44 @@ void MainScene::hideLeftTime()
     _endButton->runAction(FadeOut::create(0.5f));
 }
 
-void MainScene::setLevelLabel(int level)
+void MainScene::updateLevelLabel()
 {
+    int level = WorldManager::getInstance()->getWorldInfo()->level;
     _levelLabel->setString(StringUtils::format("LEVEL%d", level));
 }
 
-void MainScene::setWeightLabel(Weight weight)
+void MainScene::updateWeightLabel(Weight weight)
 {
-    _weightLabel->setString(StringUtils::format("%.02f %s", weight.getWeight(), weight.getUnitStr().c_str()));
+    if (_countUpAction) {
+        _countUpAction->stop();
+        _countUpAction->release();
+    }
+
+    int devision = 10;
+    float duration = 1.0f / devision;
+
+    // make count up animation
+    float diff = weight.getMgWeight() - _preWeight.getMgWeight();
+    Weight incre = Weight(diff / devision);
+    Vector<FiniteTimeAction*> actionList;
+    for (int i = 0; i < devision; i++) {
+        actionList.pushBack(CallFunc::create([this, duration, incre]{
+            _preWeight = _preWeight + incre;
+            _weightLabel->setString(StringUtils::format("%.02f %s", _preWeight.getWeight(), _preWeight.getUnitStr().c_str()));
+        }));
+        actionList.pushBack(DelayTime::create(duration));
+    }
+    
+    float w = weight.getWeight();
+    std::string u = weight.getUnitStr();
+    actionList.pushBack(CallFunc::create([this, w, u, weight]{
+        _weightLabel->setString(StringUtils::format("%.02f %s", w, u.c_str()));
+        _preWeight = weight;
+    }));
+    
+    _countUpAction = Sequence::create(actionList);
+    _countUpAction->retain();
+    _weightLabel->runAction(_countUpAction);
 }
 
 void MainScene::transitionMap(WorldMap* newMap)

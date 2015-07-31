@@ -36,7 +36,8 @@ WorldManager* WorldManager::getInstance()
 
 #pragma mark - Constructor and Destructor
 
-WorldManager::WorldManager()
+WorldManager::WorldManager() :
+_totalWeight(0)
 {
     _info = UserDataManager::getInstance()->getWorldInfo();
     _map   = nullptr;
@@ -163,6 +164,11 @@ Length WorldManager::getDashSpeed()
     return Length(_info->width.getMmLength() * 0.2);
 }
 
+Weight WorldManager::getTotalWeight()
+{
+    return _totalWeight;
+}
+
 #pragma - public method
 
 void WorldManager::resetData()
@@ -208,6 +214,7 @@ void WorldManager::releaseAnimal(Animal* animal, bool hit)
         auto command = CommandGenerater::releaseAnimal(animal);
         CommandGenerater::sendData(command);
     }
+    _setTotalWeight(_totalWeight + animal->getWeight());
 
     _animalList.push_back(animal);
     if (hit) {
@@ -254,6 +261,7 @@ WorldInfo* WorldManager::levelup()
             it = _animalList.erase(it);
             if (_isNetwork == false) {
                 UserDataManager::getInstance()->removeAnimal(animal);
+                _setTotalWeight(_totalWeight - animal->getWeight());
             } else {
                 auto command = CommandGenerater::removeAnimal(animal);
                 CommandGenerater::sendData(command);
@@ -651,7 +659,7 @@ void WorldManager::_transitionMap(WorldInfo* preWorldInfo, WorldInfo* newWorldIn
                 || tag == (int)EntityTag::OpponentAnimal)
             {
                 auto entinty = dynamic_cast<AbstractBattleEntity*>(node);
-                if (entinty == nullptr || entinty->isDead()) {
+                if (entinty == nullptr) {
                     continue;
                 }
                 node->retain();
@@ -703,6 +711,12 @@ void WorldManager::_checkAndRemoveAnimal()
         }
         _animalList.erase(minIt);
         removeAnimal->escape();
+        _setTotalWeight(_totalWeight - removeAnimal->getWeight());
+        
+        if (_isNetwork) {
+            auto command = CommandGenerater::removeAnimal(removeAnimal);
+            CommandGenerater::sendData(command);
+        }
     }
 }
 
@@ -715,6 +729,7 @@ void WorldManager::_createMap()
     _enemyAnimalList = std::vector<Animal*>();
     _opponentAnimalList = std::vector<Animal*>();
     _coinTreeList = std::vector<CoinTree*>();
+    _setTotalWeight(Weight(0));
 
     if (_state == SceneState::Tutorial) {
         _enableNextAction = false;
@@ -735,10 +750,12 @@ void WorldManager::_createMap()
         _map->addAnimal(hero, Vec2(0, -200));
         _animalList.push_back(hero);
         UserDataManager::getInstance()->addAnimal(hero);
+        _setTotalWeight(_totalWeight + hero->getWeight());
     } else {
         for (Animal* animal : animalList) {
             _map->addAnimal(animal, getRadomPlace());
             _animalList.push_back(animal);
+            _setTotalWeight(_totalWeight + animal->getWeight());
         }
     }
 }
@@ -756,6 +773,7 @@ void WorldManager::_createMultiBattlwMap()
     _enemyAnimalList = std::vector<Animal*>();
     _opponentAnimalList = std::vector<Animal*>();
     _coinTreeList = std::vector<CoinTree*>();
+    _setTotalWeight(Weight(0));
 
     _opponentGacha = dynamic_cast<Gacha*>(CSLoader::createNode("Gacha.csb"));
     auto gachaImage = _gacha->getChildByName<Sprite*>("image");
@@ -793,6 +811,15 @@ void WorldManager::_finishGachaCallback()
     _enableNextAction = true;
 }
 
+void WorldManager::_setTotalWeight(Weight weight)
+{
+    _totalWeight = weight;
+    auto scene = SceneManager::getInstance()->getWorldScene();
+    if (scene) {
+        scene->updateWeightLabel(_totalWeight);
+    }
+}
+
 #pragma - network
 
 void WorldManager::_sendAnimalStatus(float dt)
@@ -826,7 +853,7 @@ void WorldManager::_sendAnimalStatus(float dt)
 void WorldManager::_makeCoinTreePerTime(float dt)
 {
     _makeCoinTree();
-    int nextTime = rand() % 20 + 10;
+    int nextTime = rand() % 20;
     Director::getInstance()->getScheduler()->schedule(CC_CALLBACK_1(WorldManager::_makeCoinTreePerTime, this), this, nextTime, false, "next_make_tree");
 }
 

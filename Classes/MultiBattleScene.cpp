@@ -16,6 +16,16 @@ USING_NS_CC;
 
 using namespace cocostudio::timeline;
 
+MultiBattleScene::MultiBattleScene() :
+_preWeight(0)
+{
+}
+
+MultiBattleScene::~MultiBattleScene()
+{
+}
+
+
 Scene* MultiBattleScene::createScene()
 {
     // "scene" is an autorelease object
@@ -64,6 +74,8 @@ bool MultiBattleScene::init()
     _menuNode = _rootNode->getChildByName<Node*>("menuNode");
     _menuNode->setCascadeOpacityEnabled(true);
     _coinLabel = _menuNode->getChildByName<ui::TextBMFont*>("coinText");
+    _levelLabel = _rootNode->getChildByName<ui::TextBMFont*>("levelLabel");
+    _weightLabel = _rootNode->getChildByName<ui::TextBMFont*>("weightLabel");
 
     _endButton = _rootNode->getChildByName<ui::Button*>("endButton");
     _endButton->addTouchEventListener(CC_CALLBACK_2(MultiBattleScene::_pushEndButton, this));
@@ -85,11 +97,15 @@ void MultiBattleScene::onEnter()
     this->setupTouchHandling();
     
     updateCoinLabel();
+    updateLevelLabel();
     SoundManager::getInstance()->playBattleStartEffect();
     SoundManager::getInstance()->fadeOutBgm(0.5f);
     SoundManager::getInstance()->playBattleBgm();
     _battleStartEffect();
     WorldManager::getInstance()->startMultiplayBattle();
+    
+    _preWeight = WorldManager::getInstance()->getTotalWeight();
+    _weightLabel->setString(StringUtils::format("%.02f %s", _preWeight.getWeight(), _preWeight.getUnitStr().c_str()));
 }
 
 void MultiBattleScene::update(float dt)
@@ -115,6 +131,7 @@ void MultiBattleScene::levelUpEffect(std::function<void()> callback)
 {
     SoundManager::getInstance()->playLevelupEffect();
     this->stopAllActions();
+    updateLevelLabel();
     this->runAction(_timeline);
     _timeline->play("zoomout1", false);
     _timeline->setLastFrameCallFunc([callback](){
@@ -123,7 +140,6 @@ void MultiBattleScene::levelUpEffect(std::function<void()> callback)
         }
     });
 }
-
 
 void MultiBattleScene::transitionMap(WorldMap* newMap)
 {
@@ -195,6 +211,40 @@ void MultiBattleScene::showNoticeView(std::string message, float delay, std::fun
         }),
         NULL
     ));
+}
+
+void MultiBattleScene::updateWeightLabel(Weight weight)
+{
+    int devision = 5;
+    float duration = 0.30f / devision;
+
+    // make count up animation
+    float diff = weight.getMgWeight() - _preWeight.getMgWeight();
+    Weight incre = Weight(diff / devision);
+    Vector<FiniteTimeAction*> actionList;
+    for (int i = 0; i < devision; i++) {
+        actionList.pushBack(CallFunc::create([this, duration, incre]{
+            _preWeight = _preWeight + incre;
+            _weightLabel->setString(StringUtils::format("%.02f %s", _preWeight.getWeight(), _preWeight.getUnitStr().c_str()));
+        }));
+        actionList.pushBack(DelayTime::create(duration));
+    }
+    
+    float w = weight.getWeight();
+    std::string u = weight.getUnitStr();
+    actionList.pushBack(CallFunc::create([this, w, u, weight]{
+        _weightLabel->setString(StringUtils::format("%.02f %s", w, u.c_str()));
+        _preWeight = weight;
+    }));
+    
+    _countUpAction = Sequence::create(actionList);
+    _weightLabel->runAction(_countUpAction);
+}
+
+void MultiBattleScene::updateLevelLabel()
+{
+    int level = WorldManager::getInstance()->getWorldInfo()->level;
+    _levelLabel->setString(StringUtils::format("LEVEL%d", level));
 }
 
 

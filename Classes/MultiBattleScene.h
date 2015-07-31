@@ -22,6 +22,9 @@ using namespace cocos2d;
 class MultiBattleScene : public cocos2d::Layer, public WorldSceneInterface
 {
 public:
+    MultiBattleScene();
+    ~MultiBattleScene();
+
     // there's no "id" in cpp, so we recommend returning the class instance pointer
     static cocos2d::Scene* createScene();
 
@@ -38,8 +41,9 @@ public:
     void showConsumeCoinEffect(int decreaseCoin);
     void showResultView(GameResult* result, float delay, std::function<void ()> closeCallback);
     void showNoticeView(std::string message, float delay, std::function<void ()> closeCallback);
+    void updateWeightLabel(Weight weight);
+    void updateLevelLabel();
 
-    
 private:
     WorldMap* _map;
     Node* _rootNode;
@@ -48,6 +52,10 @@ private:
     cocos2d::ui::TextBMFont* _timeLeftLabel;
     cocos2d::ui::TextBMFont* _coinLabel;
     cocos2d::ui::Button* _endButton;
+    cocos2d::ui::TextBMFont* _levelLabel;
+    cocos2d::ui::TextBMFont* _weightLabel;
+    Action* _countUpAction;
+    Weight _preWeight;
 
     void onEnter() override;
     void update(float dt);

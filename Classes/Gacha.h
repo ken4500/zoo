@@ -44,6 +44,8 @@ protected:
     cocos2d::ui::TextBMFont* _priceLabel;
 
     void onEnter() override;
+    void _hidePrice();
+    void _showPrice();
 };
 
 #endif /* defined(__Zoo__Gacha__) */

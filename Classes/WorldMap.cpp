@@ -45,12 +45,12 @@ void WorldMap::onEnter()
     this->scheduleUpdate();
     this->schedule(CC_CALLBACK_1(WorldMap::updateDash, this), 0.5, "updateDash");
     
-    auto mapObjects = getChildren();
-    for (Node* object : mapObjects) {
-        if (object->getName() != "background") {
-            object->setLocalZOrder(_calcObjectZOrder(object));
-        }
-    }
+//    auto mapObjects = getChildren();
+//    for (Node* object : mapObjects) {
+//        if (object->getName() != "background") {
+//            object->setZOrder(_calcObjectZOrder(object));
+//        }
+//    }
     setCascadeOpacityEnabled(true);
 
     this->setupTouchHandling();
@@ -101,7 +101,7 @@ void WorldMap::update(float dt)
         auto animal = dynamic_cast<Animal*>(node);
         if (animal) {
             if (animal->getState() != AnimalState::Jump) {
-                node->setLocalZOrder(1000 - (int)node->getPosition().y);
+                node->setZOrder(1000 - (int)node->getPosition().y);
             }
         }
     }
@@ -297,20 +297,20 @@ void WorldMap::setGacha(Gacha* gacha)
     if (SceneManager::getInstance()->isNetwork()) {
         gacha->setOpacity(200);
         if (gacha->isOpponent()) {
-            gacha->setLocalZOrder(_calcObjectZOrder(gacha));
+            gacha->setZOrder(_calcObjectZOrder(gacha));
         } else {
-            gacha->setLocalZOrder(_calcObjectZOrder(gacha) - 1);
+            gacha->setZOrder(_calcObjectZOrder(gacha) - 1);
         }
     } else {
         gacha->setPosition(Vec2(0, 0));
-        gacha->setLocalZOrder(_calcObjectZOrder(gacha));
+        gacha->setZOrder(_calcObjectZOrder(gacha));
     }
     addChild(gacha);
 }
 
 void WorldMap::setCoinTree(CoinTree* tree)
 {
-    tree->setLocalZOrder(_calcObjectZOrder(tree));
+    tree->setZOrder(_calcObjectZOrder(tree));
     addChild(tree);
     tree->sprout();
 }
@@ -320,7 +320,7 @@ void WorldMap::releaseAnimal(Animal* animal, std::function<void ()> callback)
     auto gacha = WorldManager::getInstance()->getGacha();
     float gachaHeight = gacha->getGachaHeight();
     animal->setPosition(gacha->getPosition() + Vec2(0, gachaHeight));
-    animal->setLocalZOrder(2000);
+    animal->setZOrder(2000);
     addChild(animal);
     Vec2 target;
     if (SceneManager::getInstance()->isNetwork()) {

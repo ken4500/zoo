@@ -50,6 +50,7 @@ public:
     Gacha* getGacha();
     Gacha* getOpponentGacha();
     Length getDashSpeed();
+    Weight getTotalWeight();
 
     // game logic
     void lotteryGacha();
@@ -87,6 +88,7 @@ private:
     int _leftTime;
     int _multiBattleCoin;
     int _beforeBattleCoin;
+    Weight _totalWeight;
     WorldInfo* _info;
     WorldInfo* _opponentInfo;
     WorldMap* _map;
@@ -113,6 +115,7 @@ private:
     void _createMultiBattlwMap();
     void _makeCoinTree();
     void _finishGachaCallback();
+    void _setTotalWeight(Weight weight);
 
     // network
     void _sendAnimalStatus(float dt);

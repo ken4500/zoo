@@ -18,6 +18,7 @@ public:
     virtual void showNoticeView(std::string message, float delay, std::function<void ()> closeCallback) = 0;
     virtual void levelUpEffect(std::function<void()> callback) = 0;
     virtual void transitionMap(WorldMap* newMap) = 0;
+    virtual void updateWeightLabel(Weight weight) = 0;
 };
 
 

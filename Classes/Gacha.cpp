@@ -140,7 +140,11 @@ void Gacha::setOpponent(bool isOpponent)
     _isOppnentGacha = isOpponent;
     auto image = this->getChildByName<Sprite*>("image");
     image->setColor(Color3B::YELLOW);
-
+    if (isOpponent) {
+        _hidePrice();
+    } else {
+        _showPrice();
+    }
 }
 
 bool Gacha::isOpponent()
@@ -158,3 +162,16 @@ bool Gacha::touchIsInGacha(Vec2 position)
     }
     return false;
 }
+
+void Gacha::_hidePrice()
+{
+    auto price = getChildByName("price");
+    price->setVisible(false);
+}
+
+void Gacha::_showPrice()
+{
+    auto price = getChildByName("price");
+    price->setVisible(true);
+}
+

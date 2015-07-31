@@ -14,6 +14,9 @@ using namespace cocos2d;
 class MainScene : public cocos2d::Layer, public WorldSceneInterface
 {
 public:
+    MainScene();
+    ~MainScene();
+
     // there's no "id" in cpp, so we recommend returning the class instance pointer
     static cocos2d::Scene* createScene();
 
@@ -34,8 +37,8 @@ public:
     void updateCoinLabel();
     void updateLifeLabel(float dt);
     void updateLeftTimeLabel(int leftTime);
-    void setLevelLabel(int level);
-    void setWeightLabel(Weight weight);
+    void updateLevelLabel();
+    void updateWeightLabel(Weight weight);
     void showConsumeCoinEffect(int decreaseCoin);
     void showNoticeView(std::string message, float delay, std::function<void ()> closeCallback);
     void showResultView(GameResult* result, float delay, std::function<void ()> closeCallback);
@@ -52,6 +55,8 @@ private:
     cocos2d::ui::TextBMFont* _levelLabel;
     cocos2d::ui::TextBMFont* _weightLabel;
     cocos2d::ui::Button* _endButton;
+    Weight _preWeight;
+    Action* _countUpAction;
 
     void onEnter() override;
     void update(float dt);
