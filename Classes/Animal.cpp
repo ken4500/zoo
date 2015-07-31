@@ -141,16 +141,16 @@ void Animal::jump(Vec2 target, float height, std::function<void ()> callback)
     float jumpInterval = ZUtil::calcDurationTime(_timeline, "drop");
     this->runAction(Sequence::create(
         JumpTo::create(1, target, height, 1),
-        CallFunc::create([this]{
+        CallFunc::create([this, callback]{
+            if (callback) {
+                callback();
+            }
             _timeline->play("drop", false);
         }),
         DelayTime::create(jumpInterval),
-        CallFunc::create([this, callback]{
+        CallFunc::create([this]{
             if (isOpponent() == false) {
                 startWalk();
-            }
-            if (callback) {
-                callback();
             }
         }),
         NULL

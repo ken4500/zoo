@@ -214,6 +214,7 @@ void WorldManager::releaseAnimal(Animal* animal, bool hit)
         _map->releaseAnimal(animal, [this] {
             _checkAndRemoveAnimal();
             levelup();
+            _map->vibrationMap();
         });
     } else {
         _map->releaseAnimal(animal, [this] {

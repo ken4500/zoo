@@ -389,6 +389,32 @@ void WorldMap::showGacha()
     }
 }
 
+void WorldMap::vibrationMap()
+{
+    Vector<FiniteTimeAction*> actionList;
+    for (int i = 0; i < 5; i++) {
+        float scale = 1.05f;
+        auto scale1 = ScaleBy::create(0.05f, scale);
+        auto scale2 = ScaleBy::create(0.05f, 1 / scale);
+        actionList.pushBack(scale1);
+        actionList.pushBack(scale2);
+    }
+    auto action = Sequence::create(actionList);
+    this->runAction(action);
+    
+    actionList.clear();
+    for (int i = 0; i < 5; i++) {
+        int x = (i % 2 == 1) ? 10 : -10;
+        int y = rand() % 40 - 20;
+        auto move1 = MoveBy::create(0.05f, Vec2(x, y));
+        auto move2 = MoveBy::create(0.05f, Vec2(-x, -y));
+        actionList.pushBack(move1);
+        actionList.pushBack(move2);
+    }
+    action = Sequence::create(actionList);
+    runAction(action);
+}
+
 #pragma - private method
 
 int WorldMap::_calcObjectZOrder(Node* node)

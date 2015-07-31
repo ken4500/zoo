@@ -39,9 +39,9 @@ public:
     void addAnimal(Animal* animal, Vec2 targetPoint);
     void addEnemyAnimalAtOutRandomPoint(Animal* animal);
     void addEnemyAnimal(Animal* animal, Vec2 targetPoint);
-    
     void hideGacha();
     void showGacha();
+    void vibrationMap();
     
 protected:
     Length* _maxWidth;
