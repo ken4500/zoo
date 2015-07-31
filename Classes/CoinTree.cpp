@@ -8,6 +8,7 @@
 
 #include "CoinTree.h"
 #include "WorldManager.h"
+#include "Animal.h"
 
 bool CoinTree::init() {
     if (!Node::init()) {
@@ -139,16 +140,18 @@ Rect CoinTree::getBodyRect()
     return imageRect;
 }
 
-bool CoinTree::addDamage(float damage)
+bool CoinTree::addDamage(float damage, Animal* animal)
 {
     if (_hp == 0) {
         return false;
     }
     
-    for (int i = 1; i < _dropCount; i++) {
-        int threshold = int(i * _maxHp / _dropCount);
-        if (threshold < _hp && _hp <= threshold + damage) {
-            dropCoin();
+    if (animal->isOpponent() == false) {
+        for (int i = 1; i < _dropCount; i++) {
+            int threshold = int(i * _maxHp / _dropCount);
+            if (threshold < _hp && _hp <= threshold + damage) {
+                dropCoin();
+            }
         }
     }
     

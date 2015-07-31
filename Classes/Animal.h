@@ -57,7 +57,7 @@ public:
     void fight(AbstractBattleEntity* entity);
     void dead();
     void reborn();
-    bool addDamage(float damage);
+    bool addDamage(float damage, Animal* animal);
     bool canAttack();
     void repairHp();
     void escape();

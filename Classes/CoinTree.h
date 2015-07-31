@@ -14,6 +14,7 @@
 #include "CocosGUI.h"
 #include "CommonInclude.h"
 #include "AbstractBattleEntity.h"
+class Animal;
 
 class CoinTree : public AbstractBattleEntity {
 public:
@@ -26,7 +27,7 @@ public:
     void dropCoin();
     void fellDown(bool dropCoin);
     Rect getBodyRect();
-    bool addDamage(float damage);
+    bool addDamage(float damage, Animal* animal);
     void disappear();
     bool isDead();
     int getId();

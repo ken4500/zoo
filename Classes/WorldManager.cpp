@@ -628,7 +628,12 @@ void WorldManager::_transitionMap(WorldInfo* preWorldInfo, WorldInfo* newWorldIn
     newMap->setCurrentWidth(newWorldInfo->width, [this, newMap, preWorldInfo, newWorldInfo]{
         auto children = _map->getChildren();
         for(auto node : children) {
-            if (node->getTag() == (int)EntityTag::Animal) {
+            int tag = node->getTag();
+            if (tag == (int)EntityTag::Animal
+                || tag == (int)EntityTag::CoinTree
+                || tag == (int)EntityTag::EnemyAnimal
+                || tag == (int)EntityTag::OpponentAnimal)
+            {
                 node->retain();
                 node->removeFromParent();
                 newMap->addChild(node);

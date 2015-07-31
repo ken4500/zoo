@@ -111,7 +111,7 @@ void Animal::update(float dt)
         if (_target->isDead()) {
             endFight();
         } else {
-            bool kill = _target->addDamage(_offense * dt);
+            bool kill = _target->addDamage(_offense * dt, this);
             if (kill) {
                 endFight();
                 if (killAnimalCallback) {
@@ -256,7 +256,7 @@ void Animal::dead()
     }
 }
 
-bool Animal::addDamage(float damage)
+bool Animal::addDamage(float damage, Animal* animal)
 {
     if (_hp > 0 && _hp - damage <= 0) {
         _hp = 0;

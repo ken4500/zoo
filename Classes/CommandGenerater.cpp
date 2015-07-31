@@ -80,7 +80,7 @@ void CommandGenerater::excCommand(std::string dataStr)
         else if (command.commandName == "fight_tree")
         {
             int id = command.intDataList[0];
-            int treeId = command.intDataList[0];
+            int treeId = command.intDataList[1];
             auto animal = WorldManager::getInstance()->getOpponentAnimal(id);
             auto tree = dynamic_cast<AbstractBattleEntity*>(WorldManager::getInstance()->getCointTree(treeId));
             Vec2 position = Vec2(command.numberDataList[0], command.numberDataList[1]);
