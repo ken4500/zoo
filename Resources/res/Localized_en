@@ -18,3 +18,4 @@ MENU_PAGE_CLOSE = CLOSE;
 
 NOTICE_MULTIPLAY = You can play with player \nwho connect to save Wi-Fi \nor turn on bluetooth.;
 NOTICE_LACK_LIFE = You don't have enough life.\n Life repair by time.;
+YESNO_END_MULTIPLAY = Are you sure \n you want to finish this game?;

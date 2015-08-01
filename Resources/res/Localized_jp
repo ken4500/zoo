@@ -18,3 +18,4 @@ MENU_PAGE_CLOSE = 閉じる;
 
 NOTICE_MULTIPLAY = 同じWi-Fiに接続している、\nもしくはbluetoothがONになっている\nユーザーと対戦できます。;
 NOTICE_LACK_LIFE = ライフが足りません。\nライフは時間で回復します。;
+YESNO_END_MULTIPLAY = バトルを終了しますか？;

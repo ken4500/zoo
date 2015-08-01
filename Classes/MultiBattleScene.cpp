@@ -11,6 +11,7 @@
 #include "SoundManager.h"
 #include "SceneManager.h"
 #include "NoticeLayer.h"
+#include "YesNoLayer.h"
 
 USING_NS_CC;
 
@@ -259,7 +260,11 @@ void MultiBattleScene::_battleStartEffect()
 void MultiBattleScene::_pushEndButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
     if (eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
-        SceneManager::getInstance()->backMainScene();
+        auto yesno = YesNoLayer::createWithMessage(CCLS("YESNO_END_MULTIPLAY"));
+        yesno->pushedYesCallback = []{
+            SceneManager::getInstance()->backMainScene();
+        };
+        addChild(yesno);
     }
 }
 
