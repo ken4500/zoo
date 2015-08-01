@@ -52,8 +52,8 @@ bool NoticeLayer::initWithMessage(std::string message)
     node->setOpacity(255);
     addChild(node, 10);
     
-    auto messageLabel = dynamic_cast<ui::Text*>(node->getChildByName("noticeMessage"));
-    messageLabel->setString(message);
+    _messageLabel = dynamic_cast<ui::Text*>(node->getChildByName("noticeMessage"));
+    _messageLabel->setString(message);
 
     auto button = node->getChildByName<ui::Button*>("okButton");
     button->addTouchEventListener(CC_CALLBACK_2(NoticeLayer::_pushButton, this));
@@ -64,6 +64,11 @@ bool NoticeLayer::initWithMessage(std::string message)
 void NoticeLayer::onEnter()
 {
     Layer::onEnter();
+}
+
+void NoticeLayer::setFontSize(int fontsize)
+{
+    _messageLabel->setFontSize(fontsize);
 }
 
 void NoticeLayer::_pushButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)

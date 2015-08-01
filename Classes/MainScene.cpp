@@ -375,7 +375,9 @@ void MainScene::_setupDebugMenu()
         return;
     }
 
-    int menuNum = 4;
+    // メニューを増やしたいときは数を増やしてね
+    int menuNum = 5;
+
     auto size = Director::getInstance()->getVisibleSize();
     auto dummyImage = Sprite::create("ui/debug_button.png");
     auto imageSize = dummyImage->getContentSize();
@@ -415,7 +417,18 @@ void MainScene::_setupDebugMenu()
     resetData->setAnchorPoint(Vec2(1.0f, 0.0f));
     resetData->setPosition(Vec2(0, 240));
     debugMenu->addChild(resetData, 1);
-    
+
+    auto endTutorial = DebugButton::create("reset without tutorial", [this]() {
+        WorldManager::getInstance()->resetData();
+        UserDataManager::getInstance()->clearTutorial();
+        SceneManager::getInstance()->resetMainScene();
+    });
+    endTutorial->setAnchorPoint(Vec2(1.0f, 0.0f));
+    endTutorial->setPosition(Vec2(0, 320));
+    debugMenu->addChild(endTutorial, 1);
+
+
+
     auto toggleButton = Button::create("ui/toggle.png");
     toggleButton->setAnchorPoint(Vec2(0.5f, 0.5f));
     toggleButton->setScale(0.4f);
@@ -455,7 +468,7 @@ void MainScene::_pushBattleButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::To
         }
 
         if (UserDataManager::getInstance()->getLife() <= 0) {
-            showNoticeView("You don't have enough life.\n Life repair by time.", 0, NULL);
+            showNoticeView(CCLS("NOTICE_LACK_LIFE"), 0, NULL);
             return;
         }
         if (WorldManager::getInstance()->getSceneState() == SceneState::Tutorial) {

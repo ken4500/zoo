@@ -43,7 +43,7 @@ void WorldMap::onEnter()
     Node::onEnter();
     
     this->scheduleUpdate();
-    this->schedule(CC_CALLBACK_1(WorldMap::updateDash, this), 0.5, "updateDash");
+    this->schedule(CC_CALLBACK_1(WorldMap::updateDash, this), 0.25f, "updateDash");
     
 //    auto mapObjects = getChildren();
 //    for (Node* object : mapObjects) {
@@ -184,7 +184,6 @@ void WorldMap::setupTouchHandling()
             Point location = touch->getLocationInView();
             auto touchLocation = Director::getInstance()->convertToGL(location);
             auto gachaP = gacha->convertToNodeSpace(touchLocation);
-            ZUtil::printVec(gachaP, "gacha_point");
             isTouchGacha = gacha->touchIsInGacha(gachaP);
         }
      

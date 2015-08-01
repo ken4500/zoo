@@ -1,5 +1,5 @@
 <GameProjectFile>
-  <PropertyGroup Type="Node" Name="Notice" ID="bf6d83d0-a90b-4f33-ab38-e51d6a8a3d10" Version="2.3.1.1" />
+  <PropertyGroup Type="Node" Name="Notice" ID="12fcfa5f-02d1-4aba-885f-893528fa76bd" Version="2.3.1.1" />
   <Content ctype="GameProjectContent">
     <Content>
       <Animation Duration="0" Speed="1.0000" />
@@ -43,12 +43,12 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="noticeMessage" ActionTag="-843175461" Tag="47" IconVisible="False" LeftMargin="-195.5000" RightMargin="-195.5000" TopMargin="-60.0000" BottomMargin="-48.0000" FontSize="36" LabelText="TEST TEST TEST TEST&#xA;TEST TEST TEST TEST" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+          <AbstractNodeData Name="noticeMessage" ActionTag="-843175461" Tag="47" IconVisible="False" LeftMargin="-131.0000" RightMargin="-131.0000" TopMargin="-60.0000" BottomMargin="4.0000" FontSize="36" LabelText="TEST TEST TEST TEST&#xA;TEST TEST TEST TEST" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
             <Size X="394.0000" Y="84.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="1.0000" />
             <Position Y="60.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
-            <CColor A="255" R="0" G="0" B="0" />
+            <CColor A="255" R="60" G="30" B="10" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
             <OutlineColor A="255" R="255" G="0" B="0" />

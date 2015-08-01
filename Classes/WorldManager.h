@@ -58,8 +58,6 @@ public:
     WorldInfo* levelup();
     void startTutorial();
     void startBattle();
-    void startMultiplayBattle();
-    void startMultiplayTest();
     void startTutorialBattle();
     void endBattle(bool win, float showResultViewDelay);
     void endBattle(bool win);
@@ -67,6 +65,9 @@ public:
     void resetData();
     
     // network game logic
+    void startMultiplayBattle();
+    void startMultiplayTest();
+    void endMultiplayBattle();
     void releaseAnimalByNetwork(Animal* animal);
     void createTreeByNetwork(CoinTree* tree);
     void deadTreeByNetwork(int treeId);

@@ -29,6 +29,8 @@ public:
     bool isMove();
     
     static std::vector<Species*> getAllSpecies();
+    static rapidjson::Document document;
+    static bool hasJson;
 
 protected:
     std::string _name;

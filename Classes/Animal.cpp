@@ -374,7 +374,8 @@ void Animal::startStop()
 bool Animal::canAttack()
 {
     if (_state == AnimalState::Battle
-        || _state == AnimalState::Dead) {
+        || _state == AnimalState::Dead
+        || _state == AnimalState::Jump) {
         return false;
     }
     return true;

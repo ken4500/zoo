@@ -67,7 +67,7 @@
           <Image Name="sun.png" />
         </Folder>
         <Project Name="Result.csd" Type="Node" />
-        <Project Name="Notice.csd" Type="Node" />
+        <Project Name="YesNo.csd" Type="Node" />
         <Project Name="GetCoin.csd" Type="Node" />
         <Project Name="TitleScene.csd" Type="Scene" />
         <Project Name="SelectLanguage.csd" Type="Node" />
@@ -96,6 +96,7 @@
           <Project Name="Map10.csd" Type="Node" />
           <Project Name="Map11.csd" Type="Node" />
         </Folder>
+        <Project Name="Notice.csd" Type="Node" />
       </RootFolder>
     </Group>
   </SolutionFolder>

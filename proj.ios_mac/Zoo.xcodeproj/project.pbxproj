@@ -71,6 +71,7 @@
 		9F425AE61B4616E6001B2969 /* WorldManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F425AE41B4616E6001B2969 /* WorldManager.cpp */; };
 		9F425AE91B461732001B2969 /* WorldInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F425AE71B461732001B2969 /* WorldInfo.cpp */; };
 		9F425AEC1B461899001B2969 /* Length.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F425AEA1B461899001B2969 /* Length.cpp */; };
+		9F543DEB1B6C9CA80052496F /* YesNoLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F543DE91B6C9CA80052496F /* YesNoLayer.cpp */; };
 		9F6835D71B62E1A500589EBE /* TitleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F6835D51B62E1A500589EBE /* TitleScene.cpp */; };
 		9F6835DC1B62E4B900589EBE /* SelectLanguageLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F6835DA1B62E4B900589EBE /* SelectLanguageLayer.cpp */; };
 		9F6835E01B63F2BB00589EBE /* CreditLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F6835DE1B63F2BB00589EBE /* CreditLayer.cpp */; };
@@ -206,6 +207,8 @@
 		9F425AE81B461732001B2969 /* WorldInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldInfo.h; sourceTree = "<group>"; };
 		9F425AEA1B461899001B2969 /* Length.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Length.cpp; sourceTree = "<group>"; };
 		9F425AEB1B461899001B2969 /* Length.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Length.h; sourceTree = "<group>"; };
+		9F543DE91B6C9CA80052496F /* YesNoLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = YesNoLayer.cpp; sourceTree = "<group>"; };
+		9F543DEA1B6C9CA80052496F /* YesNoLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YesNoLayer.h; sourceTree = "<group>"; };
 		9F6835D51B62E1A500589EBE /* TitleScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TitleScene.cpp; sourceTree = "<group>"; };
 		9F6835D61B62E1A500589EBE /* TitleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleScene.h; sourceTree = "<group>"; };
 		9F6835DA1B62E4B900589EBE /* SelectLanguageLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SelectLanguageLayer.cpp; sourceTree = "<group>"; };
@@ -492,6 +495,8 @@
 				9F06E9BE1B5AD21A00107C09 /* ResultLayer.h */,
 				9F73A0161B6698A300775F31 /* MenuLayer.cpp */,
 				9F73A0171B6698A300775F31 /* MenuLayer.h */,
+				9F543DE91B6C9CA80052496F /* YesNoLayer.cpp */,
+				9F543DEA1B6C9CA80052496F /* YesNoLayer.h */,
 			);
 			name = ModalView;
 			sourceTree = "<group>";
@@ -810,6 +815,7 @@
 				9FA0EA371B6BDB16007F642B /* Weight.cpp in Sources */,
 				9F83BA861B55687700605D1D /* UserData.cpp in Sources */,
 				9F0564671B49D5AA00649A7F /* Species.cpp in Sources */,
+				9F543DEB1B6C9CA80052496F /* YesNoLayer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -26,6 +26,7 @@ void CommandGenerater::excCommand(std::string dataStr)
         }
         else if (command.commandName == "create_tree")
         {
+            CCLOG("##id = %d", command.intDataList[0]);
             auto id = command.intDataList[0];
             auto length = new Length(command.numberDataList[0]);
             auto pos = Vec2(command.numberDataList[1], command.numberDataList[2]);
@@ -33,6 +34,7 @@ void CommandGenerater::excCommand(std::string dataStr)
             tree->setLength(*length);
             tree->setId(id);
             tree->setRealPosition(pos);
+            tree->setIsCreatedByOpponent(true);
             WorldManager::getInstance()->createTreeByNetwork(tree);
         }
         else if (command.commandName == "dead_tree")
@@ -42,12 +44,15 @@ void CommandGenerater::excCommand(std::string dataStr)
         }
         else if (command.commandName == "create_animal")
         {
+            CCLOG("##name = %s", command.stringDataList[0].c_str());
+            CCLOG("##id = %d", command.intDataList[0]);
             auto animal = Animal::CreateWithSpeceis(command.stringDataList[0], command.numberDataList[0]);
             animal->setId(command.intDataList[0]);
             WorldManager::getInstance()->releaseAnimalByNetwork(animal);
         }
         else if (command.commandName == "remove_animal")
         {
+            CCLOG("##id = %d", command.intDataList[0]);
             auto id = command.intDataList[0];
             WorldManager::getInstance()->removeAnimalByNetwork(id);
         }
@@ -79,6 +84,8 @@ void CommandGenerater::excCommand(std::string dataStr)
         }
         else if (command.commandName == "fight_tree")
         {
+            CCLOG("##animal id = %d", command.intDataList[0]);
+            CCLOG("##tree id = %d", command.intDataList[1]);
             int id = command.intDataList[0];
             int treeId = command.intDataList[1];
             auto animal = WorldManager::getInstance()->getOpponentAnimal(id);
@@ -93,6 +100,7 @@ void CommandGenerater::excCommand(std::string dataStr)
         }
         else if (command.commandName == "levelup")
         {
+            CCLOG("##level = %d", command.intDataList[0]);
             int level = command.intDataList[0];
             WorldManager::getInstance()->levelupOpponent(level);
         }

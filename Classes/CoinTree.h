@@ -34,6 +34,8 @@ public:
     void setId(int id);
     Vec2 getRealPosition();
     void setRealPosition(Vec2 position);
+    bool isCreatedByOpponent();
+    void setIsCreatedByOpponent(bool opponent);
     
     std::function<void (AbstractBattleEntity* entity)> deadCallback;
 
@@ -51,6 +53,7 @@ protected:
     Length* _length;
     bool _isSwaying;
     bool _isDead;
+    bool _isCreatedByOpponent;
     
     void onEnter() override;
 

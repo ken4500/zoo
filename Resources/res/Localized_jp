@@ -16,3 +16,5 @@ MENU_PAGE_ENCYCLEPEDIA = 動物辞典;
 MENU_PAGE_LANGUAGE = 言語設定;
 MENU_PAGE_CLOSE = 閉じる;
 
+NOTICE_MULTIPLAY = 同じWi-Fiに接続している、\nもしくはbluetoothがONになっている\nユーザーと対戦できます。;
+NOTICE_LACK_LIFE = ライフが足りません。\nライフは時間で回復します。;

@@ -12,6 +12,7 @@
 #include "MultiBattleScene.h"
 #include "SoundManager.h"
 #include "CommandGenerater.h"
+#include "WorldManager.h"
 using namespace cocos2d;
 
 #pragma mark -
@@ -99,6 +100,7 @@ void SceneManager::enterMultiBattleScene()
 void SceneManager::backMainScene()
 {
     _isNetwork = false;
+    WorldManager::getInstance()->endMultiplayBattle();
     _scene = MainScene::createScene();
     networkingWrapper->disconnect();
     Director::getInstance()->replaceScene(

@@ -47,6 +47,7 @@ void CoinTree::onEnter()
     setTag((int)EntityTag::CoinTree);
     runAction(_timeline);
     _timeline->play("default", false);
+    _isCreatedByOpponent = false;
 }
 
 void CoinTree::setLength(Length length)
@@ -103,6 +104,9 @@ void CoinTree::dropCoin()
     auto timeline = CSLoader::createTimeline("DropCoin.csb");
     dropCoin->runAction(timeline);
     timeline->play("drop", false);
+    timeline->setLastFrameCallFunc([this, dropCoin]{
+        dropCoin->removeFromParent();
+    });
 }
 
 void CoinTree::fellDown(bool drop)
@@ -128,6 +132,8 @@ void CoinTree::fellDown(bool drop)
             ));
         }
     }
+    
+    runAction(Sequence::create(DelayTime::create(5.0f), RemoveSelf::create(), NULL));
 }
 
 Rect CoinTree::getBodyRect()
@@ -209,4 +215,14 @@ void CoinTree::setRealPosition(Vec2 position)
     float x = position.x * info->imageWidth / info->maxWidth.getMmLength();
     float y = position.y * info->imageWidth / info->maxWidth.getMmLength();
     setPosition(Vec2(x, y));
+}
+
+bool CoinTree::isCreatedByOpponent()
+{
+    return _isCreatedByOpponent;
+}
+
+void CoinTree::setIsCreatedByOpponent(bool opponent)
+{
+    _isCreatedByOpponent = opponent;
 }

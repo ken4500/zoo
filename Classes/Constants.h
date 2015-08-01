@@ -13,13 +13,13 @@
 
 static const bool DEBUG_BUTOTN_APPEAR = true;
 static const float INIT_WORLD_LEVEL = 1;
-static const float INIT_COIN = 3;
+static const float INIT_COIN = 6;
 static const float INIT_LIFE = 3;
 static const int BATTLE_TIME = 20;
 static const int ENEMY_NUM = 15;
 static const bool EASY_MODE = true;
 static const bool APPEAR_SKIP_BUTTON = true;
-static const bool SKIP_TUTORIAL = true;
+static const bool SKIP_TUTORIAL = false;
 static const int REPAIR_LIFE_TIME = 5 * 60;
 static const int MAX_ANIMAL_NUM = 20;
 static const float GAME_FPS = 60;

@@ -11,6 +11,7 @@
 #include "WorldManager.h"
 #include "SelectLanguageLayer.h"
 #include "SceneManager.h"
+#include "NoticeLayer.h"
 
 MenuLayer::MenuLayer()
 {
@@ -72,17 +73,25 @@ void MenuLayer::_pushMultiPlayButton(cocos2d::Ref* pSender, cocos2d::ui::Widget:
 {
     if (eEventType == ui::Widget::TouchEventType::ENDED) {
         SoundManager::getInstance()->playDecideEffect2();
-        SceneManager::getInstance()->enterMultiBattleScene();
 
-        WorldManager::getInstance()->startMultiplayTest();
+        auto notice = NoticeLayer::createWithMessage(CCLS("NOTICE_MULTIPLAY"));
+        notice->setFontSize(24);
+        this->getParent()->addChild(notice);
+        notice->closeNoticeCallback = []{
+            SceneManager::getInstance()->receiveMultiplayerInvitations();
+            SceneManager::getInstance()->showPeerList();
+        };
+        
+        this->removeFromParent();
     }
 }
 
 void MenuLayer::_pushEncyclepediaButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
     if (eEventType == ui::Widget::TouchEventType::ENDED) {
-        SceneManager::getInstance()->receiveMultiplayerInvitations();
-        SceneManager::getInstance()->showPeerList();
+        SoundManager::getInstance()->playDecideEffect2();
+        SceneManager::getInstance()->enterMultiBattleScene();
+        WorldManager::getInstance()->startMultiplayTest();
     }
 }
 

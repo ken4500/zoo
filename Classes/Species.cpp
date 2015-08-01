@@ -10,6 +10,9 @@
 #include "cocos2d.h"
 USING_NS_CC;
 
+rapidjson::Document Species::document;
+bool Species::hasJson = false;
+
 Species::Species(std::string name) :
 _moveCsbName("AnimalMove1.csb"),
 _maxHeight(0),
@@ -17,10 +20,12 @@ _minHeight(0),
 _speed(0),
 _dashSpeed(0)
 {
-    auto jsonStr = FileUtils::getInstance()->getStringFromFile("data/animal.json");
-    rapidjson::Document document;
-    document.Parse<0>(jsonStr.c_str());
-    rapidjson::Value& speceisDoc = document[name.c_str()];
+    if (hasJson == false) {
+        auto jsonStr = FileUtils::getInstance()->getStringFromFile("data/animal.json");
+        Species::document.Parse<0>(jsonStr.c_str());
+        hasJson = true;
+    }
+    rapidjson::Value& speceisDoc = Species::document[name.c_str()];
     init(name, speceisDoc);
 }
 
@@ -101,14 +106,16 @@ std::vector<Species*> Species::getAllSpecies()
 {
     std::vector<Species*> rtnList;
 
-    auto jsonStr = FileUtils::getInstance()->getStringFromFile("data/animal.json");
-    rapidjson::Document document;
-    document.Parse<0>(jsonStr.c_str());
-    for (rapidjson::Value::ConstMemberIterator itr = document.MemberonBegin();
-        itr != document.MemberonEnd(); ++itr)
+    if (hasJson == false) {
+        auto jsonStr = FileUtils::getInstance()->getStringFromFile("data/animal.json");
+        Species::document.Parse<0>(jsonStr.c_str());
+        hasJson = true;
+    }
+    for (rapidjson::Value::ConstMemberIterator itr = Species::document.MemberonBegin();
+        itr != Species::document.MemberonEnd(); ++itr)
     {
         auto name = itr->name.GetString();
-        auto species = new Species(name, document[name]);
+        auto species = new Species(name, Species::document[name]);
         rtnList.push_back(species);
     }
 

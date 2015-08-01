@@ -44,6 +44,7 @@ _totalWeight(0)
     _enableNextAction = true;
     _isNetwork = false;
     _state = SceneState::Tutorial;
+    _gacha = nullptr;
     if (SKIP_TUTORIAL || UserDataManager::getInstance()->isEndTutorial()
         || _info->level > 1) {
         _state = SceneState::Normal;
@@ -161,7 +162,7 @@ Gacha* WorldManager::getOpponentGacha()
 
 Length WorldManager::getDashSpeed()
 {
-    return Length(_info->width.getMmLength() * 0.2);
+    return Length(_info->width.getMmLength() * 0.3);
 }
 
 Weight WorldManager::getTotalWeight()
@@ -237,7 +238,7 @@ WorldInfo* WorldManager::levelup()
     _gacha->setNewGacha(_info);
     
     // for tutorial
-    if (_info->level == 2 && SKIP_TUTORIAL == false) {
+    if (_isNetwork == false && _info->level == 2 && SKIP_TUTORIAL == false) {
         _startTutrialLevelupScene1();
     } else {
         _enableNextAction = false;
@@ -371,28 +372,7 @@ void WorldManager::startBattle()
         };
     }
     
-    _makeCoinTree();
-    
     _map->hideGacha();
-}
-
-void WorldManager::startMultiplayBattle()
-{
-    _state = SceneState::MultiBattle;
-    _opponentAnimalList = std::vector<Animal*>();
-    _enemyAnimalList = std::vector<Animal*>();
-    _coinTreeList = std::vector<CoinTree*>();
-
-    Director::getInstance()->getScheduler()->schedule(CC_CALLBACK_1(WorldManager::_sendAnimalStatus, this), this, 0.5f, false, "send_animal_statu");
-    _makeCoinTreePerTime(0);
-}
-
-void WorldManager::startMultiplayTest()
-{
-//    auto tree = dynamic_cast<CoinTree*>(CSLoader::createNode("CoinTree.csb"));
-//    tree->setPosition((getRadomPlace() + Vec2(0, -100)) * 0.8f);
-//    tree->setLength(new Length(_info->width->getMmLength() * 0.2));
-//    CommandGenerater::makeCoinTree(tree);
 }
 
 void WorldManager::startTutorial()
@@ -400,7 +380,7 @@ void WorldManager::startTutorial()
     auto scene = SceneManager::getInstance()->getMainScene();
     if (scene) {
         scene->playNovel("novel_opening", [this]{
-            _enableNextAction = false;
+            _enableNextAction = true;
         }, false);
     }
 }
@@ -454,6 +434,28 @@ void WorldManager::endResult()
 }
 
 #pragma - network game logic
+
+void WorldManager::startMultiplayBattle()
+{
+    _state = SceneState::MultiBattle;
+    _opponentAnimalList = std::vector<Animal*>();
+    _enemyAnimalList = std::vector<Animal*>();
+    _coinTreeList = std::vector<CoinTree*>();
+
+    Director::getInstance()->getScheduler()->schedule(CC_CALLBACK_1(WorldManager::_sendAnimalStatus, this), this, 0.5f, false, "send_animal_status");
+    Director::getInstance()->getScheduler()->schedule(CC_CALLBACK_1(WorldManager::_makeCoinTreePerTime, this), this, 1.0f, false, "make_coin_tree");
+}
+
+void WorldManager::startMultiplayTest()
+{
+}
+
+void WorldManager::endMultiplayBattle()
+{
+    _opponentGacha = nullptr;
+    Director::getInstance()->getScheduler()->unschedule("send_animal_status", this);
+    Director::getInstance()->getScheduler()->unschedule("make_coin_tree", this);
+}
 
 void WorldManager::releaseAnimalByNetwork(Animal* animal)
 {
@@ -698,7 +700,18 @@ void WorldManager::_transitionMap(WorldInfo* preWorldInfo, WorldInfo* newWorldIn
         _gacha->setPosition(pos);
         auto scale = _gacha->getScale() * preWorldInfo->maxWidth.getMmLength() / newWorldInfo->maxWidth.getMmLength();
         _gacha->setScale(scale);
-        
+
+        if (_isNetwork && _opponentGacha) {
+            _opponentGacha->retain();
+            _opponentGacha->removeFromParent();
+            newMap->setGacha(_opponentGacha);
+            _opponentGacha->release();
+            pos = _opponentGacha->getPosition() * _opponentInfo->maxWidth.getMmLength() / newWorldInfo->maxWidth.getMmLength();
+            _opponentGacha->setPosition(pos);
+            scale = _opponentGacha->getScale() * _opponentInfo->maxWidth.getMmLength() / newWorldInfo->maxWidth.getMmLength();
+            _opponentGacha->setScale(scale);
+        }
+
         auto gachaImage = _gacha->getChildByName<Sprite*>("image");
         auto gachaLength = Length::scale(newWorldInfo->width, 0.2);
         float gachaScale = getImageScale(gachaImage, gachaLength);
@@ -867,9 +880,18 @@ void WorldManager::_sendAnimalStatus(float dt)
 
 void WorldManager::_makeCoinTreePerTime(float dt)
 {
-    _makeCoinTree();
-    int nextTime = rand() % 20;
-    Director::getInstance()->getScheduler()->schedule(CC_CALLBACK_1(WorldManager::_makeCoinTreePerTime, this), this, nextTime, false, "next_make_tree");
+     int myCoinTree = 0;
+     for (auto tree : _coinTreeList) {
+        if (tree->isDead() == false && tree->isCreatedByOpponent() == false) {
+            myCoinTree++;
+        }
+     }
+    
+     CCLOG("my create coin tree = %d", myCoinTree);
+    
+     if (myCoinTree == 0) {
+        _makeCoinTree();
+     }
 }
 
 void WorldManager::_deadCoinTreeCallback(AbstractBattleEntity* deadTree)
@@ -882,7 +904,6 @@ void WorldManager::_deadCoinTreeCallback(AbstractBattleEntity* deadTree)
     for (auto it = _coinTreeList.begin(); it != _coinTreeList.end(); ) {
         auto tree = (*it);
         if (tree->getId() == treeId) {
-            tree->fellDown(false);
             it = _coinTreeList.erase(it);
             continue;
         }
@@ -1030,5 +1051,7 @@ void WorldManager::_startTutrialLevelupScene2()
     auto gachaLength = Length::scale(_info->width, 0.2);
     float gachaScale = getImageScale(gachaImage, gachaLength);
     _gacha->runAction(EaseInOut::create(ScaleTo::create(1.0f, gachaScale), 2));
-    scene->playNovel("novel_tutorial_levelup2", NULL, false, 2.5f);
+    scene->playNovel("novel_tutorial_levelup2", [this]() {
+        _enableNextAction = true;
+    }, false, 2.5f);
 }

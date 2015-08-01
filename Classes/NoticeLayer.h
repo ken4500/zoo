@@ -25,10 +25,12 @@ public:
     static NoticeLayer* createWithMessage(std::string message);
     virtual bool initWithMessage(std::string message);
     std::function<void ()> closeNoticeCallback;
+    void setFontSize(int fontsize);
     
 protected:
     
 private:
+    ui::Text* _messageLabel;
 
     void onEnter() override;
     void _pushButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
