@@ -117,7 +117,7 @@ Animal* WorldManager::getOpponentAnimal(int id)
     return nullptr;
 }
 
-CoinTree* WorldManager::getCointTree(int id)
+CoinTree* WorldManager::getCoinTree(int id)
 {
     for (auto tree : _coinTreeList) {
         if (tree->getId() == id) {
@@ -717,7 +717,10 @@ void WorldManager::_transitionMap(WorldInfo* preWorldInfo, WorldInfo* newWorldIn
         float gachaScale = getImageScale(gachaImage, gachaLength);
         _gacha->runAction(EaseInOut::create(ScaleTo::create(1.0f, gachaScale), 2));
 
+        
+        _map->release();
         _map = newMap;
+        newMap->retain();
     });
 }
 
@@ -750,8 +753,14 @@ void WorldManager::_checkAndRemoveAnimal()
 
 void WorldManager::_createMap()
 {
+    if (_map) {
+        _map->release();
+        _map = NULL;
+    }
+
     _info = UserDataManager::getInstance()->getWorldInfo();
     _map = dynamic_cast<WorldMap*>(CSLoader::createNode(_info->mapName));
+    _map->retain();
     _map->initSize(_info->maxWidth, _info->width);
     _animalList = std::vector<Animal*>();
     _enemyAnimalList = std::vector<Animal*>();
@@ -790,12 +799,18 @@ void WorldManager::_createMap()
 
 void WorldManager::_createMultiBattlwMap()
 {
+    if (_map) {
+        _map->release();
+        _map = NULL;
+    }
+
     _info = new WorldInfo(1);
     _info->network = true;
     _opponentInfo = new WorldInfo(1);
     _opponentInfo->network = true;
     _multiBattleCoin = INIT_MULTIBATTLE_COIN;
     _map = dynamic_cast<WorldMap*>(CSLoader::createNode(_info->mapName));
+    _map->retain();
     _map->initSize(_info->maxWidth, _info->width);
     _animalList = std::vector<Animal*>();
     _enemyAnimalList = std::vector<Animal*>();

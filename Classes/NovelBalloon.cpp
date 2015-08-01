@@ -259,7 +259,6 @@ NovelBalloon* NovelBalloon::create(std::shared_ptr<NovelAction> action,
     Size visibleSize = Director::getInstance()->getVisibleSize();
     switch (action->getBalloon()) {
         case NovelAction::Balloon::Normal:
-        case NovelAction::Balloon::Shout:
             balloon = Sprite::create("chat/ui/fukidashi.png");
             result->_arrowPos = Point(balloon->getContentSize().width - 50, 0);
             balloon->setAnchorPoint(Vec2(0.5, 0.5));
@@ -267,6 +266,19 @@ NovelBalloon* NovelBalloon::create(std::shared_ptr<NovelAction> action,
                 balloon->setPosition(Vec2(visibleSize.width/ 2 - 40, 150));
             } else if (action->getTarget() == NovelAction::Target::Right) {
                 labelPos = Vec2(25, 130);
+                balloon->setPosition(Vec2(-visibleSize.width/ 2 + 40, 100));
+                balloon->setFlippedX(true);
+            }
+            break;
+        case NovelAction::Balloon::Shout:
+            balloon = Sprite::create("chat/ui/fukidashi2.png");
+            result->_arrowPos = Point(balloon->getContentSize().width - 50, 0);
+            balloon->setAnchorPoint(Vec2(0.5, 0.5));
+            if (action->getTarget() == NovelAction::Target::Left) {
+                labelPos = Vec2(65, 110);
+                balloon->setPosition(Vec2(visibleSize.width/ 2 - 40, 150));
+            } else if (action->getTarget() == NovelAction::Target::Right) {
+                labelPos = Vec2(25, 110);
                 balloon->setPosition(Vec2(-visibleSize.width/ 2 + 40, 100));
                 balloon->setFlippedX(true);
             }

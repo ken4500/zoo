@@ -43,7 +43,7 @@ public:
     std::vector<Animal*> getOpponentAnimalList();
     std::vector<CoinTree*> getCoinTreeList();
     Animal* getOpponentAnimal(int id);
-    CoinTree* getCointTree(int id);
+    CoinTree* getCoinTree(int id);
     int getGachaPrice();
     int getCoin();
     void addCoin(int addCoin);

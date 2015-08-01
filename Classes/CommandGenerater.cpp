@@ -89,7 +89,7 @@ void CommandGenerater::excCommand(std::string dataStr)
             int id = command.intDataList[0];
             int treeId = command.intDataList[1];
             auto animal = WorldManager::getInstance()->getOpponentAnimal(id);
-            auto tree = dynamic_cast<AbstractBattleEntity*>(WorldManager::getInstance()->getCointTree(treeId));
+            auto tree = dynamic_cast<AbstractBattleEntity*>(WorldManager::getInstance()->getCoinTree(treeId));
             Vec2 position = Vec2(command.numberDataList[0], command.numberDataList[1]);
             if (animal->getState() != AnimalState::Battle) {
                 animal->setRealPosition(position);

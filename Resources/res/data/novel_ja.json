@@ -57,7 +57,7 @@
     {
       "type": "speak",
       "target": "left",
-      "balloon": "normal",
+      "balloon": "shout",
       "value": "[c=red]左下のボタン[/c]を押してくれ！"
     }
   ]
