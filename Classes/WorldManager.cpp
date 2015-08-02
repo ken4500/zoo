@@ -90,27 +90,72 @@ SceneState WorldManager::getSceneState()
 
 std::vector<Animal*> WorldManager::getAnimalList()
 {
-    return _animalList;
+    std::vector<Animal*> list;
+    auto children = _map->getChildren();
+    for (auto child : children) {
+        if (child->getTag() == (int)EntityTag::Animal) {
+            auto animal = dynamic_cast<Animal*>(child);
+            if (animal) {
+                list.push_back(animal);
+            }
+        }
+    }
+    
+    return list;
 }
 
 std::vector<Animal*> WorldManager::getEnemyAnimalList()
 {
-    return _enemyAnimalList;
+    std::vector<Animal*> list;
+    auto children = _map->getChildren();
+    for (auto child : children) {
+        if (child->getTag() == (int)EntityTag::EnemyAnimal) {
+            auto animal = dynamic_cast<Animal*>(child);
+            if (animal) {
+                list.push_back(animal);
+            }
+        }
+    }
+    
+    return list;
 }
 
 std::vector<Animal*> WorldManager::getOpponentAnimalList()
 {
-    return _opponentAnimalList;
+    std::vector<Animal*> list;
+    auto children = _map->getChildren();
+    for (auto child : children) {
+        if (child->getTag() == (int)EntityTag::OpponentAnimal) {
+            auto animal = dynamic_cast<Animal*>(child);
+            if (animal) {
+                list.push_back(animal);
+            }
+        }
+    }
+    
+    return list;
 }
 
 std::vector<CoinTree*> WorldManager::getCoinTreeList()
 {
-    return _coinTreeList;
+    std::vector<CoinTree*> list;
+    auto children = _map->getChildren();
+    for (auto child : children) {
+        if (child->getTag() == (int)EntityTag::CoinTree) {
+            auto tree = dynamic_cast<CoinTree*>(child);
+            if (tree) {
+                list.push_back(tree);
+            }
+        }
+    }
+    
+    return list;
 }
 
 Animal* WorldManager::getOpponentAnimal(int id)
 {
-    for (auto animal : _opponentAnimalList) {
+    auto opponentAnimalList = getOpponentAnimalList();
+    for (auto animal : opponentAnimalList) {
         if (animal->getId() == id) {
             return animal;
         }
@@ -120,7 +165,8 @@ Animal* WorldManager::getOpponentAnimal(int id)
 
 CoinTree* WorldManager::getCoinTree(int id)
 {
-    for (auto tree : _coinTreeList) {
+    auto coinTreelList = getCoinTreeList();
+    for (auto tree : coinTreelList) {
         if (tree->getId() == id) {
             return tree;
         }
@@ -218,7 +264,6 @@ void WorldManager::releaseAnimal(Animal* animal, bool hit)
     }
     _setTotalWeight(_totalWeight + animal->getWeight());
 
-    _animalList.push_back(animal);
     if (hit) {
         _map->releaseAnimal(animal, [this] {
             _checkAndRemoveAnimal();
@@ -256,11 +301,10 @@ WorldInfo* WorldManager::levelup()
     }
     
     // 小さすぎる動物を削除
-    for (auto it = _animalList.begin(); it != _animalList.end(); ) {
-        auto animal = (*it);
+    auto animalList = getAnimalList();
+    for (auto animal : animalList) {
         if (animal->getHeight().getMmLength() * 50 < _info->width.getMmLength()) {
             animal->runAction(Sequence::create(ScaleTo::create(0.5, 0), RemoveSelf::create(), NULL));
-            it = _animalList.erase(it);
             if (_isNetwork == false) {
                 UserDataManager::getInstance()->removeAnimal(animal);
                 _setTotalWeight(_totalWeight - animal->getWeight());
@@ -270,7 +314,6 @@ WorldInfo* WorldManager::levelup()
             }
             continue;
         }
-        it++;
     }
     
     if (_isNetwork == false) {
@@ -344,8 +387,6 @@ void WorldManager::startBattle()
     SoundManager::getInstance()->playBattleStartEffect();
     SoundManager::getInstance()->fadeOutBgm(0.5f);
     SoundManager::getInstance()->playBattleBgm();
-    _enemyAnimalList = std::vector<Animal*>();
-    _coinTreeList = std::vector<CoinTree*>();
     
     auto scene = SceneManager::getInstance()->getMainScene();
     if (scene) {
@@ -356,7 +397,6 @@ void WorldManager::startBattle()
     for (int i = 0; i < ENEMY_NUM; i++) {
         auto enemyAnimal = _enemyGenerater->generate();
         enemyAnimal->setIsEnmey(true);
-        _enemyAnimalList.push_back(enemyAnimal);
         _map->addEnemyAnimalAtOutRandomPoint(enemyAnimal);
         enemyAnimal->deadCallback = [this, enemyAnimal](AbstractBattleEntity* entity) {
             addCoin(enemyAnimal->getCoin());
@@ -439,9 +479,6 @@ void WorldManager::endResult()
 void WorldManager::startMultiplayBattle()
 {
     _state = SceneState::MultiBattle;
-    _opponentAnimalList = std::vector<Animal*>();
-    _enemyAnimalList = std::vector<Animal*>();
-    _coinTreeList = std::vector<CoinTree*>();
     _setLeftTime(MUTLPLAY_BATTLE_TIME);
     _opponentResultWeight = nullptr;
 
@@ -480,43 +517,28 @@ void WorldManager::endMultiplayBattle()
 
 void WorldManager::releaseAnimalByNetwork(Animal* animal)
 {
-    _opponentAnimalList.push_back(animal);
     animal->setIsOpponent(true);
     _map->releaseOpponentAnimal(animal, nullptr);
 }
 
 void WorldManager::createTreeByNetwork(CoinTree* tree)
 {
-    _coinTreeList.push_back(tree);
     _map->setCoinTree(tree);
-    if (tree->isCreatedByOpponent()) {
-        CCLOG("there is opponent tree");
-    }
 }
 
 void WorldManager::deadTreeByNetwork(int treeId)
 {
-    for (auto it = _coinTreeList.begin(); it != _coinTreeList.end(); ) {
-        auto tree = (*it);
-        if (tree->getId() == treeId) {
-            tree->fellDown(false);
-            it = _coinTreeList.erase(it);
-            continue;
-        }
-        it++;
+    auto tree = getCoinTree(treeId);
+    if (tree) {
+        tree->fellDown(false);
     }
 }
 
 void WorldManager::removeAnimalByNetwork(int animalId)
 {
-    for (auto it = _opponentAnimalList.begin(); it != _opponentAnimalList.end(); ) {
-        auto animal = (*it);
-        if (animal->getId() == animalId) {
-            animal->runAction(Sequence::create(ScaleTo::create(0.5, 0), RemoveSelf::create(), NULL));
-            it = _opponentAnimalList.erase(it);
-            continue;
-        }
-        it++;
+    auto animal = getOpponentAnimal(animalId);
+    if (animal) {
+        animal->runAction(Sequence::create(ScaleTo::create(0.5, 0), RemoveSelf::create(), NULL));
     }
 }
 
@@ -647,7 +669,8 @@ void WorldManager::_closeResult()
     SoundManager::getInstance()->fadeOutBgm(1.0f);
     SoundManager::getInstance()->playMainBgm();
 
-    for (auto animal : _animalList) {
+    auto animalList = getAnimalList();
+    for (auto animal : animalList) {
         if (animal->isDead()) {
             animal->runAction(Sequence::create(
                 DelayTime::create(1.0f),
@@ -662,19 +685,19 @@ void WorldManager::_closeResult()
         }
     }
 
-    for (auto animal : _enemyAnimalList) {
+    auto enemyAnimalList = getEnemyAnimalList();
+    for (auto animal : enemyAnimalList) {
         if (animal->isDead()) {
             animal->removeFromParent();
         } else {
             animal->escape();
         }
     }
-    _enemyAnimalList = std::vector<Animal*>();
 
-    for (auto tree : _coinTreeList) {
+    auto coinTreeList = getCoinTreeList();
+    for (auto tree : coinTreeList) {
         tree->disappear();
     }
-    _coinTreeList = std::vector<CoinTree*>();
     
     auto scene = SceneManager::getInstance()->getMainScene();
     if (scene) {
@@ -717,7 +740,8 @@ void WorldManager::_setLeftTime(int leftTime)
 
 void WorldManager::_repairAllAnimalHp()
 {
-    for (auto animal : _animalList) {
+    auto animalList = getAnimalList();
+    for (auto animal : animalList) {
         animal->repairHp();
     }
 }
@@ -729,8 +753,9 @@ bool WorldManager::_checkAllEnemyDead()
 
 int WorldManager::_getAliveEnemy()
 {
+    auto enemyAnimalList = getEnemyAnimalList();
     int aliveCount = 0;
-    for (auto animal : _enemyAnimalList) {
+    for (auto animal : enemyAnimalList) {
         if (animal->isDead() == false) {
             aliveCount++;
         }
@@ -806,21 +831,27 @@ void WorldManager::_transitionMap(WorldInfo* preWorldInfo, WorldInfo* newWorldIn
 
 void WorldManager::_checkAndRemoveAnimal()
 {
-    if (_animalList.size() > MAX_ANIMAL_NUM) {
+    auto animalList = getAnimalList();
+    if (animalList.size() > MAX_ANIMAL_NUM) {
         float min = INT_MAX;
-        std::vector<Animal*>::iterator minIt;
-        for (auto it = _animalList.begin(); it != _animalList.end(); it++) {
-            auto animal = *it;
+        Animal* removeAnimal = nullptr;
+
+        for (auto animal : animalList) {
+            if (animal->getState() == AnimalState::Escape
+                || animal->getState() == AnimalState::Jump)
+            {
+                continue;
+            }
             if (min > animal->getHeight().getMmLength()) {
                 min = animal->getHeight().getMmLength();
-                minIt = it;
+                removeAnimal = animal;
             }
         }
-        auto removeAnimal = *minIt;
+        
         if (_isNetwork == false) {
             UserDataManager::getInstance()->removeAnimal(removeAnimal);
         }
-        _animalList.erase(minIt);
+        CCLOG("#### remove %d", removeAnimal->getId());
         removeAnimal->escape();
         _setTotalWeight(_totalWeight - removeAnimal->getWeight());
         
@@ -842,10 +873,6 @@ void WorldManager::_createMap()
     _map = dynamic_cast<WorldMap*>(CSLoader::createNode(_info->mapName));
     _map->retain();
     _map->initSize(_info->maxWidth, _info->width);
-    _animalList = std::vector<Animal*>();
-    _enemyAnimalList = std::vector<Animal*>();
-    _opponentAnimalList = std::vector<Animal*>();
-    _coinTreeList = std::vector<CoinTree*>();
     _setTotalWeight(Weight(0));
 
     if (_state == SceneState::Tutorial) {
@@ -865,13 +892,11 @@ void WorldManager::_createMap()
     if (animalList.size() == 0) {
         auto hero = Animal::CreateWithSpeceis("Hero");
         _map->addAnimal(hero, Vec2(0, -200));
-        _animalList.push_back(hero);
         UserDataManager::getInstance()->addAnimal(hero);
         _setTotalWeight(_totalWeight + hero->getWeight());
     } else {
         for (Animal* animal : animalList) {
             _map->addAnimal(animal, getRadomPlace());
-            _animalList.push_back(animal);
             _setTotalWeight(_totalWeight + animal->getWeight());
         }
     }
@@ -892,10 +917,6 @@ void WorldManager::_createMultiBattlwMap()
     _map = dynamic_cast<WorldMap*>(CSLoader::createNode(_info->mapName));
     _map->retain();
     _map->initSize(_info->maxWidth, _info->width);
-    _animalList = std::vector<Animal*>();
-    _enemyAnimalList = std::vector<Animal*>();
-    _opponentAnimalList = std::vector<Animal*>();
-    _coinTreeList = std::vector<CoinTree*>();
     _setTotalWeight(Weight(0));
 
     _opponentGacha = dynamic_cast<Gacha*>(CSLoader::createNode("Gacha.csb"));
@@ -922,7 +943,6 @@ void WorldManager::_makeCoinTree()
     tree->setLength(Length(_info->width.getMmLength() * 0.06));
     tree->deadCallback = CC_CALLBACK_1(WorldManager::_deadCoinTreeCallback, this);
     _map->setCoinTree(tree);
-    _coinTreeList.push_back(tree);
     if (_isNetwork) {
         auto command = CommandGenerater::makeCoinTree(tree);
         CommandGenerater::sendData(command);
@@ -948,7 +968,8 @@ void WorldManager::_setTotalWeight(Weight weight)
 void WorldManager::_sendAnimalStatus(float dt)
 {
     std::vector<CommandData> commandList;
-    for (auto animal : _animalList) {
+    auto animalList = getAnimalList();
+    for (auto animal : animalList) {
         auto state = animal->getState();
         switch (state) {
             case AnimalState::Battle:
@@ -976,7 +997,8 @@ void WorldManager::_sendAnimalStatus(float dt)
 void WorldManager::_makeCoinTreePerTime(float dt)
 {
      int myCoinTree = 0;
-     for (auto tree : _coinTreeList) {
+     auto coinTreeList = getCoinTreeList();
+     for (auto tree : coinTreeList) {
         if (tree->isDead() == false && tree->isCreatedByOpponent() == false) {
             myCoinTree++;
         }
@@ -994,17 +1016,6 @@ void WorldManager::_deadCoinTreeCallback(AbstractBattleEntity* deadTree)
     CoinTree* tree = dynamic_cast<CoinTree*>(deadTree);
     auto command = CommandGenerater::deadCoinTree(tree);
     CommandGenerater::sendData(command);
-    
-    int treeId = tree->getId();
-    for (auto it = _coinTreeList.begin(); it != _coinTreeList.end(); ) {
-        auto tree = (*it);
-        if (tree->getId() == treeId) {
-            it = _coinTreeList.erase(it);
-            continue;
-        }
-        it++;
-    }
-
 }
 
 bool WorldManager::_gachaIsFrontZOrder(bool isOpponent)
@@ -1024,7 +1035,6 @@ void WorldManager::_startTutrialBattleScene1()
 {
     auto enemyAnimal = Animal::CreateWithSpeceis("Ari");
     enemyAnimal->setIsEnmey(true);
-    _enemyAnimalList.push_back(enemyAnimal);
     _map->addEnemyAnimalAtOutRandomPoint(enemyAnimal);
     auto scene = SceneManager::getInstance()->getMainScene();
 
@@ -1049,7 +1059,6 @@ void WorldManager::_startTutrialBattleScene2()
     for (int i = 0; i < 10; i++) {
         auto ant = Animal::CreateWithSpeceis("Ari");
         ant->setIsEnmey(true);
-        _enemyAnimalList.push_back(ant);
         _map->addEnemyAnimalAtOutRandomPoint(ant);
         ant->deadCallback = [this, scene] (AbstractBattleEntity* d) {
             int alive = _getAliveEnemy();
@@ -1058,7 +1067,6 @@ void WorldManager::_startTutrialBattleScene2()
                 auto beetleSpecies = new Species("Kabutomushi");
                 auto beetle = Animal::CreateWithSpeceis("Kabutomushi", beetleSpecies->getMaxHeight().getMmLength());
                 beetle->setIsEnmey(true);
-                _enemyAnimalList.push_back(beetle);
                 _map->addEnemyAnimal(beetle, Vec2(500, 0));
                 beetle->killAnimalCallback = [this] (AbstractBattleEntity* e, AbstractBattleEntity* k) {
                     _startTutrialBattleScene3();
@@ -1084,15 +1092,16 @@ void WorldManager::_startTutrialGachScene1()
     _state =SceneState::TutorialGacha;
     _enableNextAction = false;
 
-    for (auto animal : _animalList) {
+    auto animalList = getAnimalList();
+    for (auto animal : animalList) {
         animal->reborn();
         animal->startWalk();
     }
 
-    for (auto animal : _enemyAnimalList) {
+    auto enemyAnimalList = getEnemyAnimalList();
+    for (auto animal : enemyAnimalList) {
         animal->removeFromParent();
     }
-    _enemyAnimalList = std::vector<Animal*>();
     
     auto scene = SceneManager::getInstance()->getMainScene();
     scene->showMenu();

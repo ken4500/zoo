@@ -250,6 +250,7 @@ void MultiBattleScene::_pushEndButton(cocos2d::Ref* pSender, cocos2d::ui::Widget
     if (eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
         auto yesno = YesNoLayer::createWithMessage(CCLS("YESNO_END_MULTIPLAY"));
         yesno->pushedYesCallback = []{
+            WorldManager::getInstance()->endMultiplayBattle();
             SceneManager::getInstance()->backMainScene();
         };
         addChild(yesno);

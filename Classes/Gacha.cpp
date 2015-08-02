@@ -139,7 +139,7 @@ void Gacha::setOpponent(bool isOpponent)
 {
     _isOppnentGacha = isOpponent;
     auto image = this->getChildByName<Sprite*>("image");
-    image->setColor(Color3B::YELLOW);
+    image->setColor(Color3B(COLOR_RED));
     if (isOpponent) {
         _hidePrice();
     } else {

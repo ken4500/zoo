@@ -73,27 +73,33 @@ void CommandGenerater::excCommand(std::string dataStr)
         {
             int id = command.intDataList[0];
             auto animal = WorldManager::getInstance()->getOpponentAnimal(id);
-            Vec2 targetPoint = Vec2(command.numberDataList[0], command.numberDataList[1]);
-            targetPoint = WorldManager::getInstance()->getDisplayPosition(targetPoint);
-            auto speed = Length(command.numberDataList[2]);
-            animal->startWalk(targetPoint, speed);
+            if (animal) {
+                Vec2 targetPoint = Vec2(command.numberDataList[0], command.numberDataList[1]);
+                targetPoint = WorldManager::getInstance()->getDisplayPosition(targetPoint);
+                auto speed = Length(command.numberDataList[2]);
+                animal->startWalk(targetPoint, speed);
+            }
         }
         else if (command.commandName == "dash_animal")
         {
             int id = command.intDataList[0];
             auto animal = WorldManager::getInstance()->getOpponentAnimal(id);
-            Vec2 targetPoint = Vec2(command.numberDataList[0], command.numberDataList[1]);
-            targetPoint = WorldManager::getInstance()->getDisplayPosition(targetPoint);
-            auto speed = Length(command.numberDataList[2]);
-            animal->startDash(targetPoint, speed);
+            if (animal) {
+                Vec2 targetPoint = Vec2(command.numberDataList[0], command.numberDataList[1]);
+                targetPoint = WorldManager::getInstance()->getDisplayPosition(targetPoint);
+                auto speed = Length(command.numberDataList[2]);
+                animal->startDash(targetPoint, speed);
+            }
         }
         else if (command.commandName == "stop_animal")
         {
             int id = command.intDataList[0];
             auto animal = WorldManager::getInstance()->getOpponentAnimal(id);
-            Vec2 position = Vec2(command.numberDataList[0], command.numberDataList[1]);
-            animal->setRealPosition(position);
-            animal->startStop();
+            if (animal) {
+                Vec2 position = Vec2(command.numberDataList[0], command.numberDataList[1]);
+                animal->setRealPosition(position);
+                animal->startStop();
+            }
         }
         else if (command.commandName == "fight_tree")
         {
@@ -103,12 +109,14 @@ void CommandGenerater::excCommand(std::string dataStr)
             int treeId = command.intDataList[1];
             auto animal = WorldManager::getInstance()->getOpponentAnimal(id);
             auto tree = dynamic_cast<AbstractBattleEntity*>(WorldManager::getInstance()->getCoinTree(treeId));
-            Vec2 position = Vec2(command.numberDataList[0], command.numberDataList[1]);
-            if (animal->getState() != AnimalState::Battle) {
-                animal->setRealPosition(position);
-            }
-            if (tree) {
-                animal->fight(tree);
+            if (animal && tree) {
+                Vec2 position = Vec2(command.numberDataList[0], command.numberDataList[1]);
+                if (animal->getState() != AnimalState::Battle) {
+                    animal->setRealPosition(position);
+                }
+                if (tree) {
+                    animal->fight(tree);
+                }
             }
         }
     }

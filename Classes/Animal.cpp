@@ -469,7 +469,7 @@ void Animal::setIsOpponent(bool isOpponent)
     _isOpponent = isOpponent;
     if (isOpponent) {
         setTag((int)EntityTag::OpponentAnimal);
-        _image->setColor(Color3B(COLOR_YELLOW));
+        _image->setColor(Color3B(COLOR_RED));
     } else {
         setTag((int)EntityTag::EnemyAnimal);
         _image->setColor(Color3B::WHITE);

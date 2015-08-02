@@ -100,10 +100,6 @@ private:
     Gacha* _gacha;
     Gacha* _opponentGacha;
     SceneState _state;
-    std::vector<Animal*> _animalList;
-    std::vector<Animal*> _enemyAnimalList;
-    std::vector<Animal*> _opponentAnimalList;
-    std::vector<CoinTree*> _coinTreeList;
     EnemyGenerater* _enemyGenerater;
     Weight* _opponentResultWeight;
     
