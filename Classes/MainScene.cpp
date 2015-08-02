@@ -16,6 +16,7 @@
 #include "SceneManager.h"
 #include "MenuLayer.h"
 #include "CoinTreeReader.h"
+#include "BookReader.h"
 
 USING_NS_CC;
 
@@ -62,6 +63,7 @@ bool MainScene::init()
     instance->registReaderObject("ScaleBarReader", (ObjectFactory::Instance) ScaleBarReader::getInstance);
     instance->registReaderObject("WorldMapReader", (ObjectFactory::Instance) WorldMapReader::getInstance);
     instance->registReaderObject("CoinTreeReader", (ObjectFactory::Instance) CoinTreeReader::getInstance);
+    instance->registReaderObject("BookReader", (ObjectFactory::Instance) BookReader::getInstance);
 
     _rootNode = CSLoader::createNode("MainScene.csb");
     _timeLeftLabel = _rootNode->getChildByName<ui::TextBMFont*>("timeLabel");

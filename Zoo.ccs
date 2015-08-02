@@ -35,6 +35,7 @@
           <Fnt Name="zoo_font2.fnt" />
           <Fnt Name="font3.fnt" />
           <Image Name="font3.png" />
+          <Fnt Name="zoo_font3.fnt" />
         </Folder>
         <Folder Name="ui">
           <Image Name="empty.png" />
@@ -98,6 +99,19 @@
         </Folder>
         <Project Name="Notice.csd" Type="Node" />
         <Project Name="MultiplayResult.csd" Type="Node" />
+        <Project Name="Book.csd" Type="Layer" />
+        <Folder Name="book">
+          <Image Name="back.png" />
+          <Image Name="back_icon.png" />
+          <Image Name="back_logo.png" />
+          <Image Name="book.png" />
+          <Image Name="left_arrow.png" />
+          <Image Name="next.png" />
+          <Image Name="right_arrow.png" />
+          <Image Name="select_animal.png" />
+          <Image Name="unkonwn_animal.png" />
+          <Image Name="line.png" />
+        </Folder>
       </RootFolder>
     </Group>
   </SolutionFolder>

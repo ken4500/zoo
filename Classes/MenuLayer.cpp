@@ -12,6 +12,7 @@
 #include "SelectLanguageLayer.h"
 #include "SceneManager.h"
 #include "NoticeLayer.h"
+#include "Book.h"
 
 MenuLayer::MenuLayer()
 {
@@ -89,9 +90,13 @@ void MenuLayer::_pushMultiPlayButton(cocos2d::Ref* pSender, cocos2d::ui::Widget:
 void MenuLayer::_pushEncyclepediaButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
     if (eEventType == ui::Widget::TouchEventType::ENDED) {
-        SoundManager::getInstance()->playDecideEffect2();
-        SceneManager::getInstance()->enterMultiBattleScene();
-        WorldManager::getInstance()->startMultiplayTest();
+//        SoundManager::getInstance()->playDecideEffect2();
+//        SceneManager::getInstance()->enterMultiBattleScene();
+//        WorldManager::getInstance()->startMultiplayTest();
+
+        auto book = CSLoader::createNode("Book.csb");
+        getParent()->addChild(book);
+        removeFromParent();
     }
 }
 

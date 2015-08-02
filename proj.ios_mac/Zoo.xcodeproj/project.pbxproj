@@ -73,6 +73,8 @@
 		9F425AEC1B461899001B2969 /* Length.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F425AEA1B461899001B2969 /* Length.cpp */; };
 		9F543DEB1B6C9CA80052496F /* YesNoLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F543DE91B6C9CA80052496F /* YesNoLayer.cpp */; };
 		9F543DF01B6DD6590052496F /* MultiplayResult.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F543DEE1B6DD6590052496F /* MultiplayResult.cpp */; };
+		9F543DF71B6EA7360052496F /* Book.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F543DF31B6EA7360052496F /* Book.cpp */; };
+		9F543DF81B6EA7360052496F /* BookReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F543DF51B6EA7360052496F /* BookReader.cpp */; };
 		9F6835D71B62E1A500589EBE /* TitleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F6835D51B62E1A500589EBE /* TitleScene.cpp */; };
 		9F6835DC1B62E4B900589EBE /* SelectLanguageLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F6835DA1B62E4B900589EBE /* SelectLanguageLayer.cpp */; };
 		9F6835E01B63F2BB00589EBE /* CreditLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F6835DE1B63F2BB00589EBE /* CreditLayer.cpp */; };
@@ -212,6 +214,10 @@
 		9F543DEA1B6C9CA80052496F /* YesNoLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YesNoLayer.h; sourceTree = "<group>"; };
 		9F543DEE1B6DD6590052496F /* MultiplayResult.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MultiplayResult.cpp; sourceTree = "<group>"; };
 		9F543DEF1B6DD6590052496F /* MultiplayResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiplayResult.h; sourceTree = "<group>"; };
+		9F543DF31B6EA7360052496F /* Book.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Book.cpp; sourceTree = "<group>"; };
+		9F543DF41B6EA7360052496F /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
+		9F543DF51B6EA7360052496F /* BookReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BookReader.cpp; sourceTree = "<group>"; };
+		9F543DF61B6EA7360052496F /* BookReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookReader.h; sourceTree = "<group>"; };
 		9F6835D51B62E1A500589EBE /* TitleScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TitleScene.cpp; sourceTree = "<group>"; };
 		9F6835D61B62E1A500589EBE /* TitleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleScene.h; sourceTree = "<group>"; };
 		9F6835DA1B62E4B900589EBE /* SelectLanguageLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SelectLanguageLayer.cpp; sourceTree = "<group>"; };
@@ -615,6 +621,10 @@
 				9F015C901B420DC700F45135 /* Gacha.cpp */,
 				9F015C911B420DC700F45135 /* Gacha.h */,
 				9F015C921B420DC700F45135 /* GachaReader.cpp */,
+				9F543DF31B6EA7360052496F /* Book.cpp */,
+				9F543DF41B6EA7360052496F /* Book.h */,
+				9F543DF51B6EA7360052496F /* BookReader.cpp */,
+				9F543DF61B6EA7360052496F /* BookReader.h */,
 				9F015C931B420DC700F45135 /* GachaReader.h */,
 				9F015C961B4211FB00F45135 /* Animal.cpp */,
 				9F015C971B4211FB00F45135 /* Animal.h */,
@@ -779,7 +789,9 @@
 				9FB063E21B5818A20088AE2A /* NovelLayer.cpp in Sources */,
 				9F83BA811B55683100605D1D /* SoundManager.cpp in Sources */,
 				9F543DF01B6DD6590052496F /* MultiplayResult.cpp in Sources */,
+				9F543DF81B6EA7360052496F /* BookReader.cpp in Sources */,
 				9FFC9E6E1B42F8F400869B23 /* ZMath.cpp in Sources */,
+				9F543DF71B6EA7360052496F /* Book.cpp in Sources */,
 				9F01C8A61B5FF509009E9D21 /* DebugButton.cpp in Sources */,
 				9F425AE91B461732001B2969 /* WorldInfo.cpp in Sources */,
 				9FA0EA0A1B66E921007F642B /* CoinTree.cpp in Sources */,
