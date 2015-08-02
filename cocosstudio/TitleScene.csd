@@ -1,5 +1,5 @@
 <GameProjectFile>
-  <PropertyGroup Type="Scene" Name="TitleScene" ID="cda91223-c9d9-4c26-b05d-edc5d26c3654" Version="2.3.1.1" />
+  <PropertyGroup Type="Scene" Name="TitleScene" ID="cda91223-c9d9-4c26-b05d-edc5d26c3654" Version="2.3.1.2" />
   <Content ctype="GameProjectContent">
     <Content>
       <Animation Duration="1799" Speed="0.5000">
@@ -100,8 +100,8 @@
             <PreSize X="0.4401" Y="0.2344" />
             <TextColor A="255" R="65" G="65" B="70" />
             <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-            <PressedFileData Type="Normal" Path="ui/button02.png" Plist="" />
-            <NormalFileData Type="Normal" Path="ui/button02.png" Plist="" />
+            <PressedFileData Type="Normal" Path="book/button02.png" Plist="" />
+            <NormalFileData Type="Normal" Path="book/button02.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
@@ -127,8 +127,8 @@
             <PreSize X="0.2685" Y="0.2094" />
             <TextColor A="255" R="65" G="65" B="70" />
             <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-            <PressedFileData Type="Normal" Path="ui/button02.png" Plist="" />
-            <NormalFileData Type="Normal" Path="ui/button02.png" Plist="" />
+            <PressedFileData Type="Normal" Path="book/button02.png" Plist="" />
+            <NormalFileData Type="Normal" Path="book/button02.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
@@ -154,8 +154,8 @@
             <PreSize X="0.2685" Y="0.2094" />
             <TextColor A="255" R="65" G="65" B="70" />
             <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-            <PressedFileData Type="Normal" Path="ui/button02.png" Plist="" />
-            <NormalFileData Type="Normal" Path="ui/button02.png" Plist="" />
+            <PressedFileData Type="Normal" Path="book/button02.png" Plist="" />
+            <NormalFileData Type="Normal" Path="book/button02.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>

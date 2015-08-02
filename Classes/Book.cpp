@@ -35,14 +35,22 @@ void Book::onEnter()
     _selectImage = nullptr;
     _allSpecies = Species::getAllSpecies();
     _bookNode = this->getChildByName("book");
-    ZUtil::printNode(this);
+    _animalImage = _bookNode->getChildByName<Sprite*>("image");
+    _description = _bookNode->getChildByName<ui::Text*>("description");
+    _animalName  = _bookNode->getChildByName<ui::TextBMFont*>("name");
 
     for (int pos = 1; pos <= ANIMAL_NUM_IN_A_PAGE; pos++) {
         auto button = _bookNode->getChildByName<ui::Button*>(StringUtils::format("position%d", pos));
         button->addTouchEventListener(CC_CALLBACK_2(Book::_pushAnimalButton, this));
         button->setTag(pos);
     }
-
+    
+    auto rightButton = getChildByName<ui::Button*>("rightButton");
+    rightButton->addTouchEventListener(CC_CALLBACK_2(Book::_pushRightButton, this));
+    auto leftButton  = getChildByName<ui::Button*>("leftButton");
+    leftButton->addTouchEventListener(CC_CALLBACK_2(Book::_pushLeftButton, this));
+    auto closeButton = getChildByName<ui::Button*>("closeButton");
+    closeButton->addTouchEventListener(CC_CALLBACK_2(Book::_pushCloseButton, this));
 
     // タッチイベントの設定
     auto dispatcher = Director::getInstance()->getEventDispatcher();
@@ -67,18 +75,32 @@ void Book::_loadPage(int page)
     
     
     for (int i = min, pos = 1; i < max; i++, pos++) {
-//        auto species = _allSpecies[i];
+        auto species = _allSpecies[i];
         auto button = _bookNode->getChildByName(StringUtils::format("position%d", pos));
         auto size = button->getContentSize();
         auto image = button->getChildByName("image");
         if (image) {
             image->removeFromParent();
         }
-        auto newImage = Sprite::create("book/unkonwn_animal.png");
+//        auto newImage = Sprite::create("book/unkonwn_animal.png");
+        auto newImage = Sprite::create(species->getImageName());
+        if (newImage == NULL) {
+            newImage = Sprite::create("book/unkonwn_animal.png");
+            newImage->setScale(1.0f);
+        } else {
+            newImage->setScale(0.25f);
+        }
         newImage->setName("image");
         newImage->setPosition(Vec2(size.width / 2, size.height / 2));
         button->addChild(newImage);
     }
+}
+
+void Book::_loadAnimal(Species* species)
+{
+    _animalImage->setTexture(species->getImageName());
+    _animalName->setString(CCLS(species->getName().c_str()));
+    _description->setString("hogehogehoge");
 }
 
 void Book::_pushAnimalButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
@@ -97,12 +119,31 @@ void Book::_pushAnimalButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEv
     }
 
     _selectImage->setPosition(pos);
+    
+    int index = button->getTag() + _page * ANIMAL_NUM_IN_A_PAGE - 1;
+    auto species = _allSpecies[index];
+    _loadAnimal(species);
 }
 
 void Book::_pushRightButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
+    if (eEventType == ui::Widget::TouchEventType::ENDED) {
+        _page = MIN(_page + 1, int(_allSpecies.size() / ANIMAL_NUM_IN_A_PAGE));
+        _loadPage(_page);
+    }
 }
 
 void Book::_pushLeftButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
+    if (eEventType == ui::Widget::TouchEventType::ENDED) {
+        _page = MAX(_page - 1, 0);
+        _loadPage(_page);
+    }
+}
+
+void Book::_pushCloseButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
+{
+    if (eEventType == ui::Widget::TouchEventType::ENDED) {
+        this->runAction(Sequence::create(FadeOut::create(0.3f), RemoveSelf::create(), NULL));
+    }
 }

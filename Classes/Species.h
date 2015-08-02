@@ -25,6 +25,7 @@ public:
     Length getSpeed();
     Length getDashSpeed();
     std::string getImageName();
+    std::string getBackImageName();
     std::string getMoveCsbName();
     bool isMove();
     

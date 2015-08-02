@@ -1,5 +1,5 @@
 <GameProjectFile>
-  <PropertyGroup Type="Node" Name="CoinTree" ID="64f8f801-90c4-4522-b417-c14d6c13e107" Version="2.3.1.1" />
+  <PropertyGroup Type="Node" Name="CoinTree" ID="64f8f801-90c4-4522-b417-c14d6c13e107" Version="2.3.1.2" />
   <Content ctype="GameProjectContent">
     <Content>
       <Animation Duration="209" Speed="1.0000">

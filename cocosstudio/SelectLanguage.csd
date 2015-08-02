@@ -1,5 +1,5 @@
 <GameProjectFile>
-  <PropertyGroup Type="Node" Name="SelectLanguage" ID="0875fef6-2612-4c97-a97a-3634268c4bf3" Version="2.3.1.1" />
+  <PropertyGroup Type="Node" Name="SelectLanguage" ID="0875fef6-2612-4c97-a97a-3634268c4bf3" Version="2.3.1.2" />
   <Content ctype="GameProjectContent">
     <Content>
       <Animation Duration="0" Speed="1.0000" />

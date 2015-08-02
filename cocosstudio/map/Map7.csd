@@ -1,5 +1,5 @@
 <GameProjectFile>
-  <PropertyGroup Type="Node" Name="Map7" ID="6af8e24c-d9b1-49a5-b94e-05d22afeac16" Version="2.3.1.1" />
+  <PropertyGroup Type="Node" Name="Map7" ID="6af8e24c-d9b1-49a5-b94e-05d22afeac16" Version="2.3.1.2" />
   <Content ctype="GameProjectContent">
     <Content>
       <Animation Duration="0" Speed="1.0000" />

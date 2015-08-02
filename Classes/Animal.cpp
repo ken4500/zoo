@@ -573,8 +573,8 @@ AbstractBattleEntity* Animal::getFightTarget()
 
 void Animal::_changeAnimalImage()
 {
-    _image->setTexture(StringUtils::format("%s01.png", _species->getImageName().c_str()));
-    _backImage->setTexture(StringUtils::format("%s02.png", _species->getImageName().c_str()));
+    _image->setTexture(_species->getImageName().c_str());
+    _backImage->setTexture(_species->getBackImageName().c_str());
 }
 
 void Animal::_stopMoveAction()

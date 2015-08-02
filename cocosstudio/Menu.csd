@@ -1,5 +1,5 @@
 <GameProjectFile>
-  <PropertyGroup Type="Node" Name="Menu" ID="ec6eb950-904f-4098-86ad-ca5fd6873a42" Version="2.3.1.1" />
+  <PropertyGroup Type="Node" Name="Menu" ID="ec6eb950-904f-4098-86ad-ca5fd6873a42" Version="2.3.1.2" />
   <Content ctype="GameProjectContent">
     <Content>
       <Animation Duration="0" Speed="1.0000" />

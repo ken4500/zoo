@@ -1,5 +1,5 @@
 <GameProjectFile>
-  <PropertyGroup Type="Node" Name="ScaleBar" ID="d6924bf2-49f3-4aa0-9b1b-af513fab8e11" Version="2.3.1.1" />
+  <PropertyGroup Type="Node" Name="ScaleBar" ID="d6924bf2-49f3-4aa0-9b1b-af513fab8e11" Version="2.3.1.2" />
   <Content ctype="GameProjectContent">
     <Content>
       <Animation Duration="0" Speed="1.0000" />

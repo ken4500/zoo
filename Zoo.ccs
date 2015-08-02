@@ -1,5 +1,5 @@
 <Solution>
-  <PropertyGroup Name="Zoo" Version="2.3.1.1" Type="CocosStudio" />
+  <PropertyGroup Name="Zoo" Version="2.3.1.2" Type="CocosStudio" />
   <SolutionFolder>
     <Group ctype="ResourceGroup">
       <RootFolder Name=".">
@@ -67,7 +67,6 @@
           <Image Name="moon.png" />
           <Image Name="sun.png" />
           <Image Name="button01.png" />
-          <Image Name="button02.png" />
           <Image Name="button03.png" />
           <Image Name="button04.png" />
           <Image Name="button05.png" />
@@ -122,6 +121,7 @@
           <Image Name="select_animal.png" />
           <Image Name="unkonwn_animal.png" />
           <Image Name="line.png" />
+          <Image Name="button02.png" />
         </Folder>
       </RootFolder>
     </Group>

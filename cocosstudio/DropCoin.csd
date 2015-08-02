@@ -1,5 +1,5 @@
 <GameProjectFile>
-  <PropertyGroup Type="Node" Name="DropCoin" ID="b7b4ba6e-7140-4958-8367-3d3924d95af0" Version="2.3.1.1" />
+  <PropertyGroup Type="Node" Name="DropCoin" ID="b7b4ba6e-7140-4958-8367-3d3924d95af0" Version="2.3.1.2" />
   <Content ctype="GameProjectContent">
     <Content>
       <Animation Duration="70" Speed="1.0000">

@@ -1,5 +1,5 @@
 <GameProjectFile>
-  <PropertyGroup Type="Node" Name="GetCoin" ID="ebd31fd8-e8b4-4a89-ba60-11b4f78ef3ff" Version="2.3.1.1" />
+  <PropertyGroup Type="Node" Name="GetCoin" ID="ebd31fd8-e8b4-4a89-ba60-11b4f78ef3ff" Version="2.3.1.2" />
   <Content ctype="GameProjectContent">
     <Content>
       <Animation Duration="70" Speed="1.0000" ActivedAnimationName="get">

@@ -1,5 +1,5 @@
 <GameProjectFile>
-  <PropertyGroup Type="Scene" Name="MultiBattleScene" ID="4bfcc15e-6245-4d1b-af3c-35fa46aa6354" Version="2.3.1.1" />
+  <PropertyGroup Type="Scene" Name="MultiBattleScene" ID="4bfcc15e-6245-4d1b-af3c-35fa46aa6354" Version="2.3.1.2" />
   <Content ctype="GameProjectContent">
     <Content>
       <Animation Duration="259" Speed="1.0000" ActivedAnimationName="battle_start">

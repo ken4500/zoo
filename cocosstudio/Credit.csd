@@ -1,5 +1,5 @@
 <GameProjectFile>
-  <PropertyGroup Type="Node" Name="Credit" ID="6a995d16-832d-46cd-9994-d01ef1e98461" Version="2.3.1.1" />
+  <PropertyGroup Type="Node" Name="Credit" ID="6a995d16-832d-46cd-9994-d01ef1e98461" Version="2.3.1.2" />
   <Content ctype="GameProjectContent">
     <Content>
       <Animation Duration="0" Speed="1.0000" />

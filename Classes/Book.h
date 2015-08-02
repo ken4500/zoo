@@ -25,13 +25,18 @@ protected:
     std::vector<Species*> _allSpecies;
     Node* _bookNode;
     Sprite* _selectImage;
+    Sprite* _animalImage;
+    cocos2d::ui::TextBMFont* _animalName;
+    cocos2d::ui::Text* _description;
 
     void onEnter() override;
     bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *event);
     void _loadPage(int page);
+    void _loadAnimal(Species* species);
     void _pushAnimalButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void _pushRightButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void _pushLeftButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
+    void _pushCloseButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
 
 };
 

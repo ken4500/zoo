@@ -1,5 +1,5 @@
 <GameProjectFile>
-  <PropertyGroup Type="Node" Name="Notice" ID="bf6d83d0-a90b-4f33-ab38-e51d6a8a3d10" Version="2.3.1.1" />
+  <PropertyGroup Type="Node" Name="YesNo" ID="bf6d83d0-a90b-4f33-ab38-e51d6a8a3d10" Version="2.3.1.2" />
   <Content ctype="GameProjectContent">
     <Content>
       <Animation Duration="0" Speed="1.0000" />

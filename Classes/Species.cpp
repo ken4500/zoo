@@ -89,7 +89,12 @@ Length Species::getDashSpeed()
 
 std::string Species::getImageName()
 {
-    return _imageName;
+    return StringUtils::format("animal/%s01.png", _imageName.c_str());
+}
+
+std::string Species::getBackImageName()
+{
+    return StringUtils::format("animal/%s02.png", _imageName.c_str());
 }
 
 std::string Species::getMoveCsbName()
