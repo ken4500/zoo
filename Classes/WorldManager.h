@@ -24,8 +24,9 @@ enum class SceneState {
     TutorialGacha,
     Normal,
     Battle,
-    MultiBattle,
     ShowResult,
+    MultiBattle,
+    MultiBattleResult,
 };
 
 class WorldManager : cocos2d::Ref
@@ -67,12 +68,15 @@ public:
     // network game logic
     void startMultiplayBattle();
     void startMultiplayTest();
+    void showResultMultiplayBattle();
     void endMultiplayBattle();
     void releaseAnimalByNetwork(Animal* animal);
     void createTreeByNetwork(CoinTree* tree);
     void deadTreeByNetwork(int treeId);
     void removeAnimalByNetwork(int animalId);
     void levelupOpponent(int level);
+    void recieveResult(Weight opponentWeight);
+    void disconnectSession();
     
     // util
     float getImageScale(Sprite* image, Length width);
@@ -101,6 +105,7 @@ private:
     std::vector<Animal*> _opponentAnimalList;
     std::vector<CoinTree*> _coinTreeList;
     EnemyGenerater* _enemyGenerater;
+    Weight* _opponentResultWeight;
     
     void _leftTimeUpdate(float dt);
     void _endBattle();
@@ -123,6 +128,7 @@ private:
     void _makeCoinTreePerTime(float dt);
     void _deadCoinTreeCallback(AbstractBattleEntity* deadTree);
     bool _gachaIsFrontZOrder(bool isOpponent);
+    GameResult _decideMultiplayResult();
 
     // tutorial
     void _startTutrialBattleScene1();

@@ -20,7 +20,7 @@ ResultLayer::~ResultLayer()
     
 }
 
-ResultLayer* ResultLayer::createWithResult(GameResult* result)
+ResultLayer* ResultLayer::createWithResult(GameResult result)
 {
     ResultLayer* resultLayer = new(std::nothrow) ResultLayer();
     if (resultLayer && resultLayer->initWithResult(result))
@@ -33,7 +33,7 @@ ResultLayer* ResultLayer::createWithResult(GameResult* result)
     return nullptr;
 }
 
-bool ResultLayer::initWithResult(GameResult* result)
+bool ResultLayer::initWithResult(GameResult result)
 {
     // 評価
     _result = result;
@@ -55,18 +55,17 @@ bool ResultLayer::initWithResult(GameResult* result)
     addChild(node, 10);
     
     auto title = node->getChildByName<ui::TextBMFont*>("title");
-    if (result->resultState == BattleState::Win) {
+    if (result.resultState == BattleState::Win) {
         title->setString("WIN");
     } else {
         title->setString("LOSE");
     }
     
     auto coinLabel = node->getChildByName<ui::TextBMFont*>("coinLabel");
-    coinLabel->setString(StringUtils::format("x %d", result->getCoin));
+    coinLabel->setString(StringUtils::format("x %d", result.getCoin));
 
     auto button = node->getChildByName<ui::Button*>("okButton");
     button->addTouchEventListener(CC_CALLBACK_2(ResultLayer::_pushButton, this));
-
     
     return true;
 }

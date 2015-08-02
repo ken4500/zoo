@@ -36,6 +36,9 @@ public:
     
     void setOpponentUserInfo(std::string name, int userId, double time);
     void sendUserInfo();
+    
+    std::string getPlayerName();
+    std::string getOpponentName();
 
 private:
     std::unique_ptr<NetworkingWrapper> networkingWrapper;

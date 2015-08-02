@@ -353,7 +353,7 @@ void MainScene::showNoticeView(std::string message, float delay, std::function<v
     ));
 }
 
-void MainScene::showResultView(GameResult* result, float delay, std::function<void ()> closeCallback)
+void MainScene::showResultView(GameResult result, float delay, std::function<void ()> closeCallback)
 {
     runAction(Sequence::create(
         DelayTime::create(delay),

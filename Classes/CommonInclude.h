@@ -18,6 +18,5 @@
 #include "Species.h"
 #include "GameResult.h"
 #include "CCLocalizedString.h"
-#include "Weight.h"
 
 #endif

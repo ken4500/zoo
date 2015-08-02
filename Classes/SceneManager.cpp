@@ -92,6 +92,7 @@ void SceneManager::enterMultiBattleScene()
     _isNetwork = true;
     _scene = MultiBattleScene::createScene();
     sendUserInfo();
+    networkingWrapper->stopAdvertisingAvailability();
     Director::getInstance()->replaceScene(
         TransitionFade::create(1.0f, _scene, Color3B::BLACK)
     );
@@ -100,9 +101,9 @@ void SceneManager::enterMultiBattleScene()
 void SceneManager::backMainScene()
 {
     _isNetwork = false;
-    WorldManager::getInstance()->endMultiplayBattle();
     _scene = MainScene::createScene();
     networkingWrapper->disconnect();
+    networkingWrapper->stopAdvertisingAvailability();
     Director::getInstance()->replaceScene(
         TransitionFade::create(1.0f, _scene, Color3B::BLACK)
     );
@@ -167,9 +168,7 @@ void SceneManager::stateChanged(ConnectionState state)
         case ConnectionState::NOT_CONNECTED:
             CCLOG("Not connected");
             if (isNetwork()) {
-                getMultiBattleScene()->showNoticeView("Network was disconnected...", 0.0f, [this]{
-                    backMainScene();
-                });
+                WorldManager::getInstance()->disconnectSession();
             }
             networkingWrapper->disconnect();
             break;
@@ -197,4 +196,13 @@ void SceneManager::sendUserInfo()
     CommandGenerater::sendData(command);
 }
 
+std::string SceneManager::getPlayerName()
+{
+    return networkingWrapper->getDeviceName();
+}
+
+std::string SceneManager::getOpponentName()
+{
+    return _opponentName;
+}
 

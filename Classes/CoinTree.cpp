@@ -24,6 +24,7 @@ bool CoinTree::init() {
     _isSwaying = false;
     _id = rand();
     _isDead = false;
+    _isCreatedByOpponent = false;
 
     return true;
 }
@@ -47,7 +48,6 @@ void CoinTree::onEnter()
     setTag((int)EntityTag::CoinTree);
     runAction(_timeline);
     _timeline->play("default", false);
-    _isCreatedByOpponent = false;
 }
 
 void CoinTree::setLength(Length length)

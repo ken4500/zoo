@@ -10,6 +10,7 @@
 #include "json/document.h"
 #include "json/writer.h"
 #include "json/stringbuffer.h"
+#include <stdio.h>
 using namespace cocos2d;
 
 namespace JSONPacker 
@@ -29,7 +30,8 @@ namespace JSONPacker
         for (auto command : commandList) {
             rapidjson::Value commandDoc(rapidjson::kObjectType);
 
-            commandDoc.AddMember("c",  command.commandName.c_str(), document.GetAllocator());
+            auto commandName = new std::string(command.commandName);
+            commandDoc.AddMember("c",  commandName->c_str(), document.GetAllocator());
             commandDoc.AddMember("t",  command.time, document.GetAllocator());
             
             rapidjson::Value numList(rapidjson::kArrayType);
@@ -39,7 +41,8 @@ namespace JSONPacker
             
             rapidjson::Value stringList(rapidjson::kArrayType);
             for (std::string str : command.stringDataList) {
-                stringList.PushBack(str.c_str(), document.GetAllocator());
+                auto copy = new std::string(str);
+                stringList.PushBack(copy->c_str(), document.GetAllocator());
             }
 
             rapidjson::Value intList(rapidjson::kArrayType);

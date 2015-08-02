@@ -24,14 +24,14 @@ class ResultLayer : public ModalLayer
 public:
     ResultLayer();
     virtual ~ResultLayer();
-    static ResultLayer* createWithResult(GameResult* result);
-    virtual bool initWithResult(GameResult* result);
+    static ResultLayer* createWithResult(GameResult result);
+    virtual bool initWithResult(GameResult result);
     std::function<void ()> closeResultCallback;
     
 protected:
     
 private:
-    GameResult* _result;
+    GameResult _result;
 
     void onEnter() override;
     void _pushButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);

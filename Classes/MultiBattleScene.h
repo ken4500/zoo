@@ -17,6 +17,7 @@
 class Gacha;
 class Animal;
 class WorldMap;
+class MultiplayResult;
 using namespace cocos2d;
 
 class MultiBattleScene : public cocos2d::Layer, public WorldSceneInterface
@@ -38,11 +39,11 @@ public:
     void transitionMap(WorldMap* newMap);
     void updateCoinLabel();
     void updateLeftTimeLabel(int leftTime);
-    void showConsumeCoinEffect(int decreaseCoin);
-    void showResultView(GameResult* result, float delay, std::function<void ()> closeCallback);
+    void showResultView(std::function<void ()> closeCallback);
     void showNoticeView(std::string message, float delay, std::function<void ()> closeCallback);
     void updateWeightLabel(Weight weight);
     void updateLevelLabel();
+    void setResult(GameResult result);
 
 private:
     WorldMap* _map;
@@ -56,6 +57,7 @@ private:
     cocos2d::ui::TextBMFont* _weightLabel;
     Action* _countUpAction;
     Weight _preWeight;
+    MultiplayResult* _resultLayer;
 
     void onEnter() override;
     void update(float dt);

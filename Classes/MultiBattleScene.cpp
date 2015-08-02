@@ -7,7 +7,7 @@
 #include "WorldMapReader.h"
 #include "WorldManager.h"
 #include "Animal.h"
-#include "ResultLayer.h"
+#include "MultiplayResult.h"
 #include "SoundManager.h"
 #include "SceneManager.h"
 #include "NoticeLayer.h"
@@ -85,6 +85,8 @@ bool MultiBattleScene::init()
     _timeline = CSLoader::createTimeline("MainScene.csb");
     // retain the character animation timeline so it doesn't get deallocated
     _timeline->retain();
+    
+    _resultLayer = nullptr;
     
     addChild(_rootNode);
 
@@ -168,36 +170,11 @@ void MultiBattleScene::updateCoinLabel()
     _coinLabel->setString(StringUtils::format("x %d", WorldManager::getInstance()->getCoin()));
 }
 
-void MultiBattleScene::showConsumeCoinEffect(int decreaseCoin)
+void MultiBattleScene::showResultView(std::function<void ()> closeCallback)
 {
-    auto text = ui::TextBMFont::create(StringUtils::format("-%d", decreaseCoin), "font/zoo_font2.fnt");
-    text->setAnchorPoint(_coinLabel->getAnchorPoint());
-    text->setPosition(_coinLabel->getPosition() + Vec2(0, 20));
-    text->setZOrder(-1);
-    text->setOpacity(200);
-    _menuNode->addChild(text);
-    text->runAction(Sequence::create(
-        Spawn::create(
-            MoveBy::create(0.75f, Vec2(0, 200)),
-            FadeOut::create(0.75f),
-            NULL
-        ),
-        RemoveSelf::create(),
-        NULL
-    ));
-}
-
-void MultiBattleScene::showResultView(GameResult* result, float delay, std::function<void ()> closeCallback)
-{
-    runAction(Sequence::create(
-        DelayTime::create(delay),
-        CallFunc::create([this, result, closeCallback ]{
-            auto layer = ResultLayer::createWithResult(result);
-            layer->closeResultCallback = closeCallback;
-            this->addChild(layer);
-        }),
-        NULL
-    ));
+    _resultLayer = MultiplayResult::create();
+    _resultLayer->closeResultCallback = closeCallback;
+    this->addChild(_resultLayer);
 }
 
 void MultiBattleScene::showNoticeView(std::string message, float delay, std::function<void ()> closeCallback)
@@ -247,6 +224,17 @@ void MultiBattleScene::updateLevelLabel()
     _levelLabel->setString(StringUtils::format("LEVEL%d", level));
 }
 
+void MultiBattleScene::updateLeftTimeLabel(int leftTime)
+{
+    _timeLeftLabel->setString(to_string(leftTime));
+}
+
+void MultiBattleScene::setResult(GameResult result)
+{
+    if (_resultLayer) {
+        _resultLayer->setResult(result);
+    }
+}
 
 #pragma - private method
 

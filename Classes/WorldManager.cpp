@@ -20,6 +20,7 @@
 #include "MultiBattleScene.h"
 #include "CoinTree.h"
 #include "CommandGenerater.h"
+#include "MultiplayResult.h"
 
 
 USING_NS_CC;
@@ -407,10 +408,10 @@ void WorldManager::endBattle(bool win, float showResultViewDelay)
     }
 
     _endBattle();
-    GameResult* result = new GameResult();
-    result->resultState = (win) ? BattleState::Win : BattleState::Lose;
-    result->playTime = BATTLE_TIME - _leftTime;
-    result->getCoin = getCoin() - _beforeBattleCoin;
+    GameResult result = GameResult();
+    result.resultState = (win) ? BattleState::Win : BattleState::Lose;
+    result.playTime = BATTLE_TIME - _leftTime;
+    result.getCoin = getCoin() - _beforeBattleCoin;
     
     auto mainScene = SceneManager::getInstance()->getMainScene();
     if (mainScene) {
@@ -441,20 +442,40 @@ void WorldManager::startMultiplayBattle()
     _opponentAnimalList = std::vector<Animal*>();
     _enemyAnimalList = std::vector<Animal*>();
     _coinTreeList = std::vector<CoinTree*>();
+    _setLeftTime(MUTLPLAY_BATTLE_TIME);
+    _opponentResultWeight = nullptr;
 
-    Director::getInstance()->getScheduler()->schedule(CC_CALLBACK_1(WorldManager::_sendAnimalStatus, this), this, 0.5f, false, "send_animal_status");
-    Director::getInstance()->getScheduler()->schedule(CC_CALLBACK_1(WorldManager::_makeCoinTreePerTime, this), this, 1.0f, false, "make_coin_tree");
+    _setGameActive(true);
 }
 
 void WorldManager::startMultiplayTest()
 {
 }
 
+void WorldManager::showResultMultiplayBattle()
+{
+    _state = SceneState::MultiBattleResult;
+    
+    auto command = CommandGenerater::sendResultInfo(_totalWeight);
+    CommandGenerater::sendData(command);
+
+    auto scene = SceneManager::getInstance()->getMultiBattleScene();
+    scene->showResultView([this]{
+        SceneManager::getInstance()->backMainScene();
+    });
+
+    if (_opponentResultWeight) {
+        auto result = _decideMultiplayResult();
+        scene->setResult(result);
+    }
+
+    _setGameActive(false);
+}
+
 void WorldManager::endMultiplayBattle()
 {
     _opponentGacha = nullptr;
-    Director::getInstance()->getScheduler()->unschedule("send_animal_status", this);
-    Director::getInstance()->getScheduler()->unschedule("make_coin_tree", this);
+    _setGameActive(false);
 }
 
 void WorldManager::releaseAnimalByNetwork(Animal* animal)
@@ -468,6 +489,9 @@ void WorldManager::createTreeByNetwork(CoinTree* tree)
 {
     _coinTreeList.push_back(tree);
     _map->setCoinTree(tree);
+    if (tree->isCreatedByOpponent()) {
+        CCLOG("there is opponent tree");
+    }
 }
 
 void WorldManager::deadTreeByNetwork(int treeId)
@@ -517,6 +541,43 @@ void WorldManager::levelupOpponent(int level)
     }
 }
 
+void WorldManager::recieveResult(Weight opponentWeight)
+{
+    _opponentResultWeight = &opponentWeight;
+    if (_state == SceneState::MultiBattleResult) {
+        auto result = _decideMultiplayResult();
+        auto scene = SceneManager::getInstance()->getMultiBattleScene();
+        scene->setResult(result);
+    }
+}
+
+GameResult WorldManager::_decideMultiplayResult()
+{
+    GameResult result = GameResult();
+    result.playerWeight = _totalWeight;
+    result.playerName = SceneManager::getInstance()->getPlayerName();
+
+    result.opponentWeight = *_opponentResultWeight;
+    result.opponentName = SceneManager::getInstance()->getOpponentName();
+
+    if (result.playerWeight > result.opponentWeight) {
+        result.resultState = BattleState::Win;
+    }
+    
+    return result;
+}
+
+void WorldManager::disconnectSession()
+{
+    if (_state == SceneState::MultiBattle) {
+        endMultiplayBattle();
+        SceneManager::getInstance()->getMultiBattleScene()->showNoticeView("Network was disconnected...", 0.0f, [this]{
+            SceneManager::getInstance()->backMainScene();
+        });
+    }
+}
+
+
 #pragma - util method
 
 float WorldManager::getImageScale(Sprite* image, Length width)
@@ -561,7 +622,11 @@ void WorldManager::_leftTimeUpdate(float dt)
 {
     _leftTime--;
     if (_leftTime == 0) {
-        endBattle(false, 0.0f);
+        if (_isNetwork) {
+            showResultMultiplayBattle();
+        } else {
+            endBattle(false, 0.0f);
+        }
     }
     _setLeftTime(_leftTime);
 }
@@ -621,17 +686,32 @@ void WorldManager::_setGameActive(bool active)
 {
     if (active) {
         Director::getInstance()->getScheduler()->schedule(CC_CALLBACK_1(WorldManager::_leftTimeUpdate, this), this, 1.0f, false, "update_time");
+        if (_isNetwork) {
+            Director::getInstance()->getScheduler()->schedule(CC_CALLBACK_1(WorldManager::_sendAnimalStatus, this), this, 0.5f, false, "send_animal_status");
+            Director::getInstance()->getScheduler()->schedule(CC_CALLBACK_1(WorldManager::_makeCoinTreePerTime, this), this, 1.0f, false, "make_coin_tree");
+        }
     } else {
         Director::getInstance()->getScheduler()->unschedule("update_time", this);
+        if (_isNetwork) {
+            Director::getInstance()->getScheduler()->unschedule("send_animal_status", this);
+            Director::getInstance()->getScheduler()->unschedule("make_coin_tree", this);
+        }
     }
 }
 
 void WorldManager::_setLeftTime(int leftTime)
 {
     _leftTime = leftTime;
-    auto scene = SceneManager::getInstance()->getMainScene();
-    if (scene) {
-        scene->updateLeftTimeLabel(_leftTime);
+    if (_isNetwork) {
+        auto scene = SceneManager::getInstance()->getMultiBattleScene();
+        if (scene) {
+            scene->updateLeftTimeLabel(_leftTime);
+        }
+    } else {
+        auto scene = SceneManager::getInstance()->getMainScene();
+        if (scene) {
+            scene->updateLeftTimeLabel(_leftTime);
+        }
     }
 }
 

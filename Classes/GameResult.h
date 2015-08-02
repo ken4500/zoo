@@ -9,8 +9,8 @@
 #ifndef __Zoo__GameResult__
 #define __Zoo__GameResult__
 
-#include <stdio.h>
-#include "CommonInclude.h"
+#include "Constants.h"
+#include "Weight.h"
 
 class GameResult {
 public:
@@ -18,6 +18,10 @@ public:
     int   getCoin                 = 0;
     int   killTime                = 0;
     float playTime                = 0;
+    Weight playerWeight           = 0;
+    Weight opponentWeight         = 0;
+    std::string playerName        = "";
+    std::string opponentName      = "";
 };
 
 

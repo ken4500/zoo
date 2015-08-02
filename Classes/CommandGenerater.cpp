@@ -16,13 +16,26 @@ void CommandGenerater::excCommand(std::string dataStr)
 {
     auto data = JSONPacker::unpackCommandDataJSON(dataStr);
     CCLOG("###EXECUTE COMMAND LIST###");
+    CCLOG("json = %s", dataStr.c_str());
     for (auto command : data) {
         CCLOG("# command = %s", command.commandName.c_str());
         if (command.commandName == "user_info")
         {
             auto name = command.stringDataList[0];
-            auto id = command.numberDataList[0];
+            auto id = command.intDataList[0];
             SceneManager::getInstance()->setOpponentUserInfo(name, id, command.time);
+        }
+        else if (command.commandName == "levelup")
+        {
+            CCLOG("##level = %d", command.intDataList[0]);
+            int level = command.intDataList[0];
+            WorldManager::getInstance()->levelupOpponent(level);
+        }
+        else if (command.commandName == "result_info")
+        {
+            Weight weight = Weight(command.numberDataList[0]);
+            CCLOG("##result weight = %.02f %s", weight.getWeight(), weight.getUnitStr().c_str());
+            WorldManager::getInstance()->recieveResult(weight);
         }
         else if (command.commandName == "create_tree")
         {
@@ -98,25 +111,20 @@ void CommandGenerater::excCommand(std::string dataStr)
                 animal->fight(tree);
             }
         }
-        else if (command.commandName == "levelup")
-        {
-            CCLOG("##level = %d", command.intDataList[0]);
-            int level = command.intDataList[0];
-            WorldManager::getInstance()->levelupOpponent(level);
-        }
     }
 }
 
 void CommandGenerater::sendData(CommandData data)
 {
     auto json = JSONPacker::packCommandData(data);
+    CCLOG("send = %s", json.c_str());
     SceneManager::getInstance()->sendData(json.c_str(), json.length());
 }
 
 void CommandGenerater::sendData(std::vector<CommandData> data)
 {
     auto json = JSONPacker::packCommandData(data);
-    SceneManager::getInstance()->sendData(json.c_str(), json.length());    
+    SceneManager::getInstance()->sendData(json.c_str(), json.length());
 }
 
 CommandData CommandGenerater::sendUserInfo(std::string name, int userId)
@@ -125,7 +133,25 @@ CommandData CommandGenerater::sendUserInfo(std::string name, int userId)
     data.commandName = "user_info";
     data.time = ZUtil::getTime();
     data.stringDataList.push_back(name);
-    data.numberDataList.push_back(userId);
+    data.intDataList.push_back(userId);
+    return data;
+}
+
+CommandData CommandGenerater::levelUp(WorldInfo* info)
+{
+    CommandData data;
+    data.commandName = "levelup";
+    data.time = ZUtil::getTime();
+    data.intDataList.push_back(info->level);
+    return data;
+}
+
+CommandData CommandGenerater::sendResultInfo(Weight weight)
+{
+    CommandData data;
+    data.commandName = "result_info";
+    data.time = ZUtil::getTime();
+    data.numberDataList.push_back(weight.getMgWeight());
     return data;
 }
 
@@ -227,11 +253,3 @@ CommandData CommandGenerater::fightTree(Animal* animal, AbstractBattleEntity* tr
     return data;
 }
 
-CommandData CommandGenerater::levelUp(WorldInfo* info)
-{
-    CommandData data;
-    data.commandName = "levelup";
-    data.time = ZUtil::getTime();
-    data.intDataList.push_back(info->level);
-    return data;
-}

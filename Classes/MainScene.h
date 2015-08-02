@@ -41,7 +41,7 @@ public:
     void updateWeightLabel(Weight weight);
     void showConsumeCoinEffect(int decreaseCoin);
     void showNoticeView(std::string message, float delay, std::function<void ()> closeCallback);
-    void showResultView(GameResult* result, float delay, std::function<void ()> closeCallback);
+    void showResultView(GameResult result, float delay, std::function<void ()> closeCallback);
     
 private:
     WorldMap* _map;

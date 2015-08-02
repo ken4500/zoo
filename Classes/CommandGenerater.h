@@ -23,6 +23,8 @@ public:
     static void sendData(std::vector<CommandData> data);
 
     static CommandData sendUserInfo(std::string name, int userId);
+    static CommandData levelUp(WorldInfo* info);
+    static CommandData sendResultInfo(Weight weight);
     static CommandData makeCoinTree(CoinTree* coinTree);
     static CommandData deadCoinTree(CoinTree* coinTree);
     static CommandData releaseAnimal(Animal* animal);
@@ -31,7 +33,6 @@ public:
     static CommandData dashAnimal(Animal* animal);
     static CommandData stopAnimal(Animal* animal);
     static CommandData fightTree(Animal* animal, AbstractBattleEntity* tree);
-    static CommandData levelUp(WorldInfo* info);
 };
 
 #endif /* defined(__Zoo__CommandGenerater__) */

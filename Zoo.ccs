@@ -97,6 +97,7 @@
           <Project Name="Map11.csd" Type="Node" />
         </Folder>
         <Project Name="Notice.csd" Type="Node" />
+        <Project Name="MultiplayResult.csd" Type="Node" />
       </RootFolder>
     </Group>
   </SolutionFolder>
