@@ -66,6 +66,17 @@
           <Image Name="tubo_ao.png" />
           <Image Name="moon.png" />
           <Image Name="sun.png" />
+          <Image Name="button01.png" />
+          <Image Name="button02.png" />
+          <Image Name="button03.png" />
+          <Image Name="button04.png" />
+          <Image Name="button05.png" />
+          <Image Name="close.png" />
+          <Image Name="glove1.png" />
+          <Image Name="glove2.png" />
+          <Image Name="menu1.png" />
+          <Image Name="menu2.png" />
+          <Image Name="title_logo.png" />
         </Folder>
         <Project Name="Result.csd" Type="Node" />
         <Project Name="YesNo.csd" Type="Node" />

@@ -64,6 +64,9 @@ bool ResultLayer::initWithResult(GameResult result)
     auto coinLabel = node->getChildByName<ui::TextBMFont*>("coinLabel");
     coinLabel->setString(StringUtils::format("x %d", result.getCoin));
 
+    auto timeLabel = node->getChildByName<ui::TextBMFont*>("timeLabel");
+    timeLabel->setString(StringUtils::format("%02d:%02d", (int)(result.playTime / 60), (int)result.playTime % 60));
+
     auto button = node->getChildByName<ui::Button*>("okButton");
     button->addTouchEventListener(CC_CALLBACK_2(ResultLayer::_pushButton, this));
     
