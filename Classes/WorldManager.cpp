@@ -811,9 +811,9 @@ void WorldManager::_transitionMap(WorldInfo* preWorldInfo, WorldInfo* newWorldIn
             _opponentGacha->removeFromParent();
             newMap->setGacha(_opponentGacha);
             _opponentGacha->release();
-            pos = _opponentGacha->getPosition() * _opponentInfo->maxWidth.getMmLength() / newWorldInfo->maxWidth.getMmLength();
+            pos = _opponentGacha->getPosition() * preWorldInfo->maxWidth.getMmLength() / newWorldInfo->maxWidth.getMmLength();
             _opponentGacha->setPosition(pos);
-            scale = _opponentGacha->getScale() * _opponentInfo->maxWidth.getMmLength() / newWorldInfo->maxWidth.getMmLength();
+            scale = _opponentGacha->getScale() * preWorldInfo->maxWidth.getMmLength() / newWorldInfo->maxWidth.getMmLength();
             _opponentGacha->setScale(scale);
         }
 
