@@ -93,6 +93,8 @@ bool MainScene::init()
     auto otherMenuButton = _menuNode->getChildByName<ui::Button*>("otherMenu");
     otherMenuButton->addTouchEventListener(CC_CALLBACK_2(MainScene::_pushOtherMenuButton, this));
 
+    _scaleBar = _rootNode->getChildByName<ScaleBar*>("scaleBar");
+
     _setupDebugMenu();
 
     // load the character animation timeline
@@ -156,6 +158,7 @@ void MainScene::levelUpEffect(std::function<void()> callback)
             callback();
         }
     });
+    _scaleBar->updateScale(true);
 }
 
 void MainScene::hideMenu()

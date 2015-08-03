@@ -17,13 +17,13 @@ class ScaleBar : public cocos2d::Node {
 public:
     CREATE_FUNC(ScaleBar);
     bool init() override;
+    void updateScale(bool animation);
 
 protected:
     cocos2d::ui::TextBMFont* _label;
     cocos2d::Sprite* _image;
 
     void onEnter() override;
-    void updateScale(bool animation);
 };
 
 #endif /* defined(__Zoo__ScaleBar__) */

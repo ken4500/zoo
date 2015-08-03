@@ -9,6 +9,7 @@
 class Gacha;
 class Animal;
 class WorldMap;
+class ScaleBar;
 using namespace cocos2d;
 
 class MainScene : public cocos2d::Layer, public WorldSceneInterface
@@ -57,6 +58,7 @@ private:
     cocos2d::ui::Button* _endButton;
     Weight _preWeight;
     Action* _countUpAction;
+    ScaleBar* _scaleBar;
 
     void onEnter() override;
     void update(float dt);
