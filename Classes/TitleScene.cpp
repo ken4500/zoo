@@ -86,31 +86,70 @@ void TitleScene::onExit()
 
 void TitleScene::_pushStartButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
+    auto button = dynamic_cast<ui::Button*>(pSender);
+    if (eEventType == ui::Widget::TouchEventType::BEGAN) {
+        button->runAction(ScaleBy::create(0.1f, 0.9));
+    }
     if (eEventType == ui::Widget::TouchEventType::ENDED) {
         SoundManager::getInstance()->playDecideEffect2();
         SoundManager::getInstance()->fadeOutBgm(1.0f);
-        SceneManager::getInstance()->enterMainScene();
+        button->runAction(Sequence::create(
+            ScaleBy::create(0.1f, 1 / 0.9f),
+            CallFunc::create([]{
+                SceneManager::getInstance()->enterMainScene();
+            }),
+            NULL
+        ));
+    }
+    if (eEventType == ui::Widget::TouchEventType::CANCELED) {
+        button->runAction(ScaleBy::create(0.1f, 1 / 0.9f));
     }
 }
 
 void TitleScene::_pushLanguageButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
+    auto button = dynamic_cast<ui::Button*>(pSender);
+    if (eEventType == ui::Widget::TouchEventType::BEGAN) {
+        button->runAction(ScaleBy::create(0.1f, 0.9));
+    }
     if (eEventType == ui::Widget::TouchEventType::ENDED) {
         SoundManager::getInstance()->playDecideEffect2();
-        auto layer = SelectLanguageLayer::create();
-        layer->closedCallback = [this]() {
-            _updateLanguage();
-        };
-        this->addChild(layer);
+        button->runAction(Sequence::create(
+            ScaleBy::create(0.1f, 1 / 0.9f),
+            CallFunc::create([this]{
+                auto layer = SelectLanguageLayer::create();
+                layer->closedCallback = [this]() {
+                    _updateLanguage();
+                };
+                this->addChild(layer);
+            }),
+            NULL
+        ));
+    }
+    if (eEventType == ui::Widget::TouchEventType::CANCELED) {
+        button->runAction(ScaleBy::create(0.1f, 1 / 0.9f));
     }
 }
 
 void TitleScene::_pushCreditButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
+    auto button = dynamic_cast<ui::Button*>(pSender);
+    if (eEventType == ui::Widget::TouchEventType::BEGAN) {
+        button->runAction(ScaleBy::create(0.1f, 0.9));
+    }
     if (eEventType == ui::Widget::TouchEventType::ENDED) {
         SoundManager::getInstance()->playDecideEffect2();
-        auto layer = CreditLayer::create();
-        this->addChild(layer);
+        button->runAction(Sequence::create(
+            ScaleBy::create(0.1f, 1 / 0.9f),
+            CallFunc::create([this]{
+                auto layer = CreditLayer::create();
+                this->addChild(layer);
+            }),
+            NULL
+        ));
+    }
+    if (eEventType == ui::Widget::TouchEventType::CANCELED) {
+        button->runAction(ScaleBy::create(0.1f, 1 / 0.9f));
     }
 }
 

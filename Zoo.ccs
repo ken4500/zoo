@@ -77,6 +77,7 @@
           <Image Name="menu2.png" />
           <Image Name="title_logo.png" />
           <Image Name="button02.png" />
+          <Image Name="menu3.png" />
         </Folder>
         <Project Name="Result.csd" Type="Node" />
         <Project Name="YesNo.csd" Type="Node" />

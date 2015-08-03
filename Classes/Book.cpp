@@ -167,29 +167,61 @@ void Book::_pushAnimalButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEv
 
 void Book::_pushRightButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
+    auto button = dynamic_cast<ui::Button*>(pSender);
+    if (eEventType == ui::Widget::TouchEventType::BEGAN) {
+        button->runAction(ScaleBy::create(0.1f, 0.9));
+    }
     if (eEventType == ui::Widget::TouchEventType::ENDED) {
-        SoundManager::getInstance()->playDecideEffect2();
-        _page = MIN(_page + 1, _getMaxPage());
-        _loadPage(_page);
-        _pushAnimalButton((Ref*)_bookNode->getChildByName(StringUtils::format("position%d", _selectPos)), ui::Widget::TouchEventType::ENDED);
+        button->runAction(Sequence::create(
+            ScaleBy::create(0.1f, 1 / 0.9f),
+            CallFunc::create([this]{
+                _page = MIN(_page + 1, _getMaxPage());
+                _loadPage(_page);
+                _pushAnimalButton((Ref*)_bookNode->getChildByName(StringUtils::format("position%d", _selectPos)), ui::Widget::TouchEventType::ENDED);
+            }),
+            NULL
+        ));
+    }
+    if (eEventType == ui::Widget::TouchEventType::CANCELED) {
+        button->runAction(ScaleBy::create(0.1f, 1 / 0.9f));
     }
 }
 
 void Book::_pushLeftButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
+    auto button = dynamic_cast<ui::Button*>(pSender);
+    if (eEventType == ui::Widget::TouchEventType::BEGAN) {
+        button->runAction(ScaleBy::create(0.1f, 0.9));
+    }
     if (eEventType == ui::Widget::TouchEventType::ENDED) {
-        SoundManager::getInstance()->playDecideEffect2();
-        _page = MAX(_page - 1, 1);
-        _loadPage(_page);
-        _pushAnimalButton((Ref*)_bookNode->getChildByName(StringUtils::format("position%d", _selectPos)), ui::Widget::TouchEventType::ENDED);
+        button->runAction(Sequence::create(
+            ScaleBy::create(0.1f, 1 / 0.9f),
+            CallFunc::create([this]{
+                _page = MAX(_page - 1, 1);
+                _loadPage(_page);
+                _pushAnimalButton((Ref*)_bookNode->getChildByName(StringUtils::format("position%d", _selectPos)), ui::Widget::TouchEventType::ENDED);
+            }),
+            NULL
+        ));
+    }
+    if (eEventType == ui::Widget::TouchEventType::CANCELED) {
+        button->runAction(ScaleBy::create(0.1f, 1 / 0.9f));
     }
 }
 
 void Book::_pushCloseButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
+    auto button = dynamic_cast<ui::Button*>(pSender);
+    if (eEventType == ui::Widget::TouchEventType::BEGAN) {
+        button->runAction(ScaleBy::create(0.1f, 0.9));
+    }
     if (eEventType == ui::Widget::TouchEventType::ENDED) {
-        SoundManager::getInstance()->playCancellEffect();
+        SoundManager::getInstance()->playDecideEffect2();
+        button->runAction(ScaleBy::create(0.1f, 1 / 0.9f));
         this->runAction(Sequence::create(FadeOut::create(0.3f), RemoveSelf::create(), NULL));
+    }
+    if (eEventType == ui::Widget::TouchEventType::CANCELED) {
+        button->runAction(ScaleBy::create(0.1f, 1 / 0.9f));
     }
 }
 

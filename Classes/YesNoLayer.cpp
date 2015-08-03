@@ -72,7 +72,13 @@ void YesNoLayer::onEnter()
 
 void YesNoLayer::_pushYesButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
+    auto button = dynamic_cast<ui::Button*>(pSender);
+    if (eEventType == ui::Widget::TouchEventType::BEGAN) {
+        button->runAction(ScaleBy::create(0.1f, 0.9));
+    }
     if (eEventType == ui::Widget::TouchEventType::ENDED) {
+        SoundManager::getInstance()->playDecideEffect2();
+        button->runAction(ScaleBy::create(0.1f, 1 / 0.9f));
         this->runAction(Sequence::create(
             FadeOut::create(0.3f),
             CallFunc::create([this]{
@@ -84,11 +90,20 @@ void YesNoLayer::_pushYesButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::Touc
             NULL
         ));
     }
+    if (eEventType == ui::Widget::TouchEventType::CANCELED) {
+        button->runAction(ScaleBy::create(0.1f, 1 / 0.9f));
+    }
 }
 
 void YesNoLayer::_pushNoButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
+    auto button = dynamic_cast<ui::Button*>(pSender);
+    if (eEventType == ui::Widget::TouchEventType::BEGAN) {
+        button->runAction(ScaleBy::create(0.1f, 0.9));
+    }
     if (eEventType == ui::Widget::TouchEventType::ENDED) {
+        SoundManager::getInstance()->playDecideEffect2();
+        button->runAction(ScaleBy::create(0.1f, 1 / 0.9f));
         this->runAction(Sequence::create(
             FadeOut::create(0.3f),
             CallFunc::create([this]{
@@ -99,5 +114,8 @@ void YesNoLayer::_pushNoButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::Touch
             RemoveSelf::create(),
             NULL
         ));
+    }
+    if (eEventType == ui::Widget::TouchEventType::CANCELED) {
+        button->runAction(ScaleBy::create(0.1f, 1 / 0.9f));
     }
 }

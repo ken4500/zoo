@@ -72,56 +72,99 @@ void MenuLayer::onEnter()
 
 void MenuLayer::_pushMultiPlayButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
+    auto button = dynamic_cast<ui::Button*>(pSender);
+    if (eEventType == ui::Widget::TouchEventType::BEGAN) {
+        button->runAction(ScaleBy::create(0.1f, 0.9));
+    }
     if (eEventType == ui::Widget::TouchEventType::ENDED) {
         SoundManager::getInstance()->playDecideEffect2();
-
-        auto notice = NoticeLayer::createWithMessage(CCLS("NOTICE_MULTIPLAY"));
-        notice->setFontSize(24);
-        this->getParent()->addChild(notice);
-        notice->closeNoticeCallback = []{
-            SceneManager::getInstance()->receiveMultiplayerInvitations();
-            SceneManager::getInstance()->showPeerList();
-        };
-        
-        this->removeFromParent();
+        button->runAction(Sequence::create(
+            ScaleBy::create(0.1f, 1 / 0.9f),
+            CallFunc::create([this]{
+                auto notice = NoticeLayer::createWithMessage(CCLS("NOTICE_MULTIPLAY"));
+                notice->setFontSize(24);
+                this->getParent()->addChild(notice);
+                notice->closeNoticeCallback = []{
+                    SceneManager::getInstance()->receiveMultiplayerInvitations();
+                    SceneManager::getInstance()->showPeerList();
+                };
+                
+                this->removeFromParent();
+            }),
+            NULL
+        ));
+    }
+    if (eEventType == ui::Widget::TouchEventType::CANCELED) {
+        button->runAction(ScaleBy::create(0.1f, 1 / 0.9f));
     }
 }
 
 void MenuLayer::_pushEncyclepediaButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
+    auto button = dynamic_cast<ui::Button*>(pSender);
+    if (eEventType == ui::Widget::TouchEventType::BEGAN) {
+        button->runAction(ScaleBy::create(0.1f, 0.9));
+    }
     if (eEventType == ui::Widget::TouchEventType::ENDED) {
 //        SoundManager::getInstance()->playDecideEffect2();
-//        SceneManager::getInstance()->enterMultiBattleScene();
-//        WorldManager::getInstance()->startMultiplayTest();
-
-        auto book = CSLoader::createNode("Book.csb");
-        getParent()->addChild(book);
-        removeFromParent();
+        button->runAction(Sequence::create(
+            ScaleBy::create(0.1f, 1 / 0.9f),
+            CallFunc::create([this]{
+                auto book = CSLoader::createNode("Book.csb");
+                getParent()->addChild(book);
+                removeFromParent();
+            }),
+            NULL
+        ));
+    }
+    if (eEventType == ui::Widget::TouchEventType::CANCELED) {
+        button->runAction(ScaleBy::create(0.1f, 1 / 0.9f));
     }
 }
 
 void MenuLayer::_pushLanguageButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
+    auto button = dynamic_cast<ui::Button*>(pSender);
+    if (eEventType == ui::Widget::TouchEventType::BEGAN) {
+        button->runAction(ScaleBy::create(0.1f, 0.9));
+    }
     if (eEventType == ui::Widget::TouchEventType::ENDED) {
         SoundManager::getInstance()->playDecideEffect2();
-        auto layer = SelectLanguageLayer::create();
-        layer->closedCallback = [this]() {
-            _updateLanguage();
-        };
-        this->addChild(layer, 20);
+        button->runAction(Sequence::create(
+            ScaleBy::create(0.1f, 1 / 0.9f),
+            CallFunc::create([this]{
+                auto layer = SelectLanguageLayer::create();
+                layer->closedCallback = [this]() {
+                    _updateLanguage();
+                };
+                this->addChild(layer, 20);
+            }),
+            NULL
+        ));
+    }
+    if (eEventType == ui::Widget::TouchEventType::CANCELED) {
+        button->runAction(ScaleBy::create(0.1f, 1 / 0.9f));
     }
 }
 
 
 void MenuLayer::_pushCloseButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
+    auto button = dynamic_cast<ui::Button*>(pSender);
+    if (eEventType == ui::Widget::TouchEventType::BEGAN) {
+        button->runAction(ScaleBy::create(0.1f, 0.9));
+    }
     if (eEventType == ui::Widget::TouchEventType::ENDED) {
         SoundManager::getInstance()->playDecideEffect2();
+        button->runAction(ScaleBy::create(0.1f, 1 / 0.9f));
         this->runAction(Sequence::create(
             FadeOut::create(0.3f),
             RemoveSelf::create(),
             NULL
         ));
+    }
+    if (eEventType == ui::Widget::TouchEventType::CANCELED) {
+        button->runAction(ScaleBy::create(0.1f, 1 / 0.9f));
     }
 }
 

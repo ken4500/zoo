@@ -52,7 +52,7 @@ bool SelectLanguageLayer::init()
     button->addTouchEventListener(CC_CALLBACK_2(SelectLanguageLayer::_pushButton, this));
 
     _updateLanguage();
-    
+
     return true;
 }
 
@@ -87,8 +87,13 @@ void SelectLanguageLayer::_pushLanguageButton(cocos2d::Ref* pSender, cocos2d::ui
 
 void SelectLanguageLayer::_pushButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
+    auto button = dynamic_cast<ui::Button*>(pSender);
+    if (eEventType == ui::Widget::TouchEventType::BEGAN) {
+        button->runAction(ScaleBy::create(0.1f, 0.9));
+    }
     if (eEventType == ui::Widget::TouchEventType::ENDED) {
         SoundManager::getInstance()->playDecideEffect2();
+        button->runAction(ScaleBy::create(0.1f, 1 / 0.9f));
         this->runAction(Sequence::create(
             FadeOut::create(0.3f),
             CallFunc::create([this](){
@@ -98,7 +103,10 @@ void SelectLanguageLayer::_pushButton(cocos2d::Ref* pSender, cocos2d::ui::Widget
             }),
             RemoveSelf::create(),
             NULL
-        ));
+        ));        
+    }
+    if (eEventType == ui::Widget::TouchEventType::CANCELED) {
+        button->runAction(ScaleBy::create(0.1f, 1 / 0.9f));
     }
 }
 

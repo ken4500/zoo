@@ -10,7 +10,7 @@
 #include "audio/include/AudioEngine.h"
 using namespace cocos2d::experimental;
 
-#define BGM_VOLUME 0.0
+#define BGM_VOLUME 0.3
 #define SE_VOLUEM 1.0
 
 
