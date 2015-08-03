@@ -35,9 +35,9 @@ public:
     LanguageType getLanguage();
     void setLanguage(LanguageType language);
 
-    int getCoin();
-    void addCoin(int coin);
-    void setCoin(int coin);
+    long int getCoin();
+    void addCoin(long int coin);
+    void setCoin(long int coin);
 
     int getMaxLife();
     int getLife();

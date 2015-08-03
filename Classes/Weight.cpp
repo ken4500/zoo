@@ -16,6 +16,7 @@ std::map<std::string, UnitOfWeight> Weight::toUnitMap = {
     {"t" , UnitOfWeight::t},
     {"Mt" , UnitOfWeight::Mt},
     {"Gt" , UnitOfWeight::Gt},
+    {"Tt" , UnitOfWeight::Tt},
     {"Pt" , UnitOfWeight::Pt},
     {"Et" , UnitOfWeight::Et},
     {"Zt" , UnitOfWeight::Zt},
@@ -29,6 +30,7 @@ std::map<UnitOfWeight, std::string> Weight::toStringMap = {
     {UnitOfWeight::t,  "t"},
     {UnitOfWeight::Mt, "Mt"},
     {UnitOfWeight::Gt, "Gt"},
+    {UnitOfWeight::Tt, "Tt"},
     {UnitOfWeight::Pt, "Pt"},
     {UnitOfWeight::Et, "Et"},
     {UnitOfWeight::Zt, "Zt"},
@@ -42,10 +44,11 @@ std::map<UnitOfWeight, float> Weight::toValueMap = {
     {UnitOfWeight::t,  1000000000.0f},
     {UnitOfWeight::Mt, 1000000000000.0f},
     {UnitOfWeight::Gt, 1000000000000000.0f},
-    {UnitOfWeight::Pt, 1000000000000000000.0f},
-    {UnitOfWeight::Et, 1000000000000000000000.0f},
-    {UnitOfWeight::Zt, 1000000000000000000000000.0f},
-    {UnitOfWeight::Yt, 1000000000000000000000000000.0f},
+    {UnitOfWeight::Tt, 1000000000000000000.0f},
+    {UnitOfWeight::Pt, 1000000000000000000000.0f},
+    {UnitOfWeight::Et, 1000000000000000000000000.0f},
+    {UnitOfWeight::Zt, 1000000000000000000000000000.0f},
+    {UnitOfWeight::Yt, 1000000000000000000000000000000.0f},
 };
 
 std::string Weight::toString(UnitOfWeight unit)
@@ -71,8 +74,8 @@ _mg(Weight * (float)unit)
 {
 }
 
-Weight::Weight(Length length) :
-_mg(powf(length.getMmLength(), 3) * 0.125)
+Weight::Weight(Length length, float density) :
+_mg(powf(length.getMmLength(), 3) * density)
 {
 }
 
@@ -87,6 +90,8 @@ UnitOfWeight Weight::getUnit()
         return UnitOfWeight::Zt;
     } else if (_mg >= Weight::toValueMap[UnitOfWeight::Et]) {
         return UnitOfWeight::Et;
+    } else if (_mg >= Weight::toValueMap[UnitOfWeight::Tt]) {
+        return UnitOfWeight::Tt;
     } else if (_mg >= Weight::toValueMap[UnitOfWeight::Gt]) {
         return UnitOfWeight::Gt;
     } else if (_mg >= Weight::toValueMap[UnitOfWeight::Mt]) {

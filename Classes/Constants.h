@@ -76,6 +76,7 @@ enum class UnitOfWeight
     t,
     Mt,
     Gt,
+    Tt,
     Pt,
     Et,
     Zt,

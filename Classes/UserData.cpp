@@ -8,6 +8,8 @@
 
 #include "UserData.h"
 
+static int COIN_INT_MAX = 1000000000;
+
 bool UserData::init()
 {
     _data = ValueMap();
@@ -64,12 +66,13 @@ ValueMap UserData::getWorldInfo()
     }
 }
 
-int UserData::getCoin()
+long int UserData::getCoin()
 {
     if (_data.find("coin") == _data.end()) {
         return INIT_COIN;
     } else {
-        return _data["coin"].asInt();
+        auto coin = (long int)_data["coin_top"].asInt() * COIN_INT_MAX +  _data["coin"].asInt();
+        return coin;
     }
 }
 
@@ -119,9 +122,10 @@ void UserData::setWorldInfo(ValueMap info)
     _data["world_info"] = info;
 }
 
-void UserData::setCoin(int coin)
+void UserData::setCoin(long int coin)
 {
-    _data["coin"] = coin;
+    _data["coin"] = (int)(coin % COIN_INT_MAX);
+    _data["coin_top"] = (int)(coin / COIN_INT_MAX);
 }
 
 void UserData::setLifeData(ValueMap lifeData)

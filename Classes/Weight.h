@@ -18,7 +18,7 @@ class Weight {
 public:
     Weight(float Weight);
     Weight(UnitOfWeight unit, float Weight);
-    Weight(Length length);
+    Weight(Length length, float density);
     static std::string toString(UnitOfWeight unit);
     static UnitOfWeight toUnit(std::string str);
 

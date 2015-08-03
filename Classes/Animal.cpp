@@ -428,7 +428,7 @@ Length Animal::getDashSpeed()
 
 Weight Animal::getWeight()
 {
-    return Weight(_height);
+    return Weight(_height, _species->getDensity());
 }
 
 std::string Animal::getName()

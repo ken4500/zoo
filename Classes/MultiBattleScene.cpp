@@ -167,7 +167,7 @@ void MultiBattleScene::transitionMap(WorldMap* newMap)
 
 void MultiBattleScene::updateCoinLabel()
 {
-    _coinLabel->setString(StringUtils::format("x %d", WorldManager::getInstance()->getCoin()));
+    _coinLabel->setString(StringUtils::format("x %ld", WorldManager::getInstance()->getCoin()));
 }
 
 void MultiBattleScene::showResultView(std::function<void ()> closeCallback)

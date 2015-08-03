@@ -134,8 +134,8 @@ void Book::_loadAnimal(Species* species)
 {
     _animalImage->setTexture(species->getImageName());
     _animalName->setString(CCLS(species->getName().c_str()));
-    Weight min = Weight(species->getMinHeight());
-    Weight max = Weight(species->getMaxHeight());
+    Weight min = Weight(species->getMinHeight(), species->getDensity());
+    Weight max = Weight(species->getMaxHeight(), species->getDensity());
     _sizeDescription->setString(StringUtils::format("%.02f%s 〜 %.02f%s", min.getWeight(), min.getUnitStr().c_str(), max.getWeight(), max.getUnitStr().c_str()));
     _description->setString("hogehogehoge");
 }

@@ -45,9 +45,9 @@ public:
     std::vector<CoinTree*> getCoinTreeList();
     Animal* getOpponentAnimal(int id);
     CoinTree* getCoinTree(int id);
-    int getGachaPrice();
-    int getCoin();
-    void addCoin(int addCoin);
+    long int getGachaPrice();
+    long int getCoin();
+    void addCoin(long int addCoin);
     Gacha* getGacha();
     Gacha* getOpponentGacha();
     Length getDashSpeed();
@@ -91,8 +91,8 @@ private:
     bool _isNetwork;
     bool _enableNextAction;
     int _leftTime;
-    int _multiBattleCoin;
-    int _beforeBattleCoin;
+    long int _multiBattleCoin;
+    long int _beforeBattleCoin;
     Weight _totalWeight;
     WorldInfo* _info;
     WorldInfo* _opponentInfo;

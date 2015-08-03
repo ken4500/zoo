@@ -45,7 +45,8 @@ void Species::init(std::string name, rapidjson::Value& json)
     _name = name;
     _maxHeight = Length(unit, (float)json["maxHeight"].GetDouble());
     _minHeight = Length(unit, (float)json["minHeight"].GetDouble());
-    _speed = Length(unit, (float)json["speed"].GetDouble());
+    _speed   = Length(unit, (float)json["speed"].GetDouble());
+    _density = (float)json["density"].GetDouble();
     _imageName = json["image"].GetString();
     if (json["move"].IsNull() == false) {
         _move = json["move"].GetBool();
@@ -85,6 +86,11 @@ Length Species::getSpeed()
 Length Species::getDashSpeed()
 {
     return _dashSpeed;
+}
+
+float Species::getDensity()
+{
+    return _density;
 }
 
 std::string Species::getImageName()

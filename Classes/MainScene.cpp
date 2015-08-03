@@ -307,7 +307,7 @@ void MainScene::playNovel(std::string novelId, std::function<void ()> callback, 
 
 void MainScene::updateCoinLabel()
 {
-    _coinLabel->setString(StringUtils::format("x %d", WorldManager::getInstance()->getCoin()));
+    _coinLabel->setString(StringUtils::format("x %ld", WorldManager::getInstance()->getCoin()));
 }
 
 void MainScene::updateLifeLabel(float dt)

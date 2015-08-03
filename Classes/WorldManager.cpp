@@ -174,12 +174,12 @@ CoinTree* WorldManager::getCoinTree(int id)
     return nullptr;
 }
 
-int WorldManager::getGachaPrice()
+long int WorldManager::getGachaPrice()
 {
     return _gacha->getPrice();
 }
 
-int WorldManager::getCoin()
+long int WorldManager::getCoin()
 {
     if (_isNetwork) {
         return _multiBattleCoin;
@@ -188,7 +188,7 @@ int WorldManager::getCoin()
     }
 }
 
-void WorldManager::addCoin(int addCoin)
+void WorldManager::addCoin(long int addCoin)
 {
     if (_isNetwork) {
         _multiBattleCoin += addCoin;
@@ -231,7 +231,7 @@ void WorldManager::lotteryGacha()
     if (_enableNextAction == false) {
         return;
     }
-    int coin = getCoin();
+    long int coin = getCoin();
     auto worldScene = SceneManager::getInstance()->getWorldScene();
     if (coin < _gacha->getPrice()) {
         std::string noticeMessage = "You don't have enough coin!\nPush the battle button";

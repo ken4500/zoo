@@ -22,14 +22,14 @@ public:
     
     bool isEndTutorial();
     ValueMap getWorldInfo();
-    int getCoin();
+    long int getCoin();
     ValueMap getLifeData();
     ValueVector getAnimalList();
     LanguageType getLanguage();
 
     void setEndTutorial(bool endTutorial);
     void setWorldInfo(ValueMap info);
-    void setCoin(int coin);
+    void setCoin(long int coin);
     void setLifeData(ValueMap lifeData);
     void setAnimalList(ValueVector animal);
     void setLanguage(LanguageType language);

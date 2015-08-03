@@ -24,6 +24,7 @@ public:
     Length getMinHeight();
     Length getSpeed();
     Length getDashSpeed();
+    float getDensity();
     std::string getImageName();
     std::string getBackImageName();
     std::string getMoveCsbName();
@@ -41,6 +42,7 @@ protected:
     Length _dashSpeed;
     std::string _imageName;
     std::string _moveCsbName;
+    float _density;
     bool _move;
     
     void init(std::string name, rapidjson::Value& json);

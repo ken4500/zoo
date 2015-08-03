@@ -24,11 +24,14 @@
           <Image Name="title_back.jpg" />
           <Image Name="glove.png" />
           <Image Name="ma11.png" />
-          <Image Name="map10.png" />
           <Image Name="map3.jpg" />
           <Image Name="map4.jpg" />
-          <Image Name="map5.png" />
-          <Image Name="map7.png" />
+          <Image Name="map10.jpg" />
+          <Image Name="map5.jpg" />
+          <Image Name="map6.jpg" />
+          <Image Name="map7.jpg" />
+          <Image Name="map8.jpg" />
+          <Image Name="map9.jpg" />
         </Folder>
         <Folder Name="font">
           <Fnt Name="font2.fnt" />

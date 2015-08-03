@@ -38,7 +38,7 @@ void Gacha::onEnter()
     _priceLabel = price->getChildByName<ui::TextBMFont*>("label");
     
     if (_price) {
-       _priceLabel->setString(StringUtils::format("%d", _price));
+       _priceLabel->setString(StringUtils::format("%ld", _price));
     }
 }
 
@@ -126,11 +126,11 @@ void Gacha::setNewGacha(WorldInfo* info)
     }
     
     if (_priceLabel) {
-        _priceLabel->setString(StringUtils::format("-%d", _price));
+        _priceLabel->setString(StringUtils::format("-%ld", _price));
     }
 }
 
-int Gacha::getPrice()
+long int Gacha::getPrice()
 {
     return _price;
 }
