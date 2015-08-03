@@ -56,6 +56,7 @@ private:
     cocos2d::ui::TextBMFont* _levelLabel;
     cocos2d::ui::TextBMFont* _weightLabel;
     cocos2d::ui::Button* _endButton;
+    cocos2d::ui::Button* _otherMenuButton;
     Weight _preWeight;
     Action* _countUpAction;
     ScaleBar* _scaleBar;

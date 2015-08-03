@@ -29,16 +29,20 @@ public:
     bool isEndTutorial();
     void clearTutorial();
 
+    // 世界情報に関するメソッド
     WorldInfo* getWorldInfo();
     void setWorldInfo(WorldInfo* info);
 
+    // 言語設定に関するメソッド
     LanguageType getLanguage();
     void setLanguage(LanguageType language);
 
+    // 所持コインに関するメソッド
     long int getCoin();
     void addCoin(long int coin);
     void setCoin(long int coin);
 
+    // 体力に関するメソッド
     int getMaxLife();
     int getLife();
     int getNextRepairLifeTime();
@@ -47,9 +51,19 @@ public:
     void decreateLife(int life);
     void addMaxLife(int addMaxLife);
 
+    // 所持動物に関するメソッド
     std::vector<Animal*> getAnimalList();
     void addAnimal(Animal* animal);
     void removeAnimal(Animal* animal);
+
+    // 過去の取得動物データに関するメソッド
+    bool haveHadAnimalInPast(std::string animalName);
+    void getAnimal(Animal* animal);
+    Weight getMaxWeight(std::string animalName);
+    Weight getMinWeight(std::string animalNmae);
+    Length getMaxHeight(std::string animalName);
+    Length getMinHeight(std::string animalNmae);
+    int getAnimalCount(std::string animalName);
 
     CC_SYNTHESIZE(UserData*, _userData, UserData);
     

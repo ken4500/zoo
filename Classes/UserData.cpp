@@ -56,9 +56,11 @@ ValueMap UserData::getWorldInfo()
 {
     if (_data.find("world_info") == _data.end()) {
         auto initData = ValueMap();
-        initData["level"] = INIT_WORLD_LEVEL;
-        initData["gacha_count"] = 0;
+
+        initData["level"]             = INIT_WORLD_LEVEL;
+        initData["gacha_count"]       = 0;
         initData["total_gacha_count"] = 0;
+
         _data["world_info"] = initData;
         return initData;
     } else {
@@ -80,9 +82,11 @@ ValueMap UserData::getLifeData()
 {
     if (_data.find("life_data") == _data.end()) {
         auto initData = ValueMap();
+
         initData["current_life"] = INIT_LIFE;
-        initData["max_life"] = INIT_LIFE;
-        initData["last_time"] = (int)time(NULL);
+        initData["max_life"]     = INIT_LIFE;
+        initData["last_time"]    = (int)time(NULL);
+
         _data["life_data"] = initData;
         save();
         return initData;
@@ -107,6 +111,17 @@ LanguageType UserData::getLanguage()
         return CCApplication::getInstance()->getCurrentLanguage();
     } else {
         return (LanguageType)_data["language"].asInt();
+    }
+}
+
+ValueMap UserData::getAnimalDataList()
+{
+    if (_data.find("animal_get_data") == _data.end()) {
+        auto initData = ValueMap();
+        _data["animal_get_data"] = initData;
+        return initData;
+    } else {
+        return _data["animal_get_data"].asValueMap();
     }
 }
 
@@ -143,8 +158,13 @@ void UserData::setLanguage(LanguageType language)
     _data["language"] = (int)language;
 }
 
+void UserData::setAnimalDataList(ValueMap getAnimalData)
+{
+    _data["animal_get_data"] = getAnimalData;
+}
 
 std::string UserData::getFilePath()
 {
     return FileUtils::getInstance()->getWritablePath() + "user_data";
 }
+

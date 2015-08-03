@@ -89,9 +89,9 @@ bool MainScene::init()
 
     _endButton = _rootNode->getChildByName<ui::Button*>("endButton");
     _endButton->addTouchEventListener(CC_CALLBACK_2(MainScene::_pushEndButton, this));
-    _endButton->setPosition(Vec2(_endButton->getPosition().x, displaySize.height * 0.98f));
-    auto otherMenuButton = _menuNode->getChildByName<ui::Button*>("otherMenu");
-    otherMenuButton->addTouchEventListener(CC_CALLBACK_2(MainScene::_pushOtherMenuButton, this));
+    _endButton->setPosition(Vec2(_endButton->getPosition().x, displaySize.height - 40));
+    _otherMenuButton = _menuNode->getChildByName<ui::Button*>("otherMenu");
+    _otherMenuButton->addTouchEventListener(CC_CALLBACK_2(MainScene::_pushOtherMenuButton, this));
 
     _scaleBar = _rootNode->getChildByName<ScaleBar*>("scaleBar");
 
@@ -168,6 +168,8 @@ void MainScene::hideMenu()
     _menuNode->runAction(FadeOut::create(0.5f));
     _levelLabel->runAction(FadeOut::create(0.5f));
     _weightLabel->runAction(FadeOut::create(0.5f));
+    _otherMenuButton->setEnabled(false);
+    
 }
 
 void MainScene::showMenu()
@@ -178,6 +180,8 @@ void MainScene::showMenu()
     _menuNode->runAction(FadeIn::create(0.5f));
     _levelLabel->runAction(FadeIn::create(0.5f));
     _weightLabel->runAction(FadeIn::create(0.5f));
+    _otherMenuButton->setEnabled(true);
+
 }
 
 void MainScene::showLeftTIme()
@@ -467,40 +471,81 @@ void MainScene::_setupDebugMenu()
 
 void MainScene::_pushBattleButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
-    if (eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
-        if (WorldManager::getInstance()->enableNextAction() == false) {
-            return;
-        }
+    if (WorldManager::getInstance()->enableNextAction() == false) {
+        return;
+    }
 
-        if (UserDataManager::getInstance()->getLife() <= 0) {
-            showNoticeView(CCLS("NOTICE_LACK_LIFE"), 0, NULL);
-            return;
-        }
-        if (WorldManager::getInstance()->getSceneState() == SceneState::Tutorial) {
-            hideMenu();
-            _battleStartEffect();
-            WorldManager::getInstance()->startTutorialBattle();
-        } else {
-            hideMenu();
-            _battleStartEffect();
-            WorldManager::getInstance()->startBattle();
-        }
+    auto button = dynamic_cast<ui::Button*>(pSender);
+    if (eEventType == ui::Widget::TouchEventType::BEGAN) {
+        button->runAction(ScaleBy::create(0.1f, 0.9));
+    }
+    if (eEventType == ui::Widget::TouchEventType::ENDED) {
+        SoundManager::getInstance()->playDecideEffect2();
+        button->runAction(Sequence::create(
+            ScaleBy::create(0.1f, 1 / 0.9f),
+            CallFunc::create([this]{
+                if (UserDataManager::getInstance()->getLife() <= 0) {
+                    showNoticeView(CCLS("NOTICE_LACK_LIFE"), 0, NULL);
+                    return;
+                }
+                if (WorldManager::getInstance()->getSceneState() == SceneState::Tutorial) {
+                    hideMenu();
+                    _battleStartEffect();
+                    WorldManager::getInstance()->startTutorialBattle();
+                } else {
+                    hideMenu();
+                    _battleStartEffect();
+                    WorldManager::getInstance()->startBattle();
+                }
+            }),
+            NULL
+        ));
+    }
+    if (eEventType == ui::Widget::TouchEventType::CANCELED) {
+        button->runAction(ScaleBy::create(0.1f, 1 / 0.9f));
     }
 }
 
 void MainScene::_pushOtherMenuButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
-    if (eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
+    auto button = dynamic_cast<ui::Button*>(pSender);
+    if (eEventType == ui::Widget::TouchEventType::BEGAN) {
+        button->runAction(ScaleBy::create(0.1f, 0.9));
+    }
+    if (eEventType == ui::Widget::TouchEventType::ENDED) {
         SoundManager::getInstance()->playDecideEffect2();
-        auto layer = MenuLayer::create();
-        this->addChild(layer);
+        button->runAction(Sequence::create(
+            ScaleBy::create(0.1f, 1 / 0.9f),
+            CallFunc::create([this]{
+                auto layer = MenuLayer::create();
+                this->addChild(layer);
+            }),
+            NULL
+        ));
+    }
+    if (eEventType == ui::Widget::TouchEventType::CANCELED) {
+        button->runAction(ScaleBy::create(0.1f, 1 / 0.9f));
     }
 }
 
 void MainScene::_pushEndButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
-    if (eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
-        WorldManager::getInstance()->endBattle(false, 0);
+    auto button = dynamic_cast<ui::Button*>(pSender);
+    if (eEventType == ui::Widget::TouchEventType::BEGAN) {
+        button->runAction(ScaleBy::create(0.1f, 0.9));
+    }
+    if (eEventType == ui::Widget::TouchEventType::ENDED) {
+        SoundManager::getInstance()->playDecideEffect2();
+        button->runAction(Sequence::create(
+            ScaleBy::create(0.1f, 1 / 0.9f),
+            CallFunc::create([this]{
+                WorldManager::getInstance()->endBattle(false, 0);
+            }),
+            NULL
+        ));
+    }
+    if (eEventType == ui::Widget::TouchEventType::CANCELED) {
+        button->runAction(ScaleBy::create(0.1f, 1 / 0.9f));
     }
 }
 

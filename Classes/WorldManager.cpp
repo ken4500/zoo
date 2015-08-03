@@ -257,6 +257,7 @@ void WorldManager::lotteryGacha()
 void WorldManager::releaseAnimal(Animal* animal, bool hit)
 {
     if (_isNetwork == false) {
+        UserDataManager::getInstance()->getAnimal(animal);
         UserDataManager::getInstance()->addAnimal(animal);
     } else {
         auto command = CommandGenerater::releaseAnimal(animal);
@@ -892,6 +893,7 @@ void WorldManager::_createMap()
     if (animalList.size() == 0) {
         auto hero = Animal::CreateWithSpeceis("Hero");
         _map->addAnimal(hero, Vec2(0, -200));
+        UserDataManager::getInstance()->getAnimal(hero);
         UserDataManager::getInstance()->addAnimal(hero);
         _setTotalWeight(_totalWeight + hero->getWeight());
     } else {

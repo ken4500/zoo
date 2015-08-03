@@ -26,6 +26,7 @@ public:
     ValueMap getLifeData();
     ValueVector getAnimalList();
     LanguageType getLanguage();
+    ValueMap getAnimalDataList();
 
     void setEndTutorial(bool endTutorial);
     void setWorldInfo(ValueMap info);
@@ -33,6 +34,7 @@ public:
     void setLifeData(ValueMap lifeData);
     void setAnimalList(ValueVector animal);
     void setLanguage(LanguageType language);
+    void setAnimalDataList(ValueMap getAnimalData);
 
     
 private:

@@ -12,7 +12,7 @@
 
 bool SelectLanguageLayer::init()
 {
-    if (!LayerColor::initWithColor(Color4B(0, 0, 0, 160))) {
+    if (!LayerColor::initWithColor(Color4B(0, 0, 0, 200))) {
         return false;
     }
  

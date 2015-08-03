@@ -8,6 +8,7 @@
 
 #include "Book.h"
 #include "SoundManager.h"
+#include "UserDataManager.h"
 
 const int ANIMAL_NUM_IN_A_PAGE = 9;
 using namespace cocos2d;
@@ -99,14 +100,15 @@ void Book::_loadPage(int page)
         if (image) {
             image->removeFromParent();
         }
-//        auto newImage = Sprite::create("book/unkonwn_animal.png");
-        auto newImage = Sprite::create(species->getImageName());
-        if (newImage == NULL) {
-            newImage = Sprite::create("book/unkonwn_animal.png");
-            newImage->setScale(1.0f);
-        } else {
+
+        Sprite* newImage;
+        if (UserDataManager::getInstance()->haveHadAnimalInPast(species->getName())) {
+            newImage = Sprite::create(species->getImageName());
             newImage->setScale(0.25f);
+        } else {
+            newImage = Sprite::create("book/unkonwn_animal.png");
         }
+
         newImage->setName("image");
         newImage->setPosition(Vec2(size.width / 2, size.height / 2));
         button->addChild(newImage);

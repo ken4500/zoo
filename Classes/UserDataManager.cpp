@@ -236,3 +236,93 @@ void UserDataManager::removeAnimal(Animal* animal)
     _userData->setAnimalList(animalList);
     _userData->save();
 }
+
+bool UserDataManager::haveHadAnimalInPast(std::string animalName)
+{
+    auto animalData = _userData->getAnimalDataList();
+    if (animalData.find(animalName) == animalData.end()) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+void UserDataManager::getAnimal(Animal* animal)
+{
+    auto animalData = _userData->getAnimalDataList();
+    if (haveHadAnimalInPast(animal->getName()) == false) {
+        ValueMap data;
+        data["get_count"] = 1;
+        data["min_weight"] = animal->getWeight().getMgWeight();
+        data["max_weight"] = animal->getWeight().getMgWeight();
+        data["min_height"] = animal->getHeight().getMmLength();
+        data["max_height"] = animal->getHeight().getMmLength();
+        animalData[animal->getName()] = data;
+        _userData->setAnimalDataList(animalData);
+    } else {
+        ValueMap data = animalData[animal->getName()].asValueMap();
+        data["get_count"] = data["get_count"].asInt() + 1;
+        data["min_weight"] = MIN(data["min_weight"].asDouble(), animal->getWeight().getMgWeight());
+        data["max_weight"] = MAX(data["max_weight"].asDouble(), animal->getWeight().getMgWeight());
+        data["min_length"] = MIN(data["min_length"].asDouble(), animal->getHeight().getMmLength());
+        data["max_length"] = MAX(data["max_length"].asDouble(), animal->getHeight().getMmLength());
+        animalData[animal->getName()] = data;
+        _userData->setAnimalDataList(animalData);
+    }
+}
+
+Weight UserDataManager::getMaxWeight(std::string animalName)
+{
+    if (haveHadAnimalInPast(animalName) == false) {
+        return Weight(0);
+    } else {
+        auto animalData = _userData->getAnimalDataList();
+        auto data = animalData[animalName].asValueMap();
+        return Weight(data["max_weight"].asDouble());
+    }
+}
+
+Weight UserDataManager::getMinWeight(std::string animalName)
+{
+    if (haveHadAnimalInPast(animalName) == false) {
+        return Weight(0);
+    } else {
+        auto animalData = _userData->getAnimalDataList();
+        auto data = animalData[animalName].asValueMap();
+        return Weight(data["min_weight"].asDouble());
+    }
+}
+
+Length UserDataManager::getMaxHeight(std::string animalName)
+{
+    if (haveHadAnimalInPast(animalName) == false) {
+        return Length(0);
+    } else {
+        auto animalData = _userData->getAnimalDataList();
+        auto data = animalData[animalName].asValueMap();
+        return Length(data["max_length"].asDouble());
+    }
+}
+
+Length UserDataManager::getMinHeight(std::string animalName)
+{
+    if (haveHadAnimalInPast(animalName) == false) {
+        return Length(0);
+    } else {
+        auto animalData = _userData->getAnimalDataList();
+        auto data = animalData[animalName].asValueMap();
+        return Length(data["min_length"].asDouble());
+    }
+}
+
+int UserDataManager::getAnimalCount(std::string animalName)
+{
+    if (haveHadAnimalInPast(animalName) == false) {
+        return 0;
+    } else {
+        auto animalData = _userData->getAnimalDataList();
+        auto data = animalData[animalName].asValueMap();
+        return data["get_count"].asInt();
+    }
+}
+
