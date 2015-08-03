@@ -1,1 +1,688 @@
-{"Ahiru":{"unit":"cm","minHeight":50,"maxHeight":80,"speed":20,"image":"ahiru"},"Araiguma":{"unit":"cm","minHeight":25,"maxHeight":40,"speed":15,"image":"araiguma"},"Hero":{"unit":"cm","minHeight":2,"maxHeight":2,"speed":0.5,"image":"ari_main","move":false},"Ari":{"unit":"cm","minHeight":0.5,"maxHeight":1,"speed":0.4,"image":"ari_normal"},"Arikui":{"unit":"m","minHeight":1,"maxHeight":1.2,"speed":0.3,"image":"arikui"},"Azarashi":{"unit":"m","minHeight":5,"maxHeight":7,"speed":0.9,"image":"azarashi"},"Arumajiro":{"unit":"m","minHeight":0.5,"maxHeight":0.8,"speed":0.3,"image":"arumajiro"},"Ashika":{"unit":"m","minHeight":1.8,"maxHeight":2.5,"speed":0.3,"image":"ashika"},"Batta":{"unit":"cm","minHeight":3,"maxHeight":2.5,"speed":2,"image":"batta"},"Biibaa":{"unit":"cm","minHeight":74,"maxHeight":130,"speed":0.4,"image":"ahiru"},"Chiwawa":{"unit":"cm","minHeight":25,"maxHeight":30,"speed":40,"image":"chiwawa"},"God":{"unit":"km","minHeight":1000,"maxHeight":1000,"speed":1000,"image":"god"},"Gorira":{"unit":"m","minHeight":1.5,"maxHeight":1.8,"speed":0.4,"image":"ahiru"},"Hachi":{"unit":"cm","minHeight":2,"maxHeight":2.5,"speed":2,"image":"hachi"},"Hamstar":{"unit":"cm","minHeight":9,"maxHeight":11,"speed":10,"image":"hamstar"},"Harinezumi":{"unit":"cm","minHeight":14,"maxHeight":21,"speed":10,"image":"harinezumi"},"Inko":{"unit":"cm","minHeight":10,"maxHeight":16,"speed":14,"image":"inko"},"Inoshishi":{"unit":"m","minHeight":1.6,"maxHeight":1.8,"speed":2,"image":"inoshishi"},"Iruka":{"unit":"m","minHeight":2,"maxHeight":4,"speed":2,"image":"iruka"},"Kabutomushi":{"unit":"cm","minHeight":5,"maxHeight":7,"speed":2,"image":"kabutomushi"},"Kitsune":{"unit":"cm","minHeight":50,"maxHeight":70,"speed":40,"image":"kitsune"},"Kamereon":{"unit":"cm","minHeight":20,"maxHeight":30,"speed":10,"image":"kamereon"},"Kani":{"unit":"cm","minHeight":6,"maxHeight":8,"speed":1,"image":"kani"},"Koumori":{"unit":"cm","minHeight":6,"maxHeight":10,"speed":4,"image":"koumori"},"Mogura":{"unit":"cm","minHeight":12,"maxHeight":18,"speed":4,"image":"mogura"},"Ookami":{"unit":"m","minHeight":1,"maxHeight":1.5,"speed":2,"image":"ookami"},"Pengin":{"unit":"cm","minHeight":60,"maxHeight":90,"speed":15,"image":"penginu"},"Raion":{"unit":"m","minHeight":1.8,"maxHeight":2.5,"speed":0.4,"image":"raion"},"Rakuda":{"unit":"m","minHeight":1.8,"maxHeight":3,"speed":0.4,"image":"rakuda"},"Risu":{"unit":"cm","minHeight":15,"maxHeight":18,"speed":10,"image":"risu"},"Sai":{"unit":"m","minHeight":2.5,"maxHeight":4,"speed":1,"image":"sai"},"Same":{"unit":"m","minHeight":2,"maxHeight":5,"speed":1,"image":"same"},"Saru":{"unit":"cm","minHeight":47,"maxHeight":70,"speed":80,"image":"saru"},"Shika":{"unit":"m","minHeight":1.2,"maxHeight":2,"speed":1,"image":"shika"},"Sutego":{"unit":"m","minHeight":8,"maxHeight":12,"speed":3,"image":"sutego"},"Tirano":{"unit":"m","minHeight":11,"maxHeight":13,"speed":8,"image":"tirano"},"Tentoumushi":{"unit":"cm","minHeight":0.5,"maxHeight":1,"speed":0.8,"image":"tentoumushi"},"Tyoutyo":{"unit":"cm","minHeight":6,"maxHeight":10,"speed":4,"image":"tyoutyo"},"Usagi":{"unit":"cm","minHeight":26,"maxHeight":30,"speed":30,"image":"usagi"},"Wani":{"unit":"m","minHeight":3.5,"maxHeight":5.5,"speed":1,"image":"wani"},"Yagi":{"unit":"m","minHeight":1.2,"maxHeight":1.6,"speed":0.4,"image":"yagi"},"Zou":{"unit":"m","minHeight":5,"maxHeight":7,"speed":2,"image":"zou"}}
+{
+"Hero": {
+  "unit" : "cm",
+  "minHeight" : 2,
+  "maxHeight" : 2,
+  "speed" : 0.5,
+  "image" : "ari_main"
+},
+"Ari": {
+  "unit" : "cm",
+  "minHeight" : 0.5,
+  "maxHeight" : 1,
+  "speed" : 0.4,
+  "image" : "ari_normal"
+},
+"Tentoumushi": {
+  "unit" : "cm",
+  "minHeight" : 0.5,
+  "maxHeight" : 1,
+  "speed" : 0.8,
+  "image" : "tentoumushi"
+},
+"Hachi": {
+  "unit" : "cm",
+  "minHeight" : 2,
+  "maxHeight" : 2.5,
+  "speed" : 2,
+  "image" : "hachi"
+},
+"Batta": {
+  "unit" : "cm",
+  "minHeight" : 3,
+  "maxHeight" : 2.5,
+  "speed" : 2,
+  "image" : "batta"
+},
+"Kani": {
+  "unit" : "cm",
+  "minHeight" : 6,
+  "maxHeight" : 8,
+  "speed" : 1,
+  "image" : "kani"
+},
+"Kaeru": {
+  "unit" : "cm",
+  "minHeight" : 6,
+  "maxHeight" : 8,
+  "speed" : 1,
+  "image" : "kaeru"
+},
+"Kabutomushi": {
+  "unit" : "cm",
+  "minHeight" : 5,
+  "maxHeight" : 7,
+  "speed" : 2,
+  "image" : "kabutomushi"
+},
+"Tyoutyo": {
+  "unit" : "cm",
+  "minHeight" : 6,
+  "maxHeight" : 10,
+  "speed" : 4,
+  "image" : "tyoutyo"
+},
+"Hamstar": {
+  "unit" : "cm",
+  "minHeight" : 9,
+  "maxHeight" : 11,
+  "speed" : 10,
+  "image" : "hamstar"
+},
+"Koumori": {
+  "unit" : "cm",
+  "minHeight" : 6,
+  "maxHeight" : 10,
+  "speed" : 4,
+  "image" : "koumori"
+},
+"Risu": {
+  "unit" : "cm",
+  "minHeight" : 15,
+  "maxHeight" : 18,
+  "speed" : 10,
+  "image" : "risu"
+},
+"Momonga": {
+  "unit" : "cm",
+  "minHeight" : 15,
+  "maxHeight" : 18,
+  "speed" : 10,
+  "image" : "momonga"
+},
+"Tsubame": {
+  "unit" : "cm",
+  "minHeight" : 15,
+  "maxHeight" : 18,
+  "speed" : 10,
+  "image" : "tsubame"
+},
+"Mogura": {
+  "unit" : "cm",
+  "minHeight" : 12,
+  "maxHeight" : 18,
+  "speed" : 4,
+  "image" : "mogura"
+},
+"Chiwawa": {
+  "unit" : "cm",
+  "minHeight" : 25,
+  "maxHeight" : 30,
+  "speed" : 40,
+  "image" : "chiwawa"
+},
+"Kamereon": {
+  "unit" : "cm",
+  "minHeight" : 20,
+  "maxHeight" : 30,
+  "speed" : 10,
+  "image" : "kamereon"
+},
+"Arumajiro": {
+  "unit" : "m",
+  "minHeight" : 0.5,
+  "maxHeight" : 0.8,
+  "speed" : 0.3,
+  "image" : "arumajiro"
+},
+"Inko": {
+  "unit" : "cm",
+  "minHeight" : 10,
+  "maxHeight" : 16,
+  "speed" : 14,
+  "image" : "inco"
+},
+"Usagi": {
+  "unit" : "cm",
+  "minHeight" : 26,
+  "maxHeight" : 30,
+  "speed" : 30,
+  "image" : "usagi"
+},
+"Harinezumi": {
+  "unit" : "cm",
+  "minHeight" : 14,
+  "maxHeight" : 21,
+  "speed" : 10,
+  "image" : "harinezumi"
+},
+"Miiacat": {
+  "unit" : "cm",
+  "minHeight" : 14,
+  "maxHeight" : 21,
+  "speed" : 10,
+  "image" : "miiacat"
+},
+"Shika": {
+  "unit" : "m",
+  "minHeight" : 1.2,
+  "maxHeight" : 2,
+  "speed" : 1,
+  "image" : "shika"
+},
+"Kitsune": {
+  "unit" : "cm",
+  "minHeight" : 50,
+  "maxHeight" : 70,
+  "speed" : 40,
+  "image" : "kitsune"
+},
+"Araiguma": {
+  "unit" : "cm",
+  "minHeight" : 25,
+  "maxHeight" : 40,
+  "speed" : 15,
+  "image" : "araiguma"
+},
+"Sukanku": {
+  "unit" : "cm",
+  "minHeight" : 25,
+  "maxHeight" : 40,
+  "speed" : 15,
+  "image" : "sukank"
+},
+"Ahiru": {
+  "unit" : "cm",
+  "minHeight" : 50,
+  "maxHeight" : 80,
+  "speed" : 20,
+  "image" : "ahiru"
+},
+"Ashika": {
+  "unit" : "m",
+  "minHeight" : 5,
+  "maxHeight" : 7,
+  "speed" : 0.9,
+  "image" : "ashika"
+},
+"Pengin": {
+  "unit" : "cm",
+  "minHeight" : 60,
+  "maxHeight" : 90,
+  "speed" : 15,
+  "image" : "pengin"
+},
+"Inoshishi": {
+  "unit" : "m",
+  "minHeight" : 1.6,
+  "maxHeight" : 1.8,
+  "speed" : 2,
+  "image" : "inoshishi"
+},
+"Ookami": {
+  "unit" : "m",
+  "minHeight" : 1,
+  "maxHeight" : 1.5,
+  "speed" : 2,
+  "image" : "ookami"
+},
+"Yagi": {
+  "unit" : "m",
+  "minHeight" : 1.2,
+  "maxHeight" : 1.6,
+  "speed" : 0.4,
+  "image" : "yagi"
+},
+"Washi": {
+  "unit" : "m",
+  "minHeight" : 1.2,
+  "maxHeight" : 1.6,
+  "speed" : 0.4,
+  "image" : "yagi"
+},
+"Raion": {
+  "unit" : "m",
+  "minHeight" : 1.8,
+  "maxHeight" : 2.5,
+  "speed" : 0.4,
+  "image" : "raion"
+},
+"Iruka": {
+  "unit" : "m",
+  "minHeight" : 2,
+  "maxHeight" : 4,
+  "speed" : 2,
+  "image" : "iruka"
+},
+"Gorira": {
+  "unit" : "m",
+  "minHeight" : 1.5,
+  "maxHeight" : 1.8,
+  "speed" : 0.4,
+  "image" : "saru"
+},
+"Sai": {
+  "unit" : "m",
+  "minHeight" : 2.5,
+  "maxHeight" : 4,
+  "speed" : 1,
+  "image" : "sai"
+},
+"Rakuda": {
+  "unit" : "m",
+  "minHeight" : 1.8,
+  "maxHeight" : 3,
+  "speed" : 0.4,
+  "image" : "rakuda"
+},
+"Same": {
+  "unit" : "m",
+  "minHeight" : 2,
+  "maxHeight" : 5,
+  "speed" : 1,
+  "image" : "same"
+},
+"Zou": {
+  "unit" : "m",
+  "minHeight" : 5,
+  "maxHeight" : 7,
+  "speed" : 2,
+  "image" : "zou"
+},
+"Sutego": {
+  "unit" : "m",
+  "minHeight" : 8,
+  "maxHeight" : 12,
+  "speed" : 3,
+  "image" : "sutego"
+},
+"Putera": {
+  "unit" : "m",
+  "minHeight" : 8,
+  "maxHeight" : 12,
+  "speed" : 3,
+  "image" : "putera"
+},
+"Torikera": {
+  "unit" : "m",
+  "minHeight" : 8,
+  "maxHeight" : 12,
+  "speed" : 3,
+  "image" : "torikera"
+},
+"Burakio": {
+  "unit" : "m",
+  "minHeight" : 11,
+  "maxHeight" : 13,
+  "speed" : 8,
+  "image" : "tirano"
+},
+"Tirano": {
+  "unit" : "m",
+  "minHeight" : 11,
+  "maxHeight" : 13,
+  "speed" : 8,
+  "image" : "burakio"
+},
+"Supino": {
+  "unit" : "m",
+  "minHeight" : 11,
+  "maxHeight" : 13,
+  "speed" : 8,
+  "image" : "supino"
+},
+"Fenics": {
+  "unit" : "m",
+  "minHeight" : 11,
+  "maxHeight" : 13,
+  "speed" : 8,
+  "image" : "fenics"
+},
+"Gurifon": {
+  "unit" : "m",
+  "minHeight" : 11,
+  "maxHeight" : 13,
+  "speed" : 8,
+  "image" : "gurifon"
+},
+"Kelberos": {
+  "unit" : "m",
+  "minHeight" : 11,
+  "maxHeight" : 13,
+  "speed" : 8,
+  "image" : "kelberos"
+},
+"Bahamuut": {
+  "unit" : "m",
+  "minHeight" : 11,
+  "maxHeight" : 13,
+  "speed" : 8,
+  "image" : "bahamuut"
+},
+"Rivaiasan": {
+  "unit" : "m",
+  "minHeight" : 11,
+  "maxHeight" : 13,
+  "speed" : 8,
+  "image" : "rivaiasan"
+},
+"Tupoon": {
+  "unit" : "m",
+  "minHeight" : 11,
+  "maxHeight" : 13,
+  "speed" : 8,
+  "image" : "tupoon"
+},
+"Ari2": {
+  "unit" : "m",
+  "minHeight" : 164,
+  "maxHeight" : 164,
+  "speed" : 164,
+  "image" : "ari_normal"
+},
+"Tentoumushi2": {
+  "unit" : "m",
+  "minHeight" : 164,
+  "maxHeight" : 164,
+  "speed" : 164,
+  "image" : "tentoumushi"
+},
+"Hachi2": {
+  "unit" : "m",
+  "minHeight" : 328,
+  "maxHeight" : 328,
+  "speed" : 328,
+  "image" : "hachi"
+},
+"Batta2": {
+  "unit" : "m",
+  "minHeight" : 328,
+  "maxHeight" : 328,
+  "speed" : 328,
+  "image" : "batta"
+},
+"Kani2": {
+  "unit" : "m",
+  "minHeight" : 655,
+  "maxHeight" : 655,
+  "speed" : 655,
+  "image" : "kani"
+},
+"Kaeru2": {
+  "unit" : "m",
+  "minHeight" : 655,
+  "maxHeight" : 655,
+  "speed" : 655,
+  "image" : "kaeru"
+},
+"Kabutomushi2": {
+  "unit" : "m",
+  "minHeight" : 655,
+  "maxHeight" : 655,
+  "speed" : 655,
+  "image" : "kabutomushi"
+},
+"Tyoutyo2": {
+  "unit" : "km",
+  "minHeight" : 1.31,
+  "maxHeight" : 1.31,
+  "speed" : 1.31,
+  "image" : "tyoutyo"
+},
+"Hamstar2": {
+  "unit" : "km",
+  "minHeight" : 1.31,
+  "maxHeight" : 1.31,
+  "speed" : 1.31,
+  "image" : "hamstar"
+},
+"Koumori2": {
+  "unit" : "km",
+  "minHeight" : 1.31,
+  "maxHeight" : 1.31,
+  "speed" : 1.31,
+  "image" : "koumori"
+},
+"Risu2": {
+  "unit" : "km",
+  "minHeight" : 2.62,
+  "maxHeight" : 2.62,
+  "speed" : 2.62,
+  "image" : "risu"
+},
+"Momonga2": {
+  "unit" : "km",
+  "minHeight" : 2.62,
+  "maxHeight" : 2.62,
+  "speed" : 2.62,
+  "image" : "momonga"
+},
+"Tsubame2": {
+  "unit" : "km",
+  "minHeight" : 2.62,
+  "maxHeight" : 2.62,
+  "speed" : 2.62,
+  "image" : "tsubame"
+},
+"Mogura2": {
+  "unit" : "km",
+  "minHeight" : 2.62,
+  "maxHeight" : 2.62,
+  "speed" : 2.62,
+  "image" : "mogura"
+},
+"Chiwawa2": {
+  "unit" : "km",
+  "minHeight" : 5.24,
+  "maxHeight" : 5.24,
+  "speed" : 5.24,
+  "image" : "chiwawa"
+},
+"Kamereon2": {
+  "unit" : "km",
+  "minHeight" : 5.24,
+  "maxHeight" : 5.24,
+  "speed" : 5.24,
+  "image" : "kamereon"
+},
+"Arumajiro2": {
+  "unit" : "km",
+  "minHeight" : 5.24,
+  "maxHeight" : 5.24,
+  "speed" : 5.24,
+  "image" : "arumajiro"
+},
+"Inko2": {
+  "unit" : "km",
+  "minHeight" : 5.24,
+  "maxHeight" : 5.24,
+  "speed" : 5.24,
+  "image" : "inco"
+},
+"Usagi2": {
+  "unit" : "km",
+  "minHeight" : 5.24,
+  "maxHeight" : 5.24,
+  "speed" : 5.24,
+  "image" : "usagi"
+},
+"Harinezumi2": {
+  "unit" : "km",
+  "minHeight" : 5.24,
+  "maxHeight" : 5.24,
+  "speed" : 5.24,
+  "image" : "harinezumi"
+},
+"Miiacat2": {
+  "unit" : "km",
+  "minHeight" : 10.5,
+  "maxHeight" : 10.5,
+  "speed" : 10.5,
+  "image" : "miiacat"
+},
+"Shika2": {
+  "unit" : "km",
+  "minHeight" : 10.5,
+  "maxHeight" : 10.5,
+  "speed" : 10.5,
+  "image" : "shika"
+},
+"Kitsune2": {
+  "unit" : "km",
+  "minHeight" : 10.5,
+  "maxHeight" : 10.5,
+  "speed" : 10.5,
+  "image" : "kitsune"
+},
+"Araiguma2": {
+  "unit" : "km",
+  "minHeight" : 10.5,
+  "maxHeight" : 10.5,
+  "speed" : 10.5,
+  "image" : "araiguma"
+},
+"Sukanku2": {
+  "unit" : "km",
+  "minHeight" : 10.5,
+  "maxHeight" : 10.5,
+  "speed" : 10.5,
+  "image" : "sukank"
+},
+"Ahiru2": {
+  "unit" : "km",
+  "minHeight" : 10.5,
+  "maxHeight" : 10.5,
+  "speed" : 10.5,
+  "image" : "ahiru"
+},
+"Ashika2": {
+  "unit" : "km",
+  "minHeight" : 21,
+  "maxHeight" : 21,
+  "speed" : 21,
+  "image" : "ashika"
+},
+"Pengin2": {
+  "unit" : "km",
+  "minHeight" : 21,
+  "maxHeight" : 21,
+  "speed" : 21,
+  "image" : "pengin"
+},
+"Inoshishi2": {
+  "unit" : "km",
+  "minHeight" : 21,
+  "maxHeight" : 21,
+  "speed" : 21,
+  "image" : "inoshishi"
+},
+"Ookami2": {
+  "unit" : "km",
+  "minHeight" : 21,
+  "maxHeight" : 21,
+  "speed" : 21,
+  "image" : "ookami"
+},
+"Yagi2": {
+  "unit" : "km",
+  "minHeight" : 41.9,
+  "maxHeight" : 41.9,
+  "speed" : 41.9,
+  "image" : "yagi"
+},
+"Washi2": {
+  "unit" : "km",
+  "minHeight" : 41.9,
+  "maxHeight" : 41.9,
+  "speed" : 41.9,
+  "image" : "washi"
+},
+"Raion2": {
+  "unit" : "km",
+  "minHeight" : 41.9,
+  "maxHeight" : 41.9,
+  "speed" : 41.9,
+  "image" : "raion"
+},
+"Iruka2": {
+  "unit" : "km",
+  "minHeight" : 41.9,
+  "maxHeight" : 41.9,
+  "speed" : 41.9,
+  "image" : "iruka"
+},
+"Gorira2": {
+  "unit" : "km",
+  "minHeight" : 41.9,
+  "maxHeight" : 41.9,
+  "speed" : 41.9,
+  "image" : "saru"
+},
+"Sai2": {
+  "unit" : "km",
+  "minHeight" : 83,
+  "maxHeight" : 83,
+  "speed" : 83,
+  "image" : "sai"
+},
+"Rakuda2": {
+  "unit" : "km",
+  "minHeight" : 83,
+  "maxHeight" : 83,
+  "speed" : 83,
+  "image" : "rakuda"
+},
+"Same2": {
+  "unit" : "km",
+  "minHeight" : 83,
+  "maxHeight" : 83,
+  "speed" : 83,
+  "image" : "same"
+},
+"Zou2": {
+  "unit" : "km",
+  "minHeight" : 83,
+  "maxHeight" : 83,
+  "speed" : 83,
+  "image" : "zou"
+},
+"Sutego2": {
+  "unit" : "km",
+  "minHeight" : 168,
+  "maxHeight" : 168,
+  "speed" : 168,
+  "image" : "sutego"
+},
+"Putera2": {
+  "unit" : "km",
+  "minHeight" : 168,
+  "maxHeight" : 168,
+  "speed" : 168,
+  "image" : "putera"
+},
+"Torikera2": {
+  "unit" : "km",
+  "minHeight" : 168,
+  "maxHeight" : 168,
+  "speed" : 168,
+  "image" : "torikera"
+},
+"Burakio2": {
+  "unit" : "km",
+  "minHeight" : 336,
+  "maxHeight" : 336,
+  "speed" : 336,
+  "image" : "burakio"
+},
+"Tirano2": {
+  "unit" : "km",
+  "minHeight" : 336,
+  "maxHeight" : 336,
+  "speed" : 336,
+  "image" : "tirano"
+},
+"Supino2": {
+  "unit" : "km",
+  "minHeight" : 336,
+  "maxHeight" : 336,
+  "speed" : 336,
+  "image" : "supino"
+},
+"God": {
+  "unit" : "km",
+  "minHeight" : 8000,
+  "maxHeight" : 8000,
+  "speed" : 8000,
+  "image" : "god"
+}
+}

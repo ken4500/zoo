@@ -65,5 +65,7 @@ public:
 private:
     static std::map<std::string, UnitOfWeight> toUnitMap;
     static std::map<UnitOfWeight, std::string> toStringMap;
+    static std::map<UnitOfWeight, float> toValueMap;
+
     float _mg;
 };

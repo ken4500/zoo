@@ -70,10 +70,16 @@ enum class UnitOfLength
 enum class UnitOfWeight
 {
     Unkown = 0,
-    mg = 1,
-    g  = 1000,
-    kg = 1000000,
-    t  = 1000000000,
+    mg,
+    g,
+    kg,
+    t,
+    Mt,
+    Gt,
+    Pt,
+    Et,
+    Zt,
+    Yt,
 };
 
 

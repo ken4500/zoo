@@ -23,11 +23,16 @@ protected:
     cocostudio::timeline::ActionTimeline* timeline;
     int _page;
     std::vector<Species*> _allSpecies;
+    int _selectPos;
     Node* _bookNode;
     Sprite* _selectImage;
     Sprite* _animalImage;
     cocos2d::ui::TextBMFont* _animalName;
+    cocos2d::ui::TextBMFont* _pageLabel;
+    cocos2d::ui::Text* _sizeDescription;
     cocos2d::ui::Text* _description;
+    cocos2d::ui::Button* _leftButton;
+    cocos2d::ui::Button* _rightButton;
 
     void onEnter() override;
     bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *event);
@@ -37,6 +42,7 @@ protected:
     void _pushRightButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void _pushLeftButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void _pushCloseButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
+    int _getMaxPage();
 
 };
 
