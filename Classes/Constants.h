@@ -83,5 +83,12 @@ enum class UnitOfWeight
     Yt,
 };
 
+enum class SizeRank
+{
+    None   = 0,
+    Silver = 1,
+    Gold   = 2,
+};
+
 
 #endif

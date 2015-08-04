@@ -9,28 +9,6 @@
           <AbstractNodeData Name="book" ActionTag="-1585250833" Tag="110" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="139.6271" RightMargin="146.3729" TopMargin="2.3086" BottomMargin="70.6914" ctype="SpriteObjectData">
             <Size X="850.0000" Y="567.0000" />
             <Children>
-              <AbstractNodeData Name="back_logo" ActionTag="-1836723528" Tag="115" Alpha="87" IconVisible="False" LeftMargin="513.9030" RightMargin="86.0970" TopMargin="128.3199" BottomMargin="189.6801" ctype="SpriteObjectData">
-                <Size X="250.0000" Y="249.0000" />
-                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="638.9030" Y="314.1801" />
-                <Scale ScaleX="1.3905" ScaleY="1.3350" />
-                <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.7517" Y="0.5541" />
-                <PreSize X="0.0000" Y="0.0000" />
-                <FileData Type="Normal" Path="book/back_logo.png" Plist="" />
-                <BlendFunc Src="1" Dst="771" />
-              </AbstractNodeData>
-              <AbstractNodeData Name="line" ActionTag="-1067389753" Tag="137" IconVisible="False" LeftMargin="465.3687" RightMargin="63.6313" TopMargin="257.7377" BottomMargin="112.2623" ctype="SpriteObjectData">
-                <Size X="321.0000" Y="197.0000" />
-                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="625.8687" Y="210.7623" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.7363" Y="0.3717" />
-                <PreSize X="0.0000" Y="0.0000" />
-                <FileData Type="Normal" Path="book/line.png" Plist="" />
-                <BlendFunc Src="1" Dst="771" />
-              </AbstractNodeData>
               <AbstractNodeData Name="position1" ActionTag="174020161" Tag="125" IconVisible="False" LeftMargin="47.7607" RightMargin="696.2393" TopMargin="64.0404" BottomMargin="399.9596" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="76" Scale9Height="81" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                 <Size X="106.0000" Y="103.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
@@ -166,123 +144,106 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="name" ActionTag="-43667512" Tag="139" IconVisible="False" LeftMargin="572.5205" RightMargin="158.4795" TopMargin="256.0545" BottomMargin="225.9455" LabelText="Ant" ctype="TextBMFontObjectData">
+              <AbstractNodeData Name="name" ActionTag="-43667512" Tag="139" IconVisible="False" LeftMargin="674.1607" RightMargin="56.8393" TopMargin="47.7858" BottomMargin="434.2142" LabelText="Ant" ctype="TextBMFontObjectData">
                 <Size X="119.0000" Y="85.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="632.0205" Y="268.4455" />
-                <Scale ScaleX="0.6000" ScaleY="0.6000" />
+                <Position X="733.6607" Y="476.7142" />
+                <Scale ScaleX="0.4000" ScaleY="0.4000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.7436" Y="0.4734" />
+                <PrePosition X="0.8631" Y="0.8408" />
                 <PreSize X="0.1353" Y="0.1429" />
                 <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font3.fnt" Plist="" />
               </AbstractNodeData>
-              <AbstractNodeData Name="image" ActionTag="1418711988" Tag="32" IconVisible="False" LeftMargin="353.2639" RightMargin="96.7361" TopMargin="-42.0859" BottomMargin="209.0859" ctype="SpriteObjectData">
+              <AbstractNodeData Name="image" ActionTag="1418711988" Tag="32" IconVisible="False" LeftMargin="356.2640" RightMargin="93.7360" TopMargin="-22.0860" BottomMargin="189.0860" ctype="SpriteObjectData">
                 <Size X="400.0000" Y="400.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="553.2639" Y="409.0859" />
-                <Scale ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="556.2640" Y="389.0860" />
+                <Scale ScaleX="0.4555" ScaleY="0.4555" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.6509" Y="0.7215" />
+                <PrePosition X="0.6544" Y="0.6862" />
                 <PreSize X="0.0000" Y="0.0000" />
                 <FileData Type="Normal" Path="animal/ari_main01.png" Plist="" />
                 <BlendFunc Src="1" Dst="771" />
               </AbstractNodeData>
-              <AbstractNodeData Name="description" ActionTag="-343226042" Tag="140" IconVisible="False" LeftMargin="564.1809" RightMargin="152.8191" TopMargin="372.2043" BottomMargin="148.7957" FontSize="20" LabelText="aaaaaaaaaaa&#xA;aaaaaaaaaaaa" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                <Size X="133.0000" Y="46.0000" />
+              <AbstractNodeData Name="description" ActionTag="-343226042" Tag="140" IconVisible="False" LeftMargin="470.1703" RightMargin="187.8297" TopMargin="316.7643" BottomMargin="130.2357" FontSize="30" LabelText="aaaaaaaaaaa&#xA;aaaaaaaaaaaa&#xA;aaaaaaaa&#xA;aaa" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                <Size X="192.0000" Y="120.0000" />
+                <AnchorPoint ScaleY="1.0000" />
+                <Position X="470.1703" Y="250.2357" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="60" G="30" B="10" />
+                <PrePosition X="0.5531" Y="0.4413" />
+                <PreSize X="0.0000" Y="0.0000" />
+                <FontResource Type="Normal" Path="font/yasashisa.ttf" Plist="" />
+                <OutlineColor A="255" R="255" G="0" B="0" />
+                <ShadowColor A="255" R="110" G="110" B="110" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="minCrown" ActionTag="1314087947" Tag="154" IconVisible="False" LeftMargin="632.5122" RightMargin="127.4878" TopMargin="197.4841" BottomMargin="294.5159" ctype="SpriteObjectData">
+                <Size X="90.0000" Y="75.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="677.5122" Y="332.0159" />
+                <Scale ScaleX="0.2669" ScaleY="0.2814" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.7971" Y="0.5856" />
+                <PreSize X="0.0000" Y="0.0000" />
+                <FileData Type="Normal" Path="ui/min_crown1.png" Plist="" />
+                <BlendFunc Src="1" Dst="771" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="maxCrown" ActionTag="-461781374" Tag="155" IconVisible="False" LeftMargin="627.3585" RightMargin="121.6415" TopMargin="221.1561" BottomMargin="272.8439" ctype="SpriteObjectData">
+                <Size X="101.0000" Y="73.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="677.8585" Y="309.3439" />
+                <Scale ScaleX="0.2669" ScaleY="0.2814" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.7975" Y="0.5456" />
+                <PreSize X="0.0000" Y="0.0000" />
+                <FileData Type="Normal" Path="ui/max_crown2.png" Plist="" />
+                <BlendFunc Src="1" Dst="771" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="speciesSize" ActionTag="-737563001" Tag="33" IconVisible="False" LeftMargin="653.3656" RightMargin="32.6344" TopMargin="136.5474" BottomMargin="416.4526" FontSize="14" LabelText="100.00mg〜985.00mg" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                <Size X="150.0000" Y="14.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="1.0000" />
-                <Position X="630.6809" Y="194.7957" />
+                <Position X="735.3656" Y="430.4526" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="60" G="30" B="10" />
-                <PrePosition X="0.7420" Y="0.3436" />
+                <PrePosition X="0.8651" Y="0.7592" />
                 <PreSize X="0.0000" Y="0.0000" />
+                <FontResource Type="Normal" Path="font/yasashisa.ttf" Plist="" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="Sprite_1" ActionTag="-1477541847" Tag="152" Alpha="176" IconVisible="False" LeftMargin="666.1972" RightMargin="83.8028" TopMargin="107.4707" BottomMargin="359.5293" ctype="SpriteObjectData">
-                <Size X="100.0000" Y="100.0000" />
-                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="716.1972" Y="409.5293" />
-                <Scale ScaleX="1.5961" ScaleY="0.9407" />
-                <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.8426" Y="0.7223" />
-                <PreSize X="0.0000" Y="0.0000" />
-                <FileData Type="Normal" Path="ui/empty.png" Plist="" />
-                <BlendFunc Src="1" Dst="771" />
-              </AbstractNodeData>
-              <AbstractNodeData Name="minCrown" ActionTag="1314087947" Tag="154" IconVisible="False" LeftMargin="636.0689" RightMargin="177.9311" TopMargin="136.4785" BottomMargin="396.5215" ctype="SpriteObjectData">
-                <Size X="36.0000" Y="34.0000" />
-                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="654.0689" Y="413.5215" />
-                <Scale ScaleX="0.7000" ScaleY="0.7000" />
-                <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.7695" Y="0.7293" />
-                <PreSize X="0.0000" Y="0.0000" />
-                <FileData Type="Normal" Path="ui/min_crown.png" Plist="" />
-                <BlendFunc Src="1" Dst="771" />
-              </AbstractNodeData>
-              <AbstractNodeData Name="maxCrown" ActionTag="-461781374" Tag="155" IconVisible="False" LeftMargin="629.4606" RightMargin="170.5394" TopMargin="156.6453" BottomMargin="368.3547" ctype="SpriteObjectData">
-                <Size X="50.0000" Y="42.0000" />
-                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="654.4606" Y="389.3547" />
-                <Scale ScaleX="0.7000" ScaleY="0.7000" />
-                <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.7700" Y="0.6867" />
-                <PreSize X="0.0000" Y="0.0000" />
-                <FileData Type="Normal" Path="ui/max_crown.png" Plist="" />
-                <BlendFunc Src="1" Dst="771" />
-              </AbstractNodeData>
-              <AbstractNodeData Name="speciesSize" ActionTag="-737563001" Tag="33" IconVisible="False" LeftMargin="551.6809" RightMargin="134.3191" TopMargin="336.2043" BottomMargin="207.7957" FontSize="20" LabelText="100.00mg 〜 985.00mg" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                <Size X="209.0000" Y="23.0000" />
-                <AnchorPoint ScaleX="0.5000" ScaleY="1.0000" />
-                <Position X="633.6809" Y="230.7957" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                <CColor A="255" R="60" G="30" B="10" />
-                <PrePosition X="0.7455" Y="0.4070" />
-                <PreSize X="0.0000" Y="0.0000" />
-                <OutlineColor A="255" R="255" G="0" B="0" />
-                <ShadowColor A="255" R="110" G="110" B="110" />
-              </AbstractNodeData>
-              <AbstractNodeData Name="getInfoLabel" ActionTag="115506818" Tag="153" IconVisible="False" LeftMargin="635.8047" RightMargin="134.1953" TopMargin="84.9784" BottomMargin="459.0216" FontSize="20" LabelText="取得情報" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                <Size X="80.0000" Y="23.0000" />
+              <AbstractNodeData Name="getNum" ActionTag="-355325313" Tag="151" IconVisible="False" LeftMargin="669.6854" RightMargin="76.3146" TopMargin="187.7162" BottomMargin="363.2838" FontSize="16" LabelText="取得回数：9999回" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                <Size X="136.0000" Y="16.0000" />
                 <AnchorPoint ScaleY="0.5000" />
-                <Position X="635.8047" Y="470.5216" />
+                <Position X="669.6854" Y="371.2838" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="60" G="30" B="10" />
-                <PrePosition X="0.7480" Y="0.8298" />
+                <PrePosition X="0.7879" Y="0.6548" />
                 <PreSize X="0.0000" Y="0.0000" />
+                <FontResource Type="Normal" Path="font/yasashisa.ttf" Plist="" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="getNum" ActionTag="-355325313" Tag="151" IconVisible="False" LeftMargin="668.2010" RightMargin="109.7990" TopMargin="121.4011" BottomMargin="427.5989" FontSize="16" LabelText="回数：9999回" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                <Size X="99.0000" Y="18.0000" />
+              <AbstractNodeData Name="getMinSize" ActionTag="1280424630" Tag="148" IconVisible="False" LeftMargin="690.0833" RightMargin="34.9167" TopMargin="229.1716" BottomMargin="321.8284" FontSize="16" LabelText="最小：123.45mg" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                <Size X="125.0000" Y="16.0000" />
                 <AnchorPoint ScaleY="0.5000" />
-                <Position X="668.2010" Y="436.5989" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <Position X="690.0833" Y="329.8284" />
+                <Scale ScaleX="0.8896" ScaleY="0.9381" />
                 <CColor A="255" R="60" G="30" B="10" />
-                <PrePosition X="0.7861" Y="0.7700" />
+                <PrePosition X="0.8119" Y="0.5817" />
                 <PreSize X="0.0000" Y="0.0000" />
+                <FontResource Type="Normal" Path="font/yasashisa.ttf" Plist="" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="getMinSize" ActionTag="1280424630" Tag="148" IconVisible="False" LeftMargin="668.2010" RightMargin="62.7990" TopMargin="146.8099" BottomMargin="402.1901" FontSize="16" LabelText="最小：123.45mg" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                <Size X="119.0000" Y="18.0000" />
+              <AbstractNodeData Name="getMaxSize" ActionTag="159734576" Tag="150" IconVisible="False" LeftMargin="690.0833" RightMargin="34.9167" TopMargin="253.0081" BottomMargin="297.9919" FontSize="16" LabelText="最大：985.52mg" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                <Size X="125.0000" Y="16.0000" />
                 <AnchorPoint ScaleY="0.5000" />
-                <Position X="668.2010" Y="411.1901" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <Position X="690.0833" Y="305.9919" />
+                <Scale ScaleX="0.8896" ScaleY="0.9381" />
                 <CColor A="255" R="60" G="30" B="10" />
-                <PrePosition X="0.7861" Y="0.7252" />
+                <PrePosition X="0.8119" Y="0.5397" />
                 <PreSize X="0.0000" Y="0.0000" />
-                <OutlineColor A="255" R="255" G="0" B="0" />
-                <ShadowColor A="255" R="110" G="110" B="110" />
-              </AbstractNodeData>
-              <AbstractNodeData Name="getMaxSize" ActionTag="159734576" Tag="150" IconVisible="False" LeftMargin="668.2010" RightMargin="62.7990" TopMargin="172.2183" BottomMargin="376.7817" FontSize="16" LabelText="最大：985.52mg" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                <Size X="119.0000" Y="18.0000" />
-                <AnchorPoint ScaleY="0.5000" />
-                <Position X="668.2010" Y="385.7817" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                <CColor A="255" R="60" G="30" B="10" />
-                <PrePosition X="0.7861" Y="0.6804" />
-                <PreSize X="0.0000" Y="0.0000" />
+                <FontResource Type="Normal" Path="font/yasashisa.ttf" Plist="" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>

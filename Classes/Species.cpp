@@ -95,6 +95,36 @@ Weight Species::getMinWeight()
     return Weight(getMinHeight(), getDensity());
 }
 
+SizeRank Species::getMaxWeightRank(Weight maxWeight)
+{
+    auto max = getMaxWeight().getMgWeight();
+    auto min = getMinWeight().getMgWeight();
+    auto getMax = maxWeight.getMgWeight();
+    float rate = (max - getMax) / (max - min);
+    if (rate < 0.05) {
+        return SizeRank::Gold;
+    } else if (rate < 0.1) {
+        return SizeRank::Silver;
+    } else {
+        return SizeRank::None;
+    }
+}
+
+SizeRank Species::getMinWeightRank(Weight minWeight)
+{
+    auto max = getMaxWeight().getMgWeight();
+    auto min = getMinWeight().getMgWeight();
+    auto getMin = minWeight.getMgWeight();
+    float rate = (getMin - min) / (max - min);
+    if (rate < 0.05) {
+        return SizeRank::Gold;
+    } else if (rate < 0.1) {
+        return SizeRank::Silver;
+    } else {
+        return SizeRank::None;
+    }
+}
+
 Length Species::getSpeed()
 {
     return _speed;

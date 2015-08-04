@@ -27,6 +27,8 @@ protected:
     Node* _bookNode;
     Sprite* _selectImage;
     Sprite* _animalImage;
+    Sprite* _minCrownImage;
+    Sprite* _maxCrownImage;
     cocos2d::ui::TextBMFont* _animalName;
     cocos2d::ui::TextBMFont* _pageLabel;
     cocos2d::ui::Text* _getNum;

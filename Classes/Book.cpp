@@ -35,11 +35,13 @@ void Book::onEnter()
     
     _page = 1;
     _selectImage = nullptr;
-    _allSpecies = Species::getAllSpecies();
-    _bookNode = this->getChildByName("book");
-    _animalImage = _bookNode->getChildByName<Sprite*>("image");
-    _description = _bookNode->getChildByName<ui::Text*>("description");
-    _animalName  = _bookNode->getChildByName<ui::TextBMFont*>("name");
+    _allSpecies    = Species::getAllSpecies();
+    _bookNode      = this->getChildByName("book");
+    _animalImage   = _bookNode->getChildByName<Sprite*>("image");
+    _minCrownImage = _bookNode->getChildByName<Sprite*>("minCrown");
+    _maxCrownImage = _bookNode->getChildByName<Sprite*>("maxCrown");
+    _description   = _bookNode->getChildByName<ui::Text*>("description");
+    _animalName    = _bookNode->getChildByName<ui::TextBMFont*>("name");
     _sizeDescription = _bookNode->getChildByName<ui::Text*>("speciesSize");
     _pageLabel = this->getChildByName<ui::TextBMFont*>("pageLabel");
     _getNum = _bookNode->getChildByName<ui::Text*>("getNum");
@@ -145,7 +147,7 @@ void Book::_loadAnimal(Species* species)
         // 取得したことがない
         _animalImage->setColor(Color3B::BLACK);
         _animalName->setString("????");
-        _getNum->setString("取得回数:0回");
+        _getNum->setString("取得回数:0");
         _getMinSize->setString("取得最小:-");
         _getMaxSize->setString("取得最大:-");
         _sizeDescription->setString("????");
@@ -158,9 +160,23 @@ void Book::_loadAnimal(Species* species)
         auto count = mgr->getAnimalCount(name);
         auto min = mgr->getMinWeight(name);
         auto max = mgr->getMaxWeight(name);
-        _getNum->setString(StringUtils::format("取得回数:%d回", count));
-        _getMinSize->setString(StringUtils::format("取得最小:%.02f%s", min.getWeight(), min.getUnitStr().c_str()));
-        _getMaxSize->setString(StringUtils::format("取得最大:%.02f%s", max.getWeight(), max.getUnitStr().c_str()));
+        _getNum->setString(StringUtils::format("取得回数:%d", count));
+        _getMinSize->setString(StringUtils::format("最小:%.02f%s", min.getWeight(), min.getUnitStr().c_str()));
+        _getMaxSize->setString(StringUtils::format("最大:%.02f%s", max.getWeight(), max.getUnitStr().c_str()));
+        auto maxRank = species->getMaxWeightRank(max);
+        auto minRank = species->getMinWeightRank(min);
+        if ((int)maxRank == 0) {
+            _maxCrownImage->setVisible(false);
+        } else {
+            _maxCrownImage->setVisible(true);
+            _maxCrownImage->setTexture(StringUtils::format("ui/max_crown%d.png", (int)maxRank));
+        }
+        if ((int)minRank == 0) {
+            _minCrownImage->setVisible(false);
+        } else {
+            _minCrownImage->setVisible(true);
+            _minCrownImage->setTexture(StringUtils::format("ui/min_crown%d.png", (int)minRank));
+        }
 
         min = species->getMinWeight();
         max = species->getMaxWeight();

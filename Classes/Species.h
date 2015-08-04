@@ -26,6 +26,8 @@ public:
     Weight getMaxWeight();
     Weight getAverageWeight();
     Weight getMinWeight();
+    SizeRank getMaxWeightRank(Weight getMaxWeight);
+    SizeRank getMinWeightRank(Weight getMinWeight);
     Length getSpeed();
     Length getDashSpeed();
     float getDensity();

@@ -57,8 +57,8 @@ bool MultiplayResult::init()
     _opponentName   = node->getChildByName<ui::Text*>("opponentName");
     _playerWeight   = node->getChildByName<ui::TextBMFont*>("playerWeight");
     _opponentWeight = node->getChildByName<ui::TextBMFont*>("opponentWeight");
-    _playerResult   = node->getChildByName<ui::TextBMFont*>("playerResult");
-    _opponentResult = node->getChildByName<ui::TextBMFont*>("opponentResult");
+    _playerResult   = node->getChildByName<Sprite*>("playerResult");
+    _opponentResult = node->getChildByName<Sprite*>("opponentResult");
     
     
     auto button = node->getChildByName<ui::Button*>("okButton");
@@ -92,8 +92,8 @@ void MultiplayResult::_pushButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::To
 
 void MultiplayResult::setResult(GameResult result)
 {
-//    _playerName->setString(result.playerName);
-//    _opponentName->setString(result.opponentName);
+    _playerName->setString(result.playerName);
+    _opponentName->setString(result.opponentName);
 
     _playerWeight->setString(StringUtils::format("%.02f %s", result.playerWeight.getWeight(), result.playerWeight.getUnitStr().c_str()));
     _opponentWeight->setString(StringUtils::format("%.02f %s", result.opponentWeight.getWeight(), result.opponentWeight.getUnitStr().c_str()));
