@@ -8,6 +8,7 @@
 
 #include "Animal.h"
 #include "WorldManager.h"
+#include "SceneManager.h"
 
 #pragma - Lifecycle
 
@@ -141,7 +142,7 @@ void Animal::jump(Vec2 target, float height, std::function<void ()> callback)
     _state = AnimalState::Jump;
     float jumpInterval = ZUtil::calcDurationTime(_timeline, "drop");
     this->runAction(Sequence::create(
-        JumpTo::create(1, target, height, 1),
+        JumpTo::create(1.0f, target, height, 1),
         CallFunc::create([this, callback]{
             if (callback) {
                 callback();
@@ -156,6 +157,31 @@ void Animal::jump(Vec2 target, float height, std::function<void ()> callback)
         }),
         NULL
     ));
+
+    if (SceneManager::getInstance()->isNetwork() == false) {
+        auto maxRank = getMaxSizeRank();
+        auto minRank = getMinSizeRank();
+        Sprite* crown = nullptr;
+        if (maxRank != SizeRank::None) {
+            crown = Sprite::create(StringUtils::format("ui/max_crown%d.png", maxRank));
+        } else if (minRank != SizeRank::None) {
+            crown = Sprite::create(StringUtils::format("ui/min_crown%d.png", minRank));
+        }
+        if (crown) {
+            float scale = 0.8f / (getScale() * getParent()->getScale());
+            crown->setScale(0);
+            crown->setPosition(Vec2(200, 400));
+            addChild(crown);
+            crown->runAction(Sequence::create(
+                DelayTime::create(1.0f),
+                EaseBackOut::create(ScaleTo::create(1.0f, scale)),
+                DelayTime::create(0.5f),
+                EaseBackIn::create(ScaleTo::create(0.5f, 0)),
+                RemoveSelf::create(),
+                NULL
+            ));
+        }
+    }
 }
 
 void Animal::startDash(Vec2 targetPoint, Length speed)
@@ -419,6 +445,11 @@ float Animal::getHp()
 
 #pragma - setter / getter
 
+Species* Animal::getSpecies()
+{
+    return _species;
+}
+
 Length Animal::getHeight()
 {
     return _height;
@@ -577,6 +608,16 @@ Vec2 Animal::getTargetPointByDash()
 AbstractBattleEntity* Animal::getFightTarget()
 {
     return _target;
+}
+
+SizeRank Animal::getMaxSizeRank()
+{
+    return _species->getMaxHeightRank(_height);
+}
+
+SizeRank Animal::getMinSizeRank()
+{
+    return _species->getMinHeightRank(_height);
 }
 
 #pragma - private method

@@ -101,10 +101,10 @@ SizeRank Species::getMaxHeightRank(Length maxHeight)
     auto sd   = _getStandardDeviation();
     auto mean = getAverageHeight().getMmLength();
     
+    // 出現率0.13%
+    float goldThreshold   = mean + sd * 3.0;
     // 出現率1%
-    float goldThreshold   = mean + sd * 2.33;
-    // 出現率3%
-    float silverThreshold = mean + sd * 1.88;
+    float silverThreshold = mean + sd * 2.33;
 
     if (x > goldThreshold) {
         return SizeRank::Gold;
@@ -121,10 +121,10 @@ SizeRank Species::getMinHeightRank(Length minHeight)
     auto sd   = _getStandardDeviation();
     auto mean = getAverageHeight().getMmLength();
     
+    // 出現率0.13%
+    float goldThreshold   = mean - sd * 3.0;
     // 出現率1%
-    float goldThreshold   = mean - sd * 2.33;
-    // 出現率3%
-    float silverThreshold = mean - sd * 1.88;
+    float silverThreshold = mean - sd * 2.33;
 
     if (x < goldThreshold) {
         return SizeRank::Gold;
@@ -196,8 +196,8 @@ Length Species::getRandomHeight()
     float sd   = _getStandardDeviation();
     
     float rnd = ZUtil::boxrnd(mean, sd);
-    rnd = MIN(rnd, _maxHeight.getMmLength());
-    rnd = MAX(rnd, _minHeight.getMmLength());
+//    rnd = MIN(rnd, _maxHeight.getMmLength());
+//    rnd = MAX(rnd, _minHeight.getMmLength());
     return Length(rnd);
 }
 

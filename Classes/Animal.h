@@ -24,6 +24,7 @@ public:
     bool initWithSpeceis(Species* species, float size);
 
     float getWorldScale();
+    Species* getSpecies();
     Length getHeight();
     Length getSpeed();
     Length getDashSpeed();
@@ -49,6 +50,8 @@ public:
     AbstractBattleEntity* getFightTarget();
     float getMaxHp();
     float getHp();
+    SizeRank getMaxSizeRank();
+    SizeRank getMinSizeRank();
 
     void updateWorldScale();
     void jump(Vec2 target, float height, std::function<void ()> callback);

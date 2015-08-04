@@ -78,10 +78,8 @@ float ZUtil::calcDurationTime(cocostudio::timeline::ActionTimeline* timeline, st
 double ZUtil::boxrnd(double m, double sig)
 {
     double pi = 3.1415926535;      // 円周率
-    double rmax = RAND_MAX + 1.e-8;  // 整数乱数正準化係数
-
-    double ur1 = rand() / rmax;
-    double ur2 = rand() / rmax;
+    double ur1 = rand_0_1();
+    double ur2 = rand_0_1();
     double r   = sig * sqrt(-2 * log(ur1));
     double t   = 2 * pi * ur2;
     return r * cos(t) + m;

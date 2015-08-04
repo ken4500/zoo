@@ -289,15 +289,15 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="weightLabel" ActionTag="1666255966" Tag="361" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="889.5599" RightMargin="45.4401" TopMargin="483.0000" BottomMargin="80.0000" LabelText="1.25kg" ctype="TextBMFontObjectData">
-            <Size X="201.0000" Y="77.0000" />
+          <AbstractNodeData Name="weightLabel" ActionTag="1666255966" Tag="361" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="881.5599" RightMargin="45.4401" TopMargin="475.0000" BottomMargin="80.0000" LabelText="1.25kg" ctype="TextBMFontObjectData">
+            <Size X="209.0000" Y="85.0000" />
             <AnchorPoint ScaleX="1.0000" />
             <Position X="1090.5599" Y="80.0000" />
             <Scale ScaleX="0.8000" ScaleY="0.8000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.9600" Y="0.1250" />
-            <PreSize X="0.1769" Y="0.1203" />
-            <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font2.fnt" Plist="" />
+            <PreSize X="0.1840" Y="0.1328" />
+            <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font3.fnt" Plist="" />
           </AbstractNodeData>
           <AbstractNodeData Name="levelLabel" ActionTag="1209458093" Tag="19" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="430.5000" RightMargin="430.5000" TopMargin="12.8000" BottomMargin="550.2000" LabelText="LEVEL 3" ctype="TextBMFontObjectData">
             <Size X="275.0000" Y="77.0000" />

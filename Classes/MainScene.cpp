@@ -403,7 +403,7 @@ void MainScene::_setupDebugMenu()
     }
 
     // メニューを増やしたいときは数を増やしてね
-    int menuNum = 5;
+    int menuNum = 6;
 
     auto size = Director::getInstance()->getVisibleSize();
     auto dummyImage = Sprite::create("ui/debug_button.png");
@@ -453,6 +453,36 @@ void MainScene::_setupDebugMenu()
     endTutorial->setAnchorPoint(Vec2(1.0f, 0.0f));
     endTutorial->setPosition(Vec2(0, 320));
     debugMenu->addChild(endTutorial, 1);
+
+    auto test = DebugButton::create("test", [this]() {
+        auto s = new Species("Hero");
+        int maxGold = 0, maxSilver = 0, minGold = 0, minSilver = 0;
+        int tryCount = 10000;
+        for (int i = 0; i < tryCount; i++) {
+            auto random = s->getRandomHeight();
+            auto maxRank = s->getMaxHeightRank(random);
+            auto minRank = s->getMinHeightRank(random);
+            if (maxRank == SizeRank::Gold) {
+                maxGold++;
+            } else if (maxRank == SizeRank::Silver) {
+                maxSilver++;
+            }
+            if (minRank == SizeRank::Gold) {
+                minGold++;
+            } else if (minRank == SizeRank::Silver) {
+                minSilver++;
+            }
+        }
+        
+        CCLOG("%d回実行", tryCount);
+        CCLOG("最大金: %d回 (%.04f ％)", maxGold, (float)maxGold / tryCount);
+        CCLOG("最大銀: %d回 (%.04f ％)", maxSilver, (float)maxSilver / tryCount);
+        CCLOG("最小金: %d回 (%.04f ％)", minGold, (float)minGold / tryCount);
+        CCLOG("最小銀: %d回 (%.04f ％)", minSilver, (float)minSilver / tryCount);
+    });
+    test->setAnchorPoint(Vec2(1.0f, 0.0f));
+    test->setPosition(Vec2(0, 400));
+    debugMenu->addChild(test, 1);
 
 
 
