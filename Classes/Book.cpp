@@ -47,6 +47,10 @@ void Book::onEnter()
     _getNum = _bookNode->getChildByName<ui::Text*>("getNum");
     _getMinSize = _bookNode->getChildByName<ui::Text*>("getMinSize");
     _getMaxSize = _bookNode->getChildByName<ui::Text*>("getMaxSize");
+    auto back = this->getChildByName("leftButton")->getChildByName<ui::TextBMFont*>("back");
+    back->setString(CCLS("BOOK_BACK"));
+    auto next = this->getChildByName("rightButton")->getChildByName<ui::TextBMFont*>("next");
+    next->setString(CCLS("BOOK_NEXT"));
 
     for (int pos = 1; pos <= ANIMAL_NUM_IN_A_PAGE; pos++) {
         auto button = _bookNode->getChildByName<ui::Button*>(StringUtils::format("position%d", pos));
@@ -168,9 +172,9 @@ void Book::_loadAnimal(Species* species)
         // 取得したことがない
         _animalImage->setColor(Color3B::BLACK);
         _animalName->setString("????");
-        _getNum->setString("取得回数:0");
-        _getMinSize->setString("取得最小:-");
-        _getMaxSize->setString("取得最大:-");
+        _getNum->setString(StringUtils::format("%s:0", CCLS("BOOK_GET_NUM")));
+        _getMinSize->setString(StringUtils::format("%s:-", CCLS("BOOK_MIN")));
+        _getMaxSize->setString(StringUtils::format("%s:-", CCLS("BOOK_MAX")));
         _sizeDescription->setString("????");
         _description->setString("????");
     } else {
@@ -181,9 +185,9 @@ void Book::_loadAnimal(Species* species)
         auto count = mgr->getAnimalCount(name);
         auto min = mgr->getMinWeight(name);
         auto max = mgr->getMaxWeight(name);
-        _getNum->setString(StringUtils::format("取得回数:%d", count));
-        _getMinSize->setString(StringUtils::format("最小:%.02f%s", min.getWeight(), min.getUnitStr().c_str()));
-        _getMaxSize->setString(StringUtils::format("最大:%.02f%s", max.getWeight(), max.getUnitStr().c_str()));
+        _getNum->setString(StringUtils::format("%s:%d", CCLS("BOOK_GET_NUM"), count));
+        _getMinSize->setString(StringUtils::format("%s:%.02f%s", CCLS("BOOK_MIN"), min.getWeight(), min.getUnitStr().c_str()));
+        _getMaxSize->setString(StringUtils::format("%s:%.02f%s", CCLS("BOOK_MAX"), max.getWeight(), max.getUnitStr().c_str()));
         auto maxRank = species->getMaxWeightRank(max);
         auto minRank = species->getMinWeightRank(min);
         if ((int)maxRank == 0) {

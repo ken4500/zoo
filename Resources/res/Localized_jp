@@ -20,6 +20,12 @@ NOTICE_MULTIPLAY = 同じWi-Fiに接続している、\nもしくはbluetoothが
 NOTICE_LACK_LIFE = ライフが足りません。\nライフは時間で回復します。;
 YESNO_END_MULTIPLAY = バトルを終了しますか？;
 
+BOOK_GET_NUM = 取得回数;
+BOOK_MIN = 最小;
+BOOK_MAX = 最大;
+BOOK_NEXT = 進む;
+BOOK_BACK = 戻る;
+
 Hero = 主人公;
 Ari = アリ;
 Tentoumushi = テントウムシ;

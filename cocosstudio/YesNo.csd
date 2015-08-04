@@ -17,7 +17,7 @@
             <FileData Type="Normal" Path="ui/menu3.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="title" ActionTag="863392089" Tag="2" IconVisible="False" LeftMargin="-133.0002" RightMargin="-132.9998" TopMargin="-203.4999" BottomMargin="126.4999" LabelText="CONFIRM" ctype="TextBMFontObjectData">
+          <AbstractNodeData Name="title" ActionTag="863392089" Tag="2" IconVisible="False" LeftMargin="-161.5002" RightMargin="-161.4998" TopMargin="-203.4999" BottomMargin="126.4999" LabelText="CONFIRM" ctype="TextBMFontObjectData">
             <Size X="323.0000" Y="77.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="-0.0002" Y="164.9999" />
@@ -27,21 +27,22 @@
             <PreSize X="0.0000" Y="0.0000" />
             <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font2.fnt" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="noticeMessage" ActionTag="-843175461" Tag="47" IconVisible="False" LeftMargin="-197.0000" RightMargin="-197.0000" TopMargin="-68.0021" BottomMargin="-15.9979" FontSize="36" LabelText="TEST TEST TEST TEST&#xA;TEST TEST TEST TEST" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-            <Size X="394.0000" Y="84.0000" />
+          <AbstractNodeData Name="noticeMessage" ActionTag="-843175461" Tag="47" IconVisible="False" LeftMargin="-203.0000" RightMargin="-203.0000" TopMargin="-68.0021" BottomMargin="-3.9979" FontSize="30" LabelText="TEST TEST TEST TEST&#xA;TEST TEST TEST TEST" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+            <Size X="337.0000" Y="60.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="1.0000" />
             <Position Y="68.0021" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="60" G="30" B="10" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
+            <FontResource Type="Normal" Path="font/yasashisa.ttf" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
           <AbstractNodeData Name="yesButton" ActionTag="1210879474" Tag="22" IconVisible="False" LeftMargin="-205.0000" RightMargin="5.0000" TopMargin="100.0000" BottomMargin="-220.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="275" Scale9Height="112" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="200.0000" Y="120.0000" />
             <Children>
-              <AbstractNodeData Name="coinLabel_0" ActionTag="-587949728" Tag="23" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="34.0000" RightMargin="34.0000" TopMargin="11.5000" BottomMargin="11.5000" LabelText="YES" ctype="TextBMFontObjectData">
+              <AbstractNodeData Name="coinLabel_0" ActionTag="-587949728" Tag="23" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="37.5000" RightMargin="37.5000" TopMargin="21.5000" BottomMargin="21.5000" LabelText="YES" ctype="TextBMFontObjectData">
                 <Size X="125.0000" Y="77.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="100.0000" Y="60.0000" />
@@ -68,7 +69,7 @@
           <AbstractNodeData Name="noButton" ActionTag="-357908968" Tag="65" IconVisible="False" LeftMargin="5.0000" RightMargin="-205.0000" TopMargin="100.0000" BottomMargin="-220.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="30" RightEage="30" TopEage="30" BottomEage="30" Scale9OriginX="30" Scale9OriginY="30" Scale9Width="245" Scale9Height="74" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="200.0000" Y="120.0000" />
             <Children>
-              <AbstractNodeData Name="coinLabel_0" ActionTag="1969684329" Tag="66" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="35.2625" RightMargin="49.7375" TopMargin="8.6100" BottomMargin="14.3900" LabelText="NO" ctype="TextBMFontObjectData">
+              <AbstractNodeData Name="coinLabel_0" ActionTag="1969684329" Tag="66" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="38.5000" RightMargin="53.5000" TopMargin="18.0320" BottomMargin="24.9680" LabelText="NO" ctype="TextBMFontObjectData">
                 <Size X="108.0000" Y="77.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="92.5000" Y="63.4680" />

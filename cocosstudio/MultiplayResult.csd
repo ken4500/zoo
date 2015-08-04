@@ -64,25 +64,27 @@
             <PreSize X="0.0000" Y="0.0000" />
             <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font2.fnt" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="playerName" ActionTag="786924941" Tag="85" IconVisible="False" LeftMargin="-139.7500" RightMargin="74.7500" TopMargin="-133.9999" BottomMargin="105.9999" FontSize="24" LabelText="player" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-            <Size X="65.0000" Y="28.0000" />
+          <AbstractNodeData Name="playerName" ActionTag="786924941" Tag="85" IconVisible="False" LeftMargin="-143.2500" RightMargin="71.2500" TopMargin="-131.9999" BottomMargin="107.9999" FontSize="24" LabelText="player" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+            <Size X="72.0000" Y="24.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="-107.2500" Y="119.9999" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="60" G="30" B="10" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
+            <FontResource Type="Normal" Path="font/yasashisa.ttf" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="opponentName" ActionTag="225088974" Tag="87" IconVisible="False" LeftMargin="77.9236" RightMargin="-149.9236" TopMargin="-133.9999" BottomMargin="105.9999" FontSize="24" LabelText="enemy" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-            <Size X="72.0000" Y="28.0000" />
+          <AbstractNodeData Name="opponentName" ActionTag="225088974" Tag="87" IconVisible="False" LeftMargin="77.9236" RightMargin="-149.9236" TopMargin="-131.9999" BottomMargin="107.9999" FontSize="24" LabelText="enemy" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+            <Size X="72.0000" Y="24.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="113.9236" Y="119.9999" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="60" G="30" B="10" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
+            <FontResource Type="Normal" Path="font/yasashisa.ttf" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>

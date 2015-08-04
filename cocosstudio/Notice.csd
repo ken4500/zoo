@@ -54,14 +54,15 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="noticeMessage" ActionTag="-843175461" Tag="47" IconVisible="False" LeftMargin="-197.0000" RightMargin="-197.0000" TopMargin="-60.0000" BottomMargin="-24.0000" FontSize="36" LabelText="TEST TEST TEST TEST&#xA;TEST TEST TEST TEST" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-            <Size X="394.0000" Y="84.0000" />
+          <AbstractNodeData Name="noticeMessage" ActionTag="-843175461" Tag="47" IconVisible="False" LeftMargin="-168.5000" RightMargin="-168.5000" TopMargin="-69.0003" BottomMargin="9.0003" FontSize="30" LabelText="TEST TEST TEST TEST&#xA;TEST TEST TEST TEST" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+            <Size X="337.0000" Y="60.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="1.0000" />
-            <Position Y="60.0000" />
+            <Position Y="69.0003" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="60" G="30" B="10" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
+            <FontResource Type="Normal" Path="font/yasashisa.ttf" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
