@@ -10,6 +10,7 @@ class Gacha;
 class Animal;
 class WorldMap;
 class ScaleBar;
+class HpGauge;
 using namespace cocos2d;
 
 class MainScene : public cocos2d::Layer, public WorldSceneInterface
@@ -33,13 +34,14 @@ public:
     void playNovel(std::string novelId, std::function<void ()> callback, bool apearSkipButton);
     void hideMenu();
     void showMenu();
-    void showLeftTIme();
-    void hideLeftTime();
+    void showBattleMenu();
+    void hideBattleMenu();
     void updateCoinLabel();
     void updateLifeLabel(float dt);
     void updateLeftTimeLabel(int leftTime);
     void updateLevelLabel();
     void updateWeightLabel(Weight weight);
+    void updateHpGauge(float hp);
     void showConsumeCoinEffect(int decreaseCoin);
     void showNoticeView(std::string message, float delay, std::function<void ()> closeCallback);
     void showResultView(GameResult result, float delay, std::function<void ()> closeCallback);
@@ -57,6 +59,7 @@ private:
     cocos2d::ui::TextBMFont* _weightLabel;
     cocos2d::ui::Button* _endButton;
     cocos2d::ui::Button* _otherMenuButton;
+    HpGauge* _hpGauge;
     Weight _preWeight;
     Action* _countUpAction;
     ScaleBar* _scaleBar;

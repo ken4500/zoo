@@ -217,6 +217,23 @@ Weight WorldManager::getTotalWeight()
     return _totalWeight;
 }
 
+float WorldManager::getMaxHp()
+{
+    auto animalList = getAnimalList();
+    return 1.0f * animalList.size();
+}
+
+float WorldManager::getHp()
+{
+    auto animalList = getAnimalList();
+    float hp = 0;
+    for (auto animal : animalList) {
+        float rate = animal->getHp() / animal->getMaxHp();
+        hp += rate;
+    }
+    return hp;
+}
+
 #pragma - public method
 
 void WorldManager::resetData()
@@ -391,7 +408,7 @@ void WorldManager::startBattle()
     
     auto scene = SceneManager::getInstance()->getMainScene();
     if (scene) {
-        scene->showLeftTIme();
+        scene->showBattleMenu();
         scene->updateLifeLabel(0);
     }
 
@@ -654,6 +671,14 @@ void WorldManager::_leftTimeUpdate(float dt)
     _setLeftTime(_leftTime);
 }
 
+void WorldManager::_hpGaugeUpdate(float dt)
+{
+    auto main = SceneManager::getInstance()->getMainScene();
+    if (main) {
+        main->updateHpGauge(getHp());
+    }
+}
+
 void WorldManager::_endBattle()
 {
     if (_state == SceneState::Battle) {
@@ -661,6 +686,8 @@ void WorldManager::_endBattle()
     } else if (_state == SceneState::TutorialBattle) {
         _state = SceneState::TutorialGacha;
     }
+    
+    _hpGaugeUpdate(0);
     this->_setGameActive(false);
     _enableNextAction = false;
 }
@@ -702,7 +729,7 @@ void WorldManager::_closeResult()
     
     auto scene = SceneManager::getInstance()->getMainScene();
     if (scene) {
-        scene->hideLeftTime();
+        scene->hideBattleMenu();
     }
 }
 
@@ -713,12 +740,16 @@ void WorldManager::_setGameActive(bool active)
         if (_isNetwork) {
             Director::getInstance()->getScheduler()->schedule(CC_CALLBACK_1(WorldManager::_sendAnimalStatus, this), this, 0.5f, false, "send_animal_status");
             Director::getInstance()->getScheduler()->schedule(CC_CALLBACK_1(WorldManager::_makeCoinTreePerTime, this), this, 1.0f, false, "make_coin_tree");
+        } else {
+            Director::getInstance()->getScheduler()->schedule(CC_CALLBACK_1(WorldManager::_hpGaugeUpdate, this), this, 0.3f, false, "update_hp");
         }
     } else {
         Director::getInstance()->getScheduler()->unschedule("update_time", this);
         if (_isNetwork) {
             Director::getInstance()->getScheduler()->unschedule("send_animal_status", this);
             Director::getInstance()->getScheduler()->unschedule("make_coin_tree", this);
+        } else {
+            Director::getInstance()->getScheduler()->unschedule("update_hp", this);
         }
     }
 }

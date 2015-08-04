@@ -52,6 +52,8 @@ public:
     Gacha* getOpponentGacha();
     Length getDashSpeed();
     Weight getTotalWeight();
+    float getMaxHp();
+    float getHp();
 
     // game logic
     void lotteryGacha();
@@ -103,6 +105,7 @@ private:
     EnemyGenerater* _enemyGenerater;
     Weight* _opponentResultWeight;
     
+    void _hpGaugeUpdate(float dt);
     void _leftTimeUpdate(float dt);
     void _endBattle();
     void _closeResult();

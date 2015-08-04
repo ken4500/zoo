@@ -32,6 +32,7 @@
           <Image Name="map7.jpg" />
           <Image Name="map8.jpg" />
           <Image Name="map9.jpg" />
+          <Image Name="map11.png" />
         </Folder>
         <Folder Name="font">
           <Fnt Name="font2.fnt" />
@@ -139,6 +140,15 @@
           <Image Name="unkonwn_animal.png" />
           <Image Name="line.png" />
           <Image Name="button02.png" />
+        </Folder>
+        <Project Name="HpGauge.csd" Type="Node" />
+        <Folder Name="gauge">
+          <Image Name="back.png" />
+          <Image Name="image02.png" />
+          <Image Name="image03.png" />
+          <Image Name="image04.png" />
+          <Image Name="gauge.png" />
+          <Image Name="image01.png" />
         </Folder>
       </RootFolder>
     </Group>

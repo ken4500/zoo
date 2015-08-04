@@ -98,6 +98,8 @@
 		9FB063E21B5818A20088AE2A /* NovelLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FB063DB1B5818A20088AE2A /* NovelLayer.cpp */; };
 		9FB063E31B5818A20088AE2A /* NovelPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FB063DD1B5818A20088AE2A /* NovelPlayer.cpp */; };
 		9FB063E91B581B140088AE2A /* LabelColor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FB063E61B581B140088AE2A /* LabelColor.cpp */; };
+		9FE5C85C1B712169002274D0 /* HpGauge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FE5C8581B712169002274D0 /* HpGauge.cpp */; };
+		9FE5C85D1B712169002274D0 /* HpGaugeReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FE5C85A1B712169002274D0 /* HpGaugeReader.cpp */; };
 		9FFC9E6E1B42F8F400869B23 /* ZMath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FFC9E6C1B42F8F400869B23 /* ZMath.cpp */; };
 		9FFC9E711B42FA0100869B23 /* ZUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FFC9E6F1B42FA0100869B23 /* ZUtil.cpp */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
@@ -268,6 +270,10 @@
 		9FB063E61B581B140088AE2A /* LabelColor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LabelColor.cpp; sourceTree = "<group>"; };
 		9FB063E71B581B140088AE2A /* LabelColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelColor.h; sourceTree = "<group>"; };
 		9FB063E81B581B140088AE2A /* LabelColorDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelColorDefinition.h; sourceTree = "<group>"; };
+		9FE5C8581B712169002274D0 /* HpGauge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HpGauge.cpp; sourceTree = "<group>"; };
+		9FE5C8591B712169002274D0 /* HpGauge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HpGauge.h; sourceTree = "<group>"; };
+		9FE5C85A1B712169002274D0 /* HpGaugeReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HpGaugeReader.cpp; sourceTree = "<group>"; };
+		9FE5C85B1B712169002274D0 /* HpGaugeReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HpGaugeReader.h; sourceTree = "<group>"; };
 		9FFC9E6C1B42F8F400869B23 /* ZMath.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ZMath.cpp; sourceTree = "<group>"; };
 		9FFC9E6D1B42F8F400869B23 /* ZMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZMath.h; sourceTree = "<group>"; };
 		9FFC9E6F1B42FA0100869B23 /* ZUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ZUtil.cpp; sourceTree = "<group>"; };
@@ -643,6 +649,10 @@
 				9FA0EA081B66E921007F642B /* CoinTreeReader.cpp */,
 				9FA0EA091B66E921007F642B /* CoinTreeReader.h */,
 				9FA0EA131B67F915007F642B /* AbstractBattleEntity.h */,
+				9FE5C8581B712169002274D0 /* HpGauge.cpp */,
+				9FE5C8591B712169002274D0 /* HpGauge.h */,
+				9FE5C85A1B712169002274D0 /* HpGaugeReader.cpp */,
+				9FE5C85B1B712169002274D0 /* HpGaugeReader.h */,
 			);
 			name = Entity;
 			sourceTree = "<group>";
@@ -794,6 +804,7 @@
 				9F543DF71B6EA7360052496F /* Book.cpp in Sources */,
 				9F01C8A61B5FF509009E9D21 /* DebugButton.cpp in Sources */,
 				9F425AE91B461732001B2969 /* WorldInfo.cpp in Sources */,
+				9FE5C85D1B712169002274D0 /* HpGaugeReader.cpp in Sources */,
 				9FA0EA0A1B66E921007F642B /* CoinTree.cpp in Sources */,
 				9F06E9BF1B5AD21A00107C09 /* ResultLayer.cpp in Sources */,
 				9FA0EA0B1B66E921007F642B /* CoinTreeReader.cpp in Sources */,
@@ -815,6 +826,7 @@
 				9F015C9A1B4211FB00F45135 /* Animal.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				9F6835D71B62E1A500589EBE /* TitleScene.cpp in Sources */,
+				9FE5C85C1B712169002274D0 /* HpGauge.cpp in Sources */,
 				9F83BA6C1B54327700605D1D /* WorldMap.cpp in Sources */,
 				9F05646D1B49EDE000649A7F /* ScaleBarReader.cpp in Sources */,
 				9F425AEC1B461899001B2969 /* Length.cpp in Sources */,

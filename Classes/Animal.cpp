@@ -407,6 +407,16 @@ void Animal::endFight()
     startWalk();
 }
 
+float Animal::getMaxHp()
+{
+    return _maxHp;
+}
+
+float Animal::getHp()
+{
+    return _hp;
+}
+
 #pragma - setter / getter
 
 Length Animal::getHeight()

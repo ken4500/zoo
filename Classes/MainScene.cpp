@@ -17,6 +17,8 @@
 #include "MenuLayer.h"
 #include "CoinTreeReader.h"
 #include "BookReader.h"
+#include "HpGauge.h"
+#include "HpGaugeReader.h"
 
 USING_NS_CC;
 
@@ -64,6 +66,7 @@ bool MainScene::init()
     instance->registReaderObject("WorldMapReader", (ObjectFactory::Instance) WorldMapReader::getInstance);
     instance->registReaderObject("CoinTreeReader", (ObjectFactory::Instance) CoinTreeReader::getInstance);
     instance->registReaderObject("BookReader", (ObjectFactory::Instance) BookReader::getInstance);
+    instance->registReaderObject("HpGaugeReader", (ObjectFactory::Instance) HpGaugeReader::getInstance);
 
     _rootNode = CSLoader::createNode("MainScene.csb");
     _timeLeftLabel = _rootNode->getChildByName<ui::TextBMFont*>("timeLabel");
@@ -94,6 +97,7 @@ bool MainScene::init()
     _otherMenuButton->addTouchEventListener(CC_CALLBACK_2(MainScene::_pushOtherMenuButton, this));
 
     _scaleBar = _rootNode->getChildByName<ScaleBar*>("scaleBar");
+    _hpGauge  = _rootNode->getChildByName<HpGauge*>("hpGauge");
 
     _setupDebugMenu();
 
@@ -165,10 +169,11 @@ void MainScene::hideMenu()
 {
     auto battleButton = _menuNode->getChildByName<ui::Button*>("battleButton");
     battleButton->setEnabled(false);
-    _menuNode->runAction(FadeOut::create(0.5f));
-    _levelLabel->runAction(FadeOut::create(0.5f));
-    _weightLabel->runAction(FadeOut::create(0.5f));
+    _menuNode->runAction(FadeOut::create(0.2f));
+    _levelLabel->runAction(FadeOut::create(0.2f));
+    _weightLabel->runAction(FadeOut::create(0.2f));
     _otherMenuButton->setEnabled(false);
+    _scaleBar->runAction(FadeOut::create(0.2f));
     
 }
 
@@ -181,10 +186,10 @@ void MainScene::showMenu()
     _levelLabel->runAction(FadeIn::create(0.5f));
     _weightLabel->runAction(FadeIn::create(0.5f));
     _otherMenuButton->setEnabled(true);
-
+    _scaleBar->runAction(FadeIn::create(0.5f));
 }
 
-void MainScene::showLeftTIme()
+void MainScene::showBattleMenu()
 {
     _timeLeftLabel->setOpacity(0);
     _timeLeftLabel->setVisible(true);
@@ -193,12 +198,20 @@ void MainScene::showLeftTIme()
     _endButton->setOpacity(0);
     _endButton->setVisible(true);
     _endButton->runAction(FadeIn::create(0.5f));
+    
+    _hpGauge->setOpacity(0);
+    _hpGauge->setVisible(true);
+    _hpGauge->runAction(FadeIn::create(0.5f));
+    float maxHp = WorldManager::getInstance()->getMaxHp();
+    float hp    = WorldManager::getInstance()->getHp();
+    _hpGauge->setInitHp(maxHp, hp);
 }
 
-void MainScene::hideLeftTime()
+void MainScene::hideBattleMenu()
 {
-    _timeLeftLabel->runAction(FadeOut::create(0.5f));
-    _endButton->runAction(FadeOut::create(0.5f));
+    _timeLeftLabel->runAction(FadeOut::create(0.2f));
+    _endButton->runAction(FadeOut::create(0.2f));
+    _hpGauge->runAction(FadeOut::create(0.2f));
 }
 
 void MainScene::updateLevelLabel()
@@ -328,6 +341,11 @@ void MainScene::updateLifeLabel(float dt)
 void MainScene::updateLeftTimeLabel(int leftTime)
 {
     _timeLeftLabel->setString(to_string(leftTime));
+}
+
+void MainScene::updateHpGauge(float hp)
+{
+    _hpGauge->setHp(hp);
 }
 
 void MainScene::showConsumeCoinEffect(int decreaseCoin)
