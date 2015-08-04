@@ -164,7 +164,7 @@
           <AbstractNodeData Name="menuNode" ActionTag="-2046749336" Tag="12" IconVisible="True" LeftMargin="33.0452" RightMargin="1102.9548" TopMargin="608.6856" BottomMargin="31.3144" ctype="SingleNodeObjectData">
             <Size X="0.0000" Y="0.0000" />
             <Children>
-              <AbstractNodeData Name="battleButton" ActionTag="280631743" Tag="71" Alpha="225" IconVisible="False" LeftMargin="-26.0840" RightMargin="-226.9160" TopMargin="-225.1160" BottomMargin="-25.8840" TouchEnable="True" FontSize="48" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="223" Scale9Height="229" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+              <AbstractNodeData Name="battleButton" ActionTag="280631743" Tag="71" IconVisible="False" LeftMargin="-26.0840" RightMargin="-226.9160" TopMargin="-225.1160" BottomMargin="-25.8840" TouchEnable="True" FontSize="48" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="223" Scale9Height="229" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                 <Size X="253.0000" Y="251.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="100.4160" Y="99.6160" />
@@ -179,11 +179,11 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="hart" ActionTag="-1146902275" Tag="29" IconVisible="False" LeftMargin="-0.0002" RightMargin="-284.9998" TopMargin="-475.9997" BottomMargin="235.9997" ctype="SpriteObjectData">
-                <Size X="285.0000" Y="240.0000" />
+              <AbstractNodeData Name="hart" ActionTag="-1146902275" Tag="29" IconVisible="False" LeftMargin="-0.0002" RightMargin="-142.9998" TopMargin="-356.9997" BottomMargin="235.9997" ctype="SpriteObjectData">
+                <Size X="143.0000" Y="121.0000" />
                 <AnchorPoint />
                 <Position X="-0.0002" Y="235.9997" />
-                <Scale ScaleX="0.2600" ScaleY="0.2600" />
+                <Scale ScaleX="0.5000" ScaleY="0.5000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition />
                 <PreSize X="0.0000" Y="0.0000" />
@@ -231,18 +231,18 @@
                 <PreSize X="0.0000" Y="0.0000" />
                 <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font2.fnt" Plist="" />
               </AbstractNodeData>
-              <AbstractNodeData Name="otherMenu" ActionTag="-48313706" Tag="58" IconVisible="False" LeftMargin="221.9588" RightMargin="-301.9588" TopMargin="-83.3316" BottomMargin="3.3316" TouchEnable="True" FontSize="24" ButtonText="MENU" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-                <Size X="80.0000" Y="80.0000" />
+              <AbstractNodeData Name="otherMenu" ActionTag="-48313706" Tag="58" IconVisible="False" LeftMargin="190.4588" RightMargin="-333.4588" TopMargin="-120.3300" BottomMargin="-13.6700" TouchEnable="True" FontSize="24" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="113" Scale9Height="112" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                <Size X="143.0000" Y="134.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="261.9588" Y="43.3316" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <Position X="261.9588" Y="53.3300" />
+                <Scale ScaleX="0.7000" ScaleY="0.7000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition />
                 <PreSize X="0.0000" Y="0.0000" />
                 <TextColor A="255" R="65" G="65" B="70" />
                 <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-                <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
-                <NormalFileData Type="Default" Path="Default/Button_Normal.png" Plist="" />
+                <PressedFileData Type="Normal" Path="ui/menu.png" Plist="" />
+                <NormalFileData Type="Normal" Path="ui/menu.png" Plist="" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>

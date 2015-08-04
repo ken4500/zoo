@@ -54,11 +54,11 @@ bool ResultLayer::initWithResult(GameResult result)
     node->setOpacity(255);
     addChild(node, 10);
     
-    auto title = node->getChildByName<ui::TextBMFont*>("title");
+    auto title = node->getChildByName<Sprite*>("title");
     if (result.resultState == BattleState::Win) {
-        title->setString("WIN");
+        title->setTexture("ui/win.png");
     } else {
-        title->setString("LOSE");
+        title->setTexture("ui/lose.png");
     }
     
     auto coinLabel = node->getChildByName<ui::TextBMFont*>("coinLabel");

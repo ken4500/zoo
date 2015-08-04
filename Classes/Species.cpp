@@ -8,6 +8,8 @@
 
 #include "Species.h"
 #include "cocos2d.h"
+#include "Weight.h"
+
 USING_NS_CC;
 
 rapidjson::Document Species::document;
@@ -76,6 +78,21 @@ Length Species::getMinHeight()
 Length Species::getAverageHeight()
 {
     return Length(_minHeight.getMmLength() + _maxHeight.getMmLength() / 2);
+}
+
+Weight Species::getMaxWeight()
+{
+    return Weight(getMaxHeight(), getDensity());
+}
+
+Weight Species::getAverageWeight()
+{
+    return Weight(getAverageHeight(), getDensity());
+}
+
+Weight Species::getMinWeight()
+{
+    return Weight(getMinHeight(), getDensity());
 }
 
 Length Species::getSpeed()

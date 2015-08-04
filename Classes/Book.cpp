@@ -40,8 +40,11 @@ void Book::onEnter()
     _animalImage = _bookNode->getChildByName<Sprite*>("image");
     _description = _bookNode->getChildByName<ui::Text*>("description");
     _animalName  = _bookNode->getChildByName<ui::TextBMFont*>("name");
-    _sizeDescription = _bookNode->getChildByName<ui::Text*>("size");
+    _sizeDescription = _bookNode->getChildByName<ui::Text*>("speciesSize");
     _pageLabel = this->getChildByName<ui::TextBMFont*>("pageLabel");
+    _getNum = _bookNode->getChildByName<ui::Text*>("getNum");
+    _getMinSize = _bookNode->getChildByName<ui::Text*>("getMinSize");
+    _getMaxSize = _bookNode->getChildByName<ui::Text*>("getMaxSize");
 
     for (int pos = 1; pos <= ANIMAL_NUM_IN_A_PAGE; pos++) {
         auto button = _bookNode->getChildByName<ui::Button*>(StringUtils::format("position%d", pos));
@@ -134,12 +137,36 @@ void Book::_loadPage(int page)
 
 void Book::_loadAnimal(Species* species)
 {
+    auto name = species->getName();
     _animalImage->setTexture(species->getImageName());
-    _animalName->setString(CCLS(species->getName().c_str()));
-    Weight min = Weight(species->getMinHeight(), species->getDensity());
-    Weight max = Weight(species->getMaxHeight(), species->getDensity());
-    _sizeDescription->setString(StringUtils::format("%.02f%s 〜 %.02f%s", min.getWeight(), min.getUnitStr().c_str(), max.getWeight(), max.getUnitStr().c_str()));
-    _description->setString("hogehogehoge");
+    auto mgr = UserDataManager::getInstance();
+
+    if (mgr->haveHadAnimalInPast(name) == false) {
+        // 取得したことがない
+        _animalImage->setColor(Color3B::BLACK);
+        _animalName->setString("????");
+        _getNum->setString("取得回数:0回");
+        _getMinSize->setString("取得最小:-");
+        _getMaxSize->setString("取得最大:-");
+        _sizeDescription->setString("????");
+        _description->setString("????");
+    } else {
+        // 取得したことがある
+        _animalImage->setColor(Color3B::WHITE);
+        _animalName->setString(CCLS(name.c_str()));
+
+        auto count = mgr->getAnimalCount(name);
+        auto min = mgr->getMinWeight(name);
+        auto max = mgr->getMaxWeight(name);
+        _getNum->setString(StringUtils::format("取得回数:%d回", count));
+        _getMinSize->setString(StringUtils::format("取得最小:%.02f%s", min.getWeight(), min.getUnitStr().c_str()));
+        _getMaxSize->setString(StringUtils::format("取得最大:%.02f%s", max.getWeight(), max.getUnitStr().c_str()));
+
+        min = species->getMinWeight();
+        max = species->getMaxWeight();
+        _sizeDescription->setString(StringUtils::format("%.02f%s 〜 %.02f%s", min.getWeight(), min.getUnitStr().c_str(), max.getWeight(), max.getUnitStr().c_str()));
+        _description->setString("hogehogehoge");
+    }
 }
 
 void Book::_pushAnimalButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)

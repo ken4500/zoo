@@ -29,6 +29,9 @@ protected:
     Sprite* _animalImage;
     cocos2d::ui::TextBMFont* _animalName;
     cocos2d::ui::TextBMFont* _pageLabel;
+    cocos2d::ui::Text* _getNum;
+    cocos2d::ui::Text* _getMinSize;
+    cocos2d::ui::Text* _getMaxSize;
     cocos2d::ui::Text* _sizeDescription;
     cocos2d::ui::Text* _description;
     cocos2d::ui::Button* _leftButton;

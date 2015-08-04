@@ -9,10 +9,11 @@
 #ifndef __Zoo__AbstractSpecies__
 #define __Zoo__AbstractSpecies__
 
-#include "CommonInclude.h"
 #include "json/document.h"
 #include "json/writer.h"
 #include "json/stringbuffer.h"
+class Weight;
+#include "Length.h"
 
 class Species {
 public:
@@ -22,6 +23,9 @@ public:
     Length getMaxHeight();
     Length getAverageHeight();
     Length getMinHeight();
+    Weight getMaxWeight();
+    Weight getAverageWeight();
+    Weight getMinWeight();
     Length getSpeed();
     Length getDashSpeed();
     float getDensity();

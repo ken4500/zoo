@@ -34,10 +34,12 @@ protected:
 private:
     ui::Text* _playerName;
     ui::Text* _opponentName;
+
     ui::TextBMFont* _playerWeight;
     ui::TextBMFont* _opponentWeight;
-    ui::TextBMFont* _playerResult;
-    ui::TextBMFont* _opponentResult;
+
+    Sprite* _playerResult;
+    Sprite* _opponentResult;
 
     void onEnter() override;
     void _pushButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);

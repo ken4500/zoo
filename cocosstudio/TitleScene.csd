@@ -67,11 +67,11 @@
             <FileData Type="Normal" Path="ui/sun.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Start" ActionTag="-341345126" Tag="39" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="304.1176" RightMargin="331.8824" TopMargin="319.8144" BottomMargin="170.1856" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="30" RightEage="30" TopEage="30" BottomEage="30" Scale9OriginX="30" Scale9OriginY="30" Scale9Width="245" Scale9Height="74" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="Start" ActionTag="-341345126" Tag="39" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="304.1408" RightMargin="331.8592" TopMargin="319.8144" BottomMargin="170.1856" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="30" RightEage="30" TopEage="30" BottomEage="30" Scale9OriginX="30" Scale9OriginY="30" Scale9Width="245" Scale9Height="74" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="500.0000" Y="150.0000" />
             <Children>
-              <AbstractNodeData Name="label" ActionTag="566219024" Tag="40" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="189.7500" RightMargin="158.2500" TopMargin="24.5250" BottomMargin="44.4750" LabelText="Start" ctype="TextBMFontObjectData">
-                <Size X="152.0000" Y="81.0000" />
+              <AbstractNodeData Name="label" ActionTag="566219024" Tag="40" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="187.7500" RightMargin="156.2500" TopMargin="22.5250" BottomMargin="42.4750" LabelText="Start" ctype="TextBMFontObjectData">
+                <Size X="156.0000" Y="85.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="265.7500" Y="84.9750" />
                 <Scale ScaleX="1.2000" ScaleY="1.2000" />
@@ -93,7 +93,7 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="554.1176" Y="245.1856" />
+            <Position X="554.1408" Y="245.1856" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.4878" Y="0.3831" />
@@ -105,11 +105,11 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Language" ActionTag="1003370739" Tag="41" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="273.5904" RightMargin="557.4097" TopMargin="467.3502" BottomMargin="38.6498" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="30" RightEage="30" TopEage="30" BottomEage="30" Scale9OriginX="30" Scale9OriginY="30" Scale9Width="245" Scale9Height="74" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="Language" ActionTag="1003370739" Tag="41" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="273.6136" RightMargin="557.3864" TopMargin="467.3502" BottomMargin="38.6498" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="30" RightEage="30" TopEage="30" BottomEage="30" Scale9OriginX="30" Scale9OriginY="30" Scale9Width="245" Scale9Height="74" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="305.0000" Y="134.0000" />
             <Children>
-              <AbstractNodeData Name="label" ActionTag="1730327379" Tag="42" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="6.5000" RightMargin="6.5000" TopMargin="26.5000" BottomMargin="26.5000" LabelText="Language" ctype="TextBMFontObjectData">
-                <Size X="292.0000" Y="81.0000" />
+              <AbstractNodeData Name="label" ActionTag="1730327379" Tag="42" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="4.5000" RightMargin="4.5000" TopMargin="24.5000" BottomMargin="24.5000" LabelText="Language" ctype="TextBMFontObjectData">
+                <Size X="296.0000" Y="85.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="152.5000" Y="67.0000" />
                 <Scale ScaleX="0.7000" ScaleY="0.7000" />
@@ -120,7 +120,7 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="426.0904" Y="105.6498" />
+            <Position X="426.1136" Y="105.6498" />
             <Scale ScaleX="0.8000" ScaleY="0.8000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.3751" Y="0.1651" />
@@ -132,11 +132,11 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Credit" ActionTag="1815142567" Tag="43" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="529.6450" RightMargin="301.3550" TopMargin="467.3502" BottomMargin="38.6498" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="30" RightEage="30" TopEage="30" BottomEage="30" Scale9OriginX="30" Scale9OriginY="30" Scale9Width="245" Scale9Height="74" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="Credit" ActionTag="1815142567" Tag="43" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="529.6680" RightMargin="301.3320" TopMargin="467.3502" BottomMargin="38.6498" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="30" RightEage="30" TopEage="30" BottomEage="30" Scale9OriginX="30" Scale9OriginY="30" Scale9Width="245" Scale9Height="74" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="305.0000" Y="134.0000" />
             <Children>
-              <AbstractNodeData Name="label" ActionTag="500014900" Tag="44" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="56.0000" RightMargin="56.0000" TopMargin="26.5000" BottomMargin="26.5000" LabelText="Credit" ctype="TextBMFontObjectData">
-                <Size X="193.0000" Y="81.0000" />
+              <AbstractNodeData Name="label" ActionTag="500014900" Tag="44" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="54.0000" RightMargin="54.0000" TopMargin="24.5000" BottomMargin="24.5000" LabelText="Credit" ctype="TextBMFontObjectData">
+                <Size X="197.0000" Y="85.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="152.5000" Y="67.0000" />
                 <Scale ScaleX="0.7000" ScaleY="0.7000" />
@@ -147,7 +147,7 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="682.1450" Y="105.6498" />
+            <Position X="682.1680" Y="105.6498" />
             <Scale ScaleX="0.8000" ScaleY="0.8000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.6005" Y="0.1651" />

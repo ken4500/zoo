@@ -99,11 +99,11 @@ void MultiplayResult::setResult(GameResult result)
     _opponentWeight->setString(StringUtils::format("%.02f %s", result.opponentWeight.getWeight(), result.opponentWeight.getUnitStr().c_str()));
     
     if (result.resultState == BattleState::Win) {
-        _playerResult->setString("WIN");
-        _opponentResult->setString("LOSE");
+        _playerResult->setTexture("ui/win.png");
+        _opponentResult->setTexture("ui/lose.png");
     } else {
-        _playerResult->setString("LOSE");
-        _opponentResult->setString("WIN");
+        _playerResult->setTexture("ui/lose.png");
+        _opponentResult->setTexture("ui/win.png");
     }
 }
 
