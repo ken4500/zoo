@@ -107,11 +107,32 @@ void Book::_loadPage(int page)
         }
 
         Sprite* newImage;
-        if (UserDataManager::getInstance()->haveHadAnimalInPast(species->getName())) {
+        if (UserDataManager::getInstance()->haveHadAnimalInPast(species->getName()) == false) {
+            newImage = Sprite::create("book/unkonwn_animal.png");
+        } else {
             newImage = Sprite::create(species->getImageName());
             newImage->setScale(0.25f);
-        } else {
-            newImage = Sprite::create("book/unkonwn_animal.png");
+            
+            auto max = UserDataManager::getInstance()->getMaxWeight(species->getName());
+            auto min = UserDataManager::getInstance()->getMinWeight(species->getName());
+            auto maxRank = species->getMaxWeightRank(max);
+            auto minRank = species->getMinWeightRank(min);
+            int offset = 0;
+            if ((int)maxRank != 0) {
+                auto maxRankImage = Sprite::create(StringUtils::format("ui/max_crown%d.png", maxRank));
+                maxRankImage->setScale(0.25f / newImage->getScale());
+                maxRankImage->setAnchorPoint(Vec2(1.0f, 1.0f));
+                maxRankImage->setPosition(newImage->getContentSize());
+                newImage->addChild(maxRankImage, 1);
+                offset = maxRankImage->getContentSize().width;
+            }
+            if ((int)minRank != 0) {
+                auto minRankImage = Sprite::create(StringUtils::format("ui/max_crown%d.png", minRank));
+                minRankImage->setScale(0.25f / newImage->getScale());
+                minRankImage->setAnchorPoint(Vec2(1.0f, 1.0f));
+                minRankImage->setPosition(newImage->getContentSize() - Size(offset, 0));
+                newImage->addChild(minRankImage, 1);
+            }
         }
 
         newImage->setName("image");

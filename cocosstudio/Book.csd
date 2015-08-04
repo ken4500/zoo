@@ -181,20 +181,20 @@
                 <Size X="90.0000" Y="75.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="677.5122" Y="332.0159" />
-                <Scale ScaleX="0.2669" ScaleY="0.2814" />
+                <Scale ScaleX="0.2500" ScaleY="0.2500" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.7971" Y="0.5856" />
                 <PreSize X="0.0000" Y="0.0000" />
                 <FileData Type="Normal" Path="ui/min_crown1.png" Plist="" />
                 <BlendFunc Src="1" Dst="771" />
               </AbstractNodeData>
-              <AbstractNodeData Name="maxCrown" ActionTag="-461781374" Tag="155" IconVisible="False" LeftMargin="627.3585" RightMargin="121.6415" TopMargin="221.1561" BottomMargin="272.8439" ctype="SpriteObjectData">
+              <AbstractNodeData Name="maxCrown" ActionTag="-461781374" Tag="155" IconVisible="False" LeftMargin="627.0143" RightMargin="121.9857" TopMargin="221.1561" BottomMargin="272.8439" ctype="SpriteObjectData">
                 <Size X="101.0000" Y="73.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="677.8585" Y="309.3439" />
-                <Scale ScaleX="0.2669" ScaleY="0.2814" />
+                <Position X="677.5143" Y="309.3439" />
+                <Scale ScaleX="0.2500" ScaleY="0.2500" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.7975" Y="0.5456" />
+                <PrePosition X="0.7971" Y="0.5456" />
                 <PreSize X="0.0000" Y="0.0000" />
                 <FileData Type="Normal" Path="ui/max_crown2.png" Plist="" />
                 <BlendFunc Src="1" Dst="771" />
@@ -223,11 +223,11 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="getMinSize" ActionTag="1280424630" Tag="148" IconVisible="False" LeftMargin="690.0833" RightMargin="34.9167" TopMargin="229.1716" BottomMargin="321.8284" FontSize="16" LabelText="最小：123.45mg" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                <Size X="125.0000" Y="16.0000" />
+              <AbstractNodeData Name="getMinSize" ActionTag="1280424630" Tag="148" IconVisible="False" LeftMargin="690.0833" RightMargin="34.9167" TopMargin="229.1716" BottomMargin="321.8284" FontSize="14" LabelText="最小：123.45mg" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                <Size X="110.0000" Y="14.0000" />
                 <AnchorPoint ScaleY="0.5000" />
                 <Position X="690.0833" Y="329.8284" />
-                <Scale ScaleX="0.8896" ScaleY="0.9381" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="60" G="30" B="10" />
                 <PrePosition X="0.8119" Y="0.5817" />
                 <PreSize X="0.0000" Y="0.0000" />
@@ -235,11 +235,11 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="getMaxSize" ActionTag="159734576" Tag="150" IconVisible="False" LeftMargin="690.0833" RightMargin="34.9167" TopMargin="253.0081" BottomMargin="297.9919" FontSize="16" LabelText="最大：985.52mg" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                <Size X="125.0000" Y="16.0000" />
+              <AbstractNodeData Name="getMaxSize" ActionTag="159734576" Tag="150" IconVisible="False" LeftMargin="690.0833" RightMargin="34.9167" TopMargin="253.0081" BottomMargin="297.9919" FontSize="14" LabelText="最大：985.52mg" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                <Size X="110.0000" Y="14.0000" />
                 <AnchorPoint ScaleY="0.5000" />
                 <Position X="690.0833" Y="305.9919" />
-                <Scale ScaleX="0.8896" ScaleY="0.9381" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="60" G="30" B="10" />
                 <PrePosition X="0.8119" Y="0.5397" />
                 <PreSize X="0.0000" Y="0.0000" />
