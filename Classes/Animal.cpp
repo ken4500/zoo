@@ -599,3 +599,4 @@ void Animal::_stopMoveAction()
     _moveAction->release();
     _moveAction = nullptr;
 }
+

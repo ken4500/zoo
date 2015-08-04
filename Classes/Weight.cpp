@@ -7,6 +7,7 @@
 //
 
 #include "Weight.h"
+#include "Length.h"
 #include <math.h>
 
 std::map<std::string, UnitOfWeight> Weight::toUnitMap = {

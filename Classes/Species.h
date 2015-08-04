@@ -12,8 +12,9 @@
 #include "json/document.h"
 #include "json/writer.h"
 #include "json/stringbuffer.h"
-class Weight;
+#include "Constants.h"
 #include "Length.h"
+class Weight;
 
 class Species {
 public:
@@ -26,8 +27,8 @@ public:
     Weight getMaxWeight();
     Weight getAverageWeight();
     Weight getMinWeight();
-    SizeRank getMaxWeightRank(Weight getMaxWeight);
-    SizeRank getMinWeightRank(Weight getMinWeight);
+    SizeRank getMaxHeightRank(Length getMaxHeight);
+    SizeRank getMinHeightRank(Length getMinHeight);
     Length getSpeed();
     Length getDashSpeed();
     float getDensity();
@@ -35,6 +36,7 @@ public:
     std::string getBackImageName();
     std::string getMoveCsbName();
     bool isMove();
+    Length getRandomHeight();
     
     static std::vector<Species*> getAllSpecies();
     static rapidjson::Document document;
@@ -52,6 +54,7 @@ protected:
     bool _move;
     
     void init(std::string name, rapidjson::Value& json);
+    double _getStandardDeviation();
 };
 
 

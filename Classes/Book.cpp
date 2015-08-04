@@ -117,10 +117,10 @@ void Book::_loadPage(int page)
             newImage = Sprite::create(species->getImageName());
             newImage->setScale(0.25f);
             
-            auto max = UserDataManager::getInstance()->getMaxWeight(species->getName());
-            auto min = UserDataManager::getInstance()->getMinWeight(species->getName());
-            auto maxRank = species->getMaxWeightRank(max);
-            auto minRank = species->getMinWeightRank(min);
+            auto max = UserDataManager::getInstance()->getMaxHeight(species->getName());
+            auto min = UserDataManager::getInstance()->getMinHeight(species->getName());
+            auto maxRank = species->getMaxHeightRank(max);
+            auto minRank = species->getMinHeightRank(min);
             int offset = 0;
             if ((int)maxRank != 0) {
                 auto maxRankImage = Sprite::create(StringUtils::format("ui/max_crown%d.png", maxRank));
@@ -188,8 +188,10 @@ void Book::_loadAnimal(Species* species)
         _getNum->setString(StringUtils::format("%s:%d", CCLS("BOOK_GET_NUM"), count));
         _getMinSize->setString(StringUtils::format("%s:%.02f%s", CCLS("BOOK_MIN"), min.getWeight(), min.getUnitStr().c_str()));
         _getMaxSize->setString(StringUtils::format("%s:%.02f%s", CCLS("BOOK_MAX"), max.getWeight(), max.getUnitStr().c_str()));
-        auto maxRank = species->getMaxWeightRank(max);
-        auto minRank = species->getMinWeightRank(min);
+        auto minHeight = mgr->getMinHeight(name);
+        auto maxHeight = mgr->getMaxHeight(name);
+        auto maxRank = species->getMaxHeightRank(maxHeight);
+        auto minRank = species->getMinHeightRank(minHeight);
         if ((int)maxRank == 0) {
             _maxCrownImage->setVisible(false);
         } else {

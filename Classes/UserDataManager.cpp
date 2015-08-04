@@ -255,8 +255,8 @@ void UserDataManager::getAnimal(Animal* animal)
         data["get_count"] = 1;
         data["min_weight"] = animal->getWeight().getMgWeight();
         data["max_weight"] = animal->getWeight().getMgWeight();
-        data["min_height"] = animal->getHeight().getMmLength();
-        data["max_height"] = animal->getHeight().getMmLength();
+        data["min_length"] = animal->getHeight().getMmLength();
+        data["max_length"] = animal->getHeight().getMmLength();
         animalData[animal->getName()] = data;
         _userData->setAnimalDataList(animalData);
     } else {

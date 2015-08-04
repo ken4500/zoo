@@ -8,7 +8,7 @@
 
 #include "Species.h"
 #include "cocos2d.h"
-#include "Weight.h"
+#include "ZUtil.h"
 
 USING_NS_CC;
 
@@ -77,7 +77,7 @@ Length Species::getMinHeight()
 
 Length Species::getAverageHeight()
 {
-    return Length(_minHeight.getMmLength() + _maxHeight.getMmLength() / 2);
+    return Length((_minHeight.getMmLength() + _maxHeight.getMmLength()) / 2);
 }
 
 Weight Species::getMaxWeight()
@@ -95,30 +95,40 @@ Weight Species::getMinWeight()
     return Weight(getMinHeight(), getDensity());
 }
 
-SizeRank Species::getMaxWeightRank(Weight maxWeight)
+SizeRank Species::getMaxHeightRank(Length maxHeight)
 {
-    auto max = getMaxWeight().getMgWeight();
-    auto min = getMinWeight().getMgWeight();
-    auto getMax = maxWeight.getMgWeight();
-    float rate = (max - getMax) / (max - min);
-    if (rate < 0.05) {
+    auto x    = maxHeight.getMmLength();
+    auto sd   = _getStandardDeviation();
+    auto mean = getAverageHeight().getMmLength();
+    
+    // 出現率1%
+    float goldThreshold   = mean + sd * 2.33;
+    // 出現率3%
+    float silverThreshold = mean + sd * 1.88;
+
+    if (x > goldThreshold) {
         return SizeRank::Gold;
-    } else if (rate < 0.1) {
+    } else if (x > silverThreshold) {
         return SizeRank::Silver;
     } else {
         return SizeRank::None;
     }
 }
 
-SizeRank Species::getMinWeightRank(Weight minWeight)
+SizeRank Species::getMinHeightRank(Length minHeight)
 {
-    auto max = getMaxWeight().getMgWeight();
-    auto min = getMinWeight().getMgWeight();
-    auto getMin = minWeight.getMgWeight();
-    float rate = (getMin - min) / (max - min);
-    if (rate < 0.05) {
+    auto x    = minHeight.getMmLength();
+    auto sd   = _getStandardDeviation();
+    auto mean = getAverageHeight().getMmLength();
+    
+    // 出現率1%
+    float goldThreshold   = mean - sd * 2.33;
+    // 出現率3%
+    float silverThreshold = mean - sd * 1.88;
+
+    if (x < goldThreshold) {
         return SizeRank::Gold;
-    } else if (rate < 0.1) {
+    } else if (x < silverThreshold) {
         return SizeRank::Silver;
     } else {
         return SizeRank::None;
@@ -178,5 +188,21 @@ std::vector<Species*> Species::getAllSpecies()
     }
 
     return rtnList;
+}
+
+Length Species::getRandomHeight()
+{
+    float mean = getAverageHeight().getMmLength();
+    float sd   = _getStandardDeviation();
+    
+    float rnd = ZUtil::boxrnd(mean, sd);
+    rnd = MIN(rnd, _maxHeight.getMmLength());
+    rnd = MAX(rnd, _minHeight.getMmLength());
+    return Length(rnd);
+}
+
+double Species::_getStandardDeviation()
+{
+    return (getMaxHeight().getMmLength() - getMinHeight().getMmLength()) / 6.0;
 }
 

@@ -94,6 +94,7 @@ protected:
     void update(float dt);
     void _changeAnimalImage();
     void _stopMoveAction();
+    Length _calcRandomHeight(Length min, Length max);
     
 };
 

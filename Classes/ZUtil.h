@@ -26,6 +26,9 @@ public:
     static void setGlobalZOrderRecursive(Node* node, float zorder);
     
     static float calcDurationTime(cocostudio::timeline::ActionTimeline* timeline, std::string animationName);
+    
+    static double boxrnd(double m, double sig);
+    
     static uint32_t toHash32(uint8_t *bytes, size_t length);
 
 private:
