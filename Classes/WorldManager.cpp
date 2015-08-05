@@ -883,7 +883,6 @@ void WorldManager::_checkAndRemoveAnimal()
         if (_isNetwork == false) {
             UserDataManager::getInstance()->removeAnimal(removeAnimal);
         }
-        CCLOG("#### remove %d", removeAnimal->getId());
         removeAnimal->escape();
         _setTotalWeight(_totalWeight - removeAnimal->getWeight());
         

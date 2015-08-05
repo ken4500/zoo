@@ -189,7 +189,7 @@ void WorldMap::setupTouchHandling()
      
         if (isTouchGacha) {
             WorldManager::getInstance()->lotteryGacha();
-        } else if (WorldManager::getInstance()->enableNextAction()) {
+        } else {
             Vec2 touchPos = this->convertTouchToNodeSpace(touch);
             _targetPoint = touchPos;
             particle = ParticleSystemQuad::create("effect/particle_circle.plist");

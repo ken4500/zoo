@@ -39,12 +39,12 @@
 },
 "3": {
   "price" : 8,
-  "least" : 5,
+  "least" : 10,
   "list" : [
     {
       "hit" : true,
       "reward" : "Hamstar",
-      "probability" : 50
+      "probability" : 20
     },
     {
       "reward" : "Kabutomushi",
@@ -62,12 +62,12 @@
 },
 "4": {
   "price" : 16,
-  "least" : 5,
+  "least" : 10,
   "list" : [
     {
       "hit" : true,
       "reward" : "Mogura",
-      "probability" : 50
+      "probability" : 20
     },
     {
       "reward" : "Hamstar",
@@ -85,12 +85,12 @@
 },
 "5": {
   "price" : 32,
-  "least" : 5,
+  "least" : 15,
   "list" : [
     {
       "hit" : true,
       "reward" : "Chiwawa",
-      "probability" : 50
+      "probability" : 20
     },
     {
       "reward" : "Mogura",
@@ -112,7 +112,7 @@
 },
 "6": {
   "price" : 64,
-  "least" : 5,
+  "least" : 20,
   "list" : [
     {
       "hit" : true,
@@ -147,12 +147,12 @@
 },
 "7": {
   "price" : 128,
-  "least" : 5,
+  "least" : 20,
   "list" : [
     {
       "hit" : true,
       "reward" : "Ookami",
-      "probability" : 20
+      "probability" : 10
     },
     {
       "reward" : "Miiacat",
@@ -182,12 +182,12 @@
 },
 "8": {
   "price" : 256,
-  "least" : 5,
+  "least" : 20,
   "list" : [
     {
       "hit" : true,
       "reward" : "Raion",
-      "probability" : 20
+      "probability" : 10
     },
     {
       "reward" : "Ashika",
@@ -209,12 +209,12 @@
 },
 "9": {
   "price" : 512,
-  "least" : 5,
+  "least" : 20,
   "list" : [
     {
       "hit" : true,
       "reward" : "Zou",
-      "probability" : 20
+      "probability" : 8
     },
     {
       "reward" : "Yagi",
@@ -240,16 +240,16 @@
 },
 "10": {
   "price" : 1024,
-  "least" : 5,
+  "least" : 20,
   "list" : [
     {
       "hit" : true,
       "reward" : "Torikera",
-      "probability" : 20
+      "probability" : 7
     },
     {
       "reward" : "Sai",
-      "probability" : 20
+      "probability" : 4
     },
     {
       "reward" : "Rakuda",
@@ -272,7 +272,7 @@
     {
       "hit" : true,
       "reward" : "Tirano",
-      "probability" : 20
+      "probability" : 3
     },
     {
       "reward" : "Sutego",
@@ -295,19 +295,19 @@
     {
       "hit" : true,
       "reward" : "Fenics",
-      "probability" : 20
+      "probability" : 16
     },
     {
       "reward" : "Burakio",
-      "probability" : 20
+      "probability" : 200
     },
     {
       "reward" : "Tirano",
-      "probability" : 20
+      "probability" : 200
     },
     {
       "reward" : "Supino",
-      "probability" : 20
+      "probability" : 200
     }
   ]
 },
@@ -318,19 +318,19 @@
     {
       "hit" : true,
       "reward" : "Bahamuut",
-      "probability" : 20
+      "probability" : 13
     },
     {
       "reward" : "Fenics",
-      "probability" : 20
+      "probability" : 200
     },
     {
       "reward" : "Gurifon",
-      "probability" : 20
+      "probability" : 200
     },
     {
       "reward" : "Kelberos",
-      "probability" : 20
+      "probability" : 200
     }
   ]
 },
@@ -341,19 +341,19 @@
     {
       "hit" : true,
       "reward" : "Ari2",
-      "probability" : 20
+      "probability" : 12
     },
     {
       "reward" : "Bahamuut",
-      "probability" : 20
+      "probability" : 200
     },
     {
       "reward" : "Rivaiasan",
-      "probability" : 20
+      "probability" : 200
     },
     {
       "reward" : "Tupoon",
-      "probability" : 20
+      "probability" : 200
     }
   ]
 },
@@ -364,15 +364,15 @@
     {
       "hit" : true,
       "reward" : "Batta2",
-      "probability" : 20
+      "probability" : 8
     },
     {
       "reward" : "Ari2",
-      "probability" : 20
+      "probability" : 200
     },
     {
       "reward" : "Tentoumushi2",
-      "probability" : 20
+      "probability" : 200
     }
   ]
 },
@@ -383,15 +383,15 @@
     {
       "hit" : true,
       "reward" : "Kabutomushi2",
-      "probability" : 20
+      "probability" : 7
     },
     {
       "reward" : "Batta2",
-      "probability" : 20
+      "probability" : 200
     },
     {
       "reward" : "Hachi2",
-      "probability" : 20
+      "probability" : 200
     }
   ]
 },
@@ -402,19 +402,19 @@
     {
       "hit" : true,
       "reward" : "Hamstar2",
-      "probability" : 20
+      "probability" : 9
     },
     {
       "reward" : "Kabutomushi2",
-      "probability" : 20
+      "probability" : 200
     },
     {
       "reward" : "Kani2",
-      "probability" : 20
+      "probability" : 200
     },
     {
       "reward" : "Kaeru2",
-      "probability" : 20
+      "probability" : 200
     }
   ]
 },
@@ -425,19 +425,19 @@
     {
       "hit" : true,
       "reward" : "Mogura2",
-      "probability" : 20
+      "probability" : 8
     },
     {
       "reward" : "Hamstar2",
-      "probability" : 20
+      "probability" : 200
     },
     {
       "reward" : "Tyoutyo2",
-      "probability" : 20
+      "probability" : 200
     },
     {
       "reward" : "Koumori2",
-      "probability" : 20
+      "probability" : 200
     }
   ]
 },
@@ -448,23 +448,23 @@
     {
       "hit" : true,
       "reward" : "Chiwawa2",
-      "probability" : 20
+      "probability" : 7
     },
     {
       "reward" : "Mogura2",
-      "probability" : 20
+      "probability" : 200
     },
     {
       "reward" : "Tsubame2",
-      "probability" : 20
+      "probability" : 200
     },
     {
       "reward" : "Momonga2",
-      "probability" : 20
+      "probability" : 200
     },
     {
-      "reward" : "Risu2",
-      "probability" : 20
+      "reward" : "RIsu2",
+      "probability" : 200
     }
   ]
 },
@@ -475,31 +475,31 @@
     {
       "hit" : true,
       "reward" : "Sukanku2",
-      "probability" : 20
+      "probability" : 9
     },
     {
       "reward" : "Chiwawa2",
-      "probability" : 20
+      "probability" : 200
     },
     {
       "reward" : "Kamereon2",
-      "probability" : 20
+      "probability" : 200
     },
     {
       "reward" : "Arumajiro2",
-      "probability" : 20
+      "probability" : 200
     },
     {
       "reward" : "Inko2",
-      "probability" : 20
+      "probability" : 200
     },
     {
       "reward" : "Usagi2",
-      "probability" : 20
+      "probability" : 200
     },
     {
       "reward" : "Harinezumi2",
-      "probability" : 20
+      "probability" : 200
     }
   ]
 },
@@ -510,31 +510,31 @@
     {
       "hit" : true,
       "reward" : "Ookami2",
-      "probability" : 20
+      "probability" : 8
     },
     {
       "reward" : "Miiacat2",
-      "probability" : 20
+      "probability" : 200
     },
     {
       "reward" : "Shika2",
-      "probability" : 20
+      "probability" : 200
     },
     {
       "reward" : "Kitsune2",
-      "probability" : 20
+      "probability" : 200
     },
     {
       "reward" : "Araiguma2",
-      "probability" : 20
+      "probability" : 200
     },
     {
       "reward" : "Sukanku2",
-      "probability" : 20
+      "probability" : 200
     },
     {
       "reward" : "Ahiru2",
-      "probability" : 20
+      "probability" : 200
     }
   ]
 },
@@ -545,23 +545,23 @@
     {
       "hit" : true,
       "reward" : "Raion2",
-      "probability" : 20
+      "probability" : 5
     },
     {
       "reward" : "Ashika2",
-      "probability" : 20
+      "probability" : 200
     },
     {
       "reward" : "Pengin2",
-      "probability" : 20
+      "probability" : 200
     },
     {
       "reward" : "Inoshishi2",
-      "probability" : 20
+      "probability" : 200
     },
     {
       "reward" : "Ookami2",
-      "probability" : 20
+      "probability" : 200
     }
   ]
 },
@@ -572,27 +572,27 @@
     {
       "hit" : true,
       "reward" : "Zou2",
-      "probability" : 20
+      "probability" : 4
     },
     {
       "reward" : "Yagi2",
-      "probability" : 20
+      "probability" : 200
     },
     {
       "reward" : "Washi2",
-      "probability" : 20
+      "probability" : 200
     },
     {
       "reward" : "Raion2",
-      "probability" : 20
+      "probability" : 200
     },
     {
       "reward" : "Iruka2",
-      "probability" : 20
+      "probability" : 200
     },
     {
       "reward" : "Gorira2",
-      "probability" : 20
+      "probability" : 200
     }
   ]
 },
@@ -603,23 +603,23 @@
     {
       "hit" : true,
       "reward" : "Torikera2",
-      "probability" : 20
+      "probability" : 2
     },
     {
       "reward" : "Sai2",
-      "probability" : 20
+      "probability" : 200
     },
     {
       "reward" : "Rakuda2",
-      "probability" : 20
+      "probability" : 200
     },
     {
       "reward" : "Same2",
-      "probability" : 20
+      "probability" : 200
     },
     {
       "reward" : "Zou2",
-      "probability" : 20
+      "probability" : 200
     }
   ]
 },
@@ -630,19 +630,19 @@
     {
       "hit" : true,
       "reward" : "Tirano2",
-      "probability" : 20
+      "probability" : 2
     },
     {
       "reward" : "Sutego2",
-      "probability" : 20
+      "probability" : 300
     },
     {
       "reward" : "Putera2",
-      "probability" : 20
+      "probability" : 300
     },
     {
       "reward" : "Torikera2",
-      "probability" : 20
+      "probability" : 300
     }
   ]
 },
@@ -653,19 +653,19 @@
     {
       "hit" : true,
       "reward" : "God",
-      "probability" : 20
+      "probability" : 1
     },
     {
       "reward" : "Burakio2",
-      "probability" : 20
+      "probability" : 200
     },
     {
       "reward" : "Tirano2",
-      "probability" : 20
+      "probability" : 200
     },
     {
       "reward" : "Supino2",
-      "probability" : 20
+      "probability" : 200
     }
   ]
 },
