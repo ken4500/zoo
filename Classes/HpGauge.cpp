@@ -7,6 +7,7 @@
 //
 
 #include "HpGauge.h"
+#include "ColorConstants.h"
 
 bool HpGauge::init() {
     if (!Node::init()) {
@@ -24,6 +25,7 @@ void HpGauge::onEnter()
     _gaugeImage = getChildByName<Sprite*>("gauge");
     
     _decreaseAction = NULL;
+    _charaAnimationAction = NULL;
     
     setCascadeOpacityEnabled(true);
 }
@@ -35,6 +37,10 @@ void HpGauge::setInitHp(float maxHp, float hp)
     _hp = hp;
     
     _gaugeImage->setScale(hp / maxHp, 1.0f);
+    auto status = _calcHpStatus();
+    _startAnimation(status);
+    _setGaugeColor(status);
+    _preStatus = status;
 }
 
 void HpGauge::setHp(float hp)
@@ -55,8 +61,9 @@ void HpGauge::setHp(float hp)
     
     auto status = _calcHpStatus();
     if (status != _preStatus) {
-        _heroImage->setTexture(StringUtils::format("gauge/image%02d.png", (int)status));
         _preStatus = status;
+        _startAnimation(status);
+        _setGaugeColor(status);
     }
 }
 
@@ -64,15 +71,61 @@ HpStatus HpGauge::_calcHpStatus()
 {
     float rate = _hp / _maxHp;
     HpStatus rtn;
-    if (rate > 0.75f) {
-        rtn = HpStatus::Great;
-    } else if (rate > 0.5f) {
+    if (rate > 0.6f) {
         rtn = HpStatus::Good;
-    } else if (rate > 0.25f) {
+    } else if (rate > 0.3f) {
         rtn = HpStatus::Poor;
     } else {
         rtn = HpStatus::Bad;
     }
     
     return rtn;
+}
+
+void HpGauge::_startAnimation(HpStatus status)
+{
+    if (_charaAnimationAction) {
+        stopAction(_charaAnimationAction);
+        _charaAnimationAction = NULL;
+    }
+
+    std::string fileName1;
+    std::string fileName2;
+
+    if (status == HpStatus::Good) {
+        fileName1 = "gauge/image01.png";
+        fileName2 = "gauge/image02.png";
+    } else if (status == HpStatus::Poor) {
+        fileName1 = "gauge/image03.png";
+        fileName2 = "gauge/image04.png";
+    } else if (status == HpStatus::Bad) {
+        fileName1 = "gauge/image05.png";
+        fileName2 = "gauge/image05.png";
+    }
+
+    float interval = 0.6f;
+    _charaAnimationAction = RepeatForever::create(Sequence::create(
+        CallFunc::create([this, fileName1]{
+            _heroImage->setTexture(fileName1);
+        }),
+        DelayTime::create(interval),
+        CallFunc::create([this, fileName2]{
+            _heroImage->setTexture(fileName2);
+        }),
+        DelayTime::create(interval),
+        NULL
+    ));
+    
+    runAction(_charaAnimationAction);
+}
+
+void HpGauge::_setGaugeColor(HpStatus status)
+{
+    if (status == HpStatus::Good) {
+        _gaugeImage->setColor(Color3B(COLOR_BLUE));
+    } else if (status == HpStatus::Poor) {
+        _gaugeImage->setColor(Color3B(COLOR_YELLOW));
+    } else if (status == HpStatus::Bad) {
+        _gaugeImage->setColor(Color3B(COLOR_RED));
+    }
 }

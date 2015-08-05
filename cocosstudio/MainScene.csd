@@ -129,17 +129,17 @@
       <ObjectData Name="Scene" ctype="GameNodeObjectData">
         <Size X="1136.0000" Y="640.0000" />
         <Children>
-          <AbstractNodeData Name="hpGauge" ActionTag="2133434766" Tag="427" VisibleForFrame="False" IconVisible="True" PositionPercentXEnabled="True" LeftMargin="1113.2799" RightMargin="22.7201" TopMargin="540.0000" BottomMargin="100.0000" InnerActionSpeed="1.0000" ctype="ProjectNodeObjectData">
+          <AbstractNodeData Name="hpGauge" ActionTag="2133434766" Tag="427" VisibleForFrame="False" IconVisible="True" PositionPercentXEnabled="True" LeftMargin="1113.2800" RightMargin="22.7200" TopMargin="540.0000" BottomMargin="100.0000" InnerActionSpeed="1.0000" ctype="ProjectNodeObjectData">
             <Size X="0.0000" Y="0.0000" />
             <AnchorPoint />
-            <Position X="1113.2799" Y="100.0000" />
-            <Scale ScaleX="1.5000" ScaleY="1.5000" />
+            <Position X="1113.2800" Y="100.0000" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.9800" Y="0.1563" />
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="Normal" Path="HpGauge.csd" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="levelup" ActionTag="1751926304" Tag="16" VisibleForFrame="False" Alpha="0" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="144.5000" RightMargin="144.5000" TopMargin="239.0000" BottomMargin="239.0000" ctype="SpriteObjectData">
+          <AbstractNodeData Name="levelup" ActionTag="1751926304" Tag="16" Alpha="0" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="144.5000" RightMargin="144.5000" TopMargin="239.0000" BottomMargin="239.0000" ctype="SpriteObjectData">
             <Size X="847.0000" Y="162.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="568.0000" Y="320.0000" />

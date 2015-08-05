@@ -13,10 +13,9 @@
 #include "cocostudio/CocoStudio.h"
 
 enum class HpStatus{
-    Great = 1,
-    Good  = 2,
-    Poor  = 3,
-    Bad   = 4,
+    Good  = 1,
+    Poor  = 2,
+    Bad   = 3,
 };
 
 class HpGauge : public cocos2d::Node {
@@ -30,6 +29,7 @@ protected:
     Sprite* _heroImage;
     Sprite* _gaugeImage;
     Action* _decreaseAction;
+    Action* _charaAnimationAction;
     
     float _maxHp;
     float _hp;
@@ -37,6 +37,8 @@ protected:
 
     void onEnter() override;
     HpStatus _calcHpStatus();
+    void _startAnimation(HpStatus status);
+    void _setGaugeColor(HpStatus status);
 };
 
 #endif /* defined(__Zoo__HpGauge__) */

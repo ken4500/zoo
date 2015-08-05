@@ -532,19 +532,19 @@ void MainScene::_pushBattleButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::To
         button->runAction(Sequence::create(
             ScaleTo::create(0.1f, 1),
             CallFunc::create([this]{
-//                if (UserDataManager::getInstance()->getLife() <= 0) {
-//                    showNoticeView(CCLS("NOTICE_LACK_LIFE"), 0, NULL);
-//                    return;
-//                }
-//                if (WorldManager::getInstance()->getSceneState() == SceneState::Tutorial) {
-//                    hideMenu();
-//                    _battleStartEffect();
-//                    WorldManager::getInstance()->startTutorialBattle();
-//                } else {
-//                    hideMenu();
-//                    _battleStartEffect();
-//                    WorldManager::getInstance()->startBattle();
-//                }
+                if (UserDataManager::getInstance()->getLife() <= 0) {
+                    showNoticeView(CCLS("NOTICE_LACK_LIFE"), 0, NULL);
+                    return;
+                }
+                if (WorldManager::getInstance()->getSceneState() == SceneState::Tutorial) {
+                    hideMenu();
+                    _battleStartEffect();
+                    WorldManager::getInstance()->startTutorialBattle();
+                } else {
+                    hideMenu();
+                    _battleStartEffect();
+                    WorldManager::getInstance()->startBattle();
+                }
             }),
             NULL
         ));

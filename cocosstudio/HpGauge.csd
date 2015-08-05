@@ -6,10 +6,10 @@
       <ObjectData Name="Node" CustomClassName="HpGauge" Tag="404" ctype="GameNodeObjectData">
         <Size X="0.0000" Y="0.0000" />
         <Children>
-          <AbstractNodeData Name="gauge" ActionTag="-1907169838" Tag="407" IconVisible="False" LeftMargin="-284.5500" RightMargin="104.5500" TopMargin="-20.5000" BottomMargin="-20.5000" ctype="SpriteObjectData">
-            <Size X="180.0000" Y="41.0000" />
+          <AbstractNodeData Name="gauge" ActionTag="-1907169838" Tag="407" IconVisible="False" LeftMargin="-424.5500" RightMargin="153.5500" TopMargin="-31.0000" BottomMargin="-31.0000" ctype="SpriteObjectData">
+            <Size X="271.0000" Y="62.0000" />
             <AnchorPoint ScaleY="0.5000" />
-            <Position X="-284.5500" />
+            <Position X="-424.5500" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="220" G="64" B="97" />
             <PrePosition />
@@ -17,8 +17,8 @@
             <FileData Type="Normal" Path="gauge/gauge.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="back" ActionTag="1572620944" Tag="405" IconVisible="False" LeftMargin="-287.0000" TopMargin="-55.5000" BottomMargin="-55.5000" ctype="SpriteObjectData">
-            <Size X="287.0000" Y="111.0000" />
+          <AbstractNodeData Name="back" ActionTag="1572620944" Tag="405" IconVisible="False" LeftMargin="-431.0000" TopMargin="-83.5000" BottomMargin="-83.5000" ctype="SpriteObjectData">
+            <Size X="431.0000" Y="167.0000" />
             <AnchorPoint ScaleX="1.0000" ScaleY="0.5000" />
             <Position />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
@@ -28,10 +28,10 @@
             <FileData Type="Normal" Path="gauge/back.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="image" ActionTag="-1633013111" Tag="406" IconVisible="False" LeftMargin="-117.2943" RightMargin="-15.7057" TopMargin="-68.3862" BottomMargin="-49.6138" ctype="SpriteObjectData">
-            <Size X="133.0000" Y="118.0000" />
+          <AbstractNodeData Name="image" ActionTag="-1633013111" Tag="406" IconVisible="False" LeftMargin="-178.2943" RightMargin="-22.7057" TopMargin="-97.3862" BottomMargin="-75.6138" ctype="SpriteObjectData">
+            <Size X="201.0000" Y="173.0000" />
             <AnchorPoint ScaleX="0.5000" />
-            <Position X="-50.7943" Y="-49.6138" />
+            <Position X="-77.7943" Y="-75.6138" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />

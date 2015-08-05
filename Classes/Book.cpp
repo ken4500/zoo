@@ -168,7 +168,7 @@ void Book::_loadAnimal(Species* species)
     _animalImage->setTexture(species->getImageName());
     auto mgr = UserDataManager::getInstance();
 
-    if (mgr->haveHadAnimalInPast(name) == false) {
+    if (false && mgr->haveHadAnimalInPast(name) == false) {
         // 取得したことがない
         _animalImage->setColor(Color3B::BLACK);
         _animalName->setString("????");
@@ -181,6 +181,12 @@ void Book::_loadAnimal(Species* species)
         // 取得したことがある
         _animalImage->setColor(Color3B::WHITE);
         _animalName->setString(CCLS(name.c_str()));
+        if (_animalName->getContentSize().width > 350) {
+            _animalName->setScale(0.4f * 350 / _animalName->getContentSize().width);
+        } else {
+            _animalName->setScale(0.4f);
+        }
+        CCLOG("DEBUG = %f", _animalName->getContentSize().width);
 
         auto count = mgr->getAnimalCount(name);
         auto min = mgr->getMinWeight(name);
