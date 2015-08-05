@@ -449,6 +449,53 @@ void WorldMap::_allAnimalDashToPoint(Vec2 point)
     }
 }
 
+void WorldMap::_allAnimalDashToPoint2(Vec2 point)
+{
+    Length dashSpeed = WorldManager::getInstance()->getDashSpeed();
+    float range = 200 / getScale();
+    float closeThreshold = 40 / getScale();
+    float dashTime = 0.25f;
+    
+    // 指定点まで移動
+    std::vector<Vec2> targetPointList;
+    auto children = getChildren();
+    for(auto node : children) {
+        int tag = node->getTag();
+        if (tag != (int)EntityTag::Animal) {
+            continue;
+        }
+
+        auto animal = dynamic_cast<Animal*>(node);
+        if (animal
+            && animal->getState() != AnimalState::Dead
+            && animal->getState() != AnimalState::Battle)
+        {
+            float distance = (animal->getPosition() - point).length();
+            if (distance > range) {
+                continue;
+            }
+            
+            Vec2 move = animal->getPosition() - point;
+            float speed = dashSpeed.getDisplayLength();
+            move.normalize();
+            move *= speed * dashTime;
+            Vec2 target = animal->getPosition() + move;
+            Vec2 originTarget = target;
+            int i;
+            for (i = 1; i <= 10; i++) {
+                if (_isThereCloseAnimal(target, targetPointList, closeThreshold) == false) {
+                    break;
+                }
+                float width = closeThreshold * i;
+                target = originTarget + Vec2(rand_0_1() * width - width / 2, rand_0_1() * width - width / 2);
+            }
+            targetPointList.push_back(target);
+            
+            animal->startDashToPoint(target, dashTime);
+        }
+    }
+}
+
 bool WorldMap::_isThereCloseAnimal(Vec2 point, std::vector<Vec2> otherAnimalPoints, float threshold)
 {
     for (auto otherPos : otherAnimalPoints) {
