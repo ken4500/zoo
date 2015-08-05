@@ -59,6 +59,7 @@ public:
     void startWalk();
     void startWalk(Vec2 targetPoint, Length speed);
     void startStop();
+    void startDashToPoint(Vec2 targetPoint, float dashTime);
     void startDash(Vec2 targetPoint, Length speed);
     void fight(AbstractBattleEntity* entity);
     void dead();

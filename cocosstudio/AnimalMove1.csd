@@ -2,7 +2,7 @@
   <PropertyGroup Type="Node" Name="AnimalMove1" ID="9b2712b8-9012-415f-a088-855627e4b972" Version="2.3.1.2" />
   <Content ctype="GameProjectContent">
     <Content>
-      <Animation Duration="350" Speed="1.0000" ActivedAnimationName="dead">
+      <Animation Duration="340" Speed="1.0000" ActivedAnimationName="dash">
         <Timeline ActionTag="-929337761" Property="Position">
           <PointFrame FrameIndex="189" X="0.0000" Y="29.2617">
             <EasingData Type="0" />
@@ -141,10 +141,10 @@
           <PointFrame FrameIndex="331" X="0.0000" Y="0.0000">
             <EasingData Type="2" />
           </PointFrame>
-          <PointFrame FrameIndex="340" X="0.0000" Y="30.0000">
+          <PointFrame FrameIndex="335" X="0.0000" Y="150.0000">
             <EasingData Type="1" />
           </PointFrame>
-          <PointFrame FrameIndex="350" X="0.0000" Y="0.0000">
+          <PointFrame FrameIndex="340" X="0.0000" Y="0.0000">
             <EasingData Type="0" />
           </PointFrame>
         </Timeline>
@@ -177,7 +177,7 @@
             <EasingData Type="0" />
           </ScaleFrame>
           <ScaleFrame FrameIndex="331" X="1.0000" Y="1.0000">
-            <EasingData Type="0" />
+            <EasingData Type="2" />
           </ScaleFrame>
         </Timeline>
         <Timeline ActionTag="409811831" Property="RotationSkew">
@@ -234,17 +234,17 @@
         <AnimationInfo Name="stop" StartIndex="281" EndIndex="330">
           <RenderColor A="255" R="255" G="0" B="255" />
         </AnimationInfo>
-        <AnimationInfo Name="dash" StartIndex="331" EndIndex="351">
+        <AnimationInfo Name="dash" StartIndex="331" EndIndex="341">
           <RenderColor A="255" R="184" G="134" B="11" />
         </AnimationInfo>
         <AnimationInfo Name="default" StartIndex="0" EndIndex="0">
-          <RenderColor A="150" R="255" G="99" B="71" />
+          <RenderColor A="255" R="255" G="99" B="71" />
         </AnimationInfo>
       </AnimationList>
       <ObjectData Name="Node" Tag="16" ctype="GameNodeObjectData">
         <Size X="0.0000" Y="0.0000" />
         <Children>
-          <AbstractNodeData Name="chara_shadow_1" ActionTag="-929337761" Tag="125" Alpha="142" IconVisible="False" LeftMargin="-50.0000" RightMargin="-50.0000" TopMargin="-79.2617" BottomMargin="-20.7383" ctype="SpriteObjectData">
+          <AbstractNodeData Name="chara_shadow_1" ActionTag="-929337761" Tag="125" Alpha="144" IconVisible="False" LeftMargin="-50.0000" RightMargin="-50.0000" TopMargin="-79.2617" BottomMargin="-20.7383" ctype="SpriteObjectData">
             <Size X="100.0000" Y="100.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position Y="29.2617" />
@@ -255,7 +255,7 @@
             <FileData Type="Normal" Path="ui/chara_shadow.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="imageNode" ActionTag="409811831" Tag="324" IconVisible="True" ctype="SingleNodeObjectData">
+          <AbstractNodeData Name="imageNode" ActionTag="409811831" Tag="324" IconVisible="True" TopMargin="-150.0000" BottomMargin="150.0000" ctype="SingleNodeObjectData">
             <Size X="0.0000" Y="0.0000" />
             <Children>
               <AbstractNodeData Name="back" ActionTag="-583413097" Tag="323" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-200.0000" RightMargin="-200.0000" TopMargin="-400.0000" ctype="SpriteObjectData">
@@ -282,7 +282,7 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint />
-            <Position />
+            <Position Y="150.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />

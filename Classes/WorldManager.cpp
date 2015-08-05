@@ -209,7 +209,7 @@ Gacha* WorldManager::getOpponentGacha()
 
 Length WorldManager::getDashSpeed()
 {
-    return Length(_info->width.getMmLength() * 0.3);
+    return Length(_info->width.getMmLength() * 0.5);
 }
 
 Weight WorldManager::getTotalWeight()
@@ -629,9 +629,9 @@ float WorldManager::getImageScale(Sprite* image, Length width)
 
 float WorldManager::getDisplayLength(Length* length)
 {
-    auto worldSize = getWorldInfo()->width;
-    auto visibleSize = Director::getInstance()->getVisibleSize();
-    return (length->getLength(UnitOfLength::mm) * visibleSize.width) / worldSize.getLength(UnitOfLength::mm);
+    auto worldSize = getWorldInfo()->maxWidth;
+    auto imageWidth = getWorldInfo()->imageWidth;
+    return (length->getMmLength() * imageWidth) / worldSize.getMmLength();
 }
 
 Length* WorldManager::getLength(float displayLength)

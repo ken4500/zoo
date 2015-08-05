@@ -184,6 +184,51 @@ void Animal::jump(Vec2 target, float height, std::function<void ()> callback)
     }
 }
 
+void Animal::startDashToPoint(Vec2 targetPoint, float dashTime)
+{
+    if (isDead()) {
+        return;
+    }
+    
+    _state = AnimalState::Dash;
+    runAction(Sequence::create(
+        DelayTime::create(rand_0_1() * 0.2f),
+        CallFunc::create([this]{
+            _timeline->play("dash", false);
+        }),
+        NULL
+    ));
+
+    _targetPointByDash = targetPoint;
+    Vec2 move = targetPoint - this->getPosition();
+
+    if (move.length() < 30) {
+        return;
+    }
+
+    if (move.x < 0) {
+        _image->setFlippedX(false);
+        _backImage->setFlippedX(false);
+    } else {
+        _image->setFlippedX(true);
+        _backImage->setFlippedX(true);
+    }
+
+    _stopMoveAction();
+    if (isOpponent()) {
+        _moveAction = this->runAction(MoveBy::create(dashTime, move));
+    } else {
+        _moveAction = this->runAction(Sequence::create(
+            MoveBy::create(dashTime, move),
+            CallFunc::create([this](){
+                startWalk();
+            }),
+            NULL
+        ));
+    }
+    _moveAction->retain();
+}
+
 void Animal::startDash(Vec2 targetPoint, Length speed)
 {
     if (isDead()) {

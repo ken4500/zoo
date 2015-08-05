@@ -53,6 +53,8 @@ protected:
     int _calcObjectZOrder(Node* node);
     void setupTouchHandling();
     BattleState _checkBattleEnd();
+    void _allAnimalDashToPoint(Vec2 point);
+    bool _isThereCloseAnimal(Vec2 point, std::vector<Vec2> otherAnimalPoints, float threshold);
 
 };
 

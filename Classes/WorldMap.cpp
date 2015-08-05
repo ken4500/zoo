@@ -172,7 +172,6 @@ void WorldMap::update(float dt)
 
 void WorldMap::setupTouchHandling()
 {
-    static ParticleSystemQuad* particle = nullptr;
     auto touchListener = EventListenerTouchOneByOne::create();
 
     touchListener->onTouchBegan = [&](Touch* touch, Event* event)
@@ -191,11 +190,12 @@ void WorldMap::setupTouchHandling()
             WorldManager::getInstance()->lotteryGacha();
         } else {
             Vec2 touchPos = this->convertTouchToNodeSpace(touch);
-            _targetPoint = touchPos;
-            particle = ParticleSystemQuad::create("effect/particle_circle.plist");
+            _allAnimalDashToPoint(touchPos);
+            
+            auto particle = ParticleSystemQuad::create("effect/tap.plist");
             particle->setScale(1 / this->getScale());
             particle->setPosition(touchPos);
-            addChild(particle);
+            addChild(particle, 2000);
         }
         
         return true;
@@ -203,46 +203,15 @@ void WorldMap::setupTouchHandling()
 
     touchListener->onTouchMoved = [&](Touch* touch, Event* event)
     {
-        if (_targetPoint != Vec2::ZERO) {
-            Vec2 touchPos = this->convertTouchToNodeSpace(touch);
-            _targetPoint = touchPos;
-            particle->setPosition(touchPos);
-        }
     };
 
 
     touchListener->onTouchEnded = [&](Touch* touch, Event* event)
     {
-        if (_targetPoint != Vec2::ZERO) {
-            _targetPoint = Vec2::ZERO;
-            auto children = getChildren();
-            for(auto node : children) {
-                if (node->getTag() == (int)EntityTag::Animal) {
-                    auto animal = dynamic_cast<Animal*>(node);
-                    if (animal && animal->getState() == AnimalState::Dash) {
-                        animal->startWalk();
-                    }
-                }
-            }
-            particle->removeFromParent();
-        }
     };
 
     touchListener->onTouchCancelled = [&](Touch* touch, Event* event)
     {
-        if (_targetPoint != Vec2::ZERO) {
-            _targetPoint = Vec2::ZERO;
-            auto children = getChildren();
-            for(auto node : children) {
-                if (node->getTag() == (int)EntityTag::Animal) {
-                    auto animal = dynamic_cast<Animal*>(node);
-                    if (animal && animal->getState() == AnimalState::Dash) {
-                        animal->startWalk();
-                    }
-                }
-            }
-            particle->removeFromParent();
-        }
     };
 
     this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(touchListener, this);
@@ -462,3 +431,61 @@ BattleState WorldMap::_checkBattleEnd()
     return BattleState::Battle;
 }
 
+void WorldMap::_allAnimalDashToPoint(Vec2 point)
+{
+    Length dashSpeed = WorldManager::getInstance()->getDashSpeed();
+    float range = 400 / getScale();
+    float closeThreshold = 40 / getScale();
+    float dashTime = 0.15f;
+    
+    // 指定点まで移動
+    std::vector<Vec2> targetPointList;
+    auto children = getChildren();
+    for(auto node : children) {
+        int tag = node->getTag();
+        if (tag != (int)EntityTag::Animal) {
+            continue;
+        }
+
+        auto animal = dynamic_cast<Animal*>(node);
+        if (animal
+            && animal->getState() != AnimalState::Dead
+            && animal->getState() != AnimalState::Battle)
+        {
+            float distance = (animal->getPosition() - point).length();
+            if (distance > range) {
+                continue;
+            }
+            
+            Vec2 move = point - animal->getPosition();
+            float speed = dashSpeed.getDisplayLength();
+            if (move.length() > speed * dashTime) {
+                move.normalize();
+                move *= speed * dashTime;
+            }
+            Vec2 target = animal->getPosition() + move;
+            Vec2 originTarget = target;
+            int i;
+            for (i = 1; i <= 10; i++) {
+                if (_isThereCloseAnimal(target, targetPointList, closeThreshold) == false) {
+                    break;
+                }
+                float width = closeThreshold * i;
+                target = originTarget + Vec2(rand_0_1() * width - width / 2, rand_0_1() * width - width / 2);
+            }
+            targetPointList.push_back(target);
+            
+            animal->startDashToPoint(target, dashTime);
+        }
+    }
+}
+
+bool WorldMap::_isThereCloseAnimal(Vec2 point, std::vector<Vec2> otherAnimalPoints, float threshold)
+{
+    for (auto otherPos : otherAnimalPoints) {
+        if ((point - otherPos).length() < threshold) {
+            return true;
+        }
+    }
+    return false;
+}
