@@ -247,6 +247,14 @@
   "density" : 0.004,
   "image" : "ookami"
 },
+"Saru": {
+  "unit" : "m",
+  "minHeight" : 1.92,
+  "maxHeight" : 2.69,
+  "speed" : 2.69,
+  "density" : 0.003,
+  "image" : "saru"
+},
 "Yagi": {
   "unit" : "m",
   "minHeight" : 4.10,
@@ -261,7 +269,7 @@
   "maxHeight" : 5.63,
   "speed" : 5.63,
   "density" : 0.0001,
-  "image" : "yagi"
+  "image" : "washi"
 },
 "Raion": {
   "unit" : "m",
@@ -278,14 +286,6 @@
   "speed" : 5.63,
   "density" : 0.0015,
   "image" : "iruka"
-},
-"Gorira": {
-  "unit" : "m",
-  "minHeight" : 4.10,
-  "maxHeight" : 5.63,
-  "speed" : 5.63,
-  "density" : 0.003,
-  "image" : "saru"
 },
 "Sai": {
   "unit" : "m",
@@ -421,7 +421,7 @@
   "maxHeight" : 458.75,
   "speed" : 458.75,
   "density" : 0.004,
-  "image" : "ari_normal"
+  "image" : "ariB"
 },
 "Tentoumushi2": {
   "unit" : "m",
@@ -429,7 +429,7 @@
   "maxHeight" : 458.75,
   "speed" : 458.75,
   "density" : 0.004,
-  "image" : "tentoumushi"
+  "image" : "tentoumushiB"
 },
 "Hachi2": {
   "unit" : "m",
@@ -437,7 +437,7 @@
   "maxHeight" : 950.27,
   "speed" : 950.27,
   "density" : 0.004,
-  "image" : "hachi"
+  "image" : "hachiB"
 },
 "Batta2": {
   "unit" : "m",
@@ -445,7 +445,7 @@
   "maxHeight" : 950.27,
   "speed" : 950.27,
   "density" : 0.004,
-  "image" : "batta"
+  "image" : "battaB"
 },
 "Kani2": {
   "unit" : "m",
@@ -453,7 +453,7 @@
   "maxHeight" : 1966.08,
   "speed" : 1966.08,
   "density" : 0.004,
-  "image" : "kani"
+  "image" : "kaniB"
 },
 "Kaeru2": {
   "unit" : "m",
@@ -461,7 +461,7 @@
   "maxHeight" : 1966.08,
   "speed" : 1966.08,
   "density" : 0.004,
-  "image" : "kaeru"
+  "image" : "kaeruB"
 },
 "Kabutomushi2": {
   "unit" : "m",
@@ -469,7 +469,7 @@
   "maxHeight" : 1966.08,
   "speed" : 1966.08,
   "density" : 0.004,
-  "image" : "kabutomushi"
+  "image" : "kabutomushiB"
 },
 "Tyoutyo2": {
   "unit" : "km",
@@ -477,7 +477,7 @@
   "maxHeight" : 4.06,
   "speed" : 4.06,
   "density" : 0.004,
-  "image" : "tyoutyo"
+  "image" : "tyoutyoB"
 },
 "Hamstar2": {
   "unit" : "km",
@@ -485,7 +485,7 @@
   "maxHeight" : 4.06,
   "speed" : 4.06,
   "density" : 0.004,
-  "image" : "hamstar"
+  "image" : "hamstarB"
 },
 "Koumori2": {
   "unit" : "km",
@@ -493,7 +493,7 @@
   "maxHeight" : 4.06,
   "speed" : 4.06,
   "density" : 0.004,
-  "image" : "koumori"
+  "image" : "koumoriB"
 },
 "Risu2": {
   "unit" : "km",
@@ -501,7 +501,7 @@
   "maxHeight" : 8.39,
   "speed" : 8.39,
   "density" : 0.004,
-  "image" : "risu"
+  "image" : "risuB"
 },
 "Momonga2": {
   "unit" : "km",
@@ -509,7 +509,7 @@
   "maxHeight" : 8.39,
   "speed" : 8.39,
   "density" : 0.004,
-  "image" : "momonga"
+  "image" : "momongaB"
 },
 "Tsubame2": {
   "unit" : "km",
@@ -517,7 +517,7 @@
   "maxHeight" : 8.39,
   "speed" : 8.39,
   "density" : 0.004,
-  "image" : "tsubame"
+  "image" : "tsubameB"
 },
 "Mogura2": {
   "unit" : "km",
@@ -525,7 +525,7 @@
   "maxHeight" : 8.39,
   "speed" : 8.39,
   "density" : 0.004,
-  "image" : "mogura"
+  "image" : "moguraB"
 },
 "Chiwawa2": {
   "unit" : "km",
@@ -533,7 +533,7 @@
   "maxHeight" : 17.30,
   "speed" : 17.30,
   "density" : 0.004,
-  "image" : "chiwawa"
+  "image" : "chiwawaB"
 },
 "Kamereon2": {
   "unit" : "km",
@@ -541,7 +541,7 @@
   "maxHeight" : 17.30,
   "speed" : 17.30,
   "density" : 0.004,
-  "image" : "kamereon"
+  "image" : "kamereonB"
 },
 "Arumajiro2": {
   "unit" : "km",
@@ -549,7 +549,7 @@
   "maxHeight" : 17.30,
   "speed" : 17.30,
   "density" : 0.004,
-  "image" : "arumajiro"
+  "image" : "arumajiroB"
 },
 "Inko2": {
   "unit" : "km",
@@ -557,7 +557,7 @@
   "maxHeight" : 17.30,
   "speed" : 17.30,
   "density" : 0.004,
-  "image" : "inco"
+  "image" : "incoB"
 },
 "Usagi2": {
   "unit" : "km",
@@ -565,7 +565,7 @@
   "maxHeight" : 17.30,
   "speed" : 17.30,
   "density" : 0.004,
-  "image" : "usagi"
+  "image" : "usagiB"
 },
 "Harinezumi2": {
   "unit" : "km",
@@ -573,7 +573,7 @@
   "maxHeight" : 17.30,
   "speed" : 17.30,
   "density" : 0.004,
-  "image" : "harinezumi"
+  "image" : "harinezumiB"
 },
 "Miiacat2": {
   "unit" : "km",
@@ -581,7 +581,7 @@
   "maxHeight" : 35.65,
   "speed" : 35.65,
   "density" : 0.004,
-  "image" : "miiacat"
+  "image" : "miiacatB"
 },
 "Shika2": {
   "unit" : "km",
@@ -589,7 +589,7 @@
   "maxHeight" : 35.65,
   "speed" : 35.65,
   "density" : 0.004,
-  "image" : "shika"
+  "image" : "shikaB"
 },
 "Kitsune2": {
   "unit" : "km",
@@ -597,7 +597,7 @@
   "maxHeight" : 35.65,
   "speed" : 35.65,
   "density" : 0.004,
-  "image" : "kitsune"
+  "image" : "kitsuneB"
 },
 "Araiguma2": {
   "unit" : "km",
@@ -605,7 +605,7 @@
   "maxHeight" : 35.65,
   "speed" : 35.65,
   "density" : 0.004,
-  "image" : "araiguma"
+  "image" : "araigumaB"
 },
 "Sukanku2": {
   "unit" : "km",
@@ -613,7 +613,7 @@
   "maxHeight" : 35.65,
   "speed" : 35.65,
   "density" : 0.004,
-  "image" : "sukank"
+  "image" : "sukankB"
 },
 "Ahiru2": {
   "unit" : "km",
@@ -621,7 +621,7 @@
   "maxHeight" : 35.65,
   "speed" : 35.65,
   "density" : 0.004,
-  "image" : "ahiru"
+  "image" : "ahiruB"
 },
 "Ashika2": {
   "unit" : "km",
@@ -629,7 +629,7 @@
   "maxHeight" : 73.40,
   "speed" : 73.40,
   "density" : 0.004,
-  "image" : "ashika"
+  "image" : "ashikaB"
 },
 "Pengin2": {
   "unit" : "km",
@@ -637,7 +637,7 @@
   "maxHeight" : 73.40,
   "speed" : 73.40,
   "density" : 0.004,
-  "image" : "pengin"
+  "image" : "penginB"
 },
 "Inoshishi2": {
   "unit" : "km",
@@ -645,7 +645,7 @@
   "maxHeight" : 73.40,
   "speed" : 73.40,
   "density" : 0.004,
-  "image" : "inoshishi"
+  "image" : "inoshishiB"
 },
 "Ookami2": {
   "unit" : "km",
@@ -653,7 +653,15 @@
   "maxHeight" : 73.40,
   "speed" : 73.40,
   "density" : 0.004,
-  "image" : "ookami"
+  "image" : "ookamiB"
+},
+"Saru2": {
+  "unit" : "km",
+  "minHeight" : 125.83,
+  "maxHeight" : 150.99,
+  "speed" : 150.99,
+  "density" : 0.004,
+  "image" : "saruB"
 },
 "Yagi2": {
   "unit" : "km",
@@ -661,7 +669,7 @@
   "maxHeight" : 150.99,
   "speed" : 150.99,
   "density" : 0.004,
-  "image" : "yagi"
+  "image" : "yagiB"
 },
 "Washi2": {
   "unit" : "km",
@@ -669,7 +677,7 @@
   "maxHeight" : 150.99,
   "speed" : 150.99,
   "density" : 0.004,
-  "image" : "washi"
+  "image" : "washiB"
 },
 "Raion2": {
   "unit" : "km",
@@ -677,7 +685,7 @@
   "maxHeight" : 150.99,
   "speed" : 150.99,
   "density" : 0.004,
-  "image" : "raion"
+  "image" : "raionB"
 },
 "Iruka2": {
   "unit" : "km",
@@ -685,15 +693,7 @@
   "maxHeight" : 150.99,
   "speed" : 150.99,
   "density" : 0.004,
-  "image" : "iruka"
-},
-"Gorira2": {
-  "unit" : "km",
-  "minHeight" : 125.83,
-  "maxHeight" : 150.99,
-  "speed" : 150.99,
-  "density" : 0.004,
-  "image" : "saru"
+  "image" : "irukaB"
 },
 "Sai2": {
   "unit" : "km",
@@ -701,7 +701,7 @@
   "maxHeight" : 310.38,
   "speed" : 310.38,
   "density" : 0.004,
-  "image" : "sai"
+  "image" : "saiB"
 },
 "Rakuda2": {
   "unit" : "km",
@@ -709,7 +709,7 @@
   "maxHeight" : 310.38,
   "speed" : 310.38,
   "density" : 0.004,
-  "image" : "rakuda"
+  "image" : "rakudaB"
 },
 "Same2": {
   "unit" : "km",
@@ -717,7 +717,7 @@
   "maxHeight" : 310.38,
   "speed" : 310.38,
   "density" : 0.004,
-  "image" : "same"
+  "image" : "sameB"
 },
 "Zou2": {
   "unit" : "km",
@@ -725,7 +725,7 @@
   "maxHeight" : 310.38,
   "speed" : 310.38,
   "density" : 0.004,
-  "image" : "zou"
+  "image" : "zouB"
 },
 "Sutego2": {
   "unit" : "km",
@@ -733,7 +733,7 @@
   "maxHeight" : 637.53,
   "speed" : 637.53,
   "density" : 0.004,
-  "image" : "sutego"
+  "image" : "sutegoB"
 },
 "Putera2": {
   "unit" : "km",
@@ -741,7 +741,7 @@
   "maxHeight" : 637.53,
   "speed" : 637.53,
   "density" : 0.004,
-  "image" : "putera"
+  "image" : "puteraB"
 },
 "Torikera2": {
   "unit" : "km",
@@ -749,7 +749,7 @@
   "maxHeight" : 637.53,
   "speed" : 637.53,
   "density" : 0.004,
-  "image" : "torikera"
+  "image" : "torikeraB"
 },
 "Burakio2": {
   "unit" : "km",
@@ -757,7 +757,7 @@
   "maxHeight" : 1308.62,
   "speed" : 1308.62,
   "density" : 0.004,
-  "image" : "burakio"
+  "image" : "burakioB"
 },
 "Tirano2": {
   "unit" : "km",
@@ -765,7 +765,7 @@
   "maxHeight" : 1308.62,
   "speed" : 1308.62,
   "density" : 0.004,
-  "image" : "tirano"
+  "image" : "tiranoB"
 },
 "Supino2": {
   "unit" : "km",
@@ -773,7 +773,7 @@
   "maxHeight" : 1308.62,
   "speed" : 1308.62,
   "density" : 0.004,
-  "image" : "supino"
+  "image" : "supinoB"
 },
 "God": {
   "unit" : "km",
