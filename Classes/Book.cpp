@@ -126,7 +126,7 @@ void Book::_loadPage(int page)
                 auto maxRankImage = Sprite::create(StringUtils::format("ui/max_crown%d.png", maxRank));
                 maxRankImage->setScale(0.25f / newImage->getScale());
                 maxRankImage->setAnchorPoint(Vec2(1.0f, 1.0f));
-                maxRankImage->setPosition(newImage->getContentSize());
+                maxRankImage->setPosition(Vec2(newImage->getContentSize().width, -10));
                 newImage->addChild(maxRankImage, 1);
                 offset = maxRankImage->getContentSize().width;
             }
@@ -134,7 +134,7 @@ void Book::_loadPage(int page)
                 auto minRankImage = Sprite::create(StringUtils::format("ui/max_crown%d.png", minRank));
                 minRankImage->setScale(0.25f / newImage->getScale());
                 minRankImage->setAnchorPoint(Vec2(1.0f, 1.0f));
-                minRankImage->setPosition(newImage->getContentSize() - Size(offset, 0));
+                minRankImage->setPosition(Vec2(newImage->getContentSize().width - offset, -10));
                 newImage->addChild(minRankImage, 1);
             }
         }

@@ -525,26 +525,26 @@ void MainScene::_pushBattleButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::To
 
     auto button = dynamic_cast<ui::Button*>(pSender);
     if (eEventType == ui::Widget::TouchEventType::BEGAN) {
-        button->runAction(ScaleBy::create(0.1f, 0.9));
+        button->runAction(ScaleTo::create(0.1f, 0.9));
     }
     if (eEventType == ui::Widget::TouchEventType::ENDED) {
         SoundManager::getInstance()->playDecideEffect2();
         button->runAction(Sequence::create(
-            ScaleBy::create(0.1f, 1 / 0.9f),
+            ScaleTo::create(0.1f, 1),
             CallFunc::create([this]{
-                if (UserDataManager::getInstance()->getLife() <= 0) {
-                    showNoticeView(CCLS("NOTICE_LACK_LIFE"), 0, NULL);
-                    return;
-                }
-                if (WorldManager::getInstance()->getSceneState() == SceneState::Tutorial) {
-                    hideMenu();
-                    _battleStartEffect();
-                    WorldManager::getInstance()->startTutorialBattle();
-                } else {
-                    hideMenu();
-                    _battleStartEffect();
-                    WorldManager::getInstance()->startBattle();
-                }
+//                if (UserDataManager::getInstance()->getLife() <= 0) {
+//                    showNoticeView(CCLS("NOTICE_LACK_LIFE"), 0, NULL);
+//                    return;
+//                }
+//                if (WorldManager::getInstance()->getSceneState() == SceneState::Tutorial) {
+//                    hideMenu();
+//                    _battleStartEffect();
+//                    WorldManager::getInstance()->startTutorialBattle();
+//                } else {
+//                    hideMenu();
+//                    _battleStartEffect();
+//                    WorldManager::getInstance()->startBattle();
+//                }
             }),
             NULL
         ));
@@ -558,12 +558,12 @@ void MainScene::_pushOtherMenuButton(cocos2d::Ref* pSender, cocos2d::ui::Widget:
 {
     auto button = dynamic_cast<ui::Button*>(pSender);
     if (eEventType == ui::Widget::TouchEventType::BEGAN) {
-        button->runAction(ScaleBy::create(0.1f, 0.9));
+        button->runAction(ScaleTo::create(0.1f, 0.9));
     }
     if (eEventType == ui::Widget::TouchEventType::ENDED) {
         SoundManager::getInstance()->playDecideEffect2();
         button->runAction(Sequence::create(
-            ScaleBy::create(0.1f, 1 / 0.9f),
+            ScaleTo::create(0.1f, 1),
             CallFunc::create([this]{
                 auto layer = MenuLayer::create();
                 this->addChild(layer);

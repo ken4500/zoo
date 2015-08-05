@@ -1,7 +1,7 @@
 {
 "1": {
-  "price" : 1,
-  "least" : 3,
+  "price" : 2,
+  "least" : 5,
   "list" : [
     {
       "hit" : true,
@@ -19,8 +19,8 @@
   ]
 },
 "2": {
-  "price" : 2,
-  "least" : 3,
+  "price" : 4,
+  "least" : 5,
   "list" : [
     {
       "hit" : true,
@@ -38,8 +38,8 @@
   ]
 },
 "3": {
-  "price" : 4,
-  "least" : 3,
+  "price" : 8,
+  "least" : 5,
   "list" : [
     {
       "hit" : true,
@@ -61,8 +61,8 @@
   ]
 },
 "4": {
-  "price" : 8,
-  "least" : 3,
+  "price" : 16,
+  "least" : 5,
   "list" : [
     {
       "hit" : true,
@@ -84,8 +84,8 @@
   ]
 },
 "5": {
-  "price" : 16,
-  "least" : 3,
+  "price" : 32,
+  "least" : 5,
   "list" : [
     {
       "hit" : true,
@@ -111,8 +111,8 @@
   ]
 },
 "6": {
-  "price" : 32,
-  "least" : 3,
+  "price" : 64,
+  "least" : 5,
   "list" : [
     {
       "hit" : true,
@@ -146,8 +146,8 @@
   ]
 },
 "7": {
-  "price" : 64,
-  "least" : 3,
+  "price" : 128,
+  "least" : 5,
   "list" : [
     {
       "hit" : true,
@@ -181,8 +181,8 @@
   ]
 },
 "8": {
-  "price" : 128,
-  "least" : 3,
+  "price" : 256,
+  "least" : 5,
   "list" : [
     {
       "hit" : true,
@@ -208,8 +208,8 @@
   ]
 },
 "9": {
-  "price" : 256,
-  "least" : 3,
+  "price" : 512,
+  "least" : 5,
   "list" : [
     {
       "hit" : true,
@@ -233,14 +233,14 @@
       "probability" : 20
     },
     {
-      "reward" : "Gorira",
+      "reward" : "Saru",
       "probability" : 20
     }
   ]
 },
 "10": {
-  "price" : 512,
-  "least" : 3,
+  "price" : 1024,
+  "least" : 5,
   "list" : [
     {
       "hit" : true,
@@ -266,8 +266,8 @@
   ]
 },
 "11": {
-  "price" : 1024,
-  "least" : 3,
+  "price" : 2048,
+  "least" : 5,
   "list" : [
     {
       "hit" : true,
@@ -289,8 +289,8 @@
   ]
 },
 "12": {
-  "price" : 2048,
-  "least" : 3,
+  "price" : 4096,
+  "least" : 5,
   "list" : [
     {
       "hit" : true,
@@ -312,8 +312,8 @@
   ]
 },
 "13": {
-  "price" : 4096,
-  "least" : 3,
+  "price" : 8192,
+  "least" : 5,
   "list" : [
     {
       "hit" : true,
@@ -335,8 +335,8 @@
   ]
 },
 "14": {
-  "price" : 8192,
-  "least" : 3,
+  "price" : 16384,
+  "least" : 5,
   "list" : [
     {
       "hit" : true,
@@ -358,8 +358,8 @@
   ]
 },
 "15": {
-  "price" : 16384,
-  "least" : 3,
+  "price" : 32768,
+  "least" : 5,
   "list" : [
     {
       "hit" : true,
@@ -377,8 +377,8 @@
   ]
 },
 "16": {
-  "price" : 32768,
-  "least" : 3,
+  "price" : 65536,
+  "least" : 5,
   "list" : [
     {
       "hit" : true,
@@ -396,8 +396,8 @@
   ]
 },
 "17": {
-  "price" : 65536,
-  "least" : 3,
+  "price" : 131072,
+  "least" : 5,
   "list" : [
     {
       "hit" : true,
@@ -419,8 +419,8 @@
   ]
 },
 "18": {
-  "price" : 131072,
-  "least" : 3,
+  "price" : 262144,
+  "least" : 5,
   "list" : [
     {
       "hit" : true,
@@ -442,8 +442,8 @@
   ]
 },
 "19": {
-  "price" : 262144,
-  "least" : 3,
+  "price" : 524288,
+  "least" : 5,
   "list" : [
     {
       "hit" : true,
@@ -469,8 +469,8 @@
   ]
 },
 "20": {
-  "price" : 524288,
-  "least" : 3,
+  "price" : 1048576,
+  "least" : 5,
   "list" : [
     {
       "hit" : true,
@@ -504,8 +504,8 @@
   ]
 },
 "21": {
-  "price" : 1048576,
-  "least" : 3,
+  "price" : 2097152,
+  "least" : 5,
   "list" : [
     {
       "hit" : true,
@@ -539,8 +539,8 @@
   ]
 },
 "22": {
-  "price" : 2097152,
-  "least" : 3,
+  "price" : 4194304,
+  "least" : 5,
   "list" : [
     {
       "hit" : true,
@@ -566,8 +566,8 @@
   ]
 },
 "23": {
-  "price" : 4194304,
-  "least" : 3,
+  "price" : 8388608,
+  "least" : 5,
   "list" : [
     {
       "hit" : true,
@@ -591,14 +591,14 @@
       "probability" : 20
     },
     {
-      "reward" : "Gorira2",
+      "reward" : "Saru2",
       "probability" : 20
     }
   ]
 },
 "24": {
-  "price" : 8388608,
-  "least" : 3,
+  "price" : 16777216,
+  "least" : 5,
   "list" : [
     {
       "hit" : true,
@@ -624,8 +624,8 @@
   ]
 },
 "25": {
-  "price" : 16777216,
-  "least" : 3,
+  "price" : 33554432,
+  "least" : 5,
   "list" : [
     {
       "hit" : true,
@@ -647,8 +647,8 @@
   ]
 },
 "26": {
-  "price" : 33554432,
-  "least" : 3,
+  "price" : 67108864,
+  "least" : 5,
   "list" : [
     {
       "hit" : true,
@@ -670,8 +670,8 @@
   ]
 },
 "27": {
-  "price" : 67108864,
-  "least" : 3,
+  "price" : 134217728,
+  "least" : 5,
   "list" : [
     {
       "reward" : "God",
