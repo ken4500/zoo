@@ -159,8 +159,7 @@ void WorldMap::update(float dt)
 
         // バトル終了判定
         if (state == SceneState::Battle) {
-            auto battleState = _checkBattleEnd();
-            
+            auto battleState = WorldManager::getInstance()->checkBattleState();            
             if (battleState == BattleState::Win) {
                 WorldManager::getInstance()->endBattle(true);
             } else if (battleState == BattleState::Lose) {
@@ -399,36 +398,6 @@ void WorldMap::vibrationMap()
 int WorldMap::_calcObjectZOrder(Node* node)
 {
     return 1000 - (int)node->getPosition().y;
-}
-
-BattleState WorldMap::_checkBattleEnd()
-{
-    auto animalList      = WorldManager::getInstance()->getAnimalList();
-    auto enemyAnimalList = WorldManager::getInstance()->getEnemyAnimalList();
-    bool allEnemyIsDead = true;
-    for (auto enemy : enemyAnimalList) {
-        if (enemy->isDead() == false) {
-            allEnemyIsDead = false;
-            break;
-        }
-    }
-    if (allEnemyIsDead) {
-        return BattleState::Win;
-    }
-
-
-    bool allAnimalIsDead = true;
-    for (auto animal : animalList) {
-        if (animal->isDead() == false) {
-            allAnimalIsDead = false;
-            break;
-        }
-    }
-    if (allAnimalIsDead) {
-        return BattleState::Lose;
-    }
-
-    return BattleState::Battle;
 }
 
 void WorldMap::_allAnimalDashToPoint(Vec2 point)

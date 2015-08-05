@@ -88,20 +88,21 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="playerResult" ActionTag="1099155237" Tag="218" IconVisible="False" LeftMargin="-395.7500" RightMargin="-181.2500" TopMargin="-34.9458" BottomMargin="-198.0542" Scale9Width="577" Scale9Height="233" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="playerResult" ActionTag="-1347664588" Tag="59" IconVisible="False" LeftMargin="-396.8135" RightMargin="-180.1865" TopMargin="-35.5000" BottomMargin="-197.5000" ctype="SpriteObjectData">
             <Size X="577.0000" Y="233.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="-107.2500" Y="-81.5542" />
+            <Position X="-108.3135" Y="-81.0000" />
             <Scale ScaleX="0.2500" ScaleY="0.2500" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="Normal" Path="ui/win.png" Plist="" />
+            <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="opponentResult" ActionTag="-147403749" Tag="219" IconVisible="False" LeftMargin="-251.0768" RightMargin="-478.9232" TopMargin="-38.3208" BottomMargin="-203.6792" ctype="SpriteObjectData">
+          <AbstractNodeData Name="opponentResult" ActionTag="-147403749" Tag="219" IconVisible="False" LeftMargin="-251.0767" RightMargin="-478.9233" TopMargin="-38.8750" BottomMargin="-203.1250" ctype="SpriteObjectData">
             <Size X="730.0000" Y="242.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="113.9232" Y="-82.6792" />
+            <Position X="113.9233" Y="-82.1250" />
             <Scale ScaleX="0.2500" ScaleY="0.2500" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />

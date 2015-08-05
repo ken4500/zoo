@@ -54,6 +54,8 @@ public:
     Weight getTotalWeight();
     float getMaxHp();
     float getHp();
+    int getAliveEnemy();
+    int getLeftTimeOnBattle();
 
     // game logic
     void lotteryGacha();
@@ -66,6 +68,7 @@ public:
     void endBattle(bool win);
     void endResult();
     void resetData();
+    BattleState checkBattleState();
     
     // network game logic
     void startMultiplayBattle();
@@ -107,13 +110,10 @@ private:
     
     void _hpGaugeUpdate(float dt);
     void _leftTimeUpdate(float dt);
-    void _endBattle();
     void _closeResult();
     void _setGameActive(bool active);
     void _setLeftTime(int leftTime);
     void _repairAllAnimalHp();
-    bool _checkAllEnemyDead();
-    int _getAliveEnemy();
     void _transitionMap(WorldInfo* preWorldInfo, WorldInfo* newWorldInfo);
     void _checkAndRemoveAnimal();
     void _createMap();

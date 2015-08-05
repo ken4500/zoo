@@ -21,6 +21,7 @@ public:
     Species(std::string name, rapidjson::Value& json);
     Species(std::string name);
     std::string getName();
+    int getSizeId();
     Length getMaxHeight();
     Length getAverageHeight();
     Length getMinHeight();
@@ -44,6 +45,7 @@ public:
 
 protected:
     std::string _name;
+    int _sizeId;
     Length _maxHeight;
     Length _minHeight;
     Length _speed;

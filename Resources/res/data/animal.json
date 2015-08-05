@@ -1,5 +1,6 @@
 {
 "Hero": {
+  "sizeId" : 2,
   "unit" : "cm",
   "minHeight" : 1.80,
   "maxHeight" : 3.00,
@@ -8,6 +9,7 @@
   "image" : "ari_main"
 },
 "Ari": {
+  "sizeId" : 1,
   "unit" : "cm",
   "minHeight" : 0.80,
   "maxHeight" : 1.40,
@@ -16,6 +18,7 @@
   "image" : "ari_normal"
 },
 "Tentoumushi": {
+  "sizeId" : 1,
   "unit" : "cm",
   "minHeight" : 0.80,
   "maxHeight" : 1.40,
@@ -24,6 +27,7 @@
   "image" : "tentoumushi"
 },
 "Hachi": {
+  "sizeId" : 2,
   "unit" : "cm",
   "minHeight" : 1.80,
   "maxHeight" : 3.00,
@@ -32,6 +36,7 @@
   "image" : "hachi"
 },
 "Batta": {
+  "sizeId" : 2,
   "unit" : "cm",
   "minHeight" : 1.80,
   "maxHeight" : 3.00,
@@ -40,6 +45,7 @@
   "image" : "batta"
 },
 "Kani": {
+  "sizeId" : 3,
   "unit" : "cm",
   "minHeight" : 4.00,
   "maxHeight" : 6.40,
@@ -48,6 +54,7 @@
   "image" : "kani"
 },
 "Kaeru": {
+  "sizeId" : 3,
   "unit" : "cm",
   "minHeight" : 4.00,
   "maxHeight" : 6.40,
@@ -56,6 +63,7 @@
   "image" : "kaeru"
 },
 "Kabutomushi": {
+  "sizeId" : 3,
   "unit" : "cm",
   "minHeight" : 4.00,
   "maxHeight" : 6.40,
@@ -64,6 +72,7 @@
   "image" : "kabutomushi"
 },
 "Tyoutyo": {
+  "sizeId" : 4,
   "unit" : "cm",
   "minHeight" : 6.40,
   "maxHeight" : 11.20,
@@ -72,6 +81,7 @@
   "image" : "tyoutyo"
 },
 "Hamstar": {
+  "sizeId" : 4,
   "unit" : "cm",
   "minHeight" : 8.80,
   "maxHeight" : 13.60,
@@ -80,6 +90,7 @@
   "image" : "hamstar"
 },
 "Koumori": {
+  "sizeId" : 4,
   "unit" : "cm",
   "minHeight" : 8.80,
   "maxHeight" : 12.00,
@@ -88,6 +99,7 @@
   "image" : "koumori"
 },
 "Risu": {
+  "sizeId" : 5,
   "unit" : "cm",
   "minHeight" : 19.20,
   "maxHeight" : 32.00,
@@ -96,6 +108,7 @@
   "image" : "risu"
 },
 "Momonga": {
+  "sizeId" : 5,
   "unit" : "cm",
   "minHeight" : 19.20,
   "maxHeight" : 28.80,
@@ -104,6 +117,7 @@
   "image" : "momonga"
 },
 "Tsubame": {
+  "sizeId" : 5,
   "unit" : "cm",
   "minHeight" : 19.20,
   "maxHeight" : 28.80,
@@ -112,6 +126,7 @@
   "image" : "tsubame"
 },
 "Mogura": {
+  "sizeId" : 5,
   "unit" : "cm",
   "minHeight" : 19.20,
   "maxHeight" : 28.80,
@@ -120,6 +135,7 @@
   "image" : "mogura"
 },
 "Chiwawa": {
+  "sizeId" : 6,
   "unit" : "cm",
   "minHeight" : 41.60,
   "maxHeight" : 60.80,
@@ -128,6 +144,7 @@
   "image" : "chiwawa"
 },
 "Kamereon": {
+  "sizeId" : 6,
   "unit" : "cm",
   "minHeight" : 41.60,
   "maxHeight" : 60.80,
@@ -136,6 +153,7 @@
   "image" : "kamereon"
 },
 "Arumajiro": {
+  "sizeId" : 6,
   "unit" : "cm",
   "minHeight" : 41.60,
   "maxHeight" : 60.80,
@@ -144,6 +162,7 @@
   "image" : "arumajiro"
 },
 "Inko": {
+  "sizeId" : 6,
   "unit" : "cm",
   "minHeight" : 41.60,
   "maxHeight" : 60.80,
@@ -152,6 +171,7 @@
   "image" : "inco"
 },
 "Usagi": {
+  "sizeId" : 6,
   "unit" : "cm",
   "minHeight" : 41.60,
   "maxHeight" : 60.80,
@@ -160,6 +180,7 @@
   "image" : "usagi"
 },
 "Harinezumi": {
+  "sizeId" : 6,
   "unit" : "cm",
   "minHeight" : 41.60,
   "maxHeight" : 60.80,
@@ -168,6 +189,7 @@
   "image" : "harinezumi"
 },
 "Miiacat": {
+  "sizeId" : 7,
   "unit" : "cm",
   "minHeight" : 89.60,
   "maxHeight" : 128.00,
@@ -176,6 +198,7 @@
   "image" : "miiacat"
 },
 "Shika": {
+  "sizeId" : 7,
   "unit" : "cm",
   "minHeight" : 108.80,
   "maxHeight" : 128.00,
@@ -184,6 +207,7 @@
   "image" : "shika"
 },
 "Kitsune": {
+  "sizeId" : 7,
   "unit" : "cm",
   "minHeight" : 96.00,
   "maxHeight" : 134.40,
@@ -192,6 +216,7 @@
   "image" : "kitsune"
 },
 "Araiguma": {
+  "sizeId" : 7,
   "unit" : "cm",
   "minHeight" : 89.60,
   "maxHeight" : 128.00,
@@ -200,6 +225,7 @@
   "image" : "araiguma"
 },
 "Sukanku": {
+  "sizeId" : 7,
   "unit" : "cm",
   "minHeight" : 89.60,
   "maxHeight" : 128.00,
@@ -208,6 +234,7 @@
   "image" : "sukank"
 },
 "Ahiru": {
+  "sizeId" : 7,
   "unit" : "cm",
   "minHeight" : 89.60,
   "maxHeight" : 128.00,
@@ -216,6 +243,7 @@
   "image" : "ahiru"
 },
 "Ashika": {
+  "sizeId" : 8,
   "unit" : "m",
   "minHeight" : 1.92,
   "maxHeight" : 2.69,
@@ -224,6 +252,7 @@
   "image" : "ashika"
 },
 "Pengin": {
+  "sizeId" : 8,
   "unit" : "m",
   "minHeight" : 1.92,
   "maxHeight" : 2.69,
@@ -232,6 +261,7 @@
   "image" : "pengin"
 },
 "Inoshishi": {
+  "sizeId" : 8,
   "unit" : "m",
   "minHeight" : 1.92,
   "maxHeight" : 2.69,
@@ -240,6 +270,7 @@
   "image" : "inoshishi"
 },
 "Ookami": {
+  "sizeId" : 8,
   "unit" : "m",
   "minHeight" : 1.92,
   "maxHeight" : 2.69,
@@ -248,6 +279,7 @@
   "image" : "ookami"
 },
 "Saru": {
+  "sizeId" : 8,
   "unit" : "m",
   "minHeight" : 1.92,
   "maxHeight" : 2.69,
@@ -256,6 +288,7 @@
   "image" : "saru"
 },
 "Yagi": {
+  "sizeId" : 9,
   "unit" : "m",
   "minHeight" : 4.10,
   "maxHeight" : 5.63,
@@ -264,6 +297,7 @@
   "image" : "yagi"
 },
 "Washi": {
+  "sizeId" : 9,
   "unit" : "m",
   "minHeight" : 4.10,
   "maxHeight" : 5.63,
@@ -272,6 +306,7 @@
   "image" : "washi"
 },
 "Raion": {
+  "sizeId" : 9,
   "unit" : "m",
   "minHeight" : 4.10,
   "maxHeight" : 5.89,
@@ -280,6 +315,7 @@
   "image" : "raion"
 },
 "Iruka": {
+  "sizeId" : 9,
   "unit" : "m",
   "minHeight" : 3.58,
   "maxHeight" : 5.63,
@@ -288,6 +324,7 @@
   "image" : "iruka"
 },
 "Sai": {
+  "sizeId" : 10,
   "unit" : "m",
   "minHeight" : 8.70,
   "maxHeight" : 11.78,
@@ -296,6 +333,7 @@
   "image" : "sai"
 },
 "Rakuda": {
+  "sizeId" : 10,
   "unit" : "m",
   "minHeight" : 8.70,
   "maxHeight" : 11.78,
@@ -304,6 +342,7 @@
   "image" : "rakuda"
 },
 "Same": {
+  "sizeId" : 10,
   "unit" : "m",
   "minHeight" : 8.70,
   "maxHeight" : 11.78,
@@ -312,6 +351,7 @@
   "image" : "same"
 },
 "Zou": {
+  "sizeId" : 10,
   "unit" : "m",
   "minHeight" : 7.17,
   "maxHeight" : 13.31,
@@ -320,6 +360,7 @@
   "image" : "zou"
 },
 "Sutego": {
+  "sizeId" : 11,
   "unit" : "m",
   "minHeight" : 18.43,
   "maxHeight" : 24.58,
@@ -328,6 +369,7 @@
   "image" : "sutego"
 },
 "Putera": {
+  "sizeId" : 11,
   "unit" : "m",
   "minHeight" : 18.43,
   "maxHeight" : 24.58,
@@ -336,6 +378,7 @@
   "image" : "putera"
 },
 "Torikera": {
+  "sizeId" : 11,
   "unit" : "m",
   "minHeight" : 18.43,
   "maxHeight" : 24.58,
@@ -344,6 +387,7 @@
   "image" : "torikera"
 },
 "Burakio": {
+  "sizeId" : 12,
   "unit" : "m",
   "minHeight" : 38.91,
   "maxHeight" : 51.20,
@@ -352,6 +396,7 @@
   "image" : "tirano"
 },
 "Tirano": {
+  "sizeId" : 12,
   "unit" : "m",
   "minHeight" : 38.91,
   "maxHeight" : 51.20,
@@ -360,6 +405,7 @@
   "image" : "burakio"
 },
 "Supino": {
+  "sizeId" : 12,
   "unit" : "m",
   "minHeight" : 38.91,
   "maxHeight" : 51.20,
@@ -368,6 +414,7 @@
   "image" : "supino"
 },
 "Fenics": {
+  "sizeId" : 13,
   "unit" : "m",
   "minHeight" : 81.92,
   "maxHeight" : 106.50,
@@ -376,6 +423,7 @@
   "image" : "fenics"
 },
 "Gurifon": {
+  "sizeId" : 13,
   "unit" : "m",
   "minHeight" : 81.92,
   "maxHeight" : 106.50,
@@ -384,6 +432,7 @@
   "image" : "gurifon"
 },
 "Kelberos": {
+  "sizeId" : 13,
   "unit" : "m",
   "minHeight" : 81.92,
   "maxHeight" : 106.50,
@@ -392,6 +441,7 @@
   "image" : "kelberos"
 },
 "Bahamuut": {
+  "sizeId" : 14,
   "unit" : "m",
   "minHeight" : 172.03,
   "maxHeight" : 221.18,
@@ -400,6 +450,7 @@
   "image" : "bahamuut"
 },
 "Rivaiasan": {
+  "sizeId" : 14,
   "unit" : "m",
   "minHeight" : 172.03,
   "maxHeight" : 221.18,
@@ -408,6 +459,7 @@
   "image" : "rivaiasan"
 },
 "Tupoon": {
+  "sizeId" : 14,
   "unit" : "m",
   "minHeight" : 172.03,
   "maxHeight" : 221.18,
@@ -416,6 +468,7 @@
   "image" : "tupoon"
 },
 "Ari2": {
+  "sizeId" : 15,
   "unit" : "m",
   "minHeight" : 360.45,
   "maxHeight" : 458.75,
@@ -424,6 +477,7 @@
   "image" : "ariB"
 },
 "Tentoumushi2": {
+  "sizeId" : 15,
   "unit" : "m",
   "minHeight" : 360.45,
   "maxHeight" : 458.75,
@@ -432,6 +486,7 @@
   "image" : "tentoumushiB"
 },
 "Hachi2": {
+  "sizeId" : 16,
   "unit" : "m",
   "minHeight" : 753.66,
   "maxHeight" : 950.27,
@@ -440,6 +495,7 @@
   "image" : "hachiB"
 },
 "Batta2": {
+  "sizeId" : 16,
   "unit" : "m",
   "minHeight" : 753.66,
   "maxHeight" : 950.27,
@@ -448,6 +504,7 @@
   "image" : "battaB"
 },
 "Kani2": {
+  "sizeId" : 17,
   "unit" : "m",
   "minHeight" : 1572.86,
   "maxHeight" : 1966.08,
@@ -456,6 +513,7 @@
   "image" : "kaniB"
 },
 "Kaeru2": {
+  "sizeId" : 17,
   "unit" : "m",
   "minHeight" : 1572.86,
   "maxHeight" : 1966.08,
@@ -464,6 +522,7 @@
   "image" : "kaeruB"
 },
 "Kabutomushi2": {
+  "sizeId" : 17,
   "unit" : "m",
   "minHeight" : 1572.86,
   "maxHeight" : 1966.08,
@@ -472,6 +531,7 @@
   "image" : "kabutomushiB"
 },
 "Tyoutyo2": {
+  "sizeId" : 18,
   "unit" : "km",
   "minHeight" : 3.28,
   "maxHeight" : 4.06,
@@ -480,6 +540,7 @@
   "image" : "tyoutyoB"
 },
 "Hamstar2": {
+  "sizeId" : 18,
   "unit" : "km",
   "minHeight" : 3.28,
   "maxHeight" : 4.06,
@@ -488,6 +549,7 @@
   "image" : "hamstarB"
 },
 "Koumori2": {
+  "sizeId" : 18,
   "unit" : "km",
   "minHeight" : 3.28,
   "maxHeight" : 4.06,
@@ -496,6 +558,7 @@
   "image" : "koumoriB"
 },
 "Risu2": {
+  "sizeId" : 19,
   "unit" : "km",
   "minHeight" : 6.82,
   "maxHeight" : 8.39,
@@ -504,6 +567,7 @@
   "image" : "risuB"
 },
 "Momonga2": {
+  "sizeId" : 19,
   "unit" : "km",
   "minHeight" : 6.82,
   "maxHeight" : 8.39,
@@ -512,6 +576,7 @@
   "image" : "momongaB"
 },
 "Tsubame2": {
+  "sizeId" : 19,
   "unit" : "km",
   "minHeight" : 6.82,
   "maxHeight" : 8.39,
@@ -520,6 +585,7 @@
   "image" : "tsubameB"
 },
 "Mogura2": {
+  "sizeId" : 19,
   "unit" : "km",
   "minHeight" : 6.82,
   "maxHeight" : 8.39,
@@ -528,6 +594,7 @@
   "image" : "moguraB"
 },
 "Chiwawa2": {
+  "sizeId" : 20,
   "unit" : "km",
   "minHeight" : 14.16,
   "maxHeight" : 17.30,
@@ -536,6 +603,7 @@
   "image" : "chiwawaB"
 },
 "Kamereon2": {
+  "sizeId" : 20,
   "unit" : "km",
   "minHeight" : 14.16,
   "maxHeight" : 17.30,
@@ -544,6 +612,7 @@
   "image" : "kamereonB"
 },
 "Arumajiro2": {
+  "sizeId" : 20,
   "unit" : "km",
   "minHeight" : 14.16,
   "maxHeight" : 17.30,
@@ -552,6 +621,7 @@
   "image" : "arumajiroB"
 },
 "Inko2": {
+  "sizeId" : 20,
   "unit" : "km",
   "minHeight" : 14.16,
   "maxHeight" : 17.30,
@@ -560,6 +630,7 @@
   "image" : "incoB"
 },
 "Usagi2": {
+  "sizeId" : 20,
   "unit" : "km",
   "minHeight" : 14.16,
   "maxHeight" : 17.30,
@@ -568,6 +639,7 @@
   "image" : "usagiB"
 },
 "Harinezumi2": {
+  "sizeId" : 20,
   "unit" : "km",
   "minHeight" : 14.16,
   "maxHeight" : 17.30,
@@ -576,6 +648,7 @@
   "image" : "harinezumiB"
 },
 "Miiacat2": {
+  "sizeId" : 21,
   "unit" : "km",
   "minHeight" : 29.36,
   "maxHeight" : 35.65,
@@ -584,6 +657,7 @@
   "image" : "miiacatB"
 },
 "Shika2": {
+  "sizeId" : 21,
   "unit" : "km",
   "minHeight" : 29.36,
   "maxHeight" : 35.65,
@@ -592,6 +666,7 @@
   "image" : "shikaB"
 },
 "Kitsune2": {
+  "sizeId" : 21,
   "unit" : "km",
   "minHeight" : 29.36,
   "maxHeight" : 35.65,
@@ -600,6 +675,7 @@
   "image" : "kitsuneB"
 },
 "Araiguma2": {
+  "sizeId" : 21,
   "unit" : "km",
   "minHeight" : 29.36,
   "maxHeight" : 35.65,
@@ -608,6 +684,7 @@
   "image" : "araigumaB"
 },
 "Sukanku2": {
+  "sizeId" : 21,
   "unit" : "km",
   "minHeight" : 29.36,
   "maxHeight" : 35.65,
@@ -616,6 +693,7 @@
   "image" : "sukankB"
 },
 "Ahiru2": {
+  "sizeId" : 21,
   "unit" : "km",
   "minHeight" : 29.36,
   "maxHeight" : 35.65,
@@ -624,6 +702,7 @@
   "image" : "ahiruB"
 },
 "Ashika2": {
+  "sizeId" : 22,
   "unit" : "km",
   "minHeight" : 60.82,
   "maxHeight" : 73.40,
@@ -632,6 +711,7 @@
   "image" : "ashikaB"
 },
 "Pengin2": {
+  "sizeId" : 22,
   "unit" : "km",
   "minHeight" : 60.82,
   "maxHeight" : 73.40,
@@ -640,6 +720,7 @@
   "image" : "penginB"
 },
 "Inoshishi2": {
+  "sizeId" : 22,
   "unit" : "km",
   "minHeight" : 60.82,
   "maxHeight" : 73.40,
@@ -648,6 +729,7 @@
   "image" : "inoshishiB"
 },
 "Ookami2": {
+  "sizeId" : 22,
   "unit" : "km",
   "minHeight" : 60.82,
   "maxHeight" : 73.40,
@@ -656,6 +738,7 @@
   "image" : "ookamiB"
 },
 "Saru2": {
+  "sizeId" : 23,
   "unit" : "km",
   "minHeight" : 125.83,
   "maxHeight" : 150.99,
@@ -664,6 +747,7 @@
   "image" : "saruB"
 },
 "Yagi2": {
+  "sizeId" : 23,
   "unit" : "km",
   "minHeight" : 125.83,
   "maxHeight" : 150.99,
@@ -672,6 +756,7 @@
   "image" : "yagiB"
 },
 "Washi2": {
+  "sizeId" : 23,
   "unit" : "km",
   "minHeight" : 125.83,
   "maxHeight" : 150.99,
@@ -680,6 +765,7 @@
   "image" : "washiB"
 },
 "Raion2": {
+  "sizeId" : 23,
   "unit" : "km",
   "minHeight" : 125.83,
   "maxHeight" : 150.99,
@@ -688,6 +774,7 @@
   "image" : "raionB"
 },
 "Iruka2": {
+  "sizeId" : 23,
   "unit" : "km",
   "minHeight" : 125.83,
   "maxHeight" : 150.99,
@@ -696,6 +783,7 @@
   "image" : "irukaB"
 },
 "Sai2": {
+  "sizeId" : 24,
   "unit" : "km",
   "minHeight" : 260.05,
   "maxHeight" : 310.38,
@@ -704,6 +792,7 @@
   "image" : "saiB"
 },
 "Rakuda2": {
+  "sizeId" : 24,
   "unit" : "km",
   "minHeight" : 260.05,
   "maxHeight" : 310.38,
@@ -712,6 +801,7 @@
   "image" : "rakudaB"
 },
 "Same2": {
+  "sizeId" : 24,
   "unit" : "km",
   "minHeight" : 260.05,
   "maxHeight" : 310.38,
@@ -720,6 +810,7 @@
   "image" : "sameB"
 },
 "Zou2": {
+  "sizeId" : 24,
   "unit" : "km",
   "minHeight" : 260.05,
   "maxHeight" : 310.38,
@@ -728,6 +819,7 @@
   "image" : "zouB"
 },
 "Sutego2": {
+  "sizeId" : 25,
   "unit" : "km",
   "minHeight" : 536.87,
   "maxHeight" : 637.53,
@@ -736,6 +828,7 @@
   "image" : "sutegoB"
 },
 "Putera2": {
+  "sizeId" : 25,
   "unit" : "km",
   "minHeight" : 536.87,
   "maxHeight" : 637.53,
@@ -744,6 +837,7 @@
   "image" : "puteraB"
 },
 "Torikera2": {
+  "sizeId" : 25,
   "unit" : "km",
   "minHeight" : 536.87,
   "maxHeight" : 637.53,
@@ -752,6 +846,7 @@
   "image" : "torikeraB"
 },
 "Burakio2": {
+  "sizeId" : 26,
   "unit" : "km",
   "minHeight" : 1107.30,
   "maxHeight" : 1308.62,
@@ -760,6 +855,7 @@
   "image" : "burakioB"
 },
 "Tirano2": {
+  "sizeId" : 26,
   "unit" : "km",
   "minHeight" : 1107.30,
   "maxHeight" : 1308.62,
@@ -768,6 +864,7 @@
   "image" : "tiranoB"
 },
 "Supino2": {
+  "sizeId" : 26,
   "unit" : "km",
   "minHeight" : 1107.30,
   "maxHeight" : 1308.62,
@@ -776,6 +873,7 @@
   "image" : "supinoB"
 },
 "God": {
+  "sizeId" : 27,
   "unit" : "km",
   "minHeight" : 8000.00,
   "maxHeight" : 8000.00,

@@ -62,7 +62,6 @@ Animal* Animal::CreateWithSpeceis(Species* species)
     return nullptr;
 }
 
-
 bool Animal::initWithSpeceis(Species* species, float size)
 {
     if (!Node::init()) {
@@ -538,10 +537,10 @@ void Animal::setIsEnmey(bool isEnemy)
     _isEnemy = isEnemy;
     if (isEnemy) {
         setTag((int)EntityTag::EnemyAnimal);
-        _image->setColor(Color3B(COLOR_RED));
+        _backImage->setColor(Color3B(COLOR_RED));
     } else {
         setTag((int)EntityTag::EnemyAnimal);
-        _image->setColor(Color3B::WHITE);
+        _backImage->setColor(Color3B::WHITE);
     }
 }
 
@@ -555,10 +554,10 @@ void Animal::setIsOpponent(bool isOpponent)
     _isOpponent = isOpponent;
     if (isOpponent) {
         setTag((int)EntityTag::OpponentAnimal);
-        _image->setColor(Color3B(COLOR_RED));
+        _backImage->setColor(Color3B(COLOR_RED));
     } else {
         setTag((int)EntityTag::EnemyAnimal);
-        _image->setColor(Color3B::WHITE);
+        _backImage->setColor(Color3B::WHITE);
     }
 }
 

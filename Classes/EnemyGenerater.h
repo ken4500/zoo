@@ -14,16 +14,26 @@ class Animal;
 
 class EnemyGenerater {
 public:
-    EnemyGenerater(WorldInfo* info);
+    EnemyGenerater(WorldInfo* info, std::function<void (Animal*)> generateCallback);
     ~EnemyGenerater();
+    void start();
+    void end();
+    bool isEnd();
     
-    Animal* generate();
     
 private:
     WorldInfo* _info;
-    std::vector<Species*> _speciesList;
+    std::function<void(Animal*)> _generateEnemyCallback;
+    std::vector<std::vector<Species*>> _waveSpeciesList;
     std::default_random_engine randomGenerator;
+    bool _isEnd;
+    int _wave;
 
+    void update(float dt);
+    Animal* _generate();
+    void _nextWave();
+    bool _isLastWave();
+    std::vector<Species*> getSpeciesList(std::vector<Species*> allSpecies, int minSizeId, int maxSizeId);
 };
 
 #endif /* defined(__Zoo__EnemyGenerater__) */

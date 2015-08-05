@@ -8,18 +8,33 @@
 
 #include "EnemyGenerater.h"
 #include "Animal.h"
+#include "WorldManager.h"
 
-EnemyGenerater::EnemyGenerater(WorldInfo* info)
+const int WAVE_COUNT = 3;
+const int ENEMY_COUNT_PER_WAVE = 8;
+
+EnemyGenerater::EnemyGenerater(WorldInfo* info, std::function<void (Animal*)> generateCallback)
 {
     _info = info;
+    _generateEnemyCallback = generateCallback;
+    _isEnd = true;
+
     std::vector<Species*> allSpecies = Species::getAllSpecies();
-    _speciesList = std::vector<Species*>();
-    float min = _info->width.getMmLength() / 20;
-    float max = _info->width.getMmLength() / 8;
-    for (Species* species : allSpecies) {
-        float height = species->getAverageHeight().getMmLength();
-        if (min <= height && height <= max) {
-            _speciesList.push_back(species);
+    _waveSpeciesList = std::vector<std::vector<Species*>>();
+    int minSizeId = MAX(1, _info->level - 1);
+    int maxSizeId = MAX(1, _info->level);
+    for (int wave = 0; wave < WAVE_COUNT; wave++) {
+        if (wave == WAVE_COUNT - 1) {
+            _waveSpeciesList.push_back(getSpeciesList(allSpecies, maxSizeId, maxSizeId));
+        } else {
+            _waveSpeciesList.push_back(getSpeciesList(allSpecies, minSizeId, maxSizeId));
+        }
+
+        if (minSizeId == maxSizeId) {
+            maxSizeId++;
+        } else {
+            minSizeId++;
+            maxSizeId++;
         }
     }
 }
@@ -28,10 +43,70 @@ EnemyGenerater::~EnemyGenerater()
 {
 }
 
-
-Animal* EnemyGenerater::generate()
+void EnemyGenerater::start()
 {
-    std::shuffle(_speciesList.begin(), _speciesList.end(), this->randomGenerator);
-    Species* target = _speciesList.back();
+    _wave = 0;
+    _isEnd = false;
+    Director::getInstance()->getScheduler()->schedule(CC_CALLBACK_1(EnemyGenerater::update, this), this, 1.0f, false, "update_enemy_generater");
+}
+
+void EnemyGenerater::end()
+{
+    _isEnd = true;
+    Director::getInstance()->getScheduler()->unschedule("update_enemy_generater", this);
+}
+
+bool EnemyGenerater::isEnd()
+{
+    return _isEnd;
+}
+
+void EnemyGenerater::update(float dt)
+{
+    int aliveEnemy = WorldManager::getInstance()->getAliveEnemy();
+    if (aliveEnemy <= ENEMY_COUNT_PER_WAVE * 0.4f) {
+        _nextWave();
+        if (_isLastWave()) {
+            end();
+        }
+    }
+}
+
+
+Animal* EnemyGenerater::_generate()
+{
+    std::shuffle(_waveSpeciesList[_wave - 1].begin(), _waveSpeciesList[_wave - 1].end(), this->randomGenerator);
+    Species* target = _waveSpeciesList[_wave - 1].back();
     return Animal::CreateWithSpeceis(target);
+}
+
+void EnemyGenerater::_nextWave()
+{
+    _wave++;
+    
+    int enemyCount = ENEMY_COUNT_PER_WAVE;
+    if (_wave == WAVE_COUNT) {
+        enemyCount = 1;
+    }
+    
+    for (int i = 0; i < enemyCount; i++) {
+        Animal* enemy = _generate();
+        _generateEnemyCallback(enemy);
+    }
+}
+
+bool EnemyGenerater::_isLastWave()
+{
+    return _wave == WAVE_COUNT;
+}
+
+std::vector<Species*> EnemyGenerater::getSpeciesList(std::vector<Species*> allSpecies, int minSizeId, int maxSizeId)
+{
+    std::vector<Species*> rtn;
+    for (Species* species : allSpecies) {
+        if (minSizeId <= species->getSizeId() && species->getSizeId() <= maxSizeId) {
+            rtn.push_back(species);
+        }
+    }
+    return rtn;
 }

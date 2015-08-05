@@ -234,6 +234,24 @@ float WorldManager::getHp()
     return hp;
 }
 
+int WorldManager::getAliveEnemy()
+{
+    auto enemyAnimalList = getEnemyAnimalList();
+    int aliveCount = 0;
+    for (auto animal : enemyAnimalList) {
+        if (animal->isDead() == false) {
+            aliveCount++;
+        }
+    }
+    return aliveCount;
+}
+
+int WorldManager::getLeftTimeOnBattle()
+{
+    return _leftTime;
+}
+
+
 #pragma - public method
 
 void WorldManager::resetData()
@@ -399,7 +417,6 @@ void WorldManager::startBattle()
     _state = SceneState::Battle;
     _beforeBattleCoin = getCoin();
     _setLeftTime(BATTLE_TIME);
-    _enemyGenerater = new EnemyGenerater(_info);
     UserDataManager::getInstance()->decreateLife(1);
     _setGameActive(true);
     SoundManager::getInstance()->playBattleStartEffect();
@@ -412,24 +429,27 @@ void WorldManager::startBattle()
         scene->updateLifeLabel(0);
     }
 
-    for (int i = 0; i < ENEMY_NUM; i++) {
-        auto enemyAnimal = _enemyGenerater->generate();
-        enemyAnimal->setIsEnmey(true);
-        _map->addEnemyAnimalAtOutRandomPoint(enemyAnimal);
-        enemyAnimal->deadCallback = [this, enemyAnimal](AbstractBattleEntity* entity) {
-            addCoin(enemyAnimal->getCoin());
+    _enemyGenerater = new EnemyGenerater(_info, [this](Animal* enemy){
+        enemy->setIsEnmey(true);
+        _map->addEnemyAnimalAtOutRandomPoint(enemy);
+        enemy->deadCallback = [this, enemy](AbstractBattleEntity* entity) {
+            addCoin(enemy->getCoin());
             auto coinEffect = CSLoader::createNode("GetCoin.csb");
-            coinEffect->setPosition(enemyAnimal->getCenterPosition());
+            coinEffect->setPosition(enemy->getCenterPosition());
             coinEffect->setZOrder(2000);
             coinEffect->setScale(1.0f / _map->getScale());
             auto text = coinEffect->getChildByName<ui::TextBMFont*>("text");
-            text->setString(StringUtils::format("+%d", enemyAnimal->getCoin()));
+            text->setString(StringUtils::format("+%d", enemy->getCoin()));
             _map->addChild(coinEffect);
             auto timeLine = CSLoader::createTimeline("GetCoin.csb");
             coinEffect->runAction(timeLine);
             timeLine->play("get", false);
+            timeLine->setLastFrameCallFunc([coinEffect]{
+                coinEffect->removeFromParent();
+            });
         };
-    }
+    });
+    _enemyGenerater->start();
     
     _map->hideGacha();
 }
@@ -465,7 +485,17 @@ void WorldManager::endBattle(bool win, float showResultViewDelay)
         return;
     }
 
-    _endBattle();
+    if (_state == SceneState::Battle) {
+        _state = SceneState::ShowResult;
+    } else if (_state == SceneState::TutorialBattle) {
+        _state = SceneState::TutorialGacha;
+    }
+    
+    _hpGaugeUpdate(0);
+    this->_setGameActive(false);
+    _enableNextAction = false;
+    _enemyGenerater->end();
+
     GameResult result = GameResult();
     result.resultState = (win) ? BattleState::Win : BattleState::Lose;
     result.playTime = BATTLE_TIME - _leftTime;
@@ -617,6 +647,27 @@ void WorldManager::disconnectSession()
     }
 }
 
+BattleState WorldManager::checkBattleState()
+{
+    if (_enemyGenerater->isEnd() && getAliveEnemy() == 0) {
+        return BattleState::Win;
+    }
+
+    auto animalList      = WorldManager::getInstance()->getAnimalList();
+    bool allAnimalIsDead = true;
+    for (auto animal : animalList) {
+        if (animal->isDead() == false) {
+            allAnimalIsDead = false;
+            break;
+        }
+    }
+    if (allAnimalIsDead) {
+        return BattleState::Lose;
+    }
+
+    return BattleState::Battle;
+}
+
 
 #pragma - util method
 
@@ -677,19 +728,6 @@ void WorldManager::_hpGaugeUpdate(float dt)
     if (main) {
         main->updateHpGauge(getHp());
     }
-}
-
-void WorldManager::_endBattle()
-{
-    if (_state == SceneState::Battle) {
-        _state = SceneState::ShowResult;
-    } else if (_state == SceneState::TutorialBattle) {
-        _state = SceneState::TutorialGacha;
-    }
-    
-    _hpGaugeUpdate(0);
-    this->_setGameActive(false);
-    _enableNextAction = false;
 }
 
 void WorldManager::_closeResult()
@@ -776,23 +814,6 @@ void WorldManager::_repairAllAnimalHp()
     for (auto animal : animalList) {
         animal->repairHp();
     }
-}
-
-bool WorldManager::_checkAllEnemyDead()
-{
-    return _getAliveEnemy() == 0;
-}
-
-int WorldManager::_getAliveEnemy()
-{
-    auto enemyAnimalList = getEnemyAnimalList();
-    int aliveCount = 0;
-    for (auto animal : enemyAnimalList) {
-        if (animal->isDead() == false) {
-            aliveCount++;
-        }
-    }
-    return aliveCount;
 }
 
 void WorldManager::_transitionMap(WorldInfo* preWorldInfo, WorldInfo* newWorldInfo)
@@ -1036,9 +1057,7 @@ void WorldManager::_makeCoinTreePerTime(float dt)
         }
      }
     
-     CCLOG("my create coin tree = %d", myCoinTree);
-    
-     if (myCoinTree == 0) {
+     if (myCoinTree <= 1) {
         _makeCoinTree();
      }
 }
@@ -1093,7 +1112,7 @@ void WorldManager::_startTutrialBattleScene2()
         ant->setIsEnmey(true);
         _map->addEnemyAnimalAtOutRandomPoint(ant);
         ant->deadCallback = [this, scene] (AbstractBattleEntity* d) {
-            int alive = _getAliveEnemy();
+            int alive = getAliveEnemy();
             if (alive == 7 && appearKabutomushi == false) {
                 appearKabutomushi = true;
                 auto beetleSpecies = new Species("Kabutomushi");
