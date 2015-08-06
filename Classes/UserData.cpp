@@ -13,27 +13,20 @@ static int COIN_INT_MAX = 1000000000;
 bool UserData::init()
 {
     _data = ValueMap();
-    return save();
+    save();
+    return  true;
 }
 
-bool UserData::save()
-{   //保存箇所のフルパスを取得
-    std::string path = UserData::getFilePath();
-    
-    // 保存
-    if(FileUtils::getInstance()->writeToFile(_data, path)){
-        CCLOG("Save Success");
-        return true;
-    }else{
-        CCLOG("Save Failed");
-        return false;
-    }
+void UserData::save()
+{
+    Director::getInstance()->getScheduler()->unschedule("save_user_data", this);
+    Director::getInstance()->getScheduler()->schedule(CC_CALLBACK_1(UserData::_save, this), this, 1.0f, false, "save_user_data");
 }
 
 UserData* UserData::load()
 {
     UserData* result = new UserData();
-    auto path = UserData::getFilePath();
+    auto path = UserData::_getFilePath();
     if (FileUtils::getInstance()->isFileExist(path) == false) {
         result->init();
     }
@@ -163,8 +156,24 @@ void UserData::setAnimalDataList(ValueMap getAnimalData)
     _data["animal_get_data"] = getAnimalData;
 }
 
-std::string UserData::getFilePath()
+#pragma - private method
+
+std::string UserData::_getFilePath()
 {
     return FileUtils::getInstance()->getWritablePath() + "user_data_0805";
 }
 
+void UserData::_save(float dt)
+{
+    Director::getInstance()->getScheduler()->unschedule("save_user_data", this);
+
+    //保存箇所のフルパスを取得
+    std::string path = UserData::_getFilePath();
+    
+    // 保存
+    if(FileUtils::getInstance()->writeToFile(_data, path)){
+        CCLOG("Save Success");
+    }else{
+        CCLOG("Save Failed");
+    }
+}

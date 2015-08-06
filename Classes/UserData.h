@@ -14,10 +14,10 @@
 #include "Constants.h"
 USING_NS_CC;
 
-class UserData {
+class UserData :Ref {
 public:
     bool init();
-    bool save();
+    void save();
     static UserData* load();
     
     bool isEndTutorial();
@@ -38,8 +38,10 @@ public:
 
     
 private:
-    static std::string getFilePath();
     ValueMap _data;
+
+    static std::string _getFilePath();
+    void _save(float dt);
 };
 
 
