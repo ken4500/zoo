@@ -618,7 +618,7 @@ void MainScene::_resumeRecursive(Node* node)
     auto children = node->getChildren();
     for(Vector<Node*>::iterator it = children.begin(); it != children.end(); ++it) {
         (*it)->resume();
-        _pauseRecursive(*it);
+        _resumeRecursive(*it);
     }
 }
 

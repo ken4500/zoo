@@ -270,11 +270,8 @@ void WorldManager::lotteryGacha()
     long int coin = getCoin();
     auto worldScene = SceneManager::getInstance()->getWorldScene();
     if (coin < _gacha->getPrice()) {
-        std::string noticeMessage = "You don't have enough coin!\nPush the battle button";
-        if (_isNetwork) {
-            noticeMessage = "You don't have enough coin!\nCollect from coin tree";
-        }
-        worldScene->showNoticeView(noticeMessage, 0.0f, NULL);
+        auto noticeMessage = CCLS("GACHA_SAY_NOT_ENOUGH_MONEY");
+        _gacha->say(noticeMessage);
         return;
     }
     
@@ -331,7 +328,14 @@ WorldInfo* WorldManager::levelup()
             auto gachaImage = _gacha->getChildByName<Sprite*>("image");
             auto gachaLength = Length::scale(_info->width, 0.2);
             float gachaScale = getImageScale(gachaImage, gachaLength);
-            _gacha->runAction(EaseInOut::create(ScaleTo::create(1.0f, gachaScale), 2));
+            _gacha->runAction(Sequence::create(
+                EaseInOut::create(ScaleTo::create(1.0f, gachaScale), 2),
+                DelayTime::create(0.8f),
+                CallFunc::create([this]{
+                    _gacha->sayRandom();
+                }),
+                NULL
+            ));
         } else {
             _transitionMap(preWorldInfo, _info);
         }
@@ -880,7 +884,14 @@ void WorldManager::_transitionMap(WorldInfo* preWorldInfo, WorldInfo* newWorldIn
         auto gachaImage = _gacha->getChildByName<Sprite*>("image");
         auto gachaLength = Length::scale(newWorldInfo->width, 0.2);
         float gachaScale = getImageScale(gachaImage, gachaLength);
-        _gacha->runAction(EaseInOut::create(ScaleTo::create(1.0f, gachaScale), 2));
+        _gacha->runAction(Sequence::create(
+            EaseInOut::create(ScaleTo::create(1.0f, gachaScale), 2),
+            DelayTime::create(0.8f),
+            CallFunc::create([this]{
+                _gacha->sayRandom();
+            }),
+            NULL
+        ));
 
         
         _map->release();
@@ -1219,7 +1230,15 @@ void WorldManager::_startTutrialLevelupScene2()
     auto gachaImage = _gacha->getChildByName<Sprite*>("image");
     auto gachaLength = Length::scale(_info->width, 0.2);
     float gachaScale = getImageScale(gachaImage, gachaLength);
-    _gacha->runAction(EaseInOut::create(ScaleTo::create(1.0f, gachaScale), 2));
+    _gacha->runAction(Sequence::create(
+        EaseInOut::create(ScaleTo::create(1.0f, gachaScale), 2),
+        DelayTime::create(0.8f),
+        CallFunc::create([this]{
+            _gacha->sayRandom();
+        }),
+        NULL
+    ));
+
     scene->playNovel("novel_tutorial_levelup2", [this]() {
         _enableNextAction = true;
     }, false, 2.5f);

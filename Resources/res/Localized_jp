@@ -28,6 +28,19 @@ BOOK_BACK = 戻る;
 
 LEVEL = レベル;
 
+GACHA_SAY_NOT_ENOUGH_MONEY = 金が足らんぞ！;
+GACHA_SAY_LEVELUP_1 = ちょー気持ちいい
+GACHA_SAY_LEVELUP_2 = やっべぇぞ
+GACHA_SAY_LEVELUP_3 = おほほーい
+GACHA_SAY_LEVELUP_4 = すっげぇな
+GACHA_SAY_LEVELUP_5 = びっくらこいた
+GACHA_SAY_LEVELUP_6 = おーまいごっど
+GACHA_SAY_LEVELUP_7 = らっきー
+GACHA_SAY_LEVELUP_8 = 天にも昇る気持ち
+GACHA_SAY_LEVELUP_9 = サイコー！
+GACHA_SAY_LEVELUP_10 = かもーん
+
+
 Hero = 主人公;
 Ari = アリ;
 Tentoumushi = テントウムシ;

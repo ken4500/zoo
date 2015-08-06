@@ -29,6 +29,8 @@ public:
     void setOpponent(bool isOpponent);
     bool isOpponent();
     bool touchIsInGacha(Vec2 position);
+    void say(std::string message);
+    void sayRandom();
     
     std::function<void()> finishGachaCallback;
 
@@ -42,6 +44,7 @@ protected:
     std::vector<bool> _hitList;
     float _sumProbability;
     cocos2d::ui::TextBMFont* _priceLabel;
+    bool _isSaying;
 
     void onEnter() override;
     void _hidePrice();

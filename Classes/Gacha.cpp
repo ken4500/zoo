@@ -11,7 +11,8 @@
 #include "Animal.h"
 #include "SoundManager.h"
 
-bool Gacha::init() {
+bool Gacha::init()
+{
     if (!Node::init()) {
         return false;
     }
@@ -20,6 +21,8 @@ bool Gacha::init() {
     _timeline = CSLoader::createTimeline("Gacha.csb");
     // retain the character animation timeline so it doesn't get deallocated
     _timeline->retain();
+    
+    _isSaying = false;
     
     std::srand((int)time(NULL));
     setTag((int)EntityTag::Gacha);
@@ -175,3 +178,42 @@ void Gacha::_showPrice()
     price->setVisible(true);
 }
 
+void Gacha::say(std::string message)
+{
+    if (_isSaying) {
+        return;
+    }
+
+    Sprite* fukidashi = Sprite::create("ui/small_fukidashi.png");
+    fukidashi->setAnchorPoint(Vec2(0, 0));
+    fukidashi->setPosition(Vec2(40, 55));
+    addChild(fukidashi);
+    
+    Label* label = Label::createWithTTF(message, "font/yasashisa.ttf", 44);
+    label->setColor(Color3B(COLOR_OUTLINE));
+    label->setAnchorPoint(Vec2(0.5f, 0.5f));
+    Vec2 pos = Vec2(fukidashi->getContentSize() / 2) + Vec2(20, 0);
+    label->setPosition(pos);
+    fukidashi->addChild(label);
+    
+    _isSaying = true;
+    
+    fukidashi->setOpacity(0);
+    fukidashi->runAction(Sequence::create(
+        FadeIn::create(0.2f),
+        DelayTime::create(2.0f),
+        FadeOut::create(0.2f),
+        CallFunc::create([this]{
+            _isSaying = false;
+        }),
+        RemoveSelf::create(),
+        NULL
+    ));
+}
+
+void Gacha::sayRandom()
+{
+    int rnd = rand() % 10 + 1;
+    auto message = CCLS(StringUtils::format("GACHA_SAY_LEVELUP_%d", rnd).c_str());
+    say(message);
+}
