@@ -107,6 +107,7 @@ private:
     SceneState _state;
     EnemyGenerater* _enemyGenerater;
     Weight* _opponentResultWeight;
+    bool _enableBattle;
     
     void _hpGaugeUpdate();
     void _leftTimeUpdate(float dt);

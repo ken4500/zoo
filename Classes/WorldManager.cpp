@@ -46,6 +46,7 @@ _totalWeight(0)
     _isNetwork = false;
     _state = SceneState::Tutorial;
     _gacha = nullptr;
+    _enableBattle = true;
     if (SKIP_TUTORIAL || UserDataManager::getInstance()->isEndTutorial()
         || _info->level > 1) {
         _state = SceneState::Normal;
@@ -252,7 +253,6 @@ int WorldManager::getLeftTimeOnBattle()
     return _leftTime;
 }
 
-
 #pragma - public method
 
 void WorldManager::resetData()
@@ -415,7 +415,15 @@ Vec2 WorldManager::getOutRandomPlace()
 
 void WorldManager::startBattle()
 {
-    if (UserDataManager::getInstance()->getLife() <= 0 || _enableNextAction == false) {
+    if (_enableNextAction == false || _enableBattle == false
+        || _state == SceneState::Battle || _state == SceneState::TutorialBattle)
+    {
+        return;
+    }
+    
+    if (UserDataManager::getInstance()->getLife() <= 0)
+    {
+        SceneManager::getInstance()->getMainScene()->showNoticeView(CCLS("NOTICE_LACK_LIFE"), 0, NULL);
         return;
     }
 
@@ -430,6 +438,8 @@ void WorldManager::startBattle()
     
     auto scene = SceneManager::getInstance()->getMainScene();
     if (scene) {
+        scene->hideMenu();
+        scene->battleStartEffect();
         scene->showBattleMenu();
         scene->updateLifeLabel(0);
     }
@@ -477,6 +487,8 @@ void WorldManager::startTutorialBattle()
     SoundManager::getInstance()->playBattleBgm();
     auto scene = SceneManager::getInstance()->getMainScene();
     _enableNextAction = false;
+    scene->hideMenu();
+    scene->battleStartEffect();
     scene->playNovel("novel_tutorial_battle1", [this]{
         _enableNextAction = true;
     }, false, 2.0f);
@@ -1115,6 +1127,7 @@ void WorldManager::_startTutrialBattleScene1()
     auto scene = SceneManager::getInstance()->getMainScene();
 
     // 1匹目の敵と接触
+    enemyAnimal->setOffense(0);
     enemyAnimal->startFightCallback = [this, scene](AbstractBattleEntity* e, AbstractBattleEntity* t) {
         scene->playNovel("novel_tutorial_battle2", NULL, false);
     };
@@ -1131,14 +1144,16 @@ static bool appearKabutomushi = false;
 void WorldManager::_startTutrialBattleScene2()
 {
     auto scene = SceneManager::getInstance()->getMainScene();
-    // 敵5匹追加
+    // 敵10匹追加
+    appearKabutomushi = false;
     for (int i = 0; i < 10; i++) {
         auto ant = Animal::CreateWithSpeceis("Ari");
         ant->setIsEnmey(true);
+        ant->setOffense(0);
         _map->addEnemyAnimalAtOutRandomPoint(ant);
         ant->deadCallback = [this, scene] (AbstractBattleEntity* d) {
             int alive = getAliveEnemy();
-            if (alive == 7 && appearKabutomushi == false) {
+            if (alive <= 7 && appearKabutomushi == false) {
                 appearKabutomushi = true;
                 auto beetleSpecies = new Species("Kabutomushi");
                 auto beetle = Animal::CreateWithSpeceis("Kabutomushi", beetleSpecies->getMaxHeight().getMmLength());
@@ -1189,10 +1204,11 @@ void WorldManager::_startTutrialGachScene1()
     _gacha->setScale(gachaScale);
     _gacha->setNewGacha(_info);
     _map->setGacha(_gacha);
+    _enableBattle = false;
 
     scene->playNovel("novel_tutorial_gacha1", [this]{
         _enableNextAction = true;
-    }, false, 2.0f);
+    }, false, 1.0f);
     
     _gacha->finishGachaCallback = [this] (){
         _startTutrialGachScene2();
@@ -1208,6 +1224,7 @@ void WorldManager::_startTutrialGachScene2()
     auto scene = SceneManager::getInstance()->getMainScene();
     scene->playNovel("novel_tutorial_gacha2", [this]{
         _enableNextAction = true;
+        _enableBattle = true;
     }, false, 2.0f);
 }
 

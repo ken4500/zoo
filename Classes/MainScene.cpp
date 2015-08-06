@@ -87,9 +87,9 @@ bool MainScene::init()
     _coinLabel = _menuNode->getChildByName<ui::TextBMFont*>("coinText");
     _lifeLabel = _menuNode->getChildByName<ui::TextBMFont*>("hartText");
     _repairTimeLabel = _menuNode->getChildByName<ui::TextBMFont*>("repairTimeText");
-    auto levelBack = _rootNode->getChildByName("levelBack");
-    levelBack->setPosition(Vec2(levelBack->getPosition().x, displaySize.height - 60));
-    _levelLabel = levelBack->getChildByName<ui::TextBMFont*>("levelLabel");
+    _levelBack = _rootNode->getChildByName("levelBack");
+    _levelBack->setPosition(Vec2(_levelBack->getPosition().x, displaySize.height - 60));
+    _levelLabel = _levelBack->getChildByName<ui::TextBMFont*>("levelLabel");
     _weightLabel = _rootNode->getChildByName<ui::TextBMFont*>("weightLabel");
     _weightImage = _rootNode->getChildByName<Sprite*>("weightImage");
 
@@ -173,7 +173,7 @@ void MainScene::hideMenu()
     auto battleButton = _menuNode->getChildByName<ui::Button*>("battleButton");
     battleButton->setEnabled(false);
     _menuNode->runAction(FadeOut::create(0.2f));
-    _levelLabel->runAction(FadeOut::create(0.2f));
+    _levelBack->runAction(FadeOut::create(0.2f));
     _weightLabel->runAction(FadeOut::create(0.2f));
     _otherMenuButton->setEnabled(false);
     _scaleBar->runAction(FadeOut::create(0.2f));
@@ -186,7 +186,7 @@ void MainScene::showMenu()
     auto battleButton = _menuNode->getChildByName<ui::Button*>("battleButton");
     battleButton->setEnabled(true);
     _menuNode->runAction(FadeIn::create(0.5f));
-    _levelLabel->runAction(FadeIn::create(0.5f));
+    _levelBack->runAction(FadeIn::create(0.5f));
     _weightLabel->runAction(FadeIn::create(0.5f));
     _otherMenuButton->setEnabled(true);
     _scaleBar->runAction(FadeIn::create(0.5f));
@@ -397,6 +397,13 @@ void MainScene::showResultView(GameResult result, float delay, std::function<voi
     ));
 }
 
+void MainScene::battleStartEffect()
+{
+    this->stopAllActions();
+    this->runAction(_timeline);
+    _timeline->play("battle_start", false);
+}
+
 #pragma - private method
 
 static bool isOpenDebugMenu = false;
@@ -536,17 +543,9 @@ void MainScene::_pushBattleButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::To
         button->runAction(Sequence::create(
             ScaleTo::create(0.1f, 1),
             CallFunc::create([this]{
-                if (UserDataManager::getInstance()->getLife() <= 0) {
-                    showNoticeView(CCLS("NOTICE_LACK_LIFE"), 0, NULL);
-                    return;
-                }
                 if (WorldManager::getInstance()->getSceneState() == SceneState::Tutorial) {
-                    hideMenu();
-                    _battleStartEffect();
                     WorldManager::getInstance()->startTutorialBattle();
                 } else {
-                    hideMenu();
-                    _battleStartEffect();
                     WorldManager::getInstance()->startBattle();
                 }
             }),
@@ -620,13 +619,6 @@ void MainScene::_resumeRecursive(Node* node)
         (*it)->resume();
         _resumeRecursive(*it);
     }
-}
-
-void MainScene::_battleStartEffect()
-{
-    this->stopAllActions();
-    this->runAction(_timeline);
-    _timeline->play("battle_start", false);
 }
 
 void MainScene:: _updateLanguage()

@@ -45,6 +45,7 @@ public:
     void showConsumeCoinEffect(int decreaseCoin);
     void showNoticeView(std::string message, float delay, std::function<void ()> closeCallback);
     void showResultView(GameResult result, float delay, std::function<void ()> closeCallback);
+    void battleStartEffect();
     
 private:
     WorldMap* _map;
@@ -60,6 +61,7 @@ private:
     cocos2d::ui::TextBMFont* _weightLabel;
     cocos2d::ui::Button* _endButton;
     cocos2d::ui::Button* _otherMenuButton;
+    Node* _levelBack;
     HpGauge* _hpGauge;
     Weight _preWeight;
     Action* _countUpAction;
@@ -73,7 +75,6 @@ private:
     void _pushBattleButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void _pushOtherMenuButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void _pushEndButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
-    void _battleStartEffect();
     void _pauseRecursive(Node* node);
     void _resumeRecursive(Node* node);
     void _updateLanguage();

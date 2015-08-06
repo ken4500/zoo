@@ -190,13 +190,7 @@ void Animal::startDashToPoint(Vec2 targetPoint, float dashTime)
     }
     
     _state = AnimalState::Dash;
-    runAction(Sequence::create(
-        DelayTime::create(rand_0_1() * 0.2f),
-        CallFunc::create([this]{
-            _timeline->play("dash", false);
-        }),
-        NULL
-    ));
+    _timeline->play("dash", false);
 
     _targetPointByDash = targetPoint;
     Vec2 move = targetPoint - this->getPosition();
@@ -662,6 +656,11 @@ SizeRank Animal::getMaxSizeRank()
 SizeRank Animal::getMinSizeRank()
 {
     return _species->getMinHeightRank(_height);
+}
+
+void Animal::setOffense(float offense)
+{
+    _offense = offense;
 }
 
 #pragma - private method

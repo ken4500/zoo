@@ -52,6 +52,7 @@ public:
     float getHp();
     SizeRank getMaxSizeRank();
     SizeRank getMinSizeRank();
+    void setOffense(float offense);
 
     void updateWorldScale();
     void jump(Vec2 target, float height, std::function<void ()> callback);

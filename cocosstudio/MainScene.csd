@@ -109,11 +109,6 @@
             <TextureFile Type="Normal" Path="ui/battle_start.png" Plist="" />
           </TextureFrame>
         </Timeline>
-        <Timeline ActionTag="-840124772" Property="Position">
-          <PointFrame FrameIndex="1" X="1090.5599" Y="20.0000">
-            <EasingData Type="0" />
-          </PointFrame>
-        </Timeline>
       </Animation>
       <AnimationList>
         <AnimationInfo Name="zoomout1" StartIndex="1" EndIndex="135">
@@ -150,7 +145,7 @@
             <FileData Type="Normal" Path="ui/levelup.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="battleStart" ActionTag="902696947" Tag="17" VisibleForFrame="False" Alpha="230" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="76.5000" RightMargin="76.5000" TopMargin="247.5000" BottomMargin="247.5000" ctype="SpriteObjectData">
+          <AbstractNodeData Name="battleStart" ActionTag="902696947" Tag="17" VisibleForFrame="False" Alpha="0" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="76.5000" RightMargin="76.5000" TopMargin="247.5000" BottomMargin="247.5000" ctype="SpriteObjectData">
             <Size X="983.0000" Y="145.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="568.0000" Y="320.0000" />
@@ -161,13 +156,13 @@
             <FileData Type="Normal" Path="ui/battle_start.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="scaleBar" ActionTag="-840124772" Tag="19" IconVisible="True" LeftMargin="1090.5599" RightMargin="45.4401" TopMargin="620.0000" BottomMargin="20.0000" InnerActionSpeed="1.0000" ctype="ProjectNodeObjectData">
+          <AbstractNodeData Name="scaleBar" ActionTag="-840124772" Tag="19" IconVisible="True" LeftMargin="1106.0000" RightMargin="30.0000" TopMargin="620.0000" BottomMargin="20.0000" InnerActionSpeed="1.0000" ctype="ProjectNodeObjectData">
             <Size X="0.0000" Y="0.0000" />
             <AnchorPoint />
-            <Position X="1090.5599" Y="20.0000" />
+            <Position X="1106.0000" Y="20.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.9600" Y="0.0313" />
+            <PrePosition X="0.9736" Y="0.0313" />
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="Normal" Path="ScaleBar.csd" Plist="" />
           </AbstractNodeData>
@@ -302,13 +297,13 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="weightLabel" ActionTag="1666255966" Tag="361" IconVisible="False" LeftMargin="912.5631" RightMargin="-49.5631" TopMargin="427.6423" BottomMargin="127.3577" LabelText="123.45kg" ctype="TextBMFontObjectData">
+          <AbstractNodeData Name="weightLabel" ActionTag="1666255966" Tag="361" IconVisible="False" LeftMargin="921.5630" RightMargin="-58.5630" TopMargin="427.6422" BottomMargin="127.3578" LabelText="123.45kg" ctype="TextBMFontObjectData">
             <Size X="273.0000" Y="85.0000" />
             <AnchorPoint />
-            <Position X="912.5631" Y="127.3577" />
+            <Position X="921.5630" Y="127.3578" />
             <Scale ScaleX="0.6500" ScaleY="0.6500" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.8033" Y="0.1990" />
+            <PrePosition X="0.8112" Y="0.1990" />
             <PreSize X="0.1840" Y="0.1328" />
             <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font3.fnt" Plist="" />
           </AbstractNodeData>
@@ -335,13 +330,13 @@
             <FileData Type="Normal" Path="ui/level_back.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="weightImage" ActionTag="-1625476925" Tag="283" IconVisible="False" LeftMargin="845.3036" RightMargin="226.6964" TopMargin="451.3923" BottomMargin="125.6077" ctype="SpriteObjectData">
+          <AbstractNodeData Name="weightImage" ActionTag="-1625476925" Tag="283" IconVisible="False" LeftMargin="854.3035" RightMargin="217.6965" TopMargin="451.3923" BottomMargin="125.6077" ctype="SpriteObjectData">
             <Size X="64.0000" Y="63.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="877.3036" Y="157.1077" />
+            <Position X="886.3035" Y="157.1077" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.7723" Y="0.2455" />
+            <PrePosition X="0.7802" Y="0.2455" />
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="Normal" Path="ui/weight_image.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
