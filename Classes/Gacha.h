@@ -44,7 +44,6 @@ protected:
     std::vector<bool> _hitList;
     float _sumProbability;
     cocos2d::ui::TextBMFont* _priceLabel;
-    bool _isSaying;
 
     void onEnter() override;
     void _hidePrice();
