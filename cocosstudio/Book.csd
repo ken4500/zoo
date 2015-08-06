@@ -6,7 +6,7 @@
       <ObjectData Name="Layer" CustomClassName="Book" Tag="100" ctype="GameLayerObjectData">
         <Size X="1136.0000" Y="640.0000" />
         <Children>
-          <AbstractNodeData Name="book" ActionTag="-1585250833" Tag="110" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="139.6271" RightMargin="146.3729" TopMargin="2.3086" BottomMargin="70.6914" ctype="SpriteObjectData">
+          <AbstractNodeData Name="book" ActionTag="-1585250833" Tag="110" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="139.2162" RightMargin="146.7838" TopMargin="2.7194" BottomMargin="70.2806" ctype="SpriteObjectData">
             <Size X="850.0000" Y="567.0000" />
             <Children>
               <AbstractNodeData Name="position1" ActionTag="174020161" Tag="125" IconVisible="False" LeftMargin="47.7607" RightMargin="696.2393" TopMargin="57.0408" BottomMargin="406.9592" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="76" Scale9Height="81" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
@@ -24,7 +24,7 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="position2" ActionTag="-1604328754" Tag="126" IconVisible="False" LeftMargin="163.4881" RightMargin="580.5118" TopMargin="57.0408" BottomMargin="406.9592" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="76" Scale9Height="81" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+              <AbstractNodeData Name="position2" ActionTag="-1604328754" Tag="126" IconVisible="False" LeftMargin="163.4881" RightMargin="580.5119" TopMargin="57.0408" BottomMargin="406.9592" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="76" Scale9Height="81" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                 <Size X="106.0000" Y="103.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="216.4881" Y="458.4592" />
@@ -99,7 +99,7 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="position8" ActionTag="1517060687" Tag="131" IconVisible="False" LeftMargin="163.4881" RightMargin="580.5118" TopMargin="339.8199" BottomMargin="124.1801" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="76" Scale9Height="81" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+              <AbstractNodeData Name="position8" ActionTag="1517060687" Tag="131" IconVisible="False" LeftMargin="163.4881" RightMargin="580.5119" TopMargin="339.8199" BottomMargin="124.1801" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="76" Scale9Height="81" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                 <Size X="106.0000" Y="103.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="216.4881" Y="175.6801" />
@@ -165,17 +165,64 @@
                 <FileData Type="Normal" Path="animal/ari_main01.png" Plist="" />
                 <BlendFunc Src="1" Dst="771" />
               </AbstractNodeData>
-              <AbstractNodeData Name="description" ActionTag="-343226042" Tag="140" IconVisible="False" LeftMargin="470.1703" RightMargin="187.8297" TopMargin="316.7643" BottomMargin="130.2357" FontSize="30" LabelText="aaaaaaaaaaa&#xA;aaaaaaaaaaaa&#xA;aaaaaaaa&#xA;aaa" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                <Size X="192.0000" Y="120.0000" />
-                <AnchorPoint ScaleY="1.0000" />
-                <Position X="470.1703" Y="250.2357" />
+              <AbstractNodeData Name="description" ActionTag="1626720800" Tag="94" IconVisible="True" LeftMargin="470.0000" RightMargin="380.0000" TopMargin="314.9082" BottomMargin="252.0918" ctype="SingleNodeObjectData">
+                <Size X="0.0000" Y="0.0000" />
+                <Children>
+                  <AbstractNodeData Name="line1" ActionTag="-343226042" Tag="140" IconVisible="False" RightMargin="-325.0000" BottomMargin="-24.0000" FontSize="20" LabelText="この世界で一番強いと思って&#xA;" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                    <Size X="260.0000" Y="20.0000" />
+                    <AnchorPoint ScaleY="1.0000" />
+                    <Position />
+                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                    <CColor A="255" R="60" G="30" B="10" />
+                    <PrePosition />
+                    <PreSize X="0.0000" Y="0.0000" />
+                    <FontResource Type="Normal" Path="font/yasashisa.ttf" Plist="" />
+                    <OutlineColor A="255" R="255" G="0" B="0" />
+                    <ShadowColor A="255" R="110" G="110" B="110" />
+                  </AbstractNodeData>
+                  <AbstractNodeData Name="line2" ActionTag="-842798110" Tag="95" IconVisible="False" RightMargin="-325.0000" TopMargin="29.4577" BottomMargin="-53.4577" FontSize="20" LabelText="aaaaaaaaaaaaaaaaaaaaaaaaa&#xA;" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                    <Size X="275.0000" Y="20.0000" />
+                    <AnchorPoint ScaleY="1.0000" />
+                    <Position Y="-29.4577" />
+                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                    <CColor A="255" R="60" G="30" B="10" />
+                    <PrePosition />
+                    <PreSize X="0.0000" Y="0.0000" />
+                    <FontResource Type="Normal" Path="font/yasashisa.ttf" Plist="" />
+                    <OutlineColor A="255" R="255" G="0" B="0" />
+                    <ShadowColor A="255" R="110" G="110" B="110" />
+                  </AbstractNodeData>
+                  <AbstractNodeData Name="line3" ActionTag="-113403237" Tag="96" IconVisible="False" RightMargin="-325.0000" TopMargin="62.8073" BottomMargin="-86.8073" FontSize="20" LabelText="aaaaaaaaaaaaaaaaaaaaaaaaa&#xA;" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                    <Size X="275.0000" Y="20.0000" />
+                    <AnchorPoint ScaleY="1.0000" />
+                    <Position Y="-62.8073" />
+                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                    <CColor A="255" R="60" G="30" B="10" />
+                    <PrePosition />
+                    <PreSize X="0.0000" Y="0.0000" />
+                    <FontResource Type="Normal" Path="font/yasashisa.ttf" Plist="" />
+                    <OutlineColor A="255" R="255" G="0" B="0" />
+                    <ShadowColor A="255" R="110" G="110" B="110" />
+                  </AbstractNodeData>
+                  <AbstractNodeData Name="line4" ActionTag="-1119845518" Tag="97" IconVisible="False" RightMargin="-325.0000" TopMargin="97.1297" BottomMargin="-121.1297" FontSize="20" LabelText="aaaaaaaaaaaaaaaaaaaaaaaaa&#xA;" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                    <Size X="275.0000" Y="20.0000" />
+                    <AnchorPoint ScaleY="1.0000" />
+                    <Position Y="-97.1297" />
+                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                    <CColor A="255" R="60" G="30" B="10" />
+                    <PrePosition />
+                    <PreSize X="0.0000" Y="0.0000" />
+                    <FontResource Type="Normal" Path="font/yasashisa.ttf" Plist="" />
+                    <OutlineColor A="255" R="255" G="0" B="0" />
+                    <ShadowColor A="255" R="110" G="110" B="110" />
+                  </AbstractNodeData>
+                </Children>
+                <AnchorPoint />
+                <Position X="470.0000" Y="252.0918" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                <CColor A="255" R="60" G="30" B="10" />
-                <PrePosition X="0.5531" Y="0.4413" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.5529" Y="0.4446" />
                 <PreSize X="0.0000" Y="0.0000" />
-                <FontResource Type="Normal" Path="font/yasashisa.ttf" Plist="" />
-                <OutlineColor A="255" R="255" G="0" B="0" />
-                <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
               <AbstractNodeData Name="minCrown" ActionTag="1314087947" Tag="154" IconVisible="False" LeftMargin="632.5122" RightMargin="127.4878" TopMargin="197.4841" BottomMargin="294.5159" ctype="SpriteObjectData">
                 <Size X="90.0000" Y="75.0000" />
@@ -199,7 +246,7 @@
                 <FileData Type="Normal" Path="ui/max_crown2.png" Plist="" />
                 <BlendFunc Src="1" Dst="771" />
               </AbstractNodeData>
-              <AbstractNodeData Name="speciesSize" ActionTag="-737563001" Tag="33" IconVisible="False" LeftMargin="653.3656" RightMargin="32.6344" TopMargin="136.5474" BottomMargin="416.4526" FontSize="14" LabelText="100.00mg〜985.00mg" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+              <AbstractNodeData Name="speciesSize" ActionTag="-737563001" Tag="33" IconVisible="False" LeftMargin="660.3656" RightMargin="39.6344" TopMargin="136.5474" BottomMargin="416.4526" FontSize="14" LabelText="100.00mg〜985.00mg" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                 <Size X="150.0000" Y="14.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="1.0000" />
                 <Position X="735.3656" Y="430.4526" />
@@ -211,7 +258,7 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="getNum" ActionTag="-355325313" Tag="151" IconVisible="False" LeftMargin="669.6854" RightMargin="76.3146" TopMargin="187.7162" BottomMargin="363.2838" FontSize="16" LabelText="取得回数：9999回" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+              <AbstractNodeData Name="getNum" ActionTag="-355325313" Tag="151" IconVisible="False" LeftMargin="669.6854" RightMargin="44.3146" TopMargin="187.7162" BottomMargin="363.2838" FontSize="16" LabelText="取得回数：9999回" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                 <Size X="136.0000" Y="16.0000" />
                 <AnchorPoint ScaleY="0.5000" />
                 <Position X="669.6854" Y="371.2838" />
@@ -223,7 +270,7 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="getMinSize" ActionTag="1280424630" Tag="148" IconVisible="False" LeftMargin="690.0833" RightMargin="34.9167" TopMargin="229.1716" BottomMargin="321.8284" FontSize="14" LabelText="最小：123.45mg" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+              <AbstractNodeData Name="getMinSize" ActionTag="1280424630" Tag="148" IconVisible="False" LeftMargin="690.0833" RightMargin="49.9167" TopMargin="230.1716" BottomMargin="322.8284" FontSize="14" LabelText="最小：123.45mg" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                 <Size X="110.0000" Y="14.0000" />
                 <AnchorPoint ScaleY="0.5000" />
                 <Position X="690.0833" Y="329.8284" />
@@ -235,7 +282,7 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="getMaxSize" ActionTag="159734576" Tag="150" IconVisible="False" LeftMargin="690.0833" RightMargin="34.9167" TopMargin="253.0081" BottomMargin="297.9919" FontSize="14" LabelText="最大：985.52mg" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+              <AbstractNodeData Name="getMaxSize" ActionTag="159734576" Tag="150" IconVisible="False" LeftMargin="690.0833" RightMargin="49.9167" TopMargin="254.0081" BottomMargin="298.9919" FontSize="14" LabelText="最大：985.52mg" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                 <Size X="110.0000" Y="14.0000" />
                 <AnchorPoint ScaleY="0.5000" />
                 <Position X="690.0833" Y="305.9919" />
@@ -249,10 +296,10 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="1.0000" />
-            <Position X="564.6271" Y="637.6914" />
+            <Position X="564.2162" Y="637.2806" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.4970" Y="0.9964" />
+            <PrePosition X="0.4967" Y="0.9958" />
             <PreSize X="0.7482" Y="0.8859" />
             <FileData Type="Normal" Path="book/book.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />

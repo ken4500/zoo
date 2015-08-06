@@ -30,7 +30,6 @@ void ZUtil::printNode(Node* node, std::function<void (Node* node)> func)
     _printNodeRecursive(node, 0, func);
 }
 
-
 void ZUtil::_printNodeRecursive(Node* node, int count, std::function<void (Node*)> func)
 {
     for (int i = 0; i < count; i++) {
@@ -49,6 +48,50 @@ void ZUtil::_printNodeRecursive(Node* node, int count, std::function<void (Node*
         _printNodeRecursive(child, count + 1, func);
     }
 }
+
+std::string ZUtil::submbstr(std::string str, int pos, int size)
+{
+    unsigned char lead;
+    int char_size;
+    int charNum = 0;
+    int posIndex = 0;
+    int startIndex = 0;
+    int endIndex = 0;
+
+    for (int index = 0; index < str.length(); index += char_size, posIndex++) {
+        if (charNum == pos) {
+            startIndex = index;
+        }
+        charNum++;
+        lead = str[index];
+        if (lead < 128) {
+            char_size = 1;
+        } else if (lead < 224) {
+            char_size = 2;
+        } else if (lead < 240) {
+            char_size = 3;
+        } else {
+            char_size = 4;
+        }
+
+        if (charNum == pos + size) {
+            endIndex = index + char_size;
+            break;
+        }
+    }
+    
+    if (pos > charNum) {
+        return "";
+    }
+    if (endIndex == 0) {
+        endIndex = (int)str.length();
+    }
+
+    std::string rtn = str.substr(startIndex, endIndex - startIndex);
+    
+    return rtn;
+}
+
 
 double ZUtil::getTime()
 {

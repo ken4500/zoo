@@ -231,11 +231,11 @@
                 <PreSize X="0.0000" Y="0.0000" />
                 <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font2.fnt" Plist="" />
               </AbstractNodeData>
-              <AbstractNodeData Name="repairTimeText" ActionTag="-585567466" Tag="36" IconVisible="False" LeftMargin="108.7200" RightMargin="-245.7200" TopMargin="-281.7733" BottomMargin="204.7733" LabelText="0:00" ctype="TextBMFontObjectData">
+              <AbstractNodeData Name="repairTimeText" ActionTag="-585567466" Tag="36" IconVisible="False" LeftMargin="108.7200" RightMargin="-245.7200" TopMargin="-276.7700" BottomMargin="199.7700" LabelText="0:00" ctype="TextBMFontObjectData">
                 <Size X="137.0000" Y="77.0000" />
                 <AnchorPoint />
-                <Position X="108.7200" Y="204.7733" />
-                <Scale ScaleX="0.4000" ScaleY="0.4000" />
+                <Position X="108.7200" Y="199.7700" />
+                <Scale ScaleX="0.5000" ScaleY="0.5000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition />
                 <PreSize X="0.0000" Y="0.0000" />

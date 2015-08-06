@@ -35,7 +35,7 @@ protected:
     cocos2d::ui::Text* _getMinSize;
     cocos2d::ui::Text* _getMaxSize;
     cocos2d::ui::Text* _sizeDescription;
-    cocos2d::ui::Text* _description;
+    std::vector<cocos2d::ui::Text*> _description;
     cocos2d::ui::Button* _leftButton;
     cocos2d::ui::Button* _rightButton;
 
@@ -48,6 +48,7 @@ protected:
     void _pushLeftButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void _pushCloseButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     int _getMaxPage();
+    void _setDescription(std::string description);
 
 };
 

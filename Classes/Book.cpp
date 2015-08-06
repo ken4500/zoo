@@ -40,7 +40,6 @@ void Book::onEnter()
     _animalImage   = _bookNode->getChildByName<Sprite*>("image");
     _minCrownImage = _bookNode->getChildByName<Sprite*>("minCrown");
     _maxCrownImage = _bookNode->getChildByName<Sprite*>("maxCrown");
-    _description   = _bookNode->getChildByName<ui::Text*>("description");
     _animalName    = _bookNode->getChildByName<ui::TextBMFont*>("name");
     _sizeDescription = _bookNode->getChildByName<ui::Text*>("speciesSize");
     _pageLabel = this->getChildByName<ui::TextBMFont*>("pageLabel");
@@ -51,6 +50,12 @@ void Book::onEnter()
     back->setString(CCLS("BOOK_BACK"));
     auto next = this->getChildByName("rightButton")->getChildByName<ui::TextBMFont*>("next");
     next->setString(CCLS("BOOK_NEXT"));
+
+    auto description  = _bookNode->getChildByName("description");
+    for (int line = 1; line <= 4; line++) {
+        auto lineText = description->getChildByName<ui::Text*>(StringUtils::format("line%d", line));
+        _description.push_back(lineText);
+    }
 
     for (int pos = 1; pos <= ANIMAL_NUM_IN_A_PAGE; pos++) {
         auto button = _bookNode->getChildByName<ui::Button*>(StringUtils::format("position%d", pos));
@@ -176,7 +181,7 @@ void Book::_loadAnimal(Species* species)
         _getMinSize->setString(StringUtils::format("%s:-", CCLS("BOOK_MIN")));
         _getMaxSize->setString(StringUtils::format("%s:-", CCLS("BOOK_MAX")));
         _sizeDescription->setString("????");
-        _description->setString("????");
+        _setDescription("????");
     } else {
         // 取得したことがある
         _animalImage->setColor(Color3B::WHITE);
@@ -186,7 +191,6 @@ void Book::_loadAnimal(Species* species)
         } else {
             _animalName->setScale(0.4f);
         }
-        CCLOG("DEBUG = %f", _animalName->getContentSize().width);
 
         auto count = mgr->getAnimalCount(name);
         auto min = mgr->getMinWeight(name);
@@ -214,7 +218,9 @@ void Book::_loadAnimal(Species* species)
         min = species->getMinWeight();
         max = species->getMaxWeight();
         _sizeDescription->setString(StringUtils::format("%.02f%s 〜 %.02f%s", min.getWeight(), min.getUnitStr().c_str(), max.getWeight(), max.getUnitStr().c_str()));
-        _description->setString("hogehogehoge");
+        _setDescription(
+            CCLS(StringUtils::format("%s_DESC", name.c_str()).c_str())
+        );
     }
 }
 
@@ -307,4 +313,18 @@ void Book::_pushCloseButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEve
 int Book::_getMaxPage()
 {
     return (int)ceilf(float(_allSpecies.size()) / ANIMAL_NUM_IN_A_PAGE);
+}
+
+void Book::_setDescription(std::string description)
+{
+    std::string test1 = "この世界";
+    std::string hoge = ZUtil::submbstr(test1, 3, 2);
+    CCLOG("DEBUG3:%s", hoge.c_str());
+    
+    int charNumPerLine = 16;
+    for (int line = 0; line < 4; line++) {
+        auto lineStr = ZUtil::submbstr(description, line * charNumPerLine, charNumPerLine);
+        CCLOG("DEUBUG = %s", lineStr.c_str());
+        _description[line]->setString(lineStr);
+    }
 }

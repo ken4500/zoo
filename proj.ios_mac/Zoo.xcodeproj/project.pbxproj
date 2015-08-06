@@ -27,13 +27,8 @@
 		5087E76917EB910900C73F5D /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620B132DFF330009C878 /* OpenAL.framework */; };
 		5087E76A17EB910900C73F5D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620D132DFF430009C878 /* AVFoundation.framework */; };
 		5087E76B17EB910900C73F5D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620F132DFF4E0009C878 /* AudioToolbox.framework */; };
-		5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5087E77217EB970100C73F5D /* Default-568h@2x.png */; };
-		5087E77E17EB970100C73F5D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5087E77317EB970100C73F5D /* Default.png */; };
-		5087E77F17EB970100C73F5D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5087E77417EB970100C73F5D /* Default@2x.png */; };
 		5087E78917EB974C00C73F5D /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5087E78817EB974C00C73F5D /* AppKit.framework */; };
 		5087E78B17EB975400C73F5D /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5087E78A17EB975400C73F5D /* OpenGL.framework */; };
-		521A8E6419F0C34300D177D7 /* Default-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 521A8E6219F0C34300D177D7 /* Default-667h@2x.png */; };
-		521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 521A8E6319F0C34300D177D7 /* Default-736h@3x.png */; };
 		52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B47A461A53D09B004E4C60 /* Security.framework */; };
 		7AB94C6A95BCF2B4CA3DF1DC /* res in Resources */ = {isa = PBXBuildFile; fileRef = FA144D09A52357282113E0F8 /* res */; };
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
@@ -62,7 +57,6 @@
 		9F543DF01B6DD6590052496F /* MultiplayResult.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F543DEE1B6DD6590052496F /* MultiplayResult.cpp */; };
 		9F543DF71B6EA7360052496F /* Book.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F543DF31B6EA7360052496F /* Book.cpp */; };
 		9F543DF81B6EA7360052496F /* BookReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F543DF51B6EA7360052496F /* BookReader.cpp */; };
-		9F65E2F61B7327DB00E37BF7 /* Default-Portrait@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F65E2F51B7327DB00E37BF7 /* Default-Portrait@2x.png */; };
 		9F65E3011B7329C700E37BF7 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F65E2FD1B73297400E37BF7 /* images.xcassets */; };
 		9F6835D71B62E1A500589EBE /* TitleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F6835D51B62E1A500589EBE /* TitleScene.cpp */; };
 		9F6835DC1B62E4B900589EBE /* SelectLanguageLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F6835DA1B62E4B900589EBE /* SelectLanguageLayer.cpp */; };
@@ -140,14 +134,9 @@
 		503AE11117EB99EE00D1A890 /* libcurl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcurl.dylib; path = usr/lib/libcurl.dylib; sourceTree = SDKROOT; };
 		503AE11A17EB9C5A00D1A890 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		5087E76F17EB910900C73F5D /* Zoo Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Zoo Mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5087E77217EB970100C73F5D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		5087E77317EB970100C73F5D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		5087E77417EB970100C73F5D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		5087E77C17EB970100C73F5D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5087E78817EB974C00C73F5D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		5087E78A17EB975400C73F5D /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
-		521A8E6219F0C34300D177D7 /* Default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-667h@2x.png"; sourceTree = "<group>"; };
-		521A8E6319F0C34300D177D7 /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
 		52B47A461A53D09B004E4C60 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		8262943D1AAF051F00CB7CF7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		9F015C901B420DC700F45135 /* Gacha.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gacha.cpp; sourceTree = "<group>"; };
@@ -196,7 +185,6 @@
 		9F543DF41B6EA7360052496F /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
 		9F543DF51B6EA7360052496F /* BookReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BookReader.cpp; sourceTree = "<group>"; };
 		9F543DF61B6EA7360052496F /* BookReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookReader.h; sourceTree = "<group>"; };
-		9F65E2F51B7327DB00E37BF7 /* Default-Portrait@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait@2x.png"; sourceTree = "<group>"; };
 		9F65E2FD1B73297400E37BF7 /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = images.xcassets; path = ios/images.xcassets; sourceTree = SOURCE_ROOT; };
 		9F6835D51B62E1A500589EBE /* TitleScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TitleScene.cpp; sourceTree = "<group>"; };
 		9F6835D61B62E1A500589EBE /* TitleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleScene.h; sourceTree = "<group>"; };
@@ -429,12 +417,6 @@
 		5087E77117EB970100C73F5D /* Icons */ = {
 			isa = PBXGroup;
 			children = (
-				521A8E6219F0C34300D177D7 /* Default-667h@2x.png */,
-				521A8E6319F0C34300D177D7 /* Default-736h@3x.png */,
-				5087E77217EB970100C73F5D /* Default-568h@2x.png */,
-				9F65E2F51B7327DB00E37BF7 /* Default-Portrait@2x.png */,
-				5087E77317EB970100C73F5D /* Default.png */,
-				5087E77417EB970100C73F5D /* Default@2x.png */,
 				5087E77C17EB970100C73F5D /* Info.plist */,
 			);
 			name = Icons;
@@ -722,13 +704,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F65E2F61B7327DB00E37BF7 /* Default-Portrait@2x.png in Resources */,
 				9F13C23C1B658C160035850A /* sound in Resources */,
-				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
-				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
-				521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */,
-				5087E77E17EB970100C73F5D /* Default.png in Resources */,
-				521A8E6419F0C34300D177D7 /* Default-667h@2x.png in Resources */,
 				41E34A81ACA2320B6C76C445 /* res in Resources */,
 				9F65E3011B7329C700E37BF7 /* images.xcassets in Resources */,
 			);

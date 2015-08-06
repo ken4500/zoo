@@ -108,7 +108,7 @@ private:
     EnemyGenerater* _enemyGenerater;
     Weight* _opponentResultWeight;
     
-    void _hpGaugeUpdate(float dt);
+    void _hpGaugeUpdate();
     void _leftTimeUpdate(float dt);
     void _closeResult();
     void _setGameActive(bool active);
