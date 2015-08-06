@@ -92,6 +92,7 @@
           <Image Name="level_back.png" />
           <Image Name="length_image.png" />
           <Image Name="weight_image.png" />
+          <Image Name="skel.png" />
         </Folder>
         <Project Name="Result.csd" Type="Node" />
         <Project Name="YesNo.csd" Type="Node" />

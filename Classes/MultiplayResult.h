@@ -39,7 +39,6 @@ private:
     ui::TextBMFont* _opponentWeight;
 
     Sprite* _playerResult;
-    Sprite* _opponentResult;
 
     void onEnter() override;
     void _pushButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);

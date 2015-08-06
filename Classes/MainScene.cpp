@@ -91,6 +91,7 @@ bool MainScene::init()
     levelBack->setPosition(Vec2(levelBack->getPosition().x, displaySize.height - 60));
     _levelLabel = levelBack->getChildByName<ui::TextBMFont*>("levelLabel");
     _weightLabel = _rootNode->getChildByName<ui::TextBMFont*>("weightLabel");
+    _weightImage = _rootNode->getChildByName<Sprite*>("weightImage");
 
     _endButton = _rootNode->getChildByName<ui::Button*>("endButton");
     _endButton->addTouchEventListener(CC_CALLBACK_2(MainScene::_pushEndButton, this));
@@ -176,7 +177,7 @@ void MainScene::hideMenu()
     _weightLabel->runAction(FadeOut::create(0.2f));
     _otherMenuButton->setEnabled(false);
     _scaleBar->runAction(FadeOut::create(0.2f));
-    
+    _weightImage->runAction(FadeOut::create(0.2f));
 }
 
 void MainScene::showMenu()
@@ -189,6 +190,7 @@ void MainScene::showMenu()
     _weightLabel->runAction(FadeIn::create(0.5f));
     _otherMenuButton->setEnabled(true);
     _scaleBar->runAction(FadeIn::create(0.5f));
+    _weightImage->runAction(FadeIn::create(0.5f));
 }
 
 void MainScene::showBattleMenu()

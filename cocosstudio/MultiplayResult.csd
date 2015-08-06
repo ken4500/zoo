@@ -17,8 +17,8 @@
             <FileData Type="Normal" Path="ui/menu2.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="title" ActionTag="863392089" Tag="2" IconVisible="False" LeftMargin="-131.5000" RightMargin="-131.5000" TopMargin="-275.7547" BottomMargin="198.7547" LabelText="RESULT" ctype="TextBMFontObjectData">
-            <Size X="263.0000" Y="77.0000" />
+          <AbstractNodeData Name="title" ActionTag="863392089" Tag="2" IconVisible="False" LeftMargin="-133.5000" RightMargin="-133.5000" TopMargin="-277.7547" BottomMargin="196.7547" LabelText="RESULT" ctype="TextBMFontObjectData">
+            <Size X="267.0000" Y="81.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position Y="237.2547" />
             <Scale ScaleX="0.7500" ScaleY="0.7500" />
@@ -30,14 +30,14 @@
           <AbstractNodeData Name="okButton" ActionTag="1210879474" Tag="22" IconVisible="False" LeftMargin="-152.5000" RightMargin="-152.5000" TopMargin="186.3396" BottomMargin="-320.3396" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="275" Scale9Height="112" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="305.0000" Y="134.0000" />
             <Children>
-              <AbstractNodeData Name="coinLabel_0" ActionTag="-587949728" Tag="23" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="99.5000" RightMargin="99.5000" TopMargin="28.5000" BottomMargin="28.5000" LabelText="OK" ctype="TextBMFontObjectData">
-                <Size X="106.0000" Y="77.0000" />
+              <AbstractNodeData Name="coinLabel_0" ActionTag="-587949728" Tag="23" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="97.5000" RightMargin="97.5000" TopMargin="26.5000" BottomMargin="26.5000" LabelText="OK" ctype="TextBMFontObjectData">
+                <Size X="110.0000" Y="81.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="152.5000" Y="67.0000" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.5000" Y="0.5000" />
-                <PreSize X="0.8342" Y="0.7700" />
+                <PreSize X="0.3607" Y="0.6045" />
                 <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font2.fnt" Plist="" />
               </AbstractNodeData>
             </Children>
@@ -88,43 +88,32 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="playerResult" ActionTag="-1347664588" Tag="59" IconVisible="False" LeftMargin="-396.8135" RightMargin="-180.1865" TopMargin="-35.5000" BottomMargin="-197.5000" ctype="SpriteObjectData">
+          <AbstractNodeData Name="playerResult" ActionTag="-1347664588" Tag="59" IconVisible="False" LeftMargin="-288.5000" RightMargin="-288.5000" TopMargin="-35.5000" BottomMargin="-197.5000" ctype="SpriteObjectData">
             <Size X="577.0000" Y="233.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="-108.3135" Y="-81.0000" />
-            <Scale ScaleX="0.2500" ScaleY="0.2500" />
+            <Position Y="-81.0000" />
+            <Scale ScaleX="0.4000" ScaleY="0.4000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="Normal" Path="ui/win.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="opponentResult" ActionTag="-147403749" Tag="219" IconVisible="False" LeftMargin="-251.0767" RightMargin="-478.9233" TopMargin="-38.8750" BottomMargin="-203.1250" ctype="SpriteObjectData">
-            <Size X="730.0000" Y="242.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="113.9233" Y="-82.1250" />
-            <Scale ScaleX="0.2500" ScaleY="0.2500" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition />
-            <PreSize X="0.0000" Y="0.0000" />
-            <FileData Type="Normal" Path="ui/lose.png" Plist="" />
-            <BlendFunc Src="1" Dst="771" />
-          </AbstractNodeData>
-          <AbstractNodeData Name="playerWeight" ActionTag="-781594682" Tag="90" IconVisible="False" LeftMargin="-223.7500" RightMargin="-9.2500" TopMargin="-85.4999" BottomMargin="8.4999" LabelText="72.08kg" ctype="TextBMFontObjectData">
-            <Size X="233.0000" Y="77.0000" />
+          <AbstractNodeData Name="playerWeight" ActionTag="-781594682" Tag="90" IconVisible="False" LeftMargin="-225.7500" RightMargin="-11.2500" TopMargin="-87.4999" BottomMargin="6.4999" LabelText="72.08kg" ctype="TextBMFontObjectData">
+            <Size X="237.0000" Y="81.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="-107.2500" Y="46.9999" />
-            <Scale ScaleX="0.7000" ScaleY="0.7000" />
+            <Scale ScaleX="0.8000" ScaleY="0.8000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
             <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font2.fnt" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="opponentWeight" ActionTag="-1605558453" Tag="91" IconVisible="False" LeftMargin="-2.5767" RightMargin="-230.4233" TopMargin="-85.5000" BottomMargin="8.5000" LabelText="58.34kg" ctype="TextBMFontObjectData">
-            <Size X="233.0000" Y="77.0000" />
+          <AbstractNodeData Name="opponentWeight" ActionTag="-1605558453" Tag="91" IconVisible="False" LeftMargin="-5.9741" RightMargin="-231.0259" TopMargin="-87.5001" BottomMargin="6.5001" LabelText="58.34kg" ctype="TextBMFontObjectData">
+            <Size X="237.0000" Y="81.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="113.9233" Y="47.0000" />
-            <Scale ScaleX="0.7000" ScaleY="0.7000" />
+            <Position X="112.5259" Y="47.0001" />
+            <Scale ScaleX="0.8000" ScaleY="0.8000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />

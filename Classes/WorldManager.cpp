@@ -497,11 +497,20 @@ void WorldManager::endBattle(bool win, float showResultViewDelay)
     this->_setGameActive(false);
     _enableNextAction = false;
     _enemyGenerater->end();
+    
+    auto enemyList = getEnemyAnimalList();
+    int deadNum = 0;
+    for (auto enemy : enemyList) {
+        if (enemy->isDead()) {
+            deadNum++;
+        }
+    }
 
     GameResult result = GameResult();
     result.resultState = (win) ? BattleState::Win : BattleState::Lose;
     result.playTime = BATTLE_TIME - _leftTime;
     result.getCoin = getCoin() - _beforeBattleCoin;
+    result.killTime = deadNum;
     
     auto mainScene = SceneManager::getInstance()->getMainScene();
     if (mainScene) {

@@ -54,18 +54,21 @@ bool ResultLayer::initWithResult(GameResult result)
     node->setOpacity(255);
     addChild(node, 10);
     
-    auto title = node->getChildByName<Sprite*>("title");
-    if (result.resultState == BattleState::Win) {
-        title->setTexture("ui/win.png");
-    } else {
-        title->setTexture("ui/lose.png");
-    }
+//    auto title = node->getChildByName<Sprite*>("title");
+//    if (result.resultState == BattleState::Win) {
+//        title->setTexture("ui/win.png");
+//    } else {
+//        title->setTexture("ui/lose.png");
+//    }
     
     auto coinLabel = node->getChildByName<ui::TextBMFont*>("coinLabel");
     coinLabel->setString(StringUtils::format("x %ld", result.getCoin));
 
     auto timeLabel = node->getChildByName<ui::TextBMFont*>("timeLabel");
     timeLabel->setString(StringUtils::format("%02d:%02d", (int)(result.playTime / 60), (int)result.playTime % 60));
+
+    auto beatlabel = node->getChildByName<ui::TextBMFont*>("beatLabel");
+    beatlabel->setString(StringUtils::format("x %d", result.killTime));
 
     auto button = node->getChildByName<ui::Button*>("okButton");
     button->addTouchEventListener(CC_CALLBACK_2(ResultLayer::_pushButton, this));

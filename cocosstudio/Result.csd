@@ -17,31 +17,20 @@
             <FileData Type="Normal" Path="ui/menu2.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="title" ActionTag="-1212351253" Tag="205" IconVisible="False" LeftMargin="-288.5000" RightMargin="-288.5000" TopMargin="19.1835" BottomMargin="-252.1835" ctype="SpriteObjectData">
-            <Size X="577.0000" Y="233.0000" />
+          <AbstractNodeData Name="coinLabel" ActionTag="1010909717" Tag="4" IconVisible="False" LeftMargin="-28.5431" RightMargin="-135.4569" TopMargin="66.4515" BottomMargin="-147.4515" LabelText="x1111" ctype="TextBMFontObjectData">
+            <Size X="164.0000" Y="81.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position Y="-135.6835" />
-            <Scale ScaleX="0.4000" ScaleY="0.4000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition />
-            <PreSize X="0.0000" Y="0.0000" />
-            <FileData Type="Normal" Path="ui/win.png" Plist="" />
-            <BlendFunc Src="1" Dst="771" />
-          </AbstractNodeData>
-          <AbstractNodeData Name="coinLabel" ActionTag="1010909717" Tag="4" IconVisible="False" LeftMargin="-24.7565" RightMargin="-136.2435" TopMargin="-49.1396" BottomMargin="-27.8604" LabelText="x1111" ctype="TextBMFontObjectData">
-            <Size X="161.0000" Y="77.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="55.7435" Y="10.6396" />
+            <Position X="53.4569" Y="-106.9515" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
             <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font2.fnt" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="coin" ActionTag="-778894497" Tag="5" IconVisible="False" LeftMargin="-230.2548" RightMargin="38.2548" TopMargin="-100.1391" BottomMargin="-86.8609" ctype="SpriteObjectData">
+          <AbstractNodeData Name="coin" ActionTag="-778894497" Tag="5" IconVisible="False" LeftMargin="-222.2280" RightMargin="30.2280" TopMargin="17.4523" BottomMargin="-204.4523" ctype="SpriteObjectData">
             <Size X="192.0000" Y="187.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="-134.2548" Y="6.6391" />
+            <Position X="-126.2280" Y="-110.9523" />
             <Scale ScaleX="0.4000" ScaleY="0.4000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
@@ -76,19 +65,19 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="watch_1" ActionTag="1162648473" Tag="151" IconVisible="False" LeftMargin="-199.3878" RightMargin="61.3878" TopMargin="-191.8128" BottomMargin="31.8128" ctype="SpriteObjectData">
+          <AbstractNodeData Name="watch_1" ActionTag="1162648473" Tag="151" IconVisible="False" LeftMargin="-195.2531" RightMargin="57.2531" TopMargin="-191.8132" BottomMargin="31.8132" ctype="SpriteObjectData">
             <Size X="138.0000" Y="160.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="-130.3878" Y="111.8128" />
-            <Scale ScaleX="0.4837" ScaleY="0.4837" />
+            <Position X="-126.2531" Y="111.8132" />
+            <Scale ScaleX="0.5000" ScaleY="0.5000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="Normal" Path="ui/watch.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="timeLabel" ActionTag="-1297610991" Tag="152" IconVisible="False" LeftMargin="-31.0431" RightMargin="-137.9569" TopMargin="-149.7218" BottomMargin="72.7218" LabelText="00:20" ctype="TextBMFontObjectData">
-            <Size X="169.0000" Y="77.0000" />
+          <AbstractNodeData Name="timeLabel" ActionTag="-1297610991" Tag="152" IconVisible="False" LeftMargin="-33.0431" RightMargin="-139.9569" TopMargin="-151.7218" BottomMargin="70.7218" LabelText="00:20" ctype="TextBMFontObjectData">
+            <Size X="173.0000" Y="81.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="53.4569" Y="111.2218" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
@@ -97,8 +86,8 @@
             <PreSize X="0.0000" Y="0.0000" />
             <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font2.fnt" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="title_0" ActionTag="-1283920693" Tag="60" IconVisible="False" LeftMargin="-131.5000" RightMargin="-131.5000" TopMargin="-272.7400" BottomMargin="195.7400" LabelText="RESULT" ctype="TextBMFontObjectData">
-            <Size X="263.0000" Y="77.0000" />
+          <AbstractNodeData Name="title_0" ActionTag="-1283920693" Tag="60" IconVisible="False" LeftMargin="-133.5000" RightMargin="-133.5000" TopMargin="-274.7400" BottomMargin="193.7400" LabelText="RESULT" ctype="TextBMFontObjectData">
+            <Size X="267.0000" Y="81.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position Y="234.2400" />
             <Scale ScaleX="0.7000" ScaleY="0.7000" />
@@ -106,6 +95,27 @@
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
             <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font2.fnt" Plist="" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="beatLabel" ActionTag="-1047080569" Tag="342" IconVisible="False" LeftMargin="-1.5431" RightMargin="-108.4569" TopMargin="-36.9100" BottomMargin="-44.0900" LabelText="x10" ctype="TextBMFontObjectData">
+            <Size X="110.0000" Y="81.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="53.4569" Y="-3.5900" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition />
+            <PreSize X="0.0000" Y="0.0000" />
+            <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font2.fnt" Plist="" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="beat" ActionTag="-318596679" Tag="343" IconVisible="False" LeftMargin="-177.2280" RightMargin="75.2280" TopMargin="-65.7828" BottomMargin="-66.2172" ctype="SpriteObjectData">
+            <Size X="102.0000" Y="132.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="-126.2280" Y="-0.2172" />
+            <Scale ScaleX="0.6000" ScaleY="0.6000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition />
+            <PreSize X="0.0000" Y="0.0000" />
+            <FileData Type="Normal" Path="ui/skel.png" Plist="" />
+            <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
         </Children>
       </ObjectData>

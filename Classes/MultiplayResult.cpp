@@ -58,8 +58,6 @@ bool MultiplayResult::init()
     _playerWeight   = node->getChildByName<ui::TextBMFont*>("playerWeight");
     _opponentWeight = node->getChildByName<ui::TextBMFont*>("opponentWeight");
     _playerResult   = node->getChildByName<Sprite*>("playerResult");
-    _opponentResult = node->getChildByName<Sprite*>("opponentResult");
-    
     
     auto button = node->getChildByName<ui::Button*>("okButton");
     button->addTouchEventListener(CC_CALLBACK_2(MultiplayResult::_pushButton, this));
@@ -100,10 +98,8 @@ void MultiplayResult::setResult(GameResult result)
     
     if (result.resultState == BattleState::Win) {
         _playerResult->setTexture("ui/win.png");
-        _opponentResult->setTexture("ui/lose.png");
     } else {
         _playerResult->setTexture("ui/lose.png");
-        _opponentResult->setTexture("ui/win.png");
     }
 }
 

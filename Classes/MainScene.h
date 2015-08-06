@@ -64,6 +64,7 @@ private:
     Weight _preWeight;
     Action* _countUpAction;
     ScaleBar* _scaleBar;
+    Sprite* _weightImage;
 
     void onEnter() override;
     void update(float dt);
