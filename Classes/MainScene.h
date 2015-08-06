@@ -76,6 +76,7 @@ private:
     void _battleStartEffect();
     void _pauseRecursive(Node* node);
     void _resumeRecursive(Node* node);
+    void _updateLanguage();
 
 };
 

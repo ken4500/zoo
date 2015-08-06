@@ -61,6 +61,8 @@ bool MenuLayer::init()
     closeButton->addTouchEventListener(CC_CALLBACK_2(MenuLayer::_pushCloseButton, this));
     _closeLabel = closeButton->getChildByName<ui::TextBMFont*>("label");
     
+    closeCallback = nullptr;
+    
     return true;
 }
 
@@ -162,6 +164,9 @@ void MenuLayer::_pushCloseButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::Tou
             RemoveSelf::create(),
             NULL
         ));
+        if (closeCallback) {
+            closeCallback();
+        }
     }
     if (eEventType == ui::Widget::TouchEventType::CANCELED) {
         button->runAction(ScaleBy::create(0.1f, 1 / 0.9f));

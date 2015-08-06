@@ -221,7 +221,7 @@ void MainScene::hideBattleMenu()
 void MainScene::updateLevelLabel()
 {
     int level = WorldManager::getInstance()->getWorldInfo()->level;
-    _levelLabel->setString(StringUtils::format("LEVEL %d", level));
+    _levelLabel->setString(StringUtils::format("%s %d", CCLS("LEVEL"), level));
 }
 
 void MainScene::updateWeightLabel(Weight weight)
@@ -571,6 +571,9 @@ void MainScene::_pushOtherMenuButton(cocos2d::Ref* pSender, cocos2d::ui::Widget:
             CallFunc::create([this]{
                 auto layer = MenuLayer::create();
                 this->addChild(layer);
+                layer->closeCallback = [this]{
+                    _updateLanguage();
+                };
             }),
             NULL
         ));
@@ -624,4 +627,10 @@ void MainScene::_battleStartEffect()
     this->stopAllActions();
     this->runAction(_timeline);
     _timeline->play("battle_start", false);
+}
+
+void MainScene:: _updateLanguage()
+{
+    int level = WorldManager::getInstance()->getWorldInfo()->level;
+    _levelLabel->setString(StringUtils::format("%s %d", CCLS("LEVEL"), level));
 }

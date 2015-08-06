@@ -26,6 +26,8 @@ BOOK_MAX = 最大;
 BOOK_NEXT = 進む;
 BOOK_BACK = 戻る;
 
+LEVEL = レベル;
+
 Hero = 主人公;
 Ari = アリ;
 Tentoumushi = テントウムシ;

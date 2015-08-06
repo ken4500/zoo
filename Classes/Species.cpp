@@ -43,6 +43,7 @@ _dashSpeed(0)
 
 void Species::init(std::string name, rapidjson::Value& json)
 {
+    CCLOG("%s", name.c_str());
     UnitOfLength unit = Length::toUnit(json["unit"].GetString());
     _name      = name;
     _sizeId    = json["sizeId"].GetInt();

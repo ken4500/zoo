@@ -90,7 +90,7 @@
     {
       "hit" : true,
       "reward" : "Chiwawa",
-      "probability" : 20
+      "probability" : 8
     },
     {
       "reward" : "Mogura",
@@ -117,7 +117,7 @@
     {
       "hit" : true,
       "reward" : "Sukanku",
-      "probability" : 20
+      "probability" : 7
     },
     {
       "reward" : "Chiwawa",
@@ -152,7 +152,7 @@
     {
       "hit" : true,
       "reward" : "Ookami",
-      "probability" : 8
+      "probability" : 5
     },
     {
       "reward" : "Miiacat",
@@ -463,7 +463,7 @@
       "probability" : 200
     },
     {
-      "reward" : "RIsu2",
+      "reward" : "Risu2",
       "probability" : 200
     }
   ]

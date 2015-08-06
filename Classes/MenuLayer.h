@@ -27,6 +27,8 @@ public:
     CREATE_FUNC(MenuLayer);
     bool init() override;
     
+    std::function<void ()> closeCallback;
+    
 protected:
     
 private:

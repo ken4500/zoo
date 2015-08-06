@@ -168,10 +168,10 @@
               <AbstractNodeData Name="description" ActionTag="1626720800" Tag="94" IconVisible="True" LeftMargin="470.0000" RightMargin="380.0000" TopMargin="314.9082" BottomMargin="252.0918" ctype="SingleNodeObjectData">
                 <Size X="0.0000" Y="0.0000" />
                 <Children>
-                  <AbstractNodeData Name="line1" ActionTag="-343226042" Tag="140" IconVisible="False" RightMargin="-325.0000" BottomMargin="-24.0000" FontSize="20" LabelText="この世界で一番強いと思って&#xA;" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                  <AbstractNodeData Name="line1" ActionTag="-343226042" Tag="140" IconVisible="False" RightMargin="-260.0000" TopMargin="9.0000" BottomMargin="-29.0000" FontSize="20" LabelText="この世界で一番強いと思って&#xA;" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                     <Size X="260.0000" Y="20.0000" />
-                    <AnchorPoint ScaleY="1.0000" />
-                    <Position />
+                    <AnchorPoint />
+                    <Position Y="-29.0000" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="60" G="30" B="10" />
                     <PrePosition />
@@ -180,10 +180,10 @@
                     <OutlineColor A="255" R="255" G="0" B="0" />
                     <ShadowColor A="255" R="110" G="110" B="110" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="line2" ActionTag="-842798110" Tag="95" IconVisible="False" RightMargin="-325.0000" TopMargin="29.4577" BottomMargin="-53.4577" FontSize="20" LabelText="aaaaaaaaaaaaaaaaaaaaaaaaa&#xA;" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                  <AbstractNodeData Name="line2" ActionTag="-842798110" Tag="95" IconVisible="False" RightMargin="-275.0000" TopMargin="40.4600" BottomMargin="-60.4600" FontSize="20" LabelText="aaaaaaaaaaaaaaaaaaaaaaaaa&#xA;" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                     <Size X="275.0000" Y="20.0000" />
-                    <AnchorPoint ScaleY="1.0000" />
-                    <Position Y="-29.4577" />
+                    <AnchorPoint />
+                    <Position Y="-60.4600" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="60" G="30" B="10" />
                     <PrePosition />
@@ -192,10 +192,10 @@
                     <OutlineColor A="255" R="255" G="0" B="0" />
                     <ShadowColor A="255" R="110" G="110" B="110" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="line3" ActionTag="-113403237" Tag="96" IconVisible="False" RightMargin="-325.0000" TopMargin="62.8073" BottomMargin="-86.8073" FontSize="20" LabelText="aaaaaaaaaaaaaaaaaaaaaaaaa&#xA;" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                  <AbstractNodeData Name="line3" ActionTag="-113403237" Tag="96" IconVisible="False" RightMargin="-275.0000" TopMargin="73.8100" BottomMargin="-93.8100" FontSize="20" LabelText="aaaaaaaaaaaaaaaaaaaaaaaaa&#xA;" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                     <Size X="275.0000" Y="20.0000" />
-                    <AnchorPoint ScaleY="1.0000" />
-                    <Position Y="-62.8073" />
+                    <AnchorPoint />
+                    <Position Y="-93.8100" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="60" G="30" B="10" />
                     <PrePosition />
@@ -204,10 +204,10 @@
                     <OutlineColor A="255" R="255" G="0" B="0" />
                     <ShadowColor A="255" R="110" G="110" B="110" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="line4" ActionTag="-1119845518" Tag="97" IconVisible="False" RightMargin="-325.0000" TopMargin="97.1297" BottomMargin="-121.1297" FontSize="20" LabelText="aaaaaaaaaaaaaaaaaaaaaaaaa&#xA;" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                  <AbstractNodeData Name="line4" ActionTag="-1119845518" Tag="97" IconVisible="False" RightMargin="-275.0000" TopMargin="103.1300" BottomMargin="-123.1300" FontSize="20" LabelText="aaaaaaaaaaaaaaaaaaaaaaaaa&#xA;" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                     <Size X="275.0000" Y="20.0000" />
-                    <AnchorPoint ScaleY="1.0000" />
-                    <Position Y="-97.1297" />
+                    <AnchorPoint />
+                    <Position Y="-123.1300" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="60" G="30" B="10" />
                     <PrePosition />
@@ -395,8 +395,8 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="pageLabel" ActionTag="1941240456" Tag="50" IconVisible="False" LeftMargin="499.1268" RightMargin="496.8732" TopMargin="553.5736" BottomMargin="9.4264" LabelText="1 / 1" ctype="TextBMFontObjectData">
-            <Size X="140.0000" Y="77.0000" />
+          <AbstractNodeData Name="pageLabel" ActionTag="1941240456" Tag="50" IconVisible="False" LeftMargin="497.6268" RightMargin="495.3732" TopMargin="551.5736" BottomMargin="7.4264" LabelText="1 / 1" ctype="TextBMFontObjectData">
+            <Size X="143.0000" Y="81.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="569.1268" Y="47.9264" />
             <Scale ScaleX="0.6000" ScaleY="0.6000" />
