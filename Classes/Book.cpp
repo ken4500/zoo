@@ -173,7 +173,7 @@ void Book::_loadAnimal(Species* species)
     _animalImage->setTexture(species->getImageName());
     auto mgr = UserDataManager::getInstance();
 
-    if (false && mgr->haveHadAnimalInPast(name) == false) {
+    if (mgr->haveHadAnimalInPast(name) == false) {
         // 取得したことがない
         _animalImage->setColor(Color3B::BLACK);
         _animalName->setString("????");
@@ -317,14 +317,9 @@ int Book::_getMaxPage()
 
 void Book::_setDescription(std::string description)
 {
-    std::string test1 = "この世界";
-    std::string hoge = ZUtil::submbstr(test1, 3, 2);
-    CCLOG("DEBUG3:%s", hoge.c_str());
-    
     int charNumPerLine = 16;
     for (int line = 0; line < 4; line++) {
         auto lineStr = ZUtil::submbstr(description, line * charNumPerLine, charNumPerLine);
-        CCLOG("DEUBUG = %s", lineStr.c_str());
         _description[line]->setString(lineStr);
     }
 }

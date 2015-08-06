@@ -1,4 +1,4 @@
-LABEL_COLOR(red, Red, 255, 0, 0)
+LABEL_COLOR(red, Red, 220,  65,  60)
 LABEL_COLOR(green, Green, 0, 255, 0)
 LABEL_COLOR(blue, Blue, 0, 0, 255)
 LABEL_COLOR(cyan, Cyan, 0, 255, 255)

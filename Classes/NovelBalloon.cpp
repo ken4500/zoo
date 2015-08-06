@@ -8,6 +8,7 @@
 
 #include "NovelBalloon.h"
 #include "SoundManager.h"
+#include "ColorConstants.h"
 
 NovelBalloon::~NovelBalloon() {
     unscheduleAllSelectors();
@@ -82,7 +83,7 @@ int unicodeCharacterCount(const char* strBytes) {
 
 Label* NovelBalloon::getLabelSprite(const std::string& text) {
     auto fontName  = "font/zoo_font.fnt";
-    auto fontColor = Color3B::BLACK;
+    auto fontColor = Color3B(COLOR_OUTLINE);
     LabelColor color(text);
     Label* textLabel = Label::createWithBMFont(fontName, color.getRawString());
     textLabel->setAlignment(TextHAlignment::LEFT);
@@ -101,7 +102,7 @@ Label* NovelBalloon::getLabelSprite(const std::string& text) {
         fontColor = Color3B::WHITE;
     }
 
-    textLabel->setColor(Color3B::BLACK);
+    textLabel->setColor(Color3B(COLOR_OUTLINE));
     int textLength = unicodeCharacterCount(color.getRawString().c_str());
     for (int i = 0; i < textLength; i++) {
         Sprite* charSpr = textLabel->getLetter(i);
