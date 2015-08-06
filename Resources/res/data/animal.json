@@ -875,8 +875,8 @@
 "God": {
   "sizeId" : 27,
   "unit" : "km",
-  "minHeight" : 8000.00,
-  "maxHeight" : 8000.00,
+  "minHeight" : 5000.00,
+  "maxHeight" : 12000.00,
   "speed" : 2140.77,
   "density" : 0.004,
   "image" : "god"

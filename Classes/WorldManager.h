@@ -60,7 +60,7 @@ public:
     // game logic
     void lotteryGacha();
     void releaseAnimal(Animal* animal, bool hit);
-    WorldInfo* levelup();
+    void levelup();
     void startTutorial();
     void startBattle();
     void startTutorialBattle();

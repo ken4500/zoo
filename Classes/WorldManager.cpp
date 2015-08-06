@@ -311,8 +311,12 @@ void WorldManager::releaseAnimal(Animal* animal, bool hit)
     }
 }
 
-WorldInfo* WorldManager::levelup()
+void WorldManager::levelup()
 {
+    if (_info->level == MAX_LEVEL) {
+        return;
+    }
+
     auto preWorldInfo = _info->copy();
     _info->levelUp();
     _gacha->setNewGacha(_info);
@@ -369,8 +373,6 @@ WorldInfo* WorldManager::levelup()
             _gacha->setZOrder(_opponentGacha->getZOrder() - 1);
         }
     }
-    
-    return _info;
 }
 
 Vec2 WorldManager::getRadomPlace()
@@ -922,9 +924,8 @@ void WorldManager::_checkAndRemoveAnimal()
         }
     }
     
-    
     for (int i = 0; i < animalNum - MAX_ANIMAL_NUM; i++) {
-        float min = INT_MAX;
+        float min = INFINITY;
         Animal* removeAnimal = nullptr;
 
         for (auto animal : animalList) {
@@ -937,6 +938,10 @@ void WorldManager::_checkAndRemoveAnimal()
                 min = animal->getHeight().getMmLength();
                 removeAnimal = animal;
             }
+        }
+        
+        if (removeAnimal == nullptr) {
+            continue;
         }
         
         removeAnimal->escape();

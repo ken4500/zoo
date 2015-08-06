@@ -23,18 +23,25 @@ EnemyGenerater::EnemyGenerater(WorldInfo* info, std::function<void (Animal*)> ge
     _waveSpeciesList = std::vector<std::vector<Species*>>();
     int minSizeId = MAX(1, _info->level - 1);
     int maxSizeId = MAX(1, _info->level);
-    for (int wave = 0; wave < WAVE_COUNT; wave++) {
-        if (wave == WAVE_COUNT - 1) {
-            _waveSpeciesList.push_back(getSpeciesList(allSpecies, maxSizeId, maxSizeId));
-        } else {
-            _waveSpeciesList.push_back(getSpeciesList(allSpecies, minSizeId, maxSizeId));
-        }
+    
+    if (_info->level != MAX_SIZE_ID) {
+        for (int wave = 0; wave < WAVE_COUNT; wave++) {
+            if (wave == WAVE_COUNT - 1) {
+                _waveSpeciesList.push_back(getSpeciesList(allSpecies, maxSizeId, maxSizeId));
+            } else {
+                _waveSpeciesList.push_back(getSpeciesList(allSpecies, minSizeId, maxSizeId));
+            }
 
-        if (minSizeId == maxSizeId) {
-            maxSizeId++;
-        } else {
-            minSizeId++;
-            maxSizeId++;
+            if (minSizeId == maxSizeId) {
+                maxSizeId = MIN(maxSizeId + 1, MAX_SIZE_ID - 1);
+            } else {
+                minSizeId = MIN(minSizeId + 1, MAX_SIZE_ID - 1);
+                maxSizeId = MIN(maxSizeId + 1, MAX_SIZE_ID - 1);
+            }
+        }
+    } else {
+        for (int wave = 0; wave < WAVE_COUNT; wave++) {
+            _waveSpeciesList.push_back(getSpeciesList(allSpecies, _info->level, _info->level));
         }
     }
 }

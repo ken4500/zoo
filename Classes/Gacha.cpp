@@ -111,7 +111,7 @@ void Gacha::setNewGacha(WorldInfo* info)
     document.Parse<0>(jsonStr.c_str());
     rapidjson::Value& gachaDoc = document[std::to_string(info->gachaId).c_str()];
     _least = gachaDoc["least"].GetInt();
-    _price = gachaDoc["price"].GetInt();
+    _price = (long int)gachaDoc["price"].GetDouble();
     rapidjson::Value& listDoc = gachaDoc["list"];
     for (int i = 0; i < listDoc.Size(); i++) {
         rapidjson::Value& v = listDoc[i];

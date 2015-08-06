@@ -23,6 +23,8 @@ static const bool SKIP_TUTORIAL = false;
 static const int REPAIR_LIFE_TIME = 5 * 60;
 static const int MAX_ANIMAL_NUM = 20;
 static const float GAME_FPS = 60;
+static const int MAX_SIZE_ID = 27;
+static const int MAX_LEVEL = 27;
 
 static const float INIT_MULTIBATTLE_COIN = 3;
 static const int MUTLPLAY_BATTLE_TIME = 120;
