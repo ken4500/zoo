@@ -8,6 +8,7 @@
 
 #include "SoundManager.h"
 #include "audio/include/AudioEngine.h"
+#include "ZUtil.h"
 using namespace cocos2d::experimental;
 
 #define BGM_VOLUME 0.3
@@ -29,6 +30,7 @@ SoundManager* SoundManager::getInstance()
 
 SoundManager::SoundManager()
 {
+    _preFightTime = 0;
 }
 
 SoundManager::~SoundManager()
@@ -151,6 +153,11 @@ void SoundManager::playDecideEffect2()
     playEffect("sound/se/decide2.wav");
 }
 
+void SoundManager::playGetCoinEffect()
+{
+    playEffect("sound/se/coin.wav");
+}
+
 void SoundManager::playGachaEffect1()
 {
     playEffect("sound/se/gacha1.wav");
@@ -167,3 +174,42 @@ void SoundManager::playLevelupEffect()
 {
     playEffect("sound/se/levelup.wav");
 }
+
+void SoundManager::playAnimalDead()
+{
+    playEffect("sound/se/p_dead2.wav");
+}
+
+void SoundManager::playEnemyAnimalDead()
+{
+    playEffect("sound/se/p_dead2.wav");
+}
+
+void SoundManager::playFightSound()
+{
+    double time = ZUtil::getTime();
+    if (time - _preFightTime < 0.2) {
+        return;
+    }
+    
+    _preFightTime = time;
+    
+
+    playEffect("sound/se/fight6.wav");
+    return;
+    int rnd = rand() % 3;
+    switch (rnd) {
+      case 0:
+        playEffect("sound/se/fight1.wav");
+        break;
+      case 1:
+        playEffect("sound/se/fight2.wav");
+        break;
+      case 2:
+        playEffect("sound/se/fight3.wav");
+        break;
+      default:
+        break;
+    }
+}
+

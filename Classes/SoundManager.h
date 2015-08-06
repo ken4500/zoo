@@ -37,13 +37,18 @@ public:
     void playCancellEffect();
     void playDecideEffect1();
     void playDecideEffect2();
+    void playGetCoinEffect();
     void playGachaEffect1();
     void playGachaEffect2();
     void playLevelupEffect();
+    void playAnimalDead();
+    void playEnemyAnimalDead();
+    void playFightSound();
 
 private:
     int _currentBgmId;
     string _currentBgm;
+    double _preFightTime;
 };
 
 

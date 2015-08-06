@@ -9,6 +9,7 @@
 #include "Animal.h"
 #include "WorldManager.h"
 #include "SceneManager.h"
+#include "SoundManager.h"
 
 #pragma - Lifecycle
 
@@ -279,6 +280,7 @@ void Animal::fight(AbstractBattleEntity* entity)
     _state = AnimalState::Battle;
     _target = entity;
     _target->retain();
+    SoundManager::getInstance()->playFightSound();
     
     Vec2 originPoint = getPosition();
     Vec2 targetPoint = ZMath::divideInternally(getPosition(), entity->getPosition(), 1, 2);
@@ -314,6 +316,12 @@ void Animal::dead()
 {
     if (_state != AnimalState::Dead) {
         _state = AnimalState::Dead;
+        if (_isEnemy) {
+            SoundManager::getInstance()->playEnemyAnimalDead();
+        } else {
+            SoundManager::getInstance()->playAnimalDead();
+        }
+        
         _stopMoveAction();
         _timeline->play("dead", false);
         _timeline->setLastFrameCallFunc([&]{

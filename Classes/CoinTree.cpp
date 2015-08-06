@@ -9,6 +9,7 @@
 #include "CoinTree.h"
 #include "WorldManager.h"
 #include "Animal.h"
+#include "SoundManager.h"
 
 bool CoinTree::init() {
     if (!Node::init()) {
@@ -20,7 +21,7 @@ bool CoinTree::init() {
     // retain the character animation timeline so it doesn't get deallocated
     _timeline->retain();
     _preDropPos = -1;
-    _dropCount = 5;
+    _dropCount = 8;
     _isSwaying = false;
     _id = rand();
     _isDead = false;
@@ -54,7 +55,7 @@ void CoinTree::setLength(Length length)
 {
     _length = new Length(length.getMmLength());
     _dropCoin = MAX(1, (int)length.getLength(UnitOfLength::cm));
-    _maxHp = length.getMmLength() * 3;
+    _maxHp = length.getMmLength() * 4;
     _hp = _maxHp;
     if (_image) {
         float scale = WorldManager::getInstance()->getImageScale(_image, *_length);
@@ -84,6 +85,7 @@ void CoinTree::sway()
 void CoinTree::dropCoin()
 {
     WorldManager::getInstance()->addCoin(_dropCoin);
+    SoundManager::getInstance()->playGetCoinEffect();
 
     auto dropCoin = CSLoader::createNode("DropCoin.csb");
     int rnd;
@@ -122,7 +124,7 @@ void CoinTree::fellDown(bool drop)
     }
     
     if (drop) {
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 8; i++) {
             runAction(Sequence::create(
                 DelayTime::create(0.1 * i),
                 CallFunc::create([this]{

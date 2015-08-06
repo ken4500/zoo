@@ -464,10 +464,16 @@ void WorldManager::startBattle()
             timeLine->setLastFrameCallFunc([coinEffect]{
                 coinEffect->removeFromParent();
             });
+            SoundManager::getInstance()->playGetCoinEffect();
             _hpGaugeUpdate();
         };
     });
     _enemyGenerater->start();
+    
+    // コインツリーの出現抽選
+    if (rand_0_1() > APPEAR_COIN_TREE_RATE) {
+        _makeCoinTree();
+    }
     
     _map->hideGacha();
 }
