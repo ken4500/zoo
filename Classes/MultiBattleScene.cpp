@@ -61,8 +61,10 @@ bool MultiBattleScene::init()
     instance->registReaderObject("WorldMapReader", (ObjectFactory::Instance) WorldMapReader::getInstance);
 
     _rootNode = CSLoader::createNode("MultiBattleScene.csb");
-    _timeLeftLabel = _rootNode->getChildByName<ui::TextBMFont*>("timeLabel");
-    _timeLeftLabel->setPosition(Vec2(_timeLeftLabel->getPosition().x, displaySize.height * 0.98f));
+    _timeBack = _rootNode->getChildByName("time_back");
+    _timeLeftLabel = _timeBack->getChildByName<ui::TextBMFont*>("timeLabel");
+    _timeBack->setPosition(Vec2(_timeBack->getPosition().x, displaySize.height * 0.95f));
+    _countUpAction = nullptr;
 
     _map = WorldManager::getInstance()->getMap();
     _map->setAnchorPoint(Vec2(0.5f, 0.5f));

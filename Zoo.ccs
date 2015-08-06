@@ -48,13 +48,9 @@
           <Image Name="coin.png" />
           <Image Name="hart.png" />
           <Image Name="battle_button.png" />
-          <Image Name="battle_button_pressed.png" />
           <Image Name="levelup.png" />
           <Image Name="battle_start.png" />
           <Image Name="watch.png" />
-          <Image Name="button.png" />
-          <Image Name="button2.png" />
-          <Image Name="end.png" />
           <Image Name="coin_01.png" />
           <Image Name="coin_02.png" />
           <Image Name="coin_03.png" />
@@ -83,8 +79,6 @@
           <Image Name="title_logo.png" />
           <Image Name="button02.png" />
           <Image Name="menu3.png" />
-          <Image Name="max_crown.png" />
-          <Image Name="min_crown.png" />
           <Image Name="menu.png" />
           <Image Name="lose.png" />
           <Image Name="win.png" />
@@ -94,6 +88,10 @@
           <Image Name="max_crown2.png" />
           <Image Name="min_crown1.png" />
           <Image Name="min_crown2.png" />
+          <Image Name="time_back.png" />
+          <Image Name="level_back.png" />
+          <Image Name="length_image.png" />
+          <Image Name="weight_image.png" />
         </Folder>
         <Project Name="Result.csd" Type="Node" />
         <Project Name="YesNo.csd" Type="Node" />

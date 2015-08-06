@@ -6,26 +6,26 @@
       <ObjectData Name="Node" CustomClassName="ScaleBar" Tag="14" ctype="GameNodeObjectData">
         <Size X="0.0000" Y="0.0000" />
         <Children>
-          <AbstractNodeData Name="image" ActionTag="-385292014" Tag="15" IconVisible="False" LeftMargin="-200.0000" TopMargin="-40.0000" ctype="SpriteObjectData">
-            <Size X="200.0000" Y="40.0000" />
+          <AbstractNodeData Name="image" ActionTag="-385292014" Tag="15" IconVisible="False" LeftMargin="-260.0000" TopMargin="-91.0000" ctype="SpriteObjectData">
+            <Size X="260.0000" Y="91.0000" />
             <AnchorPoint ScaleX="1.0000" />
             <Position />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
-            <FileData Type="Normal" Path="ui/scaleBar.png" Plist="" />
+            <FileData Type="Normal" Path="ui/length_image.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="label" ActionTag="-504141955" Tag="16" IconVisible="False" LeftMargin="-360.0000" RightMargin="208.0000" TopMargin="-77.0000" LabelText="10cm" ctype="TextBMFontObjectData">
-            <Size X="152.0000" Y="77.0000" />
-            <AnchorPoint ScaleX="1.0000" />
-            <Position X="-208.0000" />
+          <AbstractNodeData Name="label" ActionTag="-504141955" Tag="16" IconVisible="False" LeftMargin="-209.9999" RightMargin="49.9999" TopMargin="-107.2854" BottomMargin="22.2854" LabelText="10cm" ctype="TextBMFontObjectData">
+            <Size X="160.0000" Y="85.0000" />
+            <AnchorPoint ScaleX="0.5000" />
+            <Position X="-129.9999" Y="22.2854" />
             <Scale ScaleX="0.6000" ScaleY="0.6000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
-            <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font2.fnt" Plist="" />
+            <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font3.fnt" Plist="" />
           </AbstractNodeData>
         </Children>
       </ObjectData>

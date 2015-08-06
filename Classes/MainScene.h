@@ -51,6 +51,7 @@ private:
     Node* _rootNode;
     cocostudio::timeline::ActionTimeline* _timeline;
     Node* _menuNode;
+    Node* _timeBack;
     cocos2d::ui::TextBMFont* _timeLeftLabel;
     cocos2d::ui::TextBMFont* _coinLabel;
     cocos2d::ui::TextBMFont* _lifeLabel;

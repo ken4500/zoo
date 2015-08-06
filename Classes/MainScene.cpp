@@ -69,8 +69,9 @@ bool MainScene::init()
     instance->registReaderObject("HpGaugeReader", (ObjectFactory::Instance) HpGaugeReader::getInstance);
 
     _rootNode = CSLoader::createNode("MainScene.csb");
-    _timeLeftLabel = _rootNode->getChildByName<ui::TextBMFont*>("timeLabel");
-    _timeLeftLabel->setPosition(Vec2(_timeLeftLabel->getPosition().x, displaySize.height * 0.95f));
+    _timeBack = _rootNode->getChildByName("time_back");
+    _timeLeftLabel = _timeBack->getChildByName<ui::TextBMFont*>("timeLabel");
+    _timeBack->setPosition(Vec2(_timeBack->getPosition().x, displaySize.height * 0.95f));
     _countUpAction = nullptr;
 
     _map = WorldManager::getInstance()->getMap();
@@ -86,8 +87,9 @@ bool MainScene::init()
     _coinLabel = _menuNode->getChildByName<ui::TextBMFont*>("coinText");
     _lifeLabel = _menuNode->getChildByName<ui::TextBMFont*>("hartText");
     _repairTimeLabel = _menuNode->getChildByName<ui::TextBMFont*>("repairTimeText");
-    _levelLabel = _rootNode->getChildByName<ui::TextBMFont*>("levelLabel");
-    _levelLabel->setPosition(Vec2(_levelLabel->getPosition().x, displaySize.height * 0.98f));
+    auto levelBack = _rootNode->getChildByName("levelBack");
+    levelBack->setPosition(Vec2(levelBack->getPosition().x, displaySize.height - 80));
+    _levelLabel = levelBack->getChildByName<ui::TextBMFont*>("levelLabel");
     _weightLabel = _rootNode->getChildByName<ui::TextBMFont*>("weightLabel");
 
     _endButton = _rootNode->getChildByName<ui::Button*>("endButton");
@@ -191,9 +193,9 @@ void MainScene::showMenu()
 
 void MainScene::showBattleMenu()
 {
-    _timeLeftLabel->setOpacity(0);
-    _timeLeftLabel->setVisible(true);
-    _timeLeftLabel->runAction(FadeIn::create(0.5f));
+    _timeBack->setOpacity(0);
+    _timeBack->setVisible(true);
+    _timeBack->runAction(FadeIn::create(0.5f));
     
     _endButton->setOpacity(0);
     _endButton->setVisible(true);
@@ -209,7 +211,7 @@ void MainScene::showBattleMenu()
 
 void MainScene::hideBattleMenu()
 {
-    _timeLeftLabel->runAction(FadeOut::create(0.2f));
+    _timeBack->runAction(FadeOut::create(0.2f));
     _endButton->runAction(FadeOut::create(0.2f));
     _hpGauge->runAction(FadeOut::create(0.2f));
 }
@@ -217,7 +219,7 @@ void MainScene::hideBattleMenu()
 void MainScene::updateLevelLabel()
 {
     int level = WorldManager::getInstance()->getWorldInfo()->level;
-    _levelLabel->setString(StringUtils::format("LEVEL%d", level));
+    _levelLabel->setString(StringUtils::format("LEVEL %d", level));
 }
 
 void MainScene::updateWeightLabel(Weight weight)
