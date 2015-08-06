@@ -312,7 +312,7 @@
             <PreSize X="0.1840" Y="0.1328" />
             <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font3.fnt" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="levelBack" ActionTag="-1789988531" Tag="241" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="415.0000" RightMargin="415.0000" TopMargin="-36.0000" BottomMargin="560.0000" ctype="SpriteObjectData">
+          <AbstractNodeData Name="levelBack" ActionTag="-1789988531" Tag="241" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="415.0000" RightMargin="415.0000" TopMargin="-56.0000" BottomMargin="580.0000" ctype="SpriteObjectData">
             <Size X="306.0000" Y="116.0000" />
             <Children>
               <AbstractNodeData Name="levelLabel" ActionTag="1209458093" Tag="19" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="15.5000" RightMargin="15.5000" TopMargin="29.0000" BottomMargin="10.0000" LabelText="LEVEL 3" ctype="TextBMFontObjectData">
@@ -327,10 +327,10 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" />
-            <Position X="568.0000" Y="560.0000" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <Position X="568.0000" Y="580.0000" />
+            <Scale ScaleX="0.8000" ScaleY="0.8000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5000" Y="0.8750" />
+            <PrePosition X="0.5000" Y="0.9063" />
             <PreSize X="0.2694" Y="0.1813" />
             <FileData Type="Normal" Path="ui/level_back.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />

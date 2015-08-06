@@ -88,7 +88,7 @@ bool MainScene::init()
     _lifeLabel = _menuNode->getChildByName<ui::TextBMFont*>("hartText");
     _repairTimeLabel = _menuNode->getChildByName<ui::TextBMFont*>("repairTimeText");
     auto levelBack = _rootNode->getChildByName("levelBack");
-    levelBack->setPosition(Vec2(levelBack->getPosition().x, displaySize.height - 80));
+    levelBack->setPosition(Vec2(levelBack->getPosition().x, displaySize.height - 60));
     _levelLabel = levelBack->getChildByName<ui::TextBMFont*>("levelLabel");
     _weightLabel = _rootNode->getChildByName<ui::TextBMFont*>("weightLabel");
 

@@ -20,12 +20,12 @@
 },
 "2": {
   "price" : 4,
-  "least" : 5,
+  "least" : 10,
   "list" : [
     {
       "hit" : true,
       "reward" : "Kabutomushi",
-      "probability" : 50
+      "probability" : 20
     },
     {
       "reward" : "Batta",
@@ -39,7 +39,7 @@
 },
 "3": {
   "price" : 8,
-  "least" : 10,
+  "least" : 15,
   "list" : [
     {
       "hit" : true,
@@ -62,7 +62,7 @@
 },
 "4": {
   "price" : 16,
-  "least" : 10,
+  "least" : 20,
   "list" : [
     {
       "hit" : true,
@@ -85,7 +85,7 @@
 },
 "5": {
   "price" : 32,
-  "least" : 15,
+  "least" : 25,
   "list" : [
     {
       "hit" : true,
@@ -112,7 +112,7 @@
 },
 "6": {
   "price" : 64,
-  "least" : 20,
+  "least" : 30,
   "list" : [
     {
       "hit" : true,
@@ -147,12 +147,12 @@
 },
 "7": {
   "price" : 128,
-  "least" : 20,
+  "least" : 30,
   "list" : [
     {
       "hit" : true,
       "reward" : "Ookami",
-      "probability" : 10
+      "probability" : 8
     },
     {
       "reward" : "Miiacat",
@@ -182,12 +182,12 @@
 },
 "8": {
   "price" : 256,
-  "least" : 20,
+  "least" : 30,
   "list" : [
     {
       "hit" : true,
       "reward" : "Raion",
-      "probability" : 10
+      "probability" : 2
     },
     {
       "reward" : "Ashika",
@@ -209,12 +209,12 @@
 },
 "9": {
   "price" : 512,
-  "least" : 20,
+  "least" : 30,
   "list" : [
     {
       "hit" : true,
       "reward" : "Zou",
-      "probability" : 8
+      "probability" : 1
     },
     {
       "reward" : "Yagi",
@@ -240,7 +240,7 @@
 },
 "10": {
   "price" : 1024,
-  "least" : 20,
+  "least" : 30,
   "list" : [
     {
       "hit" : true,
@@ -249,7 +249,7 @@
     },
     {
       "reward" : "Sai",
-      "probability" : 4
+      "probability" : 1
     },
     {
       "reward" : "Rakuda",
@@ -267,12 +267,12 @@
 },
 "11": {
   "price" : 2048,
-  "least" : 5,
+  "least" : 30,
   "list" : [
     {
       "hit" : true,
       "reward" : "Tirano",
-      "probability" : 3
+      "probability" : 1
     },
     {
       "reward" : "Sutego",
@@ -290,7 +290,7 @@
 },
 "12": {
   "price" : 4096,
-  "least" : 5,
+  "least" : 30,
   "list" : [
     {
       "hit" : true,
@@ -313,12 +313,12 @@
 },
 "13": {
   "price" : 8192,
-  "least" : 5,
+  "least" : 30,
   "list" : [
     {
       "hit" : true,
       "reward" : "Bahamuut",
-      "probability" : 13
+      "probability" : 7
     },
     {
       "reward" : "Fenics",
@@ -336,7 +336,7 @@
 },
 "14": {
   "price" : 16384,
-  "least" : 5,
+  "least" : 30,
   "list" : [
     {
       "hit" : true,
@@ -359,12 +359,12 @@
 },
 "15": {
   "price" : 32768,
-  "least" : 5,
+  "least" : 30,
   "list" : [
     {
       "hit" : true,
       "reward" : "Batta2",
-      "probability" : 8
+      "probability" : 4
     },
     {
       "reward" : "Ari2",
@@ -378,12 +378,12 @@
 },
 "16": {
   "price" : 65536,
-  "least" : 5,
+  "least" : 30,
   "list" : [
     {
       "hit" : true,
       "reward" : "Kabutomushi2",
-      "probability" : 7
+      "probability" : 4
     },
     {
       "reward" : "Batta2",
@@ -397,12 +397,12 @@
 },
 "17": {
   "price" : 131072,
-  "least" : 5,
+  "least" : 30,
   "list" : [
     {
       "hit" : true,
       "reward" : "Hamstar2",
-      "probability" : 9
+      "probability" : 5
     },
     {
       "reward" : "Kabutomushi2",
@@ -420,12 +420,12 @@
 },
 "18": {
   "price" : 262144,
-  "least" : 5,
+  "least" : 30,
   "list" : [
     {
       "hit" : true,
       "reward" : "Mogura2",
-      "probability" : 8
+      "probability" : 3
     },
     {
       "reward" : "Hamstar2",
@@ -443,12 +443,12 @@
 },
 "19": {
   "price" : 524288,
-  "least" : 5,
+  "least" : 30,
   "list" : [
     {
       "hit" : true,
       "reward" : "Chiwawa2",
-      "probability" : 7
+      "probability" : 4
     },
     {
       "reward" : "Mogura2",
@@ -470,12 +470,12 @@
 },
 "20": {
   "price" : 1048576,
-  "least" : 5,
+  "least" : 30,
   "list" : [
     {
       "hit" : true,
       "reward" : "Sukanku2",
-      "probability" : 9
+      "probability" : 3
     },
     {
       "reward" : "Chiwawa2",
@@ -505,12 +505,12 @@
 },
 "21": {
   "price" : 2097152,
-  "least" : 5,
+  "least" : 30,
   "list" : [
     {
       "hit" : true,
       "reward" : "Ookami2",
-      "probability" : 8
+      "probability" : 2
     },
     {
       "reward" : "Miiacat2",
@@ -540,12 +540,12 @@
 },
 "22": {
   "price" : 4194304,
-  "least" : 5,
+  "least" : 30,
   "list" : [
     {
       "hit" : true,
       "reward" : "Raion2",
-      "probability" : 5
+      "probability" : 1
     },
     {
       "reward" : "Ashika2",
@@ -567,12 +567,12 @@
 },
 "23": {
   "price" : 8388608,
-  "least" : 5,
+  "least" : 30,
   "list" : [
     {
       "hit" : true,
       "reward" : "Zou2",
-      "probability" : 4
+      "probability" : 1
     },
     {
       "reward" : "Yagi2",
@@ -598,12 +598,12 @@
 },
 "24": {
   "price" : 16777216,
-  "least" : 5,
+  "least" : 30,
   "list" : [
     {
       "hit" : true,
       "reward" : "Torikera2",
-      "probability" : 2
+      "probability" : 1
     },
     {
       "reward" : "Sai2",
@@ -625,12 +625,12 @@
 },
 "25": {
   "price" : 33554432,
-  "least" : 5,
+  "least" : 30,
   "list" : [
     {
       "hit" : true,
       "reward" : "Tirano2",
-      "probability" : 2
+      "probability" : 1
     },
     {
       "reward" : "Sutego2",
@@ -648,7 +648,7 @@
 },
 "26": {
   "price" : 67108864,
-  "least" : 5,
+  "least" : 30,
   "list" : [
     {
       "hit" : true,
@@ -657,21 +657,21 @@
     },
     {
       "reward" : "Burakio2",
-      "probability" : 200
+      "probability" : 800
     },
     {
       "reward" : "Tirano2",
-      "probability" : 200
+      "probability" : 800
     },
     {
       "reward" : "Supino2",
-      "probability" : 200
+      "probability" : 800
     }
   ]
 },
 "27": {
   "price" : 134217728,
-  "least" : 5,
+  "least" : 30,
   "list" : [
     {
       "reward" : "God",

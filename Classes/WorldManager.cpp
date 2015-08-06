@@ -883,7 +883,15 @@ void WorldManager::_transitionMap(WorldInfo* preWorldInfo, WorldInfo* newWorldIn
 void WorldManager::_checkAndRemoveAnimal()
 {
     auto animalList = getAnimalList();
-    if (animalList.size() > MAX_ANIMAL_NUM) {
+    int animalNum = 0;
+    for (auto animal : animalList) {
+        if (animal->getState() != AnimalState::Escape) {
+            animalNum++;
+        }
+    }
+    
+    
+    for (int i = 0; i < animalNum - MAX_ANIMAL_NUM; i++) {
         float min = INT_MAX;
         Animal* removeAnimal = nullptr;
 
@@ -899,15 +907,14 @@ void WorldManager::_checkAndRemoveAnimal()
             }
         }
         
-        if (_isNetwork == false) {
-            UserDataManager::getInstance()->removeAnimal(removeAnimal);
-        }
         removeAnimal->escape();
         _setTotalWeight(_totalWeight - removeAnimal->getWeight());
         
         if (_isNetwork) {
             auto command = CommandGenerater::removeAnimal(removeAnimal);
             CommandGenerater::sendData(command);
+        } else {
+            UserDataManager::getInstance()->removeAnimal(removeAnimal);
         }
     }
 }
