@@ -352,9 +352,9 @@ void NovelLayer::setNameImage(std::shared_ptr<NovelAction> action)
             _leftNameImage->setPosition(Vec2(20, 20));
             _leftNode->addChild(_leftNameImage, 11);
             auto nameImageSize = _leftNameImage->getContentSize();
-            auto label1 = Label::createWithSystemFont(name.c_str(), "HiraMinProN-W6", 30);
+            auto label1 = Label::createWithTTF(name.c_str(), "font/yasashisa.ttf", 30);
             label1->setName("label");
-            label1->setColor(Color3B::BLACK);
+            label1->setColor(Color3B::WHITE);
             label1->setAnchorPoint(Vec2(0.5f, 0.5f));
             label1->setPosition(Vec2(nameImageSize.width / 2, nameImageSize.height / 2));
             _leftNameImage->addChild(label1);
@@ -369,10 +369,10 @@ void NovelLayer::setNameImage(std::shared_ptr<NovelAction> action)
             _rightNameImage->setPosition(Vec2(-20, 20));
             _rightNode->addChild(_rightNameImage, 11);
             auto nameImageSize = _rightNameImage->getContentSize();
-            auto label1 = Label::createWithSystemFont(name.c_str(), "HiraMinProN-W6", 30);
+            auto label1 = Label::createWithTTF(name.c_str(), "font/yasashisa.ttf", 30);
             label1->setName("label");
             label1->setAnchorPoint(Vec2(0.5, 0.5f));
-            label1->setColor(Color3B::BLACK);
+            label1->setColor(Color3B::WHITE);
             label1->setPosition(Vec2(nameImageSize.width / 2, nameImageSize.height / 2));
             _rightNameImage->addChild(label1);
         } else {
