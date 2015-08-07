@@ -298,6 +298,11 @@ void MainScene::playNovel(std::string novelId, std::function<void ()> callback, 
     auto jsonStr = FileUtils::getInstance()->getStringFromFile(file);
     rapidjson::Document document;
     document.Parse<0>(jsonStr.c_str());
+    if (document.HasMember(novelId.c_str()) == false) {
+        callback();
+        return;
+    }
+    
     rapidjson::Value& novelJson = document[novelId.c_str()];
     
     // pause map
@@ -415,12 +420,12 @@ void MainScene::_setupDebugMenu()
     _rootNode->addChild(debugMenu);
 
     
-    auto repairLife = DebugButton::create("repair life", [this]() { UserDataManager::getInstance()->repairLife(); this->updateLifeLabel(0);});
+    auto repairLife = DebugButton::create("体力回復", [this]() { UserDataManager::getInstance()->repairLife(); this->updateLifeLabel(0);});
     repairLife->setAnchorPoint(Vec2(1.0f, 0.0f));
     repairLife->setPosition(Vec2(0, 0));
     debugMenu->addChild(repairLife, 1);
     
-    auto addCoin = DebugButton::create("add coin", [this]() {
+    auto addCoin = DebugButton::create("コイン追加", [this]() {
         UserDataManager::getInstance()->addCoin(WorldManager::getInstance()->getGachaPrice() * 5);
         this->updateCoinLabel();
     });
@@ -428,12 +433,12 @@ void MainScene::_setupDebugMenu()
     addCoin->setPosition(Vec2(0, 80));
     debugMenu->addChild(addCoin, 1);
 
-    auto levelup = DebugButton::create("levelup", [this]() { WorldManager::getInstance()->levelup();});
+    auto levelup = DebugButton::create("レベルアップ", [this]() { WorldManager::getInstance()->levelup();});
     levelup->setAnchorPoint(Vec2(1.0f, 0.0f));
     levelup->setPosition(Vec2(0, 160));
     debugMenu->addChild(levelup, 1);
 
-    auto resetData = DebugButton::create("reset data", [this]() {
+    auto resetData = DebugButton::create("データリセット", [this]() {
         WorldManager::getInstance()->resetData();
         SceneManager::getInstance()->resetMainScene();
     });
@@ -441,7 +446,7 @@ void MainScene::_setupDebugMenu()
     resetData->setPosition(Vec2(0, 240));
     debugMenu->addChild(resetData, 1);
 
-    auto endTutorial = DebugButton::create("reset without tutorial", [this]() {
+    auto endTutorial = DebugButton::create("チュートリアルなしリセット", [this]() {
         WorldManager::getInstance()->resetData();
         UserDataManager::getInstance()->clearTutorial();
         SceneManager::getInstance()->resetMainScene();
@@ -450,31 +455,14 @@ void MainScene::_setupDebugMenu()
     endTutorial->setPosition(Vec2(0, 320));
     debugMenu->addChild(endTutorial, 1);
 
-    auto test = DebugButton::create("test", [this]() {
-        auto s = new Species("Hero");
-        int maxGold = 0, maxSilver = 0, minGold = 0, minSilver = 0;
-        int tryCount = 10000;
-        for (int i = 0; i < tryCount; i++) {
-            auto random = s->getRandomHeight();
-            auto maxRank = s->getMaxHeightRank(random);
-            auto minRank = s->getMinHeightRank(random);
-            if (maxRank == SizeRank::Gold) {
-                maxGold++;
-            } else if (maxRank == SizeRank::Silver) {
-                maxSilver++;
-            }
-            if (minRank == SizeRank::Gold) {
-                minGold++;
-            } else if (minRank == SizeRank::Silver) {
-                minSilver++;
-            }
-        }
+    auto test = DebugButton::create("必ず当たり", [this]() {
+        auto gacha = WorldManager::getInstance()->getGacha();
+        UserDataManager::getInstance()->addCoin(gacha->getPrice());
+        this->updateCoinLabel();
         
-        CCLOG("%d回実行", tryCount);
-        CCLOG("最大金: %d回 (%.04f ％)", maxGold, (float)maxGold / tryCount);
-        CCLOG("最大銀: %d回 (%.04f ％)", maxSilver, (float)maxSilver / tryCount);
-        CCLOG("最小金: %d回 (%.04f ％)", minGold, (float)minGold / tryCount);
-        CCLOG("最小銀: %d回 (%.04f ％)", minSilver, (float)minSilver / tryCount);
+        gacha->setDebugMode(true);
+        WorldManager::getInstance()->lotteryGacha();
+        gacha->setDebugMode(false);
     });
     test->setAnchorPoint(Vec2(1.0f, 0.0f));
     test->setPosition(Vec2(0, 400));

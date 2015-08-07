@@ -27,11 +27,11 @@
             <PreSize X="0.0000" Y="0.0000" />
             <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font2.fnt" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="coin" ActionTag="-778894497" Tag="5" IconVisible="False" LeftMargin="-222.2280" RightMargin="30.2280" TopMargin="17.4523" BottomMargin="-204.4523" ctype="SpriteObjectData">
-            <Size X="192.0000" Y="187.0000" />
+          <AbstractNodeData Name="coin" ActionTag="-778894497" Tag="5" IconVisible="False" LeftMargin="-177.2280" RightMargin="75.2280" TopMargin="60.9523" BottomMargin="-160.9523" ctype="SpriteObjectData">
+            <Size X="102.0000" Y="100.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="-126.2280" Y="-110.9523" />
-            <Scale ScaleX="0.4000" ScaleY="0.4000" />
+            <Scale ScaleX="0.8000" ScaleY="0.8000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
@@ -69,7 +69,7 @@
             <Size X="138.0000" Y="160.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="-126.2531" Y="111.8132" />
-            <Scale ScaleX="0.5000" ScaleY="0.5000" />
+            <Scale ScaleX="0.6000" ScaleY="0.6000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
@@ -106,11 +106,11 @@
             <PreSize X="0.0000" Y="0.0000" />
             <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font2.fnt" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="beat" ActionTag="-318596679" Tag="343" IconVisible="False" LeftMargin="-177.2280" RightMargin="75.2280" TopMargin="-65.7828" BottomMargin="-66.2172" ctype="SpriteObjectData">
-            <Size X="102.0000" Y="132.0000" />
+          <AbstractNodeData Name="beat" ActionTag="-318596679" Tag="343" IconVisible="False" LeftMargin="-182.2280" RightMargin="70.2280" TopMargin="-56.7828" BottomMargin="-57.2172" ctype="SpriteObjectData">
+            <Size X="112.0000" Y="114.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="-126.2280" Y="-0.2172" />
-            <Scale ScaleX="0.6000" ScaleY="0.6000" />
+            <Scale ScaleX="0.7000" ScaleY="0.7000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />

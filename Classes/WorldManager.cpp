@@ -284,8 +284,11 @@ void WorldManager::lotteryGacha()
         UserDataManager::getInstance()->setCoin(coin - _gacha->getPrice());
     }
     worldScene->updateCoinLabel();
+
+    // ガチャ実行
     _gacha->lotteryGacha(_info);
     
+    // コインエフェクト
     auto text = ui::TextBMFont::create(StringUtils::format("-%ld", _gacha->getPrice()), "font/zoo_font2.fnt");
     text->setPosition(_gacha->getPosition() + Vec2(0, 180));
     text->setOpacity(255);
@@ -349,8 +352,9 @@ void WorldManager::levelup()
     if (_isNetwork == false && _info->level == 2 && SKIP_TUTORIAL == false) {
         _startTutrialLevelupScene1();
     } else {
+
         _enableNextAction = false;
-        SceneManager::getInstance()->getWorldScene()->levelUpEffect(CC_CALLBACK_0(WorldManager::_finishGachaCallback, this));
+        SceneManager::getInstance()->getWorldScene()->levelUpEffect(CC_CALLBACK_0(WorldManager::_finishLevelupCallback, this));
         if (_info->mapName == preWorldInfo->mapName) {
             _map->setCurrentWidth(_info->width, NULL);
             auto gachaImage = _gacha->getChildByName<Sprite*>("image");
@@ -1077,6 +1081,16 @@ void WorldManager::_makeCoinTree()
 void WorldManager::_finishGachaCallback()
 {
     _enableNextAction = true;
+}
+
+void WorldManager::_finishLevelupCallback()
+{
+    auto scene = SceneManager::getInstance()->getMainScene();
+    if (scene) {
+        scene->playNovel(StringUtils::format("novel_enter_map_%d", _info->level), [this]{
+            _enableNextAction = true;
+        }, false);
+    }
 }
 
 void WorldManager::_setTotalWeight(Weight weight)

@@ -122,6 +122,7 @@ private:
     void _createMultiBattlwMap();
     void _makeCoinTree();
     void _finishGachaCallback();
+    void _finishLevelupCallback();
     void _setTotalWeight(Weight weight);
 
     // network

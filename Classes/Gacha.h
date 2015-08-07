@@ -31,6 +31,7 @@ public:
     bool touchIsInGacha(Vec2 position);
     void say(std::string message);
     void sayRandom();
+    void setDebugMode(bool isDebug);
     
     std::function<void()> finishGachaCallback;
 
@@ -43,6 +44,7 @@ protected:
     std::vector<std::string> _rewardList;
     std::vector<bool> _hitList;
     float _sumProbability;
+    bool _isDebug;
 
     void onEnter() override;
     void _hidePrice();

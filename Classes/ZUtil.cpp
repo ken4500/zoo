@@ -128,7 +128,6 @@ double ZUtil::boxrnd(double m, double sig)
     return r * cos(t) + m;
 }
 
-
 /**
  * FNV Constants
  */

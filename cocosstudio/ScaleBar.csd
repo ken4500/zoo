@@ -17,15 +17,15 @@
             <FileData Type="Normal" Path="ui/length_image.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="label" ActionTag="-504141955" Tag="16" IconVisible="False" LeftMargin="-216.4999" RightMargin="43.4999" TopMargin="-107.2854" BottomMargin="22.2854" LabelText="10cm" ctype="TextBMFontObjectData">
-            <Size X="173.0000" Y="85.0000" />
+          <AbstractNodeData Name="label" ActionTag="-504141955" Tag="16" IconVisible="False" LeftMargin="-209.9999" RightMargin="49.9999" TopMargin="-107.2854" BottomMargin="22.2854" LabelText="10cm" ctype="TextBMFontObjectData">
+            <Size X="160.0000" Y="85.0000" />
             <AnchorPoint ScaleX="0.5000" />
             <Position X="-129.9999" Y="22.2854" />
             <Scale ScaleX="0.6000" ScaleY="0.6000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
-            <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font5.fnt" Plist="" />
+            <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font3.fnt" Plist="" />
           </AbstractNodeData>
         </Children>
       </ObjectData>

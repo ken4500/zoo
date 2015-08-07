@@ -58,7 +58,7 @@ void Gacha::lotteryGacha(WorldInfo* _info)
                 break;
             }
         }
-    } while (isHit && canLotteryHit == false);
+    } while ((_isDebug && isHit == false) || (_isDebug == false && isHit && canLotteryHit == false));
     
     if (isHit) {
     } else {
@@ -203,4 +203,9 @@ void Gacha::sayRandom()
     int rnd = rand() % 10 + 1;
     auto message = CCLS(StringUtils::format("GACHA_SAY_LEVELUP_%d", rnd).c_str());
     say(message);
+}
+
+void Gacha::setDebugMode(bool isDebug)
+{
+    _isDebug = isDebug;
 }

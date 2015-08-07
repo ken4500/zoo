@@ -20,12 +20,12 @@
     {
       "type": "narration",
       "target": "narration",
-      "value": "これは小さなアリの大きな話"
+      "value": "これはちいさなアリの\nおおきな物語"
     },
     {
       "type": "narration",
       "target": "narration",
-      "value": "このアリは自分が世界で一番強いと\n勘違いしておりました"
+      "value": "アリは自分が世界でいちばん\n強いと思っておりました"
     },
     {
       "type": "clear",
@@ -52,13 +52,16 @@
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "今日も世界制服のため頑張るぞ"
+      "value": "よーし、ヒマだから世界征服でも\nしてやるか"
     },
     {
-      "type": "speak",
-      "target": "left",
-      "balloon": "shout",
-      "value": "[c=red]左下のボタン[/c]を押してくれ！"
+      "type": "set",
+      "target": "narration"
+    },
+    {
+      "type": "narration",
+      "target": "narration",
+      "value": "[c=red]左下のボタン[/c]を押してください"
     }
   ]
 },
@@ -78,33 +81,25 @@
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "敵が来たぞ！"
+      "value": "まずは雑魚どもでウォームアップ\nといこうか！"
     },
     {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "行きたい場所を[c=red]タップし続けてる[/c]\nと移動するぞ！"
+      "type": "set",
+      "target": "narration"
+    },
+    {
+      "type": "narration",
+      "target": "narration",
+      "value": "アリの近くをタップすると\nその方向にアリが移動します"
     }
   ]
 },
 "novel_tutorial_battle2": {
   "actions" : [
     {
-      "type": "set",
-      "target": "left",
-      "value": "hero_01"
-    },
-    {
-      "type": "name",
-      "target": "left",
-      "value": "アリ"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "近づくと勝手にバトルが始まるぞ"
+      "type": "narration",
+      "target": "narration",
+      "value": "近づくとバトルが始まります"
     }
   ]
 },
@@ -134,19 +129,25 @@
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "強すぎるー"
+      "value": "なんだこいつ〜\nすごい強さだ〜〜〜"
     },
     {
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "弱すぎるぜ！"
+      "value": "わーっはっは！！！"
     },
     {
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "ドンドン倒すぜ！"
+      "value": "弱いにもほどがある！"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "ヘイ！ヘイ！\nどんどん来い！！！"
     }
   ]
 },
@@ -182,13 +183,19 @@
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "どけよチビ！"
+      "value": "どいとくれ、おチビさん"
     },
     {
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "こんなでかい生き物がいるなんて・・・"
+      "value": "は！？こんなでっかいやつ…\nいるの！！？"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "でもオレの手にかかれば！\nこんな奴！！"
     }
   ]
 },
@@ -219,13 +226,13 @@
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "だめだ・・・"
+      "value": "だめだった…ママ…"
     },
     {
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "世界は広かった・・・"
+      "value": "世界広かったわ…"
     },
     {
       "type": "delay",
@@ -285,7 +292,7 @@
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "ここはどこだ？"
+      "value": "ん？どこだよここ！！"
     },
     {
       "type": "speak",
@@ -303,7 +310,13 @@
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "(・・・何言ってんだこいつ）"
+      "value": "(・・・なに言ってるか\nさっぱりわからん）"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "(しかも誰だよ)"
     },
     {
       "type": "speak",
@@ -315,7 +328,7 @@
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "世界の秘密を知るのだ"
+      "value": "世界を知るのだ"
     },
     {
       "type": "set",
@@ -362,7 +375,7 @@
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "なんだ夢か"
+      "value": "なんだ、夢かよ"
     },
     {
       "type": "speak",
@@ -373,7 +386,7 @@
     {
       "type": "speak",
       "target": "left",
-      "balloon": "normal",
+      "balloon": "shout",
       "value": "なんだあのでっかいツボは！"
     },
     {
@@ -401,14 +414,26 @@
     {
       "type": "speak",
       "target": "left",
-      "balloon": "normal",
-      "value": "でた！変なやつ！"
+      "balloon": "shout",
+      "value": "小さきもの小さきもの\nうるせぇぇええ！！！"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "shout",
+      "value": "なんだぁキサマは！！"
     },
     {
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "そのツボは[c=red]世界のツボ[/c]と\n呼ばれる物だ"
+      "value": "そこに変なツボがあるじゃろ"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "それ[c=red]”世界のツボ”[/c]っちゅうんやけど"
     },
     {
       "type": "speak",
@@ -420,13 +445,19 @@
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "なんだそれ"
+      "value": "なんだぁそりゃ！！"
     },
     {
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "いいから[c=red]タップしてみろ[/c]"
+      "value": "いいから、ちょっとつついてみぃ"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "ちょっとじゃぞ、ウフフ"
     }
   ]
 },
@@ -440,13 +471,19 @@
     {
       "type": "name",
       "target": "left",
-      "value": "ANT"
+      "value": "アリ"
     },
     {
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "なんか出てきたぞ！？"
+      "value": "くそ…ん！？"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "なんか出た！！！"
     },
     {
       "type": "set",
@@ -456,43 +493,61 @@
     {
       "type": "name",
       "target": "right",
-      "value": "GOD"
+      "value": "神"
     },
     {
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "そうだ"
+      "value": "そうじゃ"
     },
     {
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "お前に[c=red]世界のツボ[/c]を\n操る力を与えた"
+      "value": "おまえに[c=red]”世界のツボ”[/c]を\n操る力を与えよう"
     },
     {
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "ツボから出てきた動物は\n全てお前の手下だ"
+      "value": "（ヒマだからのー）"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "ツボから呼び出した者は\n手下として使うがよい"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "shout",
+      "value": "マジか…！\nこれ使えるわ…！！！"
     },
     {
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "すごい！"
+      "value": "みんなオレについてこい！！"
     },
     {
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "これで手下を集めてさっきの\n大きな動物を倒せってことだな！"
+      "value": "オレが世界を征服する！！！"
     },
     {
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "頑張るがよい"
+      "value": "ほーほっほっほ"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "りきんでおるな"
     },
     {
       "type": "speak",
@@ -517,19 +572,19 @@
     {
       "type": "name",
       "target": "left",
-      "value": "ANT"
+      "value": "アリ"
     },
     {
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "でかい！"
+      "value": "でっっか！！！"
     },
     {
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "強い仲間をゲットしたぜ！"
+      "value": "またひとり使える子分を\n手に入れたぞ…フハハハ！！"
     }
   ]
 },
@@ -543,19 +598,19 @@
     {
       "type": "name",
       "target": "left",
-      "value": "ANT"
+      "value": "アリ"
     },
     {
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "わっ！"
+      "value": "おわ！？"
     },
     {
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "世界が広がったぞ！"
+      "value": "なんか世界広がった！！"
     },
     {
       "type": "set",
@@ -565,7 +620,7 @@
     {
       "type": "name",
       "target": "right",
-      "value": "GOD"
+      "value": "神"
     },
     {
       "type": "speak",
@@ -577,25 +632,735 @@
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "わっ親切なおっさんだ！"
+      "value": "また出やがった！！"
     },
     {
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "これが[c=red]世界のツボ[/c]のもう一つの力"
+      "value": "これが[c=red]世界のツボ[/c]の\nもう一つの力"
     },
     {
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "より大きな動物を手にいれることで"
+      "value": "より大きな動物を手にモグ\nいれることで"
     },
     {
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "お前の世界は広がる"
+      "value": "お前の世界は広がるのじゃ...モグモグ"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "…なんか食べてるだろ"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "フン、まあいい"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "キサマはオレが世界征服するのに\n力になりたいというのだな"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "ほーっほっほ"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "ワシ、あんまん大好き"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "まだまだおまえの世界は小さいぞ"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "ワシのあんまんより小さい"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "ほれ、食うか"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "フン！変なじじいだが\n悪い奴ではなさそうだな"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "フフフ…フはっはっは！！！！！"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "shout",
+      "value": "[c=red]オレ世界征服するぞーーーーー！！[/c]"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "ほーほっほ！"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "かわいいのう"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "食べたくなっちゃうのう"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "ん？"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "よーし、手始めにこの草原から\n征服だな！"
+    }
+  ]
+},
+"novel_enter_map_3": {
+  "actions" : [
+    {
+      "type": "set",
+      "target": "left",
+      "value": "hero_01"
+    },
+    {
+      "type": "name",
+      "target": "left",
+      "value": "アリ"
+    },
+    {
+      "type": "set",
+      "target": "right",
+      "value": "god_01"
+    },
+    {
+      "type": "name",
+      "target": "right",
+      "value": "神"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "ウフフ、アリちゃん"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "世界征服は進んどるかのう。"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "キモい呼び方してんじゃねぇ！！"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "まあ、あと少しってとこだな"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "アリちゃん、ふぁいと！"
+    }
+  ]
+},
+"novel_enter_map_5": {
+  "actions" : [
+    {
+      "type": "set",
+      "target": "left",
+      "value": "hero_01"
+    },
+    {
+      "type": "name",
+      "target": "left",
+      "value": "アリ"
+    },
+    {
+      "type": "set",
+      "target": "right",
+      "value": "mogura_01"
+    },
+    {
+      "type": "name",
+      "target": "right",
+      "value": "モグラ"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "どうも、モグラです"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "お呼びですか"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "特に用はないけど俺と\n一緒に世界征服しようぜ！"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "楽しそうですね、やりましょう"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "(こいつ・・・ちょろいな）"
+    }
+  ]
+},
+"novel_enter_map_7": {
+  "actions" : [
+    {
+      "type": "set",
+      "target": "left",
+      "value": "hero_01"
+    },
+    {
+      "type": "name",
+      "target": "left",
+      "value": "アリ"
+    },
+    {
+      "type": "set",
+      "target": "right",
+      "value": "sukanku_01"
+    },
+    {
+      "type": "name",
+      "target": "right",
+      "value": "スカンク"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "プ～"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "あっオナラでちゃった"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "うげぇ！"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "臭すぎる！"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "え、臭いって？！\nどうもありがとう！"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "褒めてねぇよ！"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "えーそうなんだ"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "僕達の仲間の中では臭いは\n褒め言葉だからてっきり"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "世の中には変わった生き物も\nいるもんだな！"
+    }
+  ]
+},
+"novel_enter_map_8": {
+  "actions" : [
+    {
+      "type": "set",
+      "target": "left",
+      "value": "hero_01"
+    },
+    {
+      "type": "name",
+      "target": "left",
+      "value": "アリ"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "世界征服目前だろ！"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "地球ってほんとに広いんだな"
+    },
+    {
+      "type": "set",
+      "target": "right",
+      "value": "god_01"
+    },
+    {
+      "type": "name",
+      "target": "right",
+      "value": "神"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "そうじゃよ〜アリちゃん"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "世界の広さを知る・・・\n大人への第一歩じゃな"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "偉そうに！"
+    }
+  ]
+},
+"novel_enter_map_10": {
+  "actions" : [
+    {
+      "type": "set",
+      "target": "left",
+      "value": "hero_01"
+    },
+    {
+      "type": "name",
+      "target": "left",
+      "value": "アリ"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "でかいのキタ！"
+    },
+    {
+      "type": "set",
+      "target": "right",
+      "value": "zou"
+    },
+    {
+      "type": "name",
+      "target": "right",
+      "value": "ゾウ"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "そう"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "我こそは"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "この世で"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "最も"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "大きくて"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "強い"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "shout",
+      "value": "ゾウさんだぞう！"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "（喋るの遅ぇ・・・）"
+    },
+    {
+      "type": "set",
+      "target": "right",
+      "value": "god_01"
+    },
+    {
+      "type": "name",
+      "target": "right",
+      "value": "神"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "アロハー、アリちゃん"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "ほっほっほっ"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "ついにゾウを手に入れよったなぁ"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "おうよ！"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "これで世界征服できたも同然！"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "それは甘い考えだゾウ"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "まぁ頑張るんだゾウ"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "（うぜぇ！）"
+    }
+  ]
+},
+"novel_enter_map_11": {
+  "actions" : [
+    {
+      "type": "set",
+      "target": "left",
+      "value": "hero_01"
+    },
+    {
+      "type": "name",
+      "target": "left",
+      "value": "アリ"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "なんだこいつ！？"
+    },
+    {
+      "type": "set",
+      "target": "right",
+      "value": "god_01"
+    },
+    {
+      "type": "name",
+      "target": "right",
+      "value": "神"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "ゾウよりでけぇじゃねえか！"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "珍しいじゃろボリ"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "味も珍しいんじゃよ、ボリボリ"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "美味そう・・・ではないな"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "ふ菓子うまいのぅー\nボリボリ"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "ボリボリうるさいぞ！"
+    }
+  ]
+},
+"novel_enter_map_12": {
+  "actions" : [
+    {
+      "type": "set",
+      "target": "left",
+      "value": "hero_01"
+    },
+    {
+      "type": "name",
+      "target": "left",
+      "value": "アリ"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "shout",
+      "value": "強そうなやつがきたぜ！！"
+    },
+    {
+      "type": "set",
+      "target": "right",
+      "value": "tirano"
+    },
+    {
+      "type": "name",
+      "target": "right",
+      "value": "ティラノサウルス"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "肉！肉！"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "頭は弱そうだな・・・"
+    },
+    {
+      "type": "set",
+      "target": "right",
+      "value": "god_01"
+    },
+    {
+      "type": "name",
+      "target": "right",
+      "value": "神"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "ニーハオ、アリちゃん"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "これはティラノサウルスと言ってな"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "地球で一番強い動物じゃ！"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "shout",
+      "value": "まじか？！"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "ついに最強の仲間を手に入れたぜ！"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "ただし地球上ではじゃが・・・"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "え、なんか言った？"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "アディオス、アリちゃーん"
+    }
+  ]
+},
+"novel_enter_map_13": {
+  "actions" : [
+    {
+      "type": "set",
+      "target": "left",
+      "value": "hero_01"
+    },
+    {
+      "type": "name",
+      "target": "left",
+      "value": "アリ"
+    },
+    {
+      "type": "set",
+      "target": "right",
+      "value": "fenics"
+    },
+    {
+      "type": "name",
+      "target": "right",
+      "value": "フェニックス"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "私を呼び出すとは"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "そなた何者だ"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "すっげぇ派手な鳥だな！"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "shout",
+      "value": "トッ、鳥？！"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "お前私のことを知らずによんだのか？！"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "おぅ！誰だお前？！"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "我が名はフェニックス"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "決して死なぬ伝説の生き物よ"
     },
     {
       "type": "speak",
@@ -607,37 +1372,569 @@
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "世界がこんなにも広いなんて"
+      "value": "自分で伝説って言うなんて\n安っぽいやつめ"
     },
     {
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "初めて知ったぞ！"
+      "value": "どうせ死なないなんてハッタリだろ？"
     },
     {
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "ほっほっほ"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "まだお前の世界は\n小さいままだぞ"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "小さきものよ"
+      "value": "(ギクッ！)"
     },
     {
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "ほんとか？！"
+      "value": "まぁ強そうだから仲間にいれてやるよ！"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "(私を前にして恐れぬどころか\n馬鹿にしてくるとは・・・）"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "(体は小さいが器の大きいアリよ)"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "面白い！付きあおう！"
+    }
+  ]
+},
+"novel_enter_map_14": {
+  "actions" : [
+    {
+      "type": "set",
+      "target": "left",
+      "value": "hero_01"
+    },
+    {
+      "type": "name",
+      "target": "left",
+      "value": "アリ"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "うわ、なんだ向こうに見える\nでっけぇヘビみたいなのは！？"
+    },
+    {
+      "type": "set",
+      "target": "right",
+      "value": "god_01"
+    },
+    {
+      "type": "name",
+      "target": "right",
+      "value": "神"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "それワシのすね毛"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "はー！？すね毛だと！？"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "そんな汚えもん放置すんじゃねぇ！！！"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "ウフフ"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "恥ずかしいのぅ"
+    }
+  ]
+},
+"novel_enter_map_15": {
+  "actions" : [
+    {
+      "type": "set",
+      "target": "left",
+      "value": "hero_01"
+    },
+    {
+      "type": "name",
+      "target": "left",
+      "value": "アリ"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "え、アリ？！"
+    },
+    {
+      "type": "set",
+      "target": "right",
+      "value": "ari2"
+    },
+    {
+      "type": "name",
+      "target": "right",
+      "value": "宇宙アリ"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "ワレワレハ宇宙アリナリ"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "なんだこいつ！？"
+    },
+    {
+      "type": "set",
+      "target": "right",
+      "value": "god_01"
+    },
+    {
+      "type": "name",
+      "target": "right",
+      "value": "神"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "ヴォンジョルノ、アリちゃん"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "宇宙動物じゃ"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "地球の動物に似とるが、\nこっちがパクリじゃよ"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "フン、使える奴ならなんでもいいわ"
+    }
+  ]
+},
+"novel_enter_map_22": {
+  "actions" : [
+    {
+      "type": "set",
+      "target": "left",
+      "value": "hero_01"
+    },
+    {
+      "type": "name",
+      "target": "left",
+      "value": "アリ"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "すね毛ちらばってんぞ、じじい！！"
+    },
+    {
+      "type": "set",
+      "target": "right",
+      "value": "god_01"
+    },
+    {
+      "type": "name",
+      "target": "right",
+      "value": "神"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "めんごめんご"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "こないだ抜いて遊んでたんじゃよ"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "じじいの遊びで…"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "たまったもんじゃねえぜ"
+    }
+  ]
+},
+"novel_enter_map_26": {
+  "actions" : [
+    {
+      "type": "set",
+      "target": "left",
+      "value": "hero_01"
+    },
+    {
+      "type": "name",
+      "target": "left",
+      "value": "アリ"
+    },
+    {
+      "type": "set",
+      "target": "right",
+      "value": "god_01"
+    },
+    {
+      "type": "name",
+      "target": "right",
+      "value": "神"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "はろー、アリちゃん"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "あー海水きもちい"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "でっけえ柱があると思ったら\n貴様の足か、じじい"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "ウフフ、生足"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "サービスじゃ"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "じじいの生足に誰が喜ぶんじゃ！！？"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "ウフフ"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "だいぶ世界が見えてきたようじゃのう"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "おう、もうこれで世界征服は\n終わったようなもんだ"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "全然チョロい"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "あっ！"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "なんだ"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "ワシ、ワシ…"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "なんだよ"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "昨日誕生日じゃった…！！"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "shout",
+      "value": "知らねぇよ！"
+    }
+  ]
+},
+"novel_enter_map_27": {
+  "actions" : [
+    {
+      "type": "set",
+      "target": "left",
+      "value": "hero_01"
+    },
+    {
+      "type": "name",
+      "target": "left",
+      "value": "アリ"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "ちょ！"
+    },
+    {
+      "type": "set",
+      "target": "right",
+      "value": "god_01"
+    },
+    {
+      "type": "name",
+      "target": "right",
+      "value": "神"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "でかすぎるぞ！！"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "あれ、これって..."
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "そう、ワシじゃよ、アリちゃん"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "適当にアリちゃんに声をかけたものの..."
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "まさかワシまで呼び出すとは"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "あ！なんだこの丸いのは！？"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "アリちゃんが生まれた星じゃよ"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "きれいじゃのう"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "こんなちっぽけなとこにオレは\n住んでたっていうのか！？"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "そうじゃよー"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "ワシは地球の神"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "そしてワシはアリちゃんの神になった"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "つまり今日からアリちゃんが\n地球の神じゃ"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "地球征服完了か！"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "終わってみるとあっけないものだぜ"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "アリちゃん、地球の向こうに\n光り輝く球が見えるかいのー？"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "shout",
+      "value": "もちろん！"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "フフフ、でかくなったのぅ"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "あれは太陽じゃ"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "そして左に見えるのが月じゃ"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "太陽と月か・・・"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "地球ぐらい大きい星が\nいっぱいあるんだな"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "そうじゃ"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "それらはすべて宇宙の一部"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "ワシだってちっぽけなんじゃ"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "急に弱気になったなじじい"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "ワシの力じゃここまでじゃが"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "アリちゃんならもっと遠くまで\n見えるかものぅ"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "宇宙ってのはどのくらい\nでかいんだ...?"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "そうじゃのう・・・"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "あとアリちゃんが[c=red]60回[/c]ぐらい\n大きくなればすべて見えるかのぅ"
     },
     {
       "type": "speak",
@@ -646,40 +1943,35 @@
       "value": "・・・"
     },
     {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "よし！決めたぞ！"
+      "type": "delay",
+      "target": "",
+      "value": "1"
     },
     {
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "[c=red]俺は世界を全て見るぞ！[/c]"
+      "value": "・・・"
     },
     {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "頑張るが良い・・・"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "ではまたな"
+      "type": "delay",
+      "target": "",
+      "value": "1"
     },
     {
       "type": "speak",
       "target": "left",
-      "balloon": "normal",
-      "value": "いろいろありがとう！"
+      "balloon": "shout",
+      "value": "OH MY GOD！"
     },
     {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "おっさん！"
+      "type": "set",
+      "target": "narration"
+    },
+    {
+      "type": "narration",
+      "target": "narration",
+      "value": "[c=yellow]FIN?![/c]"
     }
   ]
 }
