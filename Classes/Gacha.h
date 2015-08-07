@@ -43,7 +43,6 @@ protected:
     std::vector<std::string> _rewardList;
     std::vector<bool> _hitList;
     float _sumProbability;
-    cocos2d::ui::TextBMFont* _priceLabel;
 
     void onEnter() override;
     void _hidePrice();

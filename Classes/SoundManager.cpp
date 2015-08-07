@@ -194,22 +194,7 @@ void SoundManager::playFightSound()
     
     _preFightTime = time;
     
-
     playEffect("sound/se/fight6.wav");
     return;
-    int rnd = rand() % 3;
-    switch (rnd) {
-      case 0:
-        playEffect("sound/se/fight1.wav");
-        break;
-      case 1:
-        playEffect("sound/se/fight2.wav");
-        break;
-      case 2:
-        playEffect("sound/se/fight3.wav");
-        break;
-      default:
-        break;
-    }
 }
 

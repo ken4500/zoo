@@ -6,8 +6,8 @@
       <ObjectData Name="Node" CustomClassName="HpGauge" Tag="404" ctype="GameNodeObjectData">
         <Size X="0.0000" Y="0.0000" />
         <Children>
-          <AbstractNodeData Name="gauge" ActionTag="-1907169838" Tag="407" IconVisible="False" LeftMargin="-424.5500" RightMargin="153.5500" TopMargin="-31.0000" BottomMargin="-31.0000" ctype="SpriteObjectData">
-            <Size X="271.0000" Y="62.0000" />
+          <AbstractNodeData Name="gauge" ActionTag="-1907169838" Tag="407" IconVisible="False" LeftMargin="-424.5500" RightMargin="157.5500" TopMargin="-31.0000" BottomMargin="-31.0000" ctype="SpriteObjectData">
+            <Size X="267.0000" Y="62.0000" />
             <AnchorPoint ScaleY="0.5000" />
             <Position X="-424.5500" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />

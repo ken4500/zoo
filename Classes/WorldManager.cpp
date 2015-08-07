@@ -285,6 +285,30 @@ void WorldManager::lotteryGacha()
     }
     worldScene->updateCoinLabel();
     _gacha->lotteryGacha(_info);
+    
+    auto text = ui::TextBMFont::create(StringUtils::format("-%ld", _gacha->getPrice()), "font/zoo_font2.fnt");
+    text->setPosition(_gacha->getPosition() + Vec2(0, 180));
+    text->setOpacity(255);
+    text->setScale(0.8f / (_gacha->getScale() * _map->getScale()));
+    text->setCascadeOpacityEnabled(true);
+    
+    auto coinImage = Sprite::create("ui/coin_01.png");
+    coinImage->setAnchorPoint(Vec2(0, 0));
+    coinImage->setPosition(Vec2(text->getContentSize().width, 0));
+    coinImage->setScale(0.6f);
+    text->addChild(coinImage);
+    
+    _gacha->addChild(text, 1);
+    text->runAction(Sequence::create(
+        Spawn::create(
+            MoveBy::create(1.2f, Vec2(0, 300)),
+            FadeOut::create(1.2f),
+            NULL
+        ),
+        RemoveSelf::create(),
+        NULL
+    ));
+
 }
 
 void WorldManager::releaseAnimal(Animal* animal, bool hit)

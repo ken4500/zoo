@@ -38,7 +38,7 @@ protected:
     void onEnter() override;
     HpStatus _calcHpStatus();
     void _startAnimation(HpStatus status);
-    void _setGaugeColor(HpStatus status);
+    void _setGaugeColor(float rate);
 };
 
 #endif /* defined(__Zoo__HpGauge__) */

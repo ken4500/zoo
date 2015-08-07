@@ -78,11 +78,6 @@
             <EasingData Type="0" />
           </ScaleFrame>
         </Timeline>
-        <Timeline ActionTag="520973104" Property="Position">
-          <PointFrame FrameIndex="1" X="0.0000" Y="-40.0000">
-            <EasingData Type="0" />
-          </PointFrame>
-        </Timeline>
       </Animation>
       <AnimationList>
         <AnimationInfo Name="gacha1" StartIndex="1" EndIndex="150">
@@ -116,16 +111,6 @@
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="Normal" Path="ui/tubo_ao.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
-          </AbstractNodeData>
-          <AbstractNodeData Name="price" ActionTag="520973104" Tag="102" IconVisible="True" TopMargin="40.0000" BottomMargin="-40.0000" InnerActionSpeed="1.0000" ctype="ProjectNodeObjectData">
-            <Size X="0.0000" Y="0.0000" />
-            <AnchorPoint />
-            <Position Y="-40.0000" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition />
-            <PreSize X="0.0000" Y="0.0000" />
-            <FileData Type="Normal" Path="Price.csd" Plist="" />
           </AbstractNodeData>
         </Children>
       </ObjectData>

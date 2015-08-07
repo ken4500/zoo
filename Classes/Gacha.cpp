@@ -31,16 +31,6 @@ bool Gacha::init()
 void Gacha::onEnter()
 {
     Node::onEnter();
-    
-    auto price = getChildByName("price");
-    auto priceTimeline = CSLoader::createTimeline("Price.csb");
-    price->runAction(priceTimeline);
-    priceTimeline->play("rotate", true);
-    _priceLabel = price->getChildByName<ui::TextBMFont*>("label");
-    
-    if (_price) {
-       _priceLabel->setString(StringUtils::format("%ld", _price));
-    }
 }
 
 float Gacha::getGachaHeight()
@@ -124,10 +114,6 @@ void Gacha::setNewGacha(WorldInfo* info)
         } else {
             _hitList.push_back(v["hit"].GetBool());
         }
-    }
-    
-    if (_priceLabel) {
-        _priceLabel->setString(StringUtils::format("-%ld", _price));
     }
     
     auto preFukidashi = getChildByName("fukidashi");

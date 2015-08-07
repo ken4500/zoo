@@ -10,6 +10,7 @@
 #define __Zoo__WorldManager__
 
 #include "cocos2d.h"
+#include "CocosGUI.h"
 #include "CommonInclude.h"
 #include "EnemyGenerater.h"
 class Gacha;

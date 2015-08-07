@@ -79,15 +79,6 @@
           <IntFrame FrameIndex="98" Value="255">
             <EasingData Type="0" />
           </IntFrame>
-          <IntFrame FrameIndex="131" Value="255">
-            <EasingData Type="1" />
-          </IntFrame>
-          <IntFrame FrameIndex="160" Value="0">
-            <EasingData Type="0" />
-          </IntFrame>
-          <IntFrame FrameIndex="180" Value="0">
-            <EasingData Type="0" />
-          </IntFrame>
           <IntFrame FrameIndex="181" Value="255">
             <EasingData Type="0" />
           </IntFrame>
@@ -158,10 +149,10 @@
             <EasingData Type="26" />
           </ScaleFrame>
           <ScaleFrame FrameIndex="131" X="0.0000" Y="0.0000">
-            <EasingData Type="0" />
+            <EasingData Type="26" />
           </ScaleFrame>
-          <ScaleFrame FrameIndex="160" X="0.0000" Y="0.0000">
-            <EasingData Type="1" />
+          <ScaleFrame FrameIndex="160" X="90.0000" Y="90.0000">
+            <EasingData Type="0" />
           </ScaleFrame>
           <ScaleFrame FrameIndex="180" X="90.0000" Y="90.0000">
             <EasingData Type="0" />
@@ -186,7 +177,10 @@
           <IntFrame FrameIndex="131" Value="255">
             <EasingData Type="0" />
           </IntFrame>
-          <IntFrame FrameIndex="176" Value="255">
+          <IntFrame FrameIndex="160" Value="255">
+            <EasingData Type="0" />
+          </IntFrame>
+          <IntFrame FrameIndex="176" Value="0">
             <EasingData Type="0" />
           </IntFrame>
           <IntFrame FrameIndex="180" Value="0">
@@ -269,7 +263,7 @@
       <ObjectData Name="Node" CustomClassName="CoinTree" Tag="112" ctype="GameNodeObjectData">
         <Size X="0.0000" Y="0.0000" />
         <Children>
-          <AbstractNodeData Name="image" ActionTag="1125897806" Tag="113" IconVisible="False" LeftMargin="-50.0000" RightMargin="-50.0000" TopMargin="-160.0000" ctype="SpriteObjectData">
+          <AbstractNodeData Name="image" ActionTag="1125897806" Tag="113" Rotation="90.0000" RotationSkewX="90.0000" RotationSkewY="90.0000" Alpha="223" IconVisible="False" LeftMargin="-50.0000" RightMargin="-50.0000" TopMargin="-160.0000" ctype="SpriteObjectData">
             <Size X="100.0000" Y="160.0000" />
             <Children>
               <AbstractNodeData Name="top" ActionTag="-239982563" Tag="114" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="-77.5000" RightMargin="-77.5000" TopMargin="-118.0000" ctype="SpriteObjectData">
@@ -286,7 +280,7 @@
             </Children>
             <AnchorPoint ScaleX="0.5000" />
             <Position />
-            <Scale ScaleX="1.0245" ScaleY="1.0440" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />

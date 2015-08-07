@@ -164,19 +164,19 @@
           <AbstractNodeData Name="menuNode" ActionTag="-2046749336" Tag="12" IconVisible="True" LeftMargin="30.0000" RightMargin="1106.0000" TopMargin="610.0000" BottomMargin="30.0000" ctype="SingleNodeObjectData">
             <Size X="0.0000" Y="0.0000" />
             <Children>
-              <AbstractNodeData Name="coin" ActionTag="1389668671" Tag="28" IconVisible="False" RightMargin="-192.0000" TopMargin="-187.0000" ctype="SpriteObjectData">
-                <Size X="192.0000" Y="187.0000" />
+              <AbstractNodeData Name="coin" ActionTag="1389668671" Tag="28" IconVisible="False" RightMargin="-102.0000" TopMargin="-100.0000" ctype="SpriteObjectData">
+                <Size X="102.0000" Y="100.0000" />
                 <AnchorPoint />
                 <Position />
-                <Scale ScaleX="0.4000" ScaleY="0.4000" />
+                <Scale ScaleX="0.8000" ScaleY="0.8000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition />
                 <PreSize X="0.0000" Y="0.0000" />
                 <FileData Type="Normal" Path="ui/coin.png" Plist="" />
                 <BlendFunc Src="1" Dst="771" />
               </AbstractNodeData>
-              <AbstractNodeData Name="coinText" ActionTag="-1009041307" Tag="33" IconVisible="False" LeftMargin="100.0000" RightMargin="-165.0000" TopMargin="-77.0000" LabelText="x5" ctype="TextBMFontObjectData">
-                <Size X="65.0000" Y="77.0000" />
+              <AbstractNodeData Name="coinText" ActionTag="-1009041307" Tag="33" IconVisible="False" LeftMargin="100.0000" RightMargin="-169.0000" TopMargin="-81.0000" LabelText="x5" ctype="TextBMFontObjectData">
+                <Size X="69.0000" Y="81.0000" />
                 <AnchorPoint />
                 <Position X="100.0000" />
                 <Scale ScaleX="0.8000" ScaleY="0.8000" />
@@ -208,8 +208,8 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="levelLabel" ActionTag="1254861109" Tag="48" VisibleForFrame="False" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="430.5000" RightMargin="430.5000" TopMargin="133.1200" BottomMargin="429.8800" LabelText="LEVEL 3" ctype="TextBMFontObjectData">
-            <Size X="275.0000" Y="77.0000" />
+          <AbstractNodeData Name="levelLabel" ActionTag="1254861109" Tag="48" VisibleForFrame="False" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="428.5000" RightMargin="428.5000" TopMargin="133.1200" BottomMargin="425.8800" LabelText="LEVEL 3" ctype="TextBMFontObjectData">
+            <Size X="279.0000" Y="81.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="1.0000" />
             <Position X="568.0000" Y="506.8800" />
             <Scale ScaleX="0.8000" ScaleY="0.8000" />
@@ -221,8 +221,8 @@
           <AbstractNodeData Name="time_back" ActionTag="-1850103044" Tag="215" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="492.5000" RightMargin="492.5000" TopMargin="30.0000" BottomMargin="467.0000" ctype="SpriteObjectData">
             <Size X="151.0000" Y="143.0000" />
             <Children>
-              <AbstractNodeData Name="timeLabel" ActionTag="1383424763" Tag="216" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="39.0000" RightMargin="39.0000" TopMargin="33.0000" BottomMargin="33.0000" LabelText="30" ctype="TextBMFontObjectData">
-                <Size X="73.0000" Y="77.0000" />
+              <AbstractNodeData Name="timeLabel" ActionTag="1383424763" Tag="216" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="37.0000" RightMargin="37.0000" TopMargin="31.0000" BottomMargin="31.0000" LabelText="30" ctype="TextBMFontObjectData">
+                <Size X="77.0000" Y="81.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="75.5000" Y="71.5000" />
                 <Scale ScaleX="1.6000" ScaleY="1.6000" />

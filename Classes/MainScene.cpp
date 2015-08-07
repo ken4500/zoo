@@ -354,21 +354,6 @@ void MainScene::updateHpGauge(float hp)
 
 void MainScene::showConsumeCoinEffect(int decreaseCoin)
 {
-    auto text = TextBMFont::create(StringUtils::format("-%d", decreaseCoin), "font/zoo_font2.fnt");
-    text->setAnchorPoint(_coinLabel->getAnchorPoint());
-    text->setPosition(_coinLabel->getPosition() + Vec2(0, 20));
-    text->setZOrder(-1);
-    text->setOpacity(200);
-    _menuNode->addChild(text);
-    text->runAction(Sequence::create(
-        Spawn::create(
-            MoveBy::create(0.75f, Vec2(0, 200)),
-            FadeOut::create(0.75f),
-            NULL
-        ),
-        RemoveSelf::create(),
-        NULL
-    ));
 }
 
 void MainScene::showNoticeView(std::string message, float delay, std::function<void ()> closeCallback)

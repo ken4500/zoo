@@ -41,6 +41,8 @@
           <Image Name="font3.png" />
           <Fnt Name="zoo_font3.fnt" />
           <TTF Name="yasashisa.ttf" />
+          <Fnt Name="zoo_font4.fnt" />
+          <Fnt Name="zoo_font5.fnt" />
         </Folder>
         <Folder Name="ui">
           <Image Name="empty.png" />

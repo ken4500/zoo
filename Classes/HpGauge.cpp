@@ -39,7 +39,7 @@ void HpGauge::setInitHp(float maxHp, float hp)
     _gaugeImage->setScale(hp / maxHp, 1.0f);
     auto status = _calcHpStatus();
     _startAnimation(status);
-    _setGaugeColor(status);
+    _setGaugeColor(hp / maxHp);
     _preStatus = status;
 }
 
@@ -63,7 +63,7 @@ void HpGauge::setHp(float hp)
     if (status != _preStatus) {
         _preStatus = status;
         _startAnimation(status);
-        _setGaugeColor(status);
+        _setGaugeColor(_hp / _maxHp);
     }
 }
 
@@ -119,13 +119,11 @@ void HpGauge::_startAnimation(HpStatus status)
     runAction(_charaAnimationAction);
 }
 
-void HpGauge::_setGaugeColor(HpStatus status)
+void HpGauge::_setGaugeColor(float rate)
 {
-    if (status == HpStatus::Good) {
-        _gaugeImage->setColor(Color3B(COLOR_BLUE));
-    } else if (status == HpStatus::Poor) {
+    if (rate > 0.5f) {
+        _gaugeImage->setColor(Color3B(COLOR_PINK));
+    } else {
         _gaugeImage->setColor(Color3B(COLOR_YELLOW));
-    } else if (status == HpStatus::Bad) {
-        _gaugeImage->setColor(Color3B(COLOR_RED));
     }
 }
