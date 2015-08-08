@@ -99,21 +99,21 @@
             <FileData Type="Normal" Path="ui/win.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="playerWeight" ActionTag="-781594682" Tag="90" IconVisible="False" LeftMargin="-225.7500" RightMargin="-11.2500" TopMargin="-87.4999" BottomMargin="6.4999" LabelText="72.08kg" ctype="TextBMFontObjectData">
-            <Size X="237.0000" Y="81.0000" />
+          <AbstractNodeData Name="playerWeight" ActionTag="-781594682" Tag="90" IconVisible="False" LeftMargin="-225.7500" RightMargin="-11.2500" TopMargin="-87.4999" BottomMargin="6.4999" LabelText="172.08kg" ctype="TextBMFontObjectData">
+            <Size X="269.0000" Y="81.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="-107.2500" Y="46.9999" />
-            <Scale ScaleX="0.8000" ScaleY="0.8000" />
+            <Scale ScaleX="0.6000" ScaleY="0.6000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
             <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font2.fnt" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="opponentWeight" ActionTag="-1605558453" Tag="91" IconVisible="False" LeftMargin="-5.9741" RightMargin="-231.0259" TopMargin="-87.5001" BottomMargin="6.5001" LabelText="58.34kg" ctype="TextBMFontObjectData">
-            <Size X="237.0000" Y="81.0000" />
+          <AbstractNodeData Name="opponentWeight" ActionTag="-1605558453" Tag="91" IconVisible="False" LeftMargin="-5.9741" RightMargin="-231.0259" TopMargin="-87.5001" BottomMargin="6.5001" LabelText="158.34kg" ctype="TextBMFontObjectData">
+            <Size X="269.0000" Y="81.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="112.5259" Y="47.0001" />
-            <Scale ScaleX="0.8000" ScaleY="0.8000" />
+            <Scale ScaleX="0.6000" ScaleY="0.6000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />

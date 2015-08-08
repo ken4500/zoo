@@ -20,12 +20,12 @@
     {
       "type": "narration",
       "target": "narration",
-      "value": "I'm big and strong!"
+      "value": "This is a huge story of a tiny ant"
     },
     {
       "type": "narration",
       "target": "narration",
-      "value": "Nobody can beat me!"
+      "value": "This ant thinks he is the strongest in the world"
     },
     {
       "type": "set",
@@ -55,10 +55,13 @@
       "value": "I'll do my best again today \nfor world conquest!"
     },
     {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "Tap the [c=red]button at the lower left![/c]"
+      "type": "set",
+      "target": "narration"
+    },
+    {
+      "type": "narration",
+      "target": "narration",
+      "value": "Tap the [c=red]button \nat the lower left![/c]"
     }
   ]
 },
@@ -81,30 +84,27 @@
       "value": "The enemy is coming!"
     },
     {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "[c=red]Tap and hold[/c] the screen \nwhere you want to move."
+      "type": "set",
+      "target": "narration"
+    },
+    {
+      "type": "narration",
+      "target": "narration",
+      "value": "Tap screen where is close to the ant"
+    },
+    {
+      "type": "narration",
+      "target": "narration",
+      "value": "Then he move in that direction"
     }
   ]
 },
 "novel_tutorial_battle2": {
   "actions" : [
     {
-      "type": "set",
-      "target": "left",
-      "value": "hero_01"
-    },
-    {
-      "type": "name",
-      "target": "left",
-      "value": "ANT"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": " When I am close to the enemy, \nI fight automatically."
+      "type": "narration",
+      "target": "narration",
+      "value": " When he is close to the enemy, he fight automatically."
     }
   ]
 },
@@ -556,7 +556,7 @@
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "My world zoomed out!"
+      "value": "My world expended!"
     },
     {
       "type": "set",

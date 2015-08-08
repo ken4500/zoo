@@ -187,7 +187,7 @@
     {
       "hit" : true,
       "reward" : "Raion",
-      "probability" : 2
+      "probability" : 3
     },
     {
       "reward" : "Ashika",
@@ -204,6 +204,10 @@
     {
       "reward" : "Ookami",
       "probability" : 20
+    },
+    {
+      "reward" : "Saru",
+      "probability" : 20
     }
   ]
 },
@@ -214,7 +218,7 @@
     {
       "hit" : true,
       "reward" : "Zou",
-      "probability" : 1
+      "probability" : 2
     },
     {
       "reward" : "Yagi",
@@ -231,10 +235,6 @@
     {
       "reward" : "Iruka",
       "probability" : 20
-    },
-    {
-      "reward" : "Saru",
-      "probability" : 20
     }
   ]
 },
@@ -245,11 +245,11 @@
     {
       "hit" : true,
       "reward" : "Torikera",
-      "probability" : 7
+      "probability" : 2
     },
     {
       "reward" : "Sai",
-      "probability" : 1
+      "probability" : 20
     },
     {
       "reward" : "Rakuda",
@@ -272,19 +272,19 @@
     {
       "hit" : true,
       "reward" : "Tirano",
-      "probability" : 1
+      "probability" : 13
     },
     {
       "reward" : "Sutego",
-      "probability" : 20
+      "probability" : 200
     },
     {
       "reward" : "Putera",
-      "probability" : 20
+      "probability" : 200
     },
     {
       "reward" : "Torikera",
-      "probability" : 20
+      "probability" : 200
     }
   ]
 },

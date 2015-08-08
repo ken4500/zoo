@@ -49,6 +49,7 @@ private:
     int _currentBgmId;
     string _currentBgm;
     double _preFightTime;
+    double _preCoinTime;
 };
 
 

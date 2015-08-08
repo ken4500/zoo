@@ -31,6 +31,7 @@ SoundManager* SoundManager::getInstance()
 SoundManager::SoundManager()
 {
     _preFightTime = 0;
+    _preCoinTime  = 0;
 }
 
 SoundManager::~SoundManager()
@@ -155,6 +156,12 @@ void SoundManager::playDecideEffect2()
 
 void SoundManager::playGetCoinEffect()
 {
+    double time = ZUtil::getTime();
+    if (time - _preCoinTime < 0.15) {
+        return;
+    }
+    _preCoinTime = time;
+
     playEffect("sound/se/coin.wav");
 }
 

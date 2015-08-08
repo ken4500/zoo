@@ -28,7 +28,7 @@ static const int MAX_LEVEL = 27;
 static const float APPEAR_COIN_TREE_RATE = 0.5f;
 
 static const float INIT_MULTIBATTLE_COIN = 3;
-static const int MUTLPLAY_BATTLE_TIME = 120;
+static const int MUTLPLAY_BATTLE_TIME = 100;
 
 
 enum class EntityTag

@@ -53,6 +53,7 @@ public:
     SizeRank getMaxSizeRank();
     SizeRank getMinSizeRank();
     void setOffense(float offense);
+    bool isTarget(Animal* targetAnimal);
 
     void updateWorldScale();
     void jump(Vec2 target, float height, std::function<void ()> callback);

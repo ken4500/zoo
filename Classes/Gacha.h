@@ -47,8 +47,6 @@ protected:
     bool _isDebug;
 
     void onEnter() override;
-    void _hidePrice();
-    void _showPrice();
 };
 
 #endif /* defined(__Zoo__Gacha__) */

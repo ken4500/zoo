@@ -173,7 +173,7 @@ void Book::_loadAnimal(Species* species)
     _animalImage->setTexture(species->getImageName());
     auto mgr = UserDataManager::getInstance();
 
-    if (mgr->haveHadAnimalInPast(name) == false) {
+    if (false && mgr->haveHadAnimalInPast(name) == false) {
         // 取得したことがない
         _animalImage->setColor(Color3B::BLACK);
         _animalName->setString("????");

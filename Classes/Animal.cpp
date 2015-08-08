@@ -324,7 +324,7 @@ void Animal::dead()
         
         _stopMoveAction();
         _timeline->play("dead", false);
-        _timeline->setLastFrameCallFunc([&]{
+        _timeline->setLastFrameCallFunc([this]{
             if (deadCallback) {
                 deadCallback(this);
             }
@@ -476,6 +476,16 @@ void Animal::endFight()
     _target->release();
     _target = NULL;
     _stopMoveAction();
+    _state = AnimalState::Stop;
+    
+    auto enemyList = WorldManager::getInstance()->getEnemyAnimalList();
+    for (auto enemy : enemyList) {
+        if (enemy->isTarget(this)) {
+            fight(enemy);
+            return;
+        }
+    }
+    
     startWalk();
 }
 
@@ -669,6 +679,17 @@ SizeRank Animal::getMinSizeRank()
 void Animal::setOffense(float offense)
 {
     _offense = offense;
+}
+
+bool Animal::isTarget(Animal* targetAnimal)
+{
+    if (isDead() == false
+        && _target == targetAnimal)
+    {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 #pragma - private method

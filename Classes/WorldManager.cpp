@@ -347,6 +347,7 @@ void WorldManager::levelup()
     auto preWorldInfo = _info->copy();
     _info->levelUp();
     _gacha->setNewGacha(_info);
+    UserDataManager::getInstance()->repairLife();
     
     // for tutorial
     if (_isNetwork == false && _info->level == 2 && SKIP_TUTORIAL == false) {
@@ -612,9 +613,14 @@ void WorldManager::showResultMultiplayBattle()
         SceneManager::getInstance()->backMainScene();
     });
 
+    CCLOG("SHOW RESULT");
+    
     if (_opponentResultWeight) {
+        CCLOG("ALREADY HAVE OPPONENT RESULT");
         auto result = _decideMultiplayResult();
         scene->setResult(result);
+    } else {
+        CCLOG("NOT HAVE OPPONENT RESULT YET");
     }
 
     _setGameActive(false);
@@ -676,7 +682,8 @@ void WorldManager::levelupOpponent(int level)
 
 void WorldManager::recieveResult(Weight opponentWeight)
 {
-    _opponentResultWeight = &opponentWeight;
+    CCLOG("SET OPPONENT RESULT");
+    _opponentResultWeight = new Weight(opponentWeight.getMgWeight());
     if (_state == SceneState::MultiBattleResult) {
         auto result = _decideMultiplayResult();
         auto scene = SceneManager::getInstance()->getMultiBattleScene();
@@ -1085,11 +1092,15 @@ void WorldManager::_finishGachaCallback()
 
 void WorldManager::_finishLevelupCallback()
 {
-    auto scene = SceneManager::getInstance()->getMainScene();
-    if (scene) {
-        scene->playNovel(StringUtils::format("novel_enter_map_%d", _info->level), [this]{
-            _enableNextAction = true;
-        }, false);
+    if (_isNetwork) {
+        _enableNextAction = true;
+    } else {
+        auto scene = SceneManager::getInstance()->getMainScene();
+        if (scene) {
+            scene->playNovel(StringUtils::format("novel_enter_map_%d", _info->level), [this]{
+                _enableNextAction = true;
+            }, false);
+        }
     }
 }
 

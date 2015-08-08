@@ -160,10 +160,11 @@ void MainScene::levelUpEffect(std::function<void()> callback)
     this->stopAllActions();
     this->runAction(_timeline);
     _timeline->play("zoomout1", false);
-    _timeline->setLastFrameCallFunc([callback](){
+    _timeline->setLastFrameCallFunc([this, callback](){
         if (callback) {
             callback();
         }
+        _timeline->clearLastFrameCallFunc();
     });
     _scaleBar->updateScale(true);
 }
@@ -499,6 +500,8 @@ void MainScene::_setupDebugMenu()
     debugLabel->setAnchorPoint(Vec2(0.0f, 0.5f));
     debugLabel->setPosition(Vec2(-imageSize.width/2 + 40, -40));
     debugMenu->addChild(debugLabel);
+    debugMenu->setCascadeOpacityEnabled(true);
+    debugMenu->setOpacity(200);
 }
 
 void MainScene::_pushBattleButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)

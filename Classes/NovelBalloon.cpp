@@ -95,7 +95,7 @@ Label* NovelBalloon::getLabelSprite(const std::string& text) {
     if (_action->getTarget() == NovelAction::Target::Narration) {
         textLabel->setVerticalAlignment(cocos2d::TextVAlignment::CENTER);
         textLabel->setHorizontalAlignment(cocos2d::TextHAlignment::CENTER);
-        textLabel->setWidth(640);
+        textLabel->setWidth(740);
         textLabel->setHeight(200);
         textLabel->setScale(1.0);
         textLabel->setAnchorPoint(Vec2(0.5f, 0.5f));
