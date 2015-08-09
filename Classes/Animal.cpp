@@ -196,10 +196,6 @@ void Animal::startDashToPoint(Vec2 targetPoint, float dashTime)
     _targetPointByDash = targetPoint;
     Vec2 move = targetPoint - this->getPosition();
 
-    if (move.length() < 30) {
-        return;
-    }
-
     if (move.x < 0) {
         _image->setFlippedX(false);
         _backImage->setFlippedX(false);
@@ -254,7 +250,6 @@ void Animal::startDash(Vec2 targetPoint, Length speed)
         _image->setFlippedX(true);
         _backImage->setFlippedX(true);
     }
-
 
     _stopMoveAction();
     if (isOpponent()) {
@@ -550,9 +545,12 @@ void Animal::setIsEnmey(bool isEnemy)
     if (isEnemy) {
         setTag((int)EntityTag::EnemyAnimal);
         _backImage->setColor(Color3B(COLOR_RED));
+        _offense = powf(_height.getMmLength() / 3, 1.3);
+        
     } else {
         setTag((int)EntityTag::EnemyAnimal);
         _backImage->setColor(Color3B::WHITE);
+        _offense = _height.getMmLength() / 3;
     }
 }
 

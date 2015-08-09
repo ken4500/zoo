@@ -557,6 +557,9 @@ void WorldManager::endBattle(bool win, float showResultViewDelay)
             deadNum++;
         }
     }
+    
+    // add battle special reward
+    UserDataManager::getInstance()->addCoin(_gacha->getPrice());
 
     GameResult result = GameResult();
     result.resultState = (win) ? BattleState::Win : BattleState::Lose;
