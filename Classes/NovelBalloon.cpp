@@ -256,7 +256,7 @@ NovelBalloon* NovelBalloon::create(std::shared_ptr<NovelAction> action,
     result->setCascadeOpacityEnabled(true);
 
     Sprite* balloon;
-    Vec2 labelPos = Vec2(65, 130);
+    Vec2 labelPos = Vec2(50, 130);
     Size visibleSize = Director::getInstance()->getVisibleSize();
     switch (action->getBalloon()) {
         case NovelAction::Balloon::Normal:

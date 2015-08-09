@@ -69,9 +69,12 @@ bool MainScene::init()
     instance->registReaderObject("HpGaugeReader", (ObjectFactory::Instance) HpGaugeReader::getInstance);
 
     _rootNode = CSLoader::createNode("MainScene.csb");
+    Size size = Director::getInstance()->getVisibleSize();
+    _rootNode->setContentSize(size);
+    ui::Helper::doLayout(_rootNode);
+    
     _timeBack = _rootNode->getChildByName("time_back");
     _timeLeftLabel = _timeBack->getChildByName<ui::TextBMFont*>("timeLabel");
-    _timeBack->setPosition(Vec2(_timeBack->getPosition().x, displaySize.height * 0.95f));
     _countUpAction = nullptr;
 
     _map = WorldManager::getInstance()->getMap();
@@ -88,17 +91,12 @@ bool MainScene::init()
     _lifeLabel = _menuNode->getChildByName<ui::TextBMFont*>("hartText");
     _repairTimeLabel = _menuNode->getChildByName<ui::TextBMFont*>("repairTimeText");
     _levelBack = _rootNode->getChildByName("levelBack");
-    _levelBack->setPosition(Vec2(_levelBack->getPosition().x, displaySize.height - 60));
     _levelLabel = _levelBack->getChildByName<ui::TextBMFont*>("levelLabel");
     _weightLabel = _rootNode->getChildByName<ui::TextBMFont*>("weightLabel");
     _weightImage = _rootNode->getChildByName<Sprite*>("weightImage");
 
-    _endButton = _rootNode->getChildByName<ui::Button*>("endButton");
-    _endButton->addTouchEventListener(CC_CALLBACK_2(MainScene::_pushEndButton, this));
-    _endButton->setPosition(Vec2(_endButton->getPosition().x, displaySize.height - 40));
     _otherMenuButton = _menuNode->getChildByName<ui::Button*>("otherMenu");
     _otherMenuButton->addTouchEventListener(CC_CALLBACK_2(MainScene::_pushOtherMenuButton, this));
-
     _scaleBar = _rootNode->getChildByName<ScaleBar*>("scaleBar");
     _hpGauge  = _rootNode->getChildByName<HpGauge*>("hpGauge");
 
@@ -200,10 +198,6 @@ void MainScene::showBattleMenu()
     _timeBack->setVisible(true);
     _timeBack->runAction(FadeIn::create(0.5f));
     
-    _endButton->setOpacity(0);
-    _endButton->setVisible(true);
-    _endButton->runAction(FadeIn::create(0.5f));
-    
     _hpGauge->setOpacity(0);
     _hpGauge->setVisible(true);
     _hpGauge->runAction(FadeIn::create(0.5f));
@@ -215,7 +209,6 @@ void MainScene::showBattleMenu()
 void MainScene::hideBattleMenu()
 {
     _timeBack->runAction(FadeOut::create(0.2f));
-    _endButton->runAction(FadeOut::create(0.2f));
     _hpGauge->runAction(FadeOut::create(0.2f));
 }
 
@@ -324,7 +317,7 @@ void MainScene::playNovel(std::string novelId, std::function<void ()> callback, 
     auto novel = NovelLayer::create(novelJson, 100, false, preCallbackFunc, callback);
     novel->setPosition(Vec2(0, 0));
     novel->setName("novel");
-    if (apearSkipButton == false && APPEAR_SKIP_BUTTON == false) {
+    if (apearSkipButton == false && DEBUG_MODE == false) {
         novel->removeSkipButton();
     }
     addChild(novel);
@@ -400,7 +393,7 @@ void MainScene::battleStartEffect()
 static bool isOpenDebugMenu = false;
 void MainScene::_setupDebugMenu()
 {
-    if (DEBUG_BUTOTN_APPEAR == false) {
+    if (DEBUG_MODE == false) {
         return;
     }
 
@@ -549,27 +542,6 @@ void MainScene::_pushOtherMenuButton(cocos2d::Ref* pSender, cocos2d::ui::Widget:
                 layer->closeCallback = [this]{
                     _updateLanguage();
                 };
-            }),
-            NULL
-        ));
-    }
-    if (eEventType == ui::Widget::TouchEventType::CANCELED) {
-        button->runAction(ScaleBy::create(0.1f, 1 / 0.9f));
-    }
-}
-
-void MainScene::_pushEndButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
-{
-    auto button = dynamic_cast<ui::Button*>(pSender);
-    if (eEventType == ui::Widget::TouchEventType::BEGAN) {
-        button->runAction(ScaleBy::create(0.1f, 0.9));
-    }
-    if (eEventType == ui::Widget::TouchEventType::ENDED) {
-        SoundManager::getInstance()->playDecideEffect2();
-        button->runAction(Sequence::create(
-            ScaleBy::create(0.1f, 1 / 0.9f),
-            CallFunc::create([this]{
-                WorldManager::getInstance()->endBattle(false, 0);
             }),
             NULL
         ));

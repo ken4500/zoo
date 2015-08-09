@@ -259,7 +259,7 @@
             <PrePosition X="0.0264" Y="0.0469" />
             <PreSize X="0.0000" Y="0.0000" />
           </AbstractNodeData>
-          <AbstractNodeData Name="time_back" ActionTag="1631365237" Tag="172" VisibleForFrame="False" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="492.5000" RightMargin="492.5000" TopMargin="30.0000" BottomMargin="467.0000" ctype="SpriteObjectData">
+          <AbstractNodeData Name="time_back" ActionTag="1631365237" Tag="172" VisibleForFrame="False" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="492.5000" RightMargin="492.5000" TopMargin="12.8000" BottomMargin="484.2000" ctype="SpriteObjectData">
             <Size X="151.0000" Y="143.0000" />
             <Children>
               <AbstractNodeData Name="timeLabel" ActionTag="583941696" Tag="29" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="37.0000" RightMargin="37.0000" TopMargin="31.0000" BottomMargin="31.0000" LabelText="30" ctype="TextBMFontObjectData">
@@ -274,22 +274,22 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="1.0000" />
-            <Position X="568.0000" Y="610.0000" />
+            <Position X="568.0000" Y="627.2000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5000" Y="0.9531" />
+            <PrePosition X="0.5000" Y="0.9800" />
             <PreSize X="0.1329" Y="0.2234" />
             <FileData Type="Normal" Path="ui/time_back.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="endButton" ActionTag="811670514" Tag="47" Alpha="0" IconVisible="False" LeftMargin="-9.2500" RightMargin="988.2500" TopMargin="-8.7500" BottomMargin="493.7500" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="127" Scale9Height="133" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-            <Size X="157.0000" Y="155.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="69.2500" Y="571.2500" />
-            <Scale ScaleX="0.5000" ScaleY="0.5000" />
+          <AbstractNodeData Name="endButton" ActionTag="811670514" Tag="47" Alpha="0" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="951.0000" RightMargin="30.0000" TopMargin="25.6000" BottomMargin="459.4000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="127" Scale9Height="133" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+            <Size X="155.0000" Y="155.0000" />
+            <AnchorPoint ScaleX="1.0000" ScaleY="1.0000" />
+            <Position X="1106.0000" Y="614.4000" />
+            <Scale ScaleX="0.7000" ScaleY="0.7000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.0610" Y="0.8926" />
-            <PreSize X="0.1382" Y="0.2422" />
+            <PrePosition X="0.9736" Y="0.9600" />
+            <PreSize X="0.1364" Y="0.2422" />
             <TextColor A="255" R="65" G="65" B="70" />
             <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
             <PressedFileData Type="Normal" Path="ui/close.png" Plist="" />
@@ -307,7 +307,7 @@
             <PreSize X="0.2403" Y="0.1328" />
             <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font3.fnt" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="levelBack" ActionTag="-1789988531" Tag="241" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="415.0000" RightMargin="415.0000" TopMargin="-56.0000" BottomMargin="580.0000" ctype="SpriteObjectData">
+          <AbstractNodeData Name="levelBack" ActionTag="-1789988531" Tag="241" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="415.0000" RightMargin="415.0000" TopMargin="-34.8000" BottomMargin="558.8000" ctype="SpriteObjectData">
             <Size X="306.0000" Y="116.0000" />
             <Children>
               <AbstractNodeData Name="levelLabel" ActionTag="1209458093" Tag="19" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="13.5000" RightMargin="13.5000" TopMargin="25.0000" BottomMargin="10.0000" LabelText="LEVEL 3" ctype="TextBMFontObjectData">
@@ -321,11 +321,11 @@
                 <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font2.fnt" Plist="" />
               </AbstractNodeData>
             </Children>
-            <AnchorPoint ScaleX="0.5000" />
-            <Position X="568.0000" Y="580.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.7000" />
+            <Position X="568.0000" Y="640.0000" />
             <Scale ScaleX="0.8000" ScaleY="0.8000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5000" Y="0.9063" />
+            <PrePosition X="0.5000" Y="1.0000" />
             <PreSize X="0.2694" Y="0.1813" />
             <FileData Type="Normal" Path="ui/level_back.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />

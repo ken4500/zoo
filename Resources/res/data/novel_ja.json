@@ -286,7 +286,7 @@
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "・・・"
+      "value": "…"
     },
     {
       "type": "speak",
@@ -369,7 +369,7 @@
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "・・・"
+      "value": "…"
     },
     {
       "type": "speak",
@@ -1934,7 +1934,7 @@
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "あとアリちゃんが[c=red]60回[/c]ぐらい\n大きくなればすべて見えるかのぅ"
+      "value": "あとアリちゃんが60回ぐらい\n大きくなればすべて見えるかのぅ"
     },
     {
       "type": "speak",

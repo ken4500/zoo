@@ -63,7 +63,6 @@ bool MultiBattleScene::init()
     _rootNode = CSLoader::createNode("MultiBattleScene.csb");
     _timeBack = _rootNode->getChildByName("time_back");
     _timeLeftLabel = _timeBack->getChildByName<ui::TextBMFont*>("timeLabel");
-    _timeBack->setPosition(Vec2(_timeBack->getPosition().x, displaySize.height * 0.95f));
     _countUpAction = nullptr;
 
     _map = WorldManager::getInstance()->getMap();
@@ -75,8 +74,6 @@ bool MultiBattleScene::init()
     _menuNode = _rootNode->getChildByName<Node*>("menuNode");
     _menuNode->setCascadeOpacityEnabled(true);
     _coinLabel = _menuNode->getChildByName<ui::TextBMFont*>("coinText");
-    _levelLabel = _rootNode->getChildByName<ui::TextBMFont*>("levelLabel");
-    _levelLabel->setPosition(Vec2(_levelLabel->getPosition().x, displaySize.height * 0.98f));
     _weightLabel = _rootNode->getChildByName<ui::TextBMFont*>("weightLabel");
 
     _endButton = _rootNode->getChildByName<ui::Button*>("endButton");
@@ -101,7 +98,6 @@ void MultiBattleScene::onEnter()
     this->setupTouchHandling();
     
     updateCoinLabel();
-    updateLevelLabel();
     SoundManager::getInstance()->playBattleStartEffect();
     SoundManager::getInstance()->fadeOutBgm(0.5f);
     SoundManager::getInstance()->playBattleBgm();
@@ -135,7 +131,6 @@ void MultiBattleScene::levelUpEffect(std::function<void()> callback)
 {
     SoundManager::getInstance()->playLevelupEffect();
     this->stopAllActions();
-    updateLevelLabel();
     this->runAction(_timeline);
     _timeline->play("zoomout1", false);
     _timeline->setLastFrameCallFunc([callback](){
@@ -218,12 +213,6 @@ void MultiBattleScene::updateWeightLabel(Weight weight)
     
     _countUpAction = Sequence::create(actionList);
     _weightLabel->runAction(_countUpAction);
-}
-
-void MultiBattleScene::updateLevelLabel()
-{
-    int level = WorldManager::getInstance()->getWorldInfo()->level;
-    _levelLabel->setString(StringUtils::format("LEVEL%d", level));
 }
 
 void MultiBattleScene::updateLeftTimeLabel(int leftTime)

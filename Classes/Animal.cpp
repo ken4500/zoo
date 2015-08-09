@@ -86,8 +86,8 @@ bool Animal::initWithSpeceis(Species* species, float size)
     _changeAnimalImage();
     _state = AnimalState::Stop;
     deadCallback = NULL;
-    _maxHp = size;
-    _hp = size;
+    _maxHp = powf(size, 1.2f);
+    _hp = _maxHp;
     _offense = size / 3;
     _isOpponent = false;
     _isEnemy = false;

@@ -42,7 +42,6 @@ public:
     void showResultView(std::function<void ()> closeCallback);
     void showNoticeView(std::string message, float delay, std::function<void ()> closeCallback);
     void updateWeightLabel(Weight weight);
-    void updateLevelLabel();
     void setResult(GameResult result);
 
 private:
@@ -54,7 +53,6 @@ private:
     cocos2d::ui::TextBMFont* _timeLeftLabel;
     cocos2d::ui::TextBMFont* _coinLabel;
     cocos2d::ui::Button* _endButton;
-    cocos2d::ui::TextBMFont* _levelLabel;
     cocos2d::ui::TextBMFont* _weightLabel;
     Action* _countUpAction;
     Weight _preWeight;

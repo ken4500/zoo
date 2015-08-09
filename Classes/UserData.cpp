@@ -160,7 +160,7 @@ void UserData::setAnimalDataList(ValueMap getAnimalData)
 
 std::string UserData::_getFilePath()
 {
-    return FileUtils::getInstance()->getWritablePath() + "user_data_0805";
+    return FileUtils::getInstance()->getWritablePath() + "user_data_0808";
 }
 
 void UserData::_save(float dt)

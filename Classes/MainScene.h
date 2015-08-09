@@ -59,7 +59,6 @@ private:
     cocos2d::ui::TextBMFont* _repairTimeLabel;
     cocos2d::ui::TextBMFont* _levelLabel;
     cocos2d::ui::TextBMFont* _weightLabel;
-    cocos2d::ui::Button* _endButton;
     cocos2d::ui::Button* _otherMenuButton;
     Node* _levelBack;
     HpGauge* _hpGauge;
@@ -74,7 +73,6 @@ private:
     void _setupDebugMenu();
     void _pushBattleButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void _pushOtherMenuButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
-    void _pushEndButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void _pauseRecursive(Node* node);
     void _resumeRecursive(Node* node);
     void _updateLanguage();

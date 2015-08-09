@@ -47,8 +47,7 @@ _totalWeight(0)
     _state = SceneState::Tutorial;
     _gacha = nullptr;
     _enableBattle = true;
-    if (SKIP_TUTORIAL || UserDataManager::getInstance()->isEndTutorial()
-        || _info->level > 1) {
+    if (UserDataManager::getInstance()->isEndTutorial() || _info->level > 1) {
         _state = SceneState::Normal;
     }
 }
@@ -350,7 +349,7 @@ void WorldManager::levelup()
     UserDataManager::getInstance()->repairLife();
     
     // for tutorial
-    if (_isNetwork == false && _info->level == 2 && SKIP_TUTORIAL == false) {
+    if (_isNetwork == false && _info->level == 2) {
         _startTutrialLevelupScene1();
     } else {
 
@@ -500,7 +499,7 @@ void WorldManager::startBattle()
     _enemyGenerater->start();
     
     // コインツリーの出現抽選
-    if (rand_0_1() > APPEAR_COIN_TREE_RATE) {
+    if (rand_0_1() < APPEAR_COIN_TREE_RATE) {
         _makeCoinTree();
     }
     

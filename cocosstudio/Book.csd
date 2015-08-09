@@ -6,6 +6,21 @@
       <ObjectData Name="Layer" CustomClassName="Book" Tag="100" ctype="GameLayerObjectData">
         <Size X="1136.0000" Y="640.0000" />
         <Children>
+          <AbstractNodeData Name="closeButton" ActionTag="-589644077" Tag="141" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="989.3400" RightMargin="-10.3400" TopMargin="-4.1560" BottomMargin="489.1560" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="127" Scale9Height="133" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+            <Size X="157.0000" Y="155.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="1067.8400" Y="566.6560" />
+            <Scale ScaleX="0.7000" ScaleY="0.7000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.9400" Y="0.8854" />
+            <PreSize X="0.1382" Y="0.2422" />
+            <TextColor A="255" R="65" G="65" B="70" />
+            <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
+            <PressedFileData Type="Normal" Path="ui/close.png" Plist="" />
+            <NormalFileData Type="Normal" Path="ui/close.png" Plist="" />
+            <OutlineColor A="255" R="255" G="0" B="0" />
+            <ShadowColor A="255" R="110" G="110" B="110" />
+          </AbstractNodeData>
           <AbstractNodeData Name="book" ActionTag="-1585250833" Tag="110" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="139.2162" RightMargin="146.7838" TopMargin="2.7194" BottomMargin="70.2806" ctype="SpriteObjectData">
             <Size X="850.0000" Y="567.0000" />
             <Children>
@@ -294,116 +309,101 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
+              <AbstractNodeData Name="rightButton" ActionTag="-693005361" Tag="113" IconVisible="False" LeftMargin="480.0000" RightMargin="120.0000" TopMargin="547.0000" BottomMargin="-60.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="70" Scale9Height="78" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                <Size X="250.0000" Y="80.0000" />
+                <Children>
+                  <AbstractNodeData Name="right_arrow_28" ActionTag="-384556476" Tag="168" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="137.8860" RightMargin="-24.8860" TopMargin="-3.5000" BottomMargin="-3.5000" ctype="SpriteObjectData">
+                    <Size X="137.0000" Y="87.0000" />
+                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                    <Position X="206.3860" Y="40.0000" />
+                    <Scale ScaleX="0.9000" ScaleY="0.9000" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <PrePosition X="0.8255" Y="0.5000" />
+                    <PreSize X="0.5480" Y="1.0875" />
+                    <FileData Type="Normal" Path="book/right_arrow.png" Plist="" />
+                    <BlendFunc Src="1" Dst="771" />
+                  </AbstractNodeData>
+                  <AbstractNodeData Name="next" ActionTag="1330044868" Tag="49" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="-22.0000" RightMargin="78.0000" TopMargin="-2.5000" BottomMargin="-2.5000" LabelText="NEXT" ctype="TextBMFontObjectData">
+                    <Size X="194.0000" Y="85.0000" />
+                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                    <Position X="75.0000" Y="40.0000" />
+                    <Scale ScaleX="0.6000" ScaleY="0.6000" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <PrePosition X="0.3000" Y="0.5000" />
+                    <PreSize X="0.7760" Y="1.0625" />
+                    <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font3.fnt" Plist="" />
+                  </AbstractNodeData>
+                </Children>
+                <AnchorPoint ScaleY="1.0000" />
+                <Position X="480.0000" Y="20.0000" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.5647" Y="0.0353" />
+                <PreSize X="0.2201" Y="0.1250" />
+                <TextColor A="255" R="65" G="65" B="70" />
+                <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
+                <PressedFileData Type="Normal" Path="ui/empty_transparency.png" Plist="" />
+                <NormalFileData Type="Normal" Path="ui/empty_transparency.png" Plist="" />
+                <OutlineColor A="255" R="255" G="0" B="0" />
+                <ShadowColor A="255" R="110" G="110" B="110" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="leftButton" ActionTag="-1061801020" Tag="114" IconVisible="False" LeftMargin="102.7700" RightMargin="497.2300" TopMargin="547.0000" BottomMargin="-60.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="70" Scale9Height="78" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                <Size X="250.0000" Y="80.0000" />
+                <Children>
+                  <AbstractNodeData Name="back" ActionTag="-1958006588" Tag="48" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="103.7400" RightMargin="-52.7400" TopMargin="-2.5000" BottomMargin="-2.5000" LabelText="BACK" ctype="TextBMFontObjectData">
+                    <Size X="199.0000" Y="85.0000" />
+                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                    <Position X="203.2400" Y="40.0000" />
+                    <Scale ScaleX="0.6000" ScaleY="0.6000" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <PrePosition X="0.8130" Y="0.5000" />
+                    <PreSize X="0.7960" Y="1.0625" />
+                    <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font3.fnt" Plist="" />
+                  </AbstractNodeData>
+                  <AbstractNodeData Name="left_arrow_29" ActionTag="-896333004" Tag="169" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="1.4620" RightMargin="111.5380" TopMargin="-3.5000" BottomMargin="-3.5000" ctype="SpriteObjectData">
+                    <Size X="137.0000" Y="87.0000" />
+                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                    <Position X="69.9620" Y="40.0000" />
+                    <Scale ScaleX="0.9000" ScaleY="0.9000" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <PrePosition X="0.2798" Y="0.5000" />
+                    <PreSize X="0.5480" Y="1.0875" />
+                    <FileData Type="Normal" Path="book/left_arrow.png" Plist="" />
+                    <BlendFunc Src="1" Dst="771" />
+                  </AbstractNodeData>
+                </Children>
+                <AnchorPoint ScaleX="1.0000" ScaleY="1.0000" />
+                <Position X="352.7700" Y="20.0000" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.4150" Y="0.0353" />
+                <PreSize X="0.2201" Y="0.1250" />
+                <TextColor A="255" R="65" G="65" B="70" />
+                <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
+                <PressedFileData Type="Normal" Path="ui/empty_transparency.png" Plist="" />
+                <NormalFileData Type="Normal" Path="ui/empty_transparency.png" Plist="" />
+                <OutlineColor A="255" R="255" G="0" B="0" />
+                <ShadowColor A="255" R="110" G="110" B="110" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="pageLabel" ActionTag="1941240456" Tag="50" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="353.5000" RightMargin="353.5000" TopMargin="549.5700" BottomMargin="-63.5700" LabelText="1 / 1" ctype="TextBMFontObjectData">
+                <Size X="143.0000" Y="81.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="425.0000" Y="-23.0700" />
+                <Scale ScaleX="0.6000" ScaleY="0.6000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.5000" Y="-0.0407" />
+                <PreSize X="0.1682" Y="0.1429" />
+                <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font2.fnt" Plist="" />
+              </AbstractNodeData>
             </Children>
-            <AnchorPoint ScaleX="0.5000" ScaleY="1.0000" />
-            <Position X="564.2162" Y="637.2806" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="564.2162" Y="353.7806" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.4967" Y="0.9958" />
+            <PrePosition X="0.4967" Y="0.5528" />
             <PreSize X="0.7482" Y="0.8859" />
             <FileData Type="Normal" Path="book/book.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
-          </AbstractNodeData>
-          <AbstractNodeData Name="rightButton" ActionTag="-693005361" Tag="113" IconVisible="False" LeftMargin="650.0000" RightMargin="236.0000" TopMargin="551.9999" BottomMargin="8.0001" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="70" Scale9Height="78" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-            <Size X="250.0000" Y="80.0000" />
-            <Children>
-              <AbstractNodeData Name="right_arrow_28" ActionTag="-384556476" Tag="168" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="137.8860" RightMargin="-24.8860" TopMargin="-3.5000" BottomMargin="-3.5000" ctype="SpriteObjectData">
-                <Size X="137.0000" Y="87.0000" />
-                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="206.3860" Y="40.0000" />
-                <Scale ScaleX="0.9000" ScaleY="0.9000" />
-                <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.8255" Y="0.5000" />
-                <PreSize X="0.5480" Y="1.0875" />
-                <FileData Type="Normal" Path="book/right_arrow.png" Plist="" />
-                <BlendFunc Src="1" Dst="771" />
-              </AbstractNodeData>
-              <AbstractNodeData Name="next" ActionTag="1330044868" Tag="49" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="-22.0000" RightMargin="78.0000" TopMargin="-2.5000" BottomMargin="-2.5000" LabelText="NEXT" ctype="TextBMFontObjectData">
-                <Size X="194.0000" Y="85.0000" />
-                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="75.0000" Y="40.0000" />
-                <Scale ScaleX="0.6000" ScaleY="0.6000" />
-                <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.3000" Y="0.5000" />
-                <PreSize X="0.7760" Y="1.0625" />
-                <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font3.fnt" Plist="" />
-              </AbstractNodeData>
-            </Children>
-            <AnchorPoint ScaleX="1.0000" ScaleY="0.5000" />
-            <Position X="900.0000" Y="48.0001" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.7923" Y="0.0750" />
-            <PreSize X="0.2201" Y="0.1250" />
-            <TextColor A="255" R="65" G="65" B="70" />
-            <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-            <PressedFileData Type="Normal" Path="ui/empty_transparency.png" Plist="" />
-            <NormalFileData Type="Normal" Path="ui/empty_transparency.png" Plist="" />
-            <OutlineColor A="255" R="255" G="0" B="0" />
-            <ShadowColor A="255" R="110" G="110" B="110" />
-          </AbstractNodeData>
-          <AbstractNodeData Name="leftButton" ActionTag="-1061801020" Tag="114" IconVisible="False" LeftMargin="202.7700" RightMargin="683.2300" TopMargin="552.0000" BottomMargin="8.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="70" Scale9Height="78" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-            <Size X="250.0000" Y="80.0000" />
-            <Children>
-              <AbstractNodeData Name="back" ActionTag="-1958006588" Tag="48" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="103.7400" RightMargin="-52.7400" TopMargin="-2.5000" BottomMargin="-2.5000" LabelText="BACK" ctype="TextBMFontObjectData">
-                <Size X="199.0000" Y="85.0000" />
-                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="203.2400" Y="40.0000" />
-                <Scale ScaleX="0.6000" ScaleY="0.6000" />
-                <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.8130" Y="0.5000" />
-                <PreSize X="0.7960" Y="1.0625" />
-                <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font3.fnt" Plist="" />
-              </AbstractNodeData>
-              <AbstractNodeData Name="left_arrow_29" ActionTag="-896333004" Tag="169" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="1.4620" RightMargin="111.5380" TopMargin="-3.5000" BottomMargin="-3.5000" ctype="SpriteObjectData">
-                <Size X="137.0000" Y="87.0000" />
-                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="69.9620" Y="40.0000" />
-                <Scale ScaleX="0.9000" ScaleY="0.9000" />
-                <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.2798" Y="0.5000" />
-                <PreSize X="0.5480" Y="1.0875" />
-                <FileData Type="Normal" Path="book/left_arrow.png" Plist="" />
-                <BlendFunc Src="1" Dst="771" />
-              </AbstractNodeData>
-            </Children>
-            <AnchorPoint ScaleY="0.5000" />
-            <Position X="202.7700" Y="48.0000" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.1785" Y="0.0750" />
-            <PreSize X="0.2201" Y="0.1250" />
-            <TextColor A="255" R="65" G="65" B="70" />
-            <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-            <PressedFileData Type="Normal" Path="ui/empty_transparency.png" Plist="" />
-            <NormalFileData Type="Normal" Path="ui/empty_transparency.png" Plist="" />
-            <OutlineColor A="255" R="255" G="0" B="0" />
-            <ShadowColor A="255" R="110" G="110" B="110" />
-          </AbstractNodeData>
-          <AbstractNodeData Name="closeButton" ActionTag="-589644077" Tag="141" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="22.7200" RightMargin="956.2800" TopMargin="12.8000" BottomMargin="472.2000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="127" Scale9Height="133" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-            <Size X="157.0000" Y="155.0000" />
-            <AnchorPoint ScaleY="1.0000" />
-            <Position X="22.7200" Y="627.2000" />
-            <Scale ScaleX="0.7000" ScaleY="0.7000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.0200" Y="0.9800" />
-            <PreSize X="0.1382" Y="0.2422" />
-            <TextColor A="255" R="65" G="65" B="70" />
-            <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-            <PressedFileData Type="Normal" Path="ui/close.png" Plist="" />
-            <NormalFileData Type="Normal" Path="ui/close.png" Plist="" />
-            <OutlineColor A="255" R="255" G="0" B="0" />
-            <ShadowColor A="255" R="110" G="110" B="110" />
-          </AbstractNodeData>
-          <AbstractNodeData Name="pageLabel" ActionTag="1941240456" Tag="50" IconVisible="False" LeftMargin="497.6268" RightMargin="495.3732" TopMargin="551.5736" BottomMargin="7.4264" LabelText="1 / 1" ctype="TextBMFontObjectData">
-            <Size X="143.0000" Y="81.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="569.1268" Y="47.9264" />
-            <Scale ScaleX="0.6000" ScaleY="0.6000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5010" Y="0.0749" />
-            <PreSize X="0.3944" Y="0.1203" />
-            <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font2.fnt" Plist="" />
           </AbstractNodeData>
         </Children>
       </ObjectData>

@@ -33,22 +33,26 @@ void Book::onEnter()
 {
     Layer::onEnter();
     
+    Size size = Director::getInstance()->getVisibleSize();
+    setContentSize(size);
+    ui::Helper::doLayout(this);
+
     _page = 1;
-    _selectImage = nullptr;
-    _allSpecies    = Species::getAllSpecies();
-    _bookNode      = this->getChildByName("book");
-    _animalImage   = _bookNode->getChildByName<Sprite*>("image");
-    _minCrownImage = _bookNode->getChildByName<Sprite*>("minCrown");
-    _maxCrownImage = _bookNode->getChildByName<Sprite*>("maxCrown");
-    _animalName    = _bookNode->getChildByName<ui::TextBMFont*>("name");
+    _selectImage     = nullptr;
+    _allSpecies      = Species::getAllSpecies();
+    _bookNode        = getChildByName("book");
+    _animalImage     = _bookNode->getChildByName<Sprite*>("image");
+    _minCrownImage   = _bookNode->getChildByName<Sprite*>("minCrown");
+    _maxCrownImage   = _bookNode->getChildByName<Sprite*>("maxCrown");
+    _animalName      = _bookNode->getChildByName<ui::TextBMFont*>("name");
     _sizeDescription = _bookNode->getChildByName<ui::Text*>("speciesSize");
-    _pageLabel = this->getChildByName<ui::TextBMFont*>("pageLabel");
-    _getNum = _bookNode->getChildByName<ui::Text*>("getNum");
-    _getMinSize = _bookNode->getChildByName<ui::Text*>("getMinSize");
-    _getMaxSize = _bookNode->getChildByName<ui::Text*>("getMaxSize");
-    auto back = this->getChildByName("leftButton")->getChildByName<ui::TextBMFont*>("back");
+    _pageLabel       = _bookNode->getChildByName<ui::TextBMFont*>("pageLabel");
+    _getNum          = _bookNode->getChildByName<ui::Text*>("getNum");
+    _getMinSize      = _bookNode->getChildByName<ui::Text*>("getMinSize");
+    _getMaxSize      = _bookNode->getChildByName<ui::Text*>("getMaxSize");
+    auto back        = _bookNode->getChildByName("leftButton")->getChildByName<ui::TextBMFont*>("back");
     back->setString(CCLS("BOOK_BACK"));
-    auto next = this->getChildByName("rightButton")->getChildByName<ui::TextBMFont*>("next");
+    auto next        = _bookNode->getChildByName("rightButton")->getChildByName<ui::TextBMFont*>("next");
     next->setString(CCLS("BOOK_NEXT"));
 
     auto description  = _bookNode->getChildByName("description");
@@ -66,9 +70,9 @@ void Book::onEnter()
     _selectPos = 1;
     _pushAnimalButton((Ref*)_bookNode->getChildByName(StringUtils::format("position%d", _selectPos)), ui::Widget::TouchEventType::ENDED);
     
-    _rightButton = getChildByName<ui::Button*>("rightButton");
+    _rightButton = _bookNode->getChildByName<ui::Button*>("rightButton");
     _rightButton->addTouchEventListener(CC_CALLBACK_2(Book::_pushRightButton, this));
-    _leftButton = getChildByName<ui::Button*>("leftButton");
+    _leftButton = _bookNode->getChildByName<ui::Button*>("leftButton");
     _leftButton->addTouchEventListener(CC_CALLBACK_2(Book::_pushLeftButton, this));
     auto closeButton = getChildByName<ui::Button*>("closeButton");
     closeButton->addTouchEventListener(CC_CALLBACK_2(Book::_pushCloseButton, this));
@@ -173,7 +177,7 @@ void Book::_loadAnimal(Species* species)
     _animalImage->setTexture(species->getImageName());
     auto mgr = UserDataManager::getInstance();
 
-    if (false && mgr->haveHadAnimalInPast(name) == false) {
+    if (mgr->haveHadAnimalInPast(name) == false) {
         // 取得したことがない
         _animalImage->setColor(Color3B::BLACK);
         _animalName->setString("????");
