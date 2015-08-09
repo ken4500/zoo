@@ -90,10 +90,12 @@ bool MainScene::init()
     _coinLabel = _menuNode->getChildByName<ui::TextBMFont*>("coinText");
     _lifeLabel = _menuNode->getChildByName<ui::TextBMFont*>("hartText");
     _repairTimeLabel = _menuNode->getChildByName<ui::TextBMFont*>("repairTimeText");
-    _levelBack = _rootNode->getChildByName("levelBack");
-    _levelLabel = _levelBack->getChildByName<ui::TextBMFont*>("levelLabel");
-    _weightLabel = _rootNode->getChildByName<ui::TextBMFont*>("weightLabel");
-    _weightImage = _rootNode->getChildByName<Sprite*>("weightImage");
+    _levelBack    = _rootNode->getChildByName("levelBack");
+    _levelLabel   = _levelBack->getChildByName<ui::TextBMFont*>("levelLabel");
+    _weightLabel  = _rootNode->getChildByName<ui::TextBMFont*>("weightLabel");
+    _weightImage  = _rootNode->getChildByName<Sprite*>("weightImage");
+    _diamondLabel = _menuNode->getChildByName<ui::TextBMFont*>("diamondText");
+    _diamonImage  = _menuNode->getChildByName<Sprite*>("diamond");
 
     _otherMenuButton = _menuNode->getChildByName<ui::Button*>("otherMenu");
     _otherMenuButton->addTouchEventListener(CC_CALLBACK_2(MainScene::_pushOtherMenuButton, this));
@@ -125,6 +127,7 @@ void MainScene::onEnter()
     
     updateLevelLabel();
     updateCoinLabel();
+    updateDiamondLabel();
     updateLifeLabel(0);
     _preWeight = WorldManager::getInstance()->getTotalWeight();
     _weightLabel->setString(StringUtils::format("%.02f %s", _preWeight.getWeight(), _preWeight.getUnitStr().c_str()));
@@ -325,6 +328,12 @@ void MainScene::playNovel(std::string novelId, std::function<void ()> callback, 
 
 }
 
+void MainScene::updateDiamondLabel()
+{
+    int diamondNum = UserDataManager::getInstance()->getDiamondNum();
+    _diamondLabel->setString(StringUtils::format("x %d", diamondNum));
+}
+
 void MainScene::updateCoinLabel()
 {
     _coinLabel->setString(StringUtils::format("x %ld", WorldManager::getInstance()->getCoin()));
@@ -461,8 +470,6 @@ void MainScene::_setupDebugMenu()
     test->setAnchorPoint(Vec2(1.0f, 0.0f));
     test->setPosition(Vec2(0, 400));
     debugMenu->addChild(test, 1);
-
-
 
     auto toggleButton = Button::create("ui/toggle.png");
     toggleButton->setAnchorPoint(Vec2(0.5f, 0.5f));

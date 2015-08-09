@@ -70,6 +70,7 @@ public:
     void endResult();
     void resetData();
     BattleState checkBattleState();
+    void appearCrown(SizeRank rank);
     
     // network game logic
     void startMultiplayBattle();

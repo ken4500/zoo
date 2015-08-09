@@ -118,6 +118,32 @@ ValueMap UserData::getAnimalDataList()
     }
 }
 
+int UserData::getDiamondNum()
+{
+    if (_data.find("diamond_num") == _data.end()) {
+        return 0;
+    } else {
+        return _data["diamond_num"].asInt();
+    }
+}
+
+ValueMap UserData::getStatus()
+{
+    if (_data.find("status") == _data.end()) {
+        auto initData = ValueMap();
+        initData["add_spawn_animal_num"] = 0;
+        initData["add_animal_num"]       = 0;
+        initData["add_offense_rate"]     = 0;
+        initData["add_coin_rate"]        = 0;
+        initData["enemy_num_rate"]       = 0;
+        _data["status"] = initData;
+        return initData;
+    } else {
+        return _data["status"].asValueMap();
+    }
+}
+
+
 #pragma - setter
 
 void UserData::setEndTutorial(bool endTutorial)
@@ -154,6 +180,16 @@ void UserData::setLanguage(LanguageType language)
 void UserData::setAnimalDataList(ValueMap getAnimalData)
 {
     _data["animal_get_data"] = getAnimalData;
+}
+
+void UserData::setDiamondNum(int diamondNum)
+{
+    _data["diamond_num"] = diamondNum;
+}
+
+void UserData::setStatus(ValueMap status)
+{
+    _data["status"] = status;
 }
 
 #pragma - private method

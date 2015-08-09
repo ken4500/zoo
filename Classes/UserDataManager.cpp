@@ -326,3 +326,79 @@ int UserDataManager::getAnimalCount(std::string animalName)
     }
 }
 
+#pragma - ステータスに関するメソッド
+
+int UserDataManager::getDiamondNum()
+{
+    return _userData->getDiamondNum();
+}
+
+int UserDataManager::getSpawnAnimalNum()
+{
+    return 1 + _userData->getStatus()["add_spawn_animal_num"].asInt();
+}
+
+int UserDataManager::getAnimalNum()
+{
+    return INIT_MAX_ANIMAL_NUM + _userData->getStatus()["add_animal_num"].asInt();
+}
+
+float UserDataManager::getOffenseRate()
+{
+    return 1 + _userData->getStatus()["add_offense_rate"].asFloat();
+}
+
+float UserDataManager::getCoinRate()
+{
+    return 1 + _userData->getStatus()["add_coin_rate"].asFloat();
+}
+
+float UserDataManager::getEnemyNumRate()
+{
+    return 1 + _userData->getStatus()["enemy_num_rate"].asFloat();
+}
+
+void UserDataManager::addDiamondNum(int addNum)
+{
+    _userData->setDiamondNum(addNum + _userData->getDiamondNum());
+}
+
+void UserDataManager::setSpawnAnimalNum(int spawnAnimalNum)
+{
+    auto status = _userData->getStatus();
+    status["add_spawn_animal_num"] = spawnAnimalNum;
+    _userData->setStatus(status);
+    _userData->save();
+}
+
+void UserDataManager::setAnimalNum(int animalNum)
+{
+    auto status = _userData->getStatus();
+    status["add_animal_num"] = animalNum;
+    _userData->setStatus(status);
+    _userData->save();
+}
+
+void UserDataManager::setOffenseRate(float offenseRate)
+{
+    auto status = _userData->getStatus();
+    status["add_offense_rate"] = offenseRate;
+    _userData->setStatus(status);
+    _userData->save();
+}
+
+void UserDataManager::setCoinRate(float coinRate)
+{
+    auto status = _userData->getStatus();
+    status["add_coin_rate"] = coinRate;
+    _userData->setStatus(status);
+    _userData->save();
+}
+
+void UserDataManager::setEnemyNumRate(float enemyRate)
+{
+    auto status = _userData->getStatus();
+    status["enemy_num_rate"] = enemyRate;
+    _userData->setStatus(status);
+    _userData->save();
+}

@@ -161,13 +161,19 @@ void Animal::jump(Vec2 target, float height, std::function<void ()> callback)
     if (SceneManager::getInstance()->isNetwork() == false) {
         auto maxRank = getMaxSizeRank();
         auto minRank = getMinSizeRank();
+        SizeRank rank = SizeRank::None;
         Sprite* crown = nullptr;
         if (maxRank != SizeRank::None) {
             crown = Sprite::create(StringUtils::format("ui/max_crown%d.png", maxRank));
+            rank = maxRank;
         } else if (minRank != SizeRank::None) {
             crown = Sprite::create(StringUtils::format("ui/min_crown%d.png", minRank));
+            rank = minRank;
         }
         if (crown) {
+            //
+            WorldManager::getInstance()->appearCrown(rank);
+
             float scale = 0.8f / (getScale() * getParent()->getScale());
             crown->setScale(0);
             crown->setPosition(Vec2(200, 400));

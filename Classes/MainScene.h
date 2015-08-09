@@ -37,6 +37,7 @@ public:
     void showBattleMenu();
     void hideBattleMenu();
     void updateCoinLabel();
+    void updateDiamondLabel();
     void updateLifeLabel(float dt);
     void updateLeftTimeLabel(int leftTime);
     void updateLevelLabel();
@@ -59,6 +60,7 @@ private:
     cocos2d::ui::TextBMFont* _repairTimeLabel;
     cocos2d::ui::TextBMFont* _levelLabel;
     cocos2d::ui::TextBMFont* _weightLabel;
+    cocos2d::ui::TextBMFont* _diamondLabel;
     cocos2d::ui::Button* _otherMenuButton;
     Node* _levelBack;
     HpGauge* _hpGauge;
@@ -66,6 +68,7 @@ private:
     Action* _countUpAction;
     ScaleBar* _scaleBar;
     Sprite* _weightImage;
+    Sprite* _diamonImage;
 
     void onEnter() override;
     void update(float dt);

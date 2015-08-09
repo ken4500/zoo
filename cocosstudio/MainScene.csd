@@ -251,6 +251,27 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
+              <AbstractNodeData Name="diamond" ActionTag="-2044259099" Tag="587" IconVisible="False" LeftMargin="-43.0002" RightMargin="-128.9998" TopMargin="-511.2217" BottomMargin="363.2217" ctype="SpriteObjectData">
+                <Size X="172.0000" Y="148.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="42.9998" Y="437.2217" />
+                <Scale ScaleX="0.5000" ScaleY="0.5000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition />
+                <PreSize X="0.0000" Y="0.0000" />
+                <FileData Type="Normal" Path="ui/diamond.png" Plist="" />
+                <BlendFunc Src="1" Dst="771" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="diamondText" ActionTag="-2134201600" Tag="588" IconVisible="False" LeftMargin="82.8853" RightMargin="-151.8853" TopMargin="-491.4778" BottomMargin="410.4778" LabelText="x5" ctype="TextBMFontObjectData">
+                <Size X="69.0000" Y="81.0000" />
+                <AnchorPoint />
+                <Position X="82.8853" Y="410.4778" />
+                <Scale ScaleX="0.8000" ScaleY="0.8000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition />
+                <PreSize X="0.0000" Y="0.0000" />
+                <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font2.fnt" Plist="" />
+              </AbstractNodeData>
             </Children>
             <AnchorPoint />
             <Position X="30.0000" Y="30.0000" />

@@ -44,6 +44,7 @@ public:
     void hideGacha();
     void showGacha();
     void vibrationMap();
+    void releaseDiamond(int diamondNum);
     
 protected:
     Length _maxWidth;

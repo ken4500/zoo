@@ -27,6 +27,8 @@ public:
     ValueVector getAnimalList();
     LanguageType getLanguage();
     ValueMap getAnimalDataList();
+    int getDiamondNum();
+    ValueMap getStatus();
 
     void setEndTutorial(bool endTutorial);
     void setWorldInfo(ValueMap info);
@@ -35,6 +37,8 @@ public:
     void setAnimalList(ValueVector animal);
     void setLanguage(LanguageType language);
     void setAnimalDataList(ValueMap getAnimalData);
+    void setDiamondNum(int diamondNum);
+    void setStatus(ValueMap status);
 
     
 private:

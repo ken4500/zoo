@@ -65,6 +65,21 @@ public:
     Length getMinHeight(std::string animalNmae);
     int getAnimalCount(std::string animalName);
 
+    // ステータスに関するメソッド
+    int getDiamondNum();
+    int getSpawnAnimalNum();
+    int getAnimalNum();
+    float getOffenseRate();
+    float getCoinRate();
+    float getEnemyNumRate();
+    
+    void addDiamondNum(int addNum);
+    void setSpawnAnimalNum(int spawnAnimalNum);
+    void setAnimalNum(int animalNum);
+    void setOffenseRate(float offenseRate);
+    void setCoinRate(float coinRate);
+    void setEnemyNumRate(float enemyRate);
+
     CC_SYNTHESIZE(UserData*, _userData, UserData);
     
 private:

@@ -18,14 +18,15 @@ static const float INIT_LIFE = 3;
 static const int BATTLE_TIME = 20;
 static const int ENEMY_NUM = 15;
 static const int REPAIR_LIFE_TIME = 5 * 60;
-static const int MAX_ANIMAL_NUM = 20;
+static const int INIT_MAX_ANIMAL_NUM = 20;
 static const float GAME_FPS = 60;
 static const int MAX_SIZE_ID = 27;
 static const int MAX_LEVEL = 27;
 static const float APPEAR_COIN_TREE_RATE = 0.2f;
-
 static const float INIT_MULTIBATTLE_COIN = 3;
 static const int MUTLPLAY_BATTLE_TIME = 100;
+static const int GET_DIAMOND_NUM_OF_SILVER_CROWN = 1;
+static const int GET_DIAMOND_NUM_OF_GOLD_CROWN = 3;
 
 
 enum class EntityTag

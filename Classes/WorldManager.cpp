@@ -588,6 +588,24 @@ void WorldManager::endResult()
     _enableNextAction = true;
 }
 
+void WorldManager::appearCrown(SizeRank rank)
+{
+    int getDiamond = 0;
+    if (rank == SizeRank::Silver) {
+        getDiamond = GET_DIAMOND_NUM_OF_SILVER_CROWN;
+    } else if (rank == SizeRank::Gold) {
+        getDiamond = GET_DIAMOND_NUM_OF_GOLD_CROWN;
+    }
+    
+    UserDataManager::getInstance()->addDiamondNum(getDiamond);
+    _map->releaseDiamond(getDiamond);
+
+    auto scene = SceneManager::getInstance()->getMainScene();
+    if (scene) {
+        scene->updateDiamondLabel();
+    }
+}
+
 #pragma - network game logic
 
 void WorldManager::startMultiplayBattle()
@@ -967,7 +985,8 @@ void WorldManager::_checkAndRemoveAnimal()
         }
     }
     
-    for (int i = 0; i < animalNum - MAX_ANIMAL_NUM; i++) {
+    int maxNum = UserDataManager::getInstance()->getAnimalNum();
+    for (int i = 0; i < animalNum - maxNum; i++) {
         float min = INFINITY;
         Animal* removeAnimal = nullptr;
 
