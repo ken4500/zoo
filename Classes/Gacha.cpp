@@ -73,7 +73,15 @@ void Gacha::lotteryGacha(WorldInfo* _info)
     this->runAction(Sequence::create(
         DelayTime::create(durationTime - 0.1f),
         CallFunc::create([this, animalStr, isHit](){
-            auto animal = Animal::CreateWithSpeceis(animalStr);
+            Animal* animal;
+            if (isHit) {
+                Species* species = new Species(animalStr);
+                animal = Animal::CreateWithSpeceis(animalStr, species->getAverageHeight().getMmLength());
+                delete species;
+            } else {
+                animal = Animal::CreateWithSpeceis(animalStr);
+            }
+
             WorldManager::getInstance()->releaseAnimal(animal, isHit);
             if (finishGachaCallback && isHit == false) {
                 finishGachaCallback();
