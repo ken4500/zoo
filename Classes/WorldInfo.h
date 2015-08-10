@@ -27,6 +27,7 @@ public:
     std::string mapName;
     int imageWidth;
     bool network;
+    int getDiamondNum;
 
     int lotteryGachaCount;
     int totalLotteryGachaCount;

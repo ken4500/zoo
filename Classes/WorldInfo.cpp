@@ -64,5 +64,6 @@ void WorldInfo::_loadLevel()
     this->maxWidth = Length(Length::toUnit(unit), maxValue);
     this->mapName = StringUtils::format("map/%s", worldDoc["map"].GetString());
     this->gachaId = this->level;
+    this->getDiamondNum = worldDoc["transmigration"].GetInt();
     this->imageWidth = worldDoc["imageWidth"].GetInt();
 }

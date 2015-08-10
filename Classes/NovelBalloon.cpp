@@ -276,10 +276,10 @@ NovelBalloon* NovelBalloon::create(std::shared_ptr<NovelAction> action,
             result->_arrowPos = Point(balloon->getContentSize().width - 50, 0);
             balloon->setAnchorPoint(Vec2(0.5, 0.5));
             if (action->getTarget() == NovelAction::Target::Left) {
-                labelPos = Vec2(65, 110);
+                labelPos = Vec2(45, 110);
                 balloon->setPosition(Vec2(visibleSize.width/ 2 - 40, 150));
             } else if (action->getTarget() == NovelAction::Target::Right) {
-                labelPos = Vec2(25, 110);
+                labelPos = Vec2(45, 110);
                 balloon->setPosition(Vec2(-visibleSize.width/ 2 + 40, 100));
                 balloon->setFlippedX(true);
             }

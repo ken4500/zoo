@@ -19,6 +19,8 @@
 #include "BookReader.h"
 #include "HpGauge.h"
 #include "HpGaugeReader.h"
+#include "ShopReader.h"
+#include "TransmigrationReader.h"
 
 USING_NS_CC;
 
@@ -67,6 +69,8 @@ bool MainScene::init()
     instance->registReaderObject("CoinTreeReader", (ObjectFactory::Instance) CoinTreeReader::getInstance);
     instance->registReaderObject("BookReader", (ObjectFactory::Instance) BookReader::getInstance);
     instance->registReaderObject("HpGaugeReader", (ObjectFactory::Instance) HpGaugeReader::getInstance);
+    instance->registReaderObject("ShopReader", (ObjectFactory::Instance) ShopReader::getInstance);
+    instance->registReaderObject("TransmigrationReader", (ObjectFactory::Instance) TransmigrationReader::getInstance);
 
     _rootNode = CSLoader::createNode("MainScene.csb");
     Size size = Director::getInstance()->getVisibleSize();

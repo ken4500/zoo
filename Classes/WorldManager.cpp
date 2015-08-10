@@ -252,6 +252,11 @@ int WorldManager::getLeftTimeOnBattle()
     return _leftTime;
 }
 
+int WorldManager::getDiamondNumInTransmigration()
+{
+    return _info->getDiamondNum;
+}
+
 #pragma - public method
 
 void WorldManager::resetData()
@@ -604,6 +609,11 @@ void WorldManager::appearCrown(SizeRank rank)
     if (scene) {
         scene->updateDiamondLabel();
     }
+}
+
+void WorldManager::Transmigration()
+{
+    int getDiamondNum = getDiamondNumInTransmigration();
 }
 
 #pragma - network game logic

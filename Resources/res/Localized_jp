@@ -14,6 +14,8 @@ MENU_PAGE_TITLE = メニュー;
 MENU_PAGE_MULTIPLAY = マルチプレイ;
 MENU_PAGE_ENCYCLEPEDIA = 動物辞典;
 MENU_PAGE_LANGUAGE = 言語設定;
+MENU_PAGE_SHOP = ショップ;
+MENU_PAGE_TRANSMIGRATION = 転生;
 MENU_PAGE_CLOSE = 閉じる;
 
 NOTICE_MULTIPLAY = 同じWi-Fiに接続している、\nもしくはbluetoothがONになっている\nユーザーと対戦できます。;

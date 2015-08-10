@@ -57,6 +57,7 @@ public:
     float getHp();
     int getAliveEnemy();
     int getLeftTimeOnBattle();
+    int getDiamondNumInTransmigration();
 
     // game logic
     void lotteryGacha();
@@ -71,6 +72,7 @@ public:
     void resetData();
     BattleState checkBattleState();
     void appearCrown(SizeRank rank);
+    void Transmigration();
     
     // network game logic
     void startMultiplayBattle();

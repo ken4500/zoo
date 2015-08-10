@@ -13,6 +13,7 @@
 #include "SceneManager.h"
 #include "NoticeLayer.h"
 #include "Book.h"
+#include "UserDataManager.h"
 
 MenuLayer::MenuLayer()
 {
@@ -57,6 +58,14 @@ bool MenuLayer::init()
     languageButton->addTouchEventListener(CC_CALLBACK_2(MenuLayer::_pushLanguageButton, this));
     _languageLabel = languageButton->getChildByName<ui::TextBMFont*>("label");
     
+    auto shopButton = node->getChildByName<ui::Button*>("shopButton");
+    shopButton->addTouchEventListener(CC_CALLBACK_2(MenuLayer::_pushShopButton, this));
+    _shopLabel = shopButton->getChildByName<ui::TextBMFont*>("label");
+
+    auto transmigrationButton = node->getChildByName<ui::Button*>("transmigrationButton");
+    transmigrationButton->addTouchEventListener(CC_CALLBACK_2(MenuLayer::_pushTransmigrationButton, this));
+    _transmigrationLabel = transmigrationButton->getChildByName<ui::TextBMFont*>("label");
+
     auto closeButton = node->getChildByName<ui::Button*>("okButton");
     closeButton->addTouchEventListener(CC_CALLBACK_2(MenuLayer::_pushCloseButton, this));
     _closeLabel = closeButton->getChildByName<ui::TextBMFont*>("label");
@@ -149,6 +158,52 @@ void MenuLayer::_pushLanguageButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::
     }
 }
 
+void MenuLayer::_pushShopButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
+{
+    auto button = dynamic_cast<ui::Button*>(pSender);
+    if (eEventType == ui::Widget::TouchEventType::BEGAN) {
+        button->runAction(ScaleBy::create(0.1f, 0.9));
+    }
+    if (eEventType == ui::Widget::TouchEventType::ENDED) {
+        SoundManager::getInstance()->playDecideEffect2();
+        button->runAction(Sequence::create(
+            ScaleBy::create(0.1f, 1 / 0.9f),
+            CallFunc::create([this]{
+                auto layer = SelectLanguageLayer::create();
+                layer->closedCallback = [this]() {
+                    _updateLanguage();
+                };
+                this->addChild(layer, 20);
+            }),
+            NULL
+        ));
+    }
+    if (eEventType == ui::Widget::TouchEventType::CANCELED) {
+        button->runAction(ScaleBy::create(0.1f, 1 / 0.9f));
+    }
+}
+
+void MenuLayer::_pushTransmigrationButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
+{
+    auto button = dynamic_cast<ui::Button*>(pSender);
+    if (eEventType == ui::Widget::TouchEventType::BEGAN) {
+        button->runAction(ScaleBy::create(0.1f, 0.9));
+    }
+    if (eEventType == ui::Widget::TouchEventType::ENDED) {
+        SoundManager::getInstance()->playDecideEffect2();
+        button->runAction(Sequence::create(
+            ScaleBy::create(0.1f, 1 / 0.9f),
+            CallFunc::create([this]{
+                auto layer = CSLoader::createNode("Transmigration.csb");
+                this->addChild(layer, 20);
+            }),
+            NULL
+        ));
+    }
+    if (eEventType == ui::Widget::TouchEventType::CANCELED) {
+        button->runAction(ScaleBy::create(0.1f, 1 / 0.9f));
+    }
+}
 
 void MenuLayer::_pushCloseButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
@@ -179,5 +234,14 @@ void MenuLayer::_updateLanguage()
     _multiplayLabel->setString(CCLS("MENU_PAGE_MULTIPLAY"));
     _encyclepediaLabel->setString(CCLS("MENU_PAGE_ENCYCLEPEDIA"));
     _languageLabel->setString(CCLS("MENU_PAGE_LANGUAGE"));
+    _shopLabel->setString(CCLS("MENU_PAGE_SHOP"));
+    _transmigrationLabel->setString(CCLS("MENU_PAGE_TRANSMIGRATION"));
     _closeLabel->setString(CCLS("MENU_PAGE_CLOSE"));
+    
+    auto lang = UserDataManager::getInstance()->getLanguage();
+    if (lang == LanguageType::JAPANESE) {
+        _transmigrationLabel->setScale(0.7f);
+    } else {
+        _transmigrationLabel->setScale(0.6f);
+    }
 }

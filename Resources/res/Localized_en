@@ -11,9 +11,11 @@ CREDIT_PAGE_NAMI_KITANOBO = Nami.K;
 CREDIT_PAGE_ROLE_KEN = Planner & Programmer;
 CREDIT_PAGE_ROLE_NAMI = Designer;
 MENU_PAGE_TITLE = MENU;
-MENU_PAGE_MULTIPLAY = multi play;
-MENU_PAGE_ENCYCLEPEDIA = encyclepedia;
-MENU_PAGE_LANGUAGE = language;
+MENU_PAGE_MULTIPLAY = Multi play;
+MENU_PAGE_ENCYCLEPEDIA = Encyclepedia;
+MENU_PAGE_LANGUAGE = Language;
+MENU_PAGE_SHOP = Shop;
+MENU_PAGE_TRANSMIGRATION = Transmigration;
 MENU_PAGE_CLOSE = CLOSE;
 
 NOTICE_MULTIPLAY = You can play with player \nwho connect to save Wi-Fi \nor turn on bluetooth.;

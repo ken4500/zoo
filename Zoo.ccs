@@ -95,6 +95,8 @@
           <Image Name="length_image.png" />
           <Image Name="weight_image.png" />
           <Image Name="skel.png" />
+          <Image Name="menu4.png" />
+          <Image Name="menu5.png" />
         </Folder>
         <Project Name="Result.csd" Type="Node" />
         <Project Name="YesNo.csd" Type="Node" />
@@ -151,6 +153,9 @@
           <Image Name="gauge.png" />
           <Image Name="image01.png" />
         </Folder>
+        <Project Name="Transmigration_back.csd" Type="Node" />
+        <Project Name="Shop.csd" Type="Node" />
+        <Project Name="Transmigration.csd" Type="Layer" />
       </RootFolder>
     </Group>
   </SolutionFolder>
