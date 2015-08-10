@@ -611,7 +611,7 @@ void WorldManager::appearCrown(SizeRank rank)
     }
 }
 
-void WorldManager::Transmigration()
+void WorldManager::transmigration()
 {
     int getDiamondNum = getDiamondNumInTransmigration();
     UserDataManager::getInstance()->addDiamondNum(getDiamondNum);
@@ -620,6 +620,15 @@ void WorldManager::Transmigration()
     SceneManager::getInstance()->resetMainScene();
     delete this;
 
+}
+
+void WorldManager::updateShopdata()
+{
+    // 攻撃力の補正値更新
+    auto animalList = getAnimalList();
+    for (auto animal : animalList) {
+        animal->updateOffense();
+    }
 }
 
 #pragma - network game logic

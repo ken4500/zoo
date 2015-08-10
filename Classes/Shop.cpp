@@ -10,6 +10,8 @@
 #include "SoundManager.h"
 #include "UserDataManager.h"
 #include "YesNoLayer.h"
+#include "NoticeLayer.h"
+#include "WorldManager.h"
 
 bool Shop::init() {
     if (!Layer::init()) {
@@ -30,25 +32,16 @@ void Shop::onEnter()
     setContentSize(size);
     ui::Helper::doLayout(this);
 
-    _offenseUp   = getChildByName("offenseUp");
-    _spawnNum    = getChildByName("spawnNum");
-    _animalNum   = getChildByName("animalNum");
-    _getCoin     = getChildByName("getCoin");
-    _emergeEnemy = getChildByName("emergeEnemy");
+    _shopData = ShopData::getInstance();
 
-    _offenseUp->setTag((int)ShopLineup::OFFESE_UP);
-    _spawnNum->setTag((int)ShopLineup::SPAWN_NUM);
-    _animalNum->setTag((int)ShopLineup::ANIMAL_NUM);
-    _getCoin->setTag((int)ShopLineup::GET_COIN);
-    _emergeEnemy->setTag((int)ShopLineup::EMERGE_ENEMY);
-
-    _shopData = new ShopData();
-    
-    _setData(_offenseUp);
-    _setData(_spawnNum);
-    _setData(_animalNum);
-    _setData(_getCoin);
-    _setData(_emergeEnemy);
+    auto allType = ShopData::getAllType();
+    for (auto type : allType) {
+        auto name = ShopData::toString(type);
+        auto node = getChildByName(name);
+        _buttonScale = node->getChildByName("button")->getScale();
+        node->setTag((int)type);
+        _setData(node);
+    }
 
     _hasDiamondNum = getChildByName<ui::TextBMFont*>("hasDiamondNum");
     _hasDiamondNum->setString(StringUtils::format("x %04d", UserDataManager::getInstance()->getDiamondNum()));
@@ -81,6 +74,9 @@ void Shop::_pushOkButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventT
         button->runAction(ScaleBy::create(0.1f, 1 / 0.9f));
         this->runAction(Sequence::create(
             FadeOut::create(0.3f),
+            CallFunc::create([this]{
+                WorldManager::getInstance()->updateShopdata();
+            }),
             RemoveSelf::create(),
             NULL
         ));
@@ -96,20 +92,22 @@ void Shop::_pushShopButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEven
     ShopLineup type = (ShopLineup)button->getTag();
 
     if (eEventType == ui::Widget::TouchEventType::BEGAN) {
-        button->runAction(ScaleBy::create(0.1f, 0.9));
+        button->runAction(ScaleTo::create(0.1f, _buttonScale * 0.9f));
     }
     if (eEventType == ui::Widget::TouchEventType::ENDED) {
         SoundManager::getInstance()->playDecideEffect2();
+        button->setEnabled(false);
         button->runAction(Sequence::create(
-            ScaleBy::create(0.1f, 1 / 0.9f),
-            CallFunc::create([this, type]{
+            ScaleTo::create(0.1f, _buttonScale),
+            CallFunc::create([this, type, button]{
                 _purchase(type);
+                button->setEnabled(true);
             }),
             NULL
         ));
     }
     if (eEventType == ui::Widget::TouchEventType::CANCELED) {
-        button->runAction(ScaleBy::create(0.1f, 1 / 0.9f));
+        button->runAction(ScaleTo::create(0.1f, _buttonScale));
     }
 }
 
@@ -122,11 +120,26 @@ void Shop::_setData(Node* node)
     auto button = node->getChildByName<ui::Button*>("button");
     auto nextValue = node->getChildByName<ui::TextBMFont*>("nextValue");
     auto requreNum = button->getChildByName<ui::TextBMFont*>("requreNum");
+    auto diamondImage = button->getChildByName<ui::TextBMFont*>("diamond");
     
     desc->setString(CCLS(StringUtils::format("SHOP_DESC_%s", ShopData::toString(type).c_str()).c_str()));
     
-    int price   = _shopData->getPrice(type, 1);
-    float value = _shopData->getValue(type, 1);
+    int level     = UserDataManager::getInstance()->getShopDataLevel(type);
+    int nextLevel = level + 1;
+    if (_shopData->getMaxLevel(type) <= level) {
+        button->setBright(false);
+        button->setTouchEnabled(false);
+        diamondImage->setVisible(false);
+        requreNum->setString("MAX");
+        requreNum->setColor(Color3B(COLOR_BROWN_2));
+        requreNum->setPosition(Vec2(150, requreNum->getPositionY()));
+        return;
+    }
+    
+    button->setEnabled(true);
+    diamondImage->setVisible(true);
+    int price     = _shopData->getPrice(type, nextLevel);
+    float value   = _shopData->getValue(type, level);
     
     requreNum->setString(StringUtils::format("x %d", price));
     switch (type) {
@@ -147,7 +160,23 @@ void Shop::_setData(Node* node)
     button->setTag((int)type);
 }
 
-void Shop::_purchase(ShopLineup lineup)
+void Shop::_purchase(ShopLineup type)
 {
+    int price = _shopData->getPrice(type, UserDataManager::getInstance()->getShopDataLevel(type) + 1);
+    int diamondNum = UserDataManager::getInstance()->getDiamondNum();
+    if (price > diamondNum) {
+        auto layer = NoticeLayer::createWithMessage("ダイヤが足りません");
+        addChild(layer);
+        return;
+    }
     
+    UserDataManager::getInstance()->addDiamondNum(-price);
+    UserDataManager::getInstance()->levelupShopData(type);
+    
+    _hasDiamondNum = getChildByName<ui::TextBMFont*>("hasDiamondNum");
+    _hasDiamondNum->setString(StringUtils::format("x %04d", UserDataManager::getInstance()->getDiamondNum()));
+    
+    auto name = ShopData::toString(type);
+    auto node = getChildByName(name);
+    _setData(node);
 }

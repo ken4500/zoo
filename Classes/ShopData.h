@@ -22,11 +22,10 @@ enum class ShopLineup {
 
 class ShopData {
 public:
-    ShopData();
-    ~ShopData();
-
+    static ShopData* getInstance();
     static std::string toString(ShopLineup lineup);
     static ShopLineup toType(std::string str);
+    static std::vector<ShopLineup> getAllType();
     
     int getMaxLevel(ShopLineup lineup);
     int getPrice(ShopLineup lineup, int level);
@@ -36,6 +35,8 @@ private:
     static std::map<ShopLineup, std::string> toStringMap;
     static std::map<std::string, ShopLineup> toTypeMap;
     
+    ShopData();
+    ~ShopData();
     int _maxLevelList[(int)ShopLineup::COUNT];
     std::vector<int> _priceList[(int)ShopLineup::COUNT];
     std::vector<float> _valueList[(int)ShopLineup::COUNT];

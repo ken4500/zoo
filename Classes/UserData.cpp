@@ -7,6 +7,7 @@
 //
 
 #include "UserData.h"
+#include "ShopData.h"
 
 static int COIN_INT_MAX = 1000000000;
 
@@ -137,22 +138,21 @@ int UserData::getDiamondNum()
     }
 }
 
-ValueMap UserData::getStatus()
+ValueMap UserData::getShopData()
 {
-    if (_data.find("status") == _data.end()) {
+    if (_data.find("shop_data") == _data.end()) {
         auto initData = ValueMap();
-        initData["add_spawn_animal_num"] = 0;
-        initData["add_animal_num"]       = 0;
-        initData["add_offense_rate"]     = 0;
-        initData["add_coin_rate"]        = 0;
-        initData["enemy_num_rate"]       = 0;
-        _data["status"] = initData;
+        auto allType = ShopData::getAllType();
+        for (auto type : allType) {
+            auto key = ShopData::toString(type);
+            initData[key] = 0;
+        }
+        _data["shop_data"] = initData;
         return initData;
     } else {
-        return _data["status"].asValueMap();
+        return _data["shop_data"].asValueMap();
     }
 }
-
 
 #pragma - setter
 
@@ -202,9 +202,9 @@ void UserData::setDiamondNum(int diamondNum)
     _data["diamond_num"] = diamondNum;
 }
 
-void UserData::setStatus(ValueMap status)
+void UserData::setShopData(ValueMap shopData)
 {
-    _data["status"] = status;
+    _data["shop_data"] = shopData;
 }
 
 #pragma - private method

@@ -63,13 +63,14 @@ void Transmigration::_pushYesButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::
     }
     if (eEventType == ui::Widget::TouchEventType::ENDED) {
         SoundManager::getInstance()->playDecideEffect2();
+        button->setEnabled(false);
         button->runAction(ScaleBy::create(0.1f, 1 / 0.9f));
         this->runAction(Sequence::create(
             FadeOut::create(0.3f),
             CallFunc::create([this]{
 
                 // 転生する
-                WorldManager::getInstance()->Transmigration();
+                WorldManager::getInstance()->transmigration();
 
             }),
             RemoveSelf::create(),

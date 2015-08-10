@@ -10,6 +10,7 @@
 #include "WorldManager.h"
 #include "Animal.h"
 #include "SoundManager.h"
+#include "UserDataManager.h"
 
 bool CoinTree::init() {
     if (!Node::init()) {
@@ -54,7 +55,9 @@ void CoinTree::onEnter()
 void CoinTree::setLength(Length length)
 {
     _length = new Length(length.getMmLength());
-    _dropCoin = MAX(1, (int)length.getLength(UnitOfLength::cm));
+    _dropCoin = (int)(length.getLength(UnitOfLength::cm) * UserDataManager::getInstance()->getCoinRate());
+    _dropCoin = MAX(1, _dropCoin);
+
     _maxHp = length.getMmLength() * 4;
     _hp = _maxHp;
     if (_image) {

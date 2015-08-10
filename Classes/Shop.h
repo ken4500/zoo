@@ -12,6 +12,7 @@
 #include "cocos2d.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
+#include "CommonInclude.h"
 #include "ShopData.h"
 
 class Shop : public cocos2d::Layer {
@@ -20,13 +21,9 @@ public:
     bool init() override;
 
 protected:
-    cocos2d::Node* _offenseUp;
-    cocos2d::Node* _spawnNum;
-    cocos2d::Node* _animalNum;
-    cocos2d::Node* _getCoin;
-    cocos2d::Node* _emergeEnemy;
     ShopData* _shopData;
     cocos2d::ui::TextBMFont* _hasDiamondNum;
+    float _buttonScale;
 
     void onEnter() override;
     bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *event);

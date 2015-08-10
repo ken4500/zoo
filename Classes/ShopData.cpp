@@ -37,6 +37,25 @@ ShopLineup ShopData::toType(std::string str)
     return ShopData::toTypeMap[str];
 }
 
+std::vector<ShopLineup> ShopData::getAllType()
+{
+    std::vector<ShopLineup> rtn;
+    for (ShopLineup type = ShopLineup::OFFESE_UP; type != ShopLineup::COUNT; type = (ShopLineup)((int)type + 1)) {
+        rtn.push_back(type);
+    }
+    return rtn;
+}
+
+
+static ShopData* sharedInstance;
+ShopData* ShopData::getInstance()
+{
+    if (!sharedInstance) {
+        sharedInstance = new ShopData();
+    }
+
+    return sharedInstance;
+}
 
 ShopData::ShopData()
 {
@@ -77,10 +96,10 @@ int ShopData::getMaxLevel(ShopLineup lineup)
 
 int ShopData::getPrice(ShopLineup lineup, int level)
 {
-    return _priceList[(int)lineup][level - 1];
+    return _priceList[(int)lineup][level];
 }
 
 float ShopData::getValue(ShopLineup lineup, int level)
 {
-    return _valueList[(int)lineup][level - 1];
+    return _valueList[(int)lineup][level];
 }

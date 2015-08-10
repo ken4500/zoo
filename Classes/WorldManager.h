@@ -72,7 +72,8 @@ public:
     void resetData();
     BattleState checkBattleState();
     void appearCrown(SizeRank rank);
-    void Transmigration();
+    void transmigration();
+    void updateShopdata();
     
     // network game logic
     void startMultiplayBattle();

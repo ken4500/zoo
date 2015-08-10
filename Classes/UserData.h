@@ -29,7 +29,7 @@ public:
     LanguageType getLanguage();
     ValueMap getAnimalDataList();
     int getDiamondNum();
-    ValueMap getStatus();
+    ValueMap getShopData();
 
     void setEndTutorial(bool endTutorial);
     void setStroyData(ValueMap storyData);
@@ -40,7 +40,7 @@ public:
     void setLanguage(LanguageType language);
     void setAnimalDataList(ValueMap getAnimalData);
     void setDiamondNum(int diamondNum);
-    void setStatus(ValueMap status);
+    void setShopData(ValueMap shopData);
 
     
 private:

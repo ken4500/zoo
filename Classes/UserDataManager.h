@@ -14,6 +14,7 @@
 #include "UserData.h"
 #include "spine/Json.h"
 #include "Animal.h"
+#include "ShopData.h"
 
 USING_NS_CC;
 using namespace std;
@@ -68,8 +69,9 @@ public:
     Length getMaxHeight(std::string animalName);
     Length getMinHeight(std::string animalNmae);
     int getAnimalCount(std::string animalName);
+    int getShopDataLevel(ShopLineup type);
 
-    // ステータスに関するメソッド
+    // ショップに関するメソッド
     int getDiamondNum();
     int getSpawnAnimalNum();
     int getAnimalNum();
@@ -78,11 +80,7 @@ public:
     float getEnemyNumRate();
     
     void addDiamondNum(int addNum);
-    void setSpawnAnimalNum(int spawnAnimalNum);
-    void setAnimalNum(int animalNum);
-    void setOffenseRate(float offenseRate);
-    void setCoinRate(float coinRate);
-    void setEnemyNumRate(float enemyRate);
+    void levelupShopData(ShopLineup type);
 
     CC_SYNTHESIZE(UserData*, _userData, UserData);
     

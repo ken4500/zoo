@@ -9,6 +9,7 @@
 #include "EnemyGenerater.h"
 #include "Animal.h"
 #include "WorldManager.h"
+#include "UserDataManager.h"
 
 const int WAVE_COUNT = 3;
 const int ENEMY_COUNT_PER_WAVE = 8;
@@ -91,7 +92,7 @@ void EnemyGenerater::_nextWave()
 {
     _wave++;
     
-    int enemyCount = ENEMY_COUNT_PER_WAVE;
+    int enemyCount = (int)(ENEMY_COUNT_PER_WAVE * UserDataManager::getInstance()->getEnemyNumRate());
     if (_wave == WAVE_COUNT) {
         enemyCount = 1;
     }
