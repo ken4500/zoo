@@ -290,7 +290,8 @@ void WorldManager::lotteryGacha()
     worldScene->updateCoinLabel();
 
     // ガチャ実行
-    _gacha->lotteryGacha(_info);
+    int spawnNum = UserDataManager::getInstance()->getSpawnAnimalNum();
+    _gacha->lotteryGacha(_info, spawnNum);
     
     // コインエフェクト
     auto text = ui::TextBMFont::create(StringUtils::format("-%ld", _gacha->getPrice()), "font/zoo_font2.fnt");
@@ -318,25 +319,32 @@ void WorldManager::lotteryGacha()
 
 }
 
-void WorldManager::releaseAnimal(Animal* animal, bool hit)
+void WorldManager::releaseAnimal(std::vector<Animal*> animalList, bool hit)
 {
     if (_isNetwork == false) {
-        UserDataManager::getInstance()->getAnimal(animal);
-        UserDataManager::getInstance()->addAnimal(animal);
+        for (auto animal : animalList) {
+            UserDataManager::getInstance()->getAnimal(animal);
+            UserDataManager::getInstance()->addAnimal(animal);
+        }
     } else {
-        auto command = CommandGenerater::releaseAnimal(animal);
+        auto command = CommandGenerater::releaseAnimal(animalList);
         CommandGenerater::sendData(command);
     }
-    _setTotalWeight(_totalWeight + animal->getWeight());
+
+    Weight sumWeight(0);
+    for_each(animalList.begin(), animalList.end(), [&](Animal* animal){
+        sumWeight = sumWeight + animal->getWeight();
+    });
+    _setTotalWeight(_totalWeight + sumWeight);
 
     if (hit) {
-        _map->releaseAnimal(animal, [this] {
+        _map->releaseAnimal(animalList, [this] {
             _checkAndRemoveAnimal();
             levelup();
             _map->vibrationMap();
         });
     } else {
-        _map->releaseAnimal(animal, [this] {
+        _map->releaseAnimal(animalList, [this] {
             _checkAndRemoveAnimal();
         });
     }
@@ -677,10 +685,12 @@ void WorldManager::endMultiplayBattle()
     _setGameActive(false);
 }
 
-void WorldManager::releaseAnimalByNetwork(Animal* animal)
+void WorldManager::releaseAnimalByNetwork(std::vector<Animal*> animalList)
 {
-    animal->setIsOpponent(true);
-    _map->releaseOpponentAnimal(animal, nullptr);
+    for (auto animal : animalList) {
+        animal->setIsOpponent(true);
+        _map->releaseOpponentAnimal(animal, nullptr);
+    }
 }
 
 void WorldManager::createTreeByNetwork(CoinTree* tree)

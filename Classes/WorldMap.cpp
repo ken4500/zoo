@@ -282,24 +282,38 @@ void WorldMap::setCoinTree(CoinTree* tree)
     tree->sprout();
 }
 
-void WorldMap::releaseAnimal(Animal* animal, std::function<void ()> callback)
+void WorldMap::releaseAnimal(std::vector<Animal*> animalList, std::function<void ()> callback)
 {
     auto gacha = WorldManager::getInstance()->getGacha();
     float gachaHeight = gacha->getGachaHeight();
-    animal->setPosition(gacha->getPosition() + Vec2(0, gachaHeight));
-    animal->setZOrder(2000);
-    addChild(animal);
-    Vec2 target;
-    if (SceneManager::getInstance()->isNetwork()) {
-        if (SceneManager::getInstance()->isHost()) {
-            target = gacha->getPosition() + Vec2(-gachaHeight, -gachaHeight * 1.0f);
+    
+    for (int i = 0; i < animalList.size(); i++) {
+        auto animal = animalList[i];
+        animal->setPosition(gacha->getPosition() + Vec2(0, gachaHeight));
+        animal->setZOrder(2000);
+        addChild(animal);
+        Vec2 target;
+        if (SceneManager::getInstance()->isNetwork()) {
+            if (SceneManager::getInstance()->isHost()) {
+                target = gacha->getPosition() + Vec2(-gachaHeight - (gachaHeight * 0.1f * (i - 2)), -gachaHeight * 1.0f);
+            } else {
+                target = gacha->getPosition() + Vec2(gachaHeight + (gachaHeight * 0.1f * (i - 2)), -gachaHeight * 1.0f);
+            }
         } else {
-            target = gacha->getPosition() + Vec2(gachaHeight, -gachaHeight * 1.0f);
+            target = gacha->getPosition() + Vec2(rand_0_1() * gachaHeight * 2 - gachaHeight, -gachaHeight * 1.0f);
         }
-    } else {
-        target = gacha->getPosition() + Vec2(rand_0_1() * gachaHeight * 2 - gachaHeight, -gachaHeight * 1.0f);
+        animal->jump(target, gachaHeight * 2, nullptr);
     }
-    animal->jump(target, gachaHeight * 2, callback);
+    
+    runAction(Sequence::create(
+        DelayTime::create(1.0f),
+        CallFunc::create([callback]{
+            if (callback) {
+                callback();
+            }
+        }),
+        NULL
+    ));
 }
 
 void WorldMap::releaseOpponentAnimal(Animal* animal, std::function<void ()> callback)

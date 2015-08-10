@@ -35,7 +35,7 @@ public:
     bool isMaxScale();
     void setCoinTree(CoinTree* tree);
 
-    void releaseAnimal(Animal* animal, std::function<void ()> callback);
+    void releaseAnimal(std::vector<Animal*> animalList, std::function<void ()> callback);
     void releaseOpponentAnimal(Animal* animal, std::function<void ()> callback);
     void addAnimalAtRandomPoint(Animal* animal);
     void addAnimal(Animal* animal, Vec2 targetPoint);

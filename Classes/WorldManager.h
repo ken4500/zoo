@@ -61,7 +61,7 @@ public:
 
     // game logic
     void lotteryGacha();
-    void releaseAnimal(Animal* animal, bool hit);
+    void releaseAnimal(std::vector<Animal*> animalList, bool hit);
     void levelup();
     void startTutorial();
     void startBattle();
@@ -80,7 +80,7 @@ public:
     void startMultiplayTest();
     void showResultMultiplayBattle();
     void endMultiplayBattle();
-    void releaseAnimalByNetwork(Animal* animal);
+    void releaseAnimalByNetwork(std::vector<Animal*> animalList);
     void createTreeByNetwork(CoinTree* tree);
     void deadTreeByNetwork(int treeId);
     void removeAnimalByNetwork(int animalId);

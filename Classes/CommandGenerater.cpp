@@ -57,11 +57,15 @@ void CommandGenerater::excCommand(std::string dataStr)
         }
         else if (command.commandName == "create_animal")
         {
-            CCLOG("##name = %s", command.stringDataList[0].c_str());
-            CCLOG("##id = %d", command.intDataList[0]);
-            auto animal = Animal::CreateWithSpeceis(command.stringDataList[0], command.numberDataList[0]);
-            animal->setId(command.intDataList[0]);
-            WorldManager::getInstance()->releaseAnimalByNetwork(animal);
+            CCLOG("##create num = %d", command.intDataList[0]);
+            int size = command.intDataList[0];
+            std::vector<Animal*> animalList;
+            for (int i = 0; i < size; i++) {
+                auto animal = Animal::CreateWithSpeceis(command.stringDataList[i], command.numberDataList[i]);
+                animal->setId(command.intDataList[i - 1]);
+                animalList.push_back(animal);
+            }
+            WorldManager::getInstance()->releaseAnimalByNetwork(animalList);
         }
         else if (command.commandName == "remove_animal")
         {
@@ -188,14 +192,17 @@ CommandData CommandGenerater::deadCoinTree(CoinTree* coinTree)
     return data;
 }
 
-CommandData CommandGenerater::releaseAnimal(Animal* animal)
+CommandData CommandGenerater::releaseAnimal(std::vector<Animal*> animalList)
 {
     CommandData data;
     data.commandName = "create_animal";
     data.time = ZUtil::getTime();
-    data.intDataList.push_back(animal->getId());
-    data.stringDataList.push_back(animal->getName());
-    data.numberDataList.push_back(animal->getHeight().getMmLength());
+    data.intDataList.push_back((int)animalList.size());
+    for (auto animal : animalList) {
+        data.intDataList.push_back(animal->getId());
+        data.stringDataList.push_back(animal->getName());
+        data.numberDataList.push_back(animal->getHeight().getMmLength());
+    }
     return data;
 }
 

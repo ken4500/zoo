@@ -39,32 +39,36 @@ float Gacha::getGachaHeight()
     return image->getContentSize().height * getScale();
 }
 
-void Gacha::lotteryGacha(WorldInfo* _info)
+void Gacha::lotteryGacha(WorldInfo* _info, int spawnNum)
 {
-    _info->addLotteryGachaCount();
 
     bool isHit = false;
-    bool canLotteryHit = _least < _info->lotteryGachaCount;
-    std::string animalStr;
 
-    do {
-        float rnd = _sumProbability * rand_0_1();
-        float lot = 0;
-        for (int i = 0; i < _probabilityList.size(); i++) {
-            lot += _probabilityList[i];
-            if (rnd < lot) {
-                animalStr = _rewardList[i];
-                isHit = _hitList[i];
-                break;
+    std::vector<std::string> animalNameList;
+    for (int i = 0; i < spawnNum; i++) {
+        _info->addLotteryGachaCount();
+        bool canLotteryHit = _least < _info->lotteryGachaCount;
+
+        int j;
+        do {
+            float rnd = _sumProbability * rand_0_1();
+            float lot = 0;
+            for (j = 0; j < _probabilityList.size(); j++) {
+                lot += _probabilityList[j];
+                if (rnd < lot) {
+                    isHit = (isHit == false) ? _hitList[j] : isHit;
+                    break;
+                }
             }
-        }
-    } while ((_isDebug && isHit == false) || (_isDebug == false && isHit && canLotteryHit == false));
-    
+        } while ((_isDebug && isHit == false) || (_isDebug == false && isHit && canLotteryHit == false));
+        animalNameList.push_back(_rewardList[j]);
+    }
+
     if (isHit) {
     } else {
         SoundManager::getInstance()->playGachaEffect2();
     }
-    
+
     std::string animationName = (isHit) ? "gacha1" : "gacha2";
     this->stopAllActions();
     this->runAction(_timeline);
@@ -72,17 +76,21 @@ void Gacha::lotteryGacha(WorldInfo* _info)
     float durationTime = ZUtil::calcDurationTime(_timeline, animationName);
     this->runAction(Sequence::create(
         DelayTime::create(durationTime - 0.1f),
-        CallFunc::create([this, animalStr, isHit](){
-            Animal* animal;
-            if (isHit) {
-                Species* species = new Species(animalStr);
-                animal = Animal::CreateWithSpeceis(animalStr, species->getAverageHeight().getMmLength());
-                delete species;
-            } else {
-                animal = Animal::CreateWithSpeceis(animalStr);
+        CallFunc::create([this, animalNameList, isHit](){
+            std::vector<Animal*> animalList;
+            for (auto animalStr : animalNameList) {
+                Animal* animal;
+                if (isHit) {
+                    Species* species = new Species(animalStr);
+                    animal = Animal::CreateWithSpeceis(animalStr, species->getAverageHeight().getMmLength());
+                    delete species;
+                } else {
+                    animal = Animal::CreateWithSpeceis(animalStr);
+                }
+                animalList.push_back(animal);
             }
 
-            WorldManager::getInstance()->releaseAnimal(animal, isHit);
+            WorldManager::getInstance()->releaseAnimal(animalList, isHit);
             if (finishGachaCallback && isHit == false) {
                 finishGachaCallback();
             }

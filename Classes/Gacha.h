@@ -23,7 +23,7 @@ public:
     CREATE_FUNC(Gacha);
     bool init() override;
     float getGachaHeight();
-    void lotteryGacha(WorldInfo* info);
+    void lotteryGacha(WorldInfo* info, int spawnNum);
     void setNewGacha(WorldInfo* info);
     long int getPrice();
     void setOpponent(bool isOpponent);

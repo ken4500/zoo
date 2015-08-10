@@ -27,7 +27,7 @@ public:
     static CommandData sendResultInfo(Weight weight);
     static CommandData makeCoinTree(CoinTree* coinTree);
     static CommandData deadCoinTree(CoinTree* coinTree);
-    static CommandData releaseAnimal(Animal* animal);
+    static CommandData releaseAnimal(std::vector<Animal*> animalList);
     static CommandData removeAnimal(Animal* animal);
     static CommandData walkAnimal(Animal* animal);
     static CommandData dashAnimal(Animal* animal);
