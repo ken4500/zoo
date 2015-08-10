@@ -22,6 +22,9 @@ NOTICE_MULTIPLAY = 同じWi-Fiに接続している、\nもしくはbluetoothが
 NOTICE_LACK_LIFE = ライフが足りません。\nライフは時間で回復します。;
 YESNO_END_MULTIPLAY = バトルを終了しますか？;
 
+NOTICE_NOT_END_TUTORIAL = チュートリアルが終わるまで\nこのメニューは使用できません。;
+NOTICE_NOT_TRANSMIGRATION = レベル6になるまで\nこのメニューは使用できません。;
+
 BOOK_GET_NUM = 取得回数;
 BOOK_MIN = 最小;
 BOOK_MAX = 最大;

@@ -22,6 +22,9 @@ NOTICE_MULTIPLAY = You can play with player \nwho connect to save Wi-Fi \nor tur
 NOTICE_LACK_LIFE = You don't have enough life.\n Life repair by time.;
 YESNO_END_MULTIPLAY = Are you sure \n you want to finish this game?;
 
+NOTICE_NOT_END_TUTORIAL = You can't use this menu \nuntil finishing tutorial;
+NOTICE_NOT_TRANSMIGRATION = You can't use this menu \nuntil reaching 6 level;
+
 BOOK_GET_NUM = Get;
 BOOK_MIN = Min;
 BOOK_MAX = Max;

@@ -18,7 +18,9 @@ public:
     CREATE_FUNC(Transmigration);
     bool init() override;
 
-protected:    
+protected:
+    cocos2d::ui::TextBMFont* _getDiamondNum;
+    
     void onEnter() override;
     bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *event);
     void _pushYesButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);

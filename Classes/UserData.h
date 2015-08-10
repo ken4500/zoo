@@ -21,6 +21,7 @@ public:
     static UserData* load();
     
     bool isEndTutorial();
+    ValueMap getStoryData();
     ValueMap getWorldInfo();
     long int getCoin();
     ValueMap getLifeData();
@@ -31,6 +32,7 @@ public:
     ValueMap getStatus();
 
     void setEndTutorial(bool endTutorial);
+    void setStroyData(ValueMap storyData);
     void setWorldInfo(ValueMap info);
     void setCoin(long int coin);
     void setLifeData(ValueMap lifeData);

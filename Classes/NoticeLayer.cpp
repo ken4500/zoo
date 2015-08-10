@@ -41,6 +41,9 @@ bool NoticeLayer::initWithMessage(std::string message)
         return false;
     }
     
+    auto back = LayerColor::create(Color4B(0, 0, 0, 100));
+    addChild(back, -1);
+    
     this->setCascadeOpacityEnabled(true);
     
     auto displaySize = Director::getInstance()->getVisibleSize();

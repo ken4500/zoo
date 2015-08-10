@@ -45,6 +45,16 @@ bool UserData::isEndTutorial()
     }
 }
 
+ValueMap UserData::getStoryData()
+{
+    if (_data.find("story_data") == _data.end()) {
+        auto initData = ValueMap();
+        return initData;
+    } else {
+        return _data["story_data"].asValueMap();
+    }
+}
+
 ValueMap UserData::getWorldInfo()
 {
     if (_data.find("world_info") == _data.end()) {
@@ -149,6 +159,11 @@ ValueMap UserData::getStatus()
 void UserData::setEndTutorial(bool endTutorial)
 {
     _data["end_tutorial"] = endTutorial;
+}
+
+void UserData::setStroyData(ValueMap storyData)
+{
+    _data["story_data"] = storyData;
 }
 
 void UserData::setWorldInfo(ValueMap info)

@@ -294,7 +294,14 @@ void MainScene::playNovel(std::string novelId, std::function<void ()> callback, 
 
 void MainScene::playNovel(std::string novelId, std::function<void ()> callback, bool apearSkipButton)
 {
-    // 再生しない
+    // すでに読んだので再生しない
+    bool alreadyRead = UserDataManager::getInstance()->alreadyRead(novelId);
+    if (alreadyRead) {
+        callback();
+        return;
+    }
+    
+    // すでに読んだので再生しない
     auto file = CCLS("NOVEL_FILE_NAME");
     auto jsonStr = FileUtils::getInstance()->getStringFromFile(file);
     rapidjson::Document document;
@@ -330,6 +337,7 @@ void MainScene::playNovel(std::string novelId, std::function<void ()> callback, 
     addChild(novel);
     novel->playNovel();
 
+    UserDataManager::getInstance()->setAlreadyRead(novelId);
 }
 
 void MainScene::updateDiamondLabel()

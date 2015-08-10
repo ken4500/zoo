@@ -25,9 +25,13 @@ public:
     ~UserDataManager();
     bool init();
     void reset();
+    void transmigration();
 
+    // ストーリーに関するメソッド
     bool isEndTutorial();
     void clearTutorial();
+    bool alreadyRead(std::string novelId);
+    void setAlreadyRead(std::string novelId);
 
     // 世界情報に関するメソッド
     WorldInfo* getWorldInfo();

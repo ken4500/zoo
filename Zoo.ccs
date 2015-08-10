@@ -97,6 +97,9 @@
           <Image Name="skel.png" />
           <Image Name="menu4.png" />
           <Image Name="menu5.png" />
+          <Image Name="button03_disable.png" />
+          <Image Name="button04_disable.png" />
+          <Image Name="button05_disable.png" />
         </Folder>
         <Project Name="Result.csd" Type="Node" />
         <Project Name="YesNo.csd" Type="Node" />

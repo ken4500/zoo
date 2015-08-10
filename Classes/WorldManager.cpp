@@ -614,6 +614,12 @@ void WorldManager::appearCrown(SizeRank rank)
 void WorldManager::Transmigration()
 {
     int getDiamondNum = getDiamondNumInTransmigration();
+    UserDataManager::getInstance()->addDiamondNum(getDiamondNum);
+    UserDataManager::getInstance()->transmigration();
+    sharedWorldManager = nullptr;
+    SceneManager::getInstance()->resetMainScene();
+    delete this;
+
 }
 
 #pragma - network game logic

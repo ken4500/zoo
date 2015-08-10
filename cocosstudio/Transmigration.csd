@@ -27,13 +27,13 @@
             <PreSize X="0.0000" Y="0.0000" />
             <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font2.fnt" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="noticeMessage" ActionTag="-574041992" Tag="103" IconVisible="False" LeftMargin="378.2858" RightMargin="367.7142" TopMargin="169.8622" BottomMargin="412.1378" FontSize="29" LabelText="ゲームをリセットして、&#xA;ダイアモンドをゲットします" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-            <Size X="390.0000" Y="58.0000" />
+          <AbstractNodeData Name="noticeMessage" ActionTag="-574041992" Tag="103" IconVisible="False" LeftMargin="378.2859" RightMargin="406.7141" TopMargin="161.8618" BottomMargin="426.1382" FontSize="26" LabelText="ゲームをリセットして、&#xA;ダイアモンドをゲットします" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+            <Size X="351.0000" Y="52.0000" />
             <AnchorPoint ScaleY="1.0000" />
-            <Position X="378.2858" Y="470.1378" />
+            <Position X="378.2859" Y="478.1382" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="60" G="30" B="10" />
-            <PrePosition X="0.3330" Y="0.7346" />
+            <PrePosition X="0.3330" Y="0.7471" />
             <PreSize X="0.0000" Y="0.0000" />
             <FontResource Type="Normal" Path="font/yasashisa.ttf" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
@@ -93,56 +93,56 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="diamond" ActionTag="897822211" Tag="108" IconVisible="False" LeftMargin="462.4958" RightMargin="601.5043" TopMargin="456.1254" BottomMargin="121.8746" ctype="SpriteObjectData">
-            <Size X="72.0000" Y="62.0000" />
+          <AbstractNodeData Name="diamond" ActionTag="897822211" Tag="108" IconVisible="False" LeftMargin="412.4958" RightMargin="551.5043" TopMargin="400.1947" BottomMargin="91.8053" ctype="SpriteObjectData">
+            <Size X="172.0000" Y="148.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="498.4958" Y="152.8746" />
-            <Scale ScaleX="0.8000" ScaleY="0.8000" />
+            <Position X="498.4958" Y="165.8053" />
+            <Scale ScaleX="0.4000" ScaleY="0.4000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.4388" Y="0.2389" />
+            <PrePosition X="0.4388" Y="0.2591" />
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="Normal" Path="ui/diamond.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="getDiamondNum" ActionTag="1330995850" Tag="109" IconVisible="False" LeftMargin="547.8909" RightMargin="456.1091" TopMargin="447.6946" BottomMargin="111.3054" LabelText="x 10" ctype="TextBMFontObjectData">
+          <AbstractNodeData Name="getDiamondNum" ActionTag="1330995850" Tag="109" IconVisible="False" LeftMargin="546.1894" RightMargin="457.8106" TopMargin="433.6944" BottomMargin="125.3056" LabelText="x 10" ctype="TextBMFontObjectData">
             <Size X="132.0000" Y="81.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="613.8909" Y="151.8054" />
+            <Position X="612.1894" Y="165.8056" />
             <Scale ScaleX="0.8000" ScaleY="0.8000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5404" Y="0.2372" />
+            <PrePosition X="0.5389" Y="0.2591" />
             <PreSize X="0.0000" Y="0.0000" />
             <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font2.fnt" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="noticeMessage_0" ActionTag="-396843419" Tag="111" IconVisible="False" LeftMargin="390.5080" RightMargin="505.4921" TopMargin="303.8615" BottomMargin="249.1385" FontSize="29" LabelText="・図鑑データ&#xA;・所持ダイア&#xA;・ショップデータ" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+          <AbstractNodeData Name="noticeMessage_0" ActionTag="-396843419" Tag="111" IconVisible="False" LeftMargin="390.5080" RightMargin="505.4920" TopMargin="287.8611" BottomMargin="265.1389" FontSize="29" LabelText="・図鑑データ&#xA;・所持ダイア&#xA;・ショップデータ" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
             <Size X="240.0000" Y="87.0000" />
             <AnchorPoint ScaleY="1.0000" />
-            <Position X="390.5080" Y="336.1385" />
+            <Position X="390.5080" Y="352.1389" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="60" G="30" B="10" />
-            <PrePosition X="0.3438" Y="0.5252" />
+            <PrePosition X="0.3438" Y="0.5502" />
             <PreSize X="0.0000" Y="0.0000" />
             <FontResource Type="Normal" Path="font/yasashisa.ttf" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="BitmapFontLabel_5" ActionTag="1441945631" Tag="112" IconVisible="False" LeftMargin="367.4597" RightMargin="307.5403" TopMargin="233.5248" BottomMargin="321.4752" LabelText="引き継ぐデータ" ctype="TextBMFontObjectData">
+          <AbstractNodeData Name="BitmapFontLabel_5" ActionTag="1441945631" Tag="112" IconVisible="False" LeftMargin="367.4598" RightMargin="307.5402" TopMargin="217.5247" BottomMargin="337.4753" LabelText="引き継ぐデータ" ctype="TextBMFontObjectData">
             <Size X="461.0000" Y="85.0000" />
             <AnchorPoint ScaleY="0.5000" />
-            <Position X="367.4597" Y="363.9752" />
+            <Position X="367.4598" Y="379.9753" />
             <Scale ScaleX="0.6000" ScaleY="0.6000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.3235" Y="0.5687" />
+            <PrePosition X="0.3235" Y="0.5937" />
             <PreSize X="0.4014" Y="0.1328" />
             <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font3.fnt" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="BitmapFontLabel_5_0" ActionTag="-342096562" Tag="113" IconVisible="False" LeftMargin="367.4597" RightMargin="256.5403" TopMargin="388.8649" BottomMargin="166.1351" LabelText="取得できるダイア" ctype="TextBMFontObjectData">
+          <AbstractNodeData Name="BitmapFontLabel_5_0" ActionTag="-342096562" Tag="113" IconVisible="False" LeftMargin="367.4598" RightMargin="256.5402" TopMargin="372.8644" BottomMargin="182.1356" LabelText="取得できるダイア" ctype="TextBMFontObjectData">
             <Size X="512.0000" Y="85.0000" />
             <AnchorPoint ScaleY="0.5000" />
-            <Position X="367.4597" Y="208.6351" />
+            <Position X="367.4598" Y="224.6356" />
             <Scale ScaleX="0.6000" ScaleY="0.6000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.3235" Y="0.3260" />
+            <PrePosition X="0.3235" Y="0.3510" />
             <PreSize X="0.4014" Y="0.1328" />
             <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font3.fnt" Plist="" />
           </AbstractNodeData>

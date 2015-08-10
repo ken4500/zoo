@@ -43,6 +43,28 @@ void UserDataManager::reset()
     _userData->save();
 }
 
+void UserDataManager::transmigration()
+{
+    // 引き継ぎデータ
+    auto lang       = _userData->getLanguage();
+    auto diamond    = _userData->getDiamondNum();
+    auto animalData = _userData->getAnimalDataList();
+    auto status     = _userData->getStatus();
+    auto story      = _userData->getStoryData();
+    
+    // 初期化
+    _userData->init();
+    
+    _userData->setLanguage(lang);
+    _userData->setDiamondNum(diamond);
+    _userData->setAnimalDataList(animalData);
+    _userData->setStatus(status);
+    _userData->setEndTutorial(true);
+    _userData->setStroyData(story);
+    
+    _userData->save();
+}
+
 bool UserDataManager::isEndTutorial()
 {
     return _userData->isEndTutorial();
@@ -53,6 +75,25 @@ void UserDataManager::clearTutorial()
     _userData->setEndTutorial(true);
     _userData->save();
 }
+
+bool UserDataManager::alreadyRead(std::string novelId)
+{
+    auto storyData = _userData->getStoryData();
+    if (storyData.find(novelId) == storyData.end()) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+void UserDataManager::setAlreadyRead(std::string novelId)
+{
+    auto storyData = _userData->getStoryData();
+    storyData[novelId] = 1;
+    _userData->setStroyData(storyData);
+    _userData->save();
+}
+
 
 WorldInfo* UserDataManager::getWorldInfo()
 {

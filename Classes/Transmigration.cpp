@@ -7,6 +7,7 @@
 //
 
 #include "Transmigration.h"
+#include "WorldManager.h"
 #include "SoundManager.h"
 
 bool Transmigration::init() {
@@ -24,12 +25,21 @@ void Transmigration::onEnter()
 {
     Layer::onEnter();
     
+    Size size = Director::getInstance()->getVisibleSize();
+    setContentSize(size);
+    ui::Helper::doLayout(this);
+
     
     auto yes = getChildByName<ui::Button*>("yesButton");
     yes->addTouchEventListener(CC_CALLBACK_2(Transmigration::_pushYesButton, this));
     auto no = getChildByName<ui::Button*>("noButton");
     no->addTouchEventListener(CC_CALLBACK_2(Transmigration::_pushNoButton, this));
 
+    auto diamondImage = getChildByName<Sprite*>("diamond");
+    CCLOG("DIAMOND %f", diamondImage->getScale());
+
+    _getDiamondNum = getChildByName<ui::TextBMFont*>("getDiamondNum");
+    _getDiamondNum->setString(StringUtils::format("x %d", WorldManager::getInstance()->getDiamondNumInTransmigration()));
     
     // タッチイベントの設定
     auto dispatcher = Director::getInstance()->getEventDispatcher();
@@ -57,8 +67,9 @@ void Transmigration::_pushYesButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::
         this->runAction(Sequence::create(
             FadeOut::create(0.3f),
             CallFunc::create([this]{
-                // TODO: 転生処理
-            
+
+                // 転生する
+                WorldManager::getInstance()->Transmigration();
 
             }),
             RemoveSelf::create(),

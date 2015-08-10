@@ -25,7 +25,6 @@ MenuLayer::~MenuLayer()
     
 }
 
-
 bool MenuLayer::init()
 {
     int height = 600;
@@ -92,13 +91,19 @@ void MenuLayer::_pushMultiPlayButton(cocos2d::Ref* pSender, cocos2d::ui::Widget:
         button->runAction(Sequence::create(
             ScaleBy::create(0.1f, 1 / 0.9f),
             CallFunc::create([this]{
-                auto notice = NoticeLayer::createWithMessage(CCLS("NOTICE_MULTIPLAY"));
-                notice->setFontSize(24);
-                this->getParent()->addChild(notice);
-                notice->closeNoticeCallback = []{
-                    SceneManager::getInstance()->receiveMultiplayerInvitations();
-                    SceneManager::getInstance()->showPeerList();
-                };
+                bool isEndTutorial = UserDataManager::getInstance()->isEndTutorial();
+                if (isEndTutorial == false) {
+                    auto notice = NoticeLayer::createWithMessage(CCLS("NOTICE_NOT_END_TUTORIAL"));
+                    this->getParent()->addChild(notice);
+                } else {
+                    auto notice = NoticeLayer::createWithMessage(CCLS("NOTICE_MULTIPLAY"));
+                    notice->setFontSize(24);
+                    this->getParent()->addChild(notice);
+                    notice->closeNoticeCallback = []{
+                        SceneManager::getInstance()->receiveMultiplayerInvitations();
+                        SceneManager::getInstance()->showPeerList();
+                    };
+                }
                 
                 this->removeFromParent();
             }),
@@ -194,8 +199,14 @@ void MenuLayer::_pushTransmigrationButton(cocos2d::Ref* pSender, cocos2d::ui::Wi
         button->runAction(Sequence::create(
             ScaleBy::create(0.1f, 1 / 0.9f),
             CallFunc::create([this]{
-                auto layer = CSLoader::createNode("Transmigration.csb");
-                this->addChild(layer, 20);
+                bool diamondNum = WorldManager::getInstance()->getDiamondNumInTransmigration();
+                if (diamondNum == 0) {
+                    auto notice = NoticeLayer::createWithMessage(CCLS("NOTICE_NOT_TRANSMIGRATION"));
+                    this->getParent()->addChild(notice);
+                } else {
+                    auto layer = CSLoader::createNode("Transmigration.csb");
+                    this->addChild(layer, 20);
+                }
             }),
             NULL
         ));
