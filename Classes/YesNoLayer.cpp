@@ -35,9 +35,7 @@ YesNoLayer* YesNoLayer::createWithMessage(std::string message)
 
 bool YesNoLayer::initWithMessage(std::string message)
 {
-    int height = 400;
-
-    if (!ModalLayer::initWithHeight(height)) {
+    if (!ModalLayer::init()) {
         return false;
     }
     

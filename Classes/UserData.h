@@ -21,20 +21,26 @@ public:
     static UserData* load();
     
     bool isEndTutorial();
+    ValueMap getStoryData();
     ValueMap getWorldInfo();
     long int getCoin();
     ValueMap getLifeData();
     ValueVector getAnimalList();
     LanguageType getLanguage();
     ValueMap getAnimalDataList();
+    int getDiamondNum();
+    ValueMap getShopData();
 
     void setEndTutorial(bool endTutorial);
+    void setStroyData(ValueMap storyData);
     void setWorldInfo(ValueMap info);
     void setCoin(long int coin);
     void setLifeData(ValueMap lifeData);
     void setAnimalList(ValueVector animal);
     void setLanguage(LanguageType language);
     void setAnimalDataList(ValueMap getAnimalData);
+    void setDiamondNum(int diamondNum);
+    void setShopData(ValueMap shopData);
 
     
 private:

@@ -19,6 +19,8 @@
 #include "BookReader.h"
 #include "HpGauge.h"
 #include "HpGaugeReader.h"
+#include "ShopReader.h"
+#include "TransmigrationReader.h"
 
 USING_NS_CC;
 
@@ -67,6 +69,8 @@ bool MainScene::init()
     instance->registReaderObject("CoinTreeReader", (ObjectFactory::Instance) CoinTreeReader::getInstance);
     instance->registReaderObject("BookReader", (ObjectFactory::Instance) BookReader::getInstance);
     instance->registReaderObject("HpGaugeReader", (ObjectFactory::Instance) HpGaugeReader::getInstance);
+    instance->registReaderObject("ShopReader", (ObjectFactory::Instance) ShopReader::getInstance);
+    instance->registReaderObject("TransmigrationReader", (ObjectFactory::Instance) TransmigrationReader::getInstance);
 
     _rootNode = CSLoader::createNode("MainScene.csb");
     Size size = Director::getInstance()->getVisibleSize();
@@ -90,10 +94,12 @@ bool MainScene::init()
     _coinLabel = _menuNode->getChildByName<ui::TextBMFont*>("coinText");
     _lifeLabel = _menuNode->getChildByName<ui::TextBMFont*>("hartText");
     _repairTimeLabel = _menuNode->getChildByName<ui::TextBMFont*>("repairTimeText");
-    _levelBack = _rootNode->getChildByName("levelBack");
-    _levelLabel = _levelBack->getChildByName<ui::TextBMFont*>("levelLabel");
-    _weightLabel = _rootNode->getChildByName<ui::TextBMFont*>("weightLabel");
-    _weightImage = _rootNode->getChildByName<Sprite*>("weightImage");
+    _levelBack    = _rootNode->getChildByName("levelBack");
+    _levelLabel   = _levelBack->getChildByName<ui::TextBMFont*>("levelLabel");
+    _weightLabel  = _rootNode->getChildByName<ui::TextBMFont*>("weightLabel");
+    _weightImage  = _rootNode->getChildByName<Sprite*>("weightImage");
+    _diamondLabel = _menuNode->getChildByName<ui::TextBMFont*>("diamondText");
+    _diamonImage  = _menuNode->getChildByName<Sprite*>("diamond");
 
     _otherMenuButton = _menuNode->getChildByName<ui::Button*>("otherMenu");
     _otherMenuButton->addTouchEventListener(CC_CALLBACK_2(MainScene::_pushOtherMenuButton, this));
@@ -125,6 +131,7 @@ void MainScene::onEnter()
     
     updateLevelLabel();
     updateCoinLabel();
+    updateDiamondLabel();
     updateLifeLabel(0);
     _preWeight = WorldManager::getInstance()->getTotalWeight();
     _weightLabel->setString(StringUtils::format("%.02f %s", _preWeight.getWeight(), _preWeight.getUnitStr().c_str()));
@@ -287,7 +294,14 @@ void MainScene::playNovel(std::string novelId, std::function<void ()> callback, 
 
 void MainScene::playNovel(std::string novelId, std::function<void ()> callback, bool apearSkipButton)
 {
-    // 再生しない
+    // すでに読んだので再生しない
+    bool alreadyRead = UserDataManager::getInstance()->alreadyRead(novelId);
+    if (alreadyRead) {
+        callback();
+        return;
+    }
+    
+    // すでに読んだので再生しない
     auto file = CCLS("NOVEL_FILE_NAME");
     auto jsonStr = FileUtils::getInstance()->getStringFromFile(file);
     rapidjson::Document document;
@@ -323,6 +337,13 @@ void MainScene::playNovel(std::string novelId, std::function<void ()> callback, 
     addChild(novel);
     novel->playNovel();
 
+    UserDataManager::getInstance()->setAlreadyRead(novelId);
+}
+
+void MainScene::updateDiamondLabel()
+{
+    int diamondNum = UserDataManager::getInstance()->getDiamondNum();
+    _diamondLabel->setString(StringUtils::format("x %d", diamondNum));
 }
 
 void MainScene::updateCoinLabel()
@@ -398,7 +419,7 @@ void MainScene::_setupDebugMenu()
     }
 
     // メニューを増やしたいときは数を増やしてね
-    int menuNum = 6;
+    int menuNum = 7;
 
     auto size = Director::getInstance()->getVisibleSize();
     auto dummyImage = Sprite::create("ui/debug_button.png");
@@ -461,7 +482,14 @@ void MainScene::_setupDebugMenu()
     test->setAnchorPoint(Vec2(1.0f, 0.0f));
     test->setPosition(Vec2(0, 400));
     debugMenu->addChild(test, 1);
-
+    
+    auto addDiamond = DebugButton::create("ダイアモンド追加", [this]() {
+        UserDataManager::getInstance()->addDiamondNum(30);
+        this->updateDiamondLabel();
+    });
+    addDiamond->setAnchorPoint(Vec2(1.0f, 0.0f));
+    addDiamond->setPosition(Vec2(0, 480));
+    debugMenu->addChild(addDiamond, 1);
 
 
     auto toggleButton = Button::create("ui/toggle.png");

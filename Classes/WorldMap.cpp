@@ -393,6 +393,32 @@ void WorldMap::vibrationMap()
     runAction(action);
 }
 
+void WorldMap::releaseDiamond(int diamondNum)
+{
+    auto gacha = WorldManager::getInstance()->getGacha();
+    float gachaHeight = gacha->getGachaHeight();
+    for (int i = 0; i < diamondNum; i++) {
+        Sprite* diamond = Sprite::create("ui/diamond.png");
+        diamond->setPosition(gacha->getPosition());
+        diamond->setScale(0.35f / getScale());
+        float moveX = rand_0_1() * gachaHeight * 2 - gachaHeight;
+        Vec2 target = gacha->getPosition() + Vec2(moveX, -gachaHeight * 0.3f * rand_0_1() - gachaHeight * 0.2f);
+        diamond->setZOrder(2000);
+
+        
+        diamond->runAction(Sequence::create(
+            JumpTo::create(1.0f, target, gachaHeight, 1),
+            JumpTo::create(0.5f, target + Vec2(moveX * 0.4f, 0), gachaHeight * 0.4f, 1),
+            JumpTo::create(0.3f, target + Vec2(moveX * 0.65f, 0), gachaHeight * 0.25f, 1),
+            FadeOut::create(1.0f),
+            RemoveSelf::create(),
+            NULL
+        ));
+        
+        addChild(diamond);
+    }
+}
+
 #pragma - private method
 
 int WorldMap::_calcObjectZOrder(Node* node)

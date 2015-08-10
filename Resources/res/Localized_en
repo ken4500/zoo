@@ -11,20 +11,31 @@ CREDIT_PAGE_NAMI_KITANOBO = Nami.K;
 CREDIT_PAGE_ROLE_KEN = Planner & Programmer;
 CREDIT_PAGE_ROLE_NAMI = Designer;
 MENU_PAGE_TITLE = MENU;
-MENU_PAGE_MULTIPLAY = multi play;
-MENU_PAGE_ENCYCLEPEDIA = encyclepedia;
-MENU_PAGE_LANGUAGE = language;
+MENU_PAGE_MULTIPLAY = Multi play;
+MENU_PAGE_ENCYCLEPEDIA = Encyclepedia;
+MENU_PAGE_LANGUAGE = Language;
+MENU_PAGE_SHOP = Shop;
+MENU_PAGE_TRANSMIGRATION = Transmigration;
 MENU_PAGE_CLOSE = CLOSE;
 
 NOTICE_MULTIPLAY = You can play with player \nwho connect to save Wi-Fi \nor turn on bluetooth.;
 NOTICE_LACK_LIFE = You don't have enough life.\n Life repair by time.;
 YESNO_END_MULTIPLAY = Are you sure \n you want to finish this game?;
 
+NOTICE_NOT_END_TUTORIAL = You can't use this menu \nuntil finishing tutorial;
+NOTICE_NOT_TRANSMIGRATION = You can't use this menu \nuntil reaching 6 level;
+
 BOOK_GET_NUM = Get;
 BOOK_MIN = Min;
 BOOK_MAX = Max;
 BOOK_NEXT = NEXT;
 BOOK_BACK = BACK;
+
+SHOP_DESC_offenseUp   = All animals offense
+SHOP_DESC_animalNum   = Animal amount you have
+SHOP_DESC_getCoin     = Coin amount you get
+SHOP_DESC_spawnNum    = Amount spawn by the pod
+SHOP_DESC_emergeEnemy = Enemy amount
 
 LEVEL = LEVEL;
 

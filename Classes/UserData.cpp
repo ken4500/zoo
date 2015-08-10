@@ -7,6 +7,7 @@
 //
 
 #include "UserData.h"
+#include "ShopData.h"
 
 static int COIN_INT_MAX = 1000000000;
 
@@ -42,6 +43,16 @@ bool UserData::isEndTutorial()
         return false;
     } else {
         return _data["end_tutorial"].asBool();
+    }
+}
+
+ValueMap UserData::getStoryData()
+{
+    if (_data.find("story_data") == _data.end()) {
+        auto initData = ValueMap();
+        return initData;
+    } else {
+        return _data["story_data"].asValueMap();
     }
 }
 
@@ -118,11 +129,41 @@ ValueMap UserData::getAnimalDataList()
     }
 }
 
+int UserData::getDiamondNum()
+{
+    if (_data.find("diamond_num") == _data.end()) {
+        return 0;
+    } else {
+        return _data["diamond_num"].asInt();
+    }
+}
+
+ValueMap UserData::getShopData()
+{
+    if (_data.find("shop_data") == _data.end()) {
+        auto initData = ValueMap();
+        auto allType = ShopData::getAllType();
+        for (auto type : allType) {
+            auto key = ShopData::toString(type);
+            initData[key] = 0;
+        }
+        _data["shop_data"] = initData;
+        return initData;
+    } else {
+        return _data["shop_data"].asValueMap();
+    }
+}
+
 #pragma - setter
 
 void UserData::setEndTutorial(bool endTutorial)
 {
     _data["end_tutorial"] = endTutorial;
+}
+
+void UserData::setStroyData(ValueMap storyData)
+{
+    _data["story_data"] = storyData;
 }
 
 void UserData::setWorldInfo(ValueMap info)
@@ -154,6 +195,16 @@ void UserData::setLanguage(LanguageType language)
 void UserData::setAnimalDataList(ValueMap getAnimalData)
 {
     _data["animal_get_data"] = getAnimalData;
+}
+
+void UserData::setDiamondNum(int diamondNum)
+{
+    _data["diamond_num"] = diamondNum;
+}
+
+void UserData::setShopData(ValueMap shopData)
+{
+    _data["shop_data"] = shopData;
 }
 
 #pragma - private method

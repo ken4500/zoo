@@ -20,13 +20,12 @@ class ModalLayer : public cocos2d::Layer
 public:
     ModalLayer();
     virtual ~ModalLayer();
-    virtual bool initWithHeight(int height);
+    virtual bool init();
     CREATE_FUNC(ModalLayer);
     void setTitleImage(string imageName);
     
 protected:
     Vec2 _topPos;
-    float _height;
 
     bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *event);
 private:

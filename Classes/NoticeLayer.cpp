@@ -35,11 +35,12 @@ NoticeLayer* NoticeLayer::createWithMessage(std::string message)
 
 bool NoticeLayer::initWithMessage(std::string message)
 {
-    int height = 400;
-
-    if (!ModalLayer::initWithHeight(height)) {
+    if (!ModalLayer::init()) {
         return false;
     }
+    
+    auto back = LayerColor::create(Color4B(0, 0, 0, 100));
+    addChild(back, -1);
     
     this->setCascadeOpacityEnabled(true);
     

@@ -19,34 +19,12 @@ ModalLayer::~ModalLayer()
     
 }
 
-bool ModalLayer::initWithHeight(int height)
+bool ModalLayer::init()
 {
     if (!Layer::create()) {
         return false;
     }
-    
-    _height = height;
-//    auto displaySize = Director::getInstance()->getVisibleSize();
-    
-    // 枠
-//    auto top    = Sprite::create("ui/pop_01.png");
-//    auto middle = Sprite::create("ui/pop_02.png");
-//    auto bottom = Sprite::create("ui/pop_03.png");
-//    top->setAnchorPoint(Vec2(0.5f, 1));
-//    middle->setAnchorPoint(Vec2(0.5f, 1));
-//    bottom->setAnchorPoint(Vec2(0.5f, 1));
-//    _topPos = Vec2(displaySize.width / 2, (displaySize.height + height) / 2);
-//    top->setPosition(_topPos);
-//    Vec2 middlePos = Vec2(displaySize.width / 2, top->getPosition().y - top->getContentSize().height);
-//    middle->setPosition(middlePos);
-//    float middleScale = (height - top->getContentSize().height - bottom->getContentSize().height) / middle->getContentSize().height;
-//    middle->setScale(1, middleScale);
-//    Vec2 bottomPos = Vec2(displaySize.width / 2, middle->getPosition().y - middle->getContentSize().height * middle->getScaleY());
-//    bottom->setPosition(bottomPos);
-//    addChild(top, 1);
-//    addChild(middle, 1);
-//    addChild(bottom, 1);
-    
+
     // タッチイベントの設定
     auto dispatcher = Director::getInstance()->getEventDispatcher();
     auto listener = EventListenerTouchOneByOne::create();

@@ -10,6 +10,7 @@
 #include "WorldManager.h"
 #include "SceneManager.h"
 #include "SoundManager.h"
+#include "UserDataManager.h"
 
 #pragma - Lifecycle
 
@@ -88,11 +89,11 @@ bool Animal::initWithSpeceis(Species* species, float size)
     deadCallback = NULL;
     _maxHp = powf(size, 1.2f);
     _hp = _maxHp;
-    _offense = size / 3;
     _isOpponent = false;
     _isEnemy = false;
     _id = rand();
     _moveAction = nullptr;
+    updateOffense();
     
     setTag((int)EntityTag::Animal);
     setCascadeOpacityEnabled(true);
@@ -161,13 +162,19 @@ void Animal::jump(Vec2 target, float height, std::function<void ()> callback)
     if (SceneManager::getInstance()->isNetwork() == false) {
         auto maxRank = getMaxSizeRank();
         auto minRank = getMinSizeRank();
+        SizeRank rank = SizeRank::None;
         Sprite* crown = nullptr;
         if (maxRank != SizeRank::None) {
             crown = Sprite::create(StringUtils::format("ui/max_crown%d.png", maxRank));
+            rank = maxRank;
         } else if (minRank != SizeRank::None) {
             crown = Sprite::create(StringUtils::format("ui/min_crown%d.png", minRank));
+            rank = minRank;
         }
         if (crown) {
+            //
+            WorldManager::getInstance()->appearCrown(rank);
+
             float scale = 0.8f / (getScale() * getParent()->getScale());
             crown->setScale(0);
             crown->setPosition(Vec2(200, 400));
@@ -616,7 +623,8 @@ int Animal::getHash()
 
 int Animal::getCoin()
 {
-    return MAX(1, (int)_height.getLength(UnitOfLength::cm));
+    int price = (int)(_height.getLength(UnitOfLength::cm) * UserDataManager::getInstance()->getCoinRate());
+    return MAX(1, price);
 }
 
 Rect Animal::getBodyRect()
@@ -687,6 +695,15 @@ bool Animal::isTarget(Animal* targetAnimal)
         return true;
     } else {
         return false;
+    }
+}
+
+void Animal::updateOffense()
+{
+    if (isEnemy()) {
+        _offense = powf(_height.getMmLength() / 3, 1.3);
+    } else {
+        _offense = (_height.getMmLength() / 3) * UserDataManager::getInstance()->getOffenseRate();
     }
 }
 

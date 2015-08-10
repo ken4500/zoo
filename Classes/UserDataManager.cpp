@@ -43,6 +43,28 @@ void UserDataManager::reset()
     _userData->save();
 }
 
+void UserDataManager::transmigration()
+{
+    // 引き継ぎデータ
+    auto lang       = _userData->getLanguage();
+    auto diamond    = _userData->getDiamondNum();
+    auto animalData = _userData->getAnimalDataList();
+    auto shopData   = _userData->getShopData();
+    auto story      = _userData->getStoryData();
+    
+    // 初期化
+    _userData->init();
+    
+    _userData->setLanguage(lang);
+    _userData->setDiamondNum(diamond);
+    _userData->setAnimalDataList(animalData);
+    _userData->setShopData(shopData);
+    _userData->setEndTutorial(true);
+    _userData->setStroyData(story);
+    
+    _userData->save();
+}
+
 bool UserDataManager::isEndTutorial()
 {
     return _userData->isEndTutorial();
@@ -53,6 +75,25 @@ void UserDataManager::clearTutorial()
     _userData->setEndTutorial(true);
     _userData->save();
 }
+
+bool UserDataManager::alreadyRead(std::string novelId)
+{
+    auto storyData = _userData->getStoryData();
+    if (storyData.find(novelId) == storyData.end()) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+void UserDataManager::setAlreadyRead(std::string novelId)
+{
+    auto storyData = _userData->getStoryData();
+    storyData[novelId] = 1;
+    _userData->setStroyData(storyData);
+    _userData->save();
+}
+
 
 WorldInfo* UserDataManager::getWorldInfo()
 {
@@ -324,5 +365,70 @@ int UserDataManager::getAnimalCount(std::string animalName)
         auto data = animalData[animalName].asValueMap();
         return data["get_count"].asInt();
     }
+}
+
+#pragma - ステータスに関するメソッド
+
+int UserDataManager::getDiamondNum()
+{
+    return _userData->getDiamondNum();
+}
+
+int UserDataManager::getSpawnAnimalNum()
+{
+    ShopLineup type = ShopLineup::SPAWN_NUM;
+    int level = getShopDataLevel(type);
+    return (int)ShopData::getInstance()->getValue(type, level);
+}
+
+int UserDataManager::getAnimalNum()
+{
+    ShopLineup type = ShopLineup::ANIMAL_NUM;
+    int level = getShopDataLevel(type);
+    return (int)ShopData::getInstance()->getValue(type, level);
+}
+
+float UserDataManager::getOffenseRate()
+{
+    ShopLineup type = ShopLineup::OFFESE_UP;
+    int level = getShopDataLevel(type);
+    return ShopData::getInstance()->getValue(type, level);
+}
+
+float UserDataManager::getCoinRate()
+{
+    ShopLineup type = ShopLineup::GET_COIN;
+    int level = getShopDataLevel(type);
+    return ShopData::getInstance()->getValue(type, level);
+}
+
+float UserDataManager::getEnemyNumRate()
+{
+    ShopLineup type = ShopLineup::EMERGE_ENEMY;
+    int level = getShopDataLevel(type);
+    return ShopData::getInstance()->getValue(type, level);
+}
+
+int UserDataManager::getShopDataLevel(ShopLineup type)
+{
+    auto key = ShopData::toString(type);
+    auto shopData = _userData->getShopData();
+    return shopData[key].asInt();
+}
+
+void UserDataManager::addDiamondNum(int addNum)
+{
+    _userData->setDiamondNum(addNum + _userData->getDiamondNum());
+    _userData->save();
+}
+
+void UserDataManager::levelupShopData(ShopLineup type)
+{
+    auto key = ShopData::toString(type);
+    auto shopData = _userData->getShopData();
+    int level = getShopDataLevel(type);
+    shopData[key] = level + 1;
+    _userData->setShopData(shopData);
+    _userData->save();
 }
 

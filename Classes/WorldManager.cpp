@@ -252,6 +252,11 @@ int WorldManager::getLeftTimeOnBattle()
     return _leftTime;
 }
 
+int WorldManager::getDiamondNumInTransmigration()
+{
+    return _info->getDiamondNum;
+}
+
 #pragma - public method
 
 void WorldManager::resetData()
@@ -586,6 +591,44 @@ void WorldManager::endResult()
         scene->showMenu();
     }
     _enableNextAction = true;
+}
+
+void WorldManager::appearCrown(SizeRank rank)
+{
+    int getDiamond = 0;
+    if (rank == SizeRank::Silver) {
+        getDiamond = GET_DIAMOND_NUM_OF_SILVER_CROWN;
+    } else if (rank == SizeRank::Gold) {
+        getDiamond = GET_DIAMOND_NUM_OF_GOLD_CROWN;
+    }
+    
+    UserDataManager::getInstance()->addDiamondNum(getDiamond);
+    _map->releaseDiamond(getDiamond);
+
+    auto scene = SceneManager::getInstance()->getMainScene();
+    if (scene) {
+        scene->updateDiamondLabel();
+    }
+}
+
+void WorldManager::transmigration()
+{
+    int getDiamondNum = getDiamondNumInTransmigration();
+    UserDataManager::getInstance()->addDiamondNum(getDiamondNum);
+    UserDataManager::getInstance()->transmigration();
+    sharedWorldManager = nullptr;
+    SceneManager::getInstance()->resetMainScene();
+    delete this;
+
+}
+
+void WorldManager::updateShopdata()
+{
+    // 攻撃力の補正値更新
+    auto animalList = getAnimalList();
+    for (auto animal : animalList) {
+        animal->updateOffense();
+    }
 }
 
 #pragma - network game logic
@@ -967,7 +1010,8 @@ void WorldManager::_checkAndRemoveAnimal()
         }
     }
     
-    for (int i = 0; i < animalNum - MAX_ANIMAL_NUM; i++) {
+    int maxNum = UserDataManager::getInstance()->getAnimalNum();
+    for (int i = 0; i < animalNum - maxNum; i++) {
         float min = INFINITY;
         Animal* removeAnimal = nullptr;
 

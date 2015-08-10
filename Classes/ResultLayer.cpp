@@ -37,9 +37,8 @@ bool ResultLayer::initWithResult(GameResult result)
 {
     // 評価
     _result = result;
-    int height = 450;
 
-    if (!ModalLayer::initWithHeight(height)) {
+    if (!ModalLayer::init()) {
         return false;
     }
     

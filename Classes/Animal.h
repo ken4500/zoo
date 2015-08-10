@@ -71,6 +71,7 @@ public:
     void repairHp();
     void escape();
     void endFight();
+    void updateOffense();
     
     std::function<void (AbstractBattleEntity* entity)> deadCallback;
     std::function<void (AbstractBattleEntity* entity, AbstractBattleEntity* fightEntity)> startFightCallback;

@@ -113,6 +113,12 @@ SizeRank Species::getMaxHeightRank(Length maxHeight)
     // 出現率0.4% (R :1 - pnorm(2.65, 0, 1) = 0.0040
     float silverThreshold = mean + sd * 2.65;
 
+//    // 出現率0.13% (R :1 - pnorm(3, 0, 1) = 0.0013
+//    float goldThreshold   = mean + sd * 0.1;
+//    // 出現率0.4% (R :1 - pnorm(2.65, 0, 1) = 0.0040
+//    float silverThreshold = mean + sd * 1.00;
+
+
     if (x > goldThreshold) {
         return SizeRank::Gold;
     } else if (x > silverThreshold) {
@@ -132,6 +138,12 @@ SizeRank Species::getMinHeightRank(Length minHeight)
     float goldThreshold   = mean - sd * 3.0;
     // 出現率0.4% (R :1 - pnorm(2.65, 0, 1) = 0.0040
     float silverThreshold = mean - sd * 2.65;
+
+//    // 出現率0.13% (R :1 - pnorm(3, 0, 1) = 0.0013
+//    float goldThreshold   = mean - sd * 1.0;
+//    // 出現率0.4% (R :1 - pnorm(2.65, 0, 1) = 0.0040
+//    float silverThreshold = mean - sd * 0.1;
+
 
     if (x < goldThreshold) {
         return SizeRank::Gold;

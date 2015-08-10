@@ -39,8 +39,8 @@
   "sizeId" : 2,
   "unit" : "cm",
   "minHeight" : 1.68,
-  "maxHeight" : 2.88,
-  "speed" : 2.88,
+  "maxHeight" : 4.00,
+  "speed" : 4.00,
   "density" : 0.08,
   "image" : "batta"
 },
@@ -878,7 +878,7 @@
   "minHeight" : 5000.00,
   "maxHeight" : 12000.00,
   "speed" : 2140.77,
-  "density" : 0.004,
+  "density" : 0.002,
   "image" : "god"
 }
 }

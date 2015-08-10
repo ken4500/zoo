@@ -37,11 +37,15 @@ private:
     cocos2d::ui::TextBMFont* _encyclepediaLabel;
     cocos2d::ui::TextBMFont* _languageLabel;
     cocos2d::ui::TextBMFont* _closeLabel;
+    cocos2d::ui::TextBMFont* _shopLabel;
+    cocos2d::ui::TextBMFont* _transmigrationLabel;
 
     void onEnter() override;
     void _pushMultiPlayButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void _pushEncyclepediaButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void _pushLanguageButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
+    void _pushShopButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
+    void _pushTransmigrationButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void _pushCloseButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     
     void _updateLanguage();
