@@ -32,8 +32,8 @@ BOOK_NEXT = 進む;
 BOOK_BACK = 戻る;
 
 SHOP_DESC_offenseUp = 動物の攻撃力アップ;
-SHOP_DESC_animalNum = コインの取得量;
-SHOP_DESC_getCoin = 保持できる動物の数;
+SHOP_DESC_animalNum = 保持できる動物の数;
+SHOP_DESC_getCoin = コインの獲得量;
 SHOP_DESC_spawnNum = ツボから出る動物の数;
 SHOP_DESC_emergeEnemy = 出現する敵の数;
 
