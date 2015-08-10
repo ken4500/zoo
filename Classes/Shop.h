@@ -11,14 +11,29 @@
 
 #include "cocos2d.h"
 #include "cocostudio/CocoStudio.h"
+#include "ui/CocosGUI.h"
+#include "ShopData.h"
 
-class Shop : public cocos2d::Node {
+class Shop : public cocos2d::Layer {
 public:
     CREATE_FUNC(Shop);
     bool init() override;
 
 protected:
-    cocostudio::timeline::ActionTimeline* timeline;
+    cocos2d::Node* _offenseUp;
+    cocos2d::Node* _spawnNum;
+    cocos2d::Node* _animalNum;
+    cocos2d::Node* _getCoin;
+    cocos2d::Node* _emergeEnemy;
+    ShopData* _shopData;
+    cocos2d::ui::TextBMFont* _hasDiamondNum;
+
+    void onEnter() override;
+    bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *event);
+    void _pushOkButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
+    void _pushShopButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
+    void _setData(Node* node);
+    void _purchase(ShopLineup lineup);
 
 };
 

@@ -27,9 +27,7 @@ MenuLayer::~MenuLayer()
 
 bool MenuLayer::init()
 {
-    int height = 600;
-
-    if (!ModalLayer::initWithHeight(height)) {
+    if (!ModalLayer::init()) {
         return false;
     }
         this->setCascadeOpacityEnabled(true);
@@ -174,11 +172,14 @@ void MenuLayer::_pushShopButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::Touc
         button->runAction(Sequence::create(
             ScaleBy::create(0.1f, 1 / 0.9f),
             CallFunc::create([this]{
-                auto layer = SelectLanguageLayer::create();
-                layer->closedCallback = [this]() {
-                    _updateLanguage();
-                };
-                this->addChild(layer, 20);
+                bool isEndTutorial = UserDataManager::getInstance()->isEndTutorial();
+                if (isEndTutorial == false) {
+                    auto notice = NoticeLayer::createWithMessage(CCLS("NOTICE_NOT_END_TUTORIAL"));
+                    this->getParent()->addChild(notice);
+                } else {
+                    auto layer = CSLoader::createNode("Shop.csb");
+                    this->addChild(layer, 20);
+                }
             }),
             NULL
         ));

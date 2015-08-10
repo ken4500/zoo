@@ -1,0 +1,284 @@
+{
+"offenseUp": {
+  "1": {
+    "price" : 4,
+    "value" : 1.1
+  },
+  "2": {
+    "price" : 5,
+    "value" : 1.2
+  },
+  "3": {
+    "price" : 6,
+    "value" : 1.3
+  },
+  "4": {
+    "price" : 7,
+    "value" : 1.4
+  },
+  "5": {
+    "price" : 8,
+    "value" : 1.5
+  },
+  "6": {
+    "price" : 9,
+    "value" : 1.6
+  },
+  "7": {
+    "price" : 10,
+    "value" : 1.7
+  },
+  "8": {
+    "price" : 11,
+    "value" : 1.8
+  },
+  "9": {
+    "price" : 12,
+    "value" : 1.9
+  },
+  "10": {
+    "price" : 13,
+    "value" : 2.0
+  },
+  "11": {
+    "price" : 14,
+    "value" : 2.1
+  },
+  "12": {
+    "price" : 15,
+    "value" : 2.2
+  },
+  "13": {
+    "price" : 16,
+    "value" : 2.3
+  },
+  "14": {
+    "price" : 17,
+    "value" : 2.4
+  },
+  "15": {
+    "price" : 18,
+    "value" : 2.5
+  },
+  "16": {
+    "price" : 19,
+    "value" : 2.6
+  },
+  "17": {
+    "price" : 20,
+    "value" : 2.7
+  },
+  "18": {
+    "price" : 21,
+    "value" : 2.8
+  },
+  "19": {
+    "price" : 22,
+    "value" : 2.9
+  },
+  "20": {
+    "price" : 23,
+    "value" : 3.0
+  }
+},
+"animalNum": {
+  "1": {
+    "price" : 4,
+    "value" : 21.0
+  },
+  "2": {
+    "price" : 8,
+    "value" : 22.0
+  },
+  "3": {
+    "price" : 12,
+    "value" : 23.0
+  },
+  "4": {
+    "price" : 16,
+    "value" : 24.0
+  },
+  "5": {
+    "price" : 20,
+    "value" : 25.0
+  },
+  "6": {
+    "price" : 24,
+    "value" : 26.0
+  },
+  "7": {
+    "price" : 28,
+    "value" : 27.0
+  },
+  "8": {
+    "price" : 32,
+    "value" : 28.0
+  },
+  "9": {
+    "price" : 36,
+    "value" : 29.0
+  },
+  "10": {
+    "price" : 40,
+    "value" : 30.0
+  },
+  "11": {
+    "price" : 44,
+    "value" : 31.0
+  },
+  "12": {
+    "price" : 48,
+    "value" : 32.0
+  },
+  "13": {
+    "price" : 52,
+    "value" : 33.0
+  },
+  "14": {
+    "price" : 56,
+    "value" : 34.0
+  },
+  "15": {
+    "price" : 60,
+    "value" : 35.0
+  },
+  "16": {
+    "price" : 64,
+    "value" : 36.0
+  },
+  "17": {
+    "price" : 68,
+    "value" : 37.0
+  },
+  "18": {
+    "price" : 72,
+    "value" : 38.0
+  },
+  "19": {
+    "price" : 76,
+    "value" : 39.0
+  },
+  "20": {
+    "price" : 80,
+    "value" : 40.0
+  }
+},
+"getCoin": {
+  "1": {
+    "price" : 4,
+    "value" : 1.1
+  },
+  "2": {
+    "price" : 5,
+    "value" : 1.2
+  },
+  "3": {
+    "price" : 6,
+    "value" : 1.3
+  },
+  "4": {
+    "price" : 7,
+    "value" : 1.4
+  },
+  "5": {
+    "price" : 8,
+    "value" : 1.5
+  },
+  "6": {
+    "price" : 9,
+    "value" : 1.6
+  },
+  "7": {
+    "price" : 10,
+    "value" : 1.7
+  },
+  "8": {
+    "price" : 11,
+    "value" : 1.8
+  },
+  "9": {
+    "price" : 12,
+    "value" : 1.9
+  },
+  "10": {
+    "price" : 13,
+    "value" : 2.0
+  },
+  "11": {
+    "price" : 14,
+    "value" : 2.1
+  },
+  "12": {
+    "price" : 15,
+    "value" : 2.2
+  },
+  "13": {
+    "price" : 16,
+    "value" : 2.3
+  },
+  "14": {
+    "price" : 17,
+    "value" : 2.4
+  },
+  "15": {
+    "price" : 18,
+    "value" : 2.5
+  },
+  "16": {
+    "price" : 19,
+    "value" : 2.6
+  },
+  "17": {
+    "price" : 20,
+    "value" : 2.7
+  },
+  "18": {
+    "price" : 21,
+    "value" : 2.8
+  },
+  "19": {
+    "price" : 22,
+    "value" : 2.9
+  },
+  "20": {
+    "price" : 23,
+    "value" : 3.0
+  }
+},
+"spawnNum": {
+  "1": {
+    "price" : 20,
+    "value" : 2.0
+  },
+  "2": {
+    "price" : 40,
+    "value" : 3.0
+  },
+  "3": {
+    "price" : 60,
+    "value" : 4.0
+  },
+  "4": {
+    "price" : 80,
+    "value" : 5.0
+  }
+},
+"emergeEnemy": {
+  "1": {
+    "price" : 20,
+    "value" : 1.5
+  },
+  "2": {
+    "price" : 40,
+    "value" : 2.0
+  },
+  "3": {
+    "price" : 60,
+    "value" : 2.5
+  },
+  "4": {
+    "price" : 80,
+    "value" : 3.0
+  }
+}
+}

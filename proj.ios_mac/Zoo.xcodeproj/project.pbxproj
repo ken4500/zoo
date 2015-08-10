@@ -51,6 +51,7 @@
 		9F10B8B61B786ECD0094C67B /* ShopReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F10B8B31B786ECD0094C67B /* ShopReader.cpp */; };
 		9F10B8BD1B786ED80094C67B /* Transmigration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F10B8B91B786ED80094C67B /* Transmigration.cpp */; };
 		9F10B8BE1B786ED80094C67B /* TransmigrationReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F10B8BB1B786ED80094C67B /* TransmigrationReader.cpp */; };
+		9F10B8C31B788FDA0094C67B /* ShopData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F10B8C11B788FDA0094C67B /* ShopData.cpp */; };
 		9F13C23C1B658C160035850A /* sound in Resources */ = {isa = PBXBuildFile; fileRef = 9F13C23B1B658C160035850A /* sound */; };
 		9F13C2411B65A71C0035850A /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F13C23F1B65A71C0035850A /* SceneManager.cpp */; };
 		9F19A9E21B62B26F00572440 /* CCLocalizedString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F19A9E01B62B26F00572440 /* CCLocalizedString.cpp */; };
@@ -178,6 +179,8 @@
 		9F10B8BA1B786ED80094C67B /* Transmigration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transmigration.h; sourceTree = "<group>"; };
 		9F10B8BB1B786ED80094C67B /* TransmigrationReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TransmigrationReader.cpp; sourceTree = "<group>"; };
 		9F10B8BC1B786ED80094C67B /* TransmigrationReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransmigrationReader.h; sourceTree = "<group>"; };
+		9F10B8C11B788FDA0094C67B /* ShopData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShopData.cpp; sourceTree = "<group>"; };
+		9F10B8C21B788FDA0094C67B /* ShopData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopData.h; sourceTree = "<group>"; };
 		9F13C23B1B658C160035850A /* sound */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sound; sourceTree = "<group>"; };
 		9F13C23F1B65A71C0035850A /* SceneManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneManager.cpp; sourceTree = "<group>"; };
 		9F13C2401B65A71C0035850A /* SceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneManager.h; sourceTree = "<group>"; };
@@ -452,6 +455,8 @@
 				9F06E9C41B5C243700107C09 /* EnemyGenerater.h */,
 				9FA0EA351B6BDB16007F642B /* Weight.cpp */,
 				9FA0EA361B6BDB16007F642B /* Weight.h */,
+				9F10B8C11B788FDA0094C67B /* ShopData.cpp */,
+				9F10B8C21B788FDA0094C67B /* ShopData.h */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -782,6 +787,7 @@
 				9F6835D71B62E1A500589EBE /* TitleScene.cpp in Sources */,
 				9FE5C85C1B712169002274D0 /* HpGauge.cpp in Sources */,
 				9F83BA6C1B54327700605D1D /* WorldMap.cpp in Sources */,
+				9F10B8C31B788FDA0094C67B /* ShopData.cpp in Sources */,
 				9F05646D1B49EDE000649A7F /* ScaleBarReader.cpp in Sources */,
 				9F425AEC1B461899001B2969 /* Length.cpp in Sources */,
 				9F7D50291B66AA1E000CDE3E /* MultiBattleScene.cpp in Sources */,

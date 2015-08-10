@@ -419,7 +419,7 @@ void MainScene::_setupDebugMenu()
     }
 
     // メニューを増やしたいときは数を増やしてね
-    int menuNum = 6;
+    int menuNum = 7;
 
     auto size = Director::getInstance()->getVisibleSize();
     auto dummyImage = Sprite::create("ui/debug_button.png");
@@ -482,6 +482,15 @@ void MainScene::_setupDebugMenu()
     test->setAnchorPoint(Vec2(1.0f, 0.0f));
     test->setPosition(Vec2(0, 400));
     debugMenu->addChild(test, 1);
+    
+    auto addDiamond = DebugButton::create("ダイアモンド追加", [this]() {
+        UserDataManager::getInstance()->addDiamondNum(30);
+        this->updateDiamondLabel();
+    });
+    addDiamond->setAnchorPoint(Vec2(1.0f, 0.0f));
+    addDiamond->setPosition(Vec2(0, 480));
+    debugMenu->addChild(addDiamond, 1);
+
 
     auto toggleButton = Button::create("ui/toggle.png");
     toggleButton->setAnchorPoint(Vec2(0.5f, 0.5f));

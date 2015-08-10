@@ -36,9 +36,7 @@ MultiplayResult* MultiplayResult::create()
 bool MultiplayResult::init()
 {
     // 評価
-    int height = 450;
-
-    if (!ModalLayer::initWithHeight(height)) {
+    if (!ModalLayer::init()) {
         return false;
     }
     

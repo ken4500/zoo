@@ -156,9 +156,8 @@
           <Image Name="gauge.png" />
           <Image Name="image01.png" />
         </Folder>
-        <Project Name="Transmigration_back.csd" Type="Node" />
-        <Project Name="Shop.csd" Type="Node" />
         <Project Name="Transmigration.csd" Type="Layer" />
+        <Project Name="Shop.csd" Type="Layer" />
       </RootFolder>
     </Group>
   </SolutionFolder>
