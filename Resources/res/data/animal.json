@@ -872,6 +872,60 @@
   "density" : 0.004,
   "image" : "supinoB"
 },
+"Fenics2": {
+  "sizeId" : 27,
+  "unit" : "km",
+  "minHeight" : 2147.48,
+  "maxHeight" : 4294.97,
+  "speed" : 4294.97,
+  "density" : 0.004,
+  "image" : "fenicsB"
+},
+"Gurifon2": {
+  "sizeId" : 27,
+  "unit" : "km",
+  "minHeight" : 2013.27,
+  "maxHeight" : 4026.53,
+  "speed" : 4026.53,
+  "density" : 0.004,
+  "image" : "gurifonB"
+},
+"Kelberos2": {
+  "sizeId" : 27,
+  "unit" : "km",
+  "minHeight" : 1543.50,
+  "maxHeight" : 3087.01,
+  "speed" : 3087.01,
+  "density" : 0.004,
+  "image" : "kelberosB"
+},
+"Bahamuut2": {
+  "sizeId" : 27,
+  "unit" : "km",
+  "minHeight" : 3019.90,
+  "maxHeight" : 6039.80,
+  "speed" : 6039.80,
+  "density" : 0.004,
+  "image" : "bahamuutB"
+},
+"Rivaiasan2": {
+  "sizeId" : 27,
+  "unit" : "km",
+  "minHeight" : 3288.33,
+  "maxHeight" : 6576.67,
+  "speed" : 6576.67,
+  "density" : 0.004,
+  "image" : "rivaiasanB"
+},
+"Tupoon2": {
+  "sizeId" : 27,
+  "unit" : "km",
+  "minHeight" : 3556.77,
+  "maxHeight" : 7113.54,
+  "speed" : 7113.54,
+  "density" : 0.004,
+  "image" : "tupoonB"
+},
 "God": {
   "sizeId" : 27,
   "unit" : "km",

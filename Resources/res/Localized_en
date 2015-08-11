@@ -52,17 +52,17 @@ SHOP_DESC_emergeEnemy = Enemy amount
 LEVEL = LEVEL;
 
 GACHA_SAY_NOT_ENOUGH_MONEY = Need more money;
-GACHA_SAY_LEVELUP_1 = Amazing;
+GACHA_SAY_LEVELUP_1 = Fabulous;
 GACHA_SAY_LEVELUP_2 = Lucky!;
 GACHA_SAY_LEVELUP_3 = Oh my!;
-GACHA_SAY_LEVELUP_4 = Oh my god!;
+GACHA_SAY_LEVELUP_4 = Amazing;
 GACHA_SAY_LEVELUP_5 = Good job!;
 GACHA_SAY_LEVELUP_6 = Nice work;
 GACHA_SAY_LEVELUP_7 = Like♥;
 GACHA_SAY_LEVELUP_8 = Oh yes!;
 GACHA_SAY_LEVELUP_9 = Feels good;
 GACHA_SAY_LEVELUP_10 = Unbelievable;
-GACHA_SAY_LEVELUP_11 = Fabulous;
+GACHA_SAY_LEVELUP_11 = OH MY GOD!;
 
 
 Hero = Hero;
@@ -162,6 +162,12 @@ Torikera2 = Space Triceratops
 Burakio2 = Space Brachiosaurus
 Tirano2 = Space Tyrannosaurus
 Supino2 = Space Spinosaurus
+Fenics2 = Super Phoenix
+Gurifon2 = Super Griffin
+Kelberos2 = Super Kerberos
+Bahamuut2 = Super Bahamut
+Rivaiasan2 = Super Leviathan
+Tupoon2 = Super Typhon
 God = God
 
 Hero_DESC = Japanese Only;
@@ -261,4 +267,10 @@ Torikera2_DESC = Japanese Only;
 Burakio2_DESC = Japanese Only;
 Tirano2_DESC = Japanese Only;
 Supino2_DESC = Japanese Only;
+Fenics2_DESC = Japanese Only;
+Gurifon2_DESC = Japanese Only;
+Kelberos2_DESC = Japanese Only;
+Bahamuut2_DESC = Japanese Only;
+Rivaiasan2_DESC = Japanese Only;
+Tupoon2_DESC = Japanese Only;
 God_DESC = Japanese Only;

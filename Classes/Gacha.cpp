@@ -200,7 +200,11 @@ void Gacha::say(std::string message)
 
 void Gacha::sayRandom()
 {
-    int rnd = rand() % 10 + 1;
+    auto info = WorldManager::getInstance()->getWorldInfo();
+    int rnd = 11;
+    if (info->level != MAX_LEVEL) {
+        rnd = rand() % 10 + 1;
+    }
     auto message = CCLS(StringUtils::format("GACHA_SAY_LEVELUP_%d", rnd).c_str());
     say(message);
 }

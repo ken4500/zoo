@@ -52,16 +52,17 @@ SHOP_DESC_emergeEnemy = 出現する敵の数;
 LEVEL = レベル;
 
 GACHA_SAY_NOT_ENOUGH_MONEY = 金が足らんぞ！;
-GACHA_SAY_LEVELUP_1 = ちょー気持ちいい
+GACHA_SAY_LEVELUP_1 = マジヤバくね？
 GACHA_SAY_LEVELUP_2 = やっべぇぞ
 GACHA_SAY_LEVELUP_3 = おほほーい
 GACHA_SAY_LEVELUP_4 = すっげぇな
 GACHA_SAY_LEVELUP_5 = びっくらこいた
-GACHA_SAY_LEVELUP_6 = おーまいごっど
+GACHA_SAY_LEVELUP_6 = ちょー気持ちいい
 GACHA_SAY_LEVELUP_7 = らっきー
 GACHA_SAY_LEVELUP_8 = 天にも昇る気持ち
 GACHA_SAY_LEVELUP_9 = サイコー！
 GACHA_SAY_LEVELUP_10 = かもーん
+GACHA_SAY_LEVELUP_11 = おーまいごっど
 
 
 
@@ -162,6 +163,12 @@ Torikera2 = 宇宙トリケラトプス
 Burakio2 = 宇宙ブラキオサウルス
 Tirano2 = 宇宙ティラノサウルス
 Supino2 = 宇宙スピノサウルス
+Fenics2 = 真フェニックス
+Gurifon2 = 真グリフォン
+Kelberos2 = 真ケルベロス
+Bahamuut2 = 真バハムート
+Rivaiasan2 = 真リヴァイアサン
+Tupoon2 = 真テュポーン
 God	=神
 
 Hero_DESC = この世界で自分が一番強いと思っている小さなアリ。 たしかにアリの中では一番強いが、せいぜいアリ並。あまり賢くはない。;
@@ -261,4 +268,11 @@ Torikera2_DESC = プロキオン星からやってきたトリケラトプスに
 Burakio2_DESC = カペラ星からやってきたブラキオサウルスに似た生物。
 Tirano2_DESC = アークトゥルス星からやってきたティラノサウルスに似た生物。
 Supino2_DESC = カノープス星からやってきたスピノサウルスに似た生物。
-God_DESC = 全知全能、不老不死、;
+Fenics2_DESC = 500年に1回、自ら火中に入って焼かれ、その灰の中から幼鳥の姿となって再生するといわれる。永遠の時を生きる不死鳥。;
+Gurifon2_DESC = 鷲の翼と上半身、ライオンの下半身をもつ伝説上の生物。気高く勇敢なその姿から「王家」の象徴として人々に崇められる。;
+Kelberos2_DESC = 冥界の入り口の監視をしている。冥界から抜け出そうとする亡者を捕えてむさぼり喰う。別名「地獄の番犬」。;
+Bahamuut2_DESC = バハムートはその巨体で大地を支えているとされる。リヴァイアサンとともに海にもぐれば海が溢れる。;
+Rivaiasan2_DESC = 口から火炎を吐き鼻からは煙を噴きだすその姿は神々も恐れ逃げるほどだったという。神も恐れる海の王者。;
+Tupoon2_DESC = 体は宇宙に到達するほど巨大。地球を焼き払い、天空を破壊し、灼熱の火炎と共に暴れ回る。暴風を司る怪物、または暴風そのもの。;
+God_DESC = 地球の神さま。とっても偉い。全知全能、不老不死という高いスペックを持つが弱点は水虫。;
+

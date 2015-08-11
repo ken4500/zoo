@@ -186,6 +186,8 @@ void Book::_loadAnimal(Species* species)
         _getMaxSize->setString(StringUtils::format("%s:-", CCLS("BOOK_MAX")));
         _sizeDescription->setString("????");
         _setDescription("????");
+        _maxCrownImage->setVisible(false);
+        _minCrownImage->setVisible(false);
     } else {
         // 取得したことがある
         _animalImage->setColor(Color3B::WHITE);

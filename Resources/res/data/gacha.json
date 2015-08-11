@@ -676,6 +676,30 @@
     {
       "reward" : "God",
       "probability" : 100
+    },
+    {
+      "reward" : "Fenics2",
+      "probability" : 1000
+    },
+    {
+      "reward" : "Gurifon2",
+      "probability" : 1000
+    },
+    {
+      "reward" : "Kelberos2",
+      "probability" : 1000
+    },
+    {
+      "reward" : "Bahamuut2",
+      "probability" : 1000
+    },
+    {
+      "reward" : "Rivaiasan2",
+      "probability" : 1000
+    },
+    {
+      "reward" : "Tupoon2",
+      "probability" : 1000
     }
   ]
 }
