@@ -9,6 +9,7 @@
 #include "CommandGenerater.h"
 #include "WorldManager.h"
 #include "SceneManager.h"
+#include "ZUtil.h"
 
 #include <sys/time.h>
 
@@ -62,7 +63,7 @@ void CommandGenerater::excCommand(std::string dataStr)
             std::vector<Animal*> animalList;
             for (int i = 0; i < size; i++) {
                 auto animal = Animal::CreateWithSpeceis(command.stringDataList[i], command.numberDataList[i]);
-                animal->setId(command.intDataList[i - 1]);
+                animal->setId(command.intDataList[i + 1]);
                 animalList.push_back(animal);
             }
             WorldManager::getInstance()->releaseAnimalByNetwork(animalList);

@@ -91,7 +91,7 @@ bool Animal::initWithSpeceis(Species* species, float size)
     _hp = _maxHp;
     _isOpponent = false;
     _isEnemy = false;
-    _id = rand();
+    _id = rand() % 1000000;
     _moveAction = nullptr;
     updateOffense();
     
@@ -298,6 +298,7 @@ void Animal::fight(AbstractBattleEntity* entity)
             effect->setScale(getScale());
             effect->setPosition(effectPoint);
             effect->setZOrder(100000);
+            effect->setAutoRemoveOnFinish(true);
             auto parent = getParent();
             if (parent) {
                 parent->addChild(effect);

@@ -25,7 +25,7 @@ protected:
     bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *event);
     void _pushYesButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void _pushNoButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
-
+    void _updateLocalization();
 
 };
 

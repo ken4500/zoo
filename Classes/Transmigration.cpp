@@ -9,6 +9,7 @@
 #include "Transmigration.h"
 #include "WorldManager.h"
 #include "SoundManager.h"
+#include "UserDataManager.h"
 
 bool Transmigration::init() {
     if (!Layer::init()) {
@@ -28,17 +29,16 @@ void Transmigration::onEnter()
     Size size = Director::getInstance()->getVisibleSize();
     setContentSize(size);
     ui::Helper::doLayout(this);
-
     
-    auto yes = getChildByName<ui::Button*>("yesButton");
+    _updateLocalization();
+
+    auto menu = getChildByName("menu");
+    auto yes = menu->getChildByName<ui::Button*>("yesButton");
     yes->addTouchEventListener(CC_CALLBACK_2(Transmigration::_pushYesButton, this));
-    auto no = getChildByName<ui::Button*>("noButton");
+    auto no = menu->getChildByName<ui::Button*>("noButton");
     no->addTouchEventListener(CC_CALLBACK_2(Transmigration::_pushNoButton, this));
 
-    auto diamondImage = getChildByName<Sprite*>("diamond");
-    CCLOG("DIAMOND %f", diamondImage->getScale());
-
-    _getDiamondNum = getChildByName<ui::TextBMFont*>("getDiamondNum");
+    _getDiamondNum = menu->getChildByName<ui::TextBMFont*>("getDiamondNum");
     _getDiamondNum->setString(StringUtils::format("x %d", WorldManager::getInstance()->getDiamondNumInTransmigration()));
     
     // タッチイベントの設定
@@ -99,5 +99,24 @@ void Transmigration::_pushNoButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::T
     }
     if (eEventType == ui::Widget::TouchEventType::CANCELED) {
         button->runAction(ScaleBy::create(0.1f, 1 / 0.9f));
+    }
+}
+
+void Transmigration::_updateLocalization()
+{
+    auto menu = getChildByName("menu");
+    menu->getChildByName<ui::Text*>("noticeMessage")->setString(CCLS("TRANSMIGRATION_NOTICEMESSAGE"));
+    menu->getChildByName<ui::TextBMFont*>("takeOver")->setString(CCLS("TRANSMIGRATION_TAKEOVER"));
+    menu->getChildByName<ui::Text*>("takeOverFactor")->setString(CCLS("TRANSMIGRATION_TAKEOVERFACTOR"));
+    menu->getChildByName<ui::TextBMFont*>("getDiamond")->setString(CCLS("TRANSMIGRATION_GETDIAMOND"));
+    
+    auto title = menu->getChildByName<ui::TextBMFont*>("title");
+    title->setString(CCLS("TRANSMIGRATION_TITLE"));
+    auto yes = menu->getChildByName("yesButton")->getChildByName<ui::TextBMFont*>("label");
+    
+    if (UserDataManager::getInstance()->getLanguage() == LanguageType::JAPANESE) {
+        title->setScale(0.9f);
+    } else {
+        title->setScale(0.6f);
     }
 }

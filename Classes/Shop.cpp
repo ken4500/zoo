@@ -12,6 +12,8 @@
 #include "YesNoLayer.h"
 #include "NoticeLayer.h"
 #include "WorldManager.h"
+#include "SceneManager.h"
+#include "MainScene.h"
 
 bool Shop::init() {
     if (!Layer::init()) {
@@ -32,21 +34,24 @@ void Shop::onEnter()
     setContentSize(size);
     ui::Helper::doLayout(this);
 
+    _updateLanguage();
+
     _shopData = ShopData::getInstance();
 
     auto allType = ShopData::getAllType();
+    auto menu = getChildByName("menu");
     for (auto type : allType) {
         auto name = ShopData::toString(type);
-        auto node = getChildByName(name);
+        auto node = menu->getChildByName(name);
         _buttonScale = node->getChildByName("button")->getScale();
         node->setTag((int)type);
         _setData(node);
     }
 
-    _hasDiamondNum = getChildByName<ui::TextBMFont*>("hasDiamondNum");
+    _hasDiamondNum = menu->getChildByName<ui::TextBMFont*>("hasDiamondNum");
     _hasDiamondNum->setString(StringUtils::format("x %04d", UserDataManager::getInstance()->getDiamondNum()));
     
-    auto ok = getChildByName<ui::Button*>("okButton");
+    auto ok = menu->getChildByName<ui::Button*>("okButton");
     ok->addTouchEventListener(CC_CALLBACK_2(Shop::_pushOkButton, this));
     
     // タッチイベントの設定
@@ -142,15 +147,24 @@ void Shop::_setData(Node* node)
     float value   = _shopData->getValue(type, level);
     
     requreNum->setString(StringUtils::format("x %d", price));
+    auto lang = UserDataManager::getInstance()->getLanguage();
     switch (type) {
         case ShopLineup::OFFESE_UP:
         case ShopLineup::GET_COIN:
         case ShopLineup::EMERGE_ENEMY:
-            nextValue->setString(StringUtils::format("%.01f倍", value));
+            if (lang == LanguageType::JAPANESE) {
+                nextValue->setString(StringUtils::format("%.01f倍", value));
+            } else {
+                nextValue->setString(StringUtils::format("x %.01f", value));
+            }
             break;
         case ShopLineup::SPAWN_NUM:
         case ShopLineup::ANIMAL_NUM:
-            nextValue->setString(StringUtils::format("%d匹", (int)value));
+            if (lang == LanguageType::JAPANESE) {
+                nextValue->setString(StringUtils::format("%d匹", (int)value));
+            } else {
+                nextValue->setString(StringUtils::format("%d", (int)value));
+            }
             break;
         default:
             break;
@@ -173,10 +187,21 @@ void Shop::_purchase(ShopLineup type)
     UserDataManager::getInstance()->addDiamondNum(-price);
     UserDataManager::getInstance()->levelupShopData(type);
     
-    _hasDiamondNum = getChildByName<ui::TextBMFont*>("hasDiamondNum");
     _hasDiamondNum->setString(StringUtils::format("x %04d", UserDataManager::getInstance()->getDiamondNum()));
     
+    auto scene = SceneManager::getInstance()->getMainScene();
+    if (scene) {
+        scene->updateDiamondLabel();
+    }
+    
     auto name = ShopData::toString(type);
-    auto node = getChildByName(name);
+    auto node = getChildByName("menu")->getChildByName(name);
     _setData(node);
+}
+
+void Shop::_updateLanguage()
+{
+    auto menu = getChildByName("menu");
+    menu->getChildByName<ui::TextBMFont*>("title")->setString(CCLS("SHOP_TITLE"));
+    menu->getChildByName<ui::TextBMFont*>("lineup")->setString(CCLS("SHOP_LINEUP"));
 }

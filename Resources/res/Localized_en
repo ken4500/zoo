@@ -31,6 +31,18 @@ BOOK_MAX = Max;
 BOOK_NEXT = NEXT;
 BOOK_BACK = BACK;
 
+YES = YES;
+NO = NO;
+
+
+TRANSMIGRATION_TITLE = CONFIRM;
+TRANSMIGRATION_NOTICEMESSAGE = You will aquire diamonds \nby progress when you reset \nthe game;
+TRANSMIGRATION_TAKEOVER = TAKE OVER DATA;
+TRANSMIGRATION_TAKEOVERFACTOR = ・Encyclepedia data\n・Diamond data\n・Shop data;
+TRANSMIGRATION_GETDIAMOND = AQUIRE DIAMOND;
+
+SHOP_TITLE  = SHOP;
+SHOP_LINEUP = LINEUP;
 SHOP_DESC_offenseUp   = All animals offense
 SHOP_DESC_animalNum   = Animal amount you have
 SHOP_DESC_getCoin     = Coin amount you get

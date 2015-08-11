@@ -281,20 +281,25 @@ void WorldManager::lotteryGacha()
     
     _enableNextAction = false;
 
+    // ガチャ回数決定
+    int spawnNum = UserDataManager::getInstance()->getSpawnAnimalNum();
+    long int price = _gacha->getPrice();
+    int lotteryCount = MIN(spawnNum, int(coin / price));
+    long int consumePrice = price * lotteryCount;
+
     if (_isNetwork) {
-        _multiBattleCoin -= _gacha->getPrice();
+        _multiBattleCoin -= consumePrice;
     } else {
         UserDataManager::getInstance()->setWorldInfo(_info);
-        UserDataManager::getInstance()->setCoin(coin - _gacha->getPrice());
+        UserDataManager::getInstance()->setCoin(coin - consumePrice);
     }
     worldScene->updateCoinLabel();
 
     // ガチャ実行
-    int spawnNum = UserDataManager::getInstance()->getSpawnAnimalNum();
-    _gacha->lotteryGacha(_info, spawnNum);
+    _gacha->lotteryGacha(_info, lotteryCount);
     
     // コインエフェクト
-    auto text = ui::TextBMFont::create(StringUtils::format("-%ld", _gacha->getPrice()), "font/zoo_font2.fnt");
+    auto text = ui::TextBMFont::create(StringUtils::format("-%ld", consumePrice), "font/zoo_font2.fnt");
     text->setPosition(_gacha->getPosition() + Vec2(0, 180));
     text->setOpacity(255);
     text->setScale(0.8f / (_gacha->getScale() * _map->getScale()));
@@ -572,7 +577,8 @@ void WorldManager::endBattle(bool win, float showResultViewDelay)
     }
     
     // add battle special reward
-    UserDataManager::getInstance()->addCoin(_gacha->getPrice());
+    long int price = _gacha->getPrice() * UserDataManager::getInstance()->getCoinRate();
+    UserDataManager::getInstance()->addCoin(price);
 
     GameResult result = GameResult();
     result.resultState = (win) ? BattleState::Win : BattleState::Lose;

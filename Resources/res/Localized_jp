@@ -25,11 +25,23 @@ YESNO_END_MULTIPLAY = バトルを終了しますか？;
 NOTICE_NOT_END_TUTORIAL = チュートリアルが終わるまで\nこのメニューは使用できません。;
 NOTICE_NOT_TRANSMIGRATION = レベル6になるまで\nこのメニューは使用できません。;
 
+YES = はい;
+NO = いいえ;
+
 BOOK_GET_NUM = 取得回数;
 BOOK_MIN = 最小;
 BOOK_MAX = 最大;
 BOOK_NEXT = 進む;
 BOOK_BACK = 戻る;
+
+TRANSMIGRATION_TITLE = 確認;
+TRANSMIGRATION_NOTICEMESSAGE = ゲームをリセットして、\nダイアモンドをゲットします;
+TRANSMIGRATION_TAKEOVER = 引き継ぐデータ;
+TRANSMIGRATION_TAKEOVERFACTOR = ・図鑑データ\n・所持ダイア\n・ショップデータ;
+TRANSMIGRATION_GETDIAMOND = 取得できるダイア;
+
+SHOP_TITLE  = ショップ;
+SHOP_LINEUP = ラインナップ;
 
 SHOP_DESC_offenseUp = 動物の攻撃力アップ;
 SHOP_DESC_animalNum = 保持できる動物の数;

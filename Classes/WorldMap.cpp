@@ -195,22 +195,10 @@ void WorldMap::setupTouchHandling()
             particle->setScale(1 / this->getScale());
             particle->setPosition(touchPos);
             addChild(particle, 2000);
+            particle->setAutoRemoveOnFinish(true);
         }
         
         return true;
-    };
-
-    touchListener->onTouchMoved = [&](Touch* touch, Event* event)
-    {
-    };
-
-
-    touchListener->onTouchEnded = [&](Touch* touch, Event* event)
-    {
-    };
-
-    touchListener->onTouchCancelled = [&](Touch* touch, Event* event)
-    {
     };
 
     this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(touchListener, this);

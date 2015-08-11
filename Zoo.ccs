@@ -100,6 +100,7 @@
           <Image Name="button03_disable.png" />
           <Image Name="button04_disable.png" />
           <Image Name="button05_disable.png" />
+          <Image Name="line.png" />
         </Folder>
         <Project Name="Result.csd" Type="Node" />
         <Project Name="YesNo.csd" Type="Node" />

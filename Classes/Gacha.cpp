@@ -41,7 +41,6 @@ float Gacha::getGachaHeight()
 
 void Gacha::lotteryGacha(WorldInfo* _info, int spawnNum)
 {
-
     bool isHit = false;
 
     std::vector<std::string> animalNameList;
@@ -50,17 +49,19 @@ void Gacha::lotteryGacha(WorldInfo* _info, int spawnNum)
         bool canLotteryHit = _least < _info->lotteryGachaCount;
 
         int j;
+        bool hit;
         do {
             float rnd = _sumProbability * rand_0_1();
             float lot = 0;
             for (j = 0; j < _probabilityList.size(); j++) {
                 lot += _probabilityList[j];
                 if (rnd < lot) {
-                    isHit = (isHit == false) ? _hitList[j] : isHit;
+                    hit = _hitList[j];
                     break;
                 }
             }
-        } while ((_isDebug && isHit == false) || (_isDebug == false && isHit && canLotteryHit == false));
+        } while ((_isDebug && isHit == false) || (_isDebug == false && hit && canLotteryHit == false));
+        isHit = (isHit == false) ? hit : isHit;
         animalNameList.push_back(_rewardList[j]);
     }
 

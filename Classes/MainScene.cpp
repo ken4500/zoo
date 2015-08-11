@@ -435,7 +435,10 @@ void MainScene::_setupDebugMenu()
     _rootNode->addChild(debugMenu);
 
     
-    auto repairLife = DebugButton::create("体力回復", [this]() { UserDataManager::getInstance()->repairLife(); this->updateLifeLabel(0);});
+    auto repairLife = DebugButton::create("体力回復", [this]() {
+        ZUtil::printNode(this);
+        UserDataManager::getInstance()->repairLife(); this->updateLifeLabel(0);
+    });
     repairLife->setAnchorPoint(Vec2(1.0f, 0.0f));
     repairLife->setPosition(Vec2(0, 0));
     debugMenu->addChild(repairLife, 1);

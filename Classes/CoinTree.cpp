@@ -24,7 +24,7 @@ bool CoinTree::init() {
     _preDropPos = -1;
     _dropCount = 8;
     _isSwaying = false;
-    _id = rand();
+    _id = rand() % 1000000;
     _isDead = false;
     _isCreatedByOpponent = false;
 
@@ -120,6 +120,7 @@ void CoinTree::fellDown(bool drop)
         return;
     }
     
+    _hp = 0;
     _timeline->play("fall", false);
     _isDead = true;
     if (deadCallback) {
@@ -153,7 +154,7 @@ Rect CoinTree::getBodyRect()
 
 bool CoinTree::addDamage(float damage, Animal* animal)
 {
-    if (_hp == 0) {
+    if (_hp == 0 || isDead()) {
         return false;
     }
     

@@ -55,12 +55,12 @@ bool MultiBattleScene::init()
 
     auto displaySize = Director::getInstance()->getVisibleSize();
 
-    CSLoader* instance = CSLoader::getInstance();
-    instance->registReaderObject("GachaReader", (ObjectFactory::Instance) GachaReader::getInstance);
-    instance->registReaderObject("ScaleBarReader", (ObjectFactory::Instance) ScaleBarReader::getInstance);
-    instance->registReaderObject("WorldMapReader", (ObjectFactory::Instance) WorldMapReader::getInstance);
-
     _rootNode = CSLoader::createNode("MultiBattleScene.csb");
+    
+    Size size = Director::getInstance()->getVisibleSize();
+    _rootNode->setContentSize(size);
+    ui::Helper::doLayout(_rootNode);
+
     _timeBack = _rootNode->getChildByName("time_back");
     _timeLeftLabel = _timeBack->getChildByName<ui::TextBMFont*>("timeLabel");
     _countUpAction = nullptr;
@@ -78,7 +78,6 @@ bool MultiBattleScene::init()
 
     _endButton = _rootNode->getChildByName<ui::Button*>("endButton");
     _endButton->addTouchEventListener(CC_CALLBACK_2(MultiBattleScene::_pushEndButton, this));
-    _endButton->setPosition(Vec2(_endButton->getPosition().x, displaySize.height * 0.98f));
 
     // load the character animation timeline
     _timeline = CSLoader::createTimeline("MainScene.csb");
