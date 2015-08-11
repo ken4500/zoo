@@ -65,6 +65,16 @@ void SoundManager::stopBgm()
     _currentBgm = "";
 }
 
+void SoundManager::pauseBgm()
+{
+    AudioEngine::pause(_currentBgmId);
+}
+
+void SoundManager::resumeBgm()
+{
+    AudioEngine::resume(_currentBgmId);
+}
+
 void SoundManager::fadeOutBgm(float interval)
 {
     _currentBgm = "";

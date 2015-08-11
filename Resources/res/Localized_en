@@ -19,11 +19,17 @@ MENU_PAGE_TRANSMIGRATION = Transmigration;
 MENU_PAGE_CLOSE = CLOSE;
 
 NOTICE_MULTIPLAY = You can play with player \nwho connect to save Wi-Fi \nor turn on bluetooth.;
-NOTICE_LACK_LIFE = You don't have enough life.\n Life repair by time.;
 YESNO_END_MULTIPLAY = Are you sure \n you want to finish this game?;
 
 NOTICE_NOT_END_TUTORIAL = You can't use this menu \nuntil finishing tutorial;
 NOTICE_NOT_TRANSMIGRATION = You can't use this menu \nuntil reaching 6 level;
+
+NOTICE_LACL_LIFE_TITLE = CONFIRM;
+NOTICE_LACK_LIFE1 = You don't have enough life;
+NOTICE_LACK_LIFE2 = Do you watch video Ads\nto repare life?\nLife also repair by time.;
+
+NOTICE_REPAIR_LIFE = Repaired Life!;
+NOTICE_REPAIR_LIFE_FAILED = Failed to load video Ads;
 
 BOOK_GET_NUM = Get;
 BOOK_MIN = Min;

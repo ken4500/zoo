@@ -6,6 +6,8 @@
 #include "CocosGUI.h"
 #include "CommonInclude.h"
 #include "WorldSceneInterface.h"
+#include "AdColonyAgent.h"
+
 class Gacha;
 class Animal;
 class WorldMap;
@@ -13,7 +15,7 @@ class ScaleBar;
 class HpGauge;
 using namespace cocos2d;
 
-class MainScene : public cocos2d::Layer, public WorldSceneInterface
+class MainScene : public cocos2d::Layer, public WorldSceneInterface, public AdColonyAdsListener
 {
 public:
     MainScene();
@@ -47,6 +49,13 @@ public:
     void showNoticeView(std::string message, float delay, std::function<void ()> closeCallback);
     void showResultView(GameResult result, float delay, std::function<void ()> closeCallback);
     void battleStartEffect();
+    void showLackLifeNotice();
+    
+    //callback for AdColony
+    void onAdColonyAdAvailabilityChange(bool success, const char* zoneID, const char* msg);
+    void onAdColonyV4VCReward(bool success, const char* name,int points);
+    void onAdColonyAdStarted();
+    void onAdColonyAdAttemptFinished(bool adShown);
     
 private:
     WorldMap* _map;
@@ -62,6 +71,7 @@ private:
     cocos2d::ui::TextBMFont* _weightLabel;
     cocos2d::ui::TextBMFont* _diamondLabel;
     cocos2d::ui::Button* _otherMenuButton;
+    cocos2d::ui::Button* _endButton;
     Node* _levelBack;
     HpGauge* _hpGauge;
     Weight _preWeight;
@@ -69,11 +79,14 @@ private:
     ScaleBar* _scaleBar;
     Sprite* _weightImage;
     Sprite* _diamonImage;
+    AdColonyAgent* _adcolonyAds;
 
     void onEnter() override;
     void update(float dt);
     void setupTouchHandling();
+    void _setupAdColony();
     void _setupDebugMenu();
+    void _pushEndButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void _pushBattleButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void _pushOtherMenuButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void _pauseRecursive(Node* node);

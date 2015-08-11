@@ -21,9 +21,12 @@
 #include "HpGaugeReader.h"
 #include "ShopReader.h"
 #include "TransmigrationReader.h"
+#include "LackLife.h"
+#include "LackLifeReader.h"
+#include "NetworkingWrapper.h"
 
 USING_NS_CC;
-
+using namespace cocos2d::plugin;
 using namespace cocostudio::timeline;
 
 MainScene::MainScene() :
@@ -71,6 +74,7 @@ bool MainScene::init()
     instance->registReaderObject("HpGaugeReader", (ObjectFactory::Instance) HpGaugeReader::getInstance);
     instance->registReaderObject("ShopReader", (ObjectFactory::Instance) ShopReader::getInstance);
     instance->registReaderObject("TransmigrationReader", (ObjectFactory::Instance) TransmigrationReader::getInstance);
+    instance->registReaderObject("LackLifeReader", (ObjectFactory::Instance) LackLifeReader::getInstance);
 
     _rootNode = CSLoader::createNode("MainScene.csb");
     Size size = Director::getInstance()->getVisibleSize();
@@ -86,6 +90,13 @@ bool MainScene::init()
     _map->setPosition(Vec2(displaySize.width / 2, displaySize.height / 2));
     _map->setLocalZOrder(-1);
     _rootNode->addChild(_map);
+    
+    _endButton = _rootNode->getChildByName<ui::Button*>("endButton");
+    if (DEBUG_MODE) {
+        _endButton->addTouchEventListener(CC_CALLBACK_2(MainScene::_pushEndButton, this));
+    } else {
+        _endButton->setVisible(false);
+    }
 
     _menuNode = _rootNode->getChildByName<Node*>("menuNode");
     _menuNode->setCascadeOpacityEnabled(true);
@@ -107,6 +118,7 @@ bool MainScene::init()
     _hpGauge  = _rootNode->getChildByName<HpGauge*>("hpGauge");
 
     _setupDebugMenu();
+    _setupAdColony();
 
     // load the character animation timeline
     _timeline = CSLoader::createTimeline("MainScene.csb");
@@ -211,12 +223,21 @@ void MainScene::showBattleMenu()
     float maxHp = WorldManager::getInstance()->getMaxHp();
     float hp    = WorldManager::getInstance()->getHp();
     _hpGauge->setInitHp(maxHp, hp);
+
+    if (DEBUG_MODE) {
+        _endButton->setOpacity(0);
+        _endButton->setVisible(true);
+        _endButton->runAction(FadeIn::create(0.2f));
+    }
 }
 
 void MainScene::hideBattleMenu()
 {
     _timeBack->runAction(FadeOut::create(0.2f));
     _hpGauge->runAction(FadeOut::create(0.2f));
+    if (DEBUG_MODE) {
+        _endButton->runAction(FadeOut::create(0.2f));
+    }
 }
 
 void MainScene::updateLevelLabel()
@@ -409,7 +430,65 @@ void MainScene::battleStartEffect()
     _timeline->play("battle_start", false);
 }
 
+void MainScene::showLackLifeNotice()
+{
+    auto layer = (LackLife*)CSLoader::createNode("LackLife.csb");
+    addChild(layer);
+    layer->pushedYesCallback = [this]{
+        _adcolonyAds->showV4VC(ADCOLONY_ZONE_ID_1.c_str(), false, false);
+    };
+}
+
+#pragma - adcolony
+
+void MainScene::onAdColonyAdAvailabilityChange(bool success, const char* zoneID, const char* msg)
+{
+  CCLOG("onAdColonyAdAvailabilityChange, success : %d, zoneID: %s msg : %s", success, zoneID, msg);
+
+  if (success) {
+  }
+}
+
+void MainScene::onAdColonyV4VCReward(bool success, const char* name,int points)
+{
+    CCLOG("onAdColonyV4VCReward, success:%d name:%s points:%d", success, name, points);
+    SoundManager::getInstance()->resumeBgm();
+
+    if(success){
+        UserDataManager::getInstance()->repairLife();
+        this->updateLifeLabel(0);
+        showNoticeView(CCLS("NOTICE_REPAIR_LIFE"), 0, NULL);
+    }
+}
+
+void MainScene::onAdColonyAdStarted()
+{
+    CCLOG("onAdColonyV4VCReward");
+    SoundManager::getInstance()->pauseBgm();
+}
+
+void MainScene::onAdColonyAdAttemptFinished(bool adShown)
+{
+    CCLOG("onAdColonyAdAttemptFinished adShown:%d", adShown);
+    if (adShown == false) {
+        showNoticeView(CCLS("NOTICE_REPAIR_LIFE_FAILED"), 0, NULL);
+    }
+}
+
 #pragma - private method
+
+void MainScene::_setupAdColony()
+{
+    auto uuid = NetworkingWrapper::getUUID();
+    
+    //Load plugin
+    _adcolonyAds = AdColonyAgent::getInstance();
+    //set custom id, used for V4VC
+    _adcolonyAds->setCustomID(uuid);
+    //configure adcolony
+    std::vector<std::string> zoneIDs =  { ADCOLONY_ZONE_ID_1 };
+    _adcolonyAds->configure("", ADCOLONY_APP_ID.c_str(), zoneIDs, this);
+}
 
 static bool isOpenDebugMenu = false;
 void MainScene::_setupDebugMenu()
@@ -436,7 +515,6 @@ void MainScene::_setupDebugMenu()
 
     
     auto repairLife = DebugButton::create("体力回復", [this]() {
-        ZUtil::printNode(this);
         UserDataManager::getInstance()->repairLife(); this->updateLifeLabel(0);
     });
     repairLife->setAnchorPoint(Vec2(1.0f, 0.0f));
@@ -528,6 +606,27 @@ void MainScene::_setupDebugMenu()
     debugMenu->setOpacity(200);
 }
 
+void MainScene::_pushEndButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
+{
+    auto button = dynamic_cast<ui::Button*>(pSender);
+    if (eEventType == ui::Widget::TouchEventType::BEGAN) {
+        button->runAction(ScaleTo::create(0.1f, 0.7f * 0.9f));
+    }
+    if (eEventType == ui::Widget::TouchEventType::ENDED) {
+        SoundManager::getInstance()->playDecideEffect2();
+        button->runAction(Sequence::create(
+            ScaleTo::create(0.1f, 0.7f),
+            CallFunc::create([this]{
+                WorldManager::getInstance()->endBattle(false, 0);
+            }),
+            NULL
+        ));
+    }
+    if (eEventType == ui::Widget::TouchEventType::CANCELED) {
+        button->runAction(ScaleBy::create(0.1f, 0.7f));
+    }
+}
+
 void MainScene::_pushBattleButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
     if (WorldManager::getInstance()->enableNextAction() == false) {
@@ -536,7 +635,7 @@ void MainScene::_pushBattleButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::To
 
     auto button = dynamic_cast<ui::Button*>(pSender);
     if (eEventType == ui::Widget::TouchEventType::BEGAN) {
-        button->runAction(ScaleTo::create(0.1f, 0.9));
+        button->runAction(ScaleTo::create(0.1f, 0.9f));
     }
     if (eEventType == ui::Widget::TouchEventType::ENDED) {
         SoundManager::getInstance()->playDecideEffect2();

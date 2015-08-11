@@ -303,7 +303,7 @@
             <FileData Type="Normal" Path="ui/time_back.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="endButton" ActionTag="811670514" Tag="47" Alpha="0" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="951.0000" RightMargin="30.0000" TopMargin="25.6000" BottomMargin="459.4000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="127" Scale9Height="133" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="endButton" ActionTag="811670514" Tag="47" VisibleForFrame="False" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="951.0000" RightMargin="30.0000" TopMargin="25.6000" BottomMargin="459.4000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="127" Scale9Height="133" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="155.0000" Y="155.0000" />
             <AnchorPoint ScaleX="1.0000" ScaleY="1.0000" />
             <Position X="1106.0000" Y="614.4000" />
@@ -361,6 +361,21 @@
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="Normal" Path="ui/weight_image.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="endButton" ActionTag="-1170309976" Tag="119" VisibleForFrame="False" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="943.0000" RightMargin="36.0000" TopMargin="25.6000" BottomMargin="459.4000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="127" Scale9Height="133" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+            <Size X="157.0000" Y="155.0000" />
+            <AnchorPoint ScaleX="1.0000" ScaleY="1.0000" />
+            <Position X="1100.0000" Y="614.4000" />
+            <Scale ScaleX="0.7000" ScaleY="0.7000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.9683" Y="0.9600" />
+            <PreSize X="0.1382" Y="0.2422" />
+            <TextColor A="255" R="65" G="65" B="70" />
+            <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
+            <PressedFileData Type="Normal" Path="ui/close.png" Plist="" />
+            <NormalFileData Type="Normal" Path="ui/close.png" Plist="" />
+            <OutlineColor A="255" R="255" G="0" B="0" />
+            <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
         </Children>
       </ObjectData>

@@ -159,6 +159,7 @@
         </Folder>
         <Project Name="Transmigration.csd" Type="Layer" />
         <Project Name="Shop.csd" Type="Layer" />
+        <Project Name="LackLife.csd" Type="Layer" />
       </RootFolder>
     </Group>
   </SolutionFolder>

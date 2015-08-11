@@ -26,6 +26,8 @@ public:
 
     void playBgm(string musicName);
     void stopBgm();
+    void pauseBgm();
+    void resumeBgm();
     void fadeOutBgm(float interval);
     void fadeInBgm(float interval, string musicName);
     void playEffect(string efectName);

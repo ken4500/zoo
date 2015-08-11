@@ -81,6 +81,19 @@ const char * NetworkingWrapper::getDeviceName()
     return [deviceName UTF8String];
 }
 
+const char * NetworkingWrapper::getUUID()
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *uuidStr = [defaults stringForKey:@"uuid"];
+    if ([uuidStr length] == 0) {
+        CFUUIDRef uuid = CFUUIDCreate(NULL);
+        uuidStr = (NSString *)CFUUIDCreateString(NULL, uuid);
+        CFRelease(uuid);
+        [defaults setObject:uuidStr forKey:@"uuid"];
+    }
+    return [uuidStr UTF8String];
+}
+
 std::vector<std::string> NetworkingWrapper::getPeerList()
 {
     NSArray* peerList = [this->networkManager getPeerList];

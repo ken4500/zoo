@@ -78,6 +78,11 @@ public:
      *  Retrieves the name of the this device
      */
     static const char * getDeviceName();
+
+    /**
+     *  Retrieves the UUID of the this device
+     */
+    static const char* getUUID();
     
     /**
      *  Disconnect from the current session
@@ -88,6 +93,7 @@ public:
      *  Retrieves a list of the device names of any currently connected peers
      */
     std::vector<std::string> getPeerList();
+    
     
 private:
     NetworkManager* networkManager;

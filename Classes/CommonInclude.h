@@ -18,5 +18,6 @@
 #include "Species.h"
 #include "GameResult.h"
 #include "CCLocalizedString.h"
+#include "Config.h"
 
 #endif

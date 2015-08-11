@@ -471,7 +471,7 @@ void WorldManager::startBattle()
     
     if (UserDataManager::getInstance()->getLife() <= 0)
     {
-        SceneManager::getInstance()->getMainScene()->showNoticeView(CCLS("NOTICE_LACK_LIFE"), 0, NULL);
+        SceneManager::getInstance()->getMainScene()->showLackLifeNotice();
         return;
     }
 
