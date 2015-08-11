@@ -319,7 +319,9 @@ void MainScene::playNovel(std::string novelId, std::function<void ()> callback, 
     // すでに読んだので再生しない
     bool alreadyRead = UserDataManager::getInstance()->alreadyRead(novelId);
     if (alreadyRead) {
-        callback();
+        if (callback) {
+            callback();
+        }
         return;
     }
     
@@ -328,7 +330,9 @@ void MainScene::playNovel(std::string novelId, std::function<void ()> callback, 
         _loadNovelJson();
     }
     if (_novelDocument.HasMember(novelId.c_str()) == false) {
-        callback();
+        if (callback) {
+            callback();
+        }
         return;
     }
     

@@ -622,6 +622,7 @@ void WorldManager::appearCrown(SizeRank rank)
     auto scene = SceneManager::getInstance()->getMainScene();
     if (scene) {
         scene->updateDiamondLabel();
+        scene->playNovel("novel_first_diamond_get", NULL, false, 1.0f);
     }
 }
 

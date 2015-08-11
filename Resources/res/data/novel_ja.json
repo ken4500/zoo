@@ -896,13 +896,13 @@
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "レベル6じゃのぅ"
+      "value": "あっという間にレベル6じゃのぅ"
     },
     {
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "レベル6になったら新しい力が\n開放されるのじゃ"
+      "value": "レベル6になったら[c=red]新しい力[/c]が\n開放されるのじゃ"
     },
     {
       "type": "speak",
@@ -938,13 +938,19 @@
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "アリちゃんがレベル1になる代わりに"
+      "value": "レベル1に戻る代わりに"
     },
     {
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "たくさんのダイヤをゲットできるんじゃ！"
+      "value": "たくさんのダイヤを\nゲットできるんじゃ！"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "転生するときの[c=red]レベルが高いほど、\nたくさんダイヤ[/c]がもらえるぞい"
     },
     {
       "type": "speak",
@@ -980,19 +986,19 @@
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "（これだからじじぃはうぜぇな）"
+      "value": "（…これだからじじぃはうぜぇな）"
     },
     {
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "この先はどんどん強くなるからな"
+      "value": "この先は敵がどんどん強くなるぞい"
     },
     {
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "一度腰を据えてやり直すのもありじゃよ"
+      "value": "一度腰を据えて\nやり直すのもありじゃよ"
     },
     {
       "type": "speak",
@@ -1022,7 +1028,7 @@
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "あと、ダイヤモンドを使って強くなるには"
+      "value": "ダイヤを使って強くなるには"
     },
     {
       "type": "speak",
@@ -1031,26 +1037,26 @@
       "value": "左下のメニューの[c=red]ショップ[/c]からじゃ"
     },
     {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "ばいばーい、アリちゃん"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "（うーん、今後の世界征服のためにも\nダイヤはもっと必要だな・・・）"
+    },
+    {
       "type": "set",
       "target": "right",
       "value": "remove"
     },
     {
       "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "ばいばーい、ありちゃん"
-    },
-    {
-      "type": "speak",
       "target": "left",
-      "balloon": "normal",
-      "value": "（うーん、今後の世界征服のためにもダイヤはもっと必要だな・・・）"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
+      "balloon": "shout",
       "value": "行き詰まったら使ってみるか！"
     }
   ]
@@ -2267,43 +2273,103 @@
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "ダイヤは結構固いぞ"
+      "value": "結構固かったわ"
     },
     {
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "アリちゃんが食べたら歯が折れちゃうかもね"
+      "value": "アリちゃんが食べたら\n歯が折れちゃうかもね"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "shout",
+      "value": "ふざけんな！早く言えよ！"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "ほっほっほ、\n怒っちゃいやん♥"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "では真面目に説明するかのー"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "ダイヤは[c=red]種族の中で\nかなり大きいめ、もしくは小さめの\n動物をゲット[/c]すると手に入るぞ"
     },
     {
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "・・・"
+      "value": "説明が難しい！"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "うーん"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "まぁラッキーだとたまに\n出てくるんじゃ"
     },
     {
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "早く言えよ！"
+      "value": "最初からそう説明しろよ"
     },
     {
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "ほっほっほ"
+      "value": "そして最後に重要なことを教えるぞい"
     },
     {
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "真面目に説明するかの"
+      "value": "[c=red]ダイヤ[/c]を集めると[c=red]ショップ[/c]\nでいろいろなものが買えるぞ"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "shout",
+      "value": "マジか！"
     },
     {
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "ダイヤは[c=red]その種族の中でも\nかなり大きいめ、もしくは小さめの\n動物をゲット[/c]すると手に入るぞ"
+      "value": "何が買えるかは自分で\n確認してちょ"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "[c=red]左下のメニュー[/c]から\nショップに行けるぞい"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "shout",
+      "value": "[c=red]左下のメニューからだな![/c]"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "shout",
+      "value": "後で行ってみるぜ!"
     }
   ]
 }
