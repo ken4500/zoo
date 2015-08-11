@@ -111,11 +111,14 @@ ValueVector UserData::getAnimalList()
 
 LanguageType UserData::getLanguage()
 {
+    LanguageType lang;
     if (_data.find("language") == _data.end()) {
-        return CCApplication::getInstance()->getCurrentLanguage();
+        lang = CCApplication::getInstance()->getCurrentLanguage();
     } else {
-        return (LanguageType)_data["language"].asInt();
+       lang = (LanguageType)_data["language"].asInt();
     }
+
+    return lang;
 }
 
 ValueMap UserData::getAnimalDataList()

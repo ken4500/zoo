@@ -858,6 +858,203 @@
     }
   ]
 },
+"novel_enter_map_6": {
+  "actions" : [
+    {
+      "type": "set",
+      "target": "left",
+      "value": "hero_01"
+    },
+    {
+      "type": "name",
+      "target": "left",
+      "value": "アリ"
+    },
+    {
+      "type": "set",
+      "target": "right",
+      "value": "god_01"
+    },
+    {
+      "type": "name",
+      "target": "right",
+      "value": "神"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "ボンジュール、アリちゃん"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "あっでたな！"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "レベル6じゃのぅ"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "レベル6になったら新しい力が\n開放されるのじゃ"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "おっ！なんだなんだ？！"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "shout",
+      "value": "その名も[c=red]「転生」[/c]じゃ！"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "shout",
+      "value": "[c=red]転生？！[/c]"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "shout",
+      "value": "かっこいい！"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "じゃろじゃろ？"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "アリちゃんがレベル1になる代わりに"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "たくさんのダイヤをゲットできるんじゃ！"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "は？！\n最初からやり直しかよ！"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "めんどくせぇな！"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "まぁまぁ"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "「急がば回れ」って言葉\n知っとるかい？"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "若者は結果を急ぎすぎるんじゃよ"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "（これだからじじぃはうぜぇな）"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "この先はどんどん強くなるからな"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "一度腰を据えてやり直すのもありじゃよ"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "だるいなぁ・・・"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "フォッフォッフォ"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "まぁ困ったときに使うが良い"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "[c=red]転生[/c]は左下のメニューからできるぞい"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "あと、ダイヤモンドを使って強くなるには"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "左下のメニューの[c=red]ショップ[/c]からじゃ"
+    },
+    {
+      "type": "set",
+      "target": "right",
+      "value": "remove"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "ばいばーい、ありちゃん"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "（うーん、今後の世界征服のためにもダイヤはもっと必要だな・・・）"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "行き詰まったら使ってみるか！"
+    }
+  ]
+},
 "novel_enter_map_7": {
   "actions" : [
     {
@@ -1972,6 +2169,141 @@
       "type": "narration",
       "target": "narration",
       "value": "FIN"
+    }
+  ]
+},
+"novel_first_diamond_get": {
+  "actions" : [
+    {
+      "type": "set",
+      "target": "left",
+      "value": "hero_01"
+    },
+    {
+      "type": "name",
+      "target": "left",
+      "value": "アリ"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "なんか綺麗な石がでてきたぞ！"
+    },
+    {
+      "type": "set",
+      "target": "right",
+      "value": "god_01"
+    },
+    {
+      "type": "name",
+      "target": "right",
+      "value": "神"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "おっほー"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "ラッキーじゃの、アリちゃん"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "あれは[c=red]ダイヤモンド[/c]じゃ"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "[c=red]ダイヤモンド?![/c]"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "食えるのか？"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "食えるぞ"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "結構おいしいんじゃわ"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "食べてみよう！"
+    },
+    {
+      "type": "set",
+      "target": "narration"
+    },
+    {
+      "type": "narration",
+      "target": "narration",
+      "value": "ガキッ！！！"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "あっいい忘れてた"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "ダイヤは結構固いぞ"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "アリちゃんが食べたら歯が折れちゃうかもね"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "・・・"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "早く言えよ！"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "ほっほっほ"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "真面目に説明するかの"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "ダイヤは[c=red]その種族の中でも\nかなり大きいめ、もしくは小さめの\n動物をゲット[/c]すると手に入るぞ"
     }
   ]
 }

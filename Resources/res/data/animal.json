@@ -393,7 +393,7 @@
   "maxHeight" : 43.83,
   "speed" : 43.83,
   "density" : 0.004,
-  "image" : "tirano"
+  "image" : "burakio"
 },
 "Tirano": {
   "sizeId" : 12,
@@ -402,7 +402,7 @@
   "maxHeight" : 43.83,
   "speed" : 43.83,
   "density" : 0.004,
-  "image" : "burakio"
+  "image" : "tirano"
 },
 "Supino": {
   "sizeId" : 12,

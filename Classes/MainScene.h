@@ -80,6 +80,8 @@ private:
     Sprite* _weightImage;
     Sprite* _diamonImage;
     AdColonyAgent* _adcolonyAds;
+    rapidjson::Document _novelDocument;
+    LanguageType _novelLangType;
 
     void onEnter() override;
     void update(float dt);
@@ -92,6 +94,7 @@ private:
     void _pauseRecursive(Node* node);
     void _resumeRecursive(Node* node);
     void _updateLanguage();
+    void _loadNovelJson();
 
 };
 

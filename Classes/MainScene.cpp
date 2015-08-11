@@ -32,6 +32,7 @@ using namespace cocostudio::timeline;
 MainScene::MainScene() :
 _preWeight(0)
 {
+    _loadNovelJson();
 }
 MainScene::~MainScene()
 {
@@ -322,17 +323,16 @@ void MainScene::playNovel(std::string novelId, std::function<void ()> callback, 
         return;
     }
     
-    // すでに読んだので再生しない
-    auto file = CCLS("NOVEL_FILE_NAME");
-    auto jsonStr = FileUtils::getInstance()->getStringFromFile(file);
-    rapidjson::Document document;
-    document.Parse<0>(jsonStr.c_str());
-    if (document.HasMember(novelId.c_str()) == false) {
+    // 存在しないので再生しない
+    if (_novelLangType != UserDataManager::getInstance()->getLanguage()) {
+        _loadNovelJson();
+    }
+    if (_novelDocument.HasMember(novelId.c_str()) == false) {
         callback();
         return;
     }
     
-    rapidjson::Value& novelJson = document[novelId.c_str()];
+    rapidjson::Value& novelJson = _novelDocument[novelId.c_str()];
     
     // pause map
     _pauseRecursive(_map);
@@ -535,6 +535,7 @@ void MainScene::_setupDebugMenu()
     debugMenu->addChild(levelup, 1);
 
     auto resetData = DebugButton::create("データリセット", [this]() {
+        PurgeCCLocalizedStringCached();
         WorldManager::getInstance()->resetData();
         SceneManager::getInstance()->resetMainScene();
     });
@@ -543,6 +544,7 @@ void MainScene::_setupDebugMenu()
     debugMenu->addChild(resetData, 1);
 
     auto endTutorial = DebugButton::create("チュートリアルなしリセット", [this]() {
+        PurgeCCLocalizedStringCached();
         WorldManager::getInstance()->resetData();
         UserDataManager::getInstance()->clearTutorial();
         SceneManager::getInstance()->resetMainScene();
@@ -703,4 +705,19 @@ void MainScene:: _updateLanguage()
 {
     int level = WorldManager::getInstance()->getWorldInfo()->level;
     _levelLabel->setString(StringUtils::format("%s %d", CCLS("LEVEL"), level));
+}
+
+void MainScene::_loadNovelJson()
+{
+    auto lang = UserDataManager::getInstance()->getLanguage();
+    CCLOG("LOAD NOVEL JSON");
+    if (lang == LanguageType::JAPANESE) {
+        CCLOG("日本語");
+    } else {
+        CCLOG("英語");
+    }
+    auto file = CCLS("NOVEL_FILE_NAME");
+    auto jsonStr = FileUtils::getInstance()->getStringFromFile(file);
+    _novelDocument.Parse<0>(jsonStr.c_str());
+    _novelLangType = lang;
 }

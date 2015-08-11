@@ -60,7 +60,7 @@ void Gacha::lotteryGacha(WorldInfo* _info, int spawnNum)
                     break;
                 }
             }
-        } while ((_isDebug && isHit == false) || (_isDebug == false && hit && canLotteryHit == false));
+        } while ((_isDebug && hit == false) || (_isDebug == false && hit && canLotteryHit == false));
         isHit = (isHit == false) ? hit : isHit;
         animalNameList.push_back(_rewardList[j]);
     }
