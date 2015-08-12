@@ -282,7 +282,6 @@ void Animal::fight(AbstractBattleEntity* entity)
     _state = AnimalState::Battle;
     _target = entity;
     _target->retain();
-    SoundManager::getInstance()->playFightSound();
     
     Vec2 originPoint = getPosition();
     Vec2 targetPoint = ZMath::divideInternally(getPosition(), entity->getPosition(), 1, 2);
@@ -294,6 +293,14 @@ void Animal::fight(AbstractBattleEntity* entity)
     _moveAction = runAction(RepeatForever::create(Sequence::create(
         MoveTo::create(0.1f, targetPoint),
         CallFunc::create([this, effectPoint](){
+            // sound effect
+            if (isEnemy() || isOpponent()) {
+                SoundManager::getInstance()->playFight2Sound();
+            } else {
+                SoundManager::getInstance()->playFightSound();
+            }
+        
+            // particle effect
             auto effect = ParticleSystemQuad::create("effect/hit3.plist");
             effect->setScale(getScale());
             effect->setPosition(effectPoint);

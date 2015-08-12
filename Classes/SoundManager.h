@@ -46,11 +46,13 @@ public:
     void playAnimalDead();
     void playEnemyAnimalDead();
     void playFightSound();
+    void playFight2Sound();
 
 private:
     int _currentBgmId;
     string _currentBgm;
     double _preFightTime;
+    double _preFight2Time;
     double _preCoinTime;
 };
 

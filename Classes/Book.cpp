@@ -36,7 +36,7 @@ void Book::onEnter()
     Size size = Director::getInstance()->getVisibleSize();
     setContentSize(size);
     ui::Helper::doLayout(this);
-
+    
     _page = 1;
     _selectImage     = nullptr;
     _allSpecies      = Species::getAllSpecies();
@@ -259,11 +259,11 @@ void Book::_pushRightButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEve
 {
     auto button = dynamic_cast<ui::Button*>(pSender);
     if (eEventType == ui::Widget::TouchEventType::BEGAN) {
-        button->runAction(ScaleBy::create(0.1f, 0.9));
+        button->runAction(ScaleTo::create(0.1f, 0.9));
     }
     if (eEventType == ui::Widget::TouchEventType::ENDED) {
         button->runAction(Sequence::create(
-            ScaleBy::create(0.1f, 1 / 0.9f),
+            ScaleTo::create(0.1f, 1),
             CallFunc::create([this]{
                 _page = MIN(_page + 1, _getMaxPage());
                 _loadPage(_page);
@@ -273,7 +273,7 @@ void Book::_pushRightButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEve
         ));
     }
     if (eEventType == ui::Widget::TouchEventType::CANCELED) {
-        button->runAction(ScaleBy::create(0.1f, 1 / 0.9f));
+        button->runAction(ScaleTo::create(0.1f, 1));
     }
 }
 
@@ -281,11 +281,11 @@ void Book::_pushLeftButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEven
 {
     auto button = dynamic_cast<ui::Button*>(pSender);
     if (eEventType == ui::Widget::TouchEventType::BEGAN) {
-        button->runAction(ScaleBy::create(0.1f, 0.9));
+        button->runAction(ScaleTo::create(0.1f, 0.9));
     }
     if (eEventType == ui::Widget::TouchEventType::ENDED) {
         button->runAction(Sequence::create(
-            ScaleBy::create(0.1f, 1 / 0.9f),
+            ScaleTo::create(0.1f, 1),
             CallFunc::create([this]{
                 _page = MAX(_page - 1, 1);
                 _loadPage(_page);
@@ -295,7 +295,7 @@ void Book::_pushLeftButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEven
         ));
     }
     if (eEventType == ui::Widget::TouchEventType::CANCELED) {
-        button->runAction(ScaleBy::create(0.1f, 1 / 0.9f));
+        button->runAction(ScaleTo::create(0.1f, 1));
     }
 }
 

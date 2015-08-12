@@ -31,6 +31,7 @@ SoundManager* SoundManager::getInstance()
 SoundManager::SoundManager()
 {
     _preFightTime = 0;
+    _preFight2Time = 0;
     _preCoinTime  = 0;
 }
 
@@ -172,7 +173,7 @@ void SoundManager::playGetCoinEffect()
     }
     _preCoinTime = time;
 
-    playEffect("sound/se/coin.wav");
+    playEffect("sound/se/coin3.wav");
 }
 
 void SoundManager::playGachaEffect1()
@@ -211,7 +212,18 @@ void SoundManager::playFightSound()
     
     _preFightTime = time;
     
-    playEffect("sound/se/fight6.wav");
-    return;
+    playEffect("sound/se/fight1.wav");
 }
 
+
+void SoundManager::playFight2Sound()
+{
+    double time = ZUtil::getTime();
+    if (time - _preFight2Time < 0.2) {
+        return;
+    }
+    
+    _preFight2Time = time;
+    
+    playEffect("sound/se/fight2.wav");
+}
