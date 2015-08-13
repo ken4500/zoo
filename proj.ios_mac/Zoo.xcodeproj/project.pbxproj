@@ -995,7 +995,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/ken.watanabe/Documents/School/zoo/cocos2d/plugin/plugins/adcolony/proj.ios,
+					"$(SRCROOT)/../cocos2d/plugin/plugins/adcolony/proj.ios",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
@@ -1050,7 +1050,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/ken.watanabe/Documents/School/zoo/cocos2d/plugin/plugins/adcolony/proj.ios,
+					"$(SRCROOT)/../cocos2d/plugin/plugins/adcolony/proj.ios",
 				);
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
