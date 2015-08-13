@@ -54,7 +54,7 @@ public:
     bool isMaxLife();
     void repairLife();
     void decreateLife(int life);
-    void addMaxLife(int addMaxLife);
+    void setMaxLife(int maxLife);
 
     // 所持動物に関するメソッド
     std::vector<Animal*> getAnimalList();

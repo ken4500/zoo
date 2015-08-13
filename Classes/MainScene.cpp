@@ -664,15 +664,21 @@ void MainScene::_pushBattleButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::To
 
 void MainScene::_pushOtherMenuButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
+    if (WorldManager::getInstance()->enableNextAction() == false) {
+        return;
+    }
+
     auto button = dynamic_cast<ui::Button*>(pSender);
     if (eEventType == ui::Widget::TouchEventType::BEGAN) {
         button->runAction(ScaleTo::create(0.1f, 0.9));
     }
     if (eEventType == ui::Widget::TouchEventType::ENDED) {
         SoundManager::getInstance()->playDecideEffect2();
+        button->setEnabled(false);
         button->runAction(Sequence::create(
             ScaleTo::create(0.1f, 1),
-            CallFunc::create([this]{
+            CallFunc::create([this, button]{
+                button->setEnabled(true);
                 auto layer = MenuLayer::create();
                 this->addChild(layer);
                 layer->closeCallback = [this]{

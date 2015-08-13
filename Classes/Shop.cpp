@@ -155,6 +155,13 @@ void Shop::_setData(Node* node)
                 nextValue->setString(StringUtils::format("%d", (int)value));
             }
             break;
+        case ShopLineup::MAX_LIFE:
+            if (lang == LanguageType::JAPANESE) {
+                nextValue->setString(StringUtils::format("%d個", (int)value));
+            } else {
+                nextValue->setString(StringUtils::format("%d", (int)value));
+            }
+            break;
         default:
             break;
     }

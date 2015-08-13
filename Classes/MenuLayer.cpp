@@ -86,9 +86,11 @@ void MenuLayer::_pushMultiPlayButton(cocos2d::Ref* pSender, cocos2d::ui::Widget:
     }
     if (eEventType == ui::Widget::TouchEventType::ENDED) {
         SoundManager::getInstance()->playDecideEffect2();
+        button->setEnabled(false);
         button->runAction(Sequence::create(
             ScaleBy::create(0.1f, 1 / 0.9f),
-            CallFunc::create([this]{
+            CallFunc::create([this, button]{
+                button->setEnabled(true);
                 bool isEndTutorial = UserDataManager::getInstance()->isEndTutorial();
                 if (isEndTutorial == false) {
                     auto notice = NoticeLayer::createWithMessage(CCLS("NOTICE_NOT_END_TUTORIAL"));
@@ -121,9 +123,11 @@ void MenuLayer::_pushEncyclepediaButton(cocos2d::Ref* pSender, cocos2d::ui::Widg
     }
     if (eEventType == ui::Widget::TouchEventType::ENDED) {
 //        SoundManager::getInstance()->playDecideEffect2();
+        button->setEnabled(false);
         button->runAction(Sequence::create(
             ScaleBy::create(0.1f, 1 / 0.9f),
-            CallFunc::create([this]{
+            CallFunc::create([this, button]{
+                button->setEnabled(true);
                 auto book = CSLoader::createNode("Book.csb");
                 getParent()->addChild(book);
                 removeFromParent();
@@ -144,9 +148,11 @@ void MenuLayer::_pushLanguageButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::
     }
     if (eEventType == ui::Widget::TouchEventType::ENDED) {
         SoundManager::getInstance()->playDecideEffect2();
+        button->setEnabled(false);
         button->runAction(Sequence::create(
             ScaleBy::create(0.1f, 1 / 0.9f),
-            CallFunc::create([this]{
+            CallFunc::create([this, button]{
+                button->setEnabled(true);
                 auto layer = SelectLanguageLayer::create();
                 layer->closedCallback = [this]() {
                     _updateLanguage();
@@ -169,9 +175,11 @@ void MenuLayer::_pushShopButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::Touc
     }
     if (eEventType == ui::Widget::TouchEventType::ENDED) {
         SoundManager::getInstance()->playDecideEffect2();
+        button->setEnabled(false);
         button->runAction(Sequence::create(
             ScaleBy::create(0.1f, 1 / 0.9f),
-            CallFunc::create([this]{
+            CallFunc::create([this, button]{
+                button->setEnabled(true);
                 bool isEndTutorial = UserDataManager::getInstance()->isEndTutorial();
                 if (isEndTutorial == false) {
                     auto notice = NoticeLayer::createWithMessage(CCLS("NOTICE_NOT_END_TUTORIAL"));
@@ -197,9 +205,11 @@ void MenuLayer::_pushTransmigrationButton(cocos2d::Ref* pSender, cocos2d::ui::Wi
     }
     if (eEventType == ui::Widget::TouchEventType::ENDED) {
         SoundManager::getInstance()->playDecideEffect2();
+        button->setEnabled(false);
         button->runAction(Sequence::create(
             ScaleBy::create(0.1f, 1 / 0.9f),
-            CallFunc::create([this]{
+            CallFunc::create([this, button]{
+                button->setEnabled(true);
                 bool diamondNum = WorldManager::getInstance()->getDiamondNumInTransmigration();
                 if (diamondNum == 0) {
                     auto notice = NoticeLayer::createWithMessage(CCLS("NOTICE_NOT_TRANSMIGRATION"));

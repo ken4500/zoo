@@ -31,8 +31,10 @@ bool CreditLayer::init()
     node->getChildByName<ui::TextBMFont*>("title")->setString(CCLS("CREDIT_PAGE_TITLE"));
     node->getChildByName<ui::TextBMFont*>("KenWatanabe")->setString(CCLS("CREDIT_PAGE_KEN_WATANABE"));
     node->getChildByName<ui::TextBMFont*>("NamiKitanobo")->setString(CCLS("CREDIT_PAGE_NAMI_KITANOBO"));
+    node->getChildByName<ui::TextBMFont*>("NameTranslate")->setString(CCLS("CREDIT_PAGE_NAME_TRANSLATE"));
     node->getChildByName<ui::TextBMFont*>("RoleKen")->setString(CCLS("CREDIT_PAGE_ROLE_KEN"));
     node->getChildByName<ui::TextBMFont*>("RoleNami")->setString(CCLS("CREDIT_PAGE_ROLE_NAMI"));
+    node->getChildByName<ui::TextBMFont*>("RoleTranslate")->setString(CCLS("CREDIT_PAGE_ROLE_TRANSLATE"));
     
     
     auto button = node->getChildByName<ui::Button*>("okButton");

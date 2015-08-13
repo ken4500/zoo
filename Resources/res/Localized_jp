@@ -10,6 +10,10 @@ CREDIT_PAGE_KEN_WATANABE = 渡辺　賢;
 CREDIT_PAGE_NAMI_KITANOBO = Nami.K;
 CREDIT_PAGE_ROLE_KEN = プランナー & プログラマー;
 CREDIT_PAGE_ROLE_NAMI = デザイナー;
+CREDIT_PAGE_NAME_TRANSLATE = 貝塚　敦子;
+CREDIT_PAGE_ROLE_TRANSLATE = 翻訳者;
+
+CREDIT_PAGE_ROLE_TRANSLATE = Translate;
 MENU_PAGE_TITLE = メニュー;
 MENU_PAGE_MULTIPLAY = マルチプレイ;
 MENU_PAGE_ENCYCLEPEDIA = 動物辞典;
@@ -51,11 +55,12 @@ TRANSMIGRATION_GETDIAMOND = 取得できるダイア;
 SHOP_TITLE  = ショップ;
 SHOP_LINEUP = ラインナップ;
 
-SHOP_DESC_offenseUp = 動物の攻撃力アップ;
-SHOP_DESC_animalNum = 保持できる動物の数;
-SHOP_DESC_getCoin = コインの獲得量;
-SHOP_DESC_spawnNum = ツボから出る動物の数;
-SHOP_DESC_emergeEnemy = 出現する敵の数;
+SHOP_DESC_offenseUp   = 動物の攻撃力アップ;
+SHOP_DESC_animalNum   = 保持できる動物の数アップ;
+SHOP_DESC_getCoin     = コインの獲得量アップ;
+SHOP_DESC_spawnNum    = ツボから出る動物の数アップ;
+SHOP_DESC_emergeEnemy = 出現する敵の数アップ;
+SHOP_DESC_maxLife     = 最大体力アップ;
 
 LEVEL = レベル;
 

@@ -17,6 +17,7 @@ enum class ShopLineup {
     GET_COIN,
     SPAWN_NUM,
     EMERGE_ENEMY,
+    MAX_LIFE,
     COUNT
 };
 

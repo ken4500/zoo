@@ -10,6 +10,8 @@ CREDIT_PAGE_KEN_WATANABE = Ken Watanabe;
 CREDIT_PAGE_NAMI_KITANOBO = Nami.K;
 CREDIT_PAGE_ROLE_KEN = Planner & Programmer;
 CREDIT_PAGE_ROLE_NAMI = Designer;
+CREDIT_PAGE_NAME_TRANSLATE = Atsuko Kaizuka;
+CREDIT_PAGE_ROLE_TRANSLATE = Translate;
 MENU_PAGE_TITLE = MENU;
 MENU_PAGE_MULTIPLAY = Multi play;
 MENU_PAGE_ENCYCLEPEDIA = Encyclepedia;
@@ -49,11 +51,13 @@ TRANSMIGRATION_GETDIAMOND = AQUIRE DIAMOND;
 
 SHOP_TITLE  = SHOP;
 SHOP_LINEUP = LINEUP;
-SHOP_DESC_offenseUp   = All animals offense
-SHOP_DESC_animalNum   = Animal amount you have
-SHOP_DESC_getCoin     = Coin amount you get
-SHOP_DESC_spawnNum    = Amount spawn by the pod
-SHOP_DESC_emergeEnemy = Enemy amount
+SHOP_DESC_offenseUp   = Upgrade all animals offense
+SHOP_DESC_animalNum   = Upgrade animal amount you have
+SHOP_DESC_getCoin     = Upgrade coin amount you get
+SHOP_DESC_spawnNum    = Upgrade amount spawn by the pod
+SHOP_DESC_emergeEnemy = Upgrade enemy amount
+SHOP_DESC_maxLife     = Upgrade max life;
+
 
 LEVEL = LEVEL;
 

@@ -17,6 +17,7 @@ std::map<std::string, ShopLineup> ShopData::toTypeMap = {
     {"getCoin"    , ShopLineup::GET_COIN},
     {"spawnNum"   , ShopLineup::SPAWN_NUM},
     {"emergeEnemy", ShopLineup::EMERGE_ENEMY},
+    {"maxLife"    , ShopLineup::MAX_LIFE},
 };
 
 std::map<ShopLineup, std::string> ShopData::toStringMap = {
@@ -25,6 +26,7 @@ std::map<ShopLineup, std::string> ShopData::toStringMap = {
     {ShopLineup::GET_COIN     , "getCoin"},
     {ShopLineup::SPAWN_NUM    , "spawnNum"},
     {ShopLineup::EMERGE_ENEMY , "emergeEnemy"},
+    {ShopLineup::MAX_LIFE     , "maxLife"},
 };
 
 std::string ShopData::toString(ShopLineup lineup)

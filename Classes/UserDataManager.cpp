@@ -200,10 +200,11 @@ void UserDataManager::decreateLife(int decreseLife)
 }
 
 // 最大体力のセット
-void UserDataManager::addMaxLife(int addMaxLife)
+void UserDataManager::setMaxLife(int maxLife)
 {
     auto lifeData = _userData->getLifeData();
-    lifeData["max_life"] = lifeData["max_life"].asInt() + addMaxLife;
+    int addMaxLife = maxLife - lifeData["max_life"].asInt();
+    lifeData["max_life"] = maxLife;
     int life = getLife();
     int elpasedTime = (int)time(NULL) - lifeData["last_time"].asInt();
     if (life >= lifeData["max_life"].asInt()) {
@@ -427,8 +428,15 @@ void UserDataManager::levelupShopData(ShopLineup type)
     auto key = ShopData::toString(type);
     auto shopData = _userData->getShopData();
     int level = getShopDataLevel(type);
-    shopData[key] = level + 1;
+    int nextLevel = level + 1;
+    shopData[key] = nextLevel;
     _userData->setShopData(shopData);
+    
+    if (type == ShopLineup::MAX_LIFE) {
+        int maxLife = (int)ShopData::getInstance()->getValue(type, nextLevel);
+        setMaxLife(maxLife);
+    }
+    
     _userData->save();
 }
 
