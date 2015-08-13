@@ -219,19 +219,19 @@ void UserDataManager::addMaxLife(int addMaxLife)
     _userData->save();
 }
 
-long int UserDataManager::getCoin()
+long long int UserDataManager::getCoin()
 {
     return _userData->getCoin();
 }
 
-void UserDataManager::addCoin(long int addCoin)
+void UserDataManager::addCoin(long long int addCoin)
 {
-    long int coin = _userData->getCoin();
+    long long int coin = _userData->getCoin();
     _userData->setCoin(coin + addCoin);
     _userData->save();
 }
 
-void UserDataManager::setCoin(long int coin)
+void UserDataManager::setCoin(long long int coin)
 {
     _userData->setCoin(coin);
 }

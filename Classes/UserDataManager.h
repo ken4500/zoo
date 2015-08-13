@@ -43,9 +43,9 @@ public:
     void setLanguage(LanguageType language);
 
     // 所持コインに関するメソッド
-    long int getCoin();
-    void addCoin(long int coin);
-    void setCoin(long int coin);
+    long long int getCoin();
+    void addCoin(long long int coin);
+    void setCoin(long long int coin);
 
     // 体力に関するメソッド
     int getMaxLife();

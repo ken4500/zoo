@@ -58,7 +58,7 @@ void CoinTree::setLength(Length length)
     _dropCoin = (int)(length.getLength(UnitOfLength::cm) * UserDataManager::getInstance()->getCoinRate());
     _dropCoin = MAX(1, _dropCoin);
 
-    _maxHp = length.getMmLength() * 4;
+    _maxHp = powf(length.getMmLength() * 4, 1.2f);
     _hp = _maxHp;
     if (_image) {
         float scale = WorldManager::getInstance()->getImageScale(_image, *_length);

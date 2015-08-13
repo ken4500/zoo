@@ -174,12 +174,12 @@ CoinTree* WorldManager::getCoinTree(int id)
     return nullptr;
 }
 
-long int WorldManager::getGachaPrice()
+long long int WorldManager::getGachaPrice()
 {
     return _gacha->getPrice();
 }
 
-long int WorldManager::getCoin()
+long long int WorldManager::getCoin()
 {
     if (_isNetwork) {
         return _multiBattleCoin;
@@ -188,7 +188,7 @@ long int WorldManager::getCoin()
     }
 }
 
-void WorldManager::addCoin(long int addCoin)
+void WorldManager::addCoin(long long int addCoin)
 {
     if (_isNetwork) {
         _multiBattleCoin += addCoin;
@@ -271,7 +271,7 @@ void WorldManager::lotteryGacha()
     if (_enableNextAction == false) {
         return;
     }
-    long int coin = getCoin();
+    long long int coin = getCoin();
     auto worldScene = SceneManager::getInstance()->getWorldScene();
     if (coin < _gacha->getPrice()) {
         auto noticeMessage = CCLS("GACHA_SAY_NOT_ENOUGH_MONEY");
@@ -283,9 +283,9 @@ void WorldManager::lotteryGacha()
 
     // ガチャ回数決定
     int spawnNum = UserDataManager::getInstance()->getSpawnAnimalNum();
-    long int price = _gacha->getPrice();
+    long long int price = _gacha->getPrice();
     int lotteryCount = MIN(spawnNum, int(coin / price));
-    long int consumePrice = price * lotteryCount;
+    long long int consumePrice = price * lotteryCount;
 
     if (_isNetwork) {
         _multiBattleCoin -= consumePrice;
@@ -299,7 +299,7 @@ void WorldManager::lotteryGacha()
     _gacha->lotteryGacha(_info, lotteryCount);
     
     // コインエフェクト
-    auto text = ui::TextBMFont::create(StringUtils::format("-%ld", consumePrice), "font/zoo_font2.fnt");
+    auto text = ui::TextBMFont::create(StringUtils::format("-%lld", consumePrice), "font/zoo_font2.fnt");
     text->setPosition(_gacha->getPosition() + Vec2(0, 180));
     text->setOpacity(255);
     text->setScale(0.8f / (_gacha->getScale() * _map->getScale()));
@@ -577,7 +577,7 @@ void WorldManager::endBattle(bool win, float showResultViewDelay)
     }
     
     // add battle special reward
-    long int price = _gacha->getPrice() * UserDataManager::getInstance()->getCoinRate();
+    long long int price = _gacha->getPrice() * UserDataManager::getInstance()->getCoinRate();
     UserDataManager::getInstance()->addCoin(price);
 
     GameResult result = GameResult();

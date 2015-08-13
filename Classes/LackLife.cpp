@@ -24,6 +24,10 @@ void LackLife::onEnter()
 {
     Layer::onEnter();
     _updateLanguage();
+
+    Size size = Director::getInstance()->getVisibleSize();
+    setContentSize(size);
+    ui::Helper::doLayout(this);
     
     auto menu = getChildByName("menu");
     auto yes = menu->getChildByName<ui::Button*>("yesButton");

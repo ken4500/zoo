@@ -1,7 +1,7 @@
 NOVEL_FILE_NAME = data/novel_en.json;
 LANGUAGE_PAGE_TITLE = LANGUAGE;
 ENGLISH = ENGLISH;
-JAPANESE = JAPANESE;
+JAPANESE = 日本語;
 TITLE_SCENE_START = Start;
 TITLE_SCENE_LANGUAGE = Language;
 TITLE_SCENE_CREDIT = Credit;
@@ -15,7 +15,7 @@ MENU_PAGE_MULTIPLAY = Multi play;
 MENU_PAGE_ENCYCLEPEDIA = Encyclepedia;
 MENU_PAGE_LANGUAGE = Language;
 MENU_PAGE_SHOP = Shop;
-MENU_PAGE_TRANSMIGRATION = Transmigration;
+MENU_PAGE_TRANSMIGRATION = Reincarnation;
 MENU_PAGE_CLOSE = CLOSE;
 
 NOTICE_MULTIPLAY = You can play with player \nwho connect to save Wi-Fi \nor turn on bluetooth.;

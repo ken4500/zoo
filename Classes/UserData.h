@@ -23,7 +23,7 @@ public:
     bool isEndTutorial();
     ValueMap getStoryData();
     ValueMap getWorldInfo();
-    long int getCoin();
+    long long int getCoin();
     ValueMap getLifeData();
     ValueVector getAnimalList();
     LanguageType getLanguage();
@@ -34,7 +34,7 @@ public:
     void setEndTutorial(bool endTutorial);
     void setStroyData(ValueMap storyData);
     void setWorldInfo(ValueMap info);
-    void setCoin(long int coin);
+    void setCoin(long long int coin);
     void setLifeData(ValueMap lifeData);
     void setAnimalList(ValueVector animal);
     void setLanguage(LanguageType language);

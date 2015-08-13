@@ -545,23 +545,23 @@
     {
       "hit" : true,
       "reward" : "Raion2",
-      "probability" : 1
+      "probability" : 2
     },
     {
       "reward" : "Ashika2",
-      "probability" : 200
+      "probability" : 300
     },
     {
       "reward" : "Pengin2",
-      "probability" : 200
+      "probability" : 300
     },
     {
       "reward" : "Inoshishi2",
-      "probability" : 200
+      "probability" : 300
     },
     {
       "reward" : "Ookami2",
-      "probability" : 200
+      "probability" : 300
     }
   ]
 },
@@ -572,27 +572,27 @@
     {
       "hit" : true,
       "reward" : "Zou2",
-      "probability" : 1
+      "probability" : 2
     },
     {
       "reward" : "Yagi2",
-      "probability" : 200
+      "probability" : 300
     },
     {
       "reward" : "Washi2",
-      "probability" : 200
+      "probability" : 300
     },
     {
       "reward" : "Raion2",
-      "probability" : 200
+      "probability" : 300
     },
     {
       "reward" : "Iruka2",
-      "probability" : 200
+      "probability" : 300
     },
     {
       "reward" : "Saru2",
-      "probability" : 200
+      "probability" : 300
     }
   ]
 },
@@ -603,23 +603,23 @@
     {
       "hit" : true,
       "reward" : "Torikera2",
-      "probability" : 1
+      "probability" : 2
     },
     {
       "reward" : "Sai2",
-      "probability" : 200
+      "probability" : 400
     },
     {
       "reward" : "Rakuda2",
-      "probability" : 200
+      "probability" : 400
     },
     {
       "reward" : "Same2",
-      "probability" : 200
+      "probability" : 400
     },
     {
       "reward" : "Zou2",
-      "probability" : 200
+      "probability" : 400
     }
   ]
 },

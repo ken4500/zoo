@@ -112,7 +112,6 @@ void Transmigration::_updateLocalization()
     
     auto title = menu->getChildByName<ui::TextBMFont*>("title");
     title->setString(CCLS("TRANSMIGRATION_TITLE"));
-    auto yes = menu->getChildByName("yesButton")->getChildByName<ui::TextBMFont*>("label");
     
     if (UserDataManager::getInstance()->getLanguage() == LanguageType::JAPANESE) {
         title->setScale(0.9f);

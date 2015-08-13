@@ -61,7 +61,7 @@ bool ResultLayer::initWithResult(GameResult result)
 //    }
     
     auto coinLabel = node->getChildByName<ui::TextBMFont*>("coinLabel");
-    coinLabel->setString(StringUtils::format("x %ld", result.getCoin));
+    coinLabel->setString(StringUtils::format("x %lld", result.getCoin));
 
     auto timeLabel = node->getChildByName<ui::TextBMFont*>("timeLabel");
     timeLabel->setString(StringUtils::format("%02d:%02d", (int)(result.playTime / 60), (int)result.playTime % 60));

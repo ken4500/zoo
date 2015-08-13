@@ -709,7 +709,7 @@ bool Animal::isTarget(Animal* targetAnimal)
 void Animal::updateOffense()
 {
     if (isEnemy()) {
-        _offense = powf(_height.getMmLength() / 3, 1.3);
+        _offense = powf(_height.getMmLength() / 3, 1.2);
     } else {
         _offense = (_height.getMmLength() / 3) * UserDataManager::getInstance()->getOffenseRate();
     }

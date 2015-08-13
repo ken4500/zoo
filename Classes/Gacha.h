@@ -25,7 +25,7 @@ public:
     float getGachaHeight();
     void lotteryGacha(WorldInfo* info, int spawnNum);
     void setNewGacha(WorldInfo* info);
-    long int getPrice();
+    long long int getPrice();
     void setOpponent(bool isOpponent);
     bool isOpponent();
     bool touchIsInGacha(Vec2 position);
@@ -38,7 +38,7 @@ public:
 protected:
     cocostudio::timeline::ActionTimeline* _timeline;
     int _least;
-    long int _price;
+    long long int _price;
     bool _isOppnentGacha;
     std::vector<float> _probabilityList;
     std::vector<std::string> _rewardList;

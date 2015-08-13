@@ -1,1 +1,218 @@
-{"1":{"unit":"cm","value":16,"maxValue":32,"map":"Map1.csb","imageWidth":2272,"transmigration":0},"2":{"unit":"cm","value":32,"maxValue":32,"map":"Map1.csb","imageWidth":2272,"transmigration":0},"3":{"unit":"m","value":0.64,"maxValue":1.28,"map":"Map2.csb","imageWidth":2272,"transmigration":0},"4":{"unit":"m","value":1.28,"maxValue":1.28,"map":"Map2.csb","imageWidth":2272,"transmigration":0},"5":{"unit":"m","value":2.56,"maxValue":5.12,"map":"Map3.csb","imageWidth":2272,"transmigration":0},"6":{"unit":"m","value":5.12,"maxValue":5.12,"map":"Map3.csb","imageWidth":2272,"transmigration":4},"7":{"unit":"m","value":10.24,"maxValue":20.48,"map":"Map4.csb","imageWidth":2272,"transmigration":8},"8":{"unit":"m","value":20.48,"maxValue":20.48,"map":"Map4.csb","imageWidth":2272,"transmigration":12},"9":{"unit":"m","value":41.46,"maxValue":82.92,"map":"Map5.csb","imageWidth":2272,"transmigration":16},"10":{"unit":"m","value":82.92,"maxValue":82.92,"map":"Map5.csb","imageWidth":2272,"transmigration":20},"11":{"unit":"km","value":0.164,"maxValue":0.328,"map":"Map6.csb","imageWidth":2272,"transmigration":24},"12":{"unit":"km","value":0.328,"maxValue":0.328,"map":"Map6.csb","imageWidth":2272,"transmigration":28},"13":{"unit":"km","value":0.656,"maxValue":1.311,"map":"Map7.csb","imageWidth":2272,"transmigration":32},"14":{"unit":"km","value":1.311,"maxValue":1.311,"map":"Map7.csb","imageWidth":2272,"transmigration":36},"15":{"unit":"km","value":2.622,"maxValue":20.9,"map":"Map8.csb","imageWidth":2272,"transmigration":40},"16":{"unit":"km","value":5.244,"maxValue":20.9,"map":"Map8.csb","imageWidth":2272,"transmigration":44},"17":{"unit":"km","value":10.488,"maxValue":20.9,"map":"Map8.csb","imageWidth":2272,"transmigration":48},"18":{"unit":"km","value":20.9,"maxValue":20.9,"map":"Map8.csb","imageWidth":2272,"transmigration":52},"19":{"unit":"km","value":41.9,"maxValue":335.5,"map":"Map9.csb","imageWidth":2272,"transmigration":56},"20":{"unit":"km","value":83.9,"maxValue":335.5,"map":"Map9.csb","imageWidth":2272,"transmigration":60},"21":{"unit":"km","value":167.8,"maxValue":335.5,"map":"Map9.csb","imageWidth":2272,"transmigration":64},"22":{"unit":"km","value":335.5,"maxValue":335.5,"map":"Map9.csb","imageWidth":2272,"transmigration":68},"23":{"unit":"km","value":670,"maxValue":5368.71,"map":"Map10.csb","imageWidth":2272,"transmigration":72},"24":{"unit":"km","value":1342,"maxValue":5368.71,"map":"Map10.csb","imageWidth":2272,"transmigration":78},"25":{"unit":"km","value":2684,"maxValue":5368.71,"map":"Map10.csb","imageWidth":2272,"transmigration":82},"26":{"unit":"km","value":5368.71,"maxValue":5368.71,"map":"Map10.csb","imageWidth":2272,"transmigration":86},"27":{"unit":"km","value":40000,"maxValue":40000,"map":"Map11.csb","imageWidth":1136,"transmigration":100}}
+{
+"1": {
+    "unit" : "cm",
+    "value" : 16,
+    "maxValue" : 32,
+    "map" : "Map1.csb",
+    "imageWidth" : 2272,
+    "transmigration" : 0
+  },
+"2": {
+    "unit" : "cm",
+    "value" : 32,
+    "maxValue" : 32,
+    "map" : "Map1.csb",
+    "imageWidth" : 2272,
+    "transmigration" : 0
+  },
+"3": {
+    "unit" : "m",
+    "value" : 0.64,
+    "maxValue" : 1.28,
+    "map" : "Map2.csb",
+    "imageWidth" : 2272,
+    "transmigration" : 0
+  },
+"4": {
+    "unit" : "m",
+    "value" : 1.28,
+    "maxValue" : 1.28,
+    "map" : "Map2.csb",
+    "imageWidth" : 2272,
+    "transmigration" : 0
+  },
+"5": {
+    "unit" : "m",
+    "value" : 2.56,
+    "maxValue" : 5.12,
+    "map" : "Map3.csb",
+    "imageWidth" : 2272,
+    "transmigration" : 0
+  },
+"6": {
+    "unit" : "m",
+    "value" : 5.12,
+    "maxValue" : 5.12,
+    "map" : "Map3.csb",
+    "imageWidth" : 2272,
+    "transmigration" : 8
+  },
+"7": {
+    "unit" : "m",
+    "value" : 10.24,
+    "maxValue" : 20.48,
+    "map" : "Map4.csb",
+    "imageWidth" : 2272,
+    "transmigration" : 16
+  },
+"8": {
+    "unit" : "m",
+    "value" : 20.48,
+    "maxValue" : 20.48,
+    "map" : "Map4.csb",
+    "imageWidth" : 2272,
+    "transmigration" : 24
+  },
+"9": {
+    "unit" : "m",
+    "value" : 41.46,
+    "maxValue" : 82.92,
+    "map" : "Map5.csb",
+    "imageWidth" : 2272,
+    "transmigration" : 32
+  },
+"10": {
+    "unit" : "m",
+    "value" : 82.92,
+    "maxValue" : 82.92,
+    "map" : "Map5.csb",
+    "imageWidth" : 2272,
+    "transmigration" : 40
+  },
+"11": {
+    "unit" : "km",
+    "value" : 0.164,
+    "maxValue" : 0.328,
+    "map" : "Map6.csb",
+    "imageWidth" : 2272,
+    "transmigration" : 56
+  },
+"12": {
+    "unit" : "km",
+    "value" : 0.328,
+    "maxValue" : 0.328,
+    "map" : "Map6.csb",
+    "imageWidth" : 2272,
+    "transmigration" : 72
+  },
+"13": {
+    "unit" : "km",
+    "value" : 0.656,
+    "maxValue" : 1.311,
+    "map" : "Map7.csb",
+    "imageWidth" : 2272,
+    "transmigration" : 88
+  },
+"14": {
+    "unit" : "km",
+    "value" : 1.311,
+    "maxValue" : 1.311,
+    "map" : "Map7.csb",
+    "imageWidth" : 2272,
+    "transmigration" : 104
+  },
+"15": {
+    "unit" : "km",
+    "value" : 2.622,
+    "maxValue" : 20.9,
+    "map" : "Map8.csb",
+    "imageWidth" : 2272,
+    "transmigration" : 120
+  },
+"16": {
+    "unit" : "km",
+    "value" : 5.244,
+    "maxValue" : 20.9,
+    "map" : "Map8.csb",
+    "imageWidth" : 2272,
+    "transmigration" : 136
+  },
+"17": {
+    "unit" : "km",
+    "value" : 10.488,
+    "maxValue" : 20.9,
+    "map" : "Map8.csb",
+    "imageWidth" : 2272,
+    "transmigration" : 152
+  },
+"18": {
+    "unit" : "km",
+    "value" : 20.9,
+    "maxValue" : 20.9,
+    "map" : "Map8.csb",
+    "imageWidth" : 2272,
+    "transmigration" : 168
+  },
+"19": {
+    "unit" : "km",
+    "value" : 41.9,
+    "maxValue" : 335.5,
+    "map" : "Map9.csb",
+    "imageWidth" : 2272,
+    "transmigration" : 184
+  },
+"20": {
+    "unit" : "km",
+    "value" : 83.9,
+    "maxValue" : 335.5,
+    "map" : "Map9.csb",
+    "imageWidth" : 2272,
+    "transmigration" : 216
+  },
+"21": {
+    "unit" : "km",
+    "value" : 167.8,
+    "maxValue" : 335.5,
+    "map" : "Map9.csb",
+    "imageWidth" : 2272,
+    "transmigration" : 248
+  },
+"22": {
+    "unit" : "km",
+    "value" : 335.5,
+    "maxValue" : 335.5,
+    "map" : "Map9.csb",
+    "imageWidth" : 2272,
+    "transmigration" : 280
+  },
+"23": {
+    "unit" : "km",
+    "value" : 670,
+    "maxValue" : 5368.71,
+    "map" : "Map10.csb",
+    "imageWidth" : 2272,
+    "transmigration" : 312
+  },
+"24": {
+    "unit" : "km",
+    "value" : 1342,
+    "maxValue" : 5368.71,
+    "map" : "Map10.csb",
+    "imageWidth" : 2272,
+    "transmigration" : 344
+  },
+"25": {
+    "unit" : "km",
+    "value" : 2684,
+    "maxValue" : 5368.71,
+    "map" : "Map10.csb",
+    "imageWidth" : 2272,
+    "transmigration" : 376
+  },
+"26": {
+    "unit" : "km",
+    "value" : 5368.71,
+    "maxValue" : 5368.71,
+    "map" : "Map10.csb",
+    "imageWidth" : 2272,
+    "transmigration" : 408
+  },
+"27": {
+    "unit" : "km",
+    "value" : 40000,
+    "maxValue" : 40000,
+    "map" : "Map11.csb",
+    "imageWidth" : 1136,
+    "transmigration" : 500
+  }
+}

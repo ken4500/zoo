@@ -373,7 +373,7 @@ void MainScene::updateDiamondLabel()
 
 void MainScene::updateCoinLabel()
 {
-    _coinLabel->setString(StringUtils::format("x %ld", WorldManager::getInstance()->getCoin()));
+    _coinLabel->setString(StringUtils::format("x %lld", WorldManager::getInstance()->getCoin()));
 }
 
 void MainScene::updateLifeLabel(float dt)
@@ -571,7 +571,7 @@ void MainScene::_setupDebugMenu()
     debugMenu->addChild(test, 1);
     
     auto addDiamond = DebugButton::create("ダイアモンド追加", [this]() {
-        UserDataManager::getInstance()->addDiamondNum(30);
+        UserDataManager::getInstance()->addDiamondNum(50);
         this->updateDiamondLabel();
     });
     addDiamond->setAnchorPoint(Vec2(1.0f, 0.0f));

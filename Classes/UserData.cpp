@@ -72,12 +72,12 @@ ValueMap UserData::getWorldInfo()
     }
 }
 
-long int UserData::getCoin()
+long long int UserData::getCoin()
 {
     if (_data.find("coin") == _data.end()) {
         return INIT_COIN;
     } else {
-        auto coin = (long int)_data["coin_top"].asInt() * COIN_INT_MAX +  _data["coin"].asInt();
+        auto coin = (long long int)_data["coin_top"].asInt() * COIN_INT_MAX +  _data["coin"].asInt();
         return coin;
     }
 }
@@ -174,7 +174,7 @@ void UserData::setWorldInfo(ValueMap info)
     _data["world_info"] = info;
 }
 
-void UserData::setCoin(long int coin)
+void UserData::setCoin(long long int coin)
 {
     _data["coin"] = (int)(coin % COIN_INT_MAX);
     _data["coin_top"] = (int)(coin / COIN_INT_MAX);

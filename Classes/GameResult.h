@@ -15,7 +15,7 @@
 class GameResult {
 public:
     BattleState resultState       = BattleState::Battle;
-    long int getCoin              = 0;
+    long long int getCoin              = 0;
     int   killTime                = 0;
     float playTime                = 0;
     Weight playerWeight           = 0;

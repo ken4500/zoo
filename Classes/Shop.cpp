@@ -131,22 +131,11 @@ void Shop::_setData(Node* node)
     
     int level     = UserDataManager::getInstance()->getShopDataLevel(type);
     int nextLevel = level + 1;
-    if (_shopData->getMaxLevel(type) <= level) {
-        button->setBright(false);
-        button->setTouchEnabled(false);
-        diamondImage->setVisible(false);
-        requreNum->setString("MAX");
-        requreNum->setColor(Color3B(COLOR_BROWN_2));
-        requreNum->setPosition(Vec2(150, requreNum->getPositionY()));
-        return;
-    }
-    
+    float value   = _shopData->getValue(type, level);
     button->setEnabled(true);
     diamondImage->setVisible(true);
     int price     = _shopData->getPrice(type, nextLevel);
-    float value   = _shopData->getValue(type, level);
     
-    requreNum->setString(StringUtils::format("x %d", price));
     auto lang = UserDataManager::getInstance()->getLanguage();
     switch (type) {
         case ShopLineup::OFFESE_UP:
@@ -172,6 +161,18 @@ void Shop::_setData(Node* node)
     
     button->addTouchEventListener(CC_CALLBACK_2(Shop::_pushShopButton, this));
     button->setTag((int)type);
+    
+    if (_shopData->getMaxLevel(type) <= level) {
+        button->setBright(false);
+        button->setTouchEnabled(false);
+        diamondImage->setVisible(false);
+        requreNum->setString("MAX");
+        requreNum->setColor(Color3B(COLOR_BROWN_2));
+        requreNum->setPosition(Vec2(150, requreNum->getPositionY()));
+    } else {
+        requreNum->setString(StringUtils::format("x %d", price));
+    }
+
 }
 
 void Shop::_purchase(ShopLineup type)
