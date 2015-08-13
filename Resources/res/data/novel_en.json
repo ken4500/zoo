@@ -90,12 +90,12 @@
     {
       "type": "narration",
       "target": "narration",
-      "value": "Tap screen where is close to the ant"
+      "value": "Tap screen around the ant."
     },
     {
       "type": "narration",
       "target": "narration",
-      "value": "Then he move in that direction"
+      "value": "Ant will move in that direction"
     }
   ]
 },
@@ -104,7 +104,7 @@
     {
       "type": "narration",
       "target": "narration",
-      "value": " When he is close to the enemy, he fight automatically."
+      "value": " When ant is close to the enemy,\n he will fight automatically"
     }
   ]
 },
@@ -182,13 +182,13 @@
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "Get out, boy!"
+      "value": "Out of my way, little one!"
     },
     {
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "Wow, I can't believe \nthere is a bigger creature than me..."
+      "value": "Wow, I can't believe there are \na bigger creature than me..."
     }
   ]
 },
@@ -225,7 +225,7 @@
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "The world is bigger than I thought..."
+      "value": "The world is bigger than \nI thought..."
     },
     {
       "type": "delay",
@@ -246,7 +246,7 @@
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "Wake up."
+      "value": "Wake up"
     },
     {
       "type": "speak",
@@ -279,7 +279,7 @@
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "..."
+      "value": "…"
     },
     {
       "type": "speak",
@@ -291,7 +291,7 @@
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "Do you want to know the world?"
+      "value": "Do you want to know \nthe real world?"
     },
     {
       "type": "speak",
@@ -303,19 +303,19 @@
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "(...I wonder what he said.）"
+      "value": "(...what is he talking about...）"
     },
     {
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "I'll give my power to you."
+      "value": "I'll give my power to you"
     },
     {
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "Realize the sercrets of the world!"
+      "value": "Go find out what the world \nis all about."
     },
     {
       "type": "set",
@@ -362,7 +362,7 @@
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "Oh, it was a just dream."
+      "value": "Oh, it was just a dream"
     },
     {
       "type": "speak",
@@ -380,7 +380,7 @@
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "That's such a big pot!"
+      "value": "What is that big POT!?"
     },
     {
       "type": "set",
@@ -396,7 +396,7 @@
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "It was not a dream."
+      "value": "It was not a dream"
     },
     {
       "type": "speak",
@@ -408,7 +408,7 @@
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "The pot is called the [c=red]world pot[/c]."
+      "value": "The pot is called the [c=red]world pot[/c]"
     },
     {
       "type": "speak",
@@ -426,7 +426,7 @@
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "Tap it"
+      "value": "Go ahead and tap it"
     }
   ]
 },
@@ -446,13 +446,13 @@
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "Wow! "
+      "value": "huh?"
     },
     {
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "It released something."
+      "value": "Something was inside..."
     },
     {
       "type": "set",
@@ -468,19 +468,19 @@
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "Sure."
+      "value": "Sure"
     },
     {
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "I gave you my power to control it."
+      "value": "I gave you my power to control it"
     },
     {
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "Creatures that are released from it \nwork for you"
+      "value": "Creatures you find \nwill joing your team"
     },
     {
       "type": "speak",
@@ -492,19 +492,19 @@
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "You mean I should beat the enemies \n using this pot?"
+      "value": "You mean I should beat \nthe enemies using this pot?"
     },
     {
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "Good luck."
+      "value": "Good luck"
     },
     {
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "TIny boy..."
+      "value": "Tiny boy..."
     }
   ]
 },
@@ -524,13 +524,13 @@
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "So big!"
+      "value": "wow so huge!"
     },
     {
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "I have a strong army!"
+      "value": "I have a stronger team!"
     }
   ]
 },
@@ -556,7 +556,7 @@
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "My world expended!"
+      "value": "My vision is now bigger!"
     },
     {
       "type": "set",
@@ -584,13 +584,13 @@
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "This is another power of the world pot."
+      "value": "This is another power of \nthe world pot"
     },
     {
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "When you get bigger creatures, \nyour world expands."
+      "value": "When you get bigger creatures, \nyour world expands"
     },
     {
       "type": "speak",
@@ -602,7 +602,7 @@
       "type": "speak",
       "target": "left",
       "balloon": "normal",
-      "value": "I didn't know that the world is so big."
+      "value": "I didn't know that \nthe world is so big"
     },
     {
       "type": "speak",
@@ -614,7 +614,7 @@
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "Your world is still so small."
+      "value": "Your world is still so small"
     },
     {
       "type": "speak",
@@ -650,19 +650,1638 @@
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "Good."
+      "value": "Good"
     },
     {
       "type": "speak",
       "target": "right",
       "balloon": "normal",
-      "value": "Keep on going."
+      "value": "Keep on going"
     },
     {
       "type": "speak",
       "target": "left",
       "balloon": "normal",
       "value": "Thank you great man!"
+    }
+  ]
+},
+"novel_enter_map_3": {
+  "actions" : [
+    {
+      "type": "set",
+      "target": "left",
+      "value": "hero_01"
+    },
+    {
+      "type": "name",
+      "target": "left",
+      "value": "ANT"
+    },
+    {
+      "type": "set",
+      "target": "right",
+      "value": "god_01"
+    },
+    {
+      "type": "name",
+      "target": "right",
+      "value": "GOD"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "Hello little ant"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "How is your world conquest going?"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "Don't call me like that!!"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "Well well, you are not quite there \nyet I guess..."
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "Good luck little ant!!"
+    }
+  ]
+},
+"novel_enter_map_5": {
+  "actions" : [
+    {
+      "type": "set",
+      "target": "left",
+      "value": "hero_01"
+    },
+    {
+      "type": "name",
+      "target": "left",
+      "value": "ANT"
+    },
+    {
+      "type": "set",
+      "target": "right",
+      "value": "mogura_01"
+    },
+    {
+      "type": "name",
+      "target": "right",
+      "value": "MOLE"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "Hi I am mole."
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "Did you need me"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "Let's take over the world!"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "Sounds like fun, let's do it!"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "(This guy is nothing....)"
+    }
+  ]
+},
+"novel_enter_map_6": {
+  "actions" : [
+    {
+      "type": "set",
+      "target": "left",
+      "value": "hero_01"
+    },
+    {
+      "type": "name",
+      "target": "left",
+      "value": "ANT"
+    },
+    {
+      "type": "set",
+      "target": "right",
+      "value": "god_01"
+    },
+    {
+      "type": "name",
+      "target": "right",
+      "value": "GOD"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "Bon jour petite ant"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "Wow"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "You became level"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "You can use [c=red]new power[/c]at\nlevel 6"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "Oh? What the..?"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "shout",
+      "value": "The name is[c=red]「Reincarnation」[/c]"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "shout",
+      "value": "[c=red]Reincarnation!?!?[/c]"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "shout",
+      "value": "Sounds cool!"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "Right?"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "Instead of going back to level 1"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "You can get\nlot's of diamonds!!"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "You can get [c=red]more diamonds\nwhen your level is higher[/c] \nat the time of reincarnation"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "What!?\nstart over from the beginning!?!?"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "Bull shit!"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "Calm down"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "Don't you know the term\n\"Make haste slowly\"?"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "Don't rush!"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "(...Old people are annoying...)"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "From here and on, \nenemies will be stronger"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "You may sit down and\ndo it over again if you would like"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "Oh darn..."
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "Ha ha ha"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "Use it in a case of emergency"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "You can chose \"Reincarnation\" \n[c=red]from the bottom left menu[/c]"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "To become stronger using diamonds,"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "Go to \"shops\" [c=red]from the bottom left[/c]"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "Buh-bye ant!"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": " (I would need more diamonds \nto take over the world...)"
+    },
+    {
+      "type": "set",
+      "target": "right",
+      "value": "remove"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "shout",
+      "value": "Maybe I'll use it \nwhen I get stuck"
+    }
+  ]
+},
+"novel_enter_map_7": {
+  "actions" : [
+    {
+      "type": "set",
+      "target": "left",
+      "value": "hero_01"
+    },
+    {
+      "type": "name",
+      "target": "left",
+      "value": "ANT"
+    },
+    {
+      "type": "set",
+      "target": "right",
+      "value": "sukanku_01"
+    },
+    {
+      "type": "name",
+      "target": "right",
+      "value": "SKUNK"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "Toot"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "Oops, I farted"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "Ewwww!"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "STINKS!!!"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "What? Stinky??\nThank you very much!"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "It was not a compliment!!"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "Oh really?"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "Among our freinds\nbeing stinky is a compliment"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "I guess all creatures are\nvery different!"
+    }
+  ]
+},
+"novel_enter_map_8": {
+  "actions" : [
+    {
+      "type": "set",
+      "target": "left",
+      "value": "hero_01"
+    },
+    {
+      "type": "name",
+      "target": "left",
+      "value": "ANT"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "Trying to take over the world.."
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "The world is humongous!!"
+    },
+    {
+      "type": "set",
+      "target": "right",
+      "value": "god_01"
+    },
+    {
+      "type": "name",
+      "target": "right",
+      "value": "GOD"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "That is right, little ant!"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "Realizing how world could be \nvery big you are growing up!"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "So bossy!"
+    }
+  ]
+},
+"novel_enter_map_10": {
+  "actions" : [
+    {
+      "type": "set",
+      "target": "left",
+      "value": "hero_01"
+    },
+    {
+      "type": "name",
+      "target": "left",
+      "value": "ANT"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "Oh here comes a big one!"
+    },
+    {
+      "type": "set",
+      "target": "right",
+      "value": "zou"
+    },
+    {
+      "type": "name",
+      "target": "right",
+      "value": "ELEPHANTS"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "Yes"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "We are"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "THE"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "largest"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "and"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "strongest"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "shout",
+      "value": "animal, ELEPHANTS!!"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": " (Talk so slow...)"
+    },
+    {
+      "type": "set",
+      "target": "right",
+      "value": "god_01"
+    },
+    {
+      "type": "name",
+      "target": "right",
+      "value": "GOD"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "ALOHA! little ant!"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "ha ha ha"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "Finally you got the elephant \nto join!"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "yeah!"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "Now I can take over the world!"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "Not so easy!"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "Keep trying!"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": " (What a jerk...)"
+    }
+  ]
+},
+"novel_enter_map_11": {
+  "actions" : [
+    {
+      "type": "set",
+      "target": "left",
+      "value": "hero_01"
+    },
+    {
+      "type": "name",
+      "target": "left",
+      "value": "ANT"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "What the...?"
+    },
+    {
+      "type": "set",
+      "target": "right",
+      "value": "god_01"
+    },
+    {
+      "type": "name",
+      "target": "right",
+      "value": "GOD"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "Even bigger than the elephant!!"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "Unusual, huh?"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "it's tasty as well.. yum"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "Don't look tasty...at all..."
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "Snacks are goooood\nyum yum"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "Stop that!"
+    }
+  ]
+},
+"novel_enter_map_12": {
+  "actions" : [
+    {
+      "type": "set",
+      "target": "left",
+      "value": "hero_01"
+    },
+    {
+      "type": "name",
+      "target": "left",
+      "value": "ANT"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "shout",
+      "value": "Oh, there comes something \neven stronger"
+    },
+    {
+      "type": "set",
+      "target": "right",
+      "value": "tirano"
+    },
+    {
+      "type": "name",
+      "target": "right",
+      "value": "TIRANO"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "Meat! Meat!"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "Seems little stupid..."
+    },
+    {
+      "type": "set",
+      "target": "right",
+      "value": "god_01"
+    },
+    {
+      "type": "name",
+      "target": "right",
+      "value": "GOD"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "NIHAO, little ant"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "This is \"Tyrannosaurus\""
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "The most remarkable animal \nin the world"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "shout",
+      "value": "For reals??"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "Finally, i got the most important \nanimal!!"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "Yeah, at least on the \"earth\""
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "What do you mean?"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "Adios, little ant!"
+    }
+  ]
+},
+"novel_enter_map_13": {
+  "actions" : [
+    {
+      "type": "set",
+      "target": "left",
+      "value": "hero_01"
+    },
+    {
+      "type": "name",
+      "target": "left",
+      "value": "ANT"
+    },
+    {
+      "type": "set",
+      "target": "right",
+      "value": "fenics"
+    },
+    {
+      "type": "name",
+      "target": "right",
+      "value": "PHOENIX"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "How could you call me?"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "Who are you?"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "Wow, what a flash bird..."
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "shout",
+      "value": "bir...BIRD!?!"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "You called me \nwithout knowing who I am?"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "YEP! So, who are you?"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "I am PHOENIX"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "I am the legend, I will never die"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "huh"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "What a bastard...\ncalling yourself a legend..."
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "Probably lying.."
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "(oh no!)"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "Well, you seem strong, \nyou can joing the team."
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "(No one ever treated me like that\nand he is not scared of me either..）"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "(Tiny body with strong character!)"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "I like that!"
+    }
+  ]
+},
+"novel_enter_map_14": {
+  "actions" : [
+    {
+      "type": "set",
+      "target": "left",
+      "value": "hero_01"
+    },
+    {
+      "type": "name",
+      "target": "left",
+      "value": "ANT"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "Wow, what it that ahead?\nlike a huge snake or something?"
+    },
+    {
+      "type": "set",
+      "target": "right",
+      "value": "god_01"
+    },
+    {
+      "type": "name",
+      "target": "right",
+      "value": "GOD"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "No no, that's just my hair on the leg."
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "What? Lleg hair?"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "Disgusting!! don't leave that here."
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "HAHAHA"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "I'm embarrased"
+    }
+  ]
+},
+"novel_enter_map_15": {
+  "actions" : [
+    {
+      "type": "set",
+      "target": "left",
+      "value": "hero_01"
+    },
+    {
+      "type": "name",
+      "target": "left",
+      "value": "ANT"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "What? An ant?"
+    },
+    {
+      "type": "set",
+      "target": "right",
+      "value": "ari2"
+    },
+    {
+      "type": "name",
+      "target": "right",
+      "value": "AlienAnt"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "wE aRE tHE AilENs"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "Who is that?"
+    },
+    {
+      "type": "set",
+      "target": "right",
+      "value": "god_01"
+    },
+    {
+      "type": "name",
+      "target": "right",
+      "value": "GOD"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "Ciao Ant."
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "it's the animal \nfrom the outer space!"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "Very similar to the ones on earth\nbut this is the replica"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "Anyway, I don't care as long as \nit can be useful"
+    }
+  ]
+},
+"novel_enter_map_22": {
+  "actions" : [
+    {
+      "type": "set",
+      "target": "left",
+      "value": "hero_01"
+    },
+    {
+      "type": "name",
+      "target": "left",
+      "value": "ANT"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "Your hair everywhere!!"
+    },
+    {
+      "type": "set",
+      "target": "right",
+      "value": "god_01"
+    },
+    {
+      "type": "name",
+      "target": "right",
+      "value": "GOD"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "Sorry sorry"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "I was playing plucking them"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "How old people play.."
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "Disgusting"
+    }
+  ]
+},
+"novel_enter_map_26": {
+  "actions" : [
+    {
+      "type": "set",
+      "target": "left",
+      "value": "hero_01"
+    },
+    {
+      "type": "name",
+      "target": "left",
+      "value": "ANT"
+    },
+    {
+      "type": "set",
+      "target": "right",
+      "value": "god_01"
+    },
+    {
+      "type": "name",
+      "target": "right",
+      "value": "GOD"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "HELLO little ant!"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "I love the ocean!"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "Oh what? it's his legs again?\nthought it was a big pole nor something"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "yes yes"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "Sexy legs for you"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "Disgusting!"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "ha ha ha "
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "You have been seeing more about \nwaht the world is all about"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "YEAH! I have almost \ntaken over the world!"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "Piece of cake!"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "oh!"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "what"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "I... I...."
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "what?"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "Was my brithday yesterday!!!!"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "shout",
+      "value": "Who cares!!"
+    }
+  ]
+},
+"novel_enter_map_27": {
+  "actions" : [
+    {
+      "type": "set",
+      "target": "left",
+      "value": "hero_01"
+    },
+    {
+      "type": "name",
+      "target": "left",
+      "value": "ANT"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "shout",
+      "value": "Wait"
+    },
+    {
+      "type": "set",
+      "target": "right",
+      "value": "god_01"
+    },
+    {
+      "type": "name",
+      "target": "right",
+      "value": "GOD"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "shout",
+      "value": "HUMONGOUS!!"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "Wait, this is the.."
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "yep, it's me again"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "I just called out randomly"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "I didn't think \nyou would call me here"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "What is this CIRCLE THING!?"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "This is the planet ant was born"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "So beautiful"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "I lived in this....\ntiny planet????"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "yep"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "I am the god of the earth"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "and now I am the ant's GOD"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "which mean you are now the\nGOD of the earth!"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "So now I have taken over \nthe world?"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "Now that I have done it.."
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "It's not that amazing.."
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "Hey, do you see the bright circle \nlight all the way there behind \nthe earth?"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "shout",
+      "value": "sure I see it"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "Good good, \nyou have became so big."
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "That is the SUN"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "And the one you see on the left \nis the MOON"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "Sun and the Moon..."
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "There are so mane planets\nsimilar size as the earth."
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "that is right"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "We are only tiny one part of \nthe whole planet"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "I am not so big after all"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "Acting like a chicken \nall of a sudden..."
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "This is all I can help you, but"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "I think you will be able to see\nfar more than you see now"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "How big is this outer space??"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "Let's see...."
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "[c=red]100000000000000000000000000\n00000km[/c]ish"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "..."
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "..."
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "shout",
+      "value": "OH MY GOD！"
+    },
+    {
+      "type": "set",
+      "target": "narration"
+    },
+    {
+      "type": "narration",
+      "target": "narration",
+      "value": "FIN"
+    }
+  ]
+},
+"novel_first_diamond_get": {
+  "actions" : [
+    {
+      "type": "set",
+      "target": "left",
+      "value": "hero_01"
+    },
+    {
+      "type": "name",
+      "target": "left",
+      "value": "ANT"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "Wow, what a beautiful stone!"
+    },
+    {
+      "type": "set",
+      "target": "right",
+      "value": "god_01"
+    },
+    {
+      "type": "name",
+      "target": "right",
+      "value": "GOD"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "yee haw"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "You are so lucky, little ant!"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "That is[c=red]THE[/c]DIAMOND"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "[c=red]Diamon!?[/c]"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "Can we eat them?"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "Sure you can"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "it's pretty tasty."
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "Let's try it!"
+    },
+    {
+      "type": "set",
+      "target": "narration"
+    },
+    {
+      "type": "narration",
+      "target": "narration",
+      "value": "BITE!"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "oops, forgot to tell you"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "that's it may be pretty solid"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "your teeth might break\nif you try to eat them"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "shout",
+      "value": "tell me that earlier!!"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "awww\ndon't be mad!"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "ok, now I will explain it to you"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "Diamond[c=red]can be accuried when you get the\none of the very large, or small\nanimals[/c]"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "Your explanation is too complicated."
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "okay..."
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "just means that you get it when you have luck"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "normal",
+      "value": "Just say that from the beginning"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "Now let me tell you the most important"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "[c=red]if you get[/c]many diamonds[c=red]you can buy[/c]\nvariety of things from the SHOP"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "shout",
+      "value": "Serious?"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "Check it yourself\nto see what you can get!"
+    },
+    {
+      "type": "speak",
+      "target": "right",
+      "balloon": "normal",
+      "value": "[c=red]You can go to the shop[/c]from\nthe bottom left"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "shout",
+      "value": "[c=red]okay, the bottom left[/c]"
+    },
+    {
+      "type": "speak",
+      "target": "left",
+      "balloon": "shout",
+      "value": "I'll check it out later!"
     }
   ]
 }
