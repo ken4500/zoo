@@ -35,6 +35,10 @@ bool SelectLanguageLayer::init()
     auto buttonJapan = node->getChildByName<ui::Button*>("buttonJapanese");
     buttonJapan->addTouchEventListener(CC_CALLBACK_2(SelectLanguageLayer::_pushLanguageButton, this));
     buttonJapan->setTag((int)LanguageType::JAPANESE);
+
+    auto buttonChinese = node->getChildByName<ui::Button*>("buttonChinese");
+    buttonChinese->addTouchEventListener(CC_CALLBACK_2(SelectLanguageLayer::_pushLanguageButton, this));
+    buttonChinese->setTag((int)LanguageType::CHINESE);
     
     _selectNode = node->getChildByName("select");
     LanguageType lang = UserDataManager::getInstance()->getLanguage();
@@ -42,6 +46,9 @@ bool SelectLanguageLayer::init()
     switch (lang) {
       case LanguageType::JAPANESE:
         selectPosY = buttonJapan->getPosition().y;
+        break;
+      case LanguageType::CHINESE:
+        selectPosY = buttonChinese->getPosition().y;
         break;
       default:
         break;
@@ -127,5 +134,8 @@ void SelectLanguageLayer::_updateLanguage()
 
     auto japanese = _rootNode->getChildByName("buttonJapanese")->getChildByName<ui::TextBMFont*>("label");
     japanese->setString(CCLS("JAPANESE"));
+
+    auto chinese = _rootNode->getChildByName("buttonChinese")->getChildByName<ui::TextBMFont*>("label");
+    chinese->setString(CCLS("CHINESE"));
 
 }

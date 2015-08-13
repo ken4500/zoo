@@ -83,9 +83,9 @@ const char * CCLocalizedString(const char * mKey,const char * mComment)
         contents = FileUtils::getInstance()->getStringFromFile(fullPath);
         if(contents == "")
         {
-            fileName = "Localized_en";
-            fullPath = FileUtils::getInstance()->fullPathForFilename( fileName );
-            contents = FileUtils::getInstance()->getStringFromFile(fullPath).c_str();
+//            fileName = "Localized_en";
+//            fullPath = FileUtils::getInstance()->fullPathForFilename( fileName );
+//            contents = FileUtils::getInstance()->getStringFromFile(fullPath).c_str();
         }
         if(contents == "")
         {
