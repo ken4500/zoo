@@ -53,12 +53,15 @@ TRANSMIGRATION_GETDIAMOND = AQUIRE DIAMOND;
 
 SHOP_TITLE  = SHOP;
 SHOP_LINEUP = LINEUP;
-SHOP_DESC_offenseUp   = Upgrade all animals offense
-SHOP_DESC_animalNum   = Upgrade animal amount you have
-SHOP_DESC_getCoin     = Upgrade coin amount you get
-SHOP_DESC_spawnNum    = Upgrade amount spawn by the pod
-SHOP_DESC_emergeEnemy = Upgrade enemy amount
-SHOP_DESC_maxLife     = Upgrade max life;
+SHOP_DESC_offenseUp    = Upgrade all animals offense
+SHOP_DESC_animalNum    = Upgrade animal amount you have
+SHOP_DESC_getCoin      = Upgrade coin amount you get
+SHOP_DESC_spawnNum     = Upgrade amount spawn by the pod
+SHOP_DESC_emergeEnemy  = Upgrade enemy amount
+SHOP_DESC_maxLife      = Upgrade max life;
+SHOP_BUY_DIAMOND_DESC  = 200 diamonds
+SHIP_BUY_DIAMOND_PRICE = $0.99
+SHIP_BUY_DIAMOND_NUM   = x 200
 
 
 LEVEL = LEVEL;

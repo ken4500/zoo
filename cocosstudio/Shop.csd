@@ -532,10 +532,10 @@
                     <OutlineColor A="255" R="255" G="0" B="0" />
                     <ShadowColor A="255" R="110" G="110" B="110" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="nextValue" ActionTag="-530508670" Tag="74" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="374.2582" RightMargin="-546.2582" TopMargin="-40.5000" BottomMargin="-40.5000" LabelText="200個" ctype="TextBMFontObjectData">
+                  <AbstractNodeData Name="value" ActionTag="-530508670" Tag="74" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="443.0582" RightMargin="-615.0582" TopMargin="-40.5000" BottomMargin="-40.5000" LabelText="200個" ctype="TextBMFontObjectData">
                     <Size X="172.0000" Y="81.0000" />
-                    <AnchorPoint ScaleX="1.0000" ScaleY="0.5000" />
-                    <Position X="546.2582" />
+                    <AnchorPoint ScaleY="0.5000" />
+                    <Position X="443.0582" />
                     <Scale ScaleX="0.6000" ScaleY="0.6000" />
                     <CColor A="255" R="255" G="255" B="255" />
                     <PrePosition />

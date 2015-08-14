@@ -40,7 +40,7 @@ public:
     int getHash();
     int getCoin();
     Weight getWeight();
-    Rect getBodyRect();
+    cocos2d::Rect getBodyRect();
     int getId();
     void setId(int id);
     Vec2 getRealPosition();

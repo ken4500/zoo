@@ -14,6 +14,7 @@
 #include "WorldManager.h"
 #include "SceneManager.h"
 #include "MainScene.h"
+#include "PurchaseBridge.h"
 
 bool Shop::init() {
     if (!Layer::init()) {
@@ -47,6 +48,13 @@ void Shop::onEnter()
         node->setTag((int)type);
         _setData(node);
     }
+    
+    auto node = menu->getChildByName("buyDiamond");
+    auto button =node->getChildByName<ui::Button*>("button");
+    button->addTouchEventListener(CC_CALLBACK_2(Shop::_pushBuyDiamondButton, this));
+    node->getChildByName<ui::TextBMFont*>("description")->setString(CCLS("SHOP_BUY_DIAMOND_DESC"));
+    button->getChildByName<ui::TextBMFont*>("requreNum")->setString(CCLS("SHIP_BUY_DIAMOND_PRICE"));
+    node->getChildByName<ui::TextBMFont*>("value")->setString(CCLS("SHIP_BUY_DIAMOND_NUM"));
 
     _hasDiamondNum = menu->getChildByName<ui::TextBMFont*>("hasDiamondNum");
     _hasDiamondNum->setString(StringUtils::format("x %04d", UserDataManager::getInstance()->getDiamondNum()));
@@ -61,7 +69,6 @@ void Shop::onEnter()
     listener->onTouchBegan = CC_CALLBACK_2(Shop::onTouchBegan, this);
     dispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 }
-
 
 bool Shop::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *event)
 {
@@ -116,7 +123,32 @@ void Shop::_pushShopButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEven
     }
 }
 
+void Shop::_pushBuyDiamondButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
+{
+    auto button = dynamic_cast<ui::Button*>(pSender);
+    ShopLineup type = (ShopLineup)button->getTag();
 
+    if (eEventType == ui::Widget::TouchEventType::BEGAN) {
+        button->runAction(ScaleTo::create(0.1f, _buttonScale * 0.9f));
+    }
+    if (eEventType == ui::Widget::TouchEventType::ENDED) {
+        SoundManager::getInstance()->playDecideEffect2();
+        button->setEnabled(false);
+        button->runAction(Sequence::create(
+            ScaleTo::create(0.1f, _buttonScale),
+            CallFunc::create([this, type, button]{
+                button->setEnabled(true);
+                PurchaseBridge::requestPurchaseDiamond200();
+            
+                Director::getInstance()->getScheduler()->schedule(CC_CALLBACK_1(Shop::_updateDiamondNum, this), this, 1.0f, false, "update_diamondNum");
+            }),
+            NULL
+        ));
+    }
+    if (eEventType == ui::Widget::TouchEventType::CANCELED) {
+        button->runAction(ScaleTo::create(0.1f, _buttonScale));
+    }
+}
 
 void Shop::_setData(Node* node)
 {
@@ -212,4 +244,9 @@ void Shop::_updateLanguage()
     auto menu = getChildByName("menu");
     menu->getChildByName<ui::TextBMFont*>("title")->setString(CCLS("SHOP_TITLE"));
     menu->getChildByName<ui::TextBMFont*>("lineup")->setString(CCLS("SHOP_LINEUP"));
+}
+
+void Shop::_updateDiamondNum(float dt)
+{
+    _hasDiamondNum->setString(StringUtils::format("x %04d", UserDataManager::getInstance()->getDiamondNum()));
 }

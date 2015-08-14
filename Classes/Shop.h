@@ -29,9 +29,11 @@ protected:
     bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *event);
     void _pushOkButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void _pushShopButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
+    void _pushBuyDiamondButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void _setData(Node* node);
     void _purchase(ShopLineup lineup);
     void _updateLanguage();
+    void _updateDiamondNum(float dt);
 
 };
 

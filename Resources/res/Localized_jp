@@ -57,12 +57,16 @@ TRANSMIGRATION_GETDIAMOND = 取得できるダイア;
 SHOP_TITLE  = ショップ;
 SHOP_LINEUP = ラインナップ;
 
-SHOP_DESC_offenseUp   = 動物の攻撃力アップ;
-SHOP_DESC_animalNum   = 保持できる動物の数アップ;
-SHOP_DESC_getCoin     = コインの獲得量アップ;
-SHOP_DESC_spawnNum    = ツボから出る動物の数アップ;
-SHOP_DESC_emergeEnemy = 出現する敵の数アップ;
-SHOP_DESC_maxLife     = 最大体力アップ;
+SHOP_DESC_offenseUp    = 動物の攻撃力アップ;
+SHOP_DESC_animalNum    = 保持できる動物の数アップ;
+SHOP_DESC_getCoin      = コインの獲得量アップ;
+SHOP_DESC_spawnNum     = ツボから出る動物の数アップ;
+SHOP_DESC_emergeEnemy  = 出現する敵の数アップ;
+SHOP_DESC_maxLife      = 最大体力アップ;
+SHOP_BUY_DIAMOND_DESC  = ダイヤモンド200個;
+SHIP_BUY_DIAMOND_PRICE = ￥120;
+SHIP_BUY_DIAMOND_NUM   = 200個
+
 
 LEVEL = レベル;
 
