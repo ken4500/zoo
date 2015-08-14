@@ -169,6 +169,10 @@ void Shop::_setData(Node* node)
     int nextLevel = level + 1;
     float value   = _shopData->getValue(type, level);
     float value2  = _shopData->getValue(type, nextLevel);
+    if (_shopData->getMaxLevel(type) == level) {
+        value2 = _shopData->getValue(type, level);
+        currentValue->setVisible(false);
+    }
     button->setEnabled(true);
     diamondImage->setVisible(true);
     int price     = _shopData->getPrice(type, nextLevel);
