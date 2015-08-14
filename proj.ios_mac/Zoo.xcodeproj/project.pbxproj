@@ -66,7 +66,6 @@
 		9F10B8F91B79F2C10094C67B /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F10B8F81B79F2C10094C67B /* MediaPlayer.framework */; };
 		9F10B8FB1B79F2D10094C67B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F10B8FA1B79F2D10094C67B /* MessageUI.framework */; };
 		9F10B8FD1B79F2E70094C67B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F10B8FC1B79F2E70094C67B /* Social.framework */; };
-		9F10B8FF1B79F2F10094C67B /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F10B8FE1B79F2F10094C67B /* StoreKit.framework */; };
 		9F10B9011B79F2FF0094C67B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F10B9001B79F2FF0094C67B /* SystemConfiguration.framework */; };
 		9F10B9031B79F30C0094C67B /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F10B9021B79F30C0094C67B /* WebKit.framework */; };
 		9F13C23C1B658C160035850A /* sound in Resources */ = {isa = PBXBuildFile; fileRef = 9F13C23B1B658C160035850A /* sound */; };
@@ -80,6 +79,10 @@
 		9F543DF71B6EA7360052496F /* Book.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F543DF31B6EA7360052496F /* Book.cpp */; };
 		9F543DF81B6EA7360052496F /* BookReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F543DF51B6EA7360052496F /* BookReader.cpp */; };
 		9F65E3011B7329C700E37BF7 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F65E2FD1B73297400E37BF7 /* images.xcassets */; };
+		9F6779841B7D5B9E0005C13D /* PurchaseDiamond200.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9F6779831B7D5B9E0005C13D /* PurchaseDiamond200.mm */; };
+		9F6779881B7D5C3F0005C13D /* PurchaseBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9F6779871B7D5C3F0005C13D /* PurchaseBridge.mm */; };
+		9F67798B1B7D5CF60005C13D /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F67798A1B7D5CF60005C13D /* MBProgressHUD.m */; };
+		9F67798F1B7D70590005C13D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F67798E1B7D70590005C13D /* StoreKit.framework */; };
 		9F6835D71B62E1A500589EBE /* TitleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F6835D51B62E1A500589EBE /* TitleScene.cpp */; };
 		9F6835DC1B62E4B900589EBE /* SelectLanguageLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F6835DA1B62E4B900589EBE /* SelectLanguageLayer.cpp */; };
 		9F6835E01B63F2BB00589EBE /* CreditLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F6835DE1B63F2BB00589EBE /* CreditLayer.cpp */; };
@@ -244,7 +247,6 @@
 		9F10B8F81B79F2C10094C67B /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.4.sdk/System/Library/Frameworks/MediaPlayer.framework; sourceTree = DEVELOPER_DIR; };
 		9F10B8FA1B79F2D10094C67B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.4.sdk/System/Library/Frameworks/MessageUI.framework; sourceTree = DEVELOPER_DIR; };
 		9F10B8FC1B79F2E70094C67B /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.4.sdk/System/Library/Frameworks/Social.framework; sourceTree = DEVELOPER_DIR; };
-		9F10B8FE1B79F2F10094C67B /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.4.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
 		9F10B9001B79F2FF0094C67B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.4.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		9F10B9021B79F30C0094C67B /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.4.sdk/System/Library/Frameworks/WebKit.framework; sourceTree = DEVELOPER_DIR; };
 		9F10B9041B79F8A20094C67B /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
@@ -268,6 +270,13 @@
 		9F543DF51B6EA7360052496F /* BookReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BookReader.cpp; sourceTree = "<group>"; };
 		9F543DF61B6EA7360052496F /* BookReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookReader.h; sourceTree = "<group>"; };
 		9F65E2FD1B73297400E37BF7 /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = images.xcassets; path = ios/images.xcassets; sourceTree = SOURCE_ROOT; };
+		9F6779831B7D5B9E0005C13D /* PurchaseDiamond200.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = PurchaseDiamond200.mm; path = ios/PurchaseDiamond200.mm; sourceTree = SOURCE_ROOT; };
+		9F6779851B7D5BC90005C13D /* PurchaseDiamond200.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PurchaseDiamond200.h; path = ios/PurchaseDiamond200.h; sourceTree = SOURCE_ROOT; };
+		9F6779861B7D5C380005C13D /* PurchaseBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PurchaseBridge.h; path = ios/PurchaseBridge.h; sourceTree = SOURCE_ROOT; };
+		9F6779871B7D5C3F0005C13D /* PurchaseBridge.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = PurchaseBridge.mm; path = ios/PurchaseBridge.mm; sourceTree = SOURCE_ROOT; };
+		9F6779891B7D5CF60005C13D /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = ios/MBProgressHUD.h; sourceTree = SOURCE_ROOT; };
+		9F67798A1B7D5CF60005C13D /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = ios/MBProgressHUD.m; sourceTree = SOURCE_ROOT; };
+		9F67798E1B7D70590005C13D /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.4.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
 		9F6835D51B62E1A500589EBE /* TitleScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TitleScene.cpp; sourceTree = "<group>"; };
 		9F6835D61B62E1A500589EBE /* TitleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleScene.h; sourceTree = "<group>"; };
 		9F6835DA1B62E4B900589EBE /* SelectLanguageLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SelectLanguageLayer.cpp; sourceTree = "<group>"; };
@@ -345,7 +354,6 @@
 			files = (
 				9F10B9031B79F30C0094C67B /* WebKit.framework in Frameworks */,
 				9F10B9011B79F2FF0094C67B /* SystemConfiguration.framework in Frameworks */,
-				9F10B8FF1B79F2F10094C67B /* StoreKit.framework in Frameworks */,
 				9F10B8FD1B79F2E70094C67B /* Social.framework in Frameworks */,
 				9F10B8FB1B79F2D10094C67B /* MessageUI.framework in Frameworks */,
 				9F10B8F91B79F2C10094C67B /* MediaPlayer.framework in Frameworks */,
@@ -358,6 +366,7 @@
 				9F10B8E71B79F2290094C67B /* libz.1.2.5.dylib in Frameworks */,
 				9F10B8E51B79F2030094C67B /* libPluginProtocol.a in Frameworks */,
 				9F10B8E41B79F1FC0094C67B /* libPluginAdColony.a in Frameworks */,
+				9F67798F1B7D70590005C13D /* StoreKit.framework in Frameworks */,
 				9FA0EA1E1B681E1B007F642B /* MultipeerConnectivity.framework in Frameworks */,
 				9F06E9B51B59F3E400107C09 /* libcocos2d iOS.a in Frameworks */,
 				9F0F163B1B556DC600217010 /* libcocos2d iOS.a in Frameworks */,
@@ -399,6 +408,9 @@
 		080E96DDFE201D6D7F000001 /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				9F6779891B7D5CF60005C13D /* MBProgressHUD.h */,
+				9F67798A1B7D5CF60005C13D /* MBProgressHUD.m */,
+				9F6779821B7D5B720005C13D /* Purchase */,
 				5087E77117EB970100C73F5D /* Icons */,
 				503AE0FA17EB989F00D1A890 /* AppController.h */,
 				503AE0FB17EB989F00D1A890 /* AppController.mm */,
@@ -440,9 +452,9 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9F67798E1B7D70590005C13D /* StoreKit.framework */,
 				9F10B9021B79F30C0094C67B /* WebKit.framework */,
 				9F10B9001B79F2FF0094C67B /* SystemConfiguration.framework */,
-				9F10B8FE1B79F2F10094C67B /* StoreKit.framework */,
 				9F10B8FC1B79F2E70094C67B /* Social.framework */,
 				9F10B8FA1B79F2D10094C67B /* MessageUI.framework */,
 				9F10B8F81B79F2C10094C67B /* MediaPlayer.framework */,
@@ -607,6 +619,17 @@
 				9F10B8DF1B79F1BC0094C67B /* libPluginAdColony.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		9F6779821B7D5B720005C13D /* Purchase */ = {
+			isa = PBXGroup;
+			children = (
+				9F6779871B7D5C3F0005C13D /* PurchaseBridge.mm */,
+				9F6779861B7D5C380005C13D /* PurchaseBridge.h */,
+				9F6779831B7D5B9E0005C13D /* PurchaseDiamond200.mm */,
+				9F6779851B7D5BC90005C13D /* PurchaseDiamond200.h */,
+			);
+			name = Purchase;
 			sourceTree = "<group>";
 		};
 		9F73A0191B669F8C00775F31 /* Network */ = {
@@ -800,6 +823,11 @@
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
 						DevelopmentTeam = QLT4HLY95T;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -903,6 +931,7 @@
 				9F543DF81B6EA7360052496F /* BookReader.cpp in Sources */,
 				9FFC9E6E1B42F8F400869B23 /* ZMath.cpp in Sources */,
 				9F543DF71B6EA7360052496F /* Book.cpp in Sources */,
+				9F6779841B7D5B9E0005C13D /* PurchaseDiamond200.mm in Sources */,
 				9F10B8B61B786ECD0094C67B /* ShopReader.cpp in Sources */,
 				9F01C8A61B5FF509009E9D21 /* DebugButton.cpp in Sources */,
 				9F10B8CD1B79E7AC0094C67B /* LackLife.cpp in Sources */,
@@ -928,6 +957,7 @@
 				9FA0EA2C1B683A45007F642B /* JSONPacker.cpp in Sources */,
 				9FB063E11B5818A20088AE2A /* NovelBalloon.cpp in Sources */,
 				9F015C9A1B4211FB00F45135 /* Animal.cpp in Sources */,
+				9F6779881B7D5C3F0005C13D /* PurchaseBridge.mm in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				9F6835D71B62E1A500589EBE /* TitleScene.cpp in Sources */,
 				9FE5C85C1B712169002274D0 /* HpGauge.cpp in Sources */,
@@ -946,6 +976,7 @@
 				9F06E9CA1B5DBE3A00107C09 /* NoticeLayer.cpp in Sources */,
 				9F13C2411B65A71C0035850A /* SceneManager.cpp in Sources */,
 				9F06E9C51B5C243700107C09 /* EnemyGenerater.cpp in Sources */,
+				9F67798B1B7D5CF60005C13D /* MBProgressHUD.m in Sources */,
 				9F05646C1B49EDE000649A7F /* ScaleBar.cpp in Sources */,
 				9FA0EA371B6BDB16007F642B /* Weight.cpp in Sources */,
 				9F10B8B51B786ECD0094C67B /* Shop.cpp in Sources */,
@@ -1017,10 +1048,7 @@
 				);
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = (
-					"/Applications/Cocos/frameworks/cocos2d-x-3.6/prebuilt/ios",
-					"$(SYSTEM_APPS_DIR)/Cocos/frameworks/cocos2d-x-3.6/prebuilt/ios",
-				);
+				LIBRARY_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",
@@ -1030,7 +1058,7 @@
 					"-force_load",
 					"$(BUILT_PRODUCTS_DIR)/libPluginAdColony.a",
 				);
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "d2311d1a-6bf7-4a32-9ea7-6762385eaca1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(_COCOS_HEADER_IOS_BEGIN) $(_COCOS_HEADER_IOS_END)";
@@ -1070,10 +1098,7 @@
 				);
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = (
-					"/Applications/Cocos/frameworks/cocos2d-x-3.6/prebuilt/ios",
-					"$(SYSTEM_APPS_DIR)/Cocos/frameworks/cocos2d-x-3.6/prebuilt/ios",
-				);
+				LIBRARY_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",
@@ -1083,7 +1108,7 @@
 					"-force_load",
 					"$(BUILT_PRODUCTS_DIR)/libPluginAdColony.a",
 				);
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "d2311d1a-6bf7-4a32-9ea7-6762385eaca1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(_COCOS_HEADER_IOS_BEGIN) $(_COCOS_HEADER_IOS_END)";
@@ -1165,11 +1190,11 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/../cocos2d/",
+					"$(SRCROOT)/../cocos2d",
 					"$(SRCROOT)/../cocos2d/cocos",
-					"$(SRCROOT)/../cocos2d/base",
-					"$(SRCROOT)/../cocos2d/physics",
-					"$(SRCROOT)/../cocos2d/math",
+					"$(SRCROOT)/../cocos2d/cocos/base",
+					"$(SRCROOT)/../cocos2d/cocos/physics",
+					"$(SRCROOT)/../cocos2d/cocos/math",
 					"$(SRCROOT)/../cocos2d/cocos/2d",
 					"$(SRCROOT)/../cocos2d/cocos/ui",
 					"$(SRCROOT)/../cocos2d/cocos/network",
@@ -1194,11 +1219,11 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/../cocos2d/",
+					"$(SRCROOT)/../cocos2d",
 					"$(SRCROOT)/../cocos2d/cocos",
-					"$(SRCROOT)/../cocos2d/base",
-					"$(SRCROOT)/../cocos2d/physics",
-					"$(SRCROOT)/../cocos2d/math",
+					"$(SRCROOT)/../cocos2d/cocos/base",
+					"$(SRCROOT)/../cocos2d/cocos/physics",
+					"$(SRCROOT)/../cocos2d/cocos/math",
 					"$(SRCROOT)/../cocos2d/cocos/2d",
 					"$(SRCROOT)/../cocos2d/cocos/ui",
 					"$(SRCROOT)/../cocos2d/cocos/network",

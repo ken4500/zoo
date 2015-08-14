@@ -14,6 +14,7 @@
 #include "WorldManager.h"
 #include "SceneManager.h"
 #include "MainScene.h"
+#include "PurchaseBridge.h"
 
 bool Shop::init() {
     if (!Layer::init()) {
@@ -47,6 +48,13 @@ void Shop::onEnter()
         node->setTag((int)type);
         _setData(node);
     }
+    
+    auto node = menu->getChildByName("buyDiamond");
+    auto button =node->getChildByName<ui::Button*>("button");
+    button->addTouchEventListener(CC_CALLBACK_2(Shop::_pushBuyDiamondButton, this));
+    node->getChildByName<ui::TextBMFont*>("description")->setString(CCLS("SHOP_BUY_DIAMOND_DESC"));
+    button->getChildByName<ui::TextBMFont*>("requreNum")->setString(CCLS("SHIP_BUY_DIAMOND_PRICE"));
+    node->getChildByName<ui::TextBMFont*>("value")->setString(CCLS("SHIP_BUY_DIAMOND_NUM"));
 
     _hasDiamondNum = menu->getChildByName<ui::TextBMFont*>("hasDiamondNum");
     _hasDiamondNum->setString(StringUtils::format("x %04d", UserDataManager::getInstance()->getDiamondNum()));
@@ -61,7 +69,6 @@ void Shop::onEnter()
     listener->onTouchBegan = CC_CALLBACK_2(Shop::onTouchBegan, this);
     dispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 }
-
 
 bool Shop::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *event)
 {
@@ -116,7 +123,32 @@ void Shop::_pushShopButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEven
     }
 }
 
+void Shop::_pushBuyDiamondButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
+{
+    auto button = dynamic_cast<ui::Button*>(pSender);
+    ShopLineup type = (ShopLineup)button->getTag();
 
+    if (eEventType == ui::Widget::TouchEventType::BEGAN) {
+        button->runAction(ScaleTo::create(0.1f, _buttonScale * 0.9f));
+    }
+    if (eEventType == ui::Widget::TouchEventType::ENDED) {
+        SoundManager::getInstance()->playDecideEffect2();
+        button->setEnabled(false);
+        button->runAction(Sequence::create(
+            ScaleTo::create(0.1f, _buttonScale),
+            CallFunc::create([this, type, button]{
+                button->setEnabled(true);
+                PurchaseBridge::requestPurchaseDiamond200();
+            
+                Director::getInstance()->getScheduler()->schedule(CC_CALLBACK_1(Shop::_updateDiamondNum, this), this, 1.0f, false, "update_diamondNum");
+            }),
+            NULL
+        ));
+    }
+    if (eEventType == ui::Widget::TouchEventType::CANCELED) {
+        button->runAction(ScaleTo::create(0.1f, _buttonScale));
+    }
+}
 
 void Shop::_setData(Node* node)
 {
@@ -124,6 +156,7 @@ void Shop::_setData(Node* node)
     auto desc = node->getChildByName<ui::TextBMFont*>("description");
     auto button = node->getChildByName<ui::Button*>("button");
     auto nextValue = node->getChildByName<ui::TextBMFont*>("nextValue");
+    auto currentValue = node->getChildByName<ui::Text*>("currentValue");
     auto requreNum = button->getChildByName<ui::TextBMFont*>("requreNum");
     auto diamondImage = button->getChildByName<ui::TextBMFont*>("diamond");
     
@@ -132,6 +165,7 @@ void Shop::_setData(Node* node)
     int level     = UserDataManager::getInstance()->getShopDataLevel(type);
     int nextLevel = level + 1;
     float value   = _shopData->getValue(type, level);
+    float value2  = _shopData->getValue(type, nextLevel);
     button->setEnabled(true);
     diamondImage->setVisible(true);
     int price     = _shopData->getPrice(type, nextLevel);
@@ -142,24 +176,30 @@ void Shop::_setData(Node* node)
         case ShopLineup::GET_COIN:
         case ShopLineup::EMERGE_ENEMY:
             if (lang == LanguageType::JAPANESE) {
-                nextValue->setString(StringUtils::format("%.01f倍", value));
+                nextValue->setString(StringUtils::format("%.01f倍", value2));
+                currentValue->setString(StringUtils::format("%.01f倍→", value));
             } else {
                 nextValue->setString(StringUtils::format("x %.01f", value));
+                currentValue->setString(StringUtils::format("%.01f→", value));
             }
             break;
         case ShopLineup::SPAWN_NUM:
         case ShopLineup::ANIMAL_NUM:
             if (lang == LanguageType::JAPANESE) {
-                nextValue->setString(StringUtils::format("%d匹", (int)value));
+                nextValue->setString(StringUtils::format("%d匹", (int)value2));
+                currentValue->setString(StringUtils::format("%d匹→", (int)value));
             } else {
-                nextValue->setString(StringUtils::format("%d", (int)value));
+                nextValue->setString(StringUtils::format("%d", (int)value2));
+                currentValue->setString(StringUtils::format("%d→", (int)value));
             }
             break;
         case ShopLineup::MAX_LIFE:
             if (lang == LanguageType::JAPANESE) {
-                nextValue->setString(StringUtils::format("%d個", (int)value));
+                nextValue->setString(StringUtils::format("%d個", (int)value2));
+                currentValue->setString(StringUtils::format("%d個→", (int)value));
             } else {
-                nextValue->setString(StringUtils::format("%d", (int)value));
+                nextValue->setString(StringUtils::format("%d", (int)value2));
+                currentValue->setString(StringUtils::format("%d→", (int)value));
             }
             break;
         default:
@@ -214,4 +254,9 @@ void Shop::_updateLanguage()
     title->setString(CCLS1("SHOP_TITLE",title));
     auto lineup = menu->getChildByName<ui::TextBMFont*>("lineup");
     lineup->setString(CCLS1("SHOP_LINEUP",lineup));
+}
+
+void Shop::_updateDiamondNum(float dt)
+{
+    _hasDiamondNum->setString(StringUtils::format("x %04d", UserDataManager::getInstance()->getDiamondNum()));
 }

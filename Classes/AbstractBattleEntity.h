@@ -17,7 +17,7 @@ class AbstractBattleEntity : public cocos2d::Node
 public:
     virtual bool isDead() = 0;
     virtual bool addDamage(float damage, Animal* animal) = 0;
-    virtual Rect getBodyRect() = 0;
+    virtual cocos2d::Rect getBodyRect() = 0;
     virtual int getId() = 0;
     virtual void setId(int id) = 0;
 
