@@ -225,7 +225,7 @@ void Book::_loadAnimal(Species* species)
         max = species->getMaxWeight();
         _sizeDescription->setString(StringUtils::format("%.02f%s 〜 %.02f%s", min.getWeight(), min.getUnitStr().c_str(), max.getWeight(), max.getUnitStr().c_str()));
         _setDescription(
-            CCLS1(StringUtils::format("%s_DESC", name.c_str()).c_str(),_sizeDescription)
+            CCLS(StringUtils::format("%s_DESC", name.c_str()).c_str())
         );
     }
 }
@@ -323,9 +323,16 @@ int Book::_getMaxPage()
 
 void Book::_setDescription(std::string description)
 {
+    LanguageType curLanguage = UserDataManager::getInstance()->getLanguage();
     int charNumPerLine = 16;
     for (int line = 0; line < 4; line++) {
         auto lineStr = ZUtil::submbstr(description, line * charNumPerLine, charNumPerLine);
+        if (curLanguage == LanguageType::CHINESE) {
+            _description[line]->setFontName("font/simiyo.ttf");
+        } else {
+            _description[line]->setFontName("font/yasashisa.ttf");
+        }
         _description[line]->setString(lineStr);
+     
     }
 }
