@@ -70,6 +70,8 @@ public:
     
     /** init a bitmap font atlas with an initial string and the FNT file */
     void setFntFile(const std::string& fileName);
+
+    const std::string getFntFile();
     
     /** set string value for labelbmfont*/
     CC_DEPRECATED_ATTRIBUTE void setText(const std::string& value){this->setString(value);}
