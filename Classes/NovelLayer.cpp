@@ -8,6 +8,7 @@
 
 #include "NovelLayer.h"
 #include "SoundManager.h"
+#include "UserDataManager.h"
 
 NovelLayer::NovelLayer()
 {
@@ -345,6 +346,7 @@ void NovelLayer::setNameImage(std::shared_ptr<NovelAction> action)
 {
     auto name = action->getValue();
     auto target = action->getTarget();
+    LanguageType curLanguage = UserDataManager::getInstance()->getLanguage();
     if (target == NovelAction::Target::Left) {
         if (_leftNameImage == NULL) {
             _leftNameImage = Sprite::create("chat/ui/name_rect.png");
@@ -352,7 +354,13 @@ void NovelLayer::setNameImage(std::shared_ptr<NovelAction> action)
             _leftNameImage->setPosition(Vec2(20, 20));
             _leftNode->addChild(_leftNameImage, 11);
             auto nameImageSize = _leftNameImage->getContentSize();
-            auto label1 = Label::createWithTTF(name.c_str(), "font/yasashisa.ttf", 30);
+            Label* label1;
+            if (curLanguage == LanguageType::CHINESE) {
+                label1 = Label::createWithTTF(name.c_str(), "font/simiyo.ttf", 30);
+            } else {
+                label1 = Label::createWithTTF(name.c_str(), "font/yasashisa.ttf", 30);
+
+            }
             label1->setName("label");
             label1->setColor(Color3B::WHITE);
             label1->setAnchorPoint(Vec2(0.5f, 0.5f));
@@ -369,7 +377,13 @@ void NovelLayer::setNameImage(std::shared_ptr<NovelAction> action)
             _rightNameImage->setPosition(Vec2(-20, 20));
             _rightNode->addChild(_rightNameImage, 11);
             auto nameImageSize = _rightNameImage->getContentSize();
-            auto label1 = Label::createWithTTF(name.c_str(), "font/yasashisa.ttf", 30);
+            Label* label1;
+            if (curLanguage == LanguageType::CHINESE) {
+                label1 = Label::createWithTTF(name.c_str(), "font/simiyo.ttf", 30);
+            } else {
+                label1 = Label::createWithTTF(name.c_str(), "font/yasashisa.ttf", 30);
+                
+            }
             label1->setName("label");
             label1->setAnchorPoint(Vec2(0.5, 0.5f));
             label1->setColor(Color3B::WHITE);

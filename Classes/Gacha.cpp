@@ -181,11 +181,13 @@ void Gacha::say(std::string message)
     fukidashi->setName("fukidashi");
     addChild(fukidashi);
     
-    Label* label = Label::createWithTTF(message, "font/yasashisa.ttf", 44);
+    Label* label;
     
     LanguageType curLanguage = UserDataManager::getInstance()->getLanguage();
     if (curLanguage == LanguageType::CHINESE) {
-        label->setBMFontFilePath("font/simiyo.ttf");
+       label = Label::createWithTTF(message, "font/simiyo.ttf", 44);
+    } else {
+       label = Label::createWithTTF(message, "font/yasashisa.ttf", 44);
     }
     
     label->setColor(Color3B(COLOR_OUTLINE));

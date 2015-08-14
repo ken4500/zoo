@@ -9,6 +9,7 @@
 #include "NovelBalloon.h"
 #include "SoundManager.h"
 #include "ColorConstants.h"
+#include "UserDataManager.h"
 
 NovelBalloon::~NovelBalloon() {
     unscheduleAllSelectors();
@@ -82,7 +83,12 @@ int unicodeCharacterCount(const char* strBytes) {
 }
 
 Label* NovelBalloon::getLabelSprite(const std::string& text) {
+
     auto fontName  = "font/zoo_font.fnt";
+    LanguageType curLanguage = UserDataManager::getInstance()->getLanguage();
+    if (curLanguage == LanguageType::CHINESE) {
+        fontName = "font/zoo_font_zh.fnt";
+    }
     auto fontColor = Color3B(COLOR_OUTLINE);
     LabelColor color(text);
     Label* textLabel = Label::createWithBMFont(fontName, color.getRawString());

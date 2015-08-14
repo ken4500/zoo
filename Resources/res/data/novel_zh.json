@@ -1,2751 +1,2194 @@
 {
-"novel_opening": {
-  "skip" : 0,
-  "actions" : [
-    {
-      "type": "set",
-      "target": "background",
-      "value": "back01.jpg",
-      "value2": ""
+    "novel_opening": {
+        "skip" : 0,
+        "actions" : [
+                     {
+                     "type": "set",
+                     "target": "background",
+                     "value": "back01.jpg",
+                     "value2": ""
+                     },
+                     {
+                     "type": "music",
+                     "target": "",
+                     "value": ""
+                     },
+                     {
+                     "type": "set",
+                     "target": "narration"
+                     },
+                     {
+                     "type": "narration",
+                     "target": "narration",
+                     "value": "这是一个小蚂蚁的征服世界的故事"
+                     },
+                     {
+                     "type": "narration",
+                     "target": "narration",
+                     "value": "小蚂蚁觉得自己是世界上最强大的生物"
+                     },
+                     {
+                     "type": "clear",
+                     "target": "",
+                     "value": ""
+                     },
+                     {
+                     "type": "set",
+                     "target": "background",
+                     "value": "remove",
+                     "value2": "nextPage"
+                     },
+                     {
+                     "type": "set",
+                     "target": "left",
+                     "value": "hero_01"
+                     },
+                     {
+                     "type": "name",
+                     "target": "left",
+                     "value": "蚂蚁"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "啊，好闲啊！让我来征服世界吧，哈哈哈"
+                     },
+                     {
+                     "type": "set",
+                     "target": "narration"
+                     },
+                     {
+                     "type": "narration",
+                     "target": "narration",
+                     "value": "点击[c=red]左下方[/c]的按钮来战斗"
+                     }
+                     ]
     },
-    {
-      "type": "music",
-      "target": "",
-      "value": ""
+    "novel_tutorial_battle1": {
+        "actions" : [
+                     {
+                     "type": "set",
+                     "target": "left",
+                     "value": "hero_01"
+                     },
+                     {
+                     "type": "name",
+                     "target": "left",
+                     "value": "蚂蚁"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "先找些炮灰来热热身吧"
+                     },
+                     {
+                     "type": "set",
+                     "target": "narration"
+                     },
+                     {
+                     "type": "narration",
+                     "target": "narration",
+                     "value": "点击蚂蚁附近的地方来移动"
+                     }
+                     ]
     },
-    {
-      "type": "set",
-      "target": "narration"
+    "novel_tutorial_battle2": {
+        "actions" : [
+                     {
+                     "type": "narration",
+                     "target": "narration",
+                     "value": "接近后会自动开始战斗"
+                     }
+                     ]
     },
-    {
-      "type": "narration",
-      "target": "narration",
-      "value": "这是一个关于小蚂蚁的故事"
+    "novel_tutorial_battle3": {
+        "actions" : [
+                     {
+                     "type": "set",
+                     "target": "left",
+                     "value": "hero_01"
+                     },
+                     {
+                     "type": "name",
+                     "target": "left",
+                     "value": "蚂蚁"
+                     },
+                     {
+                     "type": "set",
+                     "target": "right",
+                     "value": "ari_01"
+                     },
+                     {
+                     "type": "name",
+                     "target": "right",
+                     "value": "蚂蚁"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "好...好强。"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "啊哈哈哈哈！！"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "你真是弱爆了啊。"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "来来来，尽管来吧！"
+                     }
+                     ]
     },
-    {
-      "type": "narration",
-      "target": "narration",
-      "value": "小蚂蚁觉得自己是世界上最强大的生物"
+    "novel_tutorial_battle4": {
+        "actions" : [
+                     {
+                     "type": "set",
+                     "target": "left",
+                     "value": "hero_01"
+                     },
+                     {
+                     "type": "name",
+                     "target": "left",
+                     "value": "蚂蚁"
+                     },
+                     {
+                     "type": "set",
+                     "target": "right",
+                     "value": "kabutomushi_01"
+                     },
+                     {
+                     "type": "name",
+                     "target": "right",
+                     "value": "独角仙"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "（扑通~）"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "哟，你这个小不点"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "什..什么！！怎么会有这么大的家伙！？"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "但是我可是最强的，来吧！"
+                     }
+                     ]
     },
-    {
-      "type": "clear",
-      "target": "",
-      "value": ""
+    "novel_tutorial_battle_end": {
+        "actions" : [
+                     {
+                     "type": "set",
+                     "target": "background",
+                     "value": "back02.jpg",
+                     "value2": ""
+                     },
+                     {
+                     "type": "set",
+                     "target": "left",
+                     "value": "hero_01"
+                     },
+                     {
+                     "type": "name",
+                     "target": "left",
+                     "value": "蚂蚁"
+                     },
+                     {
+                     "type": "music",
+                     "target": "",
+                     "value": "fadeout"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "呜呜呜，被扁了，妈妈~~~"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "世界还真是广阔啊"
+                     },
+                     {
+                     "type": "delay",
+                     "target": "",
+                     "value": "1"
+                     },
+                     {
+                     "type": "set",
+                     "target": "right",
+                     "value": "god_01"
+                     },
+                     {
+                     "type": "name",
+                     "target": "right",
+                     "value": "神"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "觉醒吧"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "小不点哟"
+                     },
+                     {
+                     "type": "delay",
+                     "target": "",
+                     "value": "1"
+                     },
+                     {
+                     "type": "set",
+                     "target": "background",
+                     "value": "back03.jpg",
+                     "value2": "fade"
+                     },
+                     {
+                     "type": "set",
+                     "target": "left",
+                     "value": "hero_01"
+                     },
+                     {
+                     "type": "name",
+                     "target": "left",
+                     "value": "蚂蚁"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "・・・"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "嗯？这里是什么地方？"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "小不点哟"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "你想知道世界的真相吗？"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "(...这人在说神马啊，完全搞不明白！）"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "(而且我根本不认识你好吗！！)"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "让老夫赐予你力量,"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "去探索这个世界吧"
+                     },
+                     {
+                     "type": "set",
+                     "target": "left",
+                     "value": "remove"
+                     },
+                     {
+                     "type": "set",
+                     "target": "right",
+                     "value": "remove"
+                     },
+                     {
+                     "type": "set",
+                     "target": "background",
+                     "value": "remove",
+                     "value2": "nextPage"
+                     },
+                     {
+                     "type": "delay",
+                     "target": "",
+                     "value": "1"
+                     }
+                     ]
     },
-    {
-      "type": "set",
-      "target": "background",
-      "value": "remove",
-      "value2": "nextPage"
+    "novel_tutorial_gacha1": {
+        "actions" : [
+                     {
+                     "type": "set",
+                     "target": "left",
+                     "value": "hero_01"
+                     },
+                     {
+                     "type": "name",
+                     "target": "left",
+                     "value": "蚂蚁"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "......"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "......靠，原来是做梦啊"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "!?"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "shout",
+                     "value": "哇，怎么有个超级大的壶！！"
+                     },
+                     {
+                     "type": "set",
+                     "target": "right",
+                     "value": "god_01"
+                     },
+                     {
+                     "type": "name",
+                     "target": "right",
+                     "value": "神"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "小不点哟"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "那可不是梦"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "shout",
+                     "value": "小不点，小不点的叫来叫去烦死啦！！"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "shout",
+                     "value": "你是哪根葱啊"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "看见那里有一个奇怪的壶了吗"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "那个叫做[c=red]“世界的宝壶”[/c]"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "[c=red]世界的宝壶?![/c]"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "那是什么鬼玩意！"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "冷静点听老夫给你解释"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "欧吼吼吼"
+                     }
+                     ]
     },
-    {
-      "type": "set",
-      "target": "left",
-      "value": "hero_01"
+    "novel_tutorial_gacha2": {
+        "actions" : [
+                     {
+                     "type": "set",
+                     "target": "left",
+                     "value": "hero_01"
+                     },
+                     {
+                     "type": "name",
+                     "target": "left",
+                     "value": "蚂蚁"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "...嗯？？"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "好像有什么蹦出来了！"
+                     },
+                     {
+                     "type": "set",
+                     "target": "right",
+                     "value": "god_01"
+                     },
+                     {
+                     "type": "name",
+                     "target": "right",
+                     "value": "神"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "那是因为"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "老夫已经赋予你\n操纵[c=red]”世界的宝壶”[/c]的能力了"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "（因为我也好闲啊~）"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "从壶里蹦出的东西\n你可以当做小弟来使唤"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "shout",
+                     "value": "真的假的...！\n这个看起来能派上大用场啊"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "大家都来和我一起征服世界吧！"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "吼吼吼吼"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "小东西，还挺有干劲的嘛"
+                     }
+                     ]
     },
-    {
-      "type": "name",
-      "target": "left",
-      "value": "蚂蚁"
+    "novel_tutorial_levelup1": {
+        "actions" : [
+                     {
+                     "type": "set",
+                     "target": "left",
+                     "value": "hero_01"
+                     },
+                     {
+                     "type": "name",
+                     "target": "left",
+                     "value": "蚂蚁"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "好..好大个！！"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "又有一个能干的手下了！\n啊哈哈哈！"
+                     }
+                     ]
     },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "啊，好闲啊！让我来征服世界吧，哈哈哈"
+    "novel_tutorial_levelup2": {
+        "actions" : [
+                     {
+                     "type": "set",
+                     "target": "left",
+                     "value": "hero_01"
+                     },
+                     {
+                     "type": "name",
+                     "target": "left",
+                     "value": "蚂蚁"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "哇！！？"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "怎么感觉世界都变大了！！"
+                     },
+                     {
+                     "type": "set",
+                     "target": "right",
+                     "value": "god_01"
+                     },
+                     {
+                     "type": "name",
+                     "target": "right",
+                     "value": "神"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "小不点哟"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "靠，你怎么又来了！"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "这是[c=red]世界的宝壶[/c]的\n另外一个能力"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "可以得到更大的动物（吧唧吧唧"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "你的世界就会变得更大（吧唧吧唧"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "…这家伙在吃什么呢！"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "不过，管它呢！"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "你你你，就那边吃草那个\n你也跟我来征服世界吧"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "吼吼吼"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "啊，小笼包好好吃（嚼~嚼）"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "你所看到的世界还小的很呢"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "比我吃的小笼包还要小啊"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "嘿，来吃口啊"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "哼，好奇怪的老头子\n不过好像不是坏人"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "啊哈哈，啊哈哈哈哈哈哈！！"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "shout",
+                     "value": "[c=red]世界征服，我来啦！！！！！[/c]"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "吼吼吼"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "你好可爱啊"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "好想把你吃掉啊"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "嗯。。。"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "就从这个最近的草原来是征服吧！"
+                     }
+                     ]
     },
-    {
-      "type": "set",
-      "target": "narration"
+    "novel_enter_map_3": {
+        "actions" : [
+                     {
+                     "type": "set",
+                     "target": "left",
+                     "value": "hero_01"
+                     },
+                     {
+                     "type": "name",
+                     "target": "left",
+                     "value": "蚂蚁"
+                     },
+                     {
+                     "type": "set",
+                     "target": "right",
+                     "value": "god_01"
+                     },
+                     {
+                     "type": "name",
+                     "target": "right",
+                     "value": "神"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "吼吼吼，小蚂蚁哟"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "世界征服的怎么样了啊"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "喂，不要这么叫我啦！！"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "还差一点就可以征服世界啦"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "小蚂蚁，加油！"
+                     }
+                     ]
     },
-    {
-      "type": "narration",
-      "target": "narration",
-      "value": "点击[c=red]左下方[/c]的按钮"
+    "novel_enter_map_5": {
+        "actions" : [
+                     {
+                     "type": "set",
+                     "target": "left",
+                     "value": "hero_01"
+                     },
+                     {
+                     "type": "name",
+                     "target": "left",
+                     "value": "蚂蚁"
+                     },
+                     {
+                     "type": "set",
+                     "target": "right",
+                     "value": "mogura_01"
+                     },
+                     {
+                     "type": "name",
+                     "target": "right",
+                     "value": "鼹鼠"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "你好~我是鼹鼠！"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "是你召唤我出来的吗"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "也不是什么特别的事情啦と\n和我来一起征服世界吧！！"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "听起来好像很有趣啊，来吧！"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "(呼呼呼，这家户好像很好糊弄）"
+                     }
+                     ]
+    },
+    "novel_enter_map_7": {
+        "actions" : [
+                     {
+                     "type": "set",
+                     "target": "left",
+                     "value": "hero_01"
+                     },
+                     {
+                     "type": "name",
+                     "target": "left",
+                     "value": "蚂蚁"
+                     },
+                     {
+                     "type": "set",
+                     "target": "right",
+                     "value": "sukanku_01"
+                     },
+                     {
+                     "type": "name",
+                     "target": "right",
+                     "value": "臭鼬"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "噗~"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "啊~放了个屁！"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "呜哇！！"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "好臭好臭！"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "噢？很臭吗？！\n多谢夸奖啦，嘿嘿！"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "谁在夸你啦！！"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "哎，难道不是吗"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "在我们这里说你臭的话\n就是在夸你啊"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "...这个世界好多奇葩的动物啊！！"
+                     }
+                     ]
+    },
+    "novel_enter_map_8": {
+        "actions" : [
+                     {
+                     "type": "set",
+                     "target": "left",
+                     "value": "hero_01"
+                     },
+                     {
+                     "type": "name",
+                     "target": "left",
+                     "value": "蚂蚁"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "世界征服就在眼前啦！"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "地球变得越来越大啦！！"
+                     },
+                     {
+                     "type": "set",
+                     "target": "right",
+                     "value": "god_01"
+                     },
+                     {
+                     "type": "name",
+                     "target": "right",
+                     "value": "神"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "那不是当然的吗小蚂蚁哟"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "知道世界的广阔\n是成为大人的第一步哟"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "哼，装的很牛的样子！"
+                     }
+                     ]
+    },
+    "novel_enter_map_10": {
+        "actions" : [
+                     {
+                     "type": "set",
+                     "target": "left",
+                     "value": "hero_01"
+                     },
+                     {
+                     "type": "name",
+                     "target": "left",
+                     "value": "蚂蚁"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "哇，来了个大个的！"
+                     },
+                     {
+                     "type": "set",
+                     "target": "right",
+                     "value": "zou"
+                     },
+                     {
+                     "type": "name",
+                     "target": "right",
+                     "value": "大象"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "对~"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "我~可~是~"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "这~个~世~界~上"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "最~"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "巨~大~"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "强~壮~"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "shout",
+                     "value": "的~动~物——大~象~！！！！"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "（这家伙说话好慢・・・）"
+                     },
+                     {
+                     "type": "set",
+                     "target": "right",
+                     "value": "god_01"
+                     },
+                     {
+                     "type": "name",
+                     "target": "right",
+                     "value": "神"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "哈喽、小蚂蚁哟"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "吼吼吼"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "终于连大象也被你搞到手了呢"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "哼哼！"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "世界已经在我手中了！"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "世界可没有你想象的那么简单"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "吼吼，接着加油吧。"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "（靠，真啰嗦！）"
+                     }
+                     ]
+    },
+    "novel_enter_map_11": {
+        "actions" : [
+                     {
+                     "type": "set",
+                     "target": "left",
+                     "value": "hero_01"
+                     },
+                     {
+                     "type": "name",
+                     "target": "left",
+                     "value": "蚂蚁"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "哇，这是神马啊！？"
+                     },
+                     {
+                     "type": "set",
+                     "target": "right",
+                     "value": "god_01"
+                     },
+                     {
+                     "type": "name",
+                     "target": "right",
+                     "value": "神"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "比大象还要大耶！！"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "很少见吧~"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "味道也很独特哟（吧唧吧唧"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "好想很好吃・・・才怪！"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "啊，薯片好好吃啊（吧唧吧唧"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "口水都流出来了！！"
+                     }
+                     ]
+    },
+    "novel_enter_map_12": {
+        "actions" : [
+                     {
+                     "type": "set",
+                     "target": "left",
+                     "value": "hero_01"
+                     },
+                     {
+                     "type": "name",
+                     "target": "left",
+                     "value": "蚂蚁"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "shout",
+                     "value": "哇，好强很强大的家伙！！"
+                     },
+                     {
+                     "type": "set",
+                     "target": "right",
+                     "value": "tirano"
+                     },
+                     {
+                     "type": "name",
+                     "target": "right",
+                     "value": "霸王龙"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "食物！食〜物〜！"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "脑子好像不怎么样"
+                     },
+                     {
+                     "type": "set",
+                     "target": "right",
+                     "value": "god_01"
+                     },
+                     {
+                     "type": "name",
+                     "target": "right",
+                     "value": "神"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "你好啊、小蚂蚁"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "这是霸王龙"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "是地球上最强大的动物"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "shout",
+                     "value": "真的假的？"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "世界最强的动物也被纳入到我的麾下了！"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "也仅仅是“地球上”的"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "嗯？你说了什么？"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "拜拜啦小蚂蚁"
+                     }
+                     ]
+    },
+    "novel_enter_map_13": {
+        "actions" : [
+                     {
+                     "type": "set",
+                     "target": "left",
+                     "value": "hero_01"
+                     },
+                     {
+                     "type": "name",
+                     "target": "left",
+                     "value": "蚂蚁"
+                     },
+                     {
+                     "type": "set",
+                     "target": "right",
+                     "value": "fenics"
+                     },
+                     {
+                     "type": "name",
+                     "target": "right",
+                     "value": "凤凰"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "是谁唤醒了本王"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "是你吗"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "哇，好漂亮的一只大鸟啊！！"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "shout",
+                     "value": "..............."
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "大鸟....."
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "你难道不是道我是谁嘛？"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "嗯？你是谁啊？"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "吾乃四圣兽之凤凰朱雀"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "是传说中的不死火鸟！"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "切~不还是鸟嘛"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "而且还自称传说~真不上档次~"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "你不是瞎编一套来唬我的吧？"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "(唔，被说中了！)"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "看你好像挺厉害的样子，来和我一起征服世界吧"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "(在本王面前也敢这么嚣张\n还真是胆子够大啊・・・）"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "(个头挺小气量倒是不小体)"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "有趣，算我一个好了！"
+                     }
+                     ]
+    },
+    "novel_enter_map_14": {
+        "actions" : [
+                     {
+                     "type": "set",
+                     "target": "left",
+                     "value": "hero_01"
+                     },
+                     {
+                     "type": "name",
+                     "target": "left",
+                     "value": "蚂蚁"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "\n好长的蛇一样"
+                     },
+                     {
+                     "type": "set",
+                     "target": "right",
+                     "value": "god_01"
+                     },
+                     {
+                     "type": "name",
+                     "target": "right",
+                     "value": "神"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "那是老夫我的腿毛吼吼吼"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "神马！！？腿毛！？"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "别把那么恶心的东西露出来啊！！！"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "吼吼吼"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "哎呀，好害羞啊"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "....."
+                     }
+                     ]
+    },
+    "novel_enter_map_15": {
+        "actions" : [
+                     {
+                     "type": "set",
+                     "target": "left",
+                     "value": "hero_01"
+                     },
+                     {
+                     "type": "name",
+                     "target": "left",
+                     "value": "蚂蚁"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "蚂蚁？"
+                     },
+                     {
+                     "type": "set",
+                     "target": "right",
+                     "value": "ari2"
+                     },
+                     {
+                     "type": "name",
+                     "target": "right",
+                     "value": "宇宙蚂蚁"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "偶是雨(宇)奏(宙)蚂蚁啦"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "什么乱七八糟的"
+                     },
+                     {
+                     "type": "set",
+                     "target": "right",
+                     "value": "god_01"
+                     },
+                     {
+                     "type": "name",
+                     "target": "right",
+                     "value": "神"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "内（你）吼（好）啦、小蚂蚁"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "噢，宇宙动物也到手了吗"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "完全和地球的样子一样好嘛!!!!"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "NoNoNo...."
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "这可是蕴含着宇宙能量的"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "（肯定是设计者偷懒了！"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "(肯定是设计者偷懒了！"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "不过能派上用场就行了"
+                     }
+                     ]
+    },
+    "novel_enter_map_22": {
+        "actions" : [
+                     {
+                     "type": "set",
+                     "target": "left",
+                     "value": "hero_01"
+                     },
+                     {
+                     "type": "name",
+                     "target": "left",
+                     "value": "蚂蚁"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "哇，到处都是腿毛！老头子！！"
+                     },
+                     {
+                     "type": "set",
+                     "target": "right",
+                     "value": "god_01"
+                     },
+                     {
+                     "type": "name",
+                     "target": "right",
+                     "value": "神"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "噢噢，抱歉抱歉"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "我就是想拔着腿毛玩一玩"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "...老头子玩一玩"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "就能掉出这么多毛啊！！！"
+                     }
+                     ]
+    },
+    "novel_enter_map_26": {
+        "actions" : [
+                     {
+                     "type": "set",
+                     "target": "left",
+                     "value": "hero_01"
+                     },
+                     {
+                     "type": "name",
+                     "target": "left",
+                     "value": "蚂蚁"
+                     },
+                     {
+                     "type": "set",
+                     "target": "right",
+                     "value": "god_01"
+                     },
+                     {
+                     "type": "name",
+                     "target": "right",
+                     "value": "神"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "哟，小蚂蚁~"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "啊，海水真舒服啊"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "还以为是很高的柱子呢\n原来是你的脚吗！老头子！"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "吼吼吼，大腿福利哟"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "兴奋了吧"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "靠，老头子的腿谁稀罕啊"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "吼吼吼"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "看来你已经快看到世界的全貌了"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "噢！这么看来\n世界终于要被我征服了吗"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "太轻松了把"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "啊！！"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "嗯？怎么了？"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "老夫忽然想起来"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "想起神马啊？"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "昨天是我的生日啊.."
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "shout",
+                     "value": "靠谁管这个啊"
+                     }
+                     ]
+    },
+    "novel_enter_map_27": {
+        "actions" : [
+                     {
+                     "type": "set",
+                     "target": "left",
+                     "value": "hero_01"
+                     },
+                     {
+                     "type": "name",
+                     "target": "left",
+                     "value": "蚂蚁"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "shout",
+                     "value": "哇"
+                     },
+                     {
+                     "type": "set",
+                     "target": "right",
+                     "value": "god_01"
+                     },
+                     {
+                     "type": "name",
+                     "target": "right",
+                     "value": "神"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "shout",
+                     "value": "这也太大了吧"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "嗯？这个难道是..."
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "嗯~是老夫啊，小蚂蚁"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "原本就挑了一个小蚂蚁的"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "没想到居然把老夫也给召唤出来了"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "那这个圆圆的是什么啊？"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "小蚂蚁，这是你出生的星球哟"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "很漂亮吧"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "こんなちっぽけなとこにオレは\n住んでたっていうのか！？"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "そうじゃよー"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "ワシは地球の神"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "そしてワシは蚂蚁ちゃんの神になった"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "つまり今日から蚂蚁ちゃんが\n地球の神じゃ"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "征服世界成功了吗！"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "終わってみるとあっけないものだぜ"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "小蚂蚁，能看见在地球那边\n闪闪发光的球吗？"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "shout",
+                     "value": "那是当然！"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "吼吼吼，你也成长了呢"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "那个大球就是太阳啦"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "然后左边的那个是月亮"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "太阳和月亮吗...？"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "和地球一样的行星\n好像有很多呢"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "那是当然"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "他们都是只是宇宙的一部分"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "像老夫这么伟大的人也只不过是宇宙的一点点而已"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "噢？怎么感觉你突然就缩了"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "老夫的能力就到此位置了"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "但是小蚂蚁哟\n如果是你的话也许就能看的更远呢"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "宇宙...到底有多广阔啊？"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "嗯~（思考中"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "大概有[c=red]100000000000000000000000000\n00000km[/c]的样子吧"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "・・・"
+                     },
+                     {
+                     "type": "delay",
+                     "target": "",
+                     "value": "1"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "・・・"
+                     },
+                     {
+                     "type": "delay",
+                     "target": "",
+                     "value": "1"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "shout",
+                     "value": "OH MY GOD！"
+                     },
+                     {
+                     "type": "set",
+                     "target": "narration"
+                     },
+                     {
+                     "type": "narration",
+                     "target": "narration",
+                     "value": "[c=yellow]FIN?![/c]"
+                     }
+                     ]
+    },
+    "novel_enter_map_6": {
+        "actions" : [
+                     {
+                     "type": "set",
+                     "target": "left",
+                     "value": "hero_01"
+                     },
+                     {
+                     "type": "name",
+                     "target": "left",
+                     "value": "蚂蚁"
+                     },
+                     {
+                     "type": "set",
+                     "target": "right",
+                     "value": "god_01"
+                     },
+                     {
+                     "type": "name",
+                     "target": "right",
+                     "value": "神"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "哈喽、小蚂蚁"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "啊，又来了！"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "噢，已经6级了啊"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "6级以后有新的力量可以使用哟"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "嗯？快说快说！"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "shout",
+                     "value": "那就是[c=red]「转生」[/c]！！"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "shout",
+                     "value": "[c=red]转生！[/c]"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "shout",
+                     "value": "好想很酷的样子"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "对吧对吧!?"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "转生可以得到大量的钻石哟"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "不过代价就是你的等级会回到1级"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "哈？！\n从最开始重来一遍啊！！"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "好麻烦的样子！！"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "嗯嗯"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "但是“欲速则不达”，这句话你知道吗？"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "年轻人就是太急躁啊"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "（所以说你们这些老头子很啰嗦啊）"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "这之后的敌人会变得越来越强"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "隐忍一下说不定会有更大的收获哟"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "唔，麻烦...."
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "吼吼吼"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "等你无力前进的时候,可以试试哟"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "在菜单里可以选择[c=red]转生[/c]"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "还有，用钻石让自己变得更强吧"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "在左下角的菜单里进入[c=red]商店[/c]进行购买"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "拜拜~小蚂蚁"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "（唔，看来征服世界的过程中需要很多钻石呢）"
+                     },
+                     {
+                     "type": "set",
+                     "target": "right",
+                     "value": "remove"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "打不赢的时候用来试试看吧"
+                     }
+                     ]
     }
-  ]
-},
-"novel_tutorial_battle1": {
-  "actions" : [
-    {
-      "type": "set",
-      "target": "left",
-      "value": "hero_01"
-    },
-    {
-      "type": "name",
-      "target": "left",
-      "value": "蚂蚁"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "先找些炮灰来热热身吧"
-    },
-    {
-      "type": "set",
-      "target": "narration"
-    },
-    {
-      "type": "narration",
-      "target": "narration",
-      "value": "点击蚂蚁附近的地方来移动"
-    }
-  ]
-},
-"novel_tutorial_battle2": {
-  "actions" : [
-    {
-      "type": "narration",
-      "target": "narration",
-      "value": "接近后会自动开始战斗"
-    }
-  ]
-},
-"novel_tutorial_battle3": {
-  "actions" : [
-    {
-      "type": "set",
-      "target": "left",
-      "value": "hero_01"
-    },
-    {
-      "type": "name",
-      "target": "left",
-      "value": "蚂蚁"
-    },
-    {
-      "type": "set",
-      "target": "right",
-      "value": "ari_01"
-    },
-    {
-      "type": "name",
-      "target": "right",
-      "value": "蚂蚁"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "好...好强。"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "啊哈哈哈哈！！"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "你真是弱爆了啊。"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "来来来，尽管来吧！"
-    }
-  ]
-},
-"novel_tutorial_battle4": {
-  "actions" : [
-    {
-      "type": "set",
-      "target": "left",
-      "value": "hero_01"
-    },
-    {
-      "type": "name",
-      "target": "left",
-      "value": "蚂蚁"
-    },
-    {
-      "type": "set",
-      "target": "right",
-      "value": "kabutomushi_01"
-    },
-    {
-      "type": "name",
-      "target": "right",
-      "value": "独角仙"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "（扑通~）"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "哟，你这个小不点"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "什..什么！！怎么会有这么大的家伙！？"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "但是我可是最强的，来吧！"
-    }
-  ]
-},
-"novel_tutorial_battle_end": {
-  "actions" : [
-    {
-      "type": "set",
-      "target": "background",
-      "value": "back02.jpg",
-      "value2": ""
-    },
-    {
-      "type": "set",
-      "target": "left",
-      "value": "hero_01"
-    },
-    {
-      "type": "name",
-      "target": "left",
-      "value": "蚂蚁"
-    },
-    {
-      "type": "music",
-      "target": "",
-      "value": "fadeout"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "呜呜呜，被扁了，妈妈~~~"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "世界真是广阔啊"
-    },
-    {
-      "type": "delay",
-      "target": "",
-      "value": "1"
-    },
-    {
-      "type": "set",
-      "target": "right",
-      "value": "god_01"
-    },
-    {
-      "type": "name",
-      "target": "right",
-      "value": "神"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "觉醒吧"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "小不点哟"
-    },
-    {
-      "type": "delay",
-      "target": "",
-      "value": "1"
-    },
-    {
-      "type": "set",
-      "target": "background",
-      "value": "back03.jpg",
-      "value2": "fade"
-    },
-    {
-      "type": "set",
-      "target": "left",
-      "value": "hero_01"
-    },
-    {
-      "type": "name",
-      "target": "left",
-      "value": "蚂蚁"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "・・・"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "嗯？这里是什么地方"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "小不点哟"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "你想知道世界的真相嘛"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "(...这人在说神马啊，完全搞不明白！）"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "(而且我根本不认识你好吗)"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "让老夫赐予你力量,"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "去探索这个世界吧"
-    },
-    {
-      "type": "set",
-      "target": "left",
-      "value": "remove"
-    },
-    {
-      "type": "set",
-      "target": "right",
-      "value": "remove"
-    },
-    {
-      "type": "set",
-      "target": "background",
-      "value": "remove",
-      "value2": "nextPage"
-    },
-    {
-      "type": "delay",
-      "target": "",
-      "value": "1"
-    }
-  ]
-},
-"novel_tutorial_gacha1": {
-  "actions" : [
-    {
-      "type": "set",
-      "target": "left",
-      "value": "hero_01"
-    },
-    {
-      "type": "name",
-      "target": "left",
-      "value": "蚂蚁"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "・・・"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "。。。靠，原来是做梦啊"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "!?"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "shout",
-      "value": "哇，怎么有个超级大的壶！！"
-    },
-    {
-      "type": "set",
-      "target": "right",
-      "value": "god_01"
-    },
-    {
-      "type": "name",
-      "target": "right",
-      "value": "神"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "小不点哟"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "这可不是梦"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "shout",
-      "value": "小不点，小不点的叫来叫去烦死啦！！"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "shout",
-      "value": "你是哪根葱啊"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "看见那里有一个奇怪的壶了吗"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "那个叫做[c=red]”世界的宝壶”[/c]"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "[c=red]世界的宝壶?![/c]"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "那是什么鬼玩意！"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "冷静点听老夫给你解释"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "欧吼吼吼"
-    }
-  ]
-},
-"novel_tutorial_gacha2": {
-  "actions" : [
-    {
-      "type": "set",
-      "target": "left",
-      "value": "hero_01"
-    },
-    {
-      "type": "name",
-      "target": "left",
-      "value": "蚂蚁"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "靠....嗯？？"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "好像有什么蹦出来了！"
-    },
-    {
-      "type": "set",
-      "target": "right",
-      "value": "god_01"
-    },
-    {
-      "type": "name",
-      "target": "right",
-      "value": "神"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "那是因为"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "老夫已经赋予你操纵[c=red]”世界的宝壶”[/c]的能力了"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "（因为我也好闲啊~）"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "从壶里蹦出的东西\n你可以当做小弟来使唤"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "shout",
-      "value": "真的假的...！\n这个看起来能派上大用场啊"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "大家都来追随我吧！！"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "世界由我来征服！！！"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "吼吼吼吼"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "小东西"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "干得还挺带劲的啊"
-    },
-    {
-      "type": "music",
-      "target": "",
-      "value": "sound/bgm/main.mp3"
-    }
-  ]
-},
-"novel_tutorial_levelup1": {
-  "actions" : [
-    {
-      "type": "set",
-      "target": "left",
-      "value": "hero_01"
-    },
-    {
-      "type": "name",
-      "target": "left",
-      "value": "蚂蚁"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "好..好大个！！"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "又有一个能干的手下了！\n啊哈哈哈！"
-    }
-  ]
-},
-"novel_tutorial_levelup2": {
-  "actions" : [
-    {
-      "type": "set",
-      "target": "left",
-      "value": "hero_01"
-    },
-    {
-      "type": "name",
-      "target": "left",
-      "value": "蚂蚁"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "哇！！？"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "怎么感觉世界都变大了！！"
-    },
-    {
-      "type": "set",
-      "target": "right",
-      "value": "god_01"
-    },
-    {
-      "type": "name",
-      "target": "right",
-      "value": "神"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "小不点哟"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "靠，你怎么又来了！"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "这是[c=red]世界的宝壶[/c]的\n另外一个能力"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "可以得到更大的动物（吧唧吧唧"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "你的世界就会变得更大（吧唧吧唧"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "…这家伙在吃什么呢！"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "不过，管它呢！"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "你你你，就那边吃草那个\n你打算为我的征服世界之路出一份力是吧"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "吼吼吼"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "啊，小笼包好好吃（嚼~嚼）"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "你所看到的世界还小的很呢"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "比我吃的小笼包还要小啊"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "嘿，来吃口啊"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "哼，好奇怪的老头子\n不过好像不是坏人"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "啊哈哈，啊哈哈哈哈哈哈！！"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "shout",
-      "value": "[c=red]世界征服，我来啦！！！！！[/c]"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "吼吼吼"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "你好可爱啊"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "好想把你吃掉啊"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "嗯？"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "就从这个最近的草原来是征服吧！"
-    }
-  ]
-},
-"novel_enter_map_3": {
-  "actions" : [
-    {
-      "type": "set",
-      "target": "left",
-      "value": "hero_01"
-    },
-    {
-      "type": "name",
-      "target": "left",
-      "value": "蚂蚁"
-    },
-    {
-      "type": "set",
-      "target": "right",
-      "value": "god_01"
-    },
-    {
-      "type": "name",
-      "target": "right",
-      "value": "神"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "吼吼吼，小蚂蚁哟"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "世界征服的怎么样了啊"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "喂，不要这么叫我啦！！"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "还差一点就可以征服世界啦"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "小蚂蚁，加油！"
-    }
-  ]
-},
-"novel_enter_map_5": {
-  "actions" : [
-    {
-      "type": "set",
-      "target": "left",
-      "value": "hero_01"
-    },
-    {
-      "type": "name",
-      "target": "left",
-      "value": "蚂蚁"
-    },
-    {
-      "type": "set",
-      "target": "right",
-      "value": "mogura_01"
-    },
-    {
-      "type": "name",
-      "target": "right",
-      "value": "鼹鼠"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "你好~我是鼹鼠！"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "是你召唤我出来的吗"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "也不是什么特别的事情啦と\n和我来一起征服世界吧！！"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "听起来好像很有趣啊，来吧！"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "(呼呼呼，这家户好像很好糊弄）"
-    }
-  ]
-},
-"novel_enter_map_7": {
-  "actions" : [
-    {
-      "type": "set",
-      "target": "left",
-      "value": "hero_01"
-    },
-    {
-      "type": "name",
-      "target": "left",
-      "value": "蚂蚁"
-    },
-    {
-      "type": "set",
-      "target": "right",
-      "value": "sukanku_01"
-    },
-    {
-      "type": "name",
-      "target": "right",
-      "value": "臭鼬"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "噗~"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "啊~放了个屁！"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "呜哇！！"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "好臭好臭！"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "噢？很臭吗？！\n多谢夸奖啦，嘿嘿！"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "谁在夸你啦！！"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "哎，难道不是吗"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "在我们这里说你臭的话\n就是在夸你啊"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "...这个世界好多奇葩的动物啊！！"
-    }
-  ]
-},
-"novel_enter_map_8": {
-  "actions" : [
-    {
-      "type": "set",
-      "target": "left",
-      "value": "hero_01"
-    },
-    {
-      "type": "name",
-      "target": "left",
-      "value": "蚂蚁"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "世界征服就在眼前啦！"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "地球变得越来越大啦！！"
-    },
-    {
-      "type": "set",
-      "target": "right",
-      "value": "god_01"
-    },
-    {
-      "type": "name",
-      "target": "right",
-      "value": "神"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "那不是当然的吗小蚂蚁哟"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "知道世界的广阔\n是成为大人的第一步哟"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "哼，装的很牛的样子！"
-    }
-  ]
-},
-"novel_enter_map_10": {
-  "actions" : [
-    {
-      "type": "set",
-      "target": "left",
-      "value": "hero_01"
-    },
-    {
-      "type": "name",
-      "target": "left",
-      "value": "蚂蚁"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "哇，来了个大个的！"
-    },
-    {
-      "type": "set",
-      "target": "right",
-      "value": "zou"
-    },
-    {
-      "type": "name",
-      "target": "right",
-      "value": "大象"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "对~"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "我~可~是~"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "这~个~世~界~上"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "最~"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "巨~大~"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "强~壮~"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "shout",
-      "value": "的~动~物——大~象~！！！！"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "（这家伙说话好慢・・・）"
-    },
-    {
-      "type": "set",
-      "target": "right",
-      "value": "god_01"
-    },
-    {
-      "type": "name",
-      "target": "right",
-      "value": "神"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "哈喽、小蚂蚁哟"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "吼吼吼"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "终于连大象也被你搞到手了呢"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "哼哼！"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "世界已经在我手中了！"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "世界可没有你想象的那么简单"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "吼吼，接着加油吧。"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "（靠，真啰嗦！）"
-    }
-  ]
-},
-"novel_enter_map_11": {
-  "actions" : [
-    {
-      "type": "set",
-      "target": "left",
-      "value": "hero_01"
-    },
-    {
-      "type": "name",
-      "target": "left",
-      "value": "蚂蚁"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "哇，这是神马啊！？"
-    },
-    {
-      "type": "set",
-      "target": "right",
-      "value": "god_01"
-    },
-    {
-      "type": "name",
-      "target": "right",
-      "value": "神"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "比大象还要大耶！！"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "很少见吧~"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "味道也很独特哟（吧唧吧唧"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "好想很好吃・・・才怪！"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "啊，薯片好好吃啊（吧唧吧唧"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "口水都流出来了！！"
-    }
-  ]
-},
-"novel_enter_map_12": {
-  "actions" : [
-    {
-      "type": "set",
-      "target": "left",
-      "value": "hero_01"
-    },
-    {
-      "type": "name",
-      "target": "left",
-      "value": "蚂蚁"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "shout",
-      "value": "哇，好强很强大的家伙！！"
-    },
-    {
-      "type": "set",
-      "target": "right",
-      "value": "tirano"
-    },
-    {
-      "type": "name",
-      "target": "right",
-      "value": "霸王龙"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "食物！食〜物〜！"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "脑子好像不怎么样"
-    },
-    {
-      "type": "set",
-      "target": "right",
-      "value": "god_01"
-    },
-    {
-      "type": "name",
-      "target": "right",
-      "value": "神"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "你好啊、小蚂蚁"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "这是霸王龙"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "是地球上最强大的动物"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "shout",
-      "value": "真的假的？"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "世界最强的动物也被纳入到我的麾下了！"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "也仅仅是“地球上”的"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "嗯？你说了什么？"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "拜拜啦小蚂蚁"
-    }
-  ]
-},
-"novel_enter_map_13": {
-  "actions" : [
-    {
-      "type": "set",
-      "target": "left",
-      "value": "hero_01"
-    },
-    {
-      "type": "name",
-      "target": "left",
-      "value": "蚂蚁"
-    },
-    {
-      "type": "set",
-      "target": "right",
-      "value": "fenics"
-    },
-    {
-      "type": "name",
-      "target": "right",
-      "value": "凤凰"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "是谁唤醒了本王"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "是你吗"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "哇，好漂亮的一只大鸟啊！！"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "shout",
-      "value": "..............."
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "大鸟....."
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "你难道不是道我是谁嘛？"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "嗯？你是谁啊？"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "吾乃四圣兽之凤凰朱雀"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "是传说中的不死火鸟！"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "切~不还是鸟嘛"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "而且还自称传说~真不上档次~"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "你不是瞎编一套来唬我的吧？"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "(唔，被说中了！)"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "看你好像挺厉害的样子，来和我一起征服世界吧"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "(在本王面前也敢这么嚣张\n还真是胆子够大啊・・・）"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "(个头挺小气量倒是不小体)"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "有趣，算我一个好了！"
-    }
-  ]
-},
-"novel_enter_map_14": {
-  "actions" : [
-    {
-      "type": "set",
-      "target": "left",
-      "value": "hero_01"
-    },
-    {
-      "type": "name",
-      "target": "left",
-      "value": "蚂蚁"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "\n好长的蛇一样"
-    },
-    {
-      "type": "set",
-      "target": "right",
-      "value": "god_01"
-    },
-    {
-      "type": "name",
-      "target": "right",
-      "value": "神"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "那是老夫我的腿毛吼吼吼"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "神马！！？腿毛！？"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "别把那么恶心的东西露出来啊！！！"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "吼吼吼"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "哎呀，好害羞啊"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "....."
-    }
-  ]
-},
-"novel_enter_map_15": {
-  "actions" : [
-    {
-      "type": "set",
-      "target": "left",
-      "value": "hero_01"
-    },
-    {
-      "type": "name",
-      "target": "left",
-      "value": "蚂蚁"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "蚂蚁？"
-    },
-    {
-      "type": "set",
-      "target": "right",
-      "value": "ari2"
-    },
-    {
-      "type": "name",
-      "target": "right",
-      "value": "宇宙蚂蚁"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "偶是雨(宇)奏(宙)蚂蚁啦"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "什么乱七八糟的"
-    },
-    {
-      "type": "set",
-      "target": "right",
-      "value": "god_01"
-    },
-    {
-      "type": "name",
-      "target": "right",
-      "value": "神"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "内（你）吼（好）啦、小蚂蚁"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "噢，宇宙动物也到手了吗"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "完全和地球的样子一样好嘛!!!!"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "NoNoNo...."
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "这可是蕴含着宇宙能量的"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "（肯定是设计者偷懒了！"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "(肯定是设计者偷懒了！"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "不过能派上用场就行了"
-    }
-  ]
-},
-"novel_enter_map_22": {
-  "actions" : [
-    {
-      "type": "set",
-      "target": "left",
-      "value": "hero_01"
-    },
-    {
-      "type": "name",
-      "target": "left",
-      "value": "蚂蚁"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "哇，到处都是腿毛！老头子！！"
-    },
-    {
-      "type": "set",
-      "target": "right",
-      "value": "god_01"
-    },
-    {
-      "type": "name",
-      "target": "right",
-      "value": "神"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "噢噢，抱歉抱歉"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "我就是想拔着腿毛玩一玩"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "...老头子玩一玩"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "就能掉出这么多毛啊！！！"
-    }
-  ]
-},
-"novel_enter_map_26": {
-  "actions" : [
-    {
-      "type": "set",
-      "target": "left",
-      "value": "hero_01"
-    },
-    {
-      "type": "name",
-      "target": "left",
-      "value": "蚂蚁"
-    },
-    {
-      "type": "set",
-      "target": "right",
-      "value": "god_01"
-    },
-    {
-      "type": "name",
-      "target": "right",
-      "value": "神"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "哟，小蚂蚁~"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "啊，海水真舒服啊"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "还以为是很高的柱子呢\n原来是你的脚吗！老头子！"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "吼吼吼，大腿福利哟"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "兴奋了吧"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "靠，老头子的腿谁稀罕啊"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "吼吼吼"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "看来你已经快看到世界的全貌了"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "噢！这么看来\n世界终于要被我征服了吗"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "太轻松了把"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "啊！！"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "嗯？怎么了？"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "老夫忽然想起来"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "想起神马啊？"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "昨天是我的生日啊.."
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "shout",
-      "value": "靠谁管这个啊"
-    }
-  ]
-},
-"novel_enter_map_27": {
-  "actions" : [
-    {
-      "type": "set",
-      "target": "left",
-      "value": "hero_01"
-    },
-    {
-      "type": "name",
-      "target": "left",
-      "value": "蚂蚁"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "shout",
-      "value": "哇"
-    },
-    {
-      "type": "set",
-      "target": "right",
-      "value": "god_01"
-    },
-    {
-      "type": "name",
-      "target": "right",
-      "value": "神"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "shout",
-      "value": "这也太大了吧"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "嗯？这个难道是..."
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "嗯~是老夫啊，小蚂蚁"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "原本就挑了一个小蚂蚁的"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "没想到居然把老夫也给召唤出来了"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "那这个圆圆的是什么啊？"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "小蚂蚁，这是你出生的星球哟"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "很漂亮吧"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "こんなちっぽけなとこにオレは\n住んでたっていうのか！？"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "そうじゃよー"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "ワシは地球の神"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "そしてワシは蚂蚁ちゃんの神になった"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "つまり今日から蚂蚁ちゃんが\n地球の神じゃ"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "征服世界成功了吗！"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "終わってみるとあっけないものだぜ"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "小蚂蚁，能看见在地球那边\n闪闪发光的球吗？"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "shout",
-      "value": "那是当然！"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "吼吼吼，你也成长了呢"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "那个大球就是太阳啦"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "然后左边的那个是月亮"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "太阳和月亮吗...？"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "和地球一样的行星\n好像有很多呢"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "那是当然"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "他们都是只是宇宙的一部分"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "像老夫这么伟大的人也只不过是宇宙的一点点而已"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "噢？怎么感觉你突然就缩了"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "老夫的能力就到此位置了"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "但是小蚂蚁哟\n如果是你的话也许就能看的更远呢"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "宇宙...到底有多广阔啊？"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "嗯~（思考中"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "大概有[c=red]100000000000000000000000000\n00000km[/c]的样子吧"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "・・・"
-    },
-    {
-      "type": "delay",
-      "target": "",
-      "value": "1"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "・・・"
-    },
-    {
-      "type": "delay",
-      "target": "",
-      "value": "1"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "shout",
-      "value": "OH MY GOD！"
-    },
-    {
-      "type": "set",
-      "target": "narration"
-    },
-    {
-      "type": "narration",
-      "target": "narration",
-      "value": "[c=yellow]FIN?![/c]"
-    }
-  ]
-},
-"novel_enter_map_6": {
-  "actions" : [
-    {
-      "type": "set",
-      "target": "left",
-      "value": "hero_01"
-    },
-    {
-      "type": "name",
-      "target": "left",
-      "value": "蚂蚁"
-    },
-    {
-      "type": "set",
-      "target": "right",
-      "value": "god_01"
-    },
-    {
-      "type": "name",
-      "target": "right",
-      "value": "神"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "哈喽、小蚂蚁"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "啊，又来了！"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "噢，已经6级了啊"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "6级以后有新的力量可以使用哟"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "嗯？快说快说！"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "shout",
-      "value": "那就是[c=red]「转生」[/c]！！"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "shout",
-      "value": "[c=red]转生！[/c]"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "shout",
-      "value": "好想很酷的样子"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "对吧对吧!?"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "转生可以得到大量的钻石哟"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "不过代价就是你的等级会回到1级"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "哈？！\n从最开始重来一遍啊！！"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "好麻烦的样子！！"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "嗯嗯"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "但是“欲速则不达”，这句话你知道吗？"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "年轻人就是太急躁啊"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "（所以说你们这些老头子很啰嗦啊）"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "这之后的敌人会变得越来越强"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "隐忍一下说不定会有更大的收获哟"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "唔，麻烦...."
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "吼吼吼"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "等你无力前进的时候,可以试试哟"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "在菜单里可以选择[c=red]转生[/c]"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "还有，用钻石让自己变得更强吧"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "在左下角的菜单里进入[c=red]商店[/c]进行购买"
-    },
-    {
-      "type": "set",
-      "target": "right",
-      "value": "remove"
-    },
-    {
-      "type": "speak",
-      "target": "right",
-      "balloon": "normal",
-      "value": "拜拜~小蚂蚁"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "（唔，看来征服世界的过程中需要很多钻石呢）"
-    },
-    {
-      "type": "speak",
-      "target": "left",
-      "balloon": "normal",
-      "value": "打不赢的时候用来试试看吧"
-    }
-  ]
-},
-"NOVEL_FILE_NAME = data/novel_ja.json;": {
-  "actions" : [
-  ]
-},
-"LANGUAGE_PAGE_TITLE = 语言设置;": {
-  "actions" : [
-  ]
-},
-"ENGLISH = 英语;": {
-  "actions" : [
-  ]
-},
-"JAPANESE = 日语;": {
-  "actions" : [
-  ]
-},
-"TITLE_SCENE_START = 开始;": {
-  "actions" : [
-  ]
-},
-"TITLE_SCENE_LANGUAGE = 语言设置;": {
-  "actions" : [
-  ]
-},
-"TITLE_SCENE_CREDIT = 开发团队;": {
-  "actions" : [
-  ]
-},
-"CREDIT_PAGE_TITLE = 开发团队;": {
-  "actions" : [
-  ]
-},
-"CREDIT_PAGE_KEN_WATANABE = 渡辺 賢;": {
-  "actions" : [
-  ]
-},
-"CREDIT_PAGE_NAMI_KITANOBO = Nami.K;": {
-  "actions" : [
-  ]
-},
-"CREDIT_PAGE_ROLE_KEN = プランナー & プログラマー;": {
-  "actions" : [
-  ]
-},
-"CREDIT_PAGE_ROLE_NAMI = 设计;": {
-  "actions" : [
-  ]
-},
-"MENU_PAGE_TITLE = 菜单;": {
-  "actions" : [
-  ]
-},
-"MENU_PAGE_MULTIPLAY = 多人对战;": {
-  "actions" : [
-  ]
-},
-"MENU_PAGE_ENCYCLEPEDIA = 动物图鉴;": {
-  "actions" : [
-  ]
-},
-"MENU_PAGE_LANGUAGE = 语言设置;": {
-  "actions" : [
-  ]
-},
-"MENU_PAGE_CLOSE = 关闭;": {
-  "actions" : [
-  ]
-},
-"NOTICE_MULTIPLAY = 需要在同一个WiFi环境\n或者打开蓝牙开关;": {
-  "actions" : [
-  ]
-},
-"NOTICE_LACK_LIFE = 生命值不租。\n请等待回复;": {
-  "actions" : [
-  ]
-},
-"YESNO_END_MULTIPLAY = 要结束战斗吗？;": {
-  "actions" : [
-  ]
-},
-"BOOK_GET_NUM = 获得次数;": {
-  "actions" : [
-  ]
-},
-"BOOK_MIN = 最小;": {
-  "actions" : [
-  ]
-},
-"BOOK_MAX = 最大;": {
-  "actions" : [
-  ]
-},
-"BOOK_NEXT = 下一页;": {
-  "actions" : [
-  ]
-},
-"BOOK_BACK = 上一页;": {
-  "actions" : [
-  ]
-},
-"LEVEL = 等级;": {
-  "actions" : [
-  ]
-},
-"GACHA_SAY_NOT_ENOUGH_MONEY =没钱啦没钱啦！;": {
-  "actions" : [
-  ]
-},
-"GACHA_SAY_LEVELUP_1 = 啊，好爽~~": {
-  "actions" : [
-  ]
-},
-"GACHA_SAY_LEVELUP_2 = 中大奖啦~": {
-  "actions" : [
-  ]
-},
-"GACHA_SAY_LEVELUP_3 = 呼~爽的飞起来啦": {
-  "actions" : [
-  ]
-},
-"GACHA_SAY_LEVELUP_4 = 碉堡啦！": {
-  "actions" : [
-  ]
-},
-"GACHA_SAY_LEVELUP_5 = Very Good!!": {
-  "actions" : [
-  ]
-},
-"GACHA_SAY_LEVELUP_6 = 运气不错": {
-  "actions" : [
-  ]
-},
-"GACHA_SAY_LEVELUP_7 = 啦啦啦，啦啦啦": {
-  "actions" : [
-  ]
-},
-"GACHA_SAY_LEVELUP_8 = 爽翻啦！": {
-  "actions" : [
-  ]
-},
-"GACHA_SAY_LEVELUP_9 = 太厉害啦！": {
-  "actions" : [
-  ]
-},
-"GACHA_SAY_LEVELUP_10 = 再接再厉~": {
-  "actions" : [
-  ]
-},
-"Hero = 主人公;": {
-  "actions" : [
-  ]
-},
-"Ari = 蚂蚁;": {
-  "actions" : [
-  ]
-},
-"Tentoumushi = テントウムシ;": {
-  "actions" : [
-  ]
-},
-"Hachi = ハチ;": {
-  "actions" : [
-  ]
-},
-"Batta = バッタ;": {
-  "actions" : [
-  ]
-},
-"Kani = カニ;": {
-  "actions" : [
-  ]
-},
-"Kaeru = カエル;": {
-  "actions" : [
-  ]
-},
-"Kabutomushi = カブトムシ;": {
-  "actions" : [
-  ]
-},
-"Tyoutyo = チョウ;": {
-  "actions" : [
-  ]
-},
-"Hamstar = ハムスター;": {
-  "actions" : [
-  ]
-},
-"Koumori = コウモリ;": {
-  "actions" : [
-  ]
-},
-"Risu = リス;": {
-  "actions" : [
-  ]
-},
-"Momonga = モモンガ;": {
-  "actions" : [
-  ]
-},
-"Tsubame = ツバメ;": {
-  "actions" : [
-  ]
-},
-"Mogura = モグラ;": {
-  "actions" : [
-  ]
-},
-"Chiwawa = チワワ;": {
-  "actions" : [
-  ]
-},
-"Kamereon = カメレオン;": {
-  "actions" : [
-  ]
-},
-"Arumajiro = アルマジロ;": {
-  "actions" : [
-  ]
-},
-"Inko = インコ;": {
-  "actions" : [
-  ]
-},
-"Usagi = ウサギ;": {
-  "actions" : [
-  ]
-},
-"Harinezumi = ハリネズミ;": {
-  "actions" : [
-  ]
-},
-"Miiacat = ミーアキャト;": {
-  "actions" : [
-  ]
-},
-"Shika = シカ;": {
-  "actions" : [
-  ]
-},
-"Kitsune = キツネ;": {
-  "actions" : [
-  ]
-},
-"Araiguma = アライグマ;": {
-  "actions" : [
-  ]
-},
-"Sukanku = スカンク;": {
-  "actions" : [
-  ]
-},
-"Ahiru = アヒル;": {
-  "actions" : [
-  ]
-},
-"Ashika = アシカ;": {
-  "actions" : [
-  ]
-},
-"Pengin = ペンギン;": {
-  "actions" : [
-  ]
-},
-"Inoshishi = イノシシ;": {
-  "actions" : [
-  ]
-},
-"Ookami = オオカミ;": {
-  "actions" : [
-  ]
-},
-"Yagi = ヤギ;": {
-  "actions" : [
-  ]
-},
-"Washi = ワシ;": {
-  "actions" : [
-  ]
-},
-"Raion = ライオン;": {
-  "actions" : [
-  ]
-},
-"Iruka = イルカ;": {
-  "actions" : [
-  ]
-},
-"Gorira = ゴリラ;": {
-  "actions" : [
-  ]
-},
-"Sai = サイ;": {
-  "actions" : [
-  ]
-},
-"Rakuda = ラクダ;": {
-  "actions" : [
-  ]
-},
-"Same = サメ;": {
-  "actions" : [
-  ]
-},
-"Zou = ゾウ;": {
-  "actions" : [
-  ]
-},
-"Sutego = ステゴサウルス;": {
-  "actions" : [
-  ]
-},
-"Putera = プテラノドン;": {
-  "actions" : [
-  ]
-},
-"Torikera = トリケラトプス;": {
-  "actions" : [
-  ]
-},
-"Burakio = ブラキオサウルス;": {
-  "actions" : [
-  ]
-},
-"Tirano = ティラノサウルス;": {
-  "actions" : [
-  ]
-},
-"Supino = スピノサウルス;": {
-  "actions" : [
-  ]
-},
-"Fenics = フェニックス;": {
-  "actions" : [
-  ]
-},
-"Gurifon = グリフォン;": {
-  "actions" : [
-  ]
-},
-"Kelberos = ケルベロス;": {
-  "actions" : [
-  ]
-},
-"Bahamuut = バハムート;": {
-  "actions" : [
-  ]
-},
-"Rivaiasan = リヴァイアサン;": {
-  "actions" : [
-  ]
-},
-"Tupoon = テュポーン;": {
-  "actions" : [
-  ]
-},
-"Ari2 = 宇宙蚂蚁": {
-  "actions" : [
-  ]
-},
-"Tentoumushi2 = 宇宙テントウムシ": {
-  "actions" : [
-  ]
-},
-"Hachi2 = 宇宙ハチ": {
-  "actions" : [
-  ]
-},
-"Batta2 = 宇宙バッタ": {
-  "actions" : [
-  ]
-},
-"Kani2 = 宇宙カニ": {
-  "actions" : [
-  ]
-},
-"Kaeru2 = 宇宙カエル": {
-  "actions" : [
-  ]
-},
-"Kabutomushi2 = 宇宙カブトムシ": {
-  "actions" : [
-  ]
-},
-"Tyoutyo2 = 宇宙チョウ": {
-  "actions" : [
-  ]
-},
-"Hamstar2 = 宇宙ハムスター": {
-  "actions" : [
-  ]
-},
-"Koumori2 = 宇宙コウモリ": {
-  "actions" : [
-  ]
-},
-"Risu2 = 宇宙リス": {
-  "actions" : [
-  ]
-},
-"Momonga2 = 宇宙モモンガ": {
-  "actions" : [
-  ]
-},
-"Tsubame2 = 宇宙ツバメ": {
-  "actions" : [
-  ]
-},
-"Mogura2 = 宇宙モグラ": {
-  "actions" : [
-  ]
-},
-"Chiwawa2 = 宇宙チワワ": {
-  "actions" : [
-  ]
-},
-"Kamereon2 = 宇宙カメレオン": {
-  "actions" : [
-  ]
-},
-"Arumajiro2 = 宇宙アルマジロ": {
-  "actions" : [
-  ]
-},
-"Inko2 = 宇宙インコ": {
-  "actions" : [
-  ]
-},
-"Usagi2 = 宇宙ウサギ": {
-  "actions" : [
-  ]
-},
-"Harinezumi2 = 宇宙ハリネズミ": {
-  "actions" : [
-  ]
-},
-"Miiacat2 = 宇宙ミーアキャト": {
-  "actions" : [
-  ]
-},
-"Shika2 = 宇宙シカ": {
-  "actions" : [
-  ]
-},
-"Kitsune2 = 宇宙キツネ": {
-  "actions" : [
-  ]
-},
-"Araiguma2 = 宇宙アライグマ": {
-  "actions" : [
-  ]
-},
-"Sukanku2 = 宇宙スカンク": {
-  "actions" : [
-  ]
-},
-"Ahiru2 = 宇宙アヒル": {
-  "actions" : [
-  ]
-},
-"Ashika2 = 宇宙アシカ": {
-  "actions" : [
-  ]
-},
-"Pengin2 = 宇宙ペンギン": {
-  "actions" : [
-  ]
-},
-"Inoshishi2 = 宇宙イノシシ": {
-  "actions" : [
-  ]
-},
-"Ookami2 = 宇宙オオカミ": {
-  "actions" : [
-  ]
-},
-"Yagi2 = 宇宙ヤギ": {
-  "actions" : [
-  ]
-},
-"Washi2 = 宇宙ワシ": {
-  "actions" : [
-  ]
-},
-"Raion2 = 宇宙ライオン": {
-  "actions" : [
-  ]
-},
-"Iruka2 = 宇宙イルカ": {
-  "actions" : [
-  ]
-},
-"Gorira2 = 宇宙ゴリラ": {
-  "actions" : [
-  ]
-},
-"Sai2 = 宇宙サイ": {
-  "actions" : [
-  ]
-},
-"Rakuda2 = 宇宙ラクダ": {
-  "actions" : [
-  ]
-},
-"Same2 = 宇宙サメ": {
-  "actions" : [
-  ]
-},
-"Zou2 = 宇宙ゾウ": {
-  "actions" : [
-  ]
-},
-"Sutego2 = 宇宙ステゴサウルス": {
-  "actions" : [
-  ]
-},
-"Putera2 = 宇宙プテラノドン": {
-  "actions" : [
-  ]
-},
-"Torikera2 = 宇宙トリケラトプス": {
-  "actions" : [
-  ]
-},
-"Burakio2 = 宇宙ブラキオサウルス": {
-  "actions" : [
-  ]
-},
-"Tirano2 = 宇宙ティラノサウルス": {
-  "actions" : [
-  ]
-},
-"Supino2 = 宇宙スピノサウルス": {
-  "actions" : [
-  ]
-},
-"God =神": {
-  "actions" : [
-  ]
-}
 }

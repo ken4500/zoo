@@ -261,9 +261,10 @@ void MenuLayer::_updateLanguage()
     _closeLabel->setString(CCLS1("MENU_PAGE_CLOSE",_closeLabel));
     
     auto lang = UserDataManager::getInstance()->getLanguage();
-    if (lang == LanguageType::JAPANESE) {
+    if (lang == LanguageType::JAPANESE || lang == LanguageType::CHINESE) {
         _transmigrationLabel->setScale(0.7f);
     } else {
         _transmigrationLabel->setScale(0.6f);
     }
+
 }

@@ -169,7 +169,7 @@ void TitleScene::_updateLanguage()
     
     LanguageType curLanguage = UserDataManager::getInstance()->getLanguage();
     if (curLanguage == LanguageType::CHINESE) {
-        _startLabel->setAnchorPoint(Vec2(0.5,0.65));
+        _startLabel->setAnchorPoint(Vec2(0.5,0.6));
     } else {
         _startLabel->setAnchorPoint(Vec2(0.5,0.5));
     }
