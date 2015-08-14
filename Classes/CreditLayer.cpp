@@ -28,14 +28,25 @@ bool CreditLayer::init()
     addChild(node, 10);
     _rootNode = node;
 
-    node->getChildByName<ui::TextBMFont*>("title")->setString(CCLS("CREDIT_PAGE_TITLE"));
-    node->getChildByName<ui::TextBMFont*>("KenWatanabe")->setString(CCLS("CREDIT_PAGE_KEN_WATANABE"));
-    node->getChildByName<ui::TextBMFont*>("NamiKitanobo")->setString(CCLS("CREDIT_PAGE_NAMI_KITANOBO"));
-    node->getChildByName<ui::TextBMFont*>("NameTranslate")->setString(CCLS("CREDIT_PAGE_NAME_TRANSLATE"));
-    node->getChildByName<ui::TextBMFont*>("RoleKen")->setString(CCLS("CREDIT_PAGE_ROLE_KEN"));
-    node->getChildByName<ui::TextBMFont*>("RoleNami")->setString(CCLS("CREDIT_PAGE_ROLE_NAMI"));
-    node->getChildByName<ui::TextBMFont*>("RoleTranslate")->setString(CCLS("CREDIT_PAGE_ROLE_TRANSLATE"));
+    auto title = node->getChildByName<ui::TextBMFont*>("KenWatanabe");
+    title->setString(CCLS1("CREDIT_PAGE_KEN_WATANABE",title));
+    auto namiKitanobo = node->getChildByName<ui::TextBMFont*>("NamiKitanobo");
+    namiKitanobo->setString(CCLS1("CREDIT_PAGE_NAMI_KITANOBO",namiKitanobo));
+    auto nameTranslate = node->getChildByName<ui::TextBMFont*>("NameTranslate");
+    nameTranslate->setString(CCLS1("CREDIT_PAGE_NAME_TRANSLATE",nameTranslate));
     
+    auto RoleKen = node->getChildByName<ui::TextBMFont*>("RoleKen");
+    RoleKen->setString(CCLS1("CREDIT_PAGE_ROLE_KEN",RoleKen));
+    auto roleNami = node->getChildByName<ui::TextBMFont*>("RoleNami");
+    roleNami->setString(CCLS1("CREDIT_PAGE_ROLE_NAMI",roleNami));
+    
+    auto roleFan = node->getChildByName<ui::TextBMFont*>("RoleFan");
+    roleFan->setString(CCLS1("CREDIT_PAGE_ROLE_FAN",roleFan));
+    auto nameFan = node->getChildByName<ui::TextBMFont*>("LiangFan");
+    nameFan->setString(CCLS1("CREDIT_PAGE_NAME_FAN",nameFan));
+    
+    auto roleTranslate = node->getChildByName<ui::TextBMFont*>("RoleTranslate");
+    roleTranslate->setString(CCLS1("CREDIT_PAGE_ROLE_TRANSLATE",roleTranslate));
     
     auto button = node->getChildByName<ui::Button*>("okButton");
     button->addTouchEventListener(CC_CALLBACK_2(CreditLayer::_pushButton, this));

@@ -105,13 +105,17 @@ void Transmigration::_pushNoButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::T
 void Transmigration::_updateLocalization()
 {
     auto menu = getChildByName("menu");
-    menu->getChildByName<ui::Text*>("noticeMessage")->setString(CCLS("TRANSMIGRATION_NOTICEMESSAGE"));
-    menu->getChildByName<ui::TextBMFont*>("takeOver")->setString(CCLS("TRANSMIGRATION_TAKEOVER"));
-    menu->getChildByName<ui::Text*>("takeOverFactor")->setString(CCLS("TRANSMIGRATION_TAKEOVERFACTOR"));
-    menu->getChildByName<ui::TextBMFont*>("getDiamond")->setString(CCLS("TRANSMIGRATION_GETDIAMOND"));
+    auto noticeMessage = menu->getChildByName<ui::Text*>("noticeMessage");
+    noticeMessage->setString(CCLS1("TRANSMIGRATION_NOTICEMESSAGE",noticeMessage));
+    auto takeOver = menu->getChildByName<ui::TextBMFont*>("takeOver");
+    takeOver->setString(CCLS1("TRANSMIGRATION_TAKEOVER",takeOver));
+    auto takeOverFactor = menu->getChildByName<ui::Text*>("takeOverFactor");
+    takeOverFactor->setString(CCLS1("TRANSMIGRATION_TAKEOVERFACTOR",takeOverFactor));
+    auto getDiamond = menu->getChildByName<ui::TextBMFont*>("getDiamond");
+    getDiamond->setString(CCLS1("TRANSMIGRATION_GETDIAMOND",getDiamond));
     
     auto title = menu->getChildByName<ui::TextBMFont*>("title");
-    title->setString(CCLS("TRANSMIGRATION_TITLE"));
+    title->setString(CCLS1("TRANSMIGRATION_TITLE",title));
     
     if (UserDataManager::getInstance()->getLanguage() == LanguageType::JAPANESE) {
         title->setScale(0.9f);

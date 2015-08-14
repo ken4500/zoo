@@ -160,7 +160,7 @@ void Shop::_setData(Node* node)
     auto requreNum = button->getChildByName<ui::TextBMFont*>("requreNum");
     auto diamondImage = button->getChildByName<ui::TextBMFont*>("diamond");
     
-    desc->setString(CCLS(StringUtils::format("SHOP_DESC_%s", ShopData::toString(type).c_str()).c_str()));
+    desc->setString(CCLS1(StringUtils::format("SHOP_DESC_%s", ShopData::toString(type).c_str()).c_str(),desc));
     
     int level     = UserDataManager::getInstance()->getShopDataLevel(type);
     int nextLevel = level + 1;
@@ -250,8 +250,10 @@ void Shop::_purchase(ShopLineup type)
 void Shop::_updateLanguage()
 {
     auto menu = getChildByName("menu");
-    menu->getChildByName<ui::TextBMFont*>("title")->setString(CCLS("SHOP_TITLE"));
-    menu->getChildByName<ui::TextBMFont*>("lineup")->setString(CCLS("SHOP_LINEUP"));
+    auto title = menu->getChildByName<ui::TextBMFont*>("title");
+    title->setString(CCLS1("SHOP_TITLE",title));
+    auto lineup = menu->getChildByName<ui::TextBMFont*>("lineup");
+    lineup->setString(CCLS1("SHOP_LINEUP",lineup));
 }
 
 void Shop::_updateDiamondNum(float dt)

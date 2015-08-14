@@ -39,9 +39,12 @@ void LackLife::onEnter()
 void LackLife::_updateLanguage()
 {
     auto menu = getChildByName("menu");
-    menu->getChildByName<ui::TextBMFont*>("title")->setString(CCLS("NOTICE_LACL_LIFE_TITLE"));
-    menu->getChildByName<ui::Text*>("noticeMessage1")->setString(CCLS("NOTICE_LACK_LIFE1"));
-    menu->getChildByName<ui::Text*>("noticeMessage2")->setString(CCLS("NOTICE_LACK_LIFE2"));
+    auto title = menu->getChildByName<ui::TextBMFont*>("title");
+    title->setString(CCLS1("NOTICE_LACL_LIFE_TITLE",title));
+    auto noticeMessage1 = menu->getChildByName<ui::Text*>("noticeMessage1");
+    noticeMessage1->setString(CCLS1("NOTICE_LACK_LIFE1",noticeMessage1));
+    auto noticeMessage2 = menu->getChildByName<ui::Text*>("noticeMessage2");
+    noticeMessage2->setString(CCLS1("NOTICE_LACK_LIFE2",noticeMessage2));
 }
 
 void LackLife::_pushYesButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)

@@ -244,7 +244,7 @@ void MainScene::hideBattleMenu()
 void MainScene::updateLevelLabel()
 {
     int level = WorldManager::getInstance()->getWorldInfo()->level;
-    _levelLabel->setString(StringUtils::format("%s %d", CCLS("LEVEL"), level));
+    _levelLabel->setString(StringUtils::format("%s %d", CCLS1("LEVEL",_levelLabel), level));
 }
 
 void MainScene::updateWeightLabel(Weight weight)
@@ -403,6 +403,7 @@ void MainScene::showConsumeCoinEffect(int decreaseCoin)
 
 void MainScene::showNoticeView(std::string message, float delay, std::function<void ()> closeCallback)
 {
+    
     runAction(Sequence::create(
         DelayTime::create(delay),
         CallFunc::create([this, message, closeCallback ]{
@@ -714,7 +715,7 @@ void MainScene::_resumeRecursive(Node* node)
 void MainScene:: _updateLanguage()
 {
     int level = WorldManager::getInstance()->getWorldInfo()->level;
-    _levelLabel->setString(StringUtils::format("%s %d", CCLS("LEVEL"), level));
+    _levelLabel->setString(StringUtils::format("%s %d", CCLS1("LEVEL",_levelLabel), level));
 }
 
 void MainScene::_loadNovelJson()

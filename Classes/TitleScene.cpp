@@ -12,6 +12,7 @@
 #include "CreditLayer.h"
 #include "SoundManager.h"
 #include "SceneManager.h"
+#include "UserDataManager.h"
 
 USING_NS_CC;
 
@@ -162,7 +163,14 @@ void TitleScene::_pushCreditButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::T
 void TitleScene::_updateLanguage()
 {
     PurgeCCLocalizedStringCached();
-    _startLabel->setString(CCLS("TITLE_SCENE_START"));
-    _languageLabel->setString(CCLS("TITLE_SCENE_LANGUAGE"));
-    _creditLabel->setString(CCLS("TITLE_SCENE_CREDIT"));
+    _startLabel->setString(CCLS1("TITLE_SCENE_START",_startLabel));
+    _languageLabel->setString(CCLS1("TITLE_SCENE_LANGUAGE",_languageLabel));
+    _creditLabel->setString(CCLS1("TITLE_SCENE_CREDIT",_creditLabel));
+    
+    LanguageType curLanguage = UserDataManager::getInstance()->getLanguage();
+    if (curLanguage == LanguageType::CHINESE) {
+        _startLabel->setAnchorPoint(Vec2(0.5,0.6));
+    } else {
+        _startLabel->setAnchorPoint(Vec2(0.5,0.5));
+    }
 }

@@ -47,34 +47,34 @@
             <Size X="440.0000" Y="81.0000" />
             <AnchorPoint ScaleY="1.0000" />
             <Position X="-200.0000" Y="178.0005" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <Scale ScaleX="0.8000" ScaleY="0.8000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
             <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font2.fnt" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="NamiKitanobo" ActionTag="-1539994706" Tag="87" IconVisible="False" LeftMargin="-200.0000" RightMargin="-254.0000" TopMargin="-3.0006" BottomMargin="-77.9994" LabelText="Nami Kitanobo" ctype="TextBMFontObjectData">
+          <AbstractNodeData Name="NamiKitanobo" ActionTag="-1539994706" Tag="87" IconVisible="False" LeftMargin="-200.0001" RightMargin="-253.9999" TopMargin="1.9995" BottomMargin="-82.9995" LabelText="Nami Kitanobo" ctype="TextBMFontObjectData">
             <Size X="454.0000" Y="81.0000" />
             <AnchorPoint ScaleY="1.0000" />
-            <Position X="-200.0000" Y="3.0006" />
+            <Position X="-200.0001" Y="-1.9995" />
             <Scale ScaleX="0.6000" ScaleY="0.6000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
             <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font2.fnt" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="RoleNami" ActionTag="517735966" Tag="89" IconVisible="False" LeftMargin="-200.0000" RightMargin="-38.0000" TopMargin="-79.0007" BottomMargin="-1.9993" LabelText="Dsigner" ctype="TextBMFontObjectData">
+          <AbstractNodeData Name="RoleNami" ActionTag="517735966" Tag="89" IconVisible="False" LeftMargin="-200.0000" RightMargin="-38.0000" TopMargin="-74.0006" BottomMargin="-6.9994" LabelText="Dsigner" ctype="TextBMFontObjectData">
             <Size X="238.0000" Y="81.0000" />
             <AnchorPoint />
-            <Position X="-200.0000" Y="-1.9993" />
+            <Position X="-200.0000" Y="-6.9994" />
             <Scale ScaleX="0.3500" ScaleY="0.3500" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
             <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font2.fnt" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="RoleKen" ActionTag="667733620" Tag="90" IconVisible="False" LeftMargin="-200.0000" RightMargin="-472.0000" TopMargin="-253.0001" BottomMargin="172.0001" LabelText="Planner &amp; Programmer" ctype="TextBMFontObjectData">
-            <Size X="672.0000" Y="81.0000" />
+          <AbstractNodeData Name="RoleKen" ActionTag="667733620" Tag="90" IconVisible="False" LeftMargin="-200.0000" RightMargin="-472.0000" TopMargin="-253.0001" BottomMargin="172.0001" LabelText="Planner" ctype="TextBMFontObjectData">
+            <Size X="235.0000" Y="81.0000" />
             <AnchorPoint />
             <Position X="-200.0000" Y="172.0001" />
             <Scale ScaleX="0.3500" ScaleY="0.3500" />
@@ -97,6 +97,26 @@
             <Size X="285.0000" Y="81.0000" />
             <AnchorPoint />
             <Position X="-199.9998" Y="-89.2373" />
+            <Scale ScaleX="0.3500" ScaleY="0.3500" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition />
+            <PreSize X="0.0000" Y="0.0000" />
+            <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font2.fnt" Plist="" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="LiangFan" ActionTag="-1437235690" Tag="30" IconVisible="False" LeftMargin="-200.0001" RightMargin="-590.9999" TopMargin="-80.0000" BottomMargin="-1.0000" LabelText="Ken Watanabe, Liang Fan" ctype="TextBMFontObjectData">
+            <Size X="791.0000" Y="81.0000" />
+            <AnchorPoint ScaleY="1.0000" />
+            <Position X="-200.0001" Y="80.0000" />
+            <Scale ScaleX="0.6000" ScaleY="0.6000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition />
+            <PreSize X="0.0000" Y="0.0000" />
+            <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font2.fnt" Plist="" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="RoleFan" ActionTag="410213435" Tag="31" IconVisible="False" LeftMargin="-200.0000" RightMargin="-172.0000" TopMargin="-156.0000" BottomMargin="75.0000" LabelText="Programmer" ctype="TextBMFontObjectData">
+            <Size X="372.0000" Y="81.0000" />
+            <AnchorPoint />
+            <Position X="-200.0000" Y="75.0000" />
             <Scale ScaleX="0.3500" ScaleY="0.3500" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />

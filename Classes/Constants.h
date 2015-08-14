@@ -10,6 +10,7 @@
 #define Zoo_Constants_h
 
 #define CCLS(key) CCLocalizedString(key, NULL)
+#define CCLS1(key,label) CCLocalizedStringAndFont(key, NULL,label)
 
 static const bool  DEBUG_MODE = true;
 static const float INIT_WORLD_LEVEL = 1;

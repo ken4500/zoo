@@ -9,6 +9,9 @@
 #ifndef _CCLocalizedString_h
 #define _CCLocalizedString_h
 
+#include "CocosGUI.h"
+#include "cocos2d.h"
+
 /**get the localized string by the key, if can't get the value then return mComment
  support for file name below:
  "Localized_en";//english
@@ -22,7 +25,9 @@
  "Localized_jp";//japanese
  "Localized_hu";//hungarian
  */
-const char * CCLocalizedString(const char * mKey,const char * mComment);
+const char * CCLocalizedStringAndFont(const char * mKey,const char * mComment,cocos2d::ui::TextBMFont* label = nullptr);
+const char * CCLocalizedStringAndFont(const char * mKey,const char * mComment,cocos2d::ui::Text* label = nullptr);
+const char * CCLocalizedString(const char * mKey,const char * mCommnet);
 
 /**purge localize string cached
  */

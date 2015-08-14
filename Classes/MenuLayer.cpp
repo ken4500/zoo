@@ -252,18 +252,19 @@ void MenuLayer::_pushCloseButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::Tou
 
 void MenuLayer::_updateLanguage()
 {
-    _titleLabel->setString(CCLS("MENU_PAGE_TITLE"));
-    _multiplayLabel->setString(CCLS("MENU_PAGE_MULTIPLAY"));
-    _encyclepediaLabel->setString(CCLS("MENU_PAGE_ENCYCLEPEDIA"));
-    _languageLabel->setString(CCLS("MENU_PAGE_LANGUAGE"));
-    _shopLabel->setString(CCLS("MENU_PAGE_SHOP"));
-    _transmigrationLabel->setString(CCLS("MENU_PAGE_TRANSMIGRATION"));
-    _closeLabel->setString(CCLS("MENU_PAGE_CLOSE"));
+    _titleLabel->setString(CCLS1("MENU_PAGE_TITLE",_titleLabel));
+    _multiplayLabel->setString(CCLS1("MENU_PAGE_MULTIPLAY",_multiplayLabel));
+    _encyclepediaLabel->setString(CCLS1("MENU_PAGE_ENCYCLEPEDIA",_encyclepediaLabel));
+    _languageLabel->setString(CCLS1("MENU_PAGE_LANGUAGE",_languageLabel));
+    _shopLabel->setString(CCLS1("MENU_PAGE_SHOP",_shopLabel));
+    _transmigrationLabel->setString(CCLS1("MENU_PAGE_TRANSMIGRATION",_transmigrationLabel));
+    _closeLabel->setString(CCLS1("MENU_PAGE_CLOSE",_closeLabel));
     
     auto lang = UserDataManager::getInstance()->getLanguage();
-    if (lang == LanguageType::JAPANESE) {
+    if (lang == LanguageType::JAPANESE || lang == LanguageType::CHINESE) {
         _transmigrationLabel->setScale(0.7f);
     } else {
         _transmigrationLabel->setScale(0.6f);
     }
+
 }
