@@ -156,6 +156,7 @@ void Shop::_setData(Node* node)
     auto desc = node->getChildByName<ui::TextBMFont*>("description");
     auto button = node->getChildByName<ui::Button*>("button");
     auto nextValue = node->getChildByName<ui::TextBMFont*>("nextValue");
+    auto currentValue = node->getChildByName<ui::Text*>("currentValue");
     auto requreNum = button->getChildByName<ui::TextBMFont*>("requreNum");
     auto diamondImage = button->getChildByName<ui::TextBMFont*>("diamond");
     
@@ -164,6 +165,7 @@ void Shop::_setData(Node* node)
     int level     = UserDataManager::getInstance()->getShopDataLevel(type);
     int nextLevel = level + 1;
     float value   = _shopData->getValue(type, level);
+    float value2  = _shopData->getValue(type, nextLevel);
     button->setEnabled(true);
     diamondImage->setVisible(true);
     int price     = _shopData->getPrice(type, nextLevel);
@@ -174,24 +176,30 @@ void Shop::_setData(Node* node)
         case ShopLineup::GET_COIN:
         case ShopLineup::EMERGE_ENEMY:
             if (lang == LanguageType::JAPANESE) {
-                nextValue->setString(StringUtils::format("%.01f倍", value));
+                nextValue->setString(StringUtils::format("%.01f倍", value2));
+                currentValue->setString(StringUtils::format("%.01f倍→", value));
             } else {
                 nextValue->setString(StringUtils::format("x %.01f", value));
+                currentValue->setString(StringUtils::format("%.01f→", value));
             }
             break;
         case ShopLineup::SPAWN_NUM:
         case ShopLineup::ANIMAL_NUM:
             if (lang == LanguageType::JAPANESE) {
-                nextValue->setString(StringUtils::format("%d匹", (int)value));
+                nextValue->setString(StringUtils::format("%d匹", (int)value2));
+                currentValue->setString(StringUtils::format("%d匹→", (int)value));
             } else {
-                nextValue->setString(StringUtils::format("%d", (int)value));
+                nextValue->setString(StringUtils::format("%d", (int)value2));
+                currentValue->setString(StringUtils::format("%d→", (int)value));
             }
             break;
         case ShopLineup::MAX_LIFE:
             if (lang == LanguageType::JAPANESE) {
-                nextValue->setString(StringUtils::format("%d個", (int)value));
+                nextValue->setString(StringUtils::format("%d個", (int)value2));
+                currentValue->setString(StringUtils::format("%d個→", (int)value));
             } else {
-                nextValue->setString(StringUtils::format("%d", (int)value));
+                nextValue->setString(StringUtils::format("%d", (int)value2));
+                currentValue->setString(StringUtils::format("%d→", (int)value));
             }
             break;
         default:
