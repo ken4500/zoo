@@ -15,6 +15,8 @@ MENU_PAGE_MULTIPLAY = 多人对战;
 MENU_PAGE_ENCYCLEPEDIA = 动物图鉴;
 MENU_PAGE_LANGUAGE = 语言设置;
 MENU_PAGE_CLOSE = 关闭;
+MENU_PAGE_SHOP = 商店;
+MENU_PAGE_TRANSMIGRATION = 转生;
 
 NOTICE_MULTIPLAY = 需要在同一个WiFi环境\n或者打开蓝牙开关;
 NOTICE_LACK_LIFE = 生命值不租。\n请等待回复;
@@ -25,6 +27,22 @@ BOOK_MIN = 最小;
 BOOK_MAX = 最大;
 BOOK_NEXT = 下一页;
 BOOK_BACK = 上一页;
+
+TRANSMIGRATION_TITLE = 确定;
+TRANSMIGRATION_NOTICEMESSAGE = 回到等级并或者钻石;
+TRANSMIGRATION_TAKEOVER = 继承数据;
+TRANSMIGRATION_TAKEOVERFACTOR = ・图鉴数据\n・持有钻石\n・商店数据;
+TRANSMIGRATION_GETDIAMOND = 可以获得的钻石数;
+
+SHOP_TITLE  = 商店;
+SHOP_LINEUP = 持有钻石数;
+
+SHOP_DESC_offenseUp   = 增加动物的攻击力;
+SHOP_DESC_animalNum   = 增加能保有的最大动物数量;
+SHOP_DESC_getCoin     = 增加获得金币的数量;
+SHOP_DESC_spawnNum    = 增加每次从壶里出现的动物数量;
+SHOP_DESC_emergeEnemy = 增加敌人出现的数量;
+SHOP_DESC_maxLife     = 增加最大体力值;
 
 LEVEL = 等级;
 
@@ -40,6 +58,16 @@ GACHA_SAY_LEVELUP_8 = 爽翻啦！
 GACHA_SAY_LEVELUP_9 = 太厉害啦！
 GACHA_SAY_LEVELUP_10 = 再接再厉~
 
+NOTICE_LACL_LIFE_TITLE = 确认;
+NOTICE_LACK_LIFE1 = 生命值不足;
+NOTICE_LACK_LIFE2 = 要观看广告来回复生命吗？\n也可以通过等待来回复生命;
+
+NOTICE_REPAIR_LIFE = 生命值回复成功!;
+NOTICE_REPAIR_LIFE_FAILED = 广告读取失败\n 请检查网络;
+
+
+NOTICE_NOT_END_TUTORIAL = 新手教程完成以前\n不能使用菜单功能。;
+NOTICE_NOT_TRANSMIGRATION = 等级6以前\n不能使用转生功能。;
 
 
 Hero = 主人公;

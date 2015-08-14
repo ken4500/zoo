@@ -184,6 +184,8 @@ const char * CCLocalizedStringAndFont(const char * mKey,const char * mComment,co
     LanguageType curLanguage = UserDataManager::getInstance()->getLanguage();
     if (curLanguage == LanguageType::CHINESE) {
         label->setFontName("font/simiyo.ttf");
+    } else {
+        label->setFontName("font/yasashisa.ttf");
     }
     return CCLocalizedString(mKey, mComment);
 }
@@ -192,8 +194,14 @@ const char * CCLocalizedStringAndFont(const char * mKey,const char * mComment,co
 const char * CCLocalizedStringAndFont(const char * mKey,const char * mComment,cocos2d::ui::TextBMFont* label)
 {
     LanguageType curLanguage = UserDataManager::getInstance()->getLanguage();
-    if (curLanguage == LanguageType::CHINESE) {
-        label->setFntFile("font/zoo_font2_zh.fnt");
+    std::string curFontFile = label->getFntFile();
+    if (curLanguage == LanguageType::CHINESE && curFontFile.find("zh") == std::string::npos) {
+        std::string newFontFile = curFontFile.replace(curFontFile.size()-4, curFontFile.size()-1, "_zh.fnt");
+        label->setFntFile(newFontFile);
+    }
+    if (curLanguage != LanguageType::CHINESE && curFontFile.find("zh") != std::string::npos) {
+        std::string newFontFile = curFontFile.replace(curFontFile.size()-7, curFontFile.size()-1, ".fnt");
+        label->setFntFile(newFontFile);
     }
     return CCLocalizedString(mKey, mComment);
  }
