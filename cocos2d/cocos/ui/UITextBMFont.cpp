@@ -93,6 +93,12 @@ void TextBMFont::setFntFile(const std::string& fileName)
     _labelBMFontRendererAdaptDirty = true;
 }
 
+const std::string TextBMFont::getFntFile()
+{
+    return _fntFileName;
+}
+
+
 void TextBMFont::setString(const std::string& value)
 {
     if (value == _labelBMFontRenderer->getString())
