@@ -34,10 +34,17 @@ bool CreditLayer::init()
     namiKitanobo->setString(CCLS1("CREDIT_PAGE_NAMI_KITANOBO",namiKitanobo));
     auto nameTranslate = node->getChildByName<ui::TextBMFont*>("NameTranslate");
     nameTranslate->setString(CCLS1("CREDIT_PAGE_NAME_TRANSLATE",nameTranslate));
+    
     auto RoleKen = node->getChildByName<ui::TextBMFont*>("RoleKen");
     RoleKen->setString(CCLS1("CREDIT_PAGE_ROLE_KEN",RoleKen));
     auto roleNami = node->getChildByName<ui::TextBMFont*>("RoleNami");
     roleNami->setString(CCLS1("CREDIT_PAGE_ROLE_NAMI",roleNami));
+    
+    auto roleFan = node->getChildByName<ui::TextBMFont*>("RoleFan");
+    roleFan->setString(CCLS1("CREDIT_PAGE_ROLE_FAN",roleFan));
+    auto nameFan = node->getChildByName<ui::TextBMFont*>("LiangFan");
+    nameFan->setString(CCLS1("CREDIT_PAGE_NAME_FAN",nameFan));
+    
     auto roleTranslate = node->getChildByName<ui::TextBMFont*>("RoleTranslate");
     roleTranslate->setString(CCLS1("CREDIT_PAGE_ROLE_TRANSLATE",roleTranslate));
     
