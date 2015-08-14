@@ -102,10 +102,10 @@
                     <OutlineColor A="255" R="255" G="0" B="0" />
                     <ShadowColor A="255" R="110" G="110" B="110" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="currentValue" ActionTag="-1489364097" Tag="160" IconVisible="False" LeftMargin="401.9997" RightMargin="-463.9997" TopMargin="-3.7501" BottomMargin="-20.2499" FontSize="20" LabelText="1.0→" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                  <AbstractNodeData Name="currentValue" ActionTag="-1489364097" Tag="160" IconVisible="False" LeftMargin="411.9998" RightMargin="-463.9998" TopMargin="-4.7502" BottomMargin="-15.2498" FontSize="20" LabelText="1.0→" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                     <Size X="52.0000" Y="20.0000" />
                     <AnchorPoint ScaleX="1.0000" />
-                    <Position X="463.9997" Y="-20.2499" />
+                    <Position X="463.9998" Y="-15.2498" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="60" G="30" B="10" />
                     <PrePosition />
@@ -203,10 +203,10 @@
                     <PreSize X="0.0000" Y="0.0000" />
                     <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font5.fnt" Plist="" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="currentValue" ActionTag="-1164170160" Tag="161" IconVisible="False" LeftMargin="401.9997" RightMargin="-463.9997" TopMargin="-3.7501" BottomMargin="-20.2499" FontSize="20" LabelText="1.0→" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                  <AbstractNodeData Name="currentValue" ActionTag="-1164170160" Tag="161" IconVisible="False" LeftMargin="411.9998" RightMargin="-463.9998" TopMargin="-4.7501" BottomMargin="-15.2499" FontSize="20" LabelText="1.0→" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                     <Size X="52.0000" Y="20.0000" />
                     <AnchorPoint ScaleX="1.0000" />
-                    <Position X="463.9997" Y="-20.2499" />
+                    <Position X="463.9998" Y="-15.2499" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="60" G="30" B="10" />
                     <PrePosition />
@@ -284,10 +284,10 @@
                     <PreSize X="0.0000" Y="0.0000" />
                     <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font5.fnt" Plist="" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="currentValue" ActionTag="1788391901" Tag="162" IconVisible="False" LeftMargin="401.9997" RightMargin="-463.9997" TopMargin="-3.7500" BottomMargin="-20.2500" FontSize="20" LabelText="1.0→" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                  <AbstractNodeData Name="currentValue" ActionTag="1788391901" Tag="162" IconVisible="False" LeftMargin="411.9998" RightMargin="-463.9998" TopMargin="-4.7499" BottomMargin="-15.2501" FontSize="20" LabelText="1.0→" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                     <Size X="52.0000" Y="20.0000" />
                     <AnchorPoint ScaleX="1.0000" />
-                    <Position X="463.9997" Y="-20.2500" />
+                    <Position X="463.9998" Y="-15.2501" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="60" G="30" B="10" />
                     <PrePosition />
@@ -365,10 +365,10 @@
                     <PreSize X="0.0000" Y="0.0000" />
                     <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font5.fnt" Plist="" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="currentValue" ActionTag="1093189673" Tag="163" IconVisible="False" LeftMargin="401.9997" RightMargin="-463.9997" TopMargin="-3.7501" BottomMargin="-20.2499" FontSize="20" LabelText="1.0→" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                  <AbstractNodeData Name="currentValue" ActionTag="1093189673" Tag="163" IconVisible="False" LeftMargin="411.9998" RightMargin="-463.9998" TopMargin="-4.7500" BottomMargin="-15.2500" FontSize="20" LabelText="1.0→" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                     <Size X="52.0000" Y="20.0000" />
                     <AnchorPoint ScaleX="1.0000" />
-                    <Position X="463.9997" Y="-20.2499" />
+                    <Position X="463.9998" Y="-15.2500" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="60" G="30" B="10" />
                     <PrePosition />
@@ -446,10 +446,10 @@
                     <PreSize X="0.0000" Y="0.0000" />
                     <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font5.fnt" Plist="" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="currentValue" ActionTag="-2035373453" Tag="164" IconVisible="False" LeftMargin="401.9997" RightMargin="-463.9997" TopMargin="-3.7500" BottomMargin="-20.2500" FontSize="20" LabelText="1.0→" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                  <AbstractNodeData Name="currentValue" ActionTag="-2035373453" Tag="164" IconVisible="False" LeftMargin="411.9998" RightMargin="-463.9998" TopMargin="-4.7500" BottomMargin="-15.2500" FontSize="20" LabelText="1.0→" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                     <Size X="52.0000" Y="20.0000" />
                     <AnchorPoint ScaleX="1.0000" />
-                    <Position X="463.9997" Y="-20.2500" />
+                    <Position X="463.9998" Y="-15.2500" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="60" G="30" B="10" />
                     <PrePosition />
@@ -554,10 +554,10 @@
                     <PreSize X="0.0000" Y="0.0000" />
                     <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font5.fnt" Plist="" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="currentValue" ActionTag="1950950741" Tag="165" IconVisible="False" LeftMargin="402.2977" RightMargin="-464.2977" TopMargin="-3.7501" BottomMargin="-20.2499" FontSize="20" LabelText="1.0→" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                  <AbstractNodeData Name="currentValue" ActionTag="1950950741" Tag="165" IconVisible="False" LeftMargin="412.2977" RightMargin="-464.2977" TopMargin="-4.7501" BottomMargin="-15.2499" FontSize="20" LabelText="1.0→" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                     <Size X="52.0000" Y="20.0000" />
                     <AnchorPoint ScaleX="1.0000" />
-                    <Position X="464.2977" Y="-20.2499" />
+                    <Position X="464.2977" Y="-15.2499" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="60" G="30" B="10" />
                     <PrePosition />
