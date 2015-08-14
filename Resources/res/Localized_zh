@@ -48,9 +48,10 @@ SHOP_DESC_getCoin     = 增加获得金币的数量;
 SHOP_DESC_spawnNum    = 增加每次从壶里出现的动物数量;
 SHOP_DESC_emergeEnemy = 增加敌人出现的数量;
 SHOP_DESC_maxLife     = 增加最大体力值;
+SHOP_NOT_ENOUGH_DIAMOND = 钻石的数量不够;
 
 SHOP_BUY_DIAMOND_DESC  = 钻石200个;
-SHIP_BUY_DIAMOND_PRICE = 6元;
+SHIP_BUY_DIAMOND_PRICE = 6 元;
 SHIP_BUY_DIAMOND_NUM   = 200个;
 
 LEVEL = 等级;

@@ -68,6 +68,7 @@ SHOP_DESC_maxLife      = 最大体力アップ;
 SHOP_BUY_DIAMOND_DESC  = ダイヤモンド200個;
 SHIP_BUY_DIAMOND_PRICE = ￥120;
 SHIP_BUY_DIAMOND_NUM   = 200個
+SHOP_NOT_ENOUGH_DIAMOND = ダイヤが足りません;
 
 
 LEVEL = レベル;

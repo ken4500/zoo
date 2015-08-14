@@ -178,11 +178,22 @@ void Shop::_setData(Node* node)
     int price     = _shopData->getPrice(type, nextLevel);
     
     auto lang = UserDataManager::getInstance()->getLanguage();
+    if (lang == LanguageType::CHINESE) {
+        nextValue->setFntFile("font/zoo_font2_zh.fnt");
+        currentValue->setFontName("font/simiyo.ttf");
+    } else {
+        nextValue->setFntFile("font/zoo_font2.fnt");
+        currentValue->setFontName("font/yasashisa.ttf");
+    }
+    
     switch (type) {
         case ShopLineup::OFFESE_UP:
         case ShopLineup::GET_COIN:
         case ShopLineup::EMERGE_ENEMY:
             if (lang == LanguageType::JAPANESE) {
+                nextValue->setString(StringUtils::format("%.01f倍", value2));
+                currentValue->setString(StringUtils::format("%.01f倍→", value));
+            } else if (lang == LanguageType::CHINESE) {
                 nextValue->setString(StringUtils::format("%.01f倍", value2));
                 currentValue->setString(StringUtils::format("%.01f倍→", value));
             } else {
@@ -195,6 +206,9 @@ void Shop::_setData(Node* node)
             if (lang == LanguageType::JAPANESE) {
                 nextValue->setString(StringUtils::format("%d匹", (int)value2));
                 currentValue->setString(StringUtils::format("%d匹→", (int)value));
+            } else if (lang == LanguageType::CHINESE) {
+                nextValue->setString(StringUtils::format("%.01f只", value2));
+                currentValue->setString(StringUtils::format("%.01f只→", value));
             } else {
                 nextValue->setString(StringUtils::format("%d", (int)value2));
                 currentValue->setString(StringUtils::format("%d→", (int)value));
@@ -204,6 +218,9 @@ void Shop::_setData(Node* node)
             if (lang == LanguageType::JAPANESE) {
                 nextValue->setString(StringUtils::format("%d個", (int)value2));
                 currentValue->setString(StringUtils::format("%d個→", (int)value));
+            } else if (lang == LanguageType::CHINESE) {
+                nextValue->setString(StringUtils::format("%.01f点", value2));
+                currentValue->setString(StringUtils::format("%.01f点→", value));
             } else {
                 nextValue->setString(StringUtils::format("%d", (int)value2));
                 currentValue->setString(StringUtils::format("%d→", (int)value));
@@ -212,6 +229,7 @@ void Shop::_setData(Node* node)
         default:
             break;
     }
+    
     
     button->addTouchEventListener(CC_CALLBACK_2(Shop::_pushShopButton, this));
     button->setTag((int)type);
@@ -234,7 +252,7 @@ void Shop::_purchase(ShopLineup type)
     int price = _shopData->getPrice(type, UserDataManager::getInstance()->getShopDataLevel(type) + 1);
     int diamondNum = UserDataManager::getInstance()->getDiamondNum();
     if (price > diamondNum) {
-        auto layer = NoticeLayer::createWithMessage("ダイヤが足りません");
+        auto layer = NoticeLayer::createWithMessage(CCLS("SHOP_NOT_ENOUGH_DIAMOND"));
         addChild(layer);
         return;
     }
