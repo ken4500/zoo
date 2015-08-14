@@ -34,13 +34,13 @@ BOOK_NEXT = 下一页;
 BOOK_BACK = 上一页;
 
 TRANSMIGRATION_TITLE = 确定;
-TRANSMIGRATION_NOTICEMESSAGE = 回到等级并或者钻石;
-TRANSMIGRATION_TAKEOVER = 继承数据;
-TRANSMIGRATION_TAKEOVERFACTOR = ・图鉴数据\n・持有钻石\n・商店数据;
+TRANSMIGRATION_NOTICEMESSAGE = 回到等级1并获得钻石;
+TRANSMIGRATION_TAKEOVER = 可以继承的数据;
+TRANSMIGRATION_TAKEOVERFACTOR = ・图鉴\n・钻石\n・提升的能力;
 TRANSMIGRATION_GETDIAMOND = 可以获得的钻石数;
 
 SHOP_TITLE  = 商店;
-SHOP_LINEUP = 持有钻石数;
+SHOP_LINEUP = 持有的钻石数;
 
 SHOP_DESC_offenseUp   = 增加动物的攻击力;
 SHOP_DESC_animalNum   = 增加能保有的最大动物数量;
@@ -48,6 +48,10 @@ SHOP_DESC_getCoin     = 增加获得金币的数量;
 SHOP_DESC_spawnNum    = 增加每次从壶里出现的动物数量;
 SHOP_DESC_emergeEnemy = 增加敌人出现的数量;
 SHOP_DESC_maxLife     = 增加最大体力值;
+
+SHOP_BUY_DIAMOND_DESC  = 钻石200个;
+SHIP_BUY_DIAMOND_PRICE = 6元;
+SHIP_BUY_DIAMOND_NUM   = 200个;
 
 LEVEL = 等级;
 

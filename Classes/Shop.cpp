@@ -52,9 +52,12 @@ void Shop::onEnter()
     auto node = menu->getChildByName("buyDiamond");
     auto button =node->getChildByName<ui::Button*>("button");
     button->addTouchEventListener(CC_CALLBACK_2(Shop::_pushBuyDiamondButton, this));
-    node->getChildByName<ui::TextBMFont*>("description")->setString(CCLS("SHOP_BUY_DIAMOND_DESC"));
-    button->getChildByName<ui::TextBMFont*>("requreNum")->setString(CCLS("SHIP_BUY_DIAMOND_PRICE"));
-    node->getChildByName<ui::TextBMFont*>("value")->setString(CCLS("SHIP_BUY_DIAMOND_NUM"));
+    auto description =node->getChildByName<ui::TextBMFont*>("description");
+    description->setString(CCLS1("SHOP_BUY_DIAMOND_DESC",description));
+    auto requireNum = button->getChildByName<ui::TextBMFont*>("requreNum");
+    requireNum->setString(CCLS1("SHIP_BUY_DIAMOND_PRICE",requireNum));
+    auto value = node->getChildByName<ui::TextBMFont*>("value");
+    value->setString(CCLS1("SHIP_BUY_DIAMOND_NUM",value));
 
     _hasDiamondNum = menu->getChildByName<ui::TextBMFont*>("hasDiamondNum");
     _hasDiamondNum->setString(StringUtils::format("x %04d", UserDataManager::getInstance()->getDiamondNum()));
