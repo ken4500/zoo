@@ -383,6 +383,7 @@ void WorldManager::levelup()
                 DelayTime::create(0.8f),
                 CallFunc::create([this]{
                     _gacha->sayRandom();
+                    SoundManager::getInstance()->playMainBgm();
                 }),
                 NULL
             ));
@@ -398,7 +399,6 @@ void WorldManager::levelup()
             animal->runAction(Sequence::create(ScaleTo::create(0.5, 0), RemoveSelf::create(), NULL));
             if (_isNetwork == false) {
                 UserDataManager::getInstance()->removeAnimal(animal);
-                _setTotalWeight(_totalWeight - animal->getWeight());
             } else {
                 auto command = CommandGenerater::removeAnimal(animal);
                 CommandGenerater::sendData(command);
@@ -1006,6 +1006,7 @@ void WorldManager::_transitionMap(WorldInfo* preWorldInfo, WorldInfo* newWorldIn
             DelayTime::create(0.8f),
             CallFunc::create([this]{
                 _gacha->sayRandom();
+                SoundManager::getInstance()->playMainBgm();
             }),
             NULL
         ));
@@ -1049,7 +1050,6 @@ void WorldManager::_checkAndRemoveAnimal()
         }
         
         removeAnimal->escape();
-        _setTotalWeight(_totalWeight - removeAnimal->getWeight());
         
         if (_isNetwork) {
             auto command = CommandGenerater::removeAnimal(removeAnimal);

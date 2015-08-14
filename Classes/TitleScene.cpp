@@ -93,7 +93,7 @@ void TitleScene::_pushStartButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::To
     }
     if (eEventType == ui::Widget::TouchEventType::ENDED) {
         SoundManager::getInstance()->playDecideEffect2();
-        SoundManager::getInstance()->fadeOutBgm(1.0f);
+        SoundManager::getInstance()->playMainBgm();
         button->setEnabled(false);
         button->runAction(Sequence::create(
             ScaleBy::create(0.1f, 1 / 0.9f),

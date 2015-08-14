@@ -9,6 +9,7 @@
 #include "SoundManager.h"
 #include "audio/include/AudioEngine.h"
 #include "ZUtil.h"
+#include "WorldManager.h"
 using namespace cocos2d::experimental;
 
 #define BGM_VOLUME 0.3
@@ -78,17 +79,22 @@ void SoundManager::resumeBgm()
 
 void SoundManager::fadeOutBgm(float interval)
 {
+    if (Director::getInstance()->getScheduler()->isScheduled("fadeout_bgm", this)) {
+        return;
+    }
+    
     _currentBgm = "";
     int bgmId = _currentBgmId;
-    static float volume = AudioEngine::getVolume(bgmId);
-    float updateDuration = 0.05f;
+    float updateDuration = 0.1f;
     int repeatCount = MAX(1, int(interval / updateDuration));
-    float decreaseVolume = volume / repeatCount;
-
+    fadeoutVolume = BGM_VOLUME;
+    float decreaseVolume = fadeoutVolume / (repeatCount + 1);
+    
     Director::getInstance()->getScheduler()->schedule([this, decreaseVolume, bgmId](float dt){
-        volume -= decreaseVolume;
-        AudioEngine::setVolume(bgmId, volume);
-        if (volume < 0.01f) {
+        fadeoutVolume -= decreaseVolume;
+        AudioEngine::setVolume(bgmId, fadeoutVolume);
+        CCLOG("FADE OUT = %f", fadeoutVolume);
+        if (fadeoutVolume < 0.05f) {
             AudioEngine::stop(bgmId);
         }
     }, this, updateDuration, repeatCount, false, false, "fadeout_bgm");
@@ -99,20 +105,38 @@ void SoundManager::fadeInBgm(float interval, string musicName)
     if(_currentBgm == musicName) {
         return;
     }
-    AudioEngine::stop(_currentBgmId);
+    
+    if (Director::getInstance()->getScheduler()->isScheduled("fadein_bgm", this)) {
+        return;
+    }
+
     _currentBgmId = AudioEngine::play2d(musicName.c_str(), true);
     _currentBgm = musicName;
     AudioEngine::setVolume(_currentBgmId, 0.0f);
 
-    static float volume = 0;
-    float updateDuration = 0.05f;
+    fadeinVolume = 0;
+    float updateDuration = 0.1f;
     int repeatCount = MAX(1, int(interval / updateDuration));
     float increaseVolume = BGM_VOLUME / repeatCount;
 
     Director::getInstance()->getScheduler()->schedule([this, increaseVolume](float dt){
-        volume += increaseVolume;
-        AudioEngine::setVolume(_currentBgmId, volume);
+        fadeinVolume += increaseVolume;
+        AudioEngine::setVolume(_currentBgmId, fadeinVolume);
     }, this, updateDuration, repeatCount, false, false, "fadein_bgm");
+}
+
+void SoundManager::transitionBgm(float interval, string musicName)
+{
+    if (musicName == "") {
+        AudioEngine::stop(_currentBgmId);
+        _currentBgm = "";
+    } else if(_currentBgm != musicName) {
+        fadeOutBgm(interval / 2);
+        
+        Director::getInstance()->getScheduler()->schedule([this, interval, musicName](float dt){
+            fadeInBgm(interval / 2, musicName);
+        }, this, interval / 2, 0, false, false, "transition_fadein");
+    }
 }
 
 // エフェクト再生
@@ -128,9 +152,21 @@ void SoundManager::playTitleBgm()
 
 void SoundManager::playMainBgm()
 {
-    Director::getInstance()->getScheduler()->schedule([&](float dt){
-        playBgm("sound/bgm/main2.mp3");
-    }, this, 1.0f, 0, false, false, "main_bgm");
+    auto info = WorldManager::getInstance()->getWorldInfo();
+    std::string musicName;
+    if (info->level >= 27) {
+        musicName = "sound/bgm/title.mp3";
+    } else if (info->level >= 20) {
+        musicName = "sound/bgm/main4.mp3";
+    } else if (info->level >= 15) {
+        musicName = "sound/bgm/main3.mp3";
+    } else if (info->level >= 10) {
+        musicName = "sound/bgm/main2.mp3";
+    } else {
+        musicName = "sound/bgm/main1.mp3";
+    }
+
+    transitionBgm(1.0f, musicName);
 }
 
 void SoundManager::playBattleBgm()

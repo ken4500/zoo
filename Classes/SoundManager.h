@@ -30,6 +30,7 @@ public:
     void resumeBgm();
     void fadeOutBgm(float interval);
     void fadeInBgm(float interval, string musicName);
+    void transitionBgm(float interval, string musicName);
     void playEffect(string efectName);
     void playTitleBgm();
     void playMainBgm();
@@ -54,6 +55,8 @@ private:
     double _preFightTime;
     double _preFight2Time;
     double _preCoinTime;
+    float fadeinVolume;
+    float fadeoutVolume;
 };
 
 
