@@ -51,9 +51,9 @@ void Book::onEnter()
     _getMinSize      = _bookNode->getChildByName<ui::Text*>("getMinSize");
     _getMaxSize      = _bookNode->getChildByName<ui::Text*>("getMaxSize");
     auto back        = _bookNode->getChildByName("leftButton")->getChildByName<ui::TextBMFont*>("back");
-    back->setString(CCLS("BOOK_BACK"));
+    back->setString(CCLS1("BOOK_BACK",back));
     auto next        = _bookNode->getChildByName("rightButton")->getChildByName<ui::TextBMFont*>("next");
-    next->setString(CCLS("BOOK_NEXT"));
+    next->setString(CCLS1("BOOK_NEXT",next));
 
     auto description  = _bookNode->getChildByName("description");
     for (int line = 1; line <= 4; line++) {
@@ -181,9 +181,9 @@ void Book::_loadAnimal(Species* species)
         // 取得したことがない
         _animalImage->setColor(Color3B::BLACK);
         _animalName->setString("????");
-        _getNum->setString(StringUtils::format("%s:0", CCLS("BOOK_GET_NUM")));
-        _getMinSize->setString(StringUtils::format("%s:-", CCLS("BOOK_MIN")));
-        _getMaxSize->setString(StringUtils::format("%s:-", CCLS("BOOK_MAX")));
+        _getNum->setString(StringUtils::format("%s:0", CCLS1("BOOK_GET_NUM",_getNum)));
+        _getMinSize->setString(StringUtils::format("%s:-", CCLS1("BOOK_MIN",_getMinSize)));
+        _getMaxSize->setString(StringUtils::format("%s:-", CCLS1("BOOK_MAX",_getMaxSize)));
         _sizeDescription->setString("????");
         _setDescription("????");
         _maxCrownImage->setVisible(false);
@@ -191,7 +191,7 @@ void Book::_loadAnimal(Species* species)
     } else {
         // 取得したことがある
         _animalImage->setColor(Color3B::WHITE);
-        _animalName->setString(CCLS(name.c_str()));
+        _animalName->setString(CCLS1(name.c_str(),_animalName));
         if (_animalName->getContentSize().width > 350) {
             _animalName->setScale(0.4f * 350 / _animalName->getContentSize().width);
         } else {
@@ -201,9 +201,9 @@ void Book::_loadAnimal(Species* species)
         auto count = mgr->getAnimalCount(name);
         auto min = mgr->getMinWeight(name);
         auto max = mgr->getMaxWeight(name);
-        _getNum->setString(StringUtils::format("%s:%d", CCLS("BOOK_GET_NUM"), count));
-        _getMinSize->setString(StringUtils::format("%s:%.02f%s", CCLS("BOOK_MIN"), min.getWeight(), min.getUnitStr().c_str()));
-        _getMaxSize->setString(StringUtils::format("%s:%.02f%s", CCLS("BOOK_MAX"), max.getWeight(), max.getUnitStr().c_str()));
+        _getNum->setString(StringUtils::format("%s:%d", CCLS1("BOOK_GET_NUM",_getNum), count));
+        _getMinSize->setString(StringUtils::format("%s:%.02f%s", CCLS1("BOOK_MIN",_getMinSize), min.getWeight(), min.getUnitStr().c_str()));
+        _getMaxSize->setString(StringUtils::format("%s:%.02f%s", CCLS1("BOOK_MAX",_getMaxSize), max.getWeight(), max.getUnitStr().c_str()));
         auto minHeight = mgr->getMinHeight(name);
         auto maxHeight = mgr->getMaxHeight(name);
         auto maxRank = species->getMaxHeightRank(maxHeight);
@@ -225,7 +225,7 @@ void Book::_loadAnimal(Species* species)
         max = species->getMaxWeight();
         _sizeDescription->setString(StringUtils::format("%.02f%s 〜 %.02f%s", min.getWeight(), min.getUnitStr().c_str(), max.getWeight(), max.getUnitStr().c_str()));
         _setDescription(
-            CCLS(StringUtils::format("%s_DESC", name.c_str()).c_str())
+            CCLS1(StringUtils::format("%s_DESC", name.c_str()).c_str(),_sizeDescription)
         );
     }
 }

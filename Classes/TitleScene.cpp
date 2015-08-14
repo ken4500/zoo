@@ -162,7 +162,7 @@ void TitleScene::_pushCreditButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::T
 void TitleScene::_updateLanguage()
 {
     PurgeCCLocalizedStringCached();
-    _startLabel->setString(CCLS("TITLE_SCENE_START"));
-    _languageLabel->setString(CCLS("TITLE_SCENE_LANGUAGE"));
-    _creditLabel->setString(CCLS("TITLE_SCENE_CREDIT"));
+    _startLabel->setString(CCLS1("TITLE_SCENE_START",_startLabel));
+    _languageLabel->setString(CCLS1("TITLE_SCENE_LANGUAGE",_languageLabel));
+    _creditLabel->setString(CCLS1("TITLE_SCENE_CREDIT",_creditLabel));
 }

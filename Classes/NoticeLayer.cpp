@@ -9,6 +9,7 @@
 #include "NoticeLayer.h"
 #include "SoundManager.h"
 #include "WorldManager.h"
+#include "UserDataManager.h"
 
 NoticeLayer::NoticeLayer()
 {
@@ -54,7 +55,13 @@ bool NoticeLayer::initWithMessage(std::string message)
     addChild(node, 10);
     
     _messageLabel = dynamic_cast<ui::Text*>(node->getChildByName("noticeMessage"));
+    LanguageType curLanguage = UserDataManager::getInstance()->getLanguage();
+    if (curLanguage == LanguageType::CHINESE) {
+        _messageLabel->setFontName("font/simiyo.ttf");
+    }
+    
     _messageLabel->setString(message);
+ 
 
     auto button = node->getChildByName<ui::Button*>("okButton");
     button->addTouchEventListener(CC_CALLBACK_2(NoticeLayer::_pushButton, this));

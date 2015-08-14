@@ -10,6 +10,7 @@
 #include "WorldManager.h"
 #include "Animal.h"
 #include "SoundManager.h"
+#include "UserDataManager.h"
 
 bool Gacha::init()
 {
@@ -181,6 +182,12 @@ void Gacha::say(std::string message)
     addChild(fukidashi);
     
     Label* label = Label::createWithTTF(message, "font/yasashisa.ttf", 44);
+    
+    LanguageType curLanguage = UserDataManager::getInstance()->getLanguage();
+    if (curLanguage == LanguageType::CHINESE) {
+        label->setBMFontFilePath("font/simiyo.ttf");
+    }
+    
     label->setColor(Color3B(COLOR_OUTLINE));
     label->setAnchorPoint(Vec2(0.5f, 0.5f));
     Vec2 pos = Vec2(fukidashi->getContentSize() / 2) + Vec2(20, 0);

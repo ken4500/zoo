@@ -127,15 +127,15 @@ void SelectLanguageLayer::_updateLanguage()
 {
     PurgeCCLocalizedStringCached();
     auto title = _rootNode->getChildByName<ui::TextBMFont*>("title");
-    title->setString(CCLS("LANGUAGE_PAGE_TITLE"));
+    title->setString(CCLS1("LANGUAGE_PAGE_TITLE",title));
 
     auto english = _rootNode->getChildByName("buttonEnglish")->getChildByName<ui::TextBMFont*>("label");
-    english->setString(CCLS("ENGLISH"));
+    english->setString(CCLS1("ENGLISH",english));
 
     auto japanese = _rootNode->getChildByName("buttonJapanese")->getChildByName<ui::TextBMFont*>("label");
-    japanese->setString(CCLS("JAPANESE"));
+    japanese->setString(CCLS1("JAPANESE",japanese));
 
     auto chinese = _rootNode->getChildByName("buttonChinese")->getChildByName<ui::TextBMFont*>("label");
-    chinese->setString(CCLS("CHINESE"));
+    chinese->setString(CCLS1("CHINESE",chinese));
 
 }
