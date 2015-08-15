@@ -97,4 +97,32 @@ namespace cocos2dext
             NativeLauncher::loginGameCenter();
         }
     }
+    
+    void NativeLauncher::showLocalNotification(std::string message, int interval, int tag)
+    {
+        // 通知を作成する
+        UILocalNotification *notification = [[UILocalNotification alloc] init];
+        
+        notification.fireDate = [[NSDate date] dateByAddingTimeInterval:interval];
+        notification.timeZone = [NSTimeZone defaultTimeZone];
+        notification.alertBody = [NSString stringWithCString:message.c_str()
+                                                    encoding:NSUTF8StringEncoding];
+        notification.alertAction = @"Open";
+        notification.soundName = UILocalNotificationDefaultSoundName;
+        
+        NSNumber* tag1 = [NSNumber numberWithInteger:tag];
+        NSDictionary *infoDict = [NSDictionary dictionaryWithObject:tag1 forKey:@"ID"];
+        notification.userInfo = infoDict;
+        
+        // 通知を登録する
+        [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+        
+        [notification release];
+    }
+    
+    void NativeLauncher::cancelAllLocalNotification()
+    {
+        [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+        [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    }
 }

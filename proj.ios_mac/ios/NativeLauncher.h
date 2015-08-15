@@ -30,6 +30,10 @@ namespace cocos2dext {
         static void showBanner();
         
         static void hideBanner();
+        
+        static void showLocalNotification(std::string message, int interval, int tag);
+        
+        static void cancelAllLocalNotification();
     
     };
     
