@@ -83,6 +83,10 @@ GACHA_SAY_LEVELUP_9 = Feels good;
 GACHA_SAY_LEVELUP_10 = Unbelievable;
 GACHA_SAY_LEVELUP_11 = OH MY GOD!;
 
+PUSH_NOTIFICATION_2DAYS = Let's take over the world!
+PUSH_NOTIFICATION_1WEEK = You give up world conquest? I will not give up!
+
+
 
 Hero = Hero;
 Ari = Ant;

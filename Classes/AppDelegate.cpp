@@ -2,6 +2,7 @@
 #include "MainScene.h"
 #include "TitleScene.h"
 #include "Constants.h"
+#include "NativeLauncher.h"
 
 USING_NS_CC;
 
@@ -59,6 +60,14 @@ bool AppDelegate::applicationDidFinishLaunching() {
 void AppDelegate::applicationDidEnterBackground() {
     Director::getInstance()->stopAnimation();
 
+    int saveTime = (int)time(NULL);
+    auto defaults = UserDefault::getInstance();
+    defaults->setIntegerForKey("saveTime", saveTime);
+    defaults->flush();
+    
+    cocos2dext::NativeLauncher::cancelAllLocalNotification();
+    cocos2dext::NativeLauncher::showLocalNotification(CCLS("PUSH_NOTIFICATION_2DAYS"), 60 * 60 * 24 * 2, 1);
+    cocos2dext::NativeLauncher::showLocalNotification(CCLS("PUSH_NOTIFICATION_1WEEK"), 60 * 60 * 24 * 7, 2);
     // if you use SimpleAudioEngine, it must be pause
     // SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
 }

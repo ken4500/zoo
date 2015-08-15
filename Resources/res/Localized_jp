@@ -70,6 +70,8 @@ SHIP_BUY_DIAMOND_PRICE = ￥120;
 SHIP_BUY_DIAMOND_NUM   = 200個
 SHOP_NOT_ENOUGH_DIAMOND = ダイヤが足りません;
 
+PUSH_NOTIFICATION_2DAYS = 今日も世界征服のために、一緒に頑張ろうぜ
+PUSH_NOTIFICATION_1WEEK =　おい！世界征服の夢を諦めたのか？俺は諦めてないぞ！
 
 LEVEL = レベル;
 
