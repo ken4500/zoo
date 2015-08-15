@@ -345,8 +345,14 @@ void WorldManager::releaseAnimal(std::vector<Animal*> animalList, bool hit)
     if (hit) {
         _map->releaseAnimal(animalList, [this] {
             _checkAndRemoveAnimal();
-            levelup();
             _map->vibrationMap();
+            _map->runAction(Sequence::create(
+                DelayTime::create(0.6f),
+                CallFunc::create([this]{
+                    levelup();
+                }),
+                NULL
+            ));
         });
     } else {
         _map->releaseAnimal(animalList, [this] {
