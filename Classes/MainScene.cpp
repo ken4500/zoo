@@ -24,6 +24,8 @@
 #include "LackLife.h"
 #include "LackLifeReader.h"
 #include "NetworkingWrapper.h"
+#include "YesNoLayer.h"
+#include "NativeLauncher.h"
 
 USING_NS_CC;
 using namespace cocos2d::plugin;
@@ -442,6 +444,20 @@ void MainScene::showLackLifeNotice()
     layer->pushedYesCallback = [this]{
         _adcolonyAds->showV4VC(ADCOLONY_ZONE_ID_1.c_str(), false, false);
     };
+}
+
+void MainScene::openReviewDialog()
+{
+    auto yesno = YesNoLayer::createWithMessage(CCLS("REVIEW_DIALOG_MESSAGE"));
+    yesno->pushedYesCallback = [this]{
+        cocos2dext::NativeLauncher::openReviewPage();
+        UserDataManager::getInstance()->reviewed();
+        showNoticeView(CCLS("REVIEW_SUCCESS_MESSAGE"), 1.0f, [this]{
+            UserDataManager::getInstance()->addDiamondNum(20);
+            WorldManager::getInstance()->getMap()->releaseDiamond(20);
+        });
+    };
+    addChild(yesno);
 }
 
 #pragma - adcolony

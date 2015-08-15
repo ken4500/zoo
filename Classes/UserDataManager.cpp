@@ -51,6 +51,7 @@ void UserDataManager::transmigration()
     auto animalData = _userData->getAnimalDataList();
     auto shopData   = _userData->getShopData();
     auto story      = _userData->getStoryData();
+    auto reviewed   = _userData->isReviewed();
     
     // 初期化
     _userData->init();
@@ -61,6 +62,7 @@ void UserDataManager::transmigration()
     _userData->setShopData(shopData);
     _userData->setEndTutorial(true);
     _userData->setStroyData(story);
+    _userData->setIsReviewed(reviewed);
     
     _userData->save();
 }
@@ -440,3 +442,15 @@ void UserDataManager::levelupShopData(ShopLineup type)
     _userData->save();
 }
 
+#pragma - レビューに関するメソッド
+
+bool UserDataManager::isReviewed()
+{
+    return _userData->isReviewed();
+}
+
+void UserDataManager::reviewed()
+{
+    _userData->setIsReviewed(true);
+    _userData->save();
+}

@@ -27,6 +27,9 @@ MENU_PAGE_TRANSMIGRATION = 转生;
 NOTICE_MULTIPLAY = 需要在同一个WiFi环境\n或者使用蓝牙功能;
 YESNO_END_MULTIPLAY = 要结束战斗吗？;
 
+REVIEW_DIALOG_MESSAGE = レビューしてダイアモンド\n20個ゲットしますか？;
+REVIEW_SUCCESS_MESSAGE = ありがとうございます！;
+
 BOOK_GET_NUM = 获得次数;
 BOOK_MIN = 最小;
 BOOK_MAX = 最大;

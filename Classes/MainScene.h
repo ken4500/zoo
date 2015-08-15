@@ -50,6 +50,7 @@ public:
     void showResultView(GameResult result, float delay, std::function<void ()> closeCallback);
     void battleStartEffect();
     void showLackLifeNotice();
+    void openReviewDialog();
     
     //callback for AdColony
     void onAdColonyAdAvailabilityChange(bool success, const char* zoneID, const char* msg);

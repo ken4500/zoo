@@ -157,6 +157,15 @@ ValueMap UserData::getShopData()
     }
 }
 
+bool UserData::isReviewed()
+{
+    if (_data.find("is_reviewed") == _data.end()) {
+        return false;
+    } else {
+        return _data["is_reviewed"].asBool();
+    }
+}
+
 #pragma - setter
 
 void UserData::setEndTutorial(bool endTutorial)
@@ -208,6 +217,11 @@ void UserData::setDiamondNum(int diamondNum)
 void UserData::setShopData(ValueMap shopData)
 {
     _data["shop_data"] = shopData;
+}
+
+void UserData::setIsReviewed(bool reviewed)
+{
+    _data["is_reviewed"] = reviewed;
 }
 
 #pragma - private method

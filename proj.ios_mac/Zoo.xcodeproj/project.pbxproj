@@ -93,6 +93,8 @@
 		9F83BA811B55683100605D1D /* SoundManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F83BA7F1B55683100605D1D /* SoundManager.cpp */; };
 		9F83BA861B55687700605D1D /* UserData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F83BA821B55687700605D1D /* UserData.cpp */; };
 		9F83BA871B55687700605D1D /* UserDataManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F83BA841B55687700605D1D /* UserDataManager.cpp */; };
+		9F99515E1B7EC08800D381BC /* NativeLauncher.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9F99515C1B7EC08800D381BC /* NativeLauncher.mm */; };
+		9F99516E1B7EC38D00D381BC /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F99516D1B7EC38D00D381BC /* GameKit.framework */; };
 		9FA0EA0A1B66E921007F642B /* CoinTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FA0EA061B66E921007F642B /* CoinTree.cpp */; };
 		9FA0EA0B1B66E921007F642B /* CoinTreeReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FA0EA081B66E921007F642B /* CoinTreeReader.cpp */; };
 		9FA0EA1E1B681E1B007F642B /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA0EA1D1B681E1B007F642B /* MultipeerConnectivity.framework */; };
@@ -298,6 +300,9 @@
 		9F83BA831B55687700605D1D /* UserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = UserData.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		9F83BA841B55687700605D1D /* UserDataManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = UserDataManager.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		9F83BA851B55687700605D1D /* UserDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = UserDataManager.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		9F99515B1B7EC08800D381BC /* NativeLauncher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NativeLauncher.h; path = ios/NativeLauncher.h; sourceTree = SOURCE_ROOT; };
+		9F99515C1B7EC08800D381BC /* NativeLauncher.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = NativeLauncher.mm; path = ios/NativeLauncher.mm; sourceTree = SOURCE_ROOT; };
+		9F99516D1B7EC38D00D381BC /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.4.sdk/System/Library/Frameworks/GameKit.framework; sourceTree = DEVELOPER_DIR; };
 		9FA0EA061B66E921007F642B /* CoinTree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CoinTree.cpp; sourceTree = "<group>"; };
 		9FA0EA071B66E921007F642B /* CoinTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoinTree.h; sourceTree = "<group>"; };
 		9FA0EA081B66E921007F642B /* CoinTreeReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CoinTreeReader.cpp; sourceTree = "<group>"; };
@@ -352,6 +357,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F99516E1B7EC38D00D381BC /* GameKit.framework in Frameworks */,
 				9F10B9031B79F30C0094C67B /* WebKit.framework in Frameworks */,
 				9F10B9011B79F2FF0094C67B /* SystemConfiguration.framework in Frameworks */,
 				9F10B8FD1B79F2E70094C67B /* Social.framework in Frameworks */,
@@ -408,6 +414,7 @@
 		080E96DDFE201D6D7F000001 /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				9F9951571B7EC01700D381BC /* Platform */,
 				9F6779891B7D5CF60005C13D /* MBProgressHUD.h */,
 				9F67798A1B7D5CF60005C13D /* MBProgressHUD.m */,
 				9F6779821B7D5B720005C13D /* Purchase */,
@@ -452,6 +459,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9F99516D1B7EC38D00D381BC /* GameKit.framework */,
 				9F67798E1B7D70590005C13D /* StoreKit.framework */,
 				9F10B9021B79F30C0094C67B /* WebKit.framework */,
 				9F10B9001B79F2FF0094C67B /* SystemConfiguration.framework */,
@@ -688,6 +696,15 @@
 				9F83BA801B55683100605D1D /* SoundManager.h */,
 			);
 			name = Manager;
+			sourceTree = "<group>";
+		};
+		9F9951571B7EC01700D381BC /* Platform */ = {
+			isa = PBXGroup;
+			children = (
+				9F99515B1B7EC08800D381BC /* NativeLauncher.h */,
+				9F99515C1B7EC08800D381BC /* NativeLauncher.mm */,
+			);
+			name = Platform;
 			sourceTree = "<group>";
 		};
 		9FB063D61B5818960088AE2A /* Novel */ = {
@@ -972,6 +989,7 @@
 				9F83BA871B55687700605D1D /* UserDataManager.cpp in Sources */,
 				9F015C951B420DC700F45135 /* GachaReader.cpp in Sources */,
 				9FA0EA2F1B683CFF007F642B /* CommandGenerater.cpp in Sources */,
+				9F99515E1B7EC08800D381BC /* NativeLauncher.mm in Sources */,
 				9FB063E01B5818A20088AE2A /* NovelAction.cpp in Sources */,
 				9F06E9CA1B5DBE3A00107C09 /* NoticeLayer.cpp in Sources */,
 				9F13C2411B65A71C0035850A /* SceneManager.cpp in Sources */,

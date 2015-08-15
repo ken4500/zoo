@@ -1166,8 +1166,13 @@ void WorldManager::_finishLevelupCallback()
     } else {
         auto scene = SceneManager::getInstance()->getMainScene();
         if (scene) {
-            scene->playNovel(StringUtils::format("novel_enter_map_%d", _info->level), [this]{
+            scene->playNovel(StringUtils::format("novel_enter_map_%d", _info->level), [this, scene]{
                 _enableNextAction = true;
+                if (_info->level == OPEN_REVIEW_DIALOG_LEVEL
+                    && UserDataManager::getInstance()->isReviewed() == false)
+                {
+                    scene->openReviewDialog();
+                }
             }, false);
         }
     }

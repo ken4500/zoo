@@ -30,6 +30,7 @@ public:
     ValueMap getAnimalDataList();
     int getDiamondNum();
     ValueMap getShopData();
+    bool isReviewed();
 
     void setEndTutorial(bool endTutorial);
     void setStroyData(ValueMap storyData);
@@ -41,7 +42,7 @@ public:
     void setAnimalDataList(ValueMap getAnimalData);
     void setDiamondNum(int diamondNum);
     void setShopData(ValueMap shopData);
-
+    void setIsReviewed(bool reviewed);
     
 private:
     ValueMap _data;

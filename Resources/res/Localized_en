@@ -25,7 +25,6 @@ MENU_PAGE_SHOP = Shop;
 MENU_PAGE_TRANSMIGRATION = Reincarnation;
 MENU_PAGE_CLOSE = CLOSE;
 
-
 NOTICE_MULTIPLAY = You can play with player \nwho connect to save Wi-Fi \nor turn on bluetooth.;
 YESNO_END_MULTIPLAY = Are you sure \n you want to finish this game?;
 
@@ -38,6 +37,9 @@ NOTICE_LACK_LIFE2 = Do you watch video Ads\nto repare life?\nLife also repair by
 
 NOTICE_REPAIR_LIFE = Repaired Life!;
 NOTICE_REPAIR_LIFE_FAILED = Failed to load video Ads;
+
+REVIEW_DIALOG_MESSAGE = You can get 20 diamonds \nif you riview this game \non App store;
+REVIEW_SUCCESS_MESSAGE = Thank you for your review!
 
 BOOK_GET_NUM = Get;
 BOOK_MIN = Min;

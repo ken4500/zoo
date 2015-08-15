@@ -41,6 +41,9 @@ NOTICE_REPAIR_LIFE_FAILED = 動画広告の読み込みに\n失敗しました;
 NOTICE_NOT_END_TUTORIAL = チュートリアルが終わるまで\nこのメニューは使用できません。;
 NOTICE_NOT_TRANSMIGRATION = レベル6になるまで\nこのメニューは使用できません。;
 
+REVIEW_DIALOG_MESSAGE = レビューしてダイアモンド\n20個ゲットしますか？;
+REVIEW_SUCCESS_MESSAGE = ありがとうございます！;
+
 YES = はい;
 NO = いいえ;
 
@@ -70,7 +73,6 @@ SHIP_BUY_DIAMOND_PRICE = ￥120;
 SHIP_BUY_DIAMOND_NUM   = 200個
 SHOP_NOT_ENOUGH_DIAMOND = ダイヤが足りません;
 
-
 LEVEL = レベル;
 
 GACHA_SAY_NOT_ENOUGH_MONEY = 金が足らんぞ！;
@@ -85,8 +87,6 @@ GACHA_SAY_LEVELUP_8 = 天にも昇る気持ち
 GACHA_SAY_LEVELUP_9 = サイコー！
 GACHA_SAY_LEVELUP_10 = かもーん
 GACHA_SAY_LEVELUP_11 = おーまいごっど
-
-
 
 Hero = 主人公;
 Ari = アリ;

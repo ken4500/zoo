@@ -78,9 +78,12 @@ public:
     float getOffenseRate();
     float getCoinRate();
     float getEnemyNumRate();
-    
     void addDiamondNum(int addNum);
     void levelupShopData(ShopLineup type);
+    
+    // レビューしたかどうか
+    bool isReviewed();
+    void reviewed();
 
     CC_SYNTHESIZE(UserData*, _userData, UserData);
     

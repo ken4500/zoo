@@ -28,6 +28,8 @@ static const int   MUTLPLAY_BATTLE_TIME = 100;
 static const int   GET_DIAMOND_NUM_OF_SILVER_CROWN = 1;
 static const int   GET_DIAMOND_NUM_OF_GOLD_CROWN = 3;
 
+static const int OPEN_REVIEW_DIALOG_LEVEL = 8;
+
 
 enum class EntityTag
 {
