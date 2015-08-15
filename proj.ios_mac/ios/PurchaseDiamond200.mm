@@ -86,4 +86,9 @@
     }
 }
 
+- (void)paymentQueue:(SKPaymentQueue *)queue removedTransactions:(NSArray *)transactions
+{
+    [[SKPaymentQueue defaultQueue] removeTransactionObserver:self];
+}
+
 @end

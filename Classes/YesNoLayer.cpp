@@ -9,6 +9,7 @@
 #include "YesNoLayer.h"
 #include "SoundManager.h"
 #include "WorldManager.h"
+#include "UserDataManager.h"
 
 YesNoLayer::YesNoLayer()
 {
@@ -53,7 +54,11 @@ bool YesNoLayer::initWithMessage(std::string message)
     auto messageLabel = dynamic_cast<ui::Text*>(node->getChildByName("noticeMessage"));
     messageLabel->setString(message);
 
-    ZUtil::printNode(node);
+    LanguageType curLanguage = UserDataManager::getInstance()->getLanguage();
+    if (curLanguage == LanguageType::CHINESE) {
+        messageLabel->setFontName("font/simiyo.ttf");
+    }
+
 
     auto yes = node->getChildByName<ui::Button*>("yesButton");
     yes->addTouchEventListener(CC_CALLBACK_2(YesNoLayer::_pushYesButton, this));
