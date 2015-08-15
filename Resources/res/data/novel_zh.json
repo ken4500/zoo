@@ -825,13 +825,13 @@
                      "type": "speak",
                      "target": "left",
                      "balloon": "normal",
-                     "value": "也不是什么特别的事情啦と\n和我来一起征服世界吧！！"
+                     "value": "也不是什么特别的事情啦\n和我来一起征服世界吧！！"
                      },
                      {
                      "type": "speak",
                      "target": "right",
                      "balloon": "normal",
-                     "value": "听起来好像很有趣啊，来吧！"
+                     "value": "听起来好像很有趣啊，好吧！"
                      },
                      {
                      "type": "speak",
@@ -1379,7 +1379,7 @@
                      "type": "speak",
                      "target": "left",
                      "balloon": "normal",
-                     "value": "看你好像挺厉害的样子，来和我一起征服世界吧"
+                     "value": "看你好像挺厉害的样子\n来和我一起征服世界吧"
                      },
                      {
                      "type": "speak",
@@ -1417,7 +1417,7 @@
                      "type": "speak",
                      "target": "left",
                      "balloon": "normal",
-                     "value": "\n好长的蛇一样"
+                     "value": "哇，那边那个东西是什么\n好像一条蛇啊"
                      },
                      {
                      "type": "set",
@@ -1549,15 +1549,9 @@
                      },
                      {
                      "type": "speak",
-                     "target": "right",
-                     "balloon": "normal",
-                     "value": "（肯定是设计者偷懒了！"
-                     },
-                     {
-                     "type": "speak",
                      "target": "left",
                      "balloon": "normal",
-                     "value": "(肯定是设计者偷懒了！"
+                     "value": "......"
                      },
                      {
                      "type": "speak",
@@ -1701,7 +1695,7 @@
                      "type": "speak",
                      "target": "left",
                      "balloon": "normal",
-                     "value": "太轻松了把"
+                     "value": "太轻松了吧"
                      },
                      {
                      "type": "speak",
@@ -1791,13 +1785,13 @@
                      "type": "speak",
                      "target": "right",
                      "balloon": "normal",
-                     "value": "原本就挑了一个小蚂蚁的"
+                     "value": "老夫随便挑的一个小蚂蚁"
                      },
                      {
                      "type": "speak",
                      "target": "right",
                      "balloon": "normal",
-                     "value": "没想到居然把老夫也给召唤出来了"
+                     "value": "居然把老夫也给召唤出来了"
                      },
                      {
                      "type": "speak",
@@ -1821,31 +1815,31 @@
                      "type": "speak",
                      "target": "left",
                      "balloon": "normal",
-                     "value": "こんなちっぽけなとこにオレは\n住んでたっていうのか！？"
+                     "value": "我原来就住在这么小得一个地方吗？"
                      },
                      {
                      "type": "speak",
                      "target": "right",
                      "balloon": "normal",
-                     "value": "そうじゃよー"
+                     "value": "是的呀"
                      },
                      {
                      "type": "speak",
                      "target": "right",
                      "balloon": "normal",
-                     "value": "ワシは地球の神"
+                     "value": "我是地球的神"
                      },
                      {
                      "type": "speak",
                      "target": "right",
                      "balloon": "normal",
-                     "value": "そしてワシは蚂蚁ちゃんの神になった"
+                     "value": "我又被你召唤出来了"
                      },
                      {
                      "type": "speak",
                      "target": "right",
                      "balloon": "normal",
-                     "value": "つまり今日から蚂蚁ちゃんが\n地球の神じゃ"
+                     "value": "所以今天开始你就是地球的神了。"
                      },
                      {
                      "type": "speak",
@@ -1857,7 +1851,7 @@
                      "type": "speak",
                      "target": "left",
                      "balloon": "normal",
-                     "value": "終わってみるとあっけないものだぜ"
+                     "value": "好像意外地很简单呢"
                      },
                      {
                      "type": "speak",
@@ -1917,13 +1911,13 @@
                      "type": "speak",
                      "target": "right",
                      "balloon": "normal",
-                     "value": "像老夫这么伟大的人也只不过是宇宙的一点点而已"
+                     "value": "像老夫这么伟大的人\n也只不过是宇宙的一点点而已"
                      },
                      {
                      "type": "speak",
                      "target": "left",
                      "balloon": "normal",
-                     "value": "噢？怎么感觉你突然就缩了"
+                     "value": "噢？怎么感觉你突然就谦虚了"
                      },
                      {
                      "type": "speak",
@@ -2104,7 +2098,7 @@
                      "type": "speak",
                      "target": "right",
                      "balloon": "normal",
-                     "value": "但是“欲速则不达”，这句话你知道吗？"
+                     "value": "但是“欲速则不达”\n这句话你知道吗？"
                      },
                      {
                      "type": "speak",
@@ -2176,7 +2170,7 @@
                      "type": "speak",
                      "target": "left",
                      "balloon": "normal",
-                     "value": "（唔，看来征服世界的过程中需要很多钻石呢）"
+                     "value": "（唔，看来征服世界的过程中\n需要很多钻石呢）"
                      },
                      {
                      "type": "set",
@@ -2187,7 +2181,202 @@
                      "type": "speak",
                      "target": "left",
                      "balloon": "normal",
-                     "value": "打不赢的时候用来试试看吧"
+                     "value": "打不赢的时候来试试看吧"
+                     }
+                     ]
+    },
+    "novel_first_diamond_get": {
+        "actions" : [
+                     {
+                     "type": "set",
+                     "target": "left",
+                     "value": "hero_01"
+                     },
+                     {
+                     "type": "name",
+                     "target": "left",
+                     "value": "蚂蚁"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "嗯？好像有个很漂亮的石头！"
+                     },
+                     {
+                     "type": "set",
+                     "target": "right",
+                     "value": "god_01"
+                     },
+                     {
+                     "type": "name",
+                     "target": "right",
+                     "value": "神"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "哇哦"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "小蚂蚁，你很幸运啊"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "那个闪闪发光的东西是[c=red]钻石[/c]啦"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "[c=red]钻石?![/c]"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "能吃吗？"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "当然能吃"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "而且还很好吃哟"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "噢！吃吃看"
+                     },
+                     {
+                     "type": "set",
+                     "target": "narration"
+                     },
+                     {
+                     "type": "narration",
+                     "target": "narration",
+                     "value": "卡蹦！！"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "啊，有一点忘记说了"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "那个东西有点硬啊"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "小蚂蚁你吃的话\n牙齿也许会被格掉呢"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "shout",
+                     "value": "哇靠！你早点说啊！"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "吼吼吼、\n生气了呢♥"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "好吧，那我好好给你解释吧"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "当你召唤的动物[c=red]\n非常大或者非常小[/c]的时候\n，就可以获得一个钻石"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "非常大？小？完全不明白！"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "唔"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "你就当运气好的时候会出现就好了"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "normal",
+                     "value": "一开始就这么说不就好了嘛"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "然后再告诉你一个重要的事情"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "收集[c=red]钻石[/c]可以在[c=red]商店[/c]\n买到很多东西哟"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "shout",
+                     "value": "噢！！真的吗？"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "可以买到什么\n自己去确认吧"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "right",
+                     "balloon": "normal",
+                     "value": "从[c=red]左下角的菜单[/c]\n可以进入商店"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "shout",
+                     "value": "[c=red]左下角是吧，知道啦![/c]"
+                     },
+                     {
+                     "type": "speak",
+                     "target": "left",
+                     "balloon": "shout",
+                     "value": "之后我会去看看的。"
                      }
                      ]
     }
