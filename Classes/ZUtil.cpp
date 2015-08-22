@@ -58,7 +58,7 @@ std::string ZUtil::submbstr(std::string str, int pos, int size)
     int startIndex = 0;
     int endIndex = 0;
 
-    for (int index = 0; index < str.length(); index += char_size, posIndex++) {
+    for (int index = 0; index <= str.length(); index += char_size, posIndex++) {
         if (charNum == pos) {
             startIndex = index;
         }
