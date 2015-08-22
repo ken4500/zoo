@@ -88,7 +88,6 @@ ValueMap UserData::getLifeData()
         auto initData = ValueMap();
 
         initData["current_life"] = INIT_LIFE;
-        initData["max_life"]     = INIT_LIFE;
         initData["last_time"]    = (int)time(NULL);
 
         _data["life_data"] = initData;

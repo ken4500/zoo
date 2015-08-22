@@ -129,8 +129,9 @@ void UserDataManager::setLanguage(LanguageType language)
 // 最大体力の取得
 int UserDataManager::getMaxLife()
 {
-    auto lifeData = _userData->getLifeData();
-    return lifeData["max_life"].asInt();
+    ShopLineup type = ShopLineup::MAX_LIFE;
+    int level = getShopDataLevel(type);
+    return ShopData::getInstance()->getValue(type, level);
 }
 
 // 現在の体力の取得
@@ -138,12 +139,13 @@ int UserDataManager::getLife()
 {
     auto lifeData = _userData->getLifeData();
     int lastLife = lifeData["current_life"].asInt();
-    if (lastLife >= lifeData["max_life"].asInt()) {
+    int maxLife = getMaxLife();
+    if (lastLife >= maxLife) {
         return lastLife;
     }
     int elpasedTime = (int)time(NULL) - lifeData["last_time"].asInt();
     int life = lastLife + (int)(elpasedTime / REPAIR_LIFE_TIME);
-    life = (int)MIN(life, lifeData["max_life"].asInt());
+    life = (int)MIN(life, maxLife);
 
     return life;
 }
@@ -155,9 +157,10 @@ int UserDataManager::getNextRepairLifeTime()
     int lastLife = lifeData["current_life"].asInt();
     int elpasedTime = (int)time(NULL) - lifeData["last_time"].asInt();
     int life = lastLife + (int)(elpasedTime / REPAIR_LIFE_TIME);
+    int maxLife = getMaxLife();
 
     // すでに体力満タン
-    if (life >= lifeData["max_life"].asInt()) {
+    if (life >= maxLife) {
         return 0;
     }
     
@@ -188,8 +191,9 @@ void UserDataManager::decreateLife(int decreseLife)
     auto lifeData = _userData->getLifeData();
     int life = getLife();
     int elpasedTime = (int)time(NULL) - lifeData["last_time"].asInt();
+    int maxLife = getMaxLife();
     
-    if (life >= lifeData["max_life"].asInt()) {
+    if (life >= maxLife) {
         lifeData["last_time"] = (int)time(NULL);
     } else {
         lifeData["last_time"] = (int)time(NULL) - elpasedTime % REPAIR_LIFE_TIME;
@@ -197,27 +201,6 @@ void UserDataManager::decreateLife(int decreseLife)
 
     int nextLife = life - decreseLife;
     lifeData["current_life"] = nextLife;
-    _userData->setLifeData(lifeData);
-    _userData->save();
-}
-
-// 最大体力のセット
-void UserDataManager::setMaxLife(int maxLife)
-{
-    auto lifeData = _userData->getLifeData();
-    int addMaxLife = maxLife - lifeData["max_life"].asInt();
-    lifeData["max_life"] = maxLife;
-    int life = getLife();
-    int elpasedTime = (int)time(NULL) - lifeData["last_time"].asInt();
-    if (life >= lifeData["max_life"].asInt()) {
-        lifeData["last_time"] = (int)time(NULL);
-    } else {
-        lifeData["last_time"] = (int)time(NULL) - elpasedTime % REPAIR_LIFE_TIME;
-    }
-
-    int nextLife = life + addMaxLife;
-    lifeData["current_life"] = nextLife;
-
     _userData->setLifeData(lifeData);
     _userData->save();
 }
@@ -427,6 +410,11 @@ void UserDataManager::addDiamondNum(int addNum)
 
 void UserDataManager::levelupShopData(ShopLineup type)
 {
+    int preMaxLife;
+    if (type == ShopLineup::MAX_LIFE) {
+        preMaxLife = getMaxLife();
+    }
+
     auto key = ShopData::toString(type);
     auto shopData = _userData->getShopData();
     int level = getShopDataLevel(type);
@@ -435,8 +423,21 @@ void UserDataManager::levelupShopData(ShopLineup type)
     _userData->setShopData(shopData);
     
     if (type == ShopLineup::MAX_LIFE) {
-        int maxLife = (int)ShopData::getInstance()->getValue(type, nextLevel);
-        setMaxLife(maxLife);
+        auto lifeData = _userData->getLifeData();
+        int afterMaxLife = getMaxLife();
+        int addMaxLife = afterMaxLife - preMaxLife;
+        int life = getLife();
+        int elpasedTime = (int)time(NULL) - lifeData["last_time"].asInt();
+        if (life >= afterMaxLife) {
+            lifeData["last_time"] = (int)time(NULL);
+        } else {
+            lifeData["last_time"] = (int)time(NULL) - elpasedTime % REPAIR_LIFE_TIME;
+        }
+
+        int nextLife = life + addMaxLife;
+        lifeData["current_life"] = nextLife;
+
+        _userData->setLifeData(lifeData);
     }
     
     _userData->save();
