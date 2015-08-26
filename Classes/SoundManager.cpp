@@ -12,7 +12,7 @@
 #include "WorldManager.h"
 using namespace cocos2d::experimental;
 
-#define BGM_VOLUME 0.3
+#define BGM_VOLUME 0.5
 #define SE_VOLUEM 1.0
 
 
