@@ -26,6 +26,7 @@ protected:
     void _updateLanguage();
     void _pushYesButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void _pushNoButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
+    bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *event);
 };
 
 #endif /* defined(__Zoo__LackLife__) */

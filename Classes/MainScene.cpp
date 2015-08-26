@@ -537,6 +537,30 @@ void MainScene::_setupDebugMenu()
     
     auto repairLife = DebugButton::create("体力回復", [this]() {
         UserDataManager::getInstance()->repairLife(); this->updateLifeLabel(0);
+        
+        // TEST
+        int tryCount = 100000;
+        int minSilver = 0, minGold = 0, maxSilver = 0, maxGold = 0;
+        Species* species = new Species("Tentoumushi");
+        for (int i = 0; i < tryCount; i++) {
+            auto length = species->getRandomHeight();
+            auto minRank = species->getMinHeightRank(length);
+            auto maxRank = species->getMaxHeightRank(length);
+            if (minRank == SizeRank::Gold) {
+                minGold++;
+            } else if (minRank == SizeRank::Silver) {
+                minSilver++;
+            } else if (maxRank == SizeRank::Gold) {
+                maxGold++;
+            } else if (maxRank == SizeRank::Silver) {
+                maxSilver++;
+            }
+        }
+        
+        CCLOG("最大金冠:%d回 (%.02f％)", maxGold, maxGold * 100.0 / tryCount);
+        CCLOG("最大銀冠:%d回 (%.02f％)", maxSilver, maxSilver * 100.0 / tryCount);
+        CCLOG("最小金冠:%d回 (%.02f％)", minGold, minGold * 100.0 / tryCount);
+        CCLOG("最小銀冠:%d回 (%.02f％)", minSilver, minSilver * 100.0 / tryCount);
     });
     repairLife->setAnchorPoint(Vec2(1.0f, 0.0f));
     repairLife->setPosition(Vec2(0, 0));
@@ -662,14 +686,16 @@ void MainScene::_pushBattleButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::To
     }
     if (eEventType == ui::Widget::TouchEventType::ENDED) {
         SoundManager::getInstance()->playDecideEffect2();
+        button->setEnabled(false);
         button->runAction(Sequence::create(
             ScaleTo::create(0.1f, 1),
-            CallFunc::create([this]{
+            CallFunc::create([this, button]{
                 if (WorldManager::getInstance()->getSceneState() == SceneState::Tutorial) {
                     WorldManager::getInstance()->startTutorialBattle();
                 } else {
                     WorldManager::getInstance()->startBattle();
                 }
+                button->setEnabled(true);
             }),
             NULL
         ));

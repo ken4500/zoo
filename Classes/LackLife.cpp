@@ -34,6 +34,12 @@ void LackLife::onEnter()
     yes->addTouchEventListener(CC_CALLBACK_2(LackLife::_pushYesButton, this));
     auto no = menu->getChildByName<ui::Button*>("noButton");
     no->addTouchEventListener(CC_CALLBACK_2(LackLife::_pushNoButton, this));
+    
+    auto dispatcher = Director::getInstance()->getEventDispatcher();
+    auto listener = EventListenerTouchOneByOne::create();
+    listener->setSwallowTouches(true);
+    listener->onTouchBegan = CC_CALLBACK_2(LackLife::onTouchBegan, this);
+    dispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 }
 
 void LackLife::_updateLanguage()
@@ -95,4 +101,10 @@ void LackLife::_pushNoButton(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEv
     if (eEventType == ui::Widget::TouchEventType::CANCELED) {
         button->runAction(ScaleBy::create(0.1f, 1 / 0.9f));
     }
+}
+
+// タッチイベント(モーダルの下のイベントを通さないために)
+bool LackLife::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *event)
+{
+    return true;
 }
