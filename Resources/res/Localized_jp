@@ -35,7 +35,7 @@ NOTICE_LACK_LIFE1 = ライフが足りません;
 NOTICE_LACK_LIFE2 = 動画広告を視聴して回復しますか？\nライフは時間でも回復します。;
 
 NOTICE_REPAIR_LIFE = 体力を回復しました!;
-NOTICE_REPAIR_LIFE_FAILED = 動画広告の読み込みに\n失敗しました;
+NOTICE_REPAIR_LIFE_FAILED = 通信環境が悪いか、\n広告が見つかりません。\nしばらく経ってから\nお試しください。;
 
 
 NOTICE_NOT_END_TUTORIAL = チュートリアルが終わるまで\nこのメニューは使用できません。;

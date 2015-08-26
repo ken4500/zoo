@@ -33,10 +33,10 @@ NOTICE_NOT_TRANSMIGRATION = You can't use this menu \nuntil reaching 6 level;
 
 NOTICE_LACL_LIFE_TITLE = CONFIRM;
 NOTICE_LACK_LIFE1 = You don't have enough life;
-NOTICE_LACK_LIFE2 = Do you watch video Ads\nto repare life?\nLife also repair by time.;
+NOTICE_LACK_LIFE2 = Do you watch Video Ads\nto repare life?\nLife also repair by time.;
 
 NOTICE_REPAIR_LIFE = Repaired Life!;
-NOTICE_REPAIR_LIFE_FAILED = Failed to load video Ads;
+NOTICE_REPAIR_LIFE_FAILED = Failed to connection,\nor there is no Video Ads!\nPlease try again later.;
 
 REVIEW_DIALOG_MESSAGE = You can get 20 diamonds \nif you riview this game \non App store;
 REVIEW_SUCCESS_MESSAGE = Thank you for your review!
