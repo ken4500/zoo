@@ -23,8 +23,7 @@ Animal* Animal::CreateWithSpeceis(std::string specesName)
 {
     Animal* animal = new(std::nothrow) Animal();
     Species* species = new Species(specesName);
-    float rnd = CCRANDOM_0_1();
-    float mm = (species->getMaxHeight().getMmLength() - species->getMinHeight().getMmLength()) * rnd + species->getMinHeight().getMmLength();
+    float mm = species->getRandomHeight().getMmLength();
     if (animal && animal->initWithSpeceis(species, mm))
     {
         animal->autorelease();
@@ -52,8 +51,7 @@ Animal* Animal::CreateWithSpeceis(std::string specesName, float size)
 Animal* Animal::CreateWithSpeceis(Species* species)
 {
     Animal* animal = new(std::nothrow) Animal();
-    float rnd = CCRANDOM_0_1();
-    float mm = (species->getMaxHeight().getMmLength() - species->getMinHeight().getMmLength()) * rnd + species->getMinHeight().getMmLength();
+    float mm = species->getRandomHeight().getMmLength();
     if (animal && animal->initWithSpeceis(species, mm))
     {
         animal->autorelease();
@@ -174,8 +172,12 @@ void Animal::jump(Vec2 target, float height, std::function<void ()> callback)
         if (crown) {
             //
             WorldManager::getInstance()->appearCrown(rank);
-
-            float scale = 0.8f / (getScale() * getParent()->getScale());
+            
+            float size = 0.8f;
+            if (rank == SizeRank::Gold) {
+                size = 1.2f;
+            }
+            float scale = size / (getScale() * getParent()->getScale());
             crown->setScale(0);
             crown->setPosition(Vec2(200, 400));
             addChild(crown);
