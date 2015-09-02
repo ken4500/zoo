@@ -46,7 +46,7 @@ _totalWeight(0)
     _isNetwork = false;
     _state = SceneState::Tutorial;
     _gacha = nullptr;
-    _enableBattle = true;
+    _canStartBattle = true;
     if (UserDataManager::getInstance()->isEndTutorial() || _info->level > 1) {
         _state = SceneState::Normal;
     }
@@ -81,6 +81,18 @@ WorldMap* WorldManager::getMap()
 bool WorldManager::enableNextAction()
 {
     return _enableNextAction;
+}
+
+bool WorldManager::canBattle()
+{
+    if (_state == SceneState::Battle
+        || _state == SceneState::MultiBattle
+        || _state == SceneState::TutorialBattle)
+    {
+        return _canBattle;
+    }
+
+    return false;
 }
 
 SceneState WorldManager::getSceneState()
@@ -469,7 +481,7 @@ Vec2 WorldManager::getOutRandomPlace()
 
 void WorldManager::startBattle()
 {
-    if (_enableNextAction == false || _enableBattle == false
+    if (_enableNextAction == false || _canStartBattle == false
         || _state == SceneState::Battle || _state == SceneState::TutorialBattle)
     {
         return;
@@ -549,9 +561,11 @@ void WorldManager::startTutorialBattle()
     _enableNextAction = false;
     scene->hideMenu();
     scene->battleStartEffect();
+    _canBattle = false;
     scene->playNovel("novel_tutorial_battle1", [this]{
         _enableNextAction = true;
-    }, false, 2.0f);
+        _canBattle = true;
+    }, false, 10.0f);
 
     _state = SceneState::TutorialBattle;
     _startTutrialBattleScene1();
@@ -1341,7 +1355,7 @@ void WorldManager::_startTutrialGachScene1()
     _gacha->setScale(gachaScale);
     _gacha->setNewGacha(_info);
     _map->setGacha(_gacha);
-    _enableBattle = false;
+    _canStartBattle = false;
 
     scene->playNovel("novel_tutorial_gacha1", [this]{
         _enableNextAction = true;
@@ -1361,7 +1375,7 @@ void WorldManager::_startTutrialGachScene2()
     auto scene = SceneManager::getInstance()->getMainScene();
     scene->playNovel("novel_tutorial_gacha2", [this]{
         _enableNextAction = true;
-        _enableBattle = true;
+        _canStartBattle = true;
     }, false, 2.0f);
 }
 

@@ -82,7 +82,6 @@ void WorldMap::updateDash(float dt)
     }
 }
 
-
 void WorldMap::update(float dt)
 {
     Node::update(dt);
@@ -108,10 +107,7 @@ void WorldMap::update(float dt)
 
     auto manager = WorldManager::getInstance();
     auto state = manager->getSceneState();
-    if (state == SceneState::Battle
-        || state == SceneState::TutorialBattle
-        || state == SceneState::MultiBattle)
-    {
+    if (manager->canBattle()) {
         auto animalList = manager->getAnimalList();
         auto enemyAnimalList = manager->getEnemyAnimalList();
         auto treeList = manager->getCoinTreeList();

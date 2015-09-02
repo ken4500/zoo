@@ -39,6 +39,7 @@ public:
     WorldMap* getMap();
     WorldInfo* getWorldInfo();
     bool enableNextAction();
+    bool canBattle();
     SceneState getSceneState();
     std::vector<Animal*> getAnimalList();
     std::vector<Animal*> getEnemyAnimalList();
@@ -100,6 +101,8 @@ public:
 private:
     bool _isNetwork;
     bool _enableNextAction;
+    bool _canStartBattle;
+    bool _canBattle;
     int _leftTime;
     long long int _multiBattleCoin;
     long long int _beforeBattleCoin;
@@ -112,7 +115,6 @@ private:
     SceneState _state;
     EnemyGenerater* _enemyGenerater;
     Weight* _opponentResultWeight;
-    bool _enableBattle;
     
     void _hpGaugeUpdate();
     void _leftTimeUpdate(float dt);
