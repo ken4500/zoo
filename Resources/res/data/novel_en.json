@@ -1844,6 +1844,11 @@
 "novel_enter_map_27": {
   "actions" : [
     {
+      "type": "music",
+      "target": "",
+      "value": ""
+    },
+    {
       "type": "set",
       "target": "left",
       "value": "hero_01"
@@ -1860,16 +1865,6 @@
       "value": "Wait"
     },
     {
-      "type": "set",
-      "target": "right",
-      "value": "god_01"
-    },
-    {
-      "type": "name",
-      "target": "right",
-      "value": "GOD"
-    },
-    {
       "type": "speak",
       "target": "left",
       "balloon": "shout",
@@ -1880,6 +1875,21 @@
       "target": "left",
       "balloon": "normal",
       "value": "Wait, this is the.."
+    },
+    {
+      "type": "music",
+      "target": "",
+      "value": "sound/bgm/title.mp3"
+    },
+    {
+      "type": "set",
+      "target": "right",
+      "value": "god_01"
+    },
+    {
+      "type": "name",
+      "target": "right",
+      "value": "GOD"
     },
     {
       "type": "speak",

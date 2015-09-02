@@ -1928,6 +1928,11 @@
 "novel_enter_map_27": {
   "actions" : [
     {
+      "type": "music",
+      "target": "",
+      "value": ""
+    },
+    {
       "type": "set",
       "target": "left",
       "value": "hero_01"
@@ -1944,16 +1949,6 @@
       "value": "ちょ！"
     },
     {
-      "type": "set",
-      "target": "right",
-      "value": "god_01"
-    },
-    {
-      "type": "name",
-      "target": "right",
-      "value": "神"
-    },
-    {
       "type": "speak",
       "target": "left",
       "balloon": "shout",
@@ -1964,6 +1959,21 @@
       "target": "left",
       "balloon": "normal",
       "value": "あれ、これって..."
+    },
+    {
+      "type": "music",
+      "target": "",
+      "value": "sound/bgm/title.mp3"
+    },
+    {
+      "type": "set",
+      "target": "right",
+      "value": "god_01"
+    },
+    {
+      "type": "name",
+      "target": "right",
+      "value": "神"
     },
     {
       "type": "speak",
