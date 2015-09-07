@@ -1,12 +1,12 @@
 <GameProjectFile>
-  <PropertyGroup Type="Layer" Name="LackLife" ID="877dbb23-7626-421e-b78f-1b2e8a952ff9" Version="2.3.1.2" />
+  <PropertyGroup Type="Layer" Name="LackLife" ID="877dbb23-7626-421e-b78f-1b2e8a952ff9" Version="2.3.2.2" />
   <Content ctype="GameProjectContent">
     <Content>
       <Animation Duration="0" Speed="1.0000" />
       <ObjectData Name="Layer" CustomClassName="LackLife" Tag="178" ctype="GameLayerObjectData">
         <Size X="1136.0000" Y="640.0000" />
         <Children>
-          <AbstractNodeData Name="menu" ActionTag="-720490404" Tag="179" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="287.0000" RightMargin="287.0000" TopMargin="71.7000" BottomMargin="-30.7000" ctype="SpriteObjectData">
+          <AbstractNodeData Name="menu" ActionTag="-720490404" Tag="179" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="287.0000" RightMargin="287.0000" TopMargin="71.7000" BottomMargin="-30.7000" ctype="SpriteObjectData">
             <Size X="562.0000" Y="599.0000" />
             <Children>
               <AbstractNodeData Name="title" ActionTag="-235556757" Tag="180" IconVisible="False" LeftMargin="110.8893" RightMargin="124.1107" TopMargin="46.2651" BottomMargin="471.7349" LabelText="確認" ctype="TextBMFontObjectData">
@@ -19,7 +19,7 @@
                 <PreSize X="0.0000" Y="0.0000" />
                 <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font2.fnt" Plist="" />
               </AbstractNodeData>
-              <AbstractNodeData Name="noticeMessage1" ActionTag="1252780630" Tag="181" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="133.0000" RightMargin="133.0000" TopMargin="182.5300" BottomMargin="384.4700" FontSize="32" LabelText="ライフが足りません" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+              <AbstractNodeData Name="noticeMessage1" ActionTag="1252780630" Tag="181" IconVisible="False" PositionPercentXEnabled="True" HorizontalEdge="BothEdge" LeftMargin="133.0000" RightMargin="133.0000" TopMargin="182.5300" BottomMargin="384.4700" FontSize="32" LabelText="ライフが足りません" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                 <Size X="296.0000" Y="32.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="1.0000" />
                 <Position X="281.0000" Y="416.4700" />
@@ -43,10 +43,10 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="yesButton" ActionTag="-1172564788" Tag="182" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="69.7600" RightMargin="292.2400" TopMargin="363.5430" BottomMargin="115.4570" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="275" Scale9Height="112" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+              <AbstractNodeData Name="yesButton" ActionTag="-1172564788" Tag="182" IconVisible="False" PositionPercentXEnabled="True" HorizontalEdge="BothEdge" LeftMargin="69.7600" RightMargin="292.2400" TopMargin="363.5430" BottomMargin="115.4570" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="275" Scale9Height="112" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                 <Size X="200.0000" Y="120.0000" />
                 <Children>
-                  <AbstractNodeData Name="label" ActionTag="-515433703" Tag="183" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="35.5000" RightMargin="35.5000" TopMargin="19.5000" BottomMargin="19.5000" LabelText="YES" ctype="TextBMFontObjectData">
+                  <AbstractNodeData Name="label" ActionTag="-515433703" Tag="183" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="35.5000" RightMargin="35.5000" TopMargin="19.5000" BottomMargin="19.5000" LabelText="YES" ctype="TextBMFontObjectData">
                     <Size X="129.0000" Y="81.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                     <Position X="100.0000" Y="60.0000" />
@@ -70,10 +70,10 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="noButton" ActionTag="167215130" Tag="184" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="292.2400" RightMargin="69.7600" TopMargin="363.5430" BottomMargin="115.4570" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="30" RightEage="30" TopEage="30" BottomEage="30" Scale9OriginX="30" Scale9OriginY="30" Scale9Width="245" Scale9Height="74" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+              <AbstractNodeData Name="noButton" ActionTag="167215130" Tag="184" IconVisible="False" PositionPercentXEnabled="True" HorizontalEdge="BothEdge" LeftMargin="292.2400" RightMargin="69.7600" TopMargin="363.5430" BottomMargin="115.4570" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="30" RightEage="30" TopEage="30" BottomEage="30" Scale9OriginX="30" Scale9OriginY="30" Scale9Width="245" Scale9Height="74" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                 <Size X="200.0000" Y="120.0000" />
                 <Children>
-                  <AbstractNodeData Name="label" ActionTag="-1118217533" Tag="185" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="36.5000" RightMargin="51.5000" TopMargin="16.0320" BottomMargin="22.9680" LabelText="NO" ctype="TextBMFontObjectData">
+                  <AbstractNodeData Name="label" ActionTag="-1118217533" Tag="185" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="36.5000" RightMargin="51.5000" TopMargin="16.0320" BottomMargin="22.9680" LabelText="NO" ctype="TextBMFontObjectData">
                     <Size X="112.0000" Y="81.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                     <Position X="92.5000" Y="63.4680" />

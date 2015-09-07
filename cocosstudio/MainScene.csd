@@ -1,5 +1,5 @@
 <GameProjectFile>
-  <PropertyGroup Type="Scene" Name="MainScene" ID="a2ee0952-26b5-49ae-8bf9-4f1d6279b798" Version="2.3.1.2" />
+  <PropertyGroup Type="Scene" Name="MainScene" ID="a2ee0952-26b5-49ae-8bf9-4f1d6279b798" Version="2.3.2.2" />
   <Content ctype="GameProjectContent">
     <Content>
       <Animation Duration="259" Speed="1.0000" ActivedAnimationName="battle_start">
@@ -124,7 +124,7 @@
       <ObjectData Name="Scene" ctype="GameNodeObjectData">
         <Size X="1136.0000" Y="640.0000" />
         <Children>
-          <AbstractNodeData Name="hpGauge" ActionTag="2133434766" Tag="427" VisibleForFrame="False" IconVisible="True" LeftMargin="1109.5601" RightMargin="26.4399" TopMargin="520.0000" BottomMargin="120.0000" InnerActionSpeed="1.0000" ctype="ProjectNodeObjectData">
+          <AbstractNodeData Name="hpGauge" ActionTag="2133434766" VisibleForFrame="False" Tag="427" IconVisible="True" LeftMargin="1109.5601" RightMargin="26.4399" TopMargin="520.0000" BottomMargin="120.0000" InnerActionSpeed="1.0000" ctype="ProjectNodeObjectData">
             <Size X="0.0000" Y="0.0000" />
             <AnchorPoint />
             <Position X="1109.5601" Y="120.0000" />
@@ -134,7 +134,7 @@
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="Normal" Path="HpGauge.csd" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="levelup" ActionTag="1751926304" Tag="16" Alpha="0" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="144.5000" RightMargin="144.5000" TopMargin="239.0000" BottomMargin="239.0000" ctype="SpriteObjectData">
+          <AbstractNodeData Name="levelup" ActionTag="1751926304" Alpha="0" Tag="16" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="144.5000" RightMargin="144.5000" TopMargin="239.0000" BottomMargin="239.0000" ctype="SpriteObjectData">
             <Size X="847.0000" Y="162.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="568.0000" Y="320.0000" />
@@ -145,7 +145,7 @@
             <FileData Type="Normal" Path="ui/levelup.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="battleStart" ActionTag="902696947" Tag="17" VisibleForFrame="False" Alpha="230" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="76.5000" RightMargin="76.5000" TopMargin="247.5000" BottomMargin="247.5000" ctype="SpriteObjectData">
+          <AbstractNodeData Name="battleStart" ActionTag="902696947" VisibleForFrame="False" Alpha="230" Tag="17" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="76.5000" RightMargin="76.5000" TopMargin="247.5000" BottomMargin="247.5000" ctype="SpriteObjectData">
             <Size X="983.0000" Y="145.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="568.0000" Y="320.0000" />
@@ -280,10 +280,10 @@
             <PrePosition X="0.0264" Y="0.0469" />
             <PreSize X="0.0000" Y="0.0000" />
           </AbstractNodeData>
-          <AbstractNodeData Name="time_back" ActionTag="1631365237" Tag="172" VisibleForFrame="False" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="492.5000" RightMargin="492.5000" TopMargin="12.8000" BottomMargin="484.2000" ctype="SpriteObjectData">
+          <AbstractNodeData Name="time_back" ActionTag="1631365237" VisibleForFrame="False" Tag="172" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="492.5000" RightMargin="492.5000" TopMargin="12.8000" BottomMargin="484.2000" ctype="SpriteObjectData">
             <Size X="151.0000" Y="143.0000" />
             <Children>
-              <AbstractNodeData Name="timeLabel" ActionTag="583941696" Tag="29" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="37.0000" RightMargin="37.0000" TopMargin="31.0000" BottomMargin="31.0000" LabelText="30" ctype="TextBMFontObjectData">
+              <AbstractNodeData Name="timeLabel" ActionTag="583941696" Tag="29" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="37.0000" RightMargin="37.0000" TopMargin="31.0000" BottomMargin="31.0000" LabelText="30" ctype="TextBMFontObjectData">
                 <Size X="77.0000" Y="81.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="75.5000" Y="71.5000" />
@@ -303,7 +303,7 @@
             <FileData Type="Normal" Path="ui/time_back.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="endButton" ActionTag="811670514" Tag="47" VisibleForFrame="False" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="951.0000" RightMargin="30.0000" TopMargin="25.6000" BottomMargin="459.4000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="127" Scale9Height="133" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="endButton" ActionTag="811670514" VisibleForFrame="False" Tag="47" IconVisible="False" PositionPercentYEnabled="True" VerticalEdge="BothEdge" LeftMargin="951.0000" RightMargin="30.0000" TopMargin="25.6000" BottomMargin="459.4000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="127" Scale9Height="133" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="155.0000" Y="155.0000" />
             <AnchorPoint ScaleX="1.0000" ScaleY="1.0000" />
             <Position X="1106.0000" Y="614.4000" />
@@ -328,10 +328,10 @@
             <PreSize X="0.2403" Y="0.1328" />
             <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font3.fnt" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="levelBack" ActionTag="-1789988531" Tag="241" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="415.0000" RightMargin="415.0000" TopMargin="-34.8000" BottomMargin="558.8000" ctype="SpriteObjectData">
+          <AbstractNodeData Name="levelBack" ActionTag="-1789988531" Tag="241" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="415.0000" RightMargin="415.0000" TopMargin="-34.8000" BottomMargin="558.8000" ctype="SpriteObjectData">
             <Size X="306.0000" Y="116.0000" />
             <Children>
-              <AbstractNodeData Name="levelLabel" ActionTag="1209458093" Tag="19" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="13.5000" RightMargin="13.5000" TopMargin="25.0000" BottomMargin="10.0000" LabelText="LEVEL 3" ctype="TextBMFontObjectData">
+              <AbstractNodeData Name="levelLabel" ActionTag="1209458093" Tag="19" IconVisible="False" PositionPercentXEnabled="True" HorizontalEdge="BothEdge" LeftMargin="13.5000" RightMargin="13.5000" TopMargin="25.0000" BottomMargin="10.0000" LabelText="LEVEL 3" ctype="TextBMFontObjectData">
                 <Size X="279.0000" Y="81.0000" />
                 <AnchorPoint ScaleX="0.5000" />
                 <Position X="153.0000" Y="10.0000" />
@@ -362,7 +362,7 @@
             <FileData Type="Normal" Path="ui/weight_image.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="endButton" ActionTag="-1170309976" Tag="119" VisibleForFrame="False" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="943.0000" RightMargin="36.0000" TopMargin="25.6000" BottomMargin="459.4000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="127" Scale9Height="133" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="endButton" ActionTag="-1170309976" VisibleForFrame="False" Tag="119" IconVisible="False" PositionPercentYEnabled="True" VerticalEdge="BothEdge" LeftMargin="943.0000" RightMargin="36.0000" TopMargin="25.6000" BottomMargin="459.4000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="127" Scale9Height="133" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="157.0000" Y="155.0000" />
             <AnchorPoint ScaleX="1.0000" ScaleY="1.0000" />
             <Position X="1100.0000" Y="614.4000" />

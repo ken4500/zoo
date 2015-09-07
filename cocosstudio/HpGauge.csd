@@ -1,5 +1,5 @@
 <GameProjectFile>
-  <PropertyGroup Type="Node" Name="HpGauge" ID="98d2fb92-869f-44af-9d79-efaa8c2db45f" Version="2.3.1.2" />
+  <PropertyGroup Type="Node" Name="HpGauge" ID="98d2fb92-869f-44af-9d79-efaa8c2db45f" Version="2.3.2.2" />
   <Content ctype="GameProjectContent">
     <Content>
       <Animation Duration="0" Speed="1.0000" />

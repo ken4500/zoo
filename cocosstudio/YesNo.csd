@@ -1,5 +1,5 @@
 <GameProjectFile>
-  <PropertyGroup Type="Node" Name="YesNo" ID="bf6d83d0-a90b-4f33-ab38-e51d6a8a3d10" Version="2.3.1.2" />
+  <PropertyGroup Type="Node" Name="YesNo" ID="bf6d83d0-a90b-4f33-ab38-e51d6a8a3d10" Version="2.3.2.2" />
   <Content ctype="GameProjectContent">
     <Content>
       <Animation Duration="0" Speed="1.0000" />
@@ -42,7 +42,7 @@
           <AbstractNodeData Name="yesButton" ActionTag="1210879474" Tag="22" IconVisible="False" LeftMargin="-205.0000" RightMargin="5.0000" TopMargin="100.0000" BottomMargin="-220.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="275" Scale9Height="112" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="200.0000" Y="120.0000" />
             <Children>
-              <AbstractNodeData Name="coinLabel_0" ActionTag="-587949728" Tag="23" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="35.5000" RightMargin="35.5000" TopMargin="19.5000" BottomMargin="19.5000" LabelText="YES" ctype="TextBMFontObjectData">
+              <AbstractNodeData Name="coinLabel_0" ActionTag="-587949728" Tag="23" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="35.5000" RightMargin="35.5000" TopMargin="19.5000" BottomMargin="19.5000" LabelText="YES" ctype="TextBMFontObjectData">
                 <Size X="129.0000" Y="81.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="100.0000" Y="60.0000" />
@@ -69,7 +69,7 @@
           <AbstractNodeData Name="noButton" ActionTag="-357908968" Tag="65" IconVisible="False" LeftMargin="5.0000" RightMargin="-205.0000" TopMargin="100.0000" BottomMargin="-220.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="30" RightEage="30" TopEage="30" BottomEage="30" Scale9OriginX="30" Scale9OriginY="30" Scale9Width="245" Scale9Height="74" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="200.0000" Y="120.0000" />
             <Children>
-              <AbstractNodeData Name="coinLabel_0" ActionTag="1969684329" Tag="66" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="36.5000" RightMargin="51.5000" TopMargin="16.0320" BottomMargin="22.9680" LabelText="NO" ctype="TextBMFontObjectData">
+              <AbstractNodeData Name="coinLabel_0" ActionTag="1969684329" Tag="66" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="36.5000" RightMargin="51.5000" TopMargin="16.0320" BottomMargin="22.9680" LabelText="NO" ctype="TextBMFontObjectData">
                 <Size X="112.0000" Y="81.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="92.5000" Y="63.4680" />

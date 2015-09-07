@@ -1,5 +1,5 @@
 <GameProjectFile>
-  <PropertyGroup Type="Node" Name="Gacha" ID="4163edd1-7cfa-4ccb-a308-f827112b5dd0" Version="2.3.1.2" />
+  <PropertyGroup Type="Node" Name="Gacha" ID="4163edd1-7cfa-4ccb-a308-f827112b5dd0" Version="2.3.2.2" />
   <Content ctype="GameProjectContent">
     <Content>
       <Animation Duration="231" Speed="1.0000" ActivedAnimationName="gacha1">
@@ -90,7 +90,7 @@
       <ObjectData Name="Node" CustomClassName="Gacha" Tag="9" ctype="GameNodeObjectData">
         <Size X="0.0000" Y="0.0000" />
         <Children>
-          <AbstractNodeData Name="chara_shadow_2" ActionTag="-738948805" Tag="202" Alpha="111" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="-50.0000" RightMargin="-50.0000" TopMargin="-80.0000" BottomMargin="-20.0000" ctype="SpriteObjectData">
+          <AbstractNodeData Name="chara_shadow_2" ActionTag="-738948805" Alpha="111" Tag="202" IconVisible="False" PositionPercentXEnabled="True" HorizontalEdge="BothEdge" LeftMargin="-50.0000" RightMargin="-50.0000" TopMargin="-80.0000" BottomMargin="-20.0000" ctype="SpriteObjectData">
             <Size X="100.0000" Y="100.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position Y="30.0000" />

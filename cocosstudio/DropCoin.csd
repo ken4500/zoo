@@ -1,5 +1,5 @@
 <GameProjectFile>
-  <PropertyGroup Type="Node" Name="DropCoin" ID="b7b4ba6e-7140-4958-8367-3d3924d95af0" Version="2.3.1.2" />
+  <PropertyGroup Type="Node" Name="DropCoin" ID="b7b4ba6e-7140-4958-8367-3d3924d95af0" Version="2.3.2.2" />
   <Content ctype="GameProjectContent">
     <Content>
       <Animation Duration="70" Speed="1.0000">
@@ -213,7 +213,7 @@
           <AbstractNodeData Name="Node_1" ActionTag="1413738099" Tag="9" IconVisible="True" TopMargin="90.0000" BottomMargin="-90.0000" ctype="SingleNodeObjectData">
             <Size X="0.0000" Y="0.0000" />
             <Children>
-              <AbstractNodeData Name="litter_star_left" ActionTag="2017986603" Tag="57" Alpha="0" IconVisible="False" LeftMargin="-30.0000" RightMargin="10.0000" TopMargin="-10.0000" BottomMargin="-10.0000" ctype="SpriteObjectData">
+              <AbstractNodeData Name="litter_star_left" ActionTag="2017986603" Alpha="0" Tag="57" IconVisible="False" LeftMargin="-30.0000" RightMargin="10.0000" TopMargin="-10.0000" BottomMargin="-10.0000" ctype="SpriteObjectData">
                 <Size X="20.0000" Y="20.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="-20.0000" />
@@ -224,7 +224,7 @@
                 <FileData Type="Normal" Path="ui/litter_star.png" Plist="" />
                 <BlendFunc Src="1" Dst="771" />
               </AbstractNodeData>
-              <AbstractNodeData Name="litter_star_top" ActionTag="-1509384707" Tag="58" Alpha="0" IconVisible="False" LeftMargin="-10.0000" RightMargin="-10.0000" TopMargin="-30.0000" BottomMargin="10.0000" ctype="SpriteObjectData">
+              <AbstractNodeData Name="litter_star_top" ActionTag="-1509384707" Alpha="0" Tag="58" IconVisible="False" LeftMargin="-10.0000" RightMargin="-10.0000" TopMargin="-30.0000" BottomMargin="10.0000" ctype="SpriteObjectData">
                 <Size X="20.0000" Y="20.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position Y="20.0000" />
@@ -235,7 +235,7 @@
                 <FileData Type="Normal" Path="ui/litter_star.png" Plist="" />
                 <BlendFunc Src="1" Dst="771" />
               </AbstractNodeData>
-              <AbstractNodeData Name="litter_star_right" ActionTag="1647450330" Tag="59" Alpha="0" IconVisible="False" LeftMargin="10.0000" RightMargin="-30.0000" TopMargin="-10.0000" BottomMargin="-10.0000" ctype="SpriteObjectData">
+              <AbstractNodeData Name="litter_star_right" ActionTag="1647450330" Alpha="0" Tag="59" IconVisible="False" LeftMargin="10.0000" RightMargin="-30.0000" TopMargin="-10.0000" BottomMargin="-10.0000" ctype="SpriteObjectData">
                 <Size X="20.0000" Y="20.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="20.0000" />
@@ -246,7 +246,7 @@
                 <FileData Type="Normal" Path="ui/litter_star.png" Plist="" />
                 <BlendFunc Src="1" Dst="771" />
               </AbstractNodeData>
-              <AbstractNodeData Name="litter_star_down" ActionTag="1570099894" Tag="60" Alpha="0" IconVisible="False" LeftMargin="-10.0000" RightMargin="-10.0000" TopMargin="10.0000" BottomMargin="-30.0000" ctype="SpriteObjectData">
+              <AbstractNodeData Name="litter_star_down" ActionTag="1570099894" Alpha="0" Tag="60" IconVisible="False" LeftMargin="-10.0000" RightMargin="-10.0000" TopMargin="10.0000" BottomMargin="-30.0000" ctype="SpriteObjectData">
                 <Size X="20.0000" Y="20.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position Y="-20.0000" />
@@ -265,7 +265,7 @@
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
           </AbstractNodeData>
-          <AbstractNodeData Name="text" ActionTag="-1299550960" Tag="10" Alpha="0" IconVisible="False" LeftMargin="-57.5000" RightMargin="-57.5000" TopMargin="101.5000" BottomMargin="-178.5000" LabelText="+40" ctype="TextBMFontObjectData">
+          <AbstractNodeData Name="text" ActionTag="-1299550960" Alpha="0" Tag="10" IconVisible="False" LeftMargin="-57.5000" RightMargin="-57.5000" TopMargin="101.5000" BottomMargin="-178.5000" LabelText="+40" ctype="TextBMFontObjectData">
             <Size X="115.0000" Y="77.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position Y="-140.0000" />

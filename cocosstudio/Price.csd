@@ -1,5 +1,5 @@
 <GameProjectFile>
-  <PropertyGroup Type="Node" Name="Price" ID="37f57dea-174a-49dd-966d-cd8da547b055" Version="2.3.1.2" />
+  <PropertyGroup Type="Node" Name="Price" ID="37f57dea-174a-49dd-966d-cd8da547b055" Version="2.3.2.2" />
   <Content ctype="GameProjectContent">
     <Content>
       <Animation Duration="17" Speed="1.0000">

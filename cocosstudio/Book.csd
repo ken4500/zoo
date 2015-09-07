@@ -1,12 +1,12 @@
 <GameProjectFile>
-  <PropertyGroup Type="Layer" Name="Book" ID="cae8b35a-2733-400f-99f6-fce589bd872f" Version="2.3.1.2" />
+  <PropertyGroup Type="Layer" Name="Book" ID="cae8b35a-2733-400f-99f6-fce589bd872f" Version="2.3.2.2" />
   <Content ctype="GameProjectContent">
     <Content>
       <Animation Duration="0" Speed="1.0000" />
       <ObjectData Name="Layer" CustomClassName="Book" Tag="100" ctype="GameLayerObjectData">
         <Size X="1136.0000" Y="640.0000" />
         <Children>
-          <AbstractNodeData Name="closeButton" ActionTag="-589644077" Tag="141" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="989.3400" RightMargin="-10.3400" TopMargin="-4.1560" BottomMargin="489.1560" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="127" Scale9Height="133" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="closeButton" ActionTag="-589644077" Tag="141" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="989.3400" RightMargin="-10.3400" TopMargin="-4.1560" BottomMargin="489.1560" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="127" Scale9Height="133" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="157.0000" Y="155.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="1067.8400" Y="566.6560" />
@@ -21,7 +21,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="book" ActionTag="-1585250833" Tag="110" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="139.2162" RightMargin="146.7838" TopMargin="2.7194" BottomMargin="70.2806" ctype="SpriteObjectData">
+          <AbstractNodeData Name="book" ActionTag="-1585250833" Tag="110" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="139.2162" RightMargin="146.7838" TopMargin="2.7194" BottomMargin="70.2806" ctype="SpriteObjectData">
             <Size X="850.0000" Y="567.0000" />
             <Children>
               <AbstractNodeData Name="position1" ActionTag="174020161" Tag="125" IconVisible="False" LeftMargin="47.7607" RightMargin="696.2393" TopMargin="57.0408" BottomMargin="406.9592" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="76" Scale9Height="81" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
@@ -312,7 +312,7 @@
               <AbstractNodeData Name="rightButton" ActionTag="-693005361" Tag="113" IconVisible="False" LeftMargin="480.0000" RightMargin="120.0000" TopMargin="547.0000" BottomMargin="-60.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="70" Scale9Height="78" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                 <Size X="250.0000" Y="80.0000" />
                 <Children>
-                  <AbstractNodeData Name="right_arrow_28" ActionTag="-384556476" Tag="168" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="137.8860" RightMargin="-24.8860" TopMargin="-3.5000" BottomMargin="-3.5000" ctype="SpriteObjectData">
+                  <AbstractNodeData Name="right_arrow_28" ActionTag="-384556476" Tag="168" IconVisible="False" PositionPercentYEnabled="True" VerticalEdge="BothEdge" LeftMargin="137.8860" RightMargin="-24.8860" TopMargin="-3.5000" BottomMargin="-3.5000" ctype="SpriteObjectData">
                     <Size X="137.0000" Y="87.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                     <Position X="206.3860" Y="40.0000" />
@@ -323,7 +323,7 @@
                     <FileData Type="Normal" Path="book/right_arrow.png" Plist="" />
                     <BlendFunc Src="1" Dst="771" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="next" ActionTag="1330044868" Tag="49" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="-22.0000" RightMargin="78.0000" TopMargin="-2.5000" BottomMargin="-2.5000" LabelText="NEXT" ctype="TextBMFontObjectData">
+                  <AbstractNodeData Name="next" ActionTag="1330044868" Tag="49" IconVisible="False" PositionPercentYEnabled="True" VerticalEdge="BothEdge" LeftMargin="-22.0000" RightMargin="78.0000" TopMargin="-2.5000" BottomMargin="-2.5000" LabelText="NEXT" ctype="TextBMFontObjectData">
                     <Size X="194.0000" Y="85.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                     <Position X="75.0000" Y="40.0000" />
@@ -350,7 +350,7 @@
               <AbstractNodeData Name="leftButton" ActionTag="-1061801020" Tag="114" IconVisible="False" LeftMargin="102.7700" RightMargin="497.2300" TopMargin="547.0000" BottomMargin="-60.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="70" Scale9Height="78" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                 <Size X="250.0000" Y="80.0000" />
                 <Children>
-                  <AbstractNodeData Name="back" ActionTag="-1958006588" Tag="48" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="103.7400" RightMargin="-52.7400" TopMargin="-2.5000" BottomMargin="-2.5000" LabelText="BACK" ctype="TextBMFontObjectData">
+                  <AbstractNodeData Name="back" ActionTag="-1958006588" Tag="48" IconVisible="False" PositionPercentYEnabled="True" VerticalEdge="BothEdge" LeftMargin="103.7400" RightMargin="-52.7400" TopMargin="-2.5000" BottomMargin="-2.5000" LabelText="BACK" ctype="TextBMFontObjectData">
                     <Size X="199.0000" Y="85.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                     <Position X="203.2400" Y="40.0000" />
@@ -360,7 +360,7 @@
                     <PreSize X="0.7960" Y="1.0625" />
                     <LabelBMFontFile_CNB Type="Normal" Path="font/zoo_font3.fnt" Plist="" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="left_arrow_29" ActionTag="-896333004" Tag="169" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="1.4620" RightMargin="111.5380" TopMargin="-3.5000" BottomMargin="-3.5000" ctype="SpriteObjectData">
+                  <AbstractNodeData Name="left_arrow_29" ActionTag="-896333004" Tag="169" IconVisible="False" PositionPercentYEnabled="True" VerticalEdge="BothEdge" LeftMargin="1.4620" RightMargin="111.5380" TopMargin="-3.5000" BottomMargin="-3.5000" ctype="SpriteObjectData">
                     <Size X="137.0000" Y="87.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                     <Position X="69.9620" Y="40.0000" />
@@ -385,7 +385,7 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="pageLabel" ActionTag="1941240456" Tag="50" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="353.5000" RightMargin="353.5000" TopMargin="549.5700" BottomMargin="-63.5700" LabelText="1 / 1" ctype="TextBMFontObjectData">
+              <AbstractNodeData Name="pageLabel" ActionTag="1941240456" Tag="50" IconVisible="False" PositionPercentXEnabled="True" HorizontalEdge="BothEdge" LeftMargin="353.5000" RightMargin="353.5000" TopMargin="549.5700" BottomMargin="-63.5700" LabelText="1 / 1" ctype="TextBMFontObjectData">
                 <Size X="143.0000" Y="81.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="425.0000" Y="-23.0700" />

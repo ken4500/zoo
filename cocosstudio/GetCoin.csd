@@ -1,5 +1,5 @@
 <GameProjectFile>
-  <PropertyGroup Type="Node" Name="GetCoin" ID="ebd31fd8-e8b4-4a89-ba60-11b4f78ef3ff" Version="2.3.1.2" />
+  <PropertyGroup Type="Node" Name="GetCoin" ID="ebd31fd8-e8b4-4a89-ba60-11b4f78ef3ff" Version="2.3.2.2" />
   <Content ctype="GameProjectContent">
     <Content>
       <Animation Duration="70" Speed="1.0000" ActivedAnimationName="get">
@@ -199,7 +199,7 @@
       <ObjectData Name="Node" Tag="54" ctype="GameNodeObjectData">
         <Size X="0.0000" Y="0.0000" />
         <Children>
-          <AbstractNodeData Name="coin_01_1" ActionTag="397511332" Tag="55" Alpha="0" IconVisible="False" LeftMargin="-11.5000" RightMargin="-11.5000" TopMargin="-171.0000" BottomMargin="80.0000" ctype="SpriteObjectData">
+          <AbstractNodeData Name="coin_01_1" ActionTag="397511332" Alpha="0" Tag="55" IconVisible="False" LeftMargin="-11.5000" RightMargin="-11.5000" TopMargin="-171.0000" BottomMargin="80.0000" ctype="SpriteObjectData">
             <Size X="23.0000" Y="91.0000" />
             <AnchorPoint ScaleX="0.5000" />
             <Position Y="80.0000" />
@@ -213,7 +213,7 @@
           <AbstractNodeData Name="Node_1" ActionTag="1413738099" Tag="9" IconVisible="True" TopMargin="-120.0000" BottomMargin="120.0000" ctype="SingleNodeObjectData">
             <Size X="0.0000" Y="0.0000" />
             <Children>
-              <AbstractNodeData Name="litter_star_left" ActionTag="2017986603" Tag="57" Alpha="0" IconVisible="False" LeftMargin="-30.0000" RightMargin="10.0000" TopMargin="-10.0000" BottomMargin="-10.0000" ctype="SpriteObjectData">
+              <AbstractNodeData Name="litter_star_left" ActionTag="2017986603" Alpha="0" Tag="57" IconVisible="False" LeftMargin="-30.0000" RightMargin="10.0000" TopMargin="-10.0000" BottomMargin="-10.0000" ctype="SpriteObjectData">
                 <Size X="20.0000" Y="20.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="-20.0000" />
@@ -246,7 +246,7 @@
                 <FileData Type="Normal" Path="ui/litter_star.png" Plist="" />
                 <BlendFunc Src="1" Dst="771" />
               </AbstractNodeData>
-              <AbstractNodeData Name="litter_star_down" ActionTag="1570099894" Tag="60" Alpha="0" IconVisible="False" LeftMargin="-10.0000" RightMargin="-10.0000" TopMargin="10.0000" BottomMargin="-30.0000" ctype="SpriteObjectData">
+              <AbstractNodeData Name="litter_star_down" ActionTag="1570099894" Alpha="0" Tag="60" IconVisible="False" LeftMargin="-10.0000" RightMargin="-10.0000" TopMargin="10.0000" BottomMargin="-30.0000" ctype="SpriteObjectData">
                 <Size X="20.0000" Y="20.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position Y="-20.0000" />

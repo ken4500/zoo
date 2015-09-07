@@ -1,5 +1,5 @@
 <GameProjectFile>
-  <PropertyGroup Type="Node" Name="Menu" ID="ec6eb950-904f-4098-86ad-ca5fd6873a42" Version="2.3.1.2" />
+  <PropertyGroup Type="Node" Name="Menu" ID="ec6eb950-904f-4098-86ad-ca5fd6873a42" Version="2.3.2.2" />
   <Content ctype="GameProjectContent">
     <Content>
       <Animation Duration="0" Speed="1.0000" />
@@ -30,7 +30,7 @@
           <AbstractNodeData Name="shopButton" ActionTag="885029530" Tag="70" IconVisible="False" LeftMargin="-310.0107" RightMargin="12.0107" TopMargin="-176.7329" BottomMargin="76.7329" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="268" Scale9Height="78" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="298.0000" Y="100.0000" />
             <Children>
-              <AbstractNodeData Name="label" ActionTag="-1961463930" Tag="71" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="71.0000" RightMargin="71.0000" TopMargin="7.5000" BottomMargin="7.5000" LabelText="Shop" ctype="TextBMFontObjectData">
+              <AbstractNodeData Name="label" ActionTag="-1961463930" Tag="71" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="71.0000" RightMargin="71.0000" TopMargin="7.5000" BottomMargin="7.5000" LabelText="Shop" ctype="TextBMFontObjectData">
                 <Size X="156.0000" Y="85.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="149.0000" Y="50.0000" />
@@ -57,7 +57,7 @@
           <AbstractNodeData Name="transmigrationButton" ActionTag="-293641322" Tag="74" IconVisible="False" LeftMargin="-314.5107" RightMargin="7.5107" TopMargin="-59.6630" BottomMargin="-43.3370" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="277" Scale9Height="81" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="307.0000" Y="103.0000" />
             <Children>
-              <AbstractNodeData Name="label" ActionTag="-804668388" Tag="75" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-77.0000" RightMargin="-77.0000" TopMargin="9.0000" BottomMargin="9.0000" LabelText="Transmigration" ctype="TextBMFontObjectData">
+              <AbstractNodeData Name="label" ActionTag="-804668388" Tag="75" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="-77.0000" RightMargin="-77.0000" TopMargin="9.0000" BottomMargin="9.0000" LabelText="Transmigration" ctype="TextBMFontObjectData">
                 <Size X="461.0000" Y="85.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="153.5000" Y="51.5000" />
@@ -84,7 +84,7 @@
           <AbstractNodeData Name="languageButton" ActionTag="1196625615" Tag="76" IconVisible="False" LeftMargin="-313.5109" RightMargin="8.5109" TopMargin="58.4169" BottomMargin="-166.4169" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="275" Scale9Height="86" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="305.0000" Y="108.0000" />
             <Children>
-              <AbstractNodeData Name="label" ActionTag="2093342853" Tag="77" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="4.5000" RightMargin="4.5000" TopMargin="11.5000" BottomMargin="11.5000" LabelText="Language" ctype="TextBMFontObjectData">
+              <AbstractNodeData Name="label" ActionTag="2093342853" Tag="77" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="4.5000" RightMargin="4.5000" TopMargin="11.5000" BottomMargin="11.5000" LabelText="Language" ctype="TextBMFontObjectData">
                 <Size X="296.0000" Y="85.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="152.5000" Y="54.0000" />
@@ -111,7 +111,7 @@
           <AbstractNodeData Name="okButton" ActionTag="1210879474" Tag="22" IconVisible="False" LeftMargin="-152.0014" RightMargin="-151.9986" TopMargin="174.7000" BottomMargin="-307.7000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="274" Scale9Height="111" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="304.0000" Y="133.0000" />
             <Children>
-              <AbstractNodeData Name="label" ActionTag="-587949728" Tag="23" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="75.0000" RightMargin="-1.0000" TopMargin="24.0000" BottomMargin="24.0000" LabelText="CLOSE" ctype="TextBMFontObjectData">
+              <AbstractNodeData Name="label" ActionTag="-587949728" Tag="23" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="75.0000" RightMargin="-1.0000" TopMargin="24.0000" BottomMargin="24.0000" LabelText="CLOSE" ctype="TextBMFontObjectData">
                 <Size X="230.0000" Y="85.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="190.0000" Y="66.5000" />
@@ -138,7 +138,7 @@
           <AbstractNodeData Name="multiplayButton" ActionTag="1310762436" Tag="12" IconVisible="False" LeftMargin="20.8937" RightMargin="-318.8937" TopMargin="-174.5977" BottomMargin="74.5977" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="268" Scale9Height="78" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="298.0000" Y="100.0000" />
             <Children>
-              <AbstractNodeData Name="label" ActionTag="1758267972" Tag="13" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-9.0000" RightMargin="-9.0000" TopMargin="7.5000" BottomMargin="7.5000" LabelText="Multi play" ctype="TextBMFontObjectData">
+              <AbstractNodeData Name="label" ActionTag="1758267972" Tag="13" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="-9.0000" RightMargin="-9.0000" TopMargin="7.5000" BottomMargin="7.5000" LabelText="Multi play" ctype="TextBMFontObjectData">
                 <Size X="316.0000" Y="85.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="149.0000" Y="50.0000" />
@@ -165,7 +165,7 @@
           <AbstractNodeData Name="encyclepediaButton" ActionTag="-963487715" Tag="14" IconVisible="False" LeftMargin="16.3939" RightMargin="-323.3939" TopMargin="-57.5282" BottomMargin="-45.4718" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="277" Scale9Height="81" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="307.0000" Y="103.0000" />
             <Children>
-              <AbstractNodeData Name="label" ActionTag="1523314809" Tag="15" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-43.5000" RightMargin="-43.5000" TopMargin="9.0000" BottomMargin="9.0000" LabelText="Encyclopedia" ctype="TextBMFontObjectData">
+              <AbstractNodeData Name="label" ActionTag="1523314809" Tag="15" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="-43.5000" RightMargin="-43.5000" TopMargin="9.0000" BottomMargin="9.0000" LabelText="Encyclopedia" ctype="TextBMFontObjectData">
                 <Size X="394.0000" Y="85.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="153.5000" Y="51.5000" />

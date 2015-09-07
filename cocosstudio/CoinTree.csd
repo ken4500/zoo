@@ -1,5 +1,5 @@
 <GameProjectFile>
-  <PropertyGroup Type="Node" Name="CoinTree" ID="64f8f801-90c4-4522-b417-c14d6c13e107" Version="2.3.1.2" />
+  <PropertyGroup Type="Node" Name="CoinTree" ID="64f8f801-90c4-4522-b417-c14d6c13e107" Version="2.3.2.2" />
   <Content ctype="GameProjectContent">
     <Content>
       <Animation Duration="209" Speed="1.0000" ActivedAnimationName="fall">
@@ -263,10 +263,10 @@
       <ObjectData Name="Node" CustomClassName="CoinTree" Tag="112" ctype="GameNodeObjectData">
         <Size X="0.0000" Y="0.0000" />
         <Children>
-          <AbstractNodeData Name="image" ActionTag="1125897806" Tag="113" Rotation="90.0000" RotationSkewX="90.0000" RotationSkewY="90.0000" Alpha="223" IconVisible="False" LeftMargin="-50.0000" RightMargin="-50.0000" TopMargin="-160.0000" ctype="SpriteObjectData">
+          <AbstractNodeData Name="image" ActionTag="1125897806" Alpha="223" Tag="113" RotationSkewX="90.0000" RotationSkewY="90.0000" IconVisible="False" LeftMargin="-50.0000" RightMargin="-50.0000" TopMargin="-160.0000" Rotation="90.0000" ctype="SpriteObjectData">
             <Size X="100.0000" Y="160.0000" />
             <Children>
-              <AbstractNodeData Name="top" ActionTag="-239982563" Tag="114" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="-77.5000" RightMargin="-77.5000" TopMargin="-118.0000" ctype="SpriteObjectData">
+              <AbstractNodeData Name="top" ActionTag="-239982563" Tag="114" IconVisible="False" PositionPercentXEnabled="True" HorizontalEdge="BothEdge" LeftMargin="-77.5000" RightMargin="-77.5000" TopMargin="-118.0000" ctype="SpriteObjectData">
                 <Size X="255.0000" Y="278.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="1.0000" />
                 <Position X="50.0000" Y="278.0000" />

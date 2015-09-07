@@ -1,5 +1,5 @@
 <GameProjectFile>
-  <PropertyGroup Type="Node" Name="AnimalMove1" ID="9b2712b8-9012-415f-a088-855627e4b972" Version="2.3.1.2" />
+  <PropertyGroup Type="Node" Name="AnimalMove1" ID="9b2712b8-9012-415f-a088-855627e4b972" Version="2.3.2.2" />
   <Content ctype="GameProjectContent">
     <Content>
       <Animation Duration="340" Speed="1.0000" ActivedAnimationName="dash">
@@ -244,7 +244,7 @@
       <ObjectData Name="Node" Tag="16" ctype="GameNodeObjectData">
         <Size X="0.0000" Y="0.0000" />
         <Children>
-          <AbstractNodeData Name="chara_shadow_1" ActionTag="-929337761" Tag="125" Alpha="144" IconVisible="False" LeftMargin="-50.0000" RightMargin="-50.0000" TopMargin="-79.2617" BottomMargin="-20.7383" ctype="SpriteObjectData">
+          <AbstractNodeData Name="chara_shadow_1" ActionTag="-929337761" Alpha="144" Tag="125" IconVisible="False" LeftMargin="-50.0000" RightMargin="-50.0000" TopMargin="-79.2617" BottomMargin="-20.7383" ctype="SpriteObjectData">
             <Size X="100.0000" Y="100.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position Y="29.2617" />
@@ -258,7 +258,7 @@
           <AbstractNodeData Name="imageNode" ActionTag="409811831" Tag="324" IconVisible="True" TopMargin="-150.0000" BottomMargin="150.0000" ctype="SingleNodeObjectData">
             <Size X="0.0000" Y="0.0000" />
             <Children>
-              <AbstractNodeData Name="back" ActionTag="-583413097" Tag="323" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-200.0000" RightMargin="-200.0000" TopMargin="-400.0000" ctype="SpriteObjectData">
+              <AbstractNodeData Name="back" ActionTag="-583413097" Tag="323" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="-200.0000" RightMargin="-200.0000" TopMargin="-400.0000" ctype="SpriteObjectData">
                 <Size X="400.0000" Y="400.0000" />
                 <AnchorPoint ScaleX="0.5000" />
                 <Position />

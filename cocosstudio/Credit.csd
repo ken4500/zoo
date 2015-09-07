@@ -1,5 +1,5 @@
 <GameProjectFile>
-  <PropertyGroup Type="Node" Name="Credit" ID="6a995d16-832d-46cd-9994-d01ef1e98461" Version="2.3.1.2" />
+  <PropertyGroup Type="Node" Name="Credit" ID="6a995d16-832d-46cd-9994-d01ef1e98461" Version="2.3.2.2" />
   <Content ctype="GameProjectContent">
     <Content>
       <Animation Duration="0" Speed="1.0000" />
@@ -19,7 +19,7 @@
           <AbstractNodeData Name="okButton" ActionTag="1210879474" Tag="22" IconVisible="False" LeftMargin="-152.0000" RightMargin="-152.0000" TopMargin="168.6968" BottomMargin="-301.6968" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="274" Scale9Height="111" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="304.0000" Y="133.0000" />
             <Children>
-              <AbstractNodeData Name="coinLabel_0" ActionTag="-587949728" Tag="23" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="72.2336" RightMargin="1.7664" TopMargin="21.8587" BottomMargin="26.1413" LabelText="CLOSE" ctype="TextBMFontObjectData">
+              <AbstractNodeData Name="coinLabel_0" ActionTag="-587949728" Tag="23" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="72.2336" RightMargin="1.7664" TopMargin="21.8587" BottomMargin="26.1413" LabelText="CLOSE" ctype="TextBMFontObjectData">
                 <Size X="230.0000" Y="85.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="187.2336" Y="68.6413" />
