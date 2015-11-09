@@ -24,7 +24,7 @@ class NovelBalloon : public cocos2d::Node, public NovelTouchHandler {
 private:
     Node* _balloonSprite = nullptr;
     Label* _contentSprite = nullptr;
-    shared_ptr<NovelAction> _action = nullptr;
+    NovelAction* _action = nullptr;
     int _balloonIdx = 0;
     int _textLength = 0;
 
@@ -41,7 +41,7 @@ private:
     void showArrow();
     Label* getLabelSprite(const std::string& text);
 public:
-    static NovelBalloon* create(std::shared_ptr<NovelAction> action,
+    static NovelBalloon* create(NovelAction* action,
                                 int balloonIdx,
                                 std::function<void ()> completionCallback);
     virtual ~NovelBalloon();

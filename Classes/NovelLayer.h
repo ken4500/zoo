@@ -53,7 +53,7 @@ private:
     Sprite* _leftChara =  NULL;
     Sprite* _rightChara = NULL;
     int _debugSkip;
-    std::shared_ptr<NovelPlayer> _player = nullptr;
+    NovelPlayer* _player = nullptr;
     //! 再生が始まっているかフラグ
     bool _isPlaying = false;
     //! シーン切り替え中フラグ
@@ -97,13 +97,13 @@ private:
     void completeAction(int actionIdx);
     
     void clearBalloons();
-    void updateSpeechBalloon(std::shared_ptr<NovelAction> action);
-    void playDelay(std::shared_ptr<NovelAction> action);
-    void showItem(std::shared_ptr<NovelAction> action, const bool fade);
+    void updateSpeechBalloon(NovelAction* action);
+    void playDelay(NovelAction* action);
+    void showItem(NovelAction* action, const bool fade);
     void hideItem(bool fade);
     void playWait();
-    void setImage(std::shared_ptr<NovelAction> action);
-    void setNameImage(std::shared_ptr<NovelAction> action);
+    void setImage(NovelAction* action);
+    void setNameImage(NovelAction* action);
     void _pushedSkipButton(Ref* sender);
 };
 

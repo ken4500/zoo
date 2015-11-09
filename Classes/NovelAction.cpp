@@ -37,8 +37,8 @@ bool NovelAction::getFullscreen() {
     (this->_balloon == Balloon::FullOverlay || this->_balloon == Balloon::LightOverlay);
 }
 
-std::shared_ptr<NovelAction> NovelAction::createFromJson(rapidjson::Value& json) {
-    auto result = std::make_shared<NovelAction>();
+NovelAction* NovelAction::createFromJson(rapidjson::Value& json) {
+    auto result = new NovelAction();
     
     auto type = string(json["type"].GetString());
     transform(type.begin(), type.end(), type.begin(), ::tolower);

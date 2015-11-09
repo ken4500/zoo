@@ -11,7 +11,7 @@
 NovelPlayer::NovelPlayer(rapidjson::Value& novelJson) {
     
     // JSON からシーンを読み込む
-    auto actions = make_shared<queue<shared_ptr<NovelAction>>>();
+    auto actions = queue<NovelAction*>();
     set<string> images;
     for (int i = 0; i < novelJson.Size(); i++) {
         rapidjson::Value& item = novelJson[i];
@@ -57,10 +57,10 @@ bool NovelPlayer::getMoreActionsAvailable() {
     return !this->_actions.empty();
 }
 
-shared_ptr<NovelAction> NovelPlayer::getLastMusic()
+NovelAction* NovelPlayer::getLastMusic()
 {
-    shared_ptr<NovelAction> music = nullptr;
-    queue<shared_ptr<NovelAction>>actionList = this->_actions;
+    NovelAction* music = nullptr;
+    queue<NovelAction*>actionList = this->_actions;
     while (!actionList.empty())
     {
         auto action = actionList.front();
@@ -73,7 +73,7 @@ shared_ptr<NovelAction> NovelPlayer::getLastMusic()
     return music;
 }
 
-std::shared_ptr<std::vector<std::shared_ptr<NovelAction> > > NovelPlayer::popNextActions() {
+std::vector<NovelAction*> NovelPlayer::popNextActions() {
     this->_isFirstPlayback = false;
     
     bool leftSet      = false;  // 左の立ち絵指定アクションが入った
@@ -81,7 +81,7 @@ std::shared_ptr<std::vector<std::shared_ptr<NovelAction> > > NovelPlayer::popNex
     bool narrationSet = false;  // ナレーション指定アクションが入った
     bool backgroundSet = false; // 背景指定アクションが入った
 
-    auto result = std::make_shared<std::vector<std::shared_ptr<NovelAction> > >();
+    auto result = std::vector<NovelAction*>();
     
     while (true) {
         if (this->_actions.empty()) {
@@ -95,7 +95,7 @@ std::shared_ptr<std::vector<std::shared_ptr<NovelAction> > > NovelPlayer::popNex
                 break;
             } else {
                 this->_actions.pop();
-                result->push_back(nextAction);
+                result.push_back(nextAction);
                 // 発言アクションは必ずブロックされる
                 break;
             }
@@ -119,7 +119,7 @@ std::shared_ptr<std::vector<std::shared_ptr<NovelAction> > > NovelPlayer::popNex
             }
             if (!*targetState) {
                 this->_actions.pop();
-                result->push_back(nextAction);
+                result.push_back(nextAction);
                 *targetState = true;
             } else {
                 // すでにこのターゲットに立ち絵を指定するアクションがセットに存在するのでブロックされる
@@ -138,7 +138,7 @@ std::shared_ptr<std::vector<std::shared_ptr<NovelAction> > > NovelPlayer::popNex
                    nextAction->getType() == NovelAction::Type::Shake) {
             // ノンブロッキング処理
             this->_actions.pop();
-            result->push_back(nextAction);
+            result.push_back(nextAction);
         } else if (nextAction->getType() == NovelAction::Type::Introduction ||
                    nextAction->getType() == NovelAction::Type::Narration ||
                    nextAction->getType() == NovelAction::Type::Wait ||
@@ -146,7 +146,7 @@ std::shared_ptr<std::vector<std::shared_ptr<NovelAction> > > NovelPlayer::popNex
                    nextAction->getType() == NovelAction::Type::LWF) {
             // ブロッキング処理
             this->_actions.pop();
-            result->push_back(nextAction);
+            result.push_back(nextAction);
             break;
         }
     }

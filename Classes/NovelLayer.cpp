@@ -32,7 +32,7 @@ NovelLayer* NovelLayer::create(rapidjson::Value& novelJson, GLubyte opacity, boo
     }
     result->_playFade = fade;
     rapidjson::Value& actions = novelJson["actions"];
-    result->_player = std::make_shared<NovelPlayer>(actions);
+    result->_player = new NovelPlayer(actions);
     
     return result;
 }
@@ -94,7 +94,7 @@ int NovelLayer::beginAction() {
     return actionIdx;
 }
 
-void NovelLayer::updateSpeechBalloon(std::shared_ptr<NovelAction> action) {
+void NovelLayer::updateSpeechBalloon(NovelAction* action) {
     int actionIdx = this->beginAction();
     auto targetBalloon = NovelBalloon::create(action,
                                               _balloonIdx,
@@ -199,7 +199,7 @@ void NovelLayer::endScene() {
     }
 }
 
-void NovelLayer::playDelay(std::shared_ptr<NovelAction> action) {
+void NovelLayer::playDelay(NovelAction* action) {
     const float delayTime = ::atof(action->getValue().c_str());
     int actionIdx = beginAction();
     runAction(Sequence::create(DelayTime::create(delayTime),
@@ -210,13 +210,13 @@ void NovelLayer::playDelay(std::shared_ptr<NovelAction> action) {
 void NovelLayer::playWait() {
 }
 
-void NovelLayer::showItem(std::shared_ptr<NovelAction> action, const bool fade) {
+void NovelLayer::showItem(NovelAction* action, const bool fade) {
 }
 
 void NovelLayer::hideItem(bool fade) {
 }
 
-void NovelLayer::setImage(std::shared_ptr<NovelAction> action)
+void NovelLayer::setImage(NovelAction* action)
 {
     auto visibleSize = Director::getInstance()->getVisibleSize();
     auto value = action->getValue();
@@ -342,7 +342,7 @@ void NovelLayer::setImage(std::shared_ptr<NovelAction> action)
     }
 }
 
-void NovelLayer::setNameImage(std::shared_ptr<NovelAction> action)
+void NovelLayer::setNameImage(NovelAction* action)
 {
     auto name = action->getValue();
     auto target = action->getTarget();
@@ -399,13 +399,13 @@ void NovelLayer::setNameImage(std::shared_ptr<NovelAction> action)
 void NovelLayer::playNext() {
     // 次のアクションセット取得
     auto actions = this->_player->popNextActions();
-    if (actions->empty() || actions == NULL) {
+    if (actions.empty()) {
         // アクションが無いのでシーン終了
         this->endScene();
     } else {
         int rootActionIdx = this->beginAction();
         // 取得したアクションを実行する
-        for (auto action : *actions) {
+        for (auto action : actions) {
             switch (action->getType()) {
                 case NovelAction::Type::Set:
                     setImage(action);
@@ -478,7 +478,7 @@ void NovelLayer::_pushedSkipButton(Ref* sender)
     SoundManager::getInstance()->playCancellEffect();
     
     // 一番最後のBGMを探して再生
-    shared_ptr<NovelAction> bgm = _player->getLastMusic();
+    NovelAction* bgm = _player->getLastMusic();
     if (bgm != nullptr) {
         SoundManager::getInstance()->playBgm(bgm->getValue());
     }

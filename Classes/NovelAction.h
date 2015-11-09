@@ -57,7 +57,7 @@ public:
         LightOverlay,
         FullOverlay
     };
-    static std::shared_ptr<NovelAction> createFromJson(rapidjson::Value& json);
+    static NovelAction* createFromJson(rapidjson::Value& json);
     Type getType();
     Target getTarget();
     Balloon getBalloon();

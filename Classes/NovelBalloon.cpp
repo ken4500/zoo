@@ -252,7 +252,7 @@ void NovelBalloon::setOpacity(GLubyte opacity)
 }
 
 
-NovelBalloon* NovelBalloon::create(std::shared_ptr<NovelAction> action,
+NovelBalloon* NovelBalloon::create(NovelAction* action,
                                    int balloonIdx,
                                    std::function<void ()> completionCallback) {
     NovelBalloon* result = new NovelBalloon();

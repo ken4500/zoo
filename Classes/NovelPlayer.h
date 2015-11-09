@@ -21,16 +21,16 @@ USING_NS_CC;
 class NovelPlayer {
 public:
     NovelPlayer(rapidjson::Value& novelJson);
-    shared_ptr<vector<shared_ptr<NovelAction>>> popNextActions();
+    vector<NovelAction*> popNextActions();
     bool goToNextScene();
     bool getIsNextActionFullscreen();
     bool getIsFirstPlayback();
     bool getMoreActionsAvailable();
     bool getHasTutorial();
-    shared_ptr<NovelAction> getLastMusic();
+    NovelAction* getLastMusic();
     vector<string>& getImages();
 private:
-    queue<shared_ptr<NovelAction> > _actions;
+    queue<NovelAction*> _actions;
     vector<std::string> _images;
     bool _isFirstPlayback = false;
     bool _hasTutorial = false;
